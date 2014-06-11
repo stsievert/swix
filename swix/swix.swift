@@ -16,14 +16,59 @@ func ones(length: Int) -> Array<Double> {
 }
 func zeros(length: Int) -> Array<Double> {
     var x = Array(count: length, repeatedValue: 0.0)
-
     return x
+}
+func zeros(length: (Int, Int)) -> Array<Array<Double>> {
+    var NumColumns = length.0
+    var NumRows = length.1
+    
+    var array = Array<Array<Double>>()
+    for column in 0..NumColumns {
+        array.append(Array(count:NumRows, repeatedValue:Double(0)))
+    }
+    return array
 }
 
 // calling BLAS functions for dot, vec, +-*/ etc
+func dot(left: Array<Double>, right: Array<Double>){
+    println("in dot product")
+}
 
-
-
+// EQUALITY OPERATORS
+// ~== : almost equal
+operator infix ~== {associativity none precedence 140}
+func ~== (left: Array<Double>, right: Array<Double>) -> Bool{
+    if left.count != right.count{
+        println("`~=` only works with arrays of equal size!")
+    }
+    assert(left.count == right.count)
+    var N = left.count
+    var x = zeros(N)
+    var not_false = 0
+    for i in 0..N{
+        if (left[i] - right[i]) > 1e-9{
+            return false
+        }
+    }
+    return true
+}
+// ==
+operator infix == {associativity none precedence 140}
+func == (left: Array<Double>, right: Array<Double>) -> Bool{
+    if left.count != right.count{
+        println("`==` only works with arrays of equal size!")
+    }
+    assert(left.count == right.count)
+    var N = left.count
+    var x = zeros(N)
+    var not_false = 0
+    for i in 0..N{
+        if left[i] != right[i]{
+            return false
+        }
+    }
+    return true
+}
 
 // ARTITHEMETIC OPERATORS
 // +
