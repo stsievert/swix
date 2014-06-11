@@ -12,10 +12,16 @@ Currently, this library gives you
 
 ## Usage
 1. Download this repo.
-2. Include `swix.swift` in your project.
+2. Include the file `swix.swift` in your project.
 
 Boom. Done. The operators for `Array[]()` have been overwritten and Swift works
 like you'd expect it to.
+
+## Features to be added
+* 2D arrays
+* dot product
+* BLAS calling/C integration
+
 
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
