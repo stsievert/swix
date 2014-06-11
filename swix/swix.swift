@@ -19,6 +19,8 @@ func zeros(length: Int) -> Array<Double> {
     return x
 }
 func zeros(length: (Int, Int)) -> Array<Array<Double>> {
+    /* returns two dimensional array of zeros */
+    // from http://stackoverflow.com/questions/24051490/multidimensional-arrays-in-swift
     var NumColumns = length.0
     var NumRows = length.1
     
@@ -29,10 +31,28 @@ func zeros(length: (Int, Int)) -> Array<Array<Double>> {
     return array
 }
 
+func println(x: Array<Array<Double>>)  {
+    /* print arrays nicely for small arrays. not nice for larger arrays */
+    let NumRows = x.count
+    for i in 0..NumRows{
+        if i==0{
+            print("array(")
+        }else{
+            print("      ")
+        }
+        print(x[i])
+        if i==(NumRows-1){
+            print(")")
+        }
+        print("\n")
+    }
+}
+
 // calling BLAS functions for dot, vec, +-*/ etc
 func dot(left: Array<Double>, right: Array<Double>){
     println("in dot product")
 }
+
 
 // EQUALITY OPERATORS
 // ~== : almost equal

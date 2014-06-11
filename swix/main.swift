@@ -26,7 +26,8 @@ func closeTest(){
     assert(x ~== y)
 }
 func a2Darray(){
-    var x = zeros((2,2))
+    // ahhh... need to define +-*/ for 2D arrays too
+    var x = zeros((4,4))
     x[0][0] = 1
     x[1][0] = 2
     println(x)
