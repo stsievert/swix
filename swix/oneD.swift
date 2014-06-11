@@ -17,6 +17,16 @@ func zeros(length: Int) -> Array<Double> {
     var x = Array(count: length, repeatedValue: 0.0)
     return x
 }
+func array(numbers: Double...) -> Array<Double>{
+    var x = zeros(numbers.count)
+    var i = 0
+    for number in numbers{
+        x[i] = number
+        i++
+    }
+    return x
+    
+}
 // EQUALITY OPERATORS
 // ~== : almost equal
 operator infix ~== {associativity none precedence 140}

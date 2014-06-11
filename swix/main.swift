@@ -52,6 +52,32 @@ func log_1d(){
     var z = log(y)
     assert(log(z) ~== zeros(N))
 }
+func pow_1d(){
+    var y = zeros(N)+2
+    var z = pow(y, 2)
+    assert(z ~== (zeros(N)+4))
+}
+func sum_test(){
+    var y = ones(N)
+    assert(sum(y) == N)
+}
+func avg_1d(){
+    var y = ones(N)
+    assert(avg(y) == 1)
+}
+func std_1d(){
+    var y = array(2,4,4,4,5,5,7,9)
+    assert(std(y) == 2)
+}
+func var_1d(){
+    var y = array(2,4,4,4,5,5,7,9)
+    assert(variance(y) == 4)
+}
+func array1d(){
+    var y = array(1,1,1,1)
+    var z = ones(4)
+    assert(z == y)
+}
 
 addTest_1D()
 mulTest_1D()
@@ -61,6 +87,9 @@ addTest_2D()
 aboutEqual_2d()
 sin_1d()
 log_1d()
+pow_1d()
+sum_test()
+avg_1d()
+var_1d()
+array1d()
 
-var x = ones(N)
-var y = ones(N)
