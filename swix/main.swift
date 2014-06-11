@@ -8,5 +8,5 @@
 
 import Foundation
 
-println("Hello, World!")
-
+var x = zeros(10)
+println(x+2);
