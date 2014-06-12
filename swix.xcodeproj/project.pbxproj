@@ -12,6 +12,7 @@
 		D28649811948F3B8005DB9F0 /* oneD_arth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28649801948F3B8005DB9F0 /* oneD_arth.swift */; };
 		D28649831948F432005DB9F0 /* oneD_math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28649821948F432005DB9F0 /* oneD_math.swift */; };
 		D28649851948F552005DB9F0 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28649841948F552005DB9F0 /* constants.swift */; };
+		D286498719492C3A005DB9F0 /* array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286498619492C3A005DB9F0 /* array.swift */; };
 		D2C7614B1948AC02000B74CE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7614A1948AC02000B74CE /* main.swift */; };
 		D2C761521948AC17000B74CE /* twoD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C761511948AC17000B74CE /* twoD.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		D28649801948F3B8005DB9F0 /* oneD_arth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneD_arth.swift; sourceTree = "<group>"; };
 		D28649821948F432005DB9F0 /* oneD_math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneD_math.swift; sourceTree = "<group>"; };
 		D28649841948F552005DB9F0 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		D286498619492C3A005DB9F0 /* array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = array.swift; sourceTree = "<group>"; };
 		D2C761471948AC02000B74CE /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C7614A1948AC02000B74CE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D2C761511948AC17000B74CE /* twoD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twoD.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				D2C7614A1948AC02000B74CE /* main.swift */,
+				D286498619492C3A005DB9F0 /* array.swift */,
 				D28649841948F552005DB9F0 /* constants.swift */,
 				D2C761511948AC17000B74CE /* twoD.swift */,
 				D286497E1948F394005DB9F0 /* twoD_arth.swift */,
@@ -141,6 +144,7 @@
 				D286497F1948F394005DB9F0 /* twoD_arth.swift in Sources */,
 				D28649851948F552005DB9F0 /* constants.swift in Sources */,
 				D28649831948F432005DB9F0 /* oneD_math.swift in Sources */,
+				D286498719492C3A005DB9F0 /* array.swift in Sources */,
 				D28649811948F3B8005DB9F0 /* oneD_arth.swift in Sources */,
 				D2C7614B1948AC02000B74CE /* main.swift in Sources */,
 			);
