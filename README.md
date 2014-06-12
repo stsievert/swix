@@ -1,12 +1,23 @@
 ## Swift Matrix Library
-Swift is a high level language that is asking for some numerical library to
-perform computation *fast*, or at the very least *easily*. This is a bare-bones
-wrapper for that library.
+Apple's Swift is a high level language that is asking for some numerical
+library to perform computation *fast*, or at the very least *easily*. This is a
+bare-bones wrapper for that library.
 
-This library is hacked together and not as complete as it should be. This
-library was programmed in two days to see what's possible and does not hook in
-with the Accelerate framework. If you feel the need to add your function, I
-think this library provides some good examples.
+A way to have iOS run matlab-like code is something I've been waiting for, and
+am incredibly excited to see the results. This will make porting complex signal
+processing algorithms to C *much* easier, meaning that more of the general
+public can see these algorithms *on their mobile device.*
+
+For example, setting every element in an array to a single value involved
+something like `for {int i=0; i<N; i++} x[i] = 3;`. With Swift (and this
+library), it's just `var x = ones(N) * 3`.
+
+While this library is basic (and hacked together in two days), I expect
+something like [NumPy][numpy] to be released: a mathematical library that
+includes more than needed. I should mention that this library just wraps Swift
+and does not call other libraries, such as the powerful [Accelerate
+framework][accel]. If you find a function to add, feel free to submit a pull
+request.
 
 Currently, this library gives you
 
@@ -68,6 +79,8 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 * better complex number integration
 
 
+[numpy]:http://www.numpy.org
+[accel]:https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465
 [@]:https://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-XID_48
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
