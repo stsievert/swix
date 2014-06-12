@@ -1,4 +1,4 @@
-## `swix`: Swift Matrix Library
+## Swift Matrix Library
 Swift is a high level language that is asking for some numerical library to
 perform computation *fast*, or at the very least *easily*. This is a bare-bones
 wrapper for that easy library.
