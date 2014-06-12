@@ -1,29 +1,26 @@
-## SWift MatrIX library
-Swift is a higher level language that is asking for some numerical library to
-perform computation *fast.* This is a bare-bones wrapper for that library.
+## `swix`: Swift Matrix Library
+Swift is a high level language that is asking for some numerical library to
+perform computation *fast*, or at the very least *easily*. This is a bare-bones
+wrapper for that easy library.
 
 Currently, this library gives you
 
-* [`ones`][ones] and [`zeros`][zeros] (the bare-bones)
-* operators `+-*/` that perform computations *elementwise*. ie,
-  `[1,2,3]+[4,5,6] = [5,7,9]`
-* (to be integrated) `vec`, `dot`, etc. Calling of the BLAS library to give you
-  fahst function calls.
+* easy initializers for 1D and 2D arrays
+* nice element-wise operators
+* various functions (sin, abs, pow, etc) that operate on entire arrays
+
+This library inherits heavily from NumPy. The syntax and operators are similar.
+When in doubt about what a function does, look at NumPy's docs (although swix's
+docs are included in the wiki).
 
 ## Usage
 1. Download this repo.
 2. Include the file `swix.swift` in your project.
 
-Boom. Done. The operators for `Array[]()` have been overwritten and Swift works
-like you'd expect it to.
+Boom. Done. 
 
-#### Init'ing arrays
-```swift
-ones(4) = [1, 1, 1, 1]
-ones((4,4)) = matrix([1, 1],
-                     [1, 1])
-// same with zeros
-```
+The operators for `Array[]()` have been overwritten and Swift works
+like you'd expect it to. This is a bug -- I want to preserve Array as is.
 
 #### Functions
 If you have a function that operates on a single element, it can easily be
@@ -36,10 +33,19 @@ complex norm functions.
 
 This library also can do FFTs.
 
+#### Init'ing arrays
+```swift
+ones(4) = [1, 1, 1, 1]
+ones((4,4)) = matrix([1, 1],
+                     [1, 1])
+// same with zeros
+```
+
+
 #### Arithmetic
 ```swift
 ones(4) * 4 = [4, 4, 4, 4]
-ones(4) * (ones(4) + 1) = [2, 2, 2, 2]
+ones(4) * (zeros(4) + 2) = [2, 2, 2, 2]
 
 // same for +, -, *, /
 ```
@@ -49,9 +55,9 @@ I decided to use `@` as a dot product operator.
 
 
 ## Features to be added
-* 2D arrays
 * dot product
 * BLAS calling/C integration
+* complex number integration
 
 
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html

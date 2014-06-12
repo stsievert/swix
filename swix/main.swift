@@ -130,7 +130,7 @@ func twoD_arrayTest(){
     println("    array(\"[1 2; 4 5]\" == z")
 }
 var x = fft(array(1, 2, 3, 4))
-println("## testing...")
+println("testing...")
 
 addTest_1D()
 mulTest_1D()
