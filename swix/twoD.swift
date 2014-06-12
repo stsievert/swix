@@ -41,9 +41,9 @@ func println(x: matrix2d)  {
     let NumRows = x.count
     for i in 0..NumRows{
         if i==0{
-            print("array(")
+            print("matrix(")
         }else{
-            print("      ")
+            print("       ")
         }
         print(x[i])
         if i==(NumRows-1){

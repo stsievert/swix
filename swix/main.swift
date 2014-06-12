@@ -30,6 +30,7 @@ func a2Darray(){
     var x = zeros((4,4))
     x[0][0] = 1
     x[1][0] = 2
+    println(x)
 }
 func addTest_2D(){
     var x = 1+zeros((N,N/2))
@@ -94,6 +95,9 @@ func sum_2d(){
     var y = ones((4,4))
     assert(sum(y) == 4*4)
 }
+func numberClassTest(){
+    var x = number(n: 1, j:2)
+}
 
 println("## testing...")
 
@@ -114,6 +118,7 @@ l0norm_1d()
 l1norm_1d()
 l2norm_1d()
 sum_2d()
+numberClassTest()
 
 println("   All test passed")
 

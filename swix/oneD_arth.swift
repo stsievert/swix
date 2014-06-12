@@ -35,6 +35,7 @@ func + (left: Double, right: matrix) -> matrix{
     //    vDSP_vsaddD(right, 1, input, inreal.value, 1, N)
     return x
 }
+
 func + (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
