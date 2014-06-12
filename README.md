@@ -1,12 +1,12 @@
 ## Swift Matrix Library
 Swift is a high level language that is asking for some numerical library to
 perform computation *fast*, or at the very least *easily*. This is a bare-bones
-wrapper for that easy library.
+wrapper for that library.
 
 Currently, this library gives you
 
 * easy initializers for 1D and 2D arrays
-* nice element-wise operators
+* nice operators
 * various functions (sin, abs, pow, etc) that operate on entire arrays
 
 This library inherits heavily from NumPy. The syntax and operators are similar.
@@ -15,7 +15,7 @@ docs are included in the wiki).
 
 ## Usage
 1. Download this repo.
-2. Include the file `swix.swift` in your project.
+2. Include the folder `swix` in your project.
 
 Boom. Done. 
 
