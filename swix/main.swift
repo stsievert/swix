@@ -129,7 +129,15 @@ func twoD_arrayTest(){
     assert(x == z)
     println("    array(\"[1 2; 4 5]\" == z")
 }
-var x = fft(array(1, 2, 3, 4))
+func dot_test(){
+    var x = diag(ones(3))
+    var y = array("[1 2 3; 4 5 6; 7 8 9]")
+    var z = x *! y
+    assert(y == z)
+    println("    dot product checks: I *! y == y")
+    println("    diag checks: diag(ones(3)) = I")
+}
+
 println("testing...")
 
 addTest_1D()
@@ -151,13 +159,15 @@ l2norm_1d()
 sum_2d()
 numberClassTest()
 twoD_arrayTest()
+dot_test()
 
 println("All test passed")
 
 
+var x = array("[1 2 3; 4 5 6; 7 8 9]")
+var y = array("[ 0 0 1; 0 1 0; 1 0 0]")
 
-array("[1 2 3; 4 5 6; 7 8 9]")
-
+dot(x, y)
 
 
 
