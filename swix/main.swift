@@ -30,7 +30,7 @@ func a2Darray(){
     var x = zeros((4,4))
     x[0][0] = 1
     x[1][0] = 2
-    println(x)
+    //println(x)
 }
 func addTest_2D(){
     var x = 1+zeros((N,N/2))
