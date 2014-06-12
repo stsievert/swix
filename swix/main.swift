@@ -78,6 +78,8 @@ func array1d(){
     var z = ones(4)
     assert(z == y)
 }
+println("testing")
+var xx = ones(N)
 
 addTest_1D()
 mulTest_1D()

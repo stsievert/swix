@@ -10,13 +10,13 @@ import Foundation
 import Accelerate
 
 // nice initing
-func zeros(length: (Int, Int)) -> Array<Array<Double>> {
+func zeros(length: (Int, Int)) -> matrix2d {
     /* returns two dimensional array of zeros */
     // help from http://stackoverflow.com/questions/24051490/multidimensional-arrays-in-swift
     var NumColumns = length.0
     var NumRows = length.1
     
-    var array = Array<Array<Double>>()
+    var array = matrix2d()
     for column in 0..NumColumns {
         array.append(Array(count:NumRows, repeatedValue:Double(0)))
     }
@@ -24,7 +24,7 @@ func zeros(length: (Int, Int)) -> Array<Array<Double>> {
 }
 
 // nice printing
-func println(x: Array<Array<Double>>)  {
+func println(x: matrix2d)  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let NumRows = x.count
     for i in 0..NumRows{
@@ -48,7 +48,7 @@ func dot(left: Array<Double>, right: Array<Double>){
 
 // ==
 operator infix == {associativity none precedence 140}
-func == (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Bool{
+func == (left: matrix2d, right: matrix2d) -> Bool{
     if left.count != right.count{
         println("`==` only works with arrays of equal size!")
     }
@@ -72,7 +72,7 @@ func == (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Bool{
 
 // ~~ : about equal
 operator infix ~~ {associativity none precedence 140}
-func ~~ (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Bool{
+func ~~ (left: matrix2d, right: matrix2d) -> Bool{
     if left.count != right.count{
         println("`==` only works with arrays of equal size!")
     }

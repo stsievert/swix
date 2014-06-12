@@ -8,7 +8,7 @@
 
 import Foundation
 
-func apply_function(function: Double->Double, x: Array<Double>) -> Array<Double>{
+func apply_function(function: Double->Double, x: matrix) -> matrix{
     var y = zeros(x.count)
     for i in 0..x.count{
         y[i] = function(x[i])
@@ -23,38 +23,38 @@ func apply_function(function: Double->Double, x: Array<Double>) -> Array<Double>
 //* diag
 
 
-func sin(x: Array<Double>) -> Array<Double>{
+func sin(x: matrix) -> matrix{
     var y = apply_function(sin, x)
     return y
 }
-func cos(x: Array<Double>) -> Array<Double>{
+func cos(x: matrix) -> matrix{
     var y = apply_function(cos, x)
     return y
 }
-func tan(x: Array<Double>) -> Array<Double>{
+func tan(x: matrix) -> matrix{
     var y = apply_function(tan, x)
     return y
 }
-func log(x: Array<Double>) -> Array<Double>{
+func log(x: matrix) -> matrix{
     var y = apply_function(log, x)
     return y
 }
-func abs(x: Array<Double>) -> Array<Double>{
+func abs(x: matrix) -> matrix{
     var y = apply_function(abs, x)
     return y
 }
-func sqrt(x: Array<Double>) -> Array<Double>{
+func sqrt(x: matrix) -> matrix{
     var y = apply_function(sqrt, x)
     return y
 }
-func pow(x: Array<Double>, power: Double) -> Array<Double>{
+func pow(x: matrix, power: Double) -> matrix{
     var y = zeros(x.count)
     for i in 0..x.count{
         y[i] = pow(x[i], power)
     }
     return y
 }
-func sum(x: Array<Double>) -> Double{
+func sum(x: matrix) -> Double{
     var y = zeros(x.count)
     var s: Double = 0
     for i in 0..x.count{
@@ -62,17 +62,17 @@ func sum(x: Array<Double>) -> Double{
     }
     return s
 }
-func avg(x: Array<Double>) -> Double{
+func avg(x: matrix) -> Double{
     var y: Double = sum(x)
     
     return y / Double(x.count)
 }
-func std(x: Array<Double>) -> Double{
+func std(x: matrix) -> Double{
     var y: Double = avg(x)
     var z = x - y
     return sqrt(sum(pow(z, 2) / Double(x.count)))
 }
-func variance(x: Array<Double>) -> Double{
+func variance(x: matrix) -> Double{
     var y: Double = avg(x)
     var z = x - y
     return sum(pow(z, 2) / Double(x.count))

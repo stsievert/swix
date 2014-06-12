@@ -10,7 +10,7 @@ import Foundation
 // ARITHMETIC OPERATORS
 // +
 operator infix + {associativity none precedence 140}
-func + (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func + (left: matrix2d, right: matrix2d) -> matrix2d{
     if left.count != right.count{
         println("`+` only works with arrays of equal size!")
     }
@@ -27,7 +27,7 @@ func + (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<
     return x
     
 }
-func + (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
+func + (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
@@ -38,7 +38,7 @@ func + (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
     }
     return x
 }
-func + (left: Double, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func + (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))
@@ -51,7 +51,7 @@ func + (left: Double, right: Array<Array<Double>>) -> Array<Array<Double>>{
 }
 // *
 operator infix * {associativity none precedence 140}
-func * (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func * (left: matrix2d, right: matrix2d) -> matrix2d{
     if left.count != right.count{
         println("`*` only works with arrays of equal size!")
     }
@@ -68,7 +68,7 @@ func * (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<
     return x
     
 }
-func * (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
+func * (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
@@ -79,7 +79,7 @@ func * (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
     }
     return x
 }
-func * (left: Double, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func * (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))
@@ -92,7 +92,7 @@ func * (left: Double, right: Array<Array<Double>>) -> Array<Array<Double>>{
 }
 // -
 operator infix - {associativity none precedence 140}
-func - (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func - (left: matrix2d, right: matrix2d) -> matrix2d{
     if left.count != right.count{
         println("`-` only works with arrays of equal size!")
     }
@@ -109,7 +109,7 @@ func - (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<
     return x
     
 }
-func - (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
+func - (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
@@ -120,7 +120,7 @@ func - (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
     }
     return x
 }
-func - (left: Double, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func - (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))
@@ -133,7 +133,7 @@ func - (left: Double, right: Array<Array<Double>>) -> Array<Array<Double>>{
 }
 // /
 operator infix / {associativity none precedence 140}
-func / (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func / (left: matrix2d, right: matrix2d) -> matrix2d{
     if left.count != right.count{
         println("`/` only works with arrays of equal size!")
     }
@@ -150,7 +150,7 @@ func / (left: Array<Array<Double>>, right: Array<Array<Double>>) -> Array<Array<
     return x
     
 }
-func / (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
+func / (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
@@ -161,7 +161,7 @@ func / (left: Array<Array<Double>>, right: Double) -> Array<Array<Double>>{
     }
     return x
 }
-func / (left: Double, right: Array<Array<Double>>) -> Array<Array<Double>>{
+func / (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-typealias matrix = Array<Double>
 
 
 

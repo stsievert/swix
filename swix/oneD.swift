@@ -9,15 +9,15 @@
 import Foundation
 
 // nice initins
-func ones(length: Int) -> Array<Double> {
+func ones(length: Int) -> matrix {
     var x = Array(count: length, repeatedValue: 1.0)
     return x
 }
-func zeros(length: Int) -> Array<Double> {
+func zeros(length: Int) -> matrix {
     var x = Array(count: length, repeatedValue: 0.0)
     return x
 }
-func array(numbers: Double...) -> Array<Double>{
+func array(numbers: Double...) -> matrix{
     var x = zeros(numbers.count)
     var i = 0
     for number in numbers{
@@ -30,7 +30,7 @@ func array(numbers: Double...) -> Array<Double>{
 // EQUALITY OPERATORS
 // ~== : almost equal
 operator infix ~== {associativity none precedence 140}
-func ~== (left: Array<Double>, right: Array<Double>) -> Bool{
+func ~== (left: matrix, right: matrix) -> Bool{
     if left.count != right.count{
         println("`~=` only works with arrays of equal size!")
     }
@@ -47,7 +47,7 @@ func ~== (left: Array<Double>, right: Array<Double>) -> Bool{
 }
 // ==
 operator infix == {associativity none precedence 140}
-func == (left: Array<Double>, right: Array<Double>) -> Bool{
+func == (left: matrix, right: matrix) -> Bool{
     if left.count != right.count{
         println("`==` only works with arrays of equal size!")
     }

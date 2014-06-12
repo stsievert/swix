@@ -10,7 +10,7 @@ import Foundation
 // ARTITHEMETIC OPERATORS
 // +
 operator infix + {associativity none precedence 140}
-func + (left: Array<Double>, right: Array<Double>) -> Array<Double>{
+func + (left: matrix, right: matrix) -> matrix{
     if left.count != right.count{
         println("`+` only works with arrays of equal size!")
     }
@@ -23,7 +23,7 @@ func + (left: Array<Double>, right: Array<Double>) -> Array<Double>{
     return x
     
 }
-func + (left: Double, right: Array<Double>) -> Array<Double>{
+func + (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
     for i in 0..N{
@@ -35,7 +35,7 @@ func + (left: Double, right: Array<Double>) -> Array<Double>{
     //    vDSP_vsaddD(right, 1, input, inreal.value, 1, N)
     return x
 }
-func + (left: Array<Double>, right: Double) -> Array<Double>{
+func + (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
     for i in 0..N{
@@ -45,7 +45,7 @@ func + (left: Array<Double>, right: Double) -> Array<Double>{
 }
 // -
 operator infix - {associativity none precedence 140}
-func - (left: Array<Double>, right: Array<Double>) -> Array<Double>{
+func - (left: matrix, right: matrix) -> matrix{
     if left.count != right.count{
         println("`+` only works with arrays of equal size.")
     }
@@ -57,7 +57,7 @@ func - (left: Array<Double>, right: Array<Double>) -> Array<Double>{
     }
     return x
 }
-func - (left: Double, right: Array<Double>) -> Array<Double>{
+func - (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
     for i in 0..N{
@@ -65,7 +65,7 @@ func - (left: Double, right: Array<Double>) -> Array<Double>{
     }
     return x
 }
-func - (left: Array<Double>, right: Double) -> Array<Double>{
+func - (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
     for i in 0..N{
@@ -77,7 +77,7 @@ func - (left: Array<Double>, right: Double) -> Array<Double>{
 
 // *
 operator infix * {associativity none precedence 140}
-func * (left: Array<Double>, right: Array<Double>) -> Array<Double>{
+func * (left: matrix, right: matrix) -> matrix{
     if left.count != right.count{
         println("`*` only works with arrays of equal size. It does element wise multiplication, not dot product (like NumPy)")
     }
@@ -89,7 +89,7 @@ func * (left: Array<Double>, right: Array<Double>) -> Array<Double>{
     }
     return x
 }
-func * (left: Double, right: Array<Double>) -> Array<Double>{
+func * (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
     for i in 0..N{
@@ -97,7 +97,7 @@ func * (left: Double, right: Array<Double>) -> Array<Double>{
     }
     return x
 }
-func * (left: Array<Double>, right: Double) -> Array<Double>{
+func * (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
     for i in 0..N{
@@ -107,7 +107,7 @@ func * (left: Array<Double>, right: Double) -> Array<Double>{
 }
 // /
 operator infix / {associativity none precedence 140}
-func / (left: Array<Double>, right: Array<Double>) -> Array<Double>{
+func / (left: matrix, right: matrix) -> matrix{
     if left.count != right.count{
         println("`/` only works with arrays of equal size. It does element wise multiplication")
     }
@@ -119,7 +119,7 @@ func / (left: Array<Double>, right: Array<Double>) -> Array<Double>{
     }
     return x
 }
-func / (left: Double, right: Array<Double>) -> Array<Double>{
+func / (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
     for i in 0..N{
@@ -127,7 +127,7 @@ func / (left: Double, right: Array<Double>) -> Array<Double>{
     }
     return x
 }
-func / (left: Array<Double>, right: Double) -> Array<Double>{
+func / (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
     for i in 0..N{
