@@ -96,10 +96,7 @@ func println(x: matrix2d)  {
     }
 }
 
-// calling BLAS functions for dot, vec, +-*/ etc
-func dot(left: Array<Double>, right: Array<Double>){
-    println("in dot product")
-}
+
 
 // ==
 operator infix == {associativity none precedence 140}

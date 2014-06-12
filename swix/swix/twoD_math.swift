@@ -91,8 +91,36 @@ func l0norm(x: matrix2d) -> Double{
     }
     return Double(norm)
 }
+func diag(diagonal: matrix) -> matrix2d{
+    let N = diagonal.count
+    var x = zeros((N,N))
+    for i in 0..N{
+        x[i][i] = diagonal[i]
+    }
+    return x
+}
+func getElement(left: matrix, right: matrix) -> Double{
+    return sum(left * right)
+}
+func dot(left: matrix2d, right: matrix2d) -> matrix2d{
+    var M = left.count
+    var N = right[0].count
+    var ans = zeros((M, N))
+    for i in 0..left.count{
+        for j in 0..right[0].count{
+            var row = left[i]
+            var column = right[0..right.count][j]
+            ans[j][i] = getElement(row, column)
+        }
+    }
+    return ans
+}
 
-
+operator infix *! {associativity none precedence 140}
+func *! (left: matrix2d, right: matrix2d) -> matrix2d{
+    var x = dot(left, right)
+    return x
+}
 
 
 
