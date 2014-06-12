@@ -78,8 +78,24 @@ func array1d(){
     var z = ones(4)
     assert(z == y)
 }
-println("testing")
-var xx = ones(N)
+func l2norm_1d(){
+    var y = array(1,-2,3)
+    assert(sqrt(1+4+9) == l2norm(y))
+}
+func l1norm_1d(){
+    var y = array(1,-2,3)
+    assert(sqrt(1+2+3) == l1norm(y))
+}
+func l0norm_1d(){
+    var y = array(1,0,0,0,0,15,-1)
+    assert(3 == l0norm(y))
+}
+func sum_2d(){
+    var y = ones((4,4))
+    assert(sum(y) == 4*4)
+}
+
+println("## testing...")
 
 addTest_1D()
 mulTest_1D()
@@ -94,4 +110,10 @@ sum_test()
 avg_1d()
 var_1d()
 array1d()
+l0norm_1d()
+l1norm_1d()
+l2norm_1d()
+sum_2d()
+
+println("   All test passed")
 

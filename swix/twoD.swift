@@ -22,6 +22,18 @@ func zeros(length: (Int, Int)) -> matrix2d {
     }
     return array
 }
+func ones(length: (Int, Int)) -> matrix2d {
+    /* returns two dimensional array of zeros */
+    // help from http://stackoverflow.com/questions/24051490/multidimensional-arrays-in-swift
+    var NumColumns = length.0
+    var NumRows = length.1
+    
+    var array = matrix2d()
+    for column in 0..NumColumns {
+        array.append(Array(count:NumRows, repeatedValue:Double(1)))
+    }
+    return array
+}
 
 // nice printing
 func println(x: matrix2d)  {

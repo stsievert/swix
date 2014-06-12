@@ -77,5 +77,19 @@ func variance(x: matrix) -> Double{
     var z = x - y
     return sum(pow(z, 2) / Double(x.count))
 }
-
+func l2norm(x: matrix) -> Double{
+    return sqrt(sum(pow(x, 2)))
+}
+func l1norm(x: matrix) -> Double{
+    return sqrt(sum(abs(x)))
+}
+func l0norm(x: matrix) -> Double{
+    var norm = 0
+    for i in 0..x.count{
+        if x[i] != 0{
+            norm += 1
+        }
+    }
+    return Double(norm)
+}
 
