@@ -10,6 +10,49 @@ import Foundation
 import Accelerate
 
 // nice initing
+func array(s: String) -> matrix2d{
+    var t = s;
+    if s.hasPrefix("[") {
+        t = s.substringFromIndex(1)
+    }
+    if t.hasSuffix("]") {
+        t = t.substringToIndex(countElements(t) - 1)
+    }
+    var rows = t.componentsSeparatedByString(";")
+    var j = 0
+    var M = rows.count
+    var N = rows[0].componentsSeparatedByString(" ").count
+    var mat = zeros((N, M))
+
+    for item in rows {
+        var numbers = item.componentsSeparatedByString(" ")
+        var N = numbers.count
+
+        // counting how many numbers we have
+        var k = 0
+        for i in 0..N{
+            if !numbers[i].isEmpty{
+                k++
+            }
+        }
+        
+        // assigning those numbers
+        var row = zeros(k)
+        k = 0
+        for i in 0..N{
+            if !numbers[i].isEmpty{
+                row[k] = numbers[i].bridgeToObjectiveC().doubleValue
+                k++
+            }
+        }
+        mat[j] = row
+        j++
+    }
+    
+    return mat
+}
+
+
 func zeros(length: (Int, Int)) -> matrix2d {
     /* returns two dimensional array of zeros */
     // help from http://stackoverflow.com/questions/24051490/multidimensional-arrays-in-swift
