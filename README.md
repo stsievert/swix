@@ -62,3 +62,4 @@ I decided to use `@` as a dot product operator.
 
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
+[pep]:http://legacy.python.org/dev/peps/pep-0465/#implementation-details
