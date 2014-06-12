@@ -164,10 +164,9 @@ dot_test()
 println("All test passed")
 
 
-var x = array("[1 2 3; 4 5 6; 7 8 9]")
 var y = array("[ 0 0 1; 0 1 0; 1 0 0]")
-
-dot(x, y)
+var x = ones(4)
+fft(x)
 
 
 

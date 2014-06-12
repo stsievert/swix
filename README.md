@@ -3,6 +3,10 @@ Swift is a high level language that is asking for some numerical library to
 perform computation *fast*, or at the very least *easily*. This is a bare-bones
 wrapper for that library.
 
+This library is hacked together and not as complete as it should be. This
+library was programmed in two days to see what's possible and does not hook in
+with the Accelerate framework.
+
 Currently, this library gives you
 
 * easy initializers for 1D and 2D arrays
@@ -39,6 +43,9 @@ ones(4) = [1, 1, 1, 1]
 ones((4,4)) = matrix([1, 1],
                      [1, 1])
 // same with zeros
+array(1, 2, 3, 4) = [1, 2, 3, 4]
+array("[1 2; 4 5]") = matrix([1 2],
+                             [4 5])
 ```
 
 
@@ -55,9 +62,9 @@ product operator (like [PEP 465][pep], but custom operators [can't use `@`][@].
 So, I decided to use the symbol for extra-important multiplication: `*!`.
 
 ## Features to be added
-* dot product
+* FFT
 * BLAS calling/C integration
-* complex number integration
+* better complex number integration
 
 
 [@]:https://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-XID_48
