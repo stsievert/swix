@@ -166,7 +166,6 @@ println("All test passed")
 
 var y = array("[ 0 0 1; 0 1 0; 1 0 0]")
 var x = ones(4)
-fft(x)
 
 
 

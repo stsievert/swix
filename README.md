@@ -5,7 +5,8 @@ wrapper for that library.
 
 This library is hacked together and not as complete as it should be. This
 library was programmed in two days to see what's possible and does not hook in
-with the Accelerate framework.
+with the Accelerate framework. If you feel the need to add your function, I
+think this library provides some good examples.
 
 Currently, this library gives you
 
