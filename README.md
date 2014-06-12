@@ -17,6 +17,37 @@ Currently, this library gives you
 Boom. Done. The operators for `Array[]()` have been overwritten and Swift works
 like you'd expect it to.
 
+#### Init'ing arrays
+```swift
+ones(4) = [1, 1, 1, 1]
+ones((4,4)) = matrix([1, 1],
+                     [1, 1])
+// same with zeros
+```
+
+#### Functions
+If you have a function that operates on a single element, it can easily be
+applied to the entire array through `apply_function(single_element_function,
+matrix2d`
+
+You can see the wiki for a complete list of functions, but this library
+implements basic functions such as sin, abs while getting into slightly more
+complex norm functions.
+
+This library also can do FFTs.
+
+#### Arithmetic
+```swift
+ones(4) * 4 = [4, 4, 4, 4]
+ones(4) * (ones(4) + 1) = [2, 2, 2, 2]
+
+// same for +, -, *, /
+```
+
+Note that `*` is not a dot product operator. Following [this Python PEP][pep],
+I decided to use `@` as a dot product operator.
+
+
 ## Features to be added
 * 2D arrays
 * dot product
