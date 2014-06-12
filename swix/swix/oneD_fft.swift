@@ -9,15 +9,20 @@
 import Foundation
 import Accelerate
 
-func fft(x: matrix) -> matrix{
-    let N = x.count
-    var y = zeros(N)
-    let log2n = vDSP_Length(Int(log2(CDouble(N))))
-    let radix = FFT_RADIX2.bridgeToObjectiveC().intValue
-    let FFTdirection = "forward"
 
-    let FFTsetup = vDSP_create_fftsetup(log2n, radix)
 
+
+
+// keeping the below because it's nasty and hard
+//func fft(x: matrix) -> matrix{
+//    let N = x.count
+//    var y = zeros(N)
+//    let log2n = vDSP_Length(Int(log2(CDouble(N))))
+//    let radix = FFT_RADIX2.bridgeToObjectiveC().intValue
+//    let FFTdirection = "forward"
+//
+//    let FFTsetup = vDSP_create_fftsetup(log2n, radix)
+//
 //    var xx: CConstPointer<DSPSplitComplex> = nil
 //    for i in x{
 //        xx.append(i)
@@ -50,6 +55,6 @@ func fft(x: matrix) -> matrix{
 //        __vDSP_L: vDSP_Stride(1),
 //        __vDSP_N: l
 //    )
-
-    return x
-}
+//
+//    return x
+//}
