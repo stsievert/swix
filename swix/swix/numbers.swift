@@ -1,5 +1,5 @@
 //
-//  oneD_fft.swift
+//  numbers.swift
 //  swix
 //
 //  Created by Scott Sievert on 6/11/14.
@@ -8,6 +8,3 @@
 
 import Foundation
 
-func fft(x: matrix){
-    
-}

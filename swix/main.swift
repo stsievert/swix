@@ -98,7 +98,7 @@ func sum_2d(){
 func numberClassTest(){
     var x = number(n: 1, j:2)
 }
-
+var x = fft(array(1, 2, 3, 4))
 println("## testing...")
 
 addTest_1D()
