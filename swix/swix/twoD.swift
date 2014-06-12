@@ -11,7 +11,12 @@ import Accelerate
 
 // nice initing
 func array(s: String) -> matrix2d{
-    /* stricly uses the format "[1 2; 3 4]". spaces, semicolons, etc all in the same place (more rows/cols allowed) */
+    /* stricly uses the format "[1 2; 3 4]". spaces, semicolons, etc all in the same place (more rows/cols allowed) 
+        specifically
+            * no space between `[` and first number: gives extra row
+            * no semicolon after last number: throws error
+            * braces (`[]`) can be dropped ("1 2; 3 4" gives same result)
+    */
     var t = s;
     if s.hasPrefix("[") {
         t = s.substringFromIndex(1)

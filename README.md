@@ -74,6 +74,7 @@ product operator (like [PEP 465][pep], but custom operators [can't use `@`][@].
 So, I decided to use the symbol for extra-important multiplication: `*!`.
 
 ## Features to be added
+* indexing. `x[0..3] = 1, x[0, 0..3] = 2, x[0..2] = array(4,9)` etc
 * FFT
 * BLAS calling/C integration
 * better complex number integration

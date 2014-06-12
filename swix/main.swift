@@ -137,6 +137,18 @@ func dot_test(){
     println("    dot product checks: I *! y == y")
     println("    diag checks: diag(ones(3)) = I")
 }
+func assingment(){
+    var x = ones(4)
+    x[2...3] = [7, 8]
+    assert(x == array(1, 1, 7, 8))
+    println("    can assigned x[2...3] = [7, 8]")
+}
+func assingment2d(){
+    var x = ones((6, 6))
+//    println(x[2...3][2...3])
+//    x[2...3][2...3] = [[7, 8], [7, 8]]
+    println(" * note: cannot assign x[2...3][2...3] = [[7, 8], [7, 8]]")
+}
 
 println("testing...")
 
@@ -160,18 +172,8 @@ sum_2d()
 numberClassTest()
 twoD_arrayTest()
 dot_test()
-
-println("All test passed")
-
-
-var y = array("[ 0 0 1; 0 1 0; 1 0 0]")
-var x = ones(4)
-
-
-
-
-
-
+assingment()
+assingment2d()
 
 
 

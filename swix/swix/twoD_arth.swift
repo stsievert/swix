@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 // ARITHMETIC OPERATORS
 // +
 operator infix + {associativity none precedence 140}
