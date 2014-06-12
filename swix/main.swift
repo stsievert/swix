@@ -122,3 +122,18 @@ numberClassTest()
 
 println("   All test passed")
 
+
+x = ones(N)
+x.append(3)
+println(x)
+
+
+
+
+
+
+
+
+
+
+

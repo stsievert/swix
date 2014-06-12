@@ -22,14 +22,34 @@ func fft(x: matrix) -> matrix{
 //    for i in x{
 //        xx.append(i)
 //    }
-    vDSP_fft_zrop(FFTsetup,
-        x,
-        1,//.bridgeToObjectiveC().intValue,
-        y,
-        1,//.bridgeToObjectiveC().intValue,
-        log2n,
-        FFT_FORWARD.bridgeToObjectiveC().boolValue
-    )
+//    vDSP_fft_zropD(
+//        __vDSP_setup: FFTsetup,
+//        __vDSP_signal: x,
+//        __vDSP_strideResult: Int(1),//.bridgeToObjectiveC().intValue,
+//        __vDSP_result: y,
+//        __vDSP_resultResult: Int(1),//.bridgeToObjectiveC().intValue,
+//        __vDSP_Log2N: log2n,
+//        __vDSP_direction: FFT_FORWARD.bridgeToObjectiveC().boolValue
+//    )
+    
+// from stackoverflow: http://stackoverflow.com/questions/24113029/casting-parameters-to-make-swift-compile-with-vdsp-api
+//    let width = 10
+//    let height = 10
+//
+//    var srcAsFloat:CConstPointer<CFloat> = CFloat[](count: Int(width*                           height), repeatedValue: 0)
+//    var min:CFloat = 0.0
+//    var max:CFloat = 255.0
+//    var l:vDSP_Stride = Int(width*height)
+//    var dstAsFloat = CFloat[](count: Int(width*height), repeatedValue: 0)
+//    vDSP_vclip(
+//        __vDSP_A: CConstPointer<CFloat>(&dstAsFloat),
+//        __vDSP_I: vDSP_Stride(1),
+//        __vDSP_B: CConstPointer<CFloat>(&min),
+//        __vDSP_C: CConstPointer<CFloat>(&max),
+//        __vDSP_D: CMutablePointer<CFloat>(&dstAsFloat),
+//        __vDSP_L: vDSP_Stride(1),
+//        __vDSP_N: l
+//    )
 
     return x
 }

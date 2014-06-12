@@ -59,12 +59,12 @@
 		D286498B19493D7E005DB9F0 /* swix */ = {
 			isa = PBXGroup;
 			children = (
-				D286499E19494426005DB9F0 /* numbers.swift */,
-				D286499F19494426005DB9F0 /* oneD_fft.swift */,
 				D286498C19493D7E005DB9F0 /* constants.swift */,
+				D286499E19494426005DB9F0 /* numbers.swift */,
 				D286498D19493D7E005DB9F0 /* oneD.swift */,
 				D286498E19493D7E005DB9F0 /* oneD_arth.swift */,
 				D286498F19493D7E005DB9F0 /* oneD_math.swift */,
+				D286499F19494426005DB9F0 /* oneD_fft.swift */,
 				D286499019493D7E005DB9F0 /* twoD.swift */,
 				D286499119493D7E005DB9F0 /* twoD_arth.swift */,
 				D286499219493D7E005DB9F0 /* twoD_math.swift */,
