@@ -51,7 +51,9 @@ ones(4) * (zeros(4) + 2) = [2, 2, 2, 2]
 ```
 
 Note that `*` is not a dot product operator. Following [this Python PEP][pep],
-I decided to use `@` as a dot product operator.
+I would have used `@` as a dot product operator (like [PEP 465][pep), but
+custom operators [can't use `@`][@]. So, I decided to use the symbol for
+extra-important multiplication: `*!`.
 
 
 ## Features to be added
@@ -60,6 +62,7 @@ I decided to use `@` as a dot product operator.
 * complex number integration
 
 
+[@]:https://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-XID_48
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
 [pep]:http://legacy.python.org/dev/peps/pep-0465/#implementation-details
