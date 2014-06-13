@@ -189,8 +189,6 @@ assingment2d()
 floorTest()
 ceilTest()
 
-var x = ones((4,4))
-var y:Double = 4.1
 
 
 
