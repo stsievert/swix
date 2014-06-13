@@ -57,8 +57,6 @@ func array(s: String) -> matrix2d{
     
     return mat
 }
-
-
 func zeros(length: (Int, Int)) -> matrix2d {
     /* returns two dimensional array of zeros */
     // help from http://stackoverflow.com/questions/24051490/multidimensional-arrays-in-swift

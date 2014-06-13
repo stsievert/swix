@@ -17,11 +17,7 @@ func apply_function(function: Double->Double, x: matrix) -> matrix{
 }
 
 //* fft, fft2, ifft, ifft2
-//* logical and, or, not
-//* l0, l1, l2 norm
 //* real, imag, conj
-//* diag
-
 
 func sin(x: matrix) -> matrix{
     var y = apply_function(sin, x)
@@ -47,6 +43,14 @@ func sqrt(x: matrix) -> matrix{
     var y = apply_function(sqrt, x)
     return y
 }
+func floor(x: matrix) -> matrix{
+    var y = apply_function(floor, x)
+    return y
+}
+func ceil(x: matrix) -> matrix{
+    var y = apply_function(ceil, x)
+    return y
+}
 func pow(x: matrix, power: Double) -> matrix{
     var y = zeros(x.count)
     for i in 0..x.count{
@@ -65,17 +69,17 @@ func sum(x: matrix) -> Double{
 func avg(x: matrix) -> Double{
     var y: Double = sum(x)
     
-    return y / Double(x.count)
+    return y / x.count.double
 }
 func std(x: matrix) -> Double{
     var y: Double = avg(x)
     var z = x - y
-    return sqrt(sum(pow(z, 2) / Double(x.count)))
+    return sqrt(sum(pow(z, 2) / x.count.double))
 }
 func variance(x: matrix) -> Double{
     var y: Double = avg(x)
     var z = x - y
-    return sum(pow(z, 2) / Double(x.count))
+    return sum(pow(z, 2) / x.count.double)
 }
 func l2norm(x: matrix) -> Double{
     return sqrt(sum(pow(x, 2)))
@@ -90,6 +94,6 @@ func l0norm(x: matrix) -> Double{
             norm += 1
         }
     }
-    return Double(norm)
+    return norm.double
 }
 

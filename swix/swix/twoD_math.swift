@@ -40,6 +40,14 @@ func sqrt(x: matrix2d) -> matrix2d{
     var y = apply_function(sqrt, x)
     return y
 }
+func floor(x: matrix2d) -> matrix2d{
+    var y = apply_function(floor, x)
+    return y
+}
+func ceil(x: matrix2d) -> matrix2d{
+    var y = apply_function(ceil, x)
+    return y
+}
 func pow(x: matrix2d, power: Double) -> matrix2d{
     var y = zeros((x.count, x[0].count))
     for i in 0..x.count{

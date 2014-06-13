@@ -149,6 +149,18 @@ func assingment2d(){
 //    x[2...3][2...3] = [[7, 8], [7, 8]]
     println(" ** bug: cannot assign x[2...3][2...3] = [[7, 8], [7, 8]]")
 }
+func floorTest(){
+    var x = ones((N,N))*pi
+    var y = floor(x)
+    assert(y == ones((N,N))*3)
+    println("    floor(matrix2d) works")
+}
+func ceilTest(){
+    var x = ones(N)*pi
+    var y = ceil(x)
+    assert(y == ones(N)*4)
+    println("    ceil(matrix) works")
+}
 
 println("testing...")
 
@@ -174,6 +186,36 @@ twoD_arrayTest()
 dot_test()
 assingment()
 assingment2d()
+floorTest()
+ceilTest()
+
+var x = ones((4,4))
+var y:Double = 4.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
