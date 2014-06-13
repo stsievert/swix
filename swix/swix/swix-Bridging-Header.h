@@ -4,3 +4,4 @@
 
 #import <Foundation/Foundation.h>
 double* abs_objc(NSArray * x, int N);
+double* zeros_objc(int N);

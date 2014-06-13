@@ -11,9 +11,11 @@ import Foundation
 // nice initins
 func ones(length: Int) -> matrix {
     var x = Array(count: length, repeatedValue: 1.0)
+    var xx = zeros(length)
     return x
 }
 func zeros(length: Int) -> matrix {
+    // leaving these without Accelerate integration -- gives recursion errors since convertPointerToMatrix depends on zeros
     var x = Array(count: length, repeatedValue: 0.0)
     return x
 }
