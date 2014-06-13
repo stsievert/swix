@@ -41,11 +41,7 @@ func abs(x: matrix) -> matrix{
     var arg1 = NSArray(array: x)
     
     var yy = abs_objc(arg1, CInt(N))
-    
-    var y = zeros(N)
-    for i in 0..N{
-        y[i] = Double(yy[i])
-    }
+    var y = convertDoubleToMatrix(yy)
     return y
 }
 func sqrt(x: matrix) -> matrix{

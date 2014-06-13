@@ -21,7 +21,11 @@ func mulTest_1D(){
     var y = zeros(N) + 1
     assert(x*y == zeros(N)+2)
     println("    x*y == zeros(N)+2")
-
+}
+func abs_test1d(){
+    var x = ones(N) * -1 * pi
+    assert(abs(x) == -1*x)
+    println("    abs works (with Accelerate integration!)")
 }
 func closeTest_1D(){
     var x = zeros(N)
@@ -188,6 +192,7 @@ assingment()
 assingment2d()
 floorTest()
 ceilTest()
+abs_test1d()
 
 
 
