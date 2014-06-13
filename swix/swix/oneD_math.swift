@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Accelerate
 
 func apply_function(function: Double->Double, x: matrix) -> matrix{
     var y = zeros(x.count)
@@ -36,7 +37,15 @@ func log(x: matrix) -> matrix{
     return y
 }
 func abs(x: matrix) -> matrix{
-    var y = apply_function(abs, x)
+    let N = x.count
+    var arg1 = NSArray(array: x)
+    
+    var yy = abs_objc(arg1, CInt(N))
+    
+    var y = zeros(N)
+    for i in 0..N{
+        y[i] = Double(yy[i])
+    }
     return y
 }
 func sqrt(x: matrix) -> matrix{

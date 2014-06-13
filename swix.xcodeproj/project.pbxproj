@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D233B999194AAC6400302690 /* oneD_cmath.m in Sources */ = {isa = PBXBuildFile; fileRef = D233B998194AAC6400302690 /* oneD_cmath.m */; };
 		D286499319493D7E005DB9F0 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286498C19493D7E005DB9F0 /* constants.swift */; };
 		D286499419493D7E005DB9F0 /* oneD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286498D19493D7E005DB9F0 /* oneD.swift */; };
 		D286499519493D7E005DB9F0 /* oneD_arth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286498E19493D7E005DB9F0 /* oneD_arth.swift */; };
@@ -32,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D233B997194AAC6300302690 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
+		D233B998194AAC6400302690 /* oneD_cmath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = oneD_cmath.m; sourceTree = "<group>"; };
 		D286498C19493D7E005DB9F0 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		D286498D19493D7E005DB9F0 /* oneD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneD.swift; sourceTree = "<group>"; };
 		D286498E19493D7E005DB9F0 /* oneD_arth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneD_arth.swift; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				D286499019493D7E005DB9F0 /* twoD.swift */,
 				D286499119493D7E005DB9F0 /* twoD_arth.swift */,
 				D286499219493D7E005DB9F0 /* twoD_math.swift */,
+				D233B998194AAC6400302690 /* oneD_cmath.m */,
+				D233B997194AAC6300302690 /* swix-Bridging-Header.h */,
 			);
 			name = swix;
 			path = swix/swix;
@@ -163,6 +168,7 @@
 				D2C7614B1948AC02000B74CE /* main.swift in Sources */,
 				D286499419493D7E005DB9F0 /* oneD.swift in Sources */,
 				D286499519493D7E005DB9F0 /* oneD_arth.swift in Sources */,
+				D233B999194AAC6400302690 /* oneD_cmath.m in Sources */,
 				D286499819493D7E005DB9F0 /* twoD_arth.swift in Sources */,
 				D286499319493D7E005DB9F0 /* constants.swift in Sources */,
 			);
@@ -249,14 +255,21 @@
 		D2C7614F1948AC02000B74CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/swix-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D2C761501948AC02000B74CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/swix-Bridging-Header.h";
 			};
 			name = Release;
 		};
