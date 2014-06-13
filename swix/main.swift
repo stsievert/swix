@@ -147,7 +147,7 @@ func assingment2d(){
     var x = ones((6, 6))
 //    println(x[2...3][2...3])
 //    x[2...3][2...3] = [[7, 8], [7, 8]]
-    println(" * note: cannot assign x[2...3][2...3] = [[7, 8], [7, 8]]")
+    println(" ** bug: cannot assign x[2...3][2...3] = [[7, 8], [7, 8]]")
 }
 
 println("testing...")
