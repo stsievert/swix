@@ -8,7 +8,7 @@
 
 import Foundation
 
-func convertDoubleToMatrix(yy: UnsafePointer<CDouble>) -> matrix{
+func convertDoubleToMatrix(yy: UnsafePointer<CDouble>, N: Int) -> matrix{
     // assumes yy the output of some objc function that returns double *
     var y = zeros(N)
     for i in 0..N{

@@ -15,11 +15,13 @@ func + (left: matrix, right: matrix) -> matrix{
         println("`+` only works with arrays of equal size!")
     }
     assert(left.count == right.count)
+    
     var N = left.count
-    var x = zeros(N)
-    for i in 0..N{
-        x[i] = left[i] + right[i]
-    }
+    var ll = NSArray(array: left)
+    var rr = NSArray(array: right)
+    var xx = addvectors_objc(ll, rr)
+    var x = convertDoubleToMatrix(xx, N)
+    
     return x
     
 }

@@ -14,7 +14,7 @@ func addTest_1D(){
     var y = ones(N)
     var z = ones(N)
     assert((y+x) == z);
-    println("    zeros(N) + ones(N) == ones(N)")
+    println("    zeros(N) + ones(N) == ones(N) (with Accelerate integration)")
 }
 func mulTest_1D(){
     var x = zeros(N) + 2
