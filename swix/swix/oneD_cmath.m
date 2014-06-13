@@ -43,3 +43,12 @@ double* addvectors_objc(NSArray* x, NSArray* y){
     
     return zz;
 }
+double* fft_objc(NSArray* x){
+    unsigned long N = [x count];
+    
+    double * yy = (double *)malloc(sizeof(double) * N);
+//    vDSP_fft_zripD ( FFTSetupD __vDSP_Setup, const DSPDoubleSplitComplex *__vDSP_C, vDSP_Stride __vDSP_IC, vDSP_Length __vDSP_Log2N, FFTDirection __vDSP_Direction );
+    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N), FFT_RADIX2);
+//    vDSP_fft_zripD(setup);
+    return yy;
+}

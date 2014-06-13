@@ -6,3 +6,4 @@
 double* abs_objc(NSArray * x, int N);
 double* zeros_objc(int N);
 double* addvectors_objc(NSArray* x, NSArray* y);
+double* fft_objc(NSArray* x);
