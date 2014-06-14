@@ -43,16 +43,17 @@ double* addvectors_objc(NSArray* x, NSArray* y){
     
     return zz;
 }
-double* fft_objc(NSArray* x){
+DSPDoubleComplex* fft_objc(NSArray* x){
     unsigned long N = [x count];
     
     double * xx = NSArrayToDoublePointer(x);
-//    vDSP_fft_zripD ( FFTSetupD __vDSP_Setup, const DSPDoubleSplitComplex *__vDSP_C, vDSP_Stride __vDSP_IC, vDSP_Length __vDSP_Log2N, FFTDirection __vDSP_Direction );
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N), FFT_RADIX2);
     DSPDoubleSplitComplex xxx;
     xxx.realp = xx;
     xxx.imagp = zeros_objc((int)N);
     vDSP_fft_zripD(setup, &xxx, 1, (int)log2(N), kFFTDirection_Forward);
     
-    return xxx.realp;
+    DSPDoubleComplex* x4 = (DSPDoubleComplex*)malloc(sizeof(DSPDoubleComplex) * 2 * N);
+    vDSP_ztocD(&xxx, 1, x4, 1, N);
+    return x4;
 }
