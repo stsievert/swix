@@ -194,13 +194,8 @@ floorTest()
 ceilTest()
 abs_test1d()
 
-
-
-
-
-
-
-
+var x = ones(16)
+fft(x)
 
 
 

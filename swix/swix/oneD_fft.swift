@@ -16,6 +16,7 @@ func fft(x: matrix) -> matrix{
     var arg1 = NSArray(array: x)
     var yy = fft_objc(arg1)
     var y = convertDoubleToMatrix(yy, N)
+    println(y)
     return x
 }
 
