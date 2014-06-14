@@ -53,7 +53,19 @@ DSPDoubleComplex* fft_objc(NSArray* x){
     xxx.imagp = zeros_objc((int)N);
     vDSP_fft_zripD(setup, &xxx, 1, (int)log2(N), kFFTDirection_Forward);
     
-    DSPDoubleComplex* x4 = (DSPDoubleComplex*)malloc(sizeof(DSPDoubleComplex) * 2 * N);
+    DSPDoubleComplex* x4 = (DSPDoubleComplex*)malloc(sizeof(DSPDoubleComplex) * 4 * N);
     vDSP_ztocD(&xxx, 1, x4, 1, N);
     return x4;
+}
+double* ifft_objc(DSPDoubleComplex* x, int N){
+    
+    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N), FFT_RADIX2);
+//    for (int i=0; i<N; i++) NSLog(@"%e %e", x[i].real, x[i].imag);
+    DSPDoubleSplitComplex x2;
+    x2.realp = (double *)malloc(sizeof(double) * N);
+    x2.imagp = (double *)malloc(sizeof(double) * N);
+    vDSP_ctozD(x, 1, &x2, 1, N);
+    vDSP_fft_zripD(setup, &x2, 1, (int)log2(N), kFFTDirection_Inverse);
+//
+    return x2.realp;
 }

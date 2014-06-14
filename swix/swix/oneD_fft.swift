@@ -12,10 +12,15 @@ import Accelerate
 
 
 func fft(x: matrix) -> UnsafePointer<DSPDoubleComplex>{
-    // return accesible with yy[0].real and y[0].imag on per element basis. does not work with 
+    // return accesible with yy[0].real and y[0].imag on per element basis. does not work with
     let N = x.count
     var arg1 = NSArray(array: x)
     var yy = fft_objc(arg1)
     return yy
 }
 
+func ifft(y: UnsafePointer<DSPDoubleComplex>, N: Int) -> matrix{
+    var x = ifft_objc(y, CInt(N));
+    var x2 = convertDoubleToMatrix(x, N)
+    return x2
+}

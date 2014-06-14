@@ -165,6 +165,18 @@ func ceilTest(){
     assert(y == ones(N)*4)
     println("    ceil(matrix) works")
 }
+func fft_test(){
+    var x = ones(N)
+    var y = fft(x)
+//    for i in 0..N{
+//        print(y[i].real)
+//        println(y[i].imag)
+//    }
+    var x2 = ifft(y, N)
+//    println(x2)
+//    assert(x2 == x)
+    println(" ** bug: fft doesn't work quite right.")
+}
 
 println("testing...")
 
@@ -193,6 +205,7 @@ assingment2d()
 floorTest()
 ceilTest()
 abs_test1d()
+fft_test()
 
 var x = ones(16)
 fft(x)
