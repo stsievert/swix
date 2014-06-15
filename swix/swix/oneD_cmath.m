@@ -47,25 +47,42 @@ DSPDoubleComplex* fft_objc(NSArray* x){
     unsigned long N = [x count];
     
     double * xx = NSArrayToDoublePointer(x);
-    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N), FFT_RADIX2);
+    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex xxx;
     xxx.realp = xx;
     xxx.imagp = zeros_objc((int)N);
-    vDSP_fft_zripD(setup, &xxx, 1, (int)log2(N), kFFTDirection_Forward);
+    
+    DSPDoubleSplitComplex yyy;
+    yyy.realp = (double *)malloc(sizeof(double) * 2*N);
+    yyy.imagp = (double *)malloc(sizeof(double) * 2*N);
+    
+//    vDSP_fft_zripD(setup, &xxx, 1, (int)log2(N), FFT_FORWARD);
+    vDSP_fft_zropD(setup, &xxx, 1, &yyy, 1, (int)log2(N)+1, FFT_FORWARD);
+    
+    // can be sped up with accelerate multiply
+    for (int i=0; i<N; i++) {
+        yyy.realp[i] = yyy.realp[i] / 2;
+        yyy.imagp[i] = yyy.imagp[i] / 2;
+    }
     
     DSPDoubleComplex* x4 = (DSPDoubleComplex*)malloc(sizeof(DSPDoubleComplex) * 4 * N);
-    vDSP_ztocD(&xxx, 1, x4, 1, N);
+    vDSP_ztocD(&yyy, 1, x4, 1, N);
+//    for (int i=0; i<N; i++) NSLog(@"%e %e", x4[i].real, x4[i].imag);
     return x4;
 }
 double* ifft_objc(DSPDoubleComplex* x, int N){
     
-    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N), FFT_RADIX2);
-//    for (int i=0; i<N; i++) NSLog(@"%e %e", x[i].real, x[i].imag);
+    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex x2;
-    x2.realp = (double *)malloc(sizeof(double) * N);
-    x2.imagp = (double *)malloc(sizeof(double) * N);
+    x2.realp = (double *)malloc(sizeof(double) * 2*N);
+    x2.imagp = (double *)malloc(sizeof(double) * 2*N);
+    DSPDoubleSplitComplex result;
+    result.realp = (double *)malloc(sizeof(double) * 2*N);
+    result.imagp = (double *)malloc(sizeof(double) * 2*N);
     vDSP_ctozD(x, 1, &x2, 1, N);
-    vDSP_fft_zripD(setup, &x2, 1, (int)log2(N), kFFTDirection_Inverse);
-//
-    return x2.realp;
+    
+    vDSP_fft_zropD(setup, &x2, 1, &result, 1, (int)log2(N)+1, FFT_INVERSE);
+    
+//    for (int i=0; i<N; i++) NSLog(@"%e %e", result.realp[i], result.imagp[i]);
+    return result.realp;
 }

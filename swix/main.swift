@@ -151,7 +151,7 @@ func assingment2d(){
     var x = ones((6, 6))
 //    println(x[2...3][2...3])
 //    x[2...3][2...3] = [[7, 8], [7, 8]]
-    println(" ** bug: cannot assign x[2...3][2...3] = [[7, 8], [7, 8]]")
+    println(" ** BUG: cannot assign x[2...3][2...3] = [[7, 8], [7, 8]]")
 }
 func floorTest(){
     var x = ones((N,N))*pi
@@ -166,16 +166,19 @@ func ceilTest(){
     println("    ceil(matrix) works")
 }
 func fft_test(){
-    var x = ones(N)
+    let Nfft = 8
+//    var x = ones(Nfft)
+    var x = array(1, 2, 3, 4, 5, 6, 7, 8)
     var y = fft(x)
-//    for i in 0..N{
+    for i in 0..Nfft{
 //        print(y[i].real)
+//        print("\t\t\t\t\t")
 //        println(y[i].imag)
-//    }
-    var x2 = ifft(y, N)
+    }
+    var x2 = ifft(y, Nfft)
 //    println(x2)
 //    assert(x2 == x)
-    println(" ** bug: fft doesn't work quite right.")
+    println(" ** BUG: fft doesn't work quite right.")
 }
 
 println("testing...")
@@ -206,9 +209,6 @@ floorTest()
 ceilTest()
 abs_test1d()
 fft_test()
-
-var x = ones(16)
-fft(x)
 
 
 
