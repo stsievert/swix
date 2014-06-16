@@ -27,7 +27,13 @@ func array(numbers: Double...) -> matrix{
         i++
     }
     return x
-    
+}
+func arange(max: Double) -> matrix{
+    var x = zeros(max.int)
+    for i in 0..max.int{
+        x[i] = i.double
+    }
+    return x
 }
 // EQUALITY OPERATORS
 // ~== : almost equal
