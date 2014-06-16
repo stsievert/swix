@@ -69,7 +69,6 @@ DSPDoubleComplex* fft_objc(NSArray* x){
     return x4;
 }
 double* ifft_objc(DSPDoubleComplex* x, int N){
-    
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex x2;
     x2.realp = (double *)malloc(sizeof(double) * 2*N);

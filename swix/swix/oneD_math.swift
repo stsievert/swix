@@ -17,7 +17,6 @@ func apply_function(function: Double->Double, x: matrix) -> matrix{
     return y
 }
 
-//* fft, fft2, ifft, ifft2
 //* real, imag, conj
 
 func sin(x: matrix) -> matrix{

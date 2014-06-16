@@ -171,7 +171,12 @@ func fft_test(){
     var y = fft(x)
     var x2 = ifft(y, Nfft)
     assert(x2 == x)
-    println("    FFT works for real valued inputs. the complex output fft(x) doesn't conform to the nice arth. operators")
+    println("    FFT (1D) works for real valued inputs. the complex output fft(x) doesn't conform to the nice arth. operators")
+}
+func constant_assign_test(){
+    var x = ones(N)
+//    x[2..4] = 2
+    println(" ** BUG: cannot assign x[2..4] = 1")
 }
 
 println("testing...")
@@ -197,6 +202,7 @@ numberClassTest()
 twoD_arrayTest()
 dot_test()
 assingment()
+constant_assign_test()
 assingment2d()
 floorTest()
 ceilTest()
