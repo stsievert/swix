@@ -179,8 +179,7 @@ func constant_assign_test(){
     println(" ** BUG: cannot assign x[2..4] = 1")
 }
 
-println("testing...")
-
+println("Preforming tests...")
 addTest_1D()
 mulTest_1D()
 closeTest_1D()
