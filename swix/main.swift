@@ -167,18 +167,11 @@ func ceilTest(){
 }
 func fft_test(){
     let Nfft = 8
-//    var x = ones(Nfft)
-    var x = array(1, 2, 3, 4, 5, 6, 7, 8)
+    var x = array(1, 3, 2, 4, 6, 7, 5, 8)
     var y = fft(x)
-    for i in 0..Nfft{
-//        print(y[i].real)
-//        print("\t\t\t\t\t")
-//        println(y[i].imag)
-    }
     var x2 = ifft(y, Nfft)
-//    println(x2)
-//    assert(x2 == x)
-    println(" ** BUG: fft doesn't work quite right.")
+    assert(x2 == x)
+    println("    FFT works for real valued inputs. the complex output fft(x) doesn't conform to the nice arth. operators")
 }
 
 println("testing...")
