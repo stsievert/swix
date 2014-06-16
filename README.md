@@ -10,8 +10,9 @@ in the ass, and this library aims to make the MATLAB to iOS conversion
 *simple.*
 
 As an example, setting every element in an array to a single value with C
-involved something like `for {int i=0; i<N; i++} x[i] = 3;`. With Swift (and
-this library), it's just `var x = ones(N) * 3`.
+involved something like 
+`double* x = (double*)malloc(sizeof(double) * N); for {int i=0; i<N; i++} x[i] = 3;`. 
+With Swift (and this library), it's just `var x = ones(N) * 3`.
 
 While this library is basic (most of it hacked together in two days), I expect
 something like [NumPy][numpy] to be released: a mathematical library that
@@ -79,7 +80,7 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 * indexing. `x[0..3] = 1, x[0, 0..3] = 2, x[0..2] = array(4,9)` etc
 * Accelerate Framework integration (bare bones figured out)
 * better complex number integration
-* 2D matrix. An array of arrays or a class that uses `matrix[row*width +
+* better 2D matrix implementation. An array of arrays or a class that uses `matrix[row*width +
   column]`?
 
 
