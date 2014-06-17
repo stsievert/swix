@@ -22,19 +22,8 @@ extension Array{
     }
 }
 
-extension Int{
-    var double:Double {return Double(self)}
-    var float:Float {return Float(self)}
-}
-extension Double{
-    var int:Int {return Int(self)}
-    var float:Float {return Float(self)}
-}
-extension Float{
-    var double:Double {return Double(self)}
-    var int:Int {return Int(self)}
-}
 
+// mathematical constants
 let pi = 3.14159265358979323846264338327950288419716939937510582
 let e  = 2.71828182845904523536028747135266249775724709369995
 let phi = 1.6180339887498948482
