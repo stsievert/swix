@@ -124,6 +124,7 @@ func dot(left: matrix2d, right: matrix2d) -> matrix2d{
     return ans
 }
 
+/// the dot product operator
 operator infix *! {associativity none precedence 140}
 func *! (left: matrix2d, right: matrix2d) -> matrix2d{
     var x = dot(left, right)

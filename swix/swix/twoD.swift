@@ -10,13 +10,13 @@ import Foundation
 import Accelerate
 
 // nice initing
+/// array("[1 2; 3 4]") == matrix([1, 2], [3, 4]). Note that this string requires a semicolon after every row except for the last row. the semicolon has to come right after the number. the braces can be dropped if need be, but I include them.
+/// stricly uses the format "[1 2; 3 4]". spaces, semicolons, etc all in the same place (more rows/cols allowed)
+///  specifically
+///      * no space between `[` and first number: gives extra row
+///      * no semicolon after last number: throws error
+///      * braces (`[]`) can be dropped ("1 2; 3 4" gives same result)
 func array(s: String) -> matrix2d{
-    /* stricly uses the format "[1 2; 3 4]". spaces, semicolons, etc all in the same place (more rows/cols allowed) 
-        specifically
-            * no space between `[` and first number: gives extra row
-            * no semicolon after last number: throws error
-            * braces (`[]`) can be dropped ("1 2; 3 4" gives same result)
-    */
     var t = s;
     if s.hasPrefix("[") {
         t = s.substringFromIndex(1)
@@ -57,6 +57,7 @@ func array(s: String) -> matrix2d{
     
     return mat
 }
+/// zeros((2,2)) = matrix([[0, 0], [0, 0]])
 func zeros(length: (Int, Int)) -> matrix2d {
     /* returns two dimensional array of zeros */
     // help from http://stackoverflow.com/questions/24051490/multidimensional-arrays-in-swift
@@ -69,6 +70,7 @@ func zeros(length: (Int, Int)) -> matrix2d {
     }
     return array
 }
+/// ones((2,2)) = matrix([[1, 1], [1, 1]])
 func ones(length: (Int, Int)) -> matrix2d {
     /* returns two dimensional array of zeros */
     // help from http://stackoverflow.com/questions/24051490/multidimensional-arrays-in-swift
@@ -82,7 +84,7 @@ func ones(length: (Int, Int)) -> matrix2d {
     return array
 }
 
-// nice printing
+/// nice printing
 func println(x: matrix2d)  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let NumRows = x.count

@@ -11,6 +11,7 @@ import Accelerate
 
 
 
+/// drops into objc to compute. returns an UnsafePointer. accessible through y[i].real or y[i].imag and for loops -- does not conform to +-*/ etc
 func fft(x: matrix) -> UnsafePointer<DSPDoubleComplex>{
     // return accesible with yy[0].real and y[0].imag on per element basis. does not work with
     let N = x.count
@@ -19,6 +20,7 @@ func fft(x: matrix) -> UnsafePointer<DSPDoubleComplex>{
     return yy
 }
 
+/// computes the ifft of the complex UnsafePointer returned by fft
 func ifft(y: UnsafePointer<DSPDoubleComplex>, N: Int) -> matrix{
     var x = ifft_objc(y, CInt(N));
     var x2 = convertDoubleToMatrix(x, N)

@@ -9,6 +9,7 @@
 import Foundation
 import Accelerate
 
+/// applies the function to every element of an array and takes only that argument. This is just a simple for-loop. If you want to use some custom fancy function, define it yourself.
 func apply_function(function: Double->Double, x: matrix) -> matrix{
     var y = zeros(x.count)
     for i in 0..x.count{
@@ -31,10 +32,12 @@ func tan(x: matrix) -> matrix{
     var y = apply_function(tan, x)
     return y
 }
+/// log_e(.)
 func log(x: matrix) -> matrix{
     var y = apply_function(log, x)
     return y
 }
+/// drops into objc
 func abs(x: matrix) -> matrix{
     let N = x.count
     var arg1 = NSArray(array: x)
@@ -80,6 +83,7 @@ func std(x: matrix) -> Double{
     var z = x - y
     return sqrt(sum(pow(z, 2) / x.count.double))
 }
+/// variance used since var is a keyword
 func variance(x: matrix) -> Double{
     var y: Double = avg(x)
     var z = x - y
