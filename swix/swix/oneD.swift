@@ -28,9 +28,23 @@ func array(numbers: Double...) -> matrix{
     }
     return x
 }
-func arange(max: Double) -> matrix{
-    var x = zeros(max.int)
-    for i in 0..max.int{
+func arange(min: Double, max: Double, x exclusive: Bool = true) -> matrix{
+    var pad = 0
+    if !exclusive {pad = 1}
+    var x = zeros(max.int - min.int + pad)
+    for i in 0..max.int-min.int+pad{
+        x[i] = i.double + min
+    }
+    return x
+}
+
+/// arange(3) = [0, 1, 2]. inputs: max -- how 
+func arange(max: Double, x exclusive: Bool = true) -> matrix{
+    // arange(3) == [0.0, 1.0, 2.0]
+    var pad = 0
+    if !exclusive {pad = 1}
+    var x = zeros(max.int+pad)
+    for i in 0..max.int+pad{
         x[i] = i.double
     }
     return x

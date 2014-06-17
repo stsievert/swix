@@ -179,11 +179,16 @@ func constant_assign_test(){
     println(" ** BUG: cannot assign x[2..4] = 1")
 }
 func arange_test(){
-    var x = arange(N.double)
-    var x2 = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    var x = arange(N.double, x: false)
+    var x2 = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     assert(x2 == x)
     println("    arange(3) = [0.0, 1.0, 2.0]; some funky business with .double")
-    println("        feature to add: optional min argument")
+}
+func arange_min_test(){
+    var x = arange(5, 10.0)
+    var x2 = array(5, 6, 7, 8, 9)
+    assert(x2 == x)
+    println("    arange works with min as well")
 }
 
 println("Preforming tests...")
@@ -215,6 +220,7 @@ ceilTest()
 abs_test1d()
 fft_test()
 arange_test()
+arange_min_test()
 
 
 
