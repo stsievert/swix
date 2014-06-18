@@ -12,7 +12,7 @@ import Accelerate
 
 
 /// drops into objc to compute. returns an UnsafePointer. accessible through y[i].real or y[i].imag and for loops -- does not conform to +-*/ etc
-func fft(x: matrix) -> UnsafePointer<DSPDoubleComplex>{
+func fft(x: matrix) -> (matrix, matrix){
 /*
  *
  *  Be warned: returns a plain c style array accessible through for-loops. Returns an UnsafePointer<DSPDoubleComplex>; I think I'm going to use 
@@ -29,7 +29,15 @@ func fft(x: matrix) -> UnsafePointer<DSPDoubleComplex>{
     let N = x.count
     var arg1 = NSArray(array: x)
     var yy = fft_objc(arg1)
-    return yy
+
+    // yr = y.real, yi = y.imag
+    var yr = zeros(x.count)
+    var yi = zeros(x.count)
+    for i in 0..x.count{
+        yr[i] = yy[i].real
+        yi[i] = yy[i].imag
+    }
+    return (yr, yi)
 }
 
 /// computes the ifft of the complex UnsafePointer returned by fft

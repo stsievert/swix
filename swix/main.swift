@@ -166,12 +166,12 @@ func ceilTest(){
     println("    ceil(matrix) works")
 }
 func fft_test(){
-    let Nfft = 8
-    var x = array(1, 3, 2, 4, 6, 7, 5, 8)
-    var y = fft(x)
-    var x2 = ifft(y, Nfft)
-    assert(x2 == x)
-    println("    FFT (1D) works for real valued inputs. the complex output fft(x) doesn't conform to the nice arth. operators")
+//    let Nfft = 8
+//    var x = array(1, 3, 2, 4, 6, 7, 5, 8)
+//    var y = fft(x)
+//    var x2 = ifft(y, Nfft)
+//    assert(x2 == x)
+//    println("    FFT (1D) works for real valued inputs. the complex output fft(x) doesn't conform to the nice arth. operators")
 }
 func constant_assign_test(){
     var x = ones(N)
@@ -223,7 +223,13 @@ arange_test()
 arange_min_test()
 
 
-
+let Nfft = 8
+var x = arange(Nfft.double)
+var yr = zeros(Nfft)
+var yi = zeros(Nfft)
+(yr, yi) = fft(x)
+println(yr)
+println(yi)
 
 
 
