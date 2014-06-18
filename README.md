@@ -78,8 +78,10 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 
 ## Features to be added
 * indexing. `x[0..3] = 1, x[0, 0..3] = 2, x[0..2] = array(4,9)` etc
-* Accelerate Framework integration (bare bones figured out)
-* better complex number integration
+* Accelerate Framework integration. The bares bones are figured out and I just
+  need to do the grunt work.
+* better complex number integration. Currently, `fft(x)` returns two separate
+  vectors. Is there a way to combine the real and imaginary parts?
 * better 2D matrix implementation. An array of arrays or a class that uses `matrix[row*width +
   column]`?
 
