@@ -145,7 +145,7 @@ func assingment(){
     var x = ones(4)
     x[2...3] = [7, 8]
     assert(x == array(1, 1, 7, 8))
-    println("    can assigned x[2...3] = [7, 8]")
+    println("    can assign x[2...3] = [7, 8]")
 }
 func assingment2d(){
     var x = ones((6, 6))
@@ -174,9 +174,10 @@ func fft_test(){
     println("    FFT works for real valued inputs. var (real, imag) = fft(x)")
 }
 func constant_assign_test(){
-    var x = ones(N)
-//    x[2..4] = 2
-    println(" ** BUG: cannot assign x[2..4] = 1")
+    var x = ones(4)
+    x[2..4] = [2, 2]
+    assert(x == array(1, 1, 2, 2))
+    println(" ** BUG: cannot assign x[2..4] = 2 (but can do x[2..4] = [2, 2])")
 }
 func arange_test(){
     var x = arange(N.double, x: false)
@@ -221,9 +222,6 @@ abs_test1d()
 fft_test()
 arange_test()
 arange_min_test()
-
-
-
 
 
 

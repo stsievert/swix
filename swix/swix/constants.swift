@@ -20,6 +20,17 @@ extension Array{
         // ran into issues here. tried `let N = self[0].shape` which works for 2D arrays but compiler fail
         return ones(4)
     }
+//    subscript(indexes: Range<Int>) -> Double {
+//        get {
+//            return -1.0;
+//        }
+//        set {
+//            for i in indexes{
+//                self[i] = Int(2.0)
+//            }
+//            return self
+//        }
+//    }
 }
 
 
