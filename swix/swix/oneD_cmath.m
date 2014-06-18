@@ -68,7 +68,15 @@ DSPDoubleComplex* fft_objc(NSArray* x){
     vDSP_ztocD(&yyy, 1, x4, 2, N);
     return x4;
 }
-double* ifft_objc(DSPDoubleComplex* x, int N){
+double* ifft_objc(//DSPDoubleComplex* x, int N){
+                  NSArray* yr, NSArray* yi, int N){
+    
+    DSPDoubleComplex* x = (DSPDoubleComplex *)malloc(sizeof(DSPDoubleComplex) * N * 2);
+    // slow but nice
+    for (int i=0; i<N; i++){
+        x[i].real = [[yr objectAtIndex:i] doubleValue];
+        x[i].imag = [[yi objectAtIndex:i] doubleValue];
+    }
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex x2;
     x2.realp = (double *)malloc(sizeof(double) * 2*N);
