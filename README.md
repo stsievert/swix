@@ -81,11 +81,12 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 * Accelerate Framework integration. The bares bones are figured out and I just
   need to do the grunt work.
 * better complex number integration. Currently, `fft(x)` returns two separate
-  vectors. Is there a way to combine the real and imaginary parts?
+  vectors. This can be integrated with [swift-complex][complex].
 * better 2D matrix implementation. An array of arrays or a class that uses `matrix[row*width +
   column]`?
 
 
+[complex]:https://github.com/dankogai/swift-complex
 [numpy]:http://www.numpy.org
 [accel]:https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465
 [@]:https://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-XID_48
