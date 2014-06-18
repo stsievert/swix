@@ -21,7 +21,7 @@ func zeros(length: Int) -> matrix {
     var x = Array(count: length, repeatedValue: 0.0)
     return x
 }
-/// make an array out of the supplied numbers. use array(1, 2, 3, 4).
+/// make an array out of the supplied numbers. ie, array(1, 2, 3, 4).
 func array(numbers: Double...) -> matrix{
     var x = zeros(numbers.count)
     var i = 0
@@ -45,7 +45,12 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> matrix{
 
 /// arange(N) = [0, 1, ..., N-1]. use the optional argument `x` to change if this function is exclusive or not. there's a duplicate function arange(min, max)
 func arange(max: Double, x exclusive: Bool = true) -> matrix{
-    // arange(3) == [0.0, 1.0, 2.0]
+    /*
+     *   arange(max) == [0.0, 1.0, 2.0]
+     *
+     *   There's a duplicate function that uses 
+     *   arange(min, max) == [min, ..., max-1]'
+     */
     var pad = 0
     if !exclusive {pad = 1}
     var x = zeros(max.int+pad)

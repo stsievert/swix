@@ -18,8 +18,6 @@ func apply_function(function: Double->Double, x: matrix) -> matrix{
     return y
 }
 
-//* real, imag, conj
-
 func sin(x: matrix) -> matrix{
     var y = apply_function(sin, x)
     return y

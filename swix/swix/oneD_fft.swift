@@ -13,7 +13,19 @@ import Accelerate
 
 /// drops into objc to compute. returns an UnsafePointer. accessible through y[i].real or y[i].imag and for loops -- does not conform to +-*/ etc
 func fft(x: matrix) -> UnsafePointer<DSPDoubleComplex>{
-    // return accesible with yy[0].real and y[0].imag on per element basis. does not work with
+/*
+ *
+ *  Be warned: returns a plain c style array accessible through for-loops. Returns an UnsafePointer<DSPDoubleComplex>; I think I'm going to use 
+ *
+ *      Usage example:
+ *      var x = arange(8)
+ *      y = fft(x)
+ *      for i in 0..x.count{
+ *          print(y[i].real)
+ *          println(y[i].imag)
+ *      }
+ *
+ */
     let N = x.count
     var arg1 = NSArray(array: x)
     var yy = fft_objc(arg1)
