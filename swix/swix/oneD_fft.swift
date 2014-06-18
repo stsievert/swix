@@ -33,6 +33,8 @@ func fft(x: matrix) -> (matrix, matrix){
     // yr = y.real, yi = y.imag
     var yr = zeros(x.count)
     var yi = zeros(x.count)
+    
+    // slow but nice
     for i in 0..x.count{
         yr[i] = yy[i].real
         yi[i] = yy[i].imag
@@ -41,8 +43,12 @@ func fft(x: matrix) -> (matrix, matrix){
 }
 
 /// computes the ifft of the complex UnsafePointer returned by fft
-func ifft(y: UnsafePointer<DSPDoubleComplex>, N: Int) -> matrix{
-    var x = ifft_objc(y, CInt(N));
+func ifft(yr: matrix, yi: matrix) -> matrix{
+    let N = yr.count
+    assert(yr.count == yi.count)
+    var yyr = NSArray(array: yr)
+    var yyi = NSArray(array: yi)
+    var x = ifft_objc(yyr, yyi, CInt(N));
     var x2 = convertDoubleToMatrix(x, N)
     return x2
 }
