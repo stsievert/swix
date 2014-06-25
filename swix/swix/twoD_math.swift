@@ -138,17 +138,17 @@ func svd(m: matrix2d){
     var ss = x[sn*sm..sn*sm+sn*sm]
     var vv = x[sn*sm+sn..sn+2*sm*sn]
     
-    var s = zeros(sm)
+    var u = zeros(sm)
     for i in 0..sm{
-        s[i] = uu[i]
+        u[i] = uu[i]
     }
-    var uuu = zeros(sm*sn)
+    var sss = zeros(sm*sn)
     var vvv = zeros(sm*sn)
     for i in 0..sm*sn{
-        uuu[i] = ss[i]
+        sss[i] = ss[i]
         vvv[i] = vv[i]
     }
-    var u = reshape(uuu, (sm, sn))
+    var s = reshape(sss, (sm, sn))
     var v = reshape(vvv, (sm, sn))
     
     
