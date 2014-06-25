@@ -131,22 +131,20 @@ int svd_objc(NSArray * x){
     
     printf("S\n");
     for (int i=0; i<m; i++) {
-        for (int j=0; j<m; j++) {
-            printf("%.3e, ", s[i*j + i]);
-        }
+        printf("%.3f, ", s[i]);
         printf("\n");
     }
     printf("U\n");
     for (int i=0; i<m; i++) {
         for (int j=0; j<m; j++) {
-            printf("%.3e, ", u[i*j + i]);
+            printf("%.3f, ", u[m*j + i]);
         }
         printf("\n");
     }
     printf("vt\n");
     for (int i=0; i<m; i++) {
         for (int j=0; j<m; j++) {
-            printf("%.3e, ", vt[i*j + i]);
+            printf("%.3f, ", vt[m*j + i]);
         }
         printf("\n");
     }
