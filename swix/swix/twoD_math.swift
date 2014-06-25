@@ -124,6 +124,14 @@ func dot(left: matrix2d, right: matrix2d) -> matrix2d{
     return ans
 }
 
+func svd(m: matrix2d){
+    println(m)
+    var mm = array("1 2 3; 4 5 6; 7 8 9")
+    mm = ones((4,4))
+    var xx = NSArray(array: mm)
+    svd_objc(xx)
+}
+
 /// the dot product operator
 operator infix *! {associativity none precedence 140}
 func *! (left: matrix2d, right: matrix2d) -> matrix2d{

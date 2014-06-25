@@ -9,3 +9,4 @@ double* zeros_objc(int N);
 double* addvectors_objc(NSArray* x, NSArray* y);
 DSPDoubleComplex* fft_objc(NSArray* x);
 double* ifft_objc(NSArray * yr, NSArray * yi, int N);
+NSArray * svd_objc(NSArray * m);
