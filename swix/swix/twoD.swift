@@ -116,6 +116,19 @@ func reshape(x: matrix, shape: (Int, Int)) -> matrix2d{
     return y
 }
 
+func transpose (x: matrix2d) -> matrix2d{
+    let n = x.count
+    let m = x[0].count
+    var y = zeros((m, n))
+    for i in 0..m{
+        for j in 0..m{
+            y[i][j] = x[j][i]
+        }
+    }
+    
+    return y
+}
+
 
 // ==
 operator infix == {associativity none precedence 140}

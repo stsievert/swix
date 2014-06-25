@@ -135,7 +135,7 @@ func svd(m: matrix2d){
     var x:matrix = convertDoubleToMatrix(xxx, 2*sm*sn+sm)
     
     var uu = x[0..sm]
-    var ss = x[sn*sm..sn*sm+sn*sm]
+    var ss = x[sm..sn*sm+sn*sm]
     var vv = x[sn*sm+sn..sn+2*sm*sn]
     
     var u = zeros(sm)
@@ -153,7 +153,9 @@ func svd(m: matrix2d){
     
     
     println(u)
-    println(s)
+    println("")
+    println(transpose(s))
+    println("")
     println(v)
     // U S V
     
