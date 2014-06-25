@@ -59,6 +59,27 @@ func arange(max: Double, x exclusive: Bool = true) -> matrix{
     }
     return x
 }
+/// nice printing
+func println(x: matrix)  {
+    /* print arrays nicely for small arrays. not nice for larger arrays */
+    let N = x.count
+    var suffix = ", "
+    print("matrix([")
+    for i in 0..N{
+        if i == (N-1) { suffix = ""}
+        print(NSString(format: "%.3f"+suffix, x[i]))
+    }
+    print("])")
+}
+func print(x: matrix)  {
+    /* print arrays nicely for small arrays. not nice for larger arrays */
+    let N = x.count
+    var suffix = ", "
+    for i in 0..N{
+        if i == (N-1) { suffix = ""}
+        print(NSString(format: "%.3f"+suffix, x[i]))
+    }
+}
 // EQUALITY OPERATORS
 // ~== : almost equal
 /// ~== checks for almost equality in 1d arrays. two numbers are almost equal if `(x[i] - y[i]) < 1e-9

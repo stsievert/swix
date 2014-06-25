@@ -90,13 +90,15 @@ func println(x: matrix2d)  {
     let NumRows = x.count
     for i in 0..NumRows{
         if i==0{
-            print("matrix(")
+            print("matrix([")
         }else{
-            print("       ")
+            print("       [")
         }
-        print(x[i])
+        print(x[i] as matrix)
+        print("]")
+//        print(NSString(format: "%.3f", x[i]))
         if i==(NumRows-1){
-            print(")")
+            print("])")
         }
         print("\n")
     }
