@@ -224,6 +224,9 @@ arange_test()
 arange_min_test()
 
 var x = ones((4,4))
-svd(x)
+var (u, s, v) = svd(x)
+println(u)
+println(s)
+println(v)
 
 

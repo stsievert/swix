@@ -88,6 +88,7 @@ func ones(length: (Int, Int)) -> matrix2d {
 func println(x: matrix2d)  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let NumRows = x.count
+    print("\n")
     for i in 0..NumRows{
         if i==0{
             print("matrix([")
@@ -96,9 +97,8 @@ func println(x: matrix2d)  {
         }
         print(x[i] as matrix)
         print("]")
-//        print(NSString(format: "%.3f", x[i]))
         if i==(NumRows-1){
-            print("])")
+            print(")")
         }
         print("\n")
     }

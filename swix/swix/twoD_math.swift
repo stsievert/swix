@@ -124,7 +124,7 @@ func dot(left: matrix2d, right: matrix2d) -> matrix2d{
     return ans
 }
 
-func svd(m: matrix2d){
+func svd(m: matrix2d) -> (matrix2d, matrix, matrix2d){
     var mm = array("1 2 3; 4 5 6; 7 8 9")
     mm = ones((3,3))
     let sn = mm.count
@@ -151,12 +151,7 @@ func svd(m: matrix2d){
     var s = reshape(sss, (sm, sn))
     var v = reshape(vvv, (sm, sn))
     
-    
-    println(u)
-    println("")
-    println(transpose(s))
-    println("")
-    println(v)
+    return (v, u, transpose(s))
     // U S V
     
     
