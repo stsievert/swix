@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
+#define F(x) [NSNumber numberWithDouble:x]
+NSArray*  NSArrayWith2DDouble(double * x, int n, int m);
 
 double* zeros_objc(int N){
     double * x = (double *)malloc(sizeof(double) * N);
@@ -93,7 +95,7 @@ double* ifft_objc(//DSPDoubleComplex* x, int N){
     for (int i=0; i<N; i++) result.realp[i] = result.realp[i]/16;
     return result.realp;
 }
-int svd_objc(NSArray * x){
+double* svd_objc(NSArray * x){
     // adapted from http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
     int m = (int)[x count];
     int n = (int)[[x objectAtIndex:0] count];
@@ -129,28 +131,27 @@ int svd_objc(NSArray * x){
     // Call dgesdd_ to do the actual computation:
     dgesdd_("A", &m, &n, xx, &lda, s, u, &m, vt, &n, work, &lwork, iwork, &info);
     
-    printf("S\n");
-    for (int i=0; i<m; i++) {
-        printf("%.3f, ", s[i]);
-        printf("\n");
-    }
-    printf("U\n");
-    for (int i=0; i<m; i++) {
-        for (int j=0; j<m; j++) {
-            printf("%.3f, ", u[m*j + i]);
-        }
-        printf("\n");
-    }
-    printf("vt\n");
-    for (int i=0; i<m; i++) {
-        for (int j=0; j<m; j++) {
-            printf("%.3f, ", vt[m*j + i]);
-        }
-        printf("\n");
-    }
+    double * ret = (double*)malloc(sizeof(double) * (m+m*n+m*n));
+    for (int i=0; i<m;   i++) ret[i] = s[i];
+    for (int i=0; i<n*m; i++) ret[i+m] = vt[i];
+    for (int i=0; i<n*m; i++) ret[i+m+n*m] = u[i];
+    return ret;
 
-    return 0;
+//    return dic;
 }
+
+NSArray*  NSArrayWith2DDouble(double * x, int n, int m){
+    NSArray* xx;
+    
+    for (int i=0; i<m; i++){
+        for (int j=0; j<m; j++){
+            [[xx objectAtIndex:i] addObject: F(x[i*m+j]) ];
+        }
+    }
+    
+    return xx;
+}
+
 
 
 

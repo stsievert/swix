@@ -102,6 +102,19 @@ func println(x: matrix2d)  {
     }
 }
 
+func reshape(x: matrix, shape: (Int, Int)) -> matrix2d{
+    assert(shape.0 * shape.1 == x.count)
+    var y = zeros(shape)
+    var k = 0
+    for i in 0..shape.0{
+        for j in 0..shape.1{
+            y[i][j] = x[k]
+            k = k + 1
+        }
+        
+    }
+    return y
+}
 
 
 // ==

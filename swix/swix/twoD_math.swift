@@ -125,11 +125,39 @@ func dot(left: matrix2d, right: matrix2d) -> matrix2d{
 }
 
 func svd(m: matrix2d){
-    println(m)
     var mm = array("1 2 3; 4 5 6; 7 8 9")
-    mm = ones((4,4))
+    mm = ones((3,3))
+    let sn = mm.count
+    let sm = mm[0].count
+//    mm = ones((4,4))*2
     var xx = NSArray(array: mm)
-    svd_objc(xx)
+    var xxx = svd_objc(xx)
+    var x:matrix = convertDoubleToMatrix(xxx, 2*sm*sn+sm)
+    
+    var uu = x[0..sm]
+    var ss = x[sn*sm..sn*sm+sn*sm]
+    var vv = x[sn*sm+sn..sn+2*sm*sn]
+    
+    var u = zeros(sm)
+    for i in 0..sm{
+        u[i] = uu[i]
+    }
+    var sss = zeros(sm*sn)
+    var vvv = zeros(sm*sn)
+    for i in 0..sm*sn{
+        sss[i] = ss[i]
+        vvv[i] = vv[i]
+    }
+    var s = reshape(sss, (sm, sn))
+    var v = reshape(vvv, (sm, sn))
+    
+    
+    println(u)
+    println(s)
+    println(v)
+    // U S V
+    
+    
 }
 
 /// the dot product operator
