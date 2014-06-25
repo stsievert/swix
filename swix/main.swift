@@ -195,7 +195,14 @@ func svd_test(){
     var x = ones((4,4))
     var (u, s, v) = svd(x)
     println("    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)")
-    println(" **     BUG: only works for square matricies")
+    println(" **   BUG: only works for square matricies")
+}
+func transpose_test(){
+    var x = array("1 2 3; 4 5 6; 7 8 9")
+    var y = array("1 4 7; 2 5 8; 3 6 9")
+    assert(x == transpose(y))
+    println("    transpose works")
+    println("      TODO: tranpose(x) = x.T")
 }
 
 println("Preforming tests...")
@@ -229,5 +236,6 @@ fft_test()
 arange_test()
 arange_min_test()
 svd_test()
+transpose_test()
 
 
