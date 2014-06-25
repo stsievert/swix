@@ -191,6 +191,12 @@ func arange_min_test(){
     assert(x2 == x)
     println("    arange works with min as well")
 }
+func svd_test(){
+    var x = ones((4,4))
+    var (u, s, v) = svd(x)
+    println("    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)")
+    println(" **     BUG: only works for square matricies")
+}
 
 println("Preforming tests...")
 addTest_1D()
@@ -222,11 +228,6 @@ abs_test1d()
 fft_test()
 arange_test()
 arange_min_test()
-
-var x = ones((4,4))
-var (u, s, v) = svd(x)
-println(u)
-println(s)
-println(v)
+svd_test()
 
 
