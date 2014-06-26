@@ -238,4 +238,28 @@ arange_min_test()
 svd_test()
 transpose_test()
 
+// svd, pca
+
+var x = ones((2,4))
+var (u, s, v) = svd(x)
+
+println(u)
+println(s)
+println(v)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
