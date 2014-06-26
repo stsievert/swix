@@ -192,8 +192,10 @@ func arange_min_test(){
     println("    arange works with min as well")
 }
 func svd_test(){
-    var x = ones((4,4))
+    var x = ones((2,4))
     var (u, s, v) = svd(x)
+    x = ones((4,2))
+    (u, s, v) = svd(x)
     println("    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)")
 }
 func transpose_test(){
@@ -202,6 +204,27 @@ func transpose_test(){
     assert(x == transpose(y))
     println("    transpose works")
     println("      TODO: tranpose(x) = x.T")
+}
+func sort_test(){
+    var x = array(1, 5, 4)
+    var y = array(1, 4, 5)
+//    var x2 = x.sort()
+//    assert(x.sort() == y)
+//    println("    x.sort() works.")
+}
+func reverse_test(){
+    var x = array(1, 2, 3)
+    var y = array(3, 2, 1)
+    assert(x == y.reverse())
+    println("    array(1, 2, 3).reverse() == [1, 2, 3]")
+}
+func pluseq_test(){
+    var x = ones(4)
+    x += 1
+    var y = ones(4)*2
+//    println(x)
+//    assert(x == y)
+    println(" *  TODO: make += work right")
 }
 
 println("Preforming tests...")
@@ -236,21 +259,9 @@ arange_test()
 arange_min_test()
 svd_test()
 transpose_test()
-
-// svd, pca
-
-var x = ones((4,2))
-var (u, s, v) = svd(x)
-
-println(u)
-println(s)
-println(v)
-
-
-
-
-
-
+//sort_test()
+reverse_test()
+pluseq_test()
 
 
 

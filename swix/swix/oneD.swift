@@ -67,25 +67,25 @@ func arange(max: Double, x exclusive: Bool = true) -> matrix{
     }
     return x
 }
-/// nice printing
-func println(x: matrix)  {
+/// nice printing. optional args: format. ie, use format:"%.3f" to show 3 decimals (c style syntax).
+func println(x: matrix, format: String = "%.3f")  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let N = x.count
     var suffix = ", "
     print("matrix([")
     for i in 0..N{
         if i == (N-1) { suffix = ""}
-        print(NSString(format: "%.3f"+suffix, x[i]))
+        print(NSString(format: format+suffix, x[i]))
     }
-    print("])")
+    print("])\n")
 }
-func print(x: matrix)  {
+func print(x: matrix, format: String="%.3f")  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let N = x.count
     var suffix = ", "
     for i in 0..N{
         if i == (N-1) { suffix = ""}
-        print(NSString(format: "%.3f"+suffix, x[i]))
+        print(NSString(format: format+suffix, x[i]))
     }
 }
 // EQUALITY OPERATORS

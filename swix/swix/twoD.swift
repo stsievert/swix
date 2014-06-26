@@ -85,7 +85,7 @@ func ones(length: (Int, Int)) -> matrix2d {
 }
 
 /// nice printing
-func println(x: matrix2d)  {
+func println(x: matrix2d, format: String = "%.3f")  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let NumRows = x.count
     print("\n")
@@ -95,7 +95,7 @@ func println(x: matrix2d)  {
         }else{
             print("       [")
         }
-        print(x[i] as matrix)
+        print(x[i] as matrix, format: format)
         print("]")
         if i==(NumRows-1){
             print(")")
