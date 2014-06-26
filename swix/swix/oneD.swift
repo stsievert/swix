@@ -32,6 +32,14 @@ func array(numbers: Double...) -> matrix{
     return x
 }
 
+func asmatrix(x: Slice<Double>) -> matrix{
+    var y = zeros(x.count)
+    for i in 0..x.count{
+        y[i] = x[i]
+    }
+    return y
+}
+
 /// arange(M, N) = [M, M+1...N-1]. use optional argument `x` to change if this function is exclusive or not. there's an almost-duplicate function that sets min=0 and only requires max.
 func arange(min: Double, max: Double, x exclusive: Bool = true) -> matrix{
     var pad = 0
@@ -69,7 +77,7 @@ func println(x: matrix)  {
         if i == (N-1) { suffix = ""}
         print(NSString(format: "%.3f"+suffix, x[i]))
     }
-    print("])")
+    print("])\n")
 }
 func print(x: matrix)  {
     /* print arrays nicely for small arrays. not nice for larger arrays */

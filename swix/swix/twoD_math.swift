@@ -126,38 +126,29 @@ func dot(left: matrix2d, right: matrix2d) -> matrix2d{
 
 func svd(m: matrix2d) -> (matrix2d, matrix, matrix2d){
     var mm = m
-    let sn = mm.count
-    let sm = mm[0].count
-//    mm = ones((4,4))*2
+    let sn = mm.count // rows
+    let sm = mm[0].count // columns
+    
+    
     var xx = NSArray(array: mm)
     var xxx = svd_objc(xx)
-    var x:matrix = convertDoubleToMatrix(xxx, 2*sm*sn+sm)
+    var x:matrix = convertDoubleToMatrix(xxx, sn+sn*sn+sm*sm)
     
-    var uu = x[0..sm]
-    var ss = x[sm..sn*sm+sn*sm]
-    var vv = x[sn*sm+sn..sn+2*sm*sn]
+    var s2 = x[0..sn]
+    var v2 = x[sn..sm*sm+sn]
+    var u2 = x[sm*sm+sn..(sn+sm*sm) + sn*sn]
     
-    var s = zeros(sm)
-    for i in 0..sm{
-        s[i] = uu[i]
-    }
-    var sss = zeros(sm*sn)
-    var vvv = zeros(sm*sn)
-    for i in 0..sm*sn{
-        sss[i] = ss[i]
-    }
-    for i in 0..sm*sn{
-        vvv[i] = vv[i]
-    }
+    var s = asmatrix(s2)
+    var uR = asmatrix(u2)
+    var vR = asmatrix(v2)
     
-    var v = reshape(sss, (sm, sn))
-    var u = reshape(vvv, (sm, sn))
+    var v = reshape(vR, (sm, sm))
+    var u = reshape(uR, (sn, sn))
     
-    // matches python exactly
-    return (transpose(u), s, transpose(v))
-    // U S V
+    v = transpose(v)
+    u = transpose(u)
     
-    
+    return (u, s, v)
 }
 
 /// the dot product operator

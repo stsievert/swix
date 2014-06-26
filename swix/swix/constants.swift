@@ -9,8 +9,9 @@
 import Foundation
 import Accelerate
 
-typealias matrix   = Array<Double>
+typealias matrix = Array<Double>
 typealias matrix2d = Array<Array<Double>>
+
 
 // add extension here -- indexing, x[0..4] = 1 etc
 extension Array{
