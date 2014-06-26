@@ -108,6 +108,7 @@ double* svd_objc(NSArray * x){
     }
     // Setup a buffer to hold the singular values:
     int numberOfSingularValues = m < n ? m : n;
+    int nS = numberOfSingularValues;
     double *s = malloc(numberOfSingularValues * sizeof *s);
     
     // Setup buffers to hold the matrices U and Vt:
@@ -130,11 +131,10 @@ double* svd_objc(NSArray * x){
     
     // Call dgesdd_ to do the actual computation:
     dgesdd_("A", &m, &n, xx, &lda, s, u, &m, vt, &n, work, &lwork, iwork, &info);
-    NSLog(@"n: %d, m: %d", n, m);
     double * ret = (double*)malloc(sizeof(double) * (m+n*n+m*m));
-    for (int i=0; i<m;   i++) ret[i] = s[i];
-    for (int i=0; i<n*n; i++) ret[i+m] = vt[i];
-    for (int i=0; i<m*m; i++) ret[i+m+n*n] = u[i];
+    for (int i=0; i<nS;   i++) ret[i] = s[i];
+    for (int i=0; i<n*n; i++) ret[i+nS] = vt[i];
+    for (int i=0; i<m*m; i++) ret[i+nS+n*n] = u[i];
     return ret;
 
 //    return dic;

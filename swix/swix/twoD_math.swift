@@ -133,10 +133,11 @@ func svd(m: matrix2d) -> (matrix2d, matrix, matrix2d){
     var xx = NSArray(array: mm)
     var xxx = svd_objc(xx)
     var x:matrix = convertDoubleToMatrix(xxx, sn+sn*sn+sm*sm)
+    let nS = min(sm, sn)
     
-    var s2 = x[0..sn]
-    var v2 = x[sn..sm*sm+sn]
-    var u2 = x[sm*sm+sn..(sn+sm*sm) + sn*sn]
+    var s2 = x[0..nS]
+    var v2 = x[nS..sm*sm+nS]
+    var u2 = x[sm*sm+nS..(nS+sm*sm) + sn*sn]
     
     var s = asmatrix(s2)
     var uR = asmatrix(u2)

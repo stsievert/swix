@@ -38,3 +38,11 @@ class number{
         self.imag = j
     }
 }
+
+func min(x: Double, y: Double) -> Double{
+    if x < y{
+        return x
+    } else{
+        return y
+    }
+}

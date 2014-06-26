@@ -77,7 +77,7 @@ func println(x: matrix)  {
         if i == (N-1) { suffix = ""}
         print(NSString(format: "%.3f"+suffix, x[i]))
     }
-    print("])\n")
+    print("])")
 }
 func print(x: matrix)  {
     /* print arrays nicely for small arrays. not nice for larger arrays */

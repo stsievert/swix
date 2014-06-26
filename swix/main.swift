@@ -195,7 +195,6 @@ func svd_test(){
     var x = ones((4,4))
     var (u, s, v) = svd(x)
     println("    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)")
-    println(" **   BUG: only works for square matricies")
 }
 func transpose_test(){
     var x = array("1 2 3; 4 5 6; 7 8 9")
@@ -240,7 +239,7 @@ transpose_test()
 
 // svd, pca
 
-var x = ones((2,4))
+var x = ones((4,2))
 var (u, s, v) = svd(x)
 
 println(u)
