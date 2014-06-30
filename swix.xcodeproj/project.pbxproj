@@ -20,9 +20,10 @@
 		D286499919493D7E005DB9F0 /* twoD_math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286499219493D7E005DB9F0 /* twoD_math.swift */; };
 		D28649A019494426005DB9F0 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286499E19494426005DB9F0 /* numbers.swift */; };
 		D28649A119494426005DB9F0 /* oneD_fft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286499F19494426005DB9F0 /* oneD_fft.swift */; };
-		D28A54DE1961D36100C798DF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28A54DD1961D36100C798DF /* opencv2.framework */; };
 		D28A54E01961D39100C798DF /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A54DF1961D39100C798DF /* machine_learning.swift */; };
 		D29F8808194AD81D00FC7D99 /* objc_swift_conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29F8807194AD81D00FC7D99 /* objc_swift_conversion.swift */; };
+		D2A58C521961D55E00D82918 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A58C511961D55E00D82918 /* opencv2.framework */; };
+		D2A58C561961DD2100D82918 /* machine_learning.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A58C551961DD2100D82918 /* machine_learning.m */; };
 		D2C7614B1948AC02000B74CE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7614A1948AC02000B74CE /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,9 +55,11 @@
 		D286499219493D7E005DB9F0 /* twoD_math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twoD_math.swift; sourceTree = "<group>"; };
 		D286499E19494426005DB9F0 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
 		D286499F19494426005DB9F0 /* oneD_fft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneD_fft.swift; sourceTree = "<group>"; };
-		D28A54DD1961D36100C798DF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		D28A54DF1961D39100C798DF /* machine_learning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = machine_learning.swift; sourceTree = "<group>"; };
 		D29F8807194AD81D00FC7D99 /* objc_swift_conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objc_swift_conversion.swift; sourceTree = "<group>"; };
+		D2A58C511961D55E00D82918 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/opencv2.framework; sourceTree = "<group>"; };
+		D2A58C551961DD2100D82918 /* machine_learning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = machine_learning.m; sourceTree = "<group>"; };
+		D2A58C571961DE5200D82918 /* machine_learning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = machine_learning.h; sourceTree = "<group>"; };
 		D2C761471948AC02000B74CE /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C7614A1948AC02000B74CE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D28A54DE1961D36100C798DF /* opencv2.framework in Frameworks */,
+				D2A58C521961D55E00D82918 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +91,8 @@
 			children = (
 				D233B998194AAC6400302690 /* oneD_cmath.m */,
 				D262BDC4195CAAB600B30196 /* twoD_cmath.m */,
+				D2A58C551961DD2100D82918 /* machine_learning.m */,
+				D2A58C571961DE5200D82918 /* machine_learning.h */,
 				D29F8807194AD81D00FC7D99 /* objc_swift_conversion.swift */,
 				D233B997194AAC6300302690 /* swix-Bridging-Header.h */,
 			);
@@ -131,7 +136,7 @@
 		D2C7613E1948AC02000B74CE = {
 			isa = PBXGroup;
 			children = (
-				D28A54DD1961D36100C798DF /* opencv2.framework */,
+				D2A58C511961D55E00D82918 /* opencv2.framework */,
 				D286498B19493D7E005DB9F0 /* swix */,
 				D2C761491948AC02000B74CE /* tests */,
 				D2C761481948AC02000B74CE /* Products */,
@@ -216,6 +221,7 @@
 				D262BDC5195CAAB600B30196 /* twoD_cmath.m in Sources */,
 				D286499919493D7E005DB9F0 /* twoD_math.swift in Sources */,
 				D286499719493D7E005DB9F0 /* twoD.swift in Sources */,
+				D2A58C561961DD2100D82918 /* machine_learning.m in Sources */,
 				D28A54E01961D39100C798DF /* machine_learning.swift in Sources */,
 				D28649A019494426005DB9F0 /* numbers.swift in Sources */,
 				D29F8808194AD81D00FC7D99 /* objc_swift_conversion.swift in Sources */,
@@ -315,6 +321,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/swix",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -330,6 +337,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/swix",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
