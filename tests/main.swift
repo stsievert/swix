@@ -264,6 +264,37 @@ reverse_test()
 pluseq_test()
 
 
+var svm = SVM()
+println(svm.train())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
