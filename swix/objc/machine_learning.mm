@@ -35,7 +35,7 @@ CvSVMParams params;
     Mat xMat(M, N, CV_32FC1, x2);
     
     float * t = NSArrayToDouble(targets);
-    Mat tMat(4, 1, CV_32FC1, t);
+    Mat tMat(M, 1, CV_32FC1, t);
     
     Mat xx = Mat();
     ocvSVM.train(xMat, tMat, xx, xx, params);
