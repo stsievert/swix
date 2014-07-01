@@ -95,6 +95,8 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 * [ScalarArithemetic][scalar]
 
 
+[opencv]:http://opencv.org
+[scalar]:https://github.com/seivan/ScalarArithmetic
 [complex]:https://github.com/dankogai/swift-complex
 [numpy]:http://www.numpy.org
 [accel]:https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465
