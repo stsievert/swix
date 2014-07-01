@@ -12,31 +12,75 @@
 #import <opencv2/core/core.hpp>
 #import <opencv2/highgui/highgui.hpp>
 #import <opencv2/ml/ml.hpp>
-
-@implementation SVM : NSObject
-
+double* NSArray2dToDouble(NSArray * x);
+float* NSArrayToDouble(NSArray * x);
 using namespace cv;
-- (void) train {
-    CvSVM SVM;
-    
-    CvSVMParams params;
-    params.svm_type = CvSVM::C_SVC;
+
+@implementation cvSVM : NSObject
+
+CvSVM ocvSVM;
+CvSVMParams params;
+-(NSObject*)init{
+    params.svm_type    = CvSVM::C_SVC;
     params.kernel_type = CvSVM::LINEAR;
-    params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+    return self;
+}
+-(void) train:(NSArray *)x targets:(NSArray *)targets{
+    // M is the number of responses or rows; N is columns or variables
+    int M = (int)[x count];
+    int N = (int)[[x objectAtIndex:0] count];
     
+    double * x2 = NSArray2dToDouble(x);
+    Mat xMat(M, N, CV_32FC1, x2);
     
-    float trainingData[4][2] = { {501, 10}, {255, 10}, {501, 255}, {10, 501} };
-    Mat trainingDataMat(4, 2, CV_32FC1, trainingData);
+    float * t = NSArrayToDouble(targets);
+    Mat tMat(4, 1, CV_32FC1, t);
     
-    float labels[4] = {1.0, -1.0, -1.0, -1.0};
-    Mat labelsMat(4, 1, CV_32FC1, labels);
-    
-    Mat x = Mat();
-    
-    SVM.train(trainingDataMat, labelsMat, x, x, params);
+    Mat xx = Mat();
+    ocvSVM.train(xMat, tMat, xx, xx, params);
 }
 - (void) predict {
 }
-
-
 @end
+
+double* NSArray2dToDouble(NSArray * x){
+    unsigned long N = [x count];
+    unsigned long M = [[x objectAtIndex:0] count];
+    double * y = (double *)malloc(sizeof(double) * N * M);
+    for (int i=0; i<N; i++){
+        for (int j=0; j<M; j++){
+            y[i*M + j] = [[[x objectAtIndex:i] objectAtIndex:j] doubleValue];
+        }
+    }
+    return y;
+}
+float* NSArrayToDouble(NSArray * x){
+    int N = (int)[x count];
+    float * y = (float *)malloc(sizeof(float) * N);
+    for (int i=0; i<N; i++){
+        y[i] = [[x objectAtIndex:i] floatValue];
+    }
+    return y;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,12 +11,11 @@
 #import <opencv2/highgui/highgui.hpp>
 #import <opencv2/ml/ml.hpp>
 
-@interface SVM : NSObject{
+@interface cvSVM : NSObject{
 }
 
-//@property (strong, nonatomic) cv::CvSVM SVM;
 
-- (void) train;
+- (void) train:(NSArray *) x targets:(NSArray*)tar;
 - (void) predict;
 
 @end

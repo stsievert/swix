@@ -265,9 +265,7 @@ pluseq_test()
 
 
 var svm = SVM()
-println(svm.train())
-
-
+svm.train(ones((4,4)), targets:ones(4))
 
 
 
