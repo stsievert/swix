@@ -35,6 +35,10 @@ use a function, just look at NumPy's docs or swix's docs in the wiki.
 ## Usage
 1. Download this repo.
 2. Include the folder `swix` in your project.
+3. [Modify you XCode project][br-he] to include swix's bridging header at
+   `<PROJECT-NAME>/swix/objc/swix-Bridging-Header.h`.
+
+[br-he]:http://stackoverflow.com/a/24102433/1141256
 
 Boom. Done. 
 
@@ -84,6 +88,9 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
   vectors. This can be integrated with [swift-complex][complex].
 * better 2D matrix implementation. An array of arrays or a class that uses `matrix[row*width +
   column]`?
+
+## Third party packages
+* [swift-complex][complex]
 
 
 [complex]:https://github.com/dankogai/swift-complex
