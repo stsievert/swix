@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D233B999194AAC6400302690 /* oneD_cmath.m in Sources */ = {isa = PBXBuildFile; fileRef = D233B998194AAC6400302690 /* oneD_cmath.m */; };
-		D236C61C1951730000CEC0CE /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236C6181951730000CEC0CE /* complex.swift */; };
-		D236C61E1951730000CEC0CE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D236C61B1951730000CEC0CE /* README.md */; };
 		D262BDC5195CAAB600B30196 /* twoD_cmath.m in Sources */ = {isa = PBXBuildFile; fileRef = D262BDC4195CAAB600B30196 /* twoD_cmath.m */; };
 		D286499319493D7E005DB9F0 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286498C19493D7E005DB9F0 /* constants.swift */; };
 		D286499419493D7E005DB9F0 /* oneD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286498D19493D7E005DB9F0 /* oneD.swift */; };
@@ -21,6 +19,9 @@
 		D28649A019494426005DB9F0 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286499E19494426005DB9F0 /* numbers.swift */; };
 		D28649A119494426005DB9F0 /* oneD_fft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286499F19494426005DB9F0 /* oneD_fft.swift */; };
 		D28A54E01961D39100C798DF /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A54DF1961D39100C798DF /* machine_learning.swift */; };
+		D29DC905196261FF00AB1008 /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29DC901196261FF00AB1008 /* complex.swift */; };
+		D29DC906196261FF00AB1008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29DC903196261FF00AB1008 /* main.swift */; };
+		D29DC907196261FF00AB1008 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D29DC904196261FF00AB1008 /* README.md */; };
 		D29F8808194AD81D00FC7D99 /* objc_swift_conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29F8807194AD81D00FC7D99 /* objc_swift_conversion.swift */; };
 		D2A58C521961D55E00D82918 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A58C511961D55E00D82918 /* opencv2.framework */; };
 		D2A58C561961DD2100D82918 /* machine_learning.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A58C551961DD2100D82918 /* machine_learning.m */; };
@@ -42,9 +43,6 @@
 /* Begin PBXFileReference section */
 		D233B997194AAC6300302690 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
 		D233B998194AAC6400302690 /* oneD_cmath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = oneD_cmath.m; sourceTree = "<group>"; };
-		D236C6181951730000CEC0CE /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complex.swift; sourceTree = "<group>"; };
-		D236C6191951730000CEC0CE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D236C61B1951730000CEC0CE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D262BDC4195CAAB600B30196 /* twoD_cmath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twoD_cmath.m; sourceTree = "<group>"; };
 		D286498C19493D7E005DB9F0 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		D286498D19493D7E005DB9F0 /* oneD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneD.swift; sourceTree = "<group>"; };
@@ -56,6 +54,10 @@
 		D286499E19494426005DB9F0 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
 		D286499F19494426005DB9F0 /* oneD_fft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneD_fft.swift; sourceTree = "<group>"; };
 		D28A54DF1961D39100C798DF /* machine_learning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = machine_learning.swift; sourceTree = "<group>"; };
+		D29DC901196261FF00AB1008 /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complex.swift; sourceTree = "<group>"; };
+		D29DC902196261FF00AB1008 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D29DC903196261FF00AB1008 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D29DC904196261FF00AB1008 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D29F8807194AD81D00FC7D99 /* objc_swift_conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objc_swift_conversion.swift; sourceTree = "<group>"; };
 		D2A58C511961D55E00D82918 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/opencv2.framework; sourceTree = "<group>"; };
 		D2A58C551961DD2100D82918 /* machine_learning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = machine_learning.m; sourceTree = "<group>"; };
@@ -76,16 +78,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D236C6171951730000CEC0CE /* swift-complex */ = {
-			isa = PBXGroup;
-			children = (
-				D236C6181951730000CEC0CE /* complex.swift */,
-				D236C6191951730000CEC0CE /* LICENSE */,
-				D236C61B1951730000CEC0CE /* README.md */,
-			);
-			path = "swift-complex";
-			sourceTree = "<group>";
-		};
 		D262BDC6195CAC8F00B30196 /* objc */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,9 +125,22 @@
 			path = swix;
 			sourceTree = "<group>";
 		};
+		D29DC900196261FF00AB1008 /* swift-complex */ = {
+			isa = PBXGroup;
+			children = (
+				D29DC901196261FF00AB1008 /* complex.swift */,
+				D29DC902196261FF00AB1008 /* LICENSE */,
+				D29DC903196261FF00AB1008 /* main.swift */,
+				D29DC904196261FF00AB1008 /* README.md */,
+			);
+			name = "swift-complex";
+			path = "swix/swift-complex";
+			sourceTree = "<group>";
+		};
 		D2C7613E1948AC02000B74CE = {
 			isa = PBXGroup;
 			children = (
+				D29DC900196261FF00AB1008 /* swift-complex */,
 				D2A58C511961D55E00D82918 /* opencv2.framework */,
 				D286498B19493D7E005DB9F0 /* swix */,
 				D2C761491948AC02000B74CE /* tests */,
@@ -155,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				D2C7614A1948AC02000B74CE /* main.swift */,
-				D236C6171951730000CEC0CE /* swift-complex */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -216,21 +220,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29DC905196261FF00AB1008 /* complex.swift in Sources */,
 				D28649A119494426005DB9F0 /* oneD_fft.swift in Sources */,
+				D29DC906196261FF00AB1008 /* main.swift in Sources */,
 				D286499619493D7E005DB9F0 /* oneD_math.swift in Sources */,
 				D262BDC5195CAAB600B30196 /* twoD_cmath.m in Sources */,
 				D286499919493D7E005DB9F0 /* twoD_math.swift in Sources */,
+				D29DC907196261FF00AB1008 /* README.md in Sources */,
 				D286499719493D7E005DB9F0 /* twoD.swift in Sources */,
 				D2A58C561961DD2100D82918 /* machine_learning.m in Sources */,
 				D28A54E01961D39100C798DF /* machine_learning.swift in Sources */,
 				D28649A019494426005DB9F0 /* numbers.swift in Sources */,
 				D29F8808194AD81D00FC7D99 /* objc_swift_conversion.swift in Sources */,
-				D236C61C1951730000CEC0CE /* complex.swift in Sources */,
 				D2C7614B1948AC02000B74CE /* main.swift in Sources */,
 				D286499419493D7E005DB9F0 /* oneD.swift in Sources */,
 				D286499519493D7E005DB9F0 /* oneD_arth.swift in Sources */,
 				D233B999194AAC6400302690 /* oneD_cmath.m in Sources */,
-				D236C61E1951730000CEC0CE /* README.md in Sources */,
 				D286499819493D7E005DB9F0 /* twoD_arth.swift in Sources */,
 				D286499319493D7E005DB9F0 /* constants.swift in Sources */,
 			);

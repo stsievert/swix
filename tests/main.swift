@@ -226,6 +226,11 @@ func pluseq_test(){
 //    assert(x == y)
     println(" *  TODO: make += work right")
 }
+func complex_test(){
+    var x = 1 + 1.i
+    assert(abs(x) == sqrt(2))
+    println("    scalar (not vector) imaginary numbers work through swift-complex")
+}
 
 println("Preforming tests...")
 addTest_1D()
@@ -262,6 +267,7 @@ transpose_test()
 //sort_test()
 reverse_test()
 pluseq_test()
+complex_test()
 
 
 
