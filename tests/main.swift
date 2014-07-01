@@ -270,7 +270,9 @@ pluseq_test()
 complex_test()
 
 
-
+var x:Double = e
+println(log(e))
+println(sqrt(e))
 
 
 

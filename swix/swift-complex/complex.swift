@@ -9,15 +9,15 @@
 import Darwin   // Foundation is overkill
 
 extension Double {
-    static var PI:Double { return atan2(0, -1) }
+    static var PI:Double { return 3.14159265358979323846264338327950288419716939937510 }
     static var π:Double { return PI }
-    static var E:Double { return exp(1) }
+    static var E:Double { return 2.7182818284590452353602874713526624977572470936999 }
     static var e:Double { return E }
-    static var LN2:Double { return log(2) }
+    static var LN2:Double { return 0.6931471805599453094172321214581765680755001343602552 }
     static var LOG2E:Double { return 1/LN2 }
-    static var LN10:Double { return log(10) }
+    static var LN10:Double { return 2.3025850929940456840179914546843642076011014886287729 }
     static var LOG10E:Double { return 1/LN10 }
-    static var SQRT2:Double { return sqrt(2) }
+    static var SQRT2:Double { return 1.4142135623730950488016887242096980785696718753769480 }
     static var SQRT1_2:Double { return 1/SQRT2 }
     static var inf:Double { return 1.0/0.0 }
     var i:Complex { return Complex(0, self) }
