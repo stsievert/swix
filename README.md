@@ -90,7 +90,7 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 * [swix-complex][complex]
 * [ScalarArithemetic][scalar]
 
-
+[opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic
 [complex]:https://github.com/dankogai/swift-complex
 [numpy]:http://www.numpy.org
