@@ -1,6 +1,3 @@
 [submodule "swift-complex"]
     path = swix/swix-complex
     url = https://github.com/dankogai/swift-complex.git
-[submodule "ScalarArithmetic"]
-    path = swix/ScalarArithmetic
-    url = https://github.com/seivan/ScalarArithmetic.git
