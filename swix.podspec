@@ -20,9 +20,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/scottsievert/swix"
   s.author             = { "scottsievert" => "sieve121@umn.edu" }
   s.social_media_url   = "http://twitter.com/stsievert"
-  #s.source       = { :git => "https://github.com/scottsievert/swix.git", :tag => "0.0.1" }
-  s.source       = { :git => "https://github.com/scottsievert/swix.git" }
-  s.frameworks  = "swift-complex", "opencv2"
+  s.source       = { :git => "https://github.com/scottsievert/swix.git", :commit => "a7c6282a15"}
+  s.frameworks  = "swift-complex", "OpenCV"
   s.license = "MIT"
   s.requires_arc = true
 
