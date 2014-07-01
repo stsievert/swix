@@ -9,14 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-<<<<<<< HEAD
-            filePath = "swift-complex/main.swift"
-            timestampString = "425877880.855202"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79">
-=======
             filePath = "swix/objc/machine_learning.mm"
             timestampString = "425933046.838418"
             startingColumnNumber = "9223372036854775807"
@@ -41,7 +33,6 @@
             endingLineNumber = "43"
             landmarkName = "-train:targets:"
             landmarkType = "5">
->>>>>>> svm
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

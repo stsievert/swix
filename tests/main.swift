@@ -270,9 +270,42 @@ pluseq_test()
 complex_test()
 
 
-var x:Double = e
-println(log(e))
-println(sqrt(e))
+var svm = SVM()
+var r = arange(4*16)
+var responses = reshape(r, (4, 16))
+var targets = arange(4)
+svm.train(responses, targets: targets)
+
+var y = arange(16)
+var tp = svm.predict(y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> svm
 
 
 

@@ -116,5 +116,3 @@ NSArray*  NSArrayWith2DDouble(double * x, int n, int m){
 
 
 
-
-
