@@ -17,21 +17,13 @@ class SVM{
     }
     func train(responses: matrix2d, targets: matrix){
         // convert matrix2d to NSArray
-        var r = arange(4*6)
-        var shape = (Int(4), Int(6))
-        var r1_5 = reshape(r, shape)
-        var r2:NSArray = NSArray(array: r1_5)
-        
-        var t = arange(4)
-        var t2:NSArray = NSArray(array: t)
-        
+        var r2:NSArray = NSArray(array: responses)
+        var t2:NSArray = NSArray(array: targets)
         self.cvsvm.train(r2, targets:t2)
-        
-        // call self.cvsvm.train()
-        // convert NSArray to matrix2d
     }
-    func predict(){
-        
+    func predict(response: matrix) -> Double{
+        var r = NSArray(array: response) // response
+        var tp = self.cvsvm.predict(r); // target_predicted
+        return tp.double; // since double 'default' value
     }
-    
 }

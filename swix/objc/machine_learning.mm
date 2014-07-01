@@ -20,6 +20,8 @@ using namespace cv;
 
 CvSVM ocvSVM;
 CvSVMParams params;
+int N; // number of variables
+int M; // number of responses
 -(NSObject*)init{
     params.svm_type    = CvSVM::C_SVC;
     params.kernel_type = CvSVM::LINEAR;
@@ -28,8 +30,8 @@ CvSVMParams params;
 }
 -(void) train:(NSArray *)x targets:(NSArray *)targets{
     // M is the number of responses or rows; N is columns or variables
-    int M = (int)[x count];
-    int N = (int)[[x objectAtIndex:0] count];
+    M = (int)[x count];
+    N = (int)[[x objectAtIndex:0] count];
     
     double * x2 = NSArray2dToDouble(x);
     Mat xMat(M, N, CV_32FC1, x2);
@@ -40,7 +42,11 @@ CvSVMParams params;
     Mat xx = Mat();
     ocvSVM.train(xMat, tMat, xx, xx, params);
 }
-- (void) predict {
+- (float) predict:(NSArray *)x {
+    float * response = NSArrayToDouble(x);
+    Mat rMat(1, N, CV_32FC1, response);
+    float targetPredict = ocvSVM.predict(rMat);
+    return targetPredict;
 }
 @end
 

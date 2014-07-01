@@ -16,6 +16,6 @@
 
 
 - (void) train:(NSArray *) x targets:(NSArray*)tar;
-- (void) predict;
+- (float) predict:(NSArray *)x;
 
 @end
