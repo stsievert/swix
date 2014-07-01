@@ -44,7 +44,7 @@ int M; // number of responses
 }
 - (float) predict:(NSArray *)x {
     float * response = NSArrayToDouble(x);
-    Mat rMat(1, N, CV_32FC1, response);
+    Mat rMat(1, (int)[x count], CV_32FC1, response);
     float targetPredict = ocvSVM.predict(rMat);
     return targetPredict;
 }

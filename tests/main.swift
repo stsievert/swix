@@ -273,11 +273,13 @@ complex_test()
 var svm = SVM()
 var r = arange(4*16)
 var responses = reshape(r, (4, 16))
+responses[0][0] = -100
 var targets = arange(4)
 svm.train(responses, targets: targets)
 
-var y = arange(16)
+var y = ones(16)
 var tp = svm.predict(y)
+println(tp)
 
 
 
