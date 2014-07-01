@@ -305,7 +305,6 @@ var tp = svm.predict(y)
 
 
 
->>>>>>> svm
 
 
 
