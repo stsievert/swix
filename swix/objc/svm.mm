@@ -16,6 +16,7 @@ double* NSArray2dToDouble(NSArray * x);
 float* NSArrayToDouble(NSArray * x);
 using namespace cv;
 
+// #### STATE VECTOR MACHINE
 @implementation cvSVM : NSObject
 
 CvSVM ocvSVM;
@@ -50,6 +51,8 @@ int M; // number of responses
 }
 @end
 
+
+// #### HELPER FUNCTIONS
 double* NSArray2dToDouble(NSArray * x){
     unsigned long N = [x count];
     unsigned long M = [[x objectAtIndex:0] count];
@@ -70,6 +73,9 @@ float* NSArrayToDouble(NSArray * x){
     return y;
 }
 
+void SVMtest(){
+    
+}
 
 
 

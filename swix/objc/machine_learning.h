@@ -11,11 +11,15 @@
 #import <opencv2/highgui/highgui.hpp>
 #import <opencv2/ml/ml.hpp>
 
+// #### SVM (svm.mm)
 @interface cvSVM : NSObject{
 }
-
-
 - (void) train:(NSArray *) x targets:(NSArray*)tar;
 - (float) predict:(NSArray *)x;
+@end
 
+// #### k nearest neighbors (knn.mm)
+@interface kNN : NSObject{
+}
+- (float) predict;
 @end

@@ -271,18 +271,27 @@ complex_test()
 
 
 var svm = SVM()
-var r = arange(4*16)
-var responses = reshape(r, (4, 16))
-responses[0][0] = -100
-var targets = arange(4)
+//var r = arange(4*16)
+var r = ones(2*3)
+var responses = reshape(r, (2, 3))
+for i in 0..3{
+    responses[1][i] = -1
+}
+
+var targets = ones(2)
+targets[1] = -1
 svm.train(responses, targets: targets)
 
-var y = ones(16)
+var y = -1 * ones(3)
 var tp = svm.predict(y)
+print("The predicted result for [")
+print(y)
+print("] is ")
 println(tp)
 
 
-
+var k = kNearestNeighbors()
+println(k.T)
 
 
 

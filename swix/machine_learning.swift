@@ -31,9 +31,19 @@ class SVM {
         self.cvsvm.train(r2, targets:t2)
     }
     func predict(response: matrix) -> Double{
-        assert(self.N == response.count)
+        assert(self.N == response.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
         var r = NSArray(array: response) // response
         var tp = self.cvsvm.predict(r); // target_predicted
         return tp.double; // since double 'default' value
+    }
+}
+
+class kNearestNeighbors{
+    var T:Double
+    var knn:kNN;
+    init(){
+        self.T = 1
+        self.knn = kNN()
+        println(self.knn.predict())
     }
 }

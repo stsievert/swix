@@ -26,7 +26,8 @@ Currently, this library gives you
 * easy initializers for 1D and 2D arrays
 * various functions (sin, etc) and operators (+, etc) that operate on entire arrays
 * dot product
-* FFTs (1D only)
+* machine learning algorithm (SVD, SVM, more to come)
+* FFTs
 
 When I was crafting this library, I primarily depended on [NumPy][numpy]. The
 syntax and operators are relatively similar, so if you're in doubt on how to
