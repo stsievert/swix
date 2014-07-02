@@ -1,0 +1,325 @@
+Tswix
+v7
+r1
+cCheck dependencies
+cCompileSwift normal x86_64 com.apple.xcode.tools.swift.compiler
+cDitto /Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-Swift.h
+cCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.o /Users/scott/Developer/swix/swix/objc/twoD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.o /Users/scott/Developer/swix/swix/objc/svm.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.o /Users/scott/Developer/swix/swix/objc/oneD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.o /Users/scott/Developer/swix/swix/objc/knn.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cDitto /Users/scott/Developer/swix/build/Release/swix.swiftmodule/x86_64.swiftmodule /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule
+cLd /Users/scott/Developer/swix/build/Release/swix normal x86_64
+cGenerateDSYMFile /Users/scott/Developer/swix/build/Release/swix.dSYM /Users/scott/Developer/swix/build/Release/swix
+
+CCheck dependencies
+r0
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies5da365aea563b941^7d259caea563b941^-152"warning: no rule to process file '/Users/scott/Developer/swix/swix/swift-complex/README.md' of type net.daringfireball.markdown for architecture x86_641(21%IDEActivityLogMessage2@151"Warning: no rule to process file '/Users/scott/Developer/swix/swix/swift-complex/README.md' of type net.daringfireball.markdown for architecture x86_64-425960878#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#1#--18"Check dependencies36"4BBC0735-2389-4DD2-AB74-5F1A4A099466-
+
+CCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.o /Users/scott/Developer/swix/swix/objc/knn.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s425960891.505870
+e425960894.356004
+r1
+xCompileC
+xbuild/swix.build/Release/swix.build/Objects-normal/x86_64/knn.o
+x/Users/scott/Developer/swix/swix/objc/knn.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/scott/Developer/swix/swix/objc/knn.mm
+d/Users/scott/Developer/swix/swix/objc/machine_learning.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/opencv.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/core_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/types_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/core.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/version.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/operations.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/mat.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/flann/miniflann.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/flann/defines.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/flann/config.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/imgproc_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/types_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/imgproc.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/photo/photo.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/photo/photo_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/features2d/features2d.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/objdetect/objdetect.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/calib3d/calib3d.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/ml/ml.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/highgui/highgui_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/highgui/highgui.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/contrib/contrib.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/contrib/retina.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/contrib/openfabmap.hpp
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Compile /Users/scott/Developer/swix/swix/objc/knn.mm169"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.o swix/objc/knn.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler15a881bba563b941^b5345bbea563b941^---0#0#1#-19%DVTDocumentLocation2@51"file:///Users/scott/Developer/swix/swix/objc/knn.mm0000000000000000^3073"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.o swix/objc/knn.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/scott/Developer/swix    export LANG=en_US.US-ASCII    /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=163 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=gnu++11 -stdlib=libc++ -fobjc-arc -fmodules -fmodules-prune-interval=86400 -fmodules-prune-after=345600 -Wnon-modular-include-in-framework-module -Werror=non-modular-include-in-framework-module -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wunreachable-code -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DNS_BLOCK_ASSERTIONS=1 -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -isysroot /Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-generated-files.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-own-target-headers.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-all-target-headers.hmap -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-project-headers.hmap -I/Users/scott/Developer/swix/build/Release/include -I/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/x86_64 -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources -F/Users/scott/Developer/swix/build/Release -F/Users/scott/Developer/swix -F/Users/scott/Developer/swix/swix -MMD -MT dependencies -MF /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.d --serialize-diagnostics /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.dia -c /Users/scott/Developer/swix/swix/objc/knn.mm -o /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.o36"04AB3971-BF95-4D9A-9BF2-FFD3F4B62C6E-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.o /Users/scott/Developer/swix/swix/objc/oneD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s425960891.505261
+e425960894.482117
+r1
+xCompileC
+xbuild/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.o
+x/Users/scott/Developer/swix/swix/objc/oneD_cmath.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/scott/Developer/swix/swix/objc/oneD_cmath.m
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Compile /Users/scott/Developer/swix/swix/objc/oneD_cmath.m180"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.o swix/objc/oneD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler308381bba563b941^446d7bbea563b941^---0#0#1#-19%DVTDocumentLocation2@57"file:///Users/scott/Developer/swix/swix/objc/oneD_cmath.m0000000000000000^2965"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.o swix/objc/oneD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/scott/Developer/swix    export LANG=en_US.US-ASCII    /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=163 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=gnu99 -fobjc-arc -fmodules -fmodules-prune-interval=86400 -fmodules-prune-after=345600 -Wnon-modular-include-in-framework-module -Werror=non-modular-include-in-framework-module -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wunreachable-code -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DNS_BLOCK_ASSERTIONS=1 -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -isysroot /Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.9 -g -fvisibility=hidden -Wno-sign-conversion -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-generated-files.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-own-target-headers.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-all-target-headers.hmap -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-project-headers.hmap -I/Users/scott/Developer/swix/build/Release/include -I/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/x86_64 -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources -F/Users/scott/Developer/swix/build/Release -F/Users/scott/Developer/swix -F/Users/scott/Developer/swix/swix -MMD -MT dependencies -MF /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.d --serialize-diagnostics /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.dia -c /Users/scott/Developer/swix/swix/objc/oneD_cmath.m -o /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.o36"B00073E6-D89B-4CFA-B3EA-F3A09263864F-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.o /Users/scott/Developer/swix/swix/objc/svm.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s425960891.504931
+e425960894.477541
+r1
+xCompileC
+xbuild/swix.build/Release/swix.build/Objects-normal/x86_64/svm.o
+x/Users/scott/Developer/swix/swix/objc/svm.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/scott/Developer/swix/swix/objc/svm.mm
+d/Users/scott/Developer/swix/swix/objc/machine_learning.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/opencv.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/core_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/types_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/core.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/version.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/operations.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/mat.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/flann/miniflann.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/flann/defines.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/flann/config.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/imgproc_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/types_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/imgproc.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/photo/photo.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/photo/photo_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/features2d/features2d.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/objdetect/objdetect.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/calib3d/calib3d.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/ml/ml.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/highgui/highgui_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/highgui/highgui.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/contrib/contrib.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/contrib/retina.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/contrib/openfabmap.hpp
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Compile /Users/scott/Developer/swix/swix/objc/svm.mm169"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.o swix/objc/svm.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler707c81bba563b941^b8407abea563b941^---0#0#1#-19%DVTDocumentLocation2@51"file:///Users/scott/Developer/swix/swix/objc/svm.mm0000000000000000^3073"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.o swix/objc/svm.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/scott/Developer/swix    export LANG=en_US.US-ASCII    /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=163 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=gnu++11 -stdlib=libc++ -fobjc-arc -fmodules -fmodules-prune-interval=86400 -fmodules-prune-after=345600 -Wnon-modular-include-in-framework-module -Werror=non-modular-include-in-framework-module -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wunreachable-code -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DNS_BLOCK_ASSERTIONS=1 -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -isysroot /Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-generated-files.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-own-target-headers.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-all-target-headers.hmap -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-project-headers.hmap -I/Users/scott/Developer/swix/build/Release/include -I/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/x86_64 -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources -F/Users/scott/Developer/swix/build/Release -F/Users/scott/Developer/swix -F/Users/scott/Developer/swix/swix -MMD -MT dependencies -MF /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.d --serialize-diagnostics /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.dia -c /Users/scott/Developer/swix/swix/objc/svm.mm -o /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.o36"A2C2B906-1AAB-47E9-8963-7E9D5545FB7B-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CCompileC build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.o /Users/scott/Developer/swix/swix/objc/twoD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s425960891.504757
+e425960895.713944
+r1
+xCompileC
+xbuild/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.o
+x/Users/scott/Developer/swix/swix/objc/twoD_cmath.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/scott/Developer/swix/swix/objc/twoD_cmath.m
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Compile /Users/scott/Developer/swix/swix/objc/twoD_cmath.m180"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.o swix/objc/twoD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler2c6581bba563b941^47c6b6bfa563b941^---0#0#1#-19%DVTDocumentLocation2@57"file:///Users/scott/Developer/swix/swix/objc/twoD_cmath.m0000000000000000^2965"[1mCompileC[0m build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.o swix/objc/twoD_cmath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/scott/Developer/swix    export LANG=en_US.US-ASCII    /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=163 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=gnu99 -fobjc-arc -fmodules -fmodules-prune-interval=86400 -fmodules-prune-after=345600 -Wnon-modular-include-in-framework-module -Werror=non-modular-include-in-framework-module -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wunreachable-code -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DNS_BLOCK_ASSERTIONS=1 -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -isysroot /Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.9 -g -fvisibility=hidden -Wno-sign-conversion -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-generated-files.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-own-target-headers.hmap -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-all-target-headers.hmap -iquote /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-project-headers.hmap -I/Users/scott/Developer/swix/build/Release/include -I/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/x86_64 -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources -F/Users/scott/Developer/swix/build/Release -F/Users/scott/Developer/swix -F/Users/scott/Developer/swix/swix -MMD -MT dependencies -MF /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.d --serialize-diagnostics /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.dia -c /Users/scott/Developer/swix/swix/objc/twoD_cmath.m -o /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.o36"64314891-E9AA-4892-AADA-D67517D4177C-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CCompileSwift normal x86_64 com.apple.xcode.tools.swift.compiler
+s425960878.611113
+e425960891.493184
+r1
+xCompileSwift
+xnormal
+xx86_64
+xcom.apple.xcode.tools.swift.compiler
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/ml/ml.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/imgproc.hpp
+d/Users/scott/Developer/swix/tests/main.swift
+d/Users/scott/Developer/swix/swix/objc/machine_learning.h
+d/Users/scott/Developer/swix/swix/swift-complex/main.swift
+d/Users/scott/Developer/swix/swix/swift-complex/complex.swift
+d/Users/scott/Developer/swix/swix/ScalarArithmetic/ScalarArithmetic.swift
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/highgui/highgui.hpp
+d/Users/scott/Developer/swix/swix/oneD/oneD.swift
+d/Users/scott/Developer/swix/swix/twoD/twoD.swift
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/imgproc_c.h
+d/Users/scott/Developer/swix/swix/machine_learning.swift
+d/Users/scott/Developer/swix/swix/objc/objc_swift_conversion.swift
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/imgproc/types_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/core_c.h
+d/Users/scott/Developer/swix/swix/objc/swix-Bridging-Header.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/objdetect/objdetect.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/version.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/highgui/highgui_c.h
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/flann/miniflann.hpp
+d/Users/scott/Developer/swix/swix/oneD/oneD_math.swift
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/opencv.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/photo/photo_c.h
+d/Users/scott/Developer/swix/swix/constants.swift
+d/Users/scott/Developer/swix/swix/numbers.swift
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/types_c.h
+d/Users/scott/Developer/swix/swix/oneD/oneD_arth.swift
+d/Users/scott/Developer/swix/swix/twoD/twoD_math.swift
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/operations.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/calib3d/calib3d.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/features2d/features2d.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/core.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/contrib/contrib.hpp
+d/Users/scott/Developer/swix/swix/oneD/oneD_fft.swift
+d/Users/scott/Developer/swix/swix/twoD/twoD_arth.swift
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/photo/photo.hpp
+d/Users/scott/Developer/swix/swix/opencv2.framework/Headers/core/mat.hpp
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection26"Compile Swift source files71"[1mCompileSwift[0m normal x86_64 com.apple.xcode.tools.swift.compiler3eaf9caea563b941^70417ebba563b941^---0#0#1#--2644"[1mCompileSwift[0m normal x86_64 com.apple.xcode.tools.swift.compiler    cd /Users/scott/Developer/swix    /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift -target x86_64-apple-macosx10.9 -module-name swix -O3 -sdk /Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -g -I /Users/scott/Developer/swix/build/Release -F /Users/scott/Developer/swix/build/Release -F /Users/scott/Developer/swix -F /Users/scott/Developer/swix/swix -c -j4 /Users/scott/Developer/swix/swix/swift-complex/complex.swift /Users/scott/Developer/swix/swix/ScalarArithmetic/ScalarArithmetic.swift /Users/scott/Developer/swix/swix/oneD/oneD_fft.swift /Users/scott/Developer/swix/swix/swift-complex/main.swift /Users/scott/Developer/swix/swix/oneD/oneD_math.swift /Users/scott/Developer/swix/swix/twoD/twoD_math.swift /Users/scott/Developer/swix/swix/twoD/twoD.swift /Users/scott/Developer/swix/swix/machine_learning.swift /Users/scott/Developer/swix/swix/numbers.swift /Users/scott/Developer/swix/swix/objc/objc_swift_conversion.swift /Users/scott/Developer/swix/tests/main.swift /Users/scott/Developer/swix/swix/oneD/oneD.swift /Users/scott/Developer/swix/swix/oneD/oneD_arth.swift /Users/scott/Developer/swix/swix/twoD/twoD_arth.swift /Users/scott/Developer/swix/swix/constants.swift -output-file-map /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-OutputFileMap.json -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule -Xcc -iquote -Xcc /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-generated-files.hmap -Xcc -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-own-target-headers.hmap -Xcc -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-all-target-headers.hmap -Xcc -iquote -Xcc /Users/scott/Developer/swix/build/swix.build/Release/swix.build/swix-project-headers.hmap -Xcc -I/Users/scott/Developer/swix/build/Release/include -Xcc -I/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -Xcc -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/x86_64 -Xcc -I/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-Swift.h -import-objc-header /Users/scott/Developer/swix/swix/objc/swix-Bridging-Header.h36"FE1E7A33-E0A7-4BD7-BDED-6E030866AEDA-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CDitto /Users/scott/Developer/swix/build/Release/swix.swiftmodule/x86_64.swiftmodule /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule
+s425960894.356451
+e425960894.365815
+r1
+xDitto
+x/Users/scott/Developer/swix/build/Release/swix.swiftmodule/x86_64.swiftmodule
+x/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection16"Copy swiftmodule138"[1mDitto[0m build/Release/swix.swiftmodule/x86_64.swiftmodule build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodulec95a5bbea563b941^e7a65dbea563b941^---0#0#1#-19%DVTDocumentLocation2@84"file:///Users/scott/Developer/swix/build/Release/swix.swiftmodule/x86_64.swiftmodule0034b46ddfffdf42^380"[1mDitto[0m build/Release/swix.swiftmodule/x86_64.swiftmodule build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule    cd /Users/scott/Developer/swix    /usr/bin/ditto -rsrc /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule /Users/scott/Developer/swix/build/Release/swix.swiftmodule/x86_64.swiftmodule36"A6AA0EAF-EA28-4D45-97C8-9F62C578EEAB-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CDitto /Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-Swift.h
+s425960891.497958
+e425960891.504048
+r1
+xDitto
+x/Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h
+x/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-Swift.h
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Copy /Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h148"[1mDitto[0m build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-Swift.h658c7fbba563b941^350a81bba563b941^---0#0#1#-19%DVTDocumentLocation2@98"file:///Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h0034b46ddfffdf42^400"[1mDitto[0m build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-Swift.h    cd /Users/scott/Developer/swix    /usr/bin/ditto -rsrc /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix-Swift.h /Users/scott/Developer/swix/build/swix.build/Release/swix.build/DerivedSources/swix-Swift.h36"888F772A-7B12-45C7-9DF3-EAFCAD0B9B29-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CGenerateDSYMFile /Users/scott/Developer/swix/build/Release/swix.dSYM /Users/scott/Developer/swix/build/Release/swix
+s425960895.968621
+e425960896.027936
+r1
+xGenerateDSYMFile
+x/Users/scott/Developer/swix/build/Release/swix.dSYM
+x/Users/scott/Developer/swix/build/Release/swix
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Generate /Users/scott/Developer/swix/build/Release/swix.dSYM67"[1mGenerateDSYMFile[0m build/Release/swix.dSYM build/Release/swix240bf8bfa563b941^672707c0a563b941^---0#0#1#-19%DVTDocumentLocation2@58"file:///Users/scott/Developer/swix/build/Release/swix.dSYM0034b46ddfffdf42^311"[1mGenerateDSYMFile[0m build/Release/swix.dSYM build/Release/swix    cd /Users/scott/Developer/swix    /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/scott/Developer/swix/build/Release/swix -o /Users/scott/Developer/swix/build/Release/swix.dSYM36"DEAA48FD-F045-4616-B8F7-0B43F56C09DB-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
+CLd /Users/scott/Developer/swix/build/Release/swix normal x86_64
+s425960895.715766
+e425960895.964919
+r1
+xLd
+x/Users/scott/Developer/swix/build/Release/swix
+xnormal
+xx86_64
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.LinkFileList
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/complex.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/ScalarArithmetic.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_fft.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/main-BE35C3200EE9DA5B.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_math.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_math.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/machine_learning.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/numbers.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/objc_swift_conversion.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/main-8C4B1ECAE54B1265.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_arth.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_arth.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/constants.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/twoD_cmath.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/svm.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/oneD_cmath.o
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/knn.o
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/libswift_stdlib_core.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_macosx.a
+d/Users/scott/Developer/swix/swix/opencv2.framework/opencv2
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libobjc.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libc++.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/DiskArbitration.framework/DiskArbitration
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Accelerate
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreText.framework/CoreText
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ImageIO.framework/ImageIO
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOSurface.framework/IOSurface
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Security.framework/Security
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOKit.framework/IOKit
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/CoreServices
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/libswiftDispatch.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/libswiftDarwin.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/libswiftFoundation.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/libswiftCoreGraphics.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/libswiftObjectiveC.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSync.framework/Versions/A/ColorSync
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/LangAnalysis.framework/Versions/A/LangAnalysis
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libextension.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libcache.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libcommonCrypto.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libcompiler_rt.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libcopyfile.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libcorecrypto.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libdyld.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libkeymgr.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/liblaunch.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libmacho.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libquarantine.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libremovefile.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_asl.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_blocks.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_c.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_configuration.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_coreservices.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_coretls.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_dnssd.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_info.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_kernel.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_m.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_malloc.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_networkextension.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_notify.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_platform.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_pthread.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_sandbox.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_secinit.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_stats.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libsystem_trace.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libunc.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libunwind.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/system/libxpc.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+d/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+d/Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"Link /Users/scott/Developer/swix/build/Release/swix43"[1mLd[0m build/Release/swix normal x86_64a453b7bfa563b941^3e06f7bfa563b941^---0#0#1#--1650"[1mLd[0m build/Release/swix normal x86_64    cd /Users/scott/Developer/swix    export MACOSX_DEPLOYMENT_TARGET=10.9    /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -L/Users/scott/Developer/swix/build/Release -F/Users/scott/Developer/swix/build/Release -F/Users/scott/Developer/swix -F/Users/scott/Developer/swix/swix -filelist /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.LinkFileList -Xlinker -rpath -Xlinker @executable_path/../Frameworks -Xlinker -rpath -Xlinker @loader_path/../Frameworks -mmacosx-version-min=10.9 -lswift_stdlib_core -L/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -Xlinker -rpath -Xlinker /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -Xlinker -force_load -Xlinker /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_macosx.a -Xlinker -sectalign -Xlinker __SWIFT -Xlinker __ast -Xlinker 4 -Xlinker -sectcreate -Xlinker __SWIFT -Xlinker __ast -Xlinker /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix.swiftmodule -fobjc-arc -fobjc-link-runtime -stdlib=libc++ -framework opencv2 -Xlinker -dependency_info -Xlinker /Users/scott/Developer/swix/build/swix.build/Release/swix.build/Objects-normal/x86_64/swix_dependency_info.dat -o /Users/scott/Developer/swix/build/Release/swix36"41F6507E-9671-4F60-9317-6C7589D5ACA2-
+b457E9EC8-F2FA-40AF-ABA5-D245072AB206
+
