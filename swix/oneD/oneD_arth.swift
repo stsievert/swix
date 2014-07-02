@@ -7,6 +7,26 @@
 //
 
 import Foundation
+
+@assignment func += (inout x: matrix, right: Double){
+    for i in 0..x.count{
+        x[i] = x[i] + right
+    }
+}
+@assignment func *= (inout x: matrix, right: Double){
+    for i in 0..x.count{
+        x[i] = x[i] * right
+    }
+}
+
+operator infix <>= {associativity none precedence 140}
+@assignment func <>= (inout x: matrix, right: Double){
+    for i in 0..x.count{
+        x[i] = right
+    }
+}
+
+
 // ARTITHEMETIC OPERATORS
 // +
 operator infix + {associativity none precedence 140}

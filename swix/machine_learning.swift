@@ -64,7 +64,7 @@ class kNearestNeighbors{
     func predict(x: matrix, k: Int) -> Double{
         assert(self.N == x.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
         assert(k <= 32, "k <= 32 for performance reasons enforced by OpenCV.")
-        var result = self.knn.predict(y, k:CInt(k))
+        var result = self.knn.predict(x, k:CInt(k))
         return result.double;
     }
 }

@@ -10,6 +10,19 @@ import Foundation
 
 // ARITHMETIC OPERATORS
 // +
+
+@assignment func += (inout x: matrix2d, right: Double){
+    for i in 0..x.count{
+        x[i] = x[i] + right
+    }
+}
+@assignment func *= (inout x: matrix2d, right: Double){
+    for i in 0..x.count{
+        x[i] = x[i] * right
+    }
+}
+
+
 operator infix + {associativity none precedence 140}
 func + (left: matrix2d, right: matrix2d) -> matrix2d{
     if left.count != right.count{

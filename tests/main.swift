@@ -222,15 +222,21 @@ func pluseq_test(){
     var x = ones(4)
     x += 1
     var y = ones(4)*2
-//    println(x)
-//    assert(x == y)
-    println(" *  TODO: make += work right")
+    assert(x == y)
+    println("    += works like you'd expect it to")
 }
 func complex_test(){
     var x = 1 + 1.i
     assert(abs(x) == sqrt(2))
     println("    scalar (not vector) imaginary numbers work through swift-complex")
 }
+func rangeAssign_test(){
+    var x = ones(4)
+    x <>= 3
+    assert(x == ones(4)*3)
+    println("    x <>= 3 means that every element in x is 3.")
+}
+
 
 println("Preforming tests...")
 addTest_1D()
@@ -267,23 +273,26 @@ transpose_test()
 //sort_test()
 reverse_test()
 pluseq_test()
+rangeAssign_test()
 complex_test()
 
 
 func svm_test(){
     var svm = SVM()
     //var r = arange(4*16)
-    var r = ones(2*3)
-    var responses = reshape(r, (2, 3))
-    for i in 0..3{
+    let N = 16
+    let M = 4
+    var r = ones(M*N)
+    var responses = reshape(r, (M, N))
+    for i in 0..N{
         responses[1][i] = -1
     }
 
-    var targets = ones(2)
+    var targets = ones(M)
     targets[1] = -1
     svm.train(responses, targets: targets)
 
-    var y = -1 * ones(3)
+    var y = -1 * ones(N)
     var tp = svm.predict(y)
     print("The predicted result for [")
     print(y)
@@ -291,31 +300,15 @@ func svm_test(){
     println(tp)
 }
 
-var k = kNearestNeighbors()
-var x = ones((13, 19))
-var targets = arange(3)
+func knn_test(){
+    var k = kNearestNeighbors()
+    var x = ones((13, 19))
+    var targets = arange(3)
 
-var y = ones(19)
-k.train(x, targets: targets)
-var result = k.predict(y, k:32)
-println(result)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    var y = ones(19)
+    k.train(x, targets: targets)
+    var result = k.predict(y, k:32)
+}
 
 
 

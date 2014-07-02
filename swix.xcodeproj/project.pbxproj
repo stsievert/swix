@@ -28,6 +28,7 @@
 		D2A58C521961D55E00D82918 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A58C511961D55E00D82918 /* opencv2.framework */; };
 		D2A58C561961DD2100D82918 /* svm.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2A58C551961DD2100D82918 /* svm.mm */; };
 		D2C7614B1948AC02000B74CE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7614A1948AC02000B74CE /* main.swift */; };
+		D2E850B4196481F30060CE87 /* pca.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2E850B3196481F30060CE87 /* pca.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,7 @@
 		D2A58C571961DE5200D82918 /* machine_learning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = machine_learning.h; sourceTree = "<group>"; };
 		D2C761471948AC02000B74CE /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C7614A1948AC02000B74CE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D2E850B3196481F30060CE87 /* pca.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pca.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				D262BDC4195CAAB600B30196 /* twoD_cmath.m */,
 				D23A63681963A124005F4B3E /* knn.mm */,
 				D2A58C551961DD2100D82918 /* svm.mm */,
+				D2E850B3196481F30060CE87 /* pca.mm */,
 				D2A58C571961DE5200D82918 /* machine_learning.h */,
 				D29F8807194AD81D00FC7D99 /* objc_swift_conversion.swift */,
 				D233B997194AAC6300302690 /* swix-Bridging-Header.h */,
@@ -241,6 +244,7 @@
 				D29DC906196261FF00AB1008 /* main.swift in Sources */,
 				D286499619493D7E005DB9F0 /* oneD_math.swift in Sources */,
 				D262BDC5195CAAB600B30196 /* twoD_cmath.m in Sources */,
+				D2E850B4196481F30060CE87 /* pca.mm in Sources */,
 				D286499919493D7E005DB9F0 /* twoD_math.swift in Sources */,
 				D29DC907196261FF00AB1008 /* README.md in Sources */,
 				D286499719493D7E005DB9F0 /* twoD.swift in Sources */,
