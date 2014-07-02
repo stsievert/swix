@@ -54,7 +54,6 @@ func array(s: String) -> matrix2d{
         mat[j] = row
         j++
     }
-    
     return mat
 }
 /// zeros((2,2)) = matrix([[0, 0], [0, 0]])
@@ -92,7 +91,7 @@ func println(x: matrix2d, format: String = "%.3f")  {
     if NumRows < 16{
         for i in 0..NumRows{
             if i==0{
-                print("matrix([")
+                print("matrix(")
             }else{
                 print("       [")
             }
@@ -106,7 +105,7 @@ func println(x: matrix2d, format: String = "%.3f")  {
     }else{
         for i in 0..8{
             if i==0{
-                print("matrix([")
+                print("matrix(")
             }else{
                 print("       ")
             }
@@ -116,9 +115,7 @@ func println(x: matrix2d, format: String = "%.3f")  {
             }
             print("\n")
         }
-        println("        ...\t\t\t\t\t\t\t\t\t\t\t...")
-        println("        ...\t\t\t\t\t\t\t\t\t\t\t...")
-        println("        ...\t\t\t\t\t\t\t\t\t\t\t...")
+        println("        ...\t\t\t\t\t\t\t\t\t\t\t\t...")
         for i in NumRows-8..NumRows{
             if i==0{
                 print("[")
@@ -131,8 +128,6 @@ func println(x: matrix2d, format: String = "%.3f")  {
             }
             print("\n")
         }
-        
-
     }
 }
 
@@ -159,7 +154,6 @@ func transpose (x: matrix2d) -> matrix2d{
             y[i][j] = x[j][i]
         }
     }
-    
     return y
 }
 

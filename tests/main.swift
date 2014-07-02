@@ -316,13 +316,6 @@ func knn_test(){
 }
 
 
-var x = ones(32)
-println(x)
-var y = ones((32, 32))
-println(y)
-
-
-
 
 
 

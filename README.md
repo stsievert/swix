@@ -36,8 +36,10 @@ use a function, just look at NumPy's docs or swix's docs in the wiki.
 ## Usage
 1. Download this repo.
 2. Include the folder `swix` in your project.
-3. [Modify you XCode project][br-he] to include swix's bridging header at
-   `<PROJECT-NAME>/swix/objc/swix-Bridging-Header.h`.
+3. Include the declarations in `swix/objc/swift-Bridging-Header.h` in your
+   project. You can add these to your own bridging header and changing the
+   paths or [modify your xcode project][br-he] to make that the bridging
+   header.
 
 [br-he]:http://stackoverflow.com/a/24102433/1141256
 
