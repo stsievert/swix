@@ -73,20 +73,56 @@ func println(x: matrix, format: String = "%.3f")  {
     let N = x.count
     var suffix = ", "
     print("matrix([")
-    for i in 0..N{
-        if i == (N-1) { suffix = ""}
-        print(NSString(format: format+suffix, x[i]))
+    if N < 16{
+        for i in 0..N{
+            if i == (N-1) { suffix = ""}
+            print(NSString(format: format+suffix, x[i]))
+        }
+        
+    } else{
+        for i in 0..8{
+            if i==(8-1) { suffix = ""}
+            print(NSString(format: format+suffix, x[i]))
+        }
+        suffix = ", "
+        print(", ... ")
+        for i in N-8..N{
+            if i==(N-1) { suffix = ""}
+            print(NSString(format: format+suffix, x[i]))
+        }
+        
+        
     }
     print("])\n")
 }
-func print(x: matrix, format: String="%.3f")  {
+func print(x: matrix, prefix: String = "matrix([", postfix: String="])", format: String="%.3f")  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let N = x.count
     var suffix = ", "
-    for i in 0..N{
-        if i == (N-1) { suffix = ""}
-        print(NSString(format: format+suffix, x[i]))
+//    print("matrix([")
+    print(prefix)
+    if N < 16{
+        for i in 0..N{
+            if i == (N-1) { suffix = ""}
+            print(NSString(format: format+suffix, x[i]))
+        }
+        
+    } else{
+        for i in 0..8{
+            if i==(8-1) { suffix = ""}
+            print(NSString(format: format+suffix, x[i]))
+        }
+        suffix = ", "
+        print(", ... ")
+        for i in N-8..N{
+            if i==(N-1) { suffix = ""}
+            print(NSString(format: format+suffix, x[i]))
+        }
+        
+        
     }
+    print(postfix)
+
 }
 // EQUALITY OPERATORS
 // ~== : almost equal

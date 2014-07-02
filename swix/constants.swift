@@ -9,6 +9,11 @@
 import Foundation
 import Accelerate
 
+// mathematical constants
+let pi = 3.14159265358979323846264338327950288419716939937510582
+let e  = 2.71828182845904523536028747135266249775724709369995
+let phi = (1 + sqrt(5))/2
+
 typealias matrix = Array<Double>
 typealias matrix2d = Array<Array<Double>>
 
@@ -20,21 +25,6 @@ extension Array{
         // ran into issues here. tried `let N = self[0].shape` which works for 2D arrays but compiler fail
         return ones(4)
     }
-//    subscript(indexes: Range<Int>) -> Double {
-//        get {
-//            return -1.0;
-//        }
-//        set {
-//            for i in indexes{
-//                self[i] = Int(2.0)
-//            }
-//            return self
-//        }
-//    }
 }
 
-// mathematical constants
-let pi = 3.14159265358979323846264338327950288419716939937510582
-let e  = 2.71828182845904523536028747135266249775724709369995
-let phi = 1.6180339887498948482
 

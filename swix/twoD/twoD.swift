@@ -89,18 +89,50 @@ func println(x: matrix2d, format: String = "%.3f")  {
     /* print arrays nicely for small arrays. not nice for larger arrays */
     let NumRows = x.count
     print("\n")
-    for i in 0..NumRows{
-        if i==0{
-            print("matrix([")
-        }else{
-            print("       [")
+    if NumRows < 16{
+        for i in 0..NumRows{
+            if i==0{
+                print("matrix([")
+            }else{
+                print("       [")
+            }
+            print(x[i] as matrix, format: format)
+            print("]")
+            if i==(NumRows-1){
+                print(")")
+            }
+            print("\n")
         }
-        print(x[i] as matrix, format: format)
-        print("]")
-        if i==(NumRows-1){
-            print(")")
+    }else{
+        for i in 0..8{
+            if i==0{
+                print("matrix([")
+            }else{
+                print("       ")
+            }
+            print(x[i] as matrix, format: format, prefix: "[", postfix: "]")
+            if i==(NumRows-1){
+                print(")")
+            }
+            print("\n")
         }
-        print("\n")
+        println("        ...\t\t\t\t\t\t\t\t\t\t\t...")
+        println("        ...\t\t\t\t\t\t\t\t\t\t\t...")
+        println("        ...\t\t\t\t\t\t\t\t\t\t\t...")
+        for i in NumRows-8..NumRows{
+            if i==0{
+                print("[")
+            }else{
+                print("       ")
+            }
+            print(x[i] as matrix, format: format, prefix: "[", postfix: "]")
+            if i==(NumRows-1){
+                print(")")
+            }
+            print("\n")
+        }
+        
+
     }
 }
 

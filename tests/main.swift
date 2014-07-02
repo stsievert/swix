@@ -203,7 +203,7 @@ func transpose_test(){
     var y = array("1 4 7; 2 5 8; 3 6 9")
     assert(x == transpose(y))
     println("    transpose works")
-    println("      TODO: tranpose(x) = x.T")
+    println(" *    TODO: tranpose(x) = x.T")
 }
 func sort_test(){
     var x = array(1, 5, 4)
@@ -235,6 +235,10 @@ func rangeAssign_test(){
     x <>= 3
     assert(x == ones(4)*3)
     println("    x <>= 3 means that every element in x is 3.")
+}
+func scalar_arth_test(){
+    assert(Double(5.0) + Int(5) == 10)
+    println("    Int(5) + Double(5) == 10 through ScalarArithmetic")
 }
 
 
@@ -275,6 +279,7 @@ reverse_test()
 pluseq_test()
 rangeAssign_test()
 complex_test()
+scalar_arth_test()
 
 
 func svm_test(){
@@ -311,8 +316,10 @@ func knn_test(){
 }
 
 
-
-
+var x = ones(32)
+println(x)
+var y = ones((32, 32))
+println(y)
 
 
 
