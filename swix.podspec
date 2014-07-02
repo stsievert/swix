@@ -1,8 +1,20 @@
 Pod::Spec.new do |s|
   s.name         = "swix"
   s.version      = "0.0.1"
-  s.summary      = "Swift Matrix Library"
-  s.description  = "This was written to allow help facilitate easy conversion
+  s.source_files = "swix/*"
+  s.source       = { :git => "https://github.com/scottsievert/swix.git", :commit => "a7c6282a15"}
+  s.frameworks   = "swift-complex", "OpenCV", "ScalarArithmetic"
+
+
+
+
+  s.license          = "MIT"
+  s.author           = { "scottsievert" => "sieve121@umn.edu" }
+  s.homepage         = "https://github.com/scottsievert/swix"
+  s.social_media_url = "http://twitter.com/stsievert"
+  s.requires_arc     = true
+  s.summary          = "Swift Matrix Library"
+  s.description      = "This was written to allow help facilitate easy conversion
                    between heavy signal processing algorithms onto mobile devices. 
                    Before, this required converting between Python/Matlab to C
                    which was a huge pain. This helps with that transition.
@@ -17,12 +29,5 @@ Pod::Spec.new do |s|
                    * OpenCV library
                    * swift-complex
                    "
-  s.homepage     = "https://github.com/scottsievert/swix"
-  s.author             = { "scottsievert" => "sieve121@umn.edu" }
-  s.social_media_url   = "http://twitter.com/stsievert"
-  s.source       = { :git => "https://github.com/scottsievert/swix.git", :commit => "a7c6282a15"}
-  s.frameworks  = "swift-complex", "OpenCV"
-  s.license = "MIT"
-  s.requires_arc = true
 
 end
