@@ -7,6 +7,7 @@
 //
 
 import Foundation
+let ML_ERR_MSG:String = "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of." // huh, assert can't accept this as an arg
 
 class SVM {
     // swift --> objc --> objc++ --> c++
@@ -39,11 +40,49 @@ class SVM {
 }
 
 class kNearestNeighbors{
+    // finds the nearest neighbor over all points. if want to change, dive into knn.mm and change `int k = cvknn.get_max_k();` in `predict(...)`
     var T:Double
     var knn:kNN;
+    var N:Int; // variables
+    var M:Int; // responses
     init(){
         self.T = 1
         self.knn = kNN()
-        println(self.knn.predict())
+        self.N = -1
+        self.M = -1
+    }
+    func train(x: matrix2d, targets: matrix){
+        var x2 = NSArray(array: x)
+        var t = NSArray(array: targets)
+        
+        self.M = x.count
+        self.N = x[0].count
+        
+        self.knn.train(x, targets: t)
+        
+    }
+    func predict(x: matrix, k: Int) -> Double{
+        assert(self.N == x.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
+        assert(k <= 32, "k <= 32 for performance reasons enforced by OpenCV.")
+        var result = self.knn.predict(y, k:CInt(k))
+        return result.double;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

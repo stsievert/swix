@@ -21,5 +21,6 @@
 // #### k nearest neighbors (knn.mm)
 @interface kNN : NSObject{
 }
-- (float) predict;
+- (void) train:(NSArray *)x targets:(NSArray *)tar;
+- (float) predict:(NSArray *)x k:(int)k;
 @end

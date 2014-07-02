@@ -270,29 +270,35 @@ pluseq_test()
 complex_test()
 
 
-var svm = SVM()
-//var r = arange(4*16)
-var r = ones(2*3)
-var responses = reshape(r, (2, 3))
-for i in 0..3{
-    responses[1][i] = -1
+func svm_test(){
+    var svm = SVM()
+    //var r = arange(4*16)
+    var r = ones(2*3)
+    var responses = reshape(r, (2, 3))
+    for i in 0..3{
+        responses[1][i] = -1
+    }
+
+    var targets = ones(2)
+    targets[1] = -1
+    svm.train(responses, targets: targets)
+
+    var y = -1 * ones(3)
+    var tp = svm.predict(y)
+    print("The predicted result for [")
+    print(y)
+    print("] is ")
+    println(tp)
 }
 
-var targets = ones(2)
-targets[1] = -1
-svm.train(responses, targets: targets)
-
-var y = -1 * ones(3)
-var tp = svm.predict(y)
-print("The predicted result for [")
-print(y)
-print("] is ")
-println(tp)
-
-
 var k = kNearestNeighbors()
-println(k.T)
+var x = ones((13, 19))
+var targets = arange(3)
 
+var y = ones(19)
+k.train(x, targets: targets)
+var result = k.predict(y, k:32)
+println(result)
 
 
 
