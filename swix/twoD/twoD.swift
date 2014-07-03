@@ -87,10 +87,9 @@ func println(x: matrix2d, format: String = "%.3f")  {
             if i==0{
                 print("matrix(")
             }else{
-                print("       [")
+                print("       ")
             }
-            print(x[i] as matrix, format: format)
-            print("]")
+            print(x[i] as matrix, format: format, prefix: "[", postfix: "]")
             if i==(NumRows-1){
                 print(")")
             }

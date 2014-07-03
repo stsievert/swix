@@ -102,4 +102,46 @@ func l0norm(x: matrix) -> Double{
     }
     return norm.double
 }
+func cumsum(x: matrix) -> matrix{
+    let N = x.count
+    var y = zeros(N)
+    for i in 0..N{
+        if i==0{
+            y[i] = x[0]
+        }
+        else if i==1{
+            y[i] = x[0] + x[1]
+        }
+        else{
+            y[i] = x[i] + y[i-1]
+        }
+    }
+    return y
+}
 
+func rand() -> Double{
+    var x = Int(arc4random()) / pow(2, 32)
+    return x
+}
+func randn() -> Double{
+    var u:Double = rand()
+    var v:Double = rand()
+    var x = sqrt(-2*log(u))*cos(2*pi*v);
+    return x
+}
+func randn(N: Int, mean: Double=0, sigma: Double=1) -> matrix{
+    var x = zeros(N)
+    for i in 0..N{
+        x[i] = randn()
+    }
+    var y = (x * sigma) + mean;
+    return y
+}
+
+func rand(N: Int) -> matrix{
+    var x = zeros(N)
+    for i in 0..N{
+        x[i] = rand()
+    }
+    return x
+}

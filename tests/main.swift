@@ -316,6 +316,3 @@ func knn_test(){
 }
 
 
-
-
-
