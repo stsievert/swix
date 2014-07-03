@@ -16,9 +16,9 @@ With Swift (and this library), it's just `var x = ones(N) * 3`.
 
 While this library is basic (most of it hacked together in two days), I expect
 something like [NumPy][numpy] to be released: a mathematical library that
-includes more than needed. I should mention that in most cases, this library
-just wraps Swift and does not call other libraries, such as the powerful
-[Accelerate framework][accel]. If you want to add a feature, feel free to
+includes more than needed. In most cases, this library just wraps Swift.
+However, in other cases it calls the [Accelerate framework][accel] or
+[OpenCV][opencv].. If you want to add a feature, feel free to
 submit a pull request.
 
 Currently, this library gives you
@@ -93,6 +93,7 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
   column]`?
 
 ## Third Party Frameworks/Libraries
+* [Accelerate][accel]
 * [OpenCV][opencv]
 * [swix-complex][complex]
 * [ScalarArithemetic][scalar]
