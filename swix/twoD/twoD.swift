@@ -9,13 +9,7 @@
 import Foundation
 import Accelerate
 
-// nice initing
-/// array("[1 2; 3 4]") == matrix([1, 2], [3, 4]). Note that this string requires a semicolon after every row except for the last row. the semicolon has to come right after the number. the braces can be dropped if need be, but I include them.
-/// stricly uses the format "[1 2; 3 4]". spaces, semicolons, etc all in the same place (more rows/cols allowed)
-///  specifically
-///      * no space between `[` and first number: gives extra row
-///      * no semicolon after last number: throws error
-///      * braces (`[]`) can be dropped ("1 2; 3 4" gives same result)
+/// nice initing. array("[1 2 3; 4 5 6; 7 8 9]") // exactly!
 func array(s: String) -> matrix2d{
     var t = s;
     if s.hasPrefix("[") {
