@@ -18,7 +18,7 @@ While this library is basic (most of it hacked together in two days), I expect
 something like [NumPy][numpy] to be released: a mathematical library that
 includes more than needed. In most cases, this library just wraps Swift.
 However, in other cases it calls the [Accelerate framework][accel] or
-[OpenCV][opencv].. If you want to add a feature, feel free to
+[OpenCV][opencv]. If you want to add a feature, feel free to
 submit a pull request.
 
 Currently, this library gives you

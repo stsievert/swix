@@ -18,7 +18,6 @@ let inf = 1.0 / 0.0
 let sqrt2 = sqrt(2)
 let epsilon = DBL_EPSILON // smallest difference of two doubles
 
-
 typealias matrix = Array<Double>
 typealias matrix2d = Array<Array<Double>>
 
