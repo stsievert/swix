@@ -12,7 +12,7 @@ import Accelerate
 /// applies the function to every element of an array and takes only that argument. This is just a simple for-loop. If you want to use some custom fancy function, define it yourself.
 func apply_function(function: Double->Double, x: matrix) -> matrix{
     var y = zeros(x.count)
-    for i in 0..x.count{
+    for i in 0..<x.count{
         y[i] = function(x[i])
     }
     return y
@@ -58,7 +58,7 @@ func ceil(x: matrix) -> matrix{
 }
 func pow(x: matrix, power: Double) -> matrix{
     var y = zeros(x.count)
-    for i in 0..x.count{
+    for i in 0..<x.count{
         y[i] = pow(x[i], power)
     }
     return y
@@ -66,7 +66,7 @@ func pow(x: matrix, power: Double) -> matrix{
 func sum(x: matrix) -> Double{
     var y = zeros(x.count)
     var s: Double = 0
-    for i in 0..x.count{
+    for i in 0..<x.count{
         s = x[i] + s
     }
     return s
@@ -95,7 +95,7 @@ func l1norm(x: matrix) -> Double{
 }
 func l0norm(x: matrix) -> Double{
     var norm = 0
-    for i in 0..x.count{
+    for i in 0..<x.count{
         if x[i] != 0{
             norm += 1
         }

@@ -35,7 +35,7 @@ func fft(x: matrix) -> (matrix, matrix){
     var yi = zeros(x.count)
     
     // slow but nice
-    for i in 0..x.count{
+    for i in 0..<x.count{
         yr[i] = yy[i].real
         yi[i] = yy[i].imag
     }
