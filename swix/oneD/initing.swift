@@ -10,21 +10,21 @@ import Foundation
 func diag(x: Double...) -> matrix2d{
     let N = x.count
     var y = zeros((N,N))
-    for i in 0..N{
+    for i in 0..<N{
         y[i][i] = x[i]
     }
     return y
 }
 func eye(N: Int) -> matrix2d{
     var x = zeros((N,N))
-    for i in 0..N{
+    for i in 0..<N{
         x[i][i] = 1
     }
     return x
 }
 func linspace(min: Double, max: Double, num: Int=50) -> matrix{
     var x = zeros(num)
-    for i in 0..num{
+    for i in 0..<num{
         x[i] = min + i*(max - min) / num
     }
     return x
@@ -40,14 +40,14 @@ func arange(max: Double, x exclusive: Bool = true) -> matrix{
     var pad = 0
     if !exclusive {pad = 1}
     var x = zeros(max.int+pad)
-    for i in 0..max.int+pad{
+    for i in 0..<max.int+pad{
         x[i] = i.double
     }
     return x
 }
 func asmatrix(x: Slice<Double>) -> matrix{
     var y = zeros(x.count)
-    for i in 0..x.count{
+    for i in 0..<x.count{
         y[i] = x[i]
     }
     return y
@@ -81,7 +81,7 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> matrix{
     var pad = 0
     if !exclusive {pad = 1}
     var x = zeros(max.int - min.int + pad)
-    for i in 0..max.int-min.int+pad{
+    for i in 0..<max.int-min.int+pad{
         x[i] = i.double + min
     }
     return x

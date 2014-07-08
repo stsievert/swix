@@ -21,19 +21,19 @@ func println(x: matrix, format: String = "%.3f")  {
     var suffix = ", "
     print("matrix([")
     if N < 16{
-        for i in 0..N{
+        for i in 0..<N{
             if i == (N-1) { suffix = ""}
             print(NSString(format: format+suffix, x[i]))
         }
         
     } else{
-        for i in 0..8{
+        for i in 0..<8{
             if i==(8-1) { suffix = ""}
             print(NSString(format: format+suffix, x[i]))
         }
         suffix = ", "
         print(", ... ")
-        for i in N-8..N{
+        for i in N-8..<N{
             if i==(N-1) { suffix = ""}
             print(NSString(format: format+suffix, x[i]))
         }
@@ -49,19 +49,19 @@ func print(x: matrix, prefix: String = "matrix([", postfix: String="])", format:
 //    print("matrix([")
     print(prefix)
     if N < 16{
-        for i in 0..N{
+        for i in 0..<N{
             if i == (N-1) { suffix = ""}
             print(NSString(format: format+suffix, x[i]))
         }
         
     } else{
-        for i in 0..8{
+        for i in 0..<8{
             if i==(8-1) { suffix = ""}
             print(NSString(format: format+suffix, x[i]))
         }
         suffix = ", "
         print(", ... ")
-        for i in N-8..N{
+        for i in N-8..<N{
             if i==(N-1) { suffix = ""}
             print(NSString(format: format+suffix, x[i]))
         }
@@ -83,7 +83,7 @@ func ~== (left: matrix, right: matrix) -> Bool{
     var N = left.count
     var x = zeros(N)
     var not_false = 0
-    for i in 0..N{
+    for i in 0..<N{
         if (left[i] - right[i]) > 1e-9{
             return false
         }
@@ -101,7 +101,7 @@ func == (left: matrix, right: matrix) -> Bool{
     var N = left.count
     var x = zeros(N)
     var not_false = 0
-    for i in 0..N{
+    for i in 0..<N{
         if left[i] != right[i]{
             return false
         }

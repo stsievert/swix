@@ -105,7 +105,7 @@ func l0norm(x: matrix) -> Double{
 func cumsum(x: matrix) -> matrix{
     let N = x.count
     var y = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         if i==0{
             y[i] = x[0]
         }
@@ -131,7 +131,7 @@ func randn() -> Double{
 }
 func randn(N: Int, mean: Double=0, sigma: Double=1) -> matrix{
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = randn()
     }
     var y = (x * sigma) + mean;
@@ -140,7 +140,7 @@ func randn(N: Int, mean: Double=0, sigma: Double=1) -> matrix{
 
 func rand(N: Int) -> matrix{
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = rand()
     }
     return x

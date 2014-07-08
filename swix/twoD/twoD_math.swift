@@ -9,8 +9,8 @@
 import Foundation
 func apply_function(function: Double->Double, x: matrix2d) -> matrix2d{
     var y = zeros((x.count, x[0].count))
-    for i in 0..x.count{
-        for j in 0..x[0].count{
+    for i in 0..<x.count{
+        for j in 0..<x[0].count{
             y[i][j] = function(x[i][j])
         }
     }
@@ -50,8 +50,8 @@ func ceil(x: matrix2d) -> matrix2d{
 }
 func pow(x: matrix2d, power: Double) -> matrix2d{
     var y = zeros((x.count, x[0].count))
-    for i in 0..x.count{
-        for j in 0..x[0].count{
+    for i in 0..<x.count{
+        for j in 0..<x[0].count{
             y[i][j] = pow(x[i][j], power)
         }
     }
@@ -59,8 +59,8 @@ func pow(x: matrix2d, power: Double) -> matrix2d{
 }
 func sum(x: matrix2d) -> Double{
     var s: Double = 0
-    for i in 0..x.count{
-        for j in 0..x[0].count{
+    for i in 0..<x.count{
+        for j in 0..<x[0].count{
             s = x[i][j] + s
         }
     }
@@ -90,8 +90,8 @@ func l1norm(x: matrix2d) -> Double{
 }
 func l0norm(x: matrix2d) -> Double{
     var norm = 0
-    for i in 0..x.count{
-        for j in 0..x[0].count{
+    for i in 0..<x.count{
+        for j in 0..<x[0].count{
             if x[i][j] != 0{
                 norm += 1
             }
@@ -102,7 +102,7 @@ func l0norm(x: matrix2d) -> Double{
 func diag(diagonal: matrix) -> matrix2d{
     let N = diagonal.count
     var x = zeros((N,N))
-    for i in 0..N{
+    for i in 0..<N{
         x[i][i] = diagonal[i]
     }
     return x
@@ -114,10 +114,10 @@ func dot(left: matrix2d, right: matrix2d) -> matrix2d{
     var M = left.count
     var N = right[0].count
     var ans = zeros((M, N))
-    for i in 0..left.count{
-        for j in 0..right[0].count{
+    for i in 0..<left.count{
+        for j in 0..<right[0].count{
             var row = left[i]
-            var column = right[0..right.count][j]
+            var column = right[0..<right.count][j]
             ans[j][i] = getElement(row, column)
         }
     }
@@ -135,9 +135,9 @@ func svd(m: matrix2d) -> (matrix2d, matrix, matrix2d){
     var x:matrix = convertDoubleToMatrix(xxx, sn+sn*sn+sm*sm)
     let nS = min(sm, sn)
     
-    var s2 = x[0..nS]
-    var v2 = x[nS..sm*sm+nS]
-    var u2 = x[sm*sm+nS..(nS+sm*sm) + sn*sn]
+    var s2 = x[0..<nS]
+    var v2 = x[nS..<sm*sm+nS]
+    var u2 = x[sm*sm+nS..<(nS+sm*sm) + sn*sn]
     
     var s = asmatrix(s2)
     var uR = asmatrix(u2)

@@ -175,7 +175,7 @@ func fft_test(){
 }
 func constant_assign_test(){
     var x = ones(4)
-    x[2..4] = [2, 2]
+    x[2..<4] = [2, 2]
     assert(x == array(1, 1, 2, 2))
     println(" ** BUG: cannot assign x[2..4] = 2 (but can do x[2..4] = [2, 2])")
 }
@@ -289,7 +289,7 @@ func svm_test(){
     let M = 4
     var r = ones(M*N)
     var responses = reshape(r, (M, N))
-    for i in 0..N{
+    for i in 0..<N{
         responses[1][i] = -1
     }
 

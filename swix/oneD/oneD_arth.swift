@@ -9,19 +9,19 @@
 import Foundation
 
 @assignment func += (inout x: matrix, right: Double){
-    for i in 0..x.count{
+    for i in 0..<x.count{
         x[i] = x[i] + right
     }
 }
 @assignment func *= (inout x: matrix, right: Double){
-    for i in 0..x.count{
+    for i in 0..<x.count{
         x[i] = x[i] * right
     }
 }
 
 operator infix <>= {associativity none precedence 140}
 @assignment func <>= (inout x: matrix, right: Double){
-    for i in 0..x.count{
+    for i in 0..<x.count{
         x[i] = right
     }
 }
@@ -48,7 +48,7 @@ func + (left: matrix, right: matrix) -> matrix{
 func + (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left + right[i]
     }
     //    var input = left.bridgeToObjectiveC().doubleValue
@@ -61,7 +61,7 @@ func + (left: Double, right: matrix) -> matrix{
 func + (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left[i] + right
     }
     return x
@@ -75,7 +75,7 @@ func - (left: matrix, right: matrix) -> matrix{
     assert(left.count == right.count)
     var N = left.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left[i] - right[i]
     }
     return x
@@ -83,7 +83,7 @@ func - (left: matrix, right: matrix) -> matrix{
 func - (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left - right[i]
     }
     return x
@@ -91,7 +91,7 @@ func - (left: Double, right: matrix) -> matrix{
 func - (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left[i] - right
     }
     return x
@@ -107,7 +107,7 @@ func * (left: matrix, right: matrix) -> matrix{
     assert(left.count == right.count)
     var N = left.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left[i] * right[i]
     }
     return x
@@ -115,7 +115,7 @@ func * (left: matrix, right: matrix) -> matrix{
 func * (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left * right[i]
     }
     return x
@@ -123,7 +123,7 @@ func * (left: Double, right: matrix) -> matrix{
 func * (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left[i] * right
     }
     return x
@@ -137,7 +137,7 @@ func / (left: matrix, right: matrix) -> matrix{
     assert(left.count == right.count)
     var N = left.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left[i] / right[i]
     }
     return x
@@ -145,7 +145,7 @@ func / (left: matrix, right: matrix) -> matrix{
 func / (left: Double, right: matrix) -> matrix{
     var N = right.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left / right[i]
     }
     return x
@@ -153,7 +153,7 @@ func / (left: Double, right: matrix) -> matrix{
 func / (left: matrix, right: Double) -> matrix{
     var N = left.count
     var x = zeros(N)
-    for i in 0..N{
+    for i in 0..<N{
         x[i] = left[i] / right
     }
     return x

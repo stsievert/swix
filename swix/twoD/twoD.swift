@@ -30,7 +30,7 @@ func array(s: String) -> matrix2d{
 
         // counting how many numbers we have
         var k = 0
-        for i in 0..N{
+        for i in 0..<N{
             if !numbers[i].isEmpty{
                 k++
             }
@@ -39,7 +39,7 @@ func array(s: String) -> matrix2d{
         // assigning those numbers
         var row = zeros(k)
         k = 0
-        for i in 0..N{
+        for i in 0..<N{
             if !numbers[i].isEmpty{
                 row[k] = numbers[i].bridgeToObjectiveC().doubleValue
                 k++
@@ -58,7 +58,7 @@ func zeros(length: (Int, Int)) -> matrix2d {
     var NumRows = length.1
     
     var array = matrix2d()
-    for column in 0..NumColumns {
+    for column in 0..<NumColumns {
         array.append(Array(count:NumRows, repeatedValue:Double(0)))
     }
     return array
@@ -71,7 +71,7 @@ func ones(length: (Int, Int)) -> matrix2d {
     var NumRows = length.1
     
     var array = matrix2d()
-    for column in 0..NumColumns {
+    for column in 0..<NumColumns {
         array.append(Array(count:NumRows, repeatedValue:Double(1)))
     }
     return array
@@ -83,7 +83,7 @@ func println(x: matrix2d, format: String = "%.3f")  {
     let NumRows = x.count
     print("\n")
     if NumRows < 16{
-        for i in 0..NumRows{
+        for i in 0..<NumRows{
             if i==0{
                 print("matrix(")
             }else{
@@ -96,7 +96,7 @@ func println(x: matrix2d, format: String = "%.3f")  {
             print("\n")
         }
     }else{
-        for i in 0..8{
+        for i in 0..<8{
             if i==0{
                 print("matrix(")
             }else{
@@ -109,7 +109,7 @@ func println(x: matrix2d, format: String = "%.3f")  {
             print("\n")
         }
         println("        ...\t\t\t\t\t\t\t\t\t\t\t\t...")
-        for i in NumRows-8..NumRows{
+        for i in NumRows-8..<NumRows{
             if i==0{
                 print("[")
             }else{
@@ -128,8 +128,8 @@ func reshape(x: matrix, shape: (Int, Int)) -> matrix2d{
     assert(shape.0 * shape.1 == x.count)
     var y = zeros(shape)
     var k = 0
-    for i in 0..shape.0{
-        for j in 0..shape.1{
+    for i in 0..<shape.0{
+        for j in 0..<shape.1{
             y[i][j] = x[k]
             k = k + 1
         }
@@ -142,8 +142,8 @@ func transpose (x: matrix2d) -> matrix2d{
     let n = x.count
     let m = x[0].count
     var y = zeros((m, n))
-    for i in 0..m{
-        for j in 0..m{
+    for i in 0..<m{
+        for j in 0..<m{
             y[i][j] = x[j][i]
         }
     }
@@ -164,8 +164,8 @@ func == (left: matrix2d, right: matrix2d) -> Bool{
     assert(left[0].count == right[0].count)
     var N = left.count
     var M = left[0].count
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             if left[j][i] != right[j][i]{
                 return false
             }
@@ -188,8 +188,8 @@ func ~~ (left: matrix2d, right: matrix2d) -> Bool{
     assert(left[0].count == right[0].count)
     var N = left.count
     var M = left[0].count
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             if left[j][i] - right[j][i] > 1e-9{
                 return false
             }

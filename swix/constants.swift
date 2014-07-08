@@ -13,9 +13,9 @@ import Accelerate
 let pi = 3.14159265358979323846264338327950288419716939937510582
 let e  = 2.71828182845904523536028747135266249775724709369995
 let euler = 0.57721566490153286060651209008240243104215933593992
-let phi = (1 + sqrt(5))/2
+let phi = (1.double + sqrt(5))/2
 let inf = 1.0 / 0.0
-let sqrt2 = sqrt(2)
+let sqrt2 = sqrt(2.double)
 let epsilon = DBL_EPSILON // smallest difference of two doubles
 
 typealias matrix = Array<Double>

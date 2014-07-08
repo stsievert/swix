@@ -12,12 +12,12 @@ import Foundation
 // +
 
 @assignment func += (inout x: matrix2d, right: Double){
-    for i in 0..x.count{
+    for i in 0..<x.count{
         x[i] = x[i] + right
     }
 }
 @assignment func *= (inout x: matrix2d, right: Double){
-    for i in 0..x.count{
+    for i in 0..<x.count{
         x[i] = x[i] * right
     }
 }
@@ -33,8 +33,8 @@ func + (left: matrix2d, right: matrix2d) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] + right[j][i]
         }
     }
@@ -45,8 +45,8 @@ func + (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] + right
         }
     }
@@ -56,8 +56,8 @@ func + (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = right[j][i] + left
         }
     }
@@ -74,8 +74,8 @@ func * (left: matrix2d, right: matrix2d) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] * right[j][i]
         }
     }
@@ -86,8 +86,8 @@ func * (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] * right
         }
     }
@@ -97,8 +97,8 @@ func * (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = right[j][i] * left
         }
     }
@@ -115,8 +115,8 @@ func - (left: matrix2d, right: matrix2d) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] - right[j][i]
         }
     }
@@ -127,8 +127,8 @@ func - (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] - right
         }
     }
@@ -138,8 +138,8 @@ func - (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = right[j][i] - left
         }
     }
@@ -156,8 +156,8 @@ func / (left: matrix2d, right: matrix2d) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] / right[j][i]
         }
     }
@@ -168,8 +168,8 @@ func / (left: matrix2d, right: Double) -> matrix2d{
     var N = left.count
     var M = left[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = left[j][i] / right
         }
     }
@@ -179,8 +179,8 @@ func / (left: Double, right: matrix2d) -> matrix2d{
     var N = right.count
     var M = right[0].count
     var x = zeros((N, M))
-    for i in 0..M{
-        for j in 0..N{
+    for i in 0..<M{
+        for j in 0..<N{
             x[j][i] = right[j][i] / left
         }
     }
