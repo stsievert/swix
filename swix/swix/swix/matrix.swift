@@ -8,7 +8,7 @@
 
 import Foundation
 
-// operators etc go here
+// the matrix definition goes here
 
 struct matrix {
     let n: Int
@@ -32,14 +32,39 @@ struct matrix {
             grid[index] = newValue
         }
     }
+    subscript(r: Range<Int>) -> matrix {
+        get {
+            var x = zeros(r.endIndex - r.startIndex)
+            var j = 0
+            for i in r{
+                x[j] = grid[i]
+                j += 1
+            }
+            return x
+        }
+        set {
+            var j = 0
+            for i in r{
+                grid[i] = newValue[j]; j+=1
+            }
+        }
+    }
 }
 
 func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f"){
     print(prefix)
     var suffix = ", "
+    var printed = false
     for i in 0..<x.n{
-        if i == (x.n-1) { suffix = "" }
-        print(NSString(format: format+suffix, x[i]))
+        if x.n > 16 && i>3-1 && printed==false{
+            print("... ")
+            printed = true
+        }
+        else if printed==true && i<x.n-3{}
+        else{
+            if i == (x.n-1) { suffix = "" }
+            print(NSString(format: format+suffix, x[i]))
+        }
     }
     print(postfix)
     print(newline)
@@ -48,136 +73,8 @@ func print(x: matrix, prefix:String="matrix([", postfix:String="])"){
     println(x, prefix:prefix, postfix:postfix, newline:"")
 }
 
-// EQUALITY
-operator infix == {associativity none precedence 140}
-func == (left: matrix, right: matrix) -> Bool{
-    assert(left.n == right.n, "`+` only works on arrays of equal size")
-    var x = zeros(left.n)
-    for i in 0..<left.n{
-        if left[i] != right[i]{ return false}
-    }
-    return true
-    
-}
-operator infix ~== {associativity none precedence 140}
-func ~== (left: matrix, right: matrix) -> Bool{
-    assert(left.count == right.count, "`~==` only works with arrays of equal size!")
-    var x = zeros(left.n)
-    for i in 0..<left.n{
-        if abs(left[i] - right[i]) > 1e-9 {return false}
-    }
-    return true
-}
 
-// PLUS
-operator infix + {associativity none precedence 140}
-func + (left: matrix, right: matrix) -> matrix{
-    assert(left.n == right.n, "`+` only works on arrays of equal size")
-    var x = zeros(left.n)
-    for i in 0..<left.n{
-        x[i] = left[i] + right[i]
-    }
-    return x
-    
-}
-func + (left: Double, right: matrix) -> matrix{
-    var N = right.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left + right[i]
-    }
-    return x
-}
-func + (left: matrix, right: Double) -> matrix{
-    var N = left.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left[i] + right
-    }
-    return x
-}
 
-// MINUS
-operator infix - {associativity none precedence 140}
-func - (left: matrix, right: matrix) -> matrix{
-    assert(left.n == right.n, "`+` only works on arrays of equal size")
-    var x = zeros(left.n)
-    for i in 0..<left.n{
-        x[i] = left[i] - right[i]
-    }
-    return x
-    
-}
-func - (left: Double, right: matrix) -> matrix{
-    var N = right.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left - right[i]
-    }
-    return x
-}
-func - (left: matrix, right: Double) -> matrix{
-    var N = left.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left[i] - right
-    }
-    return x
-}
-// TIMES
-operator infix * {associativity none precedence 140}
-func * (left: matrix, right: matrix) -> matrix{
-    assert(left.n == right.n, "`+` only works on arrays of equal size")
-    var x = zeros(left.n)
-    for i in 0..<left.n{
-        x[i] = left[i] * right[i]
-    }
-    return x
-    
-}
-func * (left: Double, right: matrix) -> matrix{
-    var N = right.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left * right[i]
-    }
-    return x
-}
-func * (left: matrix, right: Double) -> matrix{
-    var N = left.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left[i] * right
-    }
-    return x
-}
-// DIVIDE
-operator infix / {associativity none precedence 140}
-func / (left: matrix, right: matrix) -> matrix{
-    assert(left.n == right.n, "`+` only works on arrays of equal size")
-    var x = zeros(left.n)
-    for i in 0..<left.n{
-        x[i] = left[i] / right[i]
-    }
-    return x
-    
-}
-func / (left: Double, right: matrix) -> matrix{
-    var N = right.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left / right[i]
-    }
-    return x
-}
-func / (left: matrix, right: Double) -> matrix{
-    var N = left.n
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = left[i] / right
-    }
-    return x
-}
 
 
 
