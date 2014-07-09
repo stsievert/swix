@@ -29,18 +29,37 @@ func range_test(){
     assert(z == array(1, 1, 0, 0))
     println("    x[0..<2] = ones(2) and y = z[3..<8] works in the 1d case!")
 }
+func argwhere_test(){
+    var x = zeros(N)
+    var y = zeros(N)
+    x[0..<5] = ones(5)
+    var i = argwhere(x ~== y)
+    assert(i == array(5, 6, 7, 8, 9))
+    x[argwhere(x<2)] = ones(argwhere(x<2).n)
+    println("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works.")
+    println(" **  BUG: argwhere returns a matrix of doubles")
+}
 
 println("running tests...")
 operator_test()
 range_test()
+argwhere_test()
 
-//var x = ones(N)
-//x[3] = 2
-//var y = argwhere(x < 2)
-//println(x < 2)
-//println(y)
-var x = ones(N)
-println(x + 10)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -92,7 +92,7 @@ func norm(x: matrix, type:String="l2") -> Double{
         return count
     }
     
-    assert(1==0, "type of norm unrecongnized")
+    assert(false, "type of norm unrecongnized")
     return -1.0
 }
 func cumsum(x: matrix) -> matrix{

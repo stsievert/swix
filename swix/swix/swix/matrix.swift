@@ -49,6 +49,21 @@ struct matrix {
             }
         }
     }
+    subscript(r: matrix) -> matrix {
+        get {
+            var x = zeros(r.n)
+            for i in 0..<r.n{
+                x[i] = grid[r[i].int]
+            }
+            return x
+        }
+        set {
+            var j = 0
+            for i in 0..<r.n{
+                grid[r[i].int] = newValue[j]; j+=1
+            }
+        }
+    }
 }
 
 func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f"){
