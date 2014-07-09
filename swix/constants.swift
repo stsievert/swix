@@ -18,8 +18,8 @@ let inf = 1.0 / 0.0
 let sqrt2 = sqrt(2.double)
 let epsilon = DBL_EPSILON // smallest difference of two doubles
 
-typealias matrix = Array<Double>
-typealias matrix2d = Array<Array<Double>>
+typealias matrix = [Double]
+typealias matrix2d = [[Double]]
 
 // add extension here -- indexing, x[0..4] = 1 etc
 extension Array{
@@ -30,5 +30,30 @@ extension Array{
         return ones(4)
     }
 }
+//struct matrix2d {
+//    let rows: Int, columns: Int
+//    var grid: [Double]
+//    var count: Int
+//    init(rows: Int, columns: Int) {
+//        self.rows = rows
+//        self.columns = columns
+//        grid = Array(count: rows * columns, repeatedValue: 0.0)
+//        self.count = row * columns
+//    }
+//    func indexIsValidForRow(row: Int, column: Int) -> Bool {
+//        return row >= 0 && row < rows && column >= 0 && column < columns
+//    }
+//    subscript(row: Int, column: Int) -> Double {
+//        get {
+//            assert(indexIsValidForRow(row, column: column), "Index out of range")
+//            return grid[(row * columns) + column]
+//        }
+//        set {
+//            assert(indexIsValidForRow(row, column: column), "Index out of range")
+//            grid[(row * columns) + column] = newValue
+//        }
+//    }
+//}
+
 
 
