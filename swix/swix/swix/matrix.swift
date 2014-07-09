@@ -66,6 +66,14 @@ struct matrix {
     }
 }
 
+func asmatrix(x: [Double]) -> matrix{
+    var y = zeros(x.count)
+    for i in 0..<x.count{
+        y[i] = x[i]
+    }
+    return y
+}
+
 func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f"){
     print(prefix)
     var suffix = ", "

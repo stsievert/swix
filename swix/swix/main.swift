@@ -37,7 +37,7 @@ func argwhere_test(){
     assert(i == array(5, 6, 7, 8, 9))
     x[argwhere(x<2)] = ones(argwhere(x<2).n)
     println("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works.")
-    println(" **  BUG: argwhere returns a matrix of doubles")
+    println(" **   BUG: argwhere returns a matrix of doubles. uses 3.00.int to index")
 }
 
 println("running tests...")
@@ -46,10 +46,10 @@ range_test()
 argwhere_test()
 
 
+var x = array(1, 2, 3, 4, 5)
 
 
-
-
+println(asmatrix(x.grid))
 
 
 
