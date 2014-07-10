@@ -58,6 +58,12 @@ When I was crafting this library, I primarily depended on [NumPy][numpy]. The
 syntax and operators are relatively similar, so if you're in doubt on how to
 use a function, just look at NumPy's docs or swix's docs in the wiki.
 
+## Third Party Frameworks/Libraries
+* [Accelerate][accel]
+* [OpenCV][opencv]
+* [swix-complex][complex]
+* [ScalarArithemetic][scalar]
+
 ## Usage
 1. Download this repo.
 2. Include the folder `swix` in your project.
@@ -72,12 +78,6 @@ Boom. Done.
 
 The operators for Array have been persevered and new operators are defined for
 the `matrix` and `matrix2d` class.
-
-## Third Party Frameworks/Libraries
-* [Accelerate][accel]
-* [OpenCV][opencv]
-* [swix-complex][complex]
-* [ScalarArithemetic][scalar]
 
 
 #### Functions
