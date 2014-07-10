@@ -1,25 +1,50 @@
 ## Swift Matrix Library
-Apple's Swift is a high level language that is asking for some numerical
-library to perform computation *fast*, or at the very least *easily*. This is a
+Apple's Swift is a high level language that's *asking* for some numerical
+library to perform computation *fast* or at the very least *easily*. This is a
 bare-bones wrapper for that library.
 
 A way to have iOS run matlab-like code is something I've been waiting for, and
 am incredibly excited to see the results. This will make porting complex signal
-processing algorithms to C *much* easier. Porting from MATLAB to C was a pain
-in the ass, and this library aims to make the MATLAB to iOS conversion
+processing algorithms to C *much* easier. Porting from MATLAB to C was (and is)
+a pain in the ass, and this library aims to make the MATLAB to iOS conversion
 *simple.*
 
-As an example, setting every element in an array to a single value with C
-involved something like 
-`double* x = (double*)malloc(sizeof(double) * N); for {int i=0; i<N; i++} x[i] = 3;`. 
-With Swift (and this library), it's just `var x = ones(N) * 3`.
+As an example, here's some relatively simple Objective-C sample code:
 
-While this library is basic (most of it hacked together in two days), I expect
-something like [NumPy][numpy] to be released: a mathematical library that
-includes more than needed. In most cases, this library just wraps Swift.
-However, in other cases it calls the [Accelerate framework][accel] or
-[OpenCV][opencv]. If you want to add a feature, feel free to
-submit a pull request.
+```objc
+add_two_vectors(double * x, double * y, double * result, int N){
+    for (int i=0; i<N; i++){
+        result[i] = x[i] + y[i];
+    }
+}
+void main(){
+    int N = 10;
+    double * x = (double *)malloc(sizeof(double) * N);
+    double * y = (double *)malloc(sizeof(double) * N);
+    double * result = (double *)malloc(sizeof(double) * N);
+    for (int i=0; i<N; i++){
+        x[i] = 3
+        y[i] = 1.618
+    }
+    add_two_vector(x, y, result, N)
+}
+```
+
+The equivalent Swift syntax with this library?
+
+```swift
+let N = 10
+var x = ones(N) * 3
+var y = ones(N) * phi
+var result = x + y
+```
+
+While this library is basic, I expect something like [NumPy][numpy] to be
+released: a mathematical library that includes more than you would ever
+possibly need. In most cases, this library just wraps Swift.  However, in other
+cases it calls the [Accelerate framework][accel] or [OpenCV][opencv] (and
+that's to be changed). If you want to add a feature, feel free to submit a pull
+request.
 
 Currently, this library gives you
 
@@ -45,8 +70,15 @@ use a function, just look at NumPy's docs or swix's docs in the wiki.
 
 Boom. Done. 
 
-The operators for `Array[]()` have been overwritten and Swift works
-like you'd expect it to. This is a bug -- I want to preserve Array as is.
+The operators for Array have been persevered and new operators are defined for
+the `matrix` and `matrix2d` class.
+
+## Third Party Frameworks/Libraries
+* [Accelerate][accel]
+* [OpenCV][opencv]
+* [swix-complex][complex]
+* [ScalarArithemetic][scalar]
+
 
 #### Functions
 If you have a function that operates on a single element, it can easily be
@@ -61,15 +93,14 @@ This library also can do one dimensional FFTs.
 
 #### Init'ing arrays
 ```swift
-ones(4) == [1, 1, 1, 1]
+ones(4) == matrix([1, 1, 1, 1])
 ones((4,4)) == matrix([1, 1],
-                     [1, 1])
+                      [1, 1])
 // same with zeros
 array(1, 2, 3, 4) == [1, 2, 3, 4]
 array("[1 2; 4 5]") == matrix([1 2],
-                             [4 5])
+                              [4 5])
 ```
-
 
 #### Arithmetic
 ```swift
@@ -84,30 +115,12 @@ product operator (like [PEP 465][pep], but custom operators [can't use `@`][@].
 So, I decided to use the symbol for extra-important multiplication: `*!`.
 
 ## Features to be added
-* 2D matrix integration. a new class def?
-* range indexing. x[0:4, 0:4] = 1
 * x[:, 0] = matrix
 * eye, diag, randn
-* argwhere, find
+* 2d argwhere, find
 * y = x[:, vec]
 * round, min
 * a[b[i]]
-* x[:, ~x_idx] = 0
-
-
-* indexing. `x[0..3] = 1, x[0, 0..3] = 2, x[0..2] = array(4,9)` etc
-* Accelerate Framework integration. The bares bones are figured out and I just
-  need to do the grunt work.
-* better complex number integration. Currently, `fft(x)` returns two separate
-  vectors. This can be integrated with [swift-complex][complex].
-* better 2D matrix implementation. An array of arrays or a class that uses `matrix[row*width +
-  column]`?
-
-## Third Party Frameworks/Libraries
-* [Accelerate][accel]
-* [OpenCV][opencv]
-* [swix-complex][complex]
-* [ScalarArithemetic][scalar]
 
 
 [opencv]:http://opencv.org

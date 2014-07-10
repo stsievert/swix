@@ -14,15 +14,15 @@ struct matrix2d {
     var count: Int
     var grid: [Double]
     var shape: (Int, Int)
-//    var T:matrix2d
+    var flat:matrix
     init(columns: Int, rows: Int) {
         self.n = rows * columns
         self.rows = rows
         self.columns = columns
         self.shape = (rows, columns)
         self.count = n
-//        self.T = transpose(self)
         grid = Array(count: n, repeatedValue: 0.0)
+        self.flat = asmatrix(self.grid)
     }
     func indexIsValidForRow(r: Int, c: Int) -> Bool {
         return r >= 0 && r < rows && c>=0 && c < columns
@@ -35,6 +35,7 @@ struct matrix2d {
         set {
             assert(indexIsValidForRow(i, c:j), "Index out of range")
             grid[i*columns + j] = newValue
+            self.flat = asmatrix(self.grid)
         }
     }
     subscript(r: Range<Int>, c: Range<Int>) -> matrix2d {
@@ -61,23 +62,21 @@ struct matrix2d {
                 }
                 m += 1
             }
+            self.flat = asmatrix(self.grid)
         }
     }
-//    subscript(r: matrix) -> matrix {
-//        get {
-//            var x = zeros(r.n)
-//            for i in 0..<r.n{
-//                x[i] = grid[r[i].int]
-//            }
-//            return x
-//        }
-//        set {
-//            var j = 0
-//            for i in 0..<r.n{
-//                grid[r[i].int] = newValue[j]; j+=1
-//            }
-//        }
-//    }
+    subscript(r: matrix) -> matrix {
+        get {
+            var x = self.flat[r]
+            return x
+        }
+        set {
+            var j = 0
+            for i in 0..<r.n{
+                grid[r[i].int] = newValue[j]; j+=1
+            }
+        }
+    }
 }
 
 func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f"){

@@ -48,8 +48,12 @@ argwhere_test()
 
 var x = array("1 2; 4 5; 7 8")
 x[0..<2, 0..<2] = array("-1 -2; -3 -4")
-println(x)
+println(x.flat)
 
+println(x[array(1.0, 4.0, 2.0)])
+
+x[array(0, 1, 3, 5, 4, 2)] = ones(6)
+println(x)
 
 
 

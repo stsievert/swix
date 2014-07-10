@@ -93,21 +93,7 @@ func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
     return array
 }
 
-/// argwhere(x < 2) or argwhere(x < y) works as more or less as expected. returns an array of type double (bug, todo)
-func argwhere(idx: matrix) -> matrix{
-    var count = 0
-    for i in 0..<idx.n{
-        if idx[i]==1 {count += 1}
-    }
-    var args = zeros(count)
-    var j = 0;
-    for i in 0..<idx.n{
-        if idx[i]==1{
-            args[j] = i.double; j+=1
-        }
-    }
-    return args
-}
+
 
 // EQUALITY
 operator infix == {associativity none precedence 140}

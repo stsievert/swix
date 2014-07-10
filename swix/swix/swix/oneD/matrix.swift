@@ -91,7 +91,21 @@ func print(x: matrix, prefix:String="matrix([", postfix:String="])", format:Stri
 func zeros_like(x: matrix) -> matrix{
     return zeros(x.n)
 }
-
+/// argwhere(x < 2) or argwhere(x < y) works as more or less as expected. returns an array of type double (bug, todo)
+func argwhere(idx: matrix) -> matrix{
+    var count = 0
+    for i in 0..<idx.n{
+        if idx[i]==1 {count += 1}
+    }
+    var args = zeros(count)
+    var j = 0;
+    for i in 0..<idx.n{
+        if idx[i]==1{
+            args[j] = i.double; j+=1
+        }
+    }
+    return args
+}
 
 
 
