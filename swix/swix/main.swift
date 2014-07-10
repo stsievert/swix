@@ -14,10 +14,16 @@ import Foundation
 let N = 10
 
 func operator_test(){
+    func operator2d_test(){
+        var x = zeros((N,N)) + 10
+        var y = 4+ones((N,N))
+        assert(0.2 * x*y / 10 == ones((N,N)))
+    }
+    operator2d_test()
     var x = ones(N)
     var y = ones(N) * N.double
     assert(y / x == ones(N) * 10)
-    println("    basic 1d operators work")
+    println("    basic 1d and 2d operators work")
 }
 func range_test(){
     var x = arange(4)
@@ -37,7 +43,6 @@ func argwhere_test(){
     assert(i == array(5, 6, 7, 8, 9))
     x[argwhere(x<2)] = ones(argwhere(x<2).n)
     println("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works.")
-    println("    * TODO?: argwhere returns a matrix of doubles but asserts the index is a whole number")
 }
 func matrix2d_indexing_test(){
     var x = array("1 2 3; 4 5 6; 7 8 9")
@@ -57,18 +62,6 @@ range_test()
 argwhere_test()
 matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
-
-
-//var x = ones((4,4))
-//println(randn((10,10)))
-
-var x = ones((N,N)) * 10
-var y = ones((N,N)) + 10
-
-println(x)
-println(y)
-println(1 + x - 13)
-
 
 
 

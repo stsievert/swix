@@ -46,11 +46,13 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
         } else if operator == ">"{
                      if lhs[i] > rhs{ array[i] = 1 }
         } else if operator == "<"{
-                     if lhs[i] < rhs{ array[i] = 1 }
+                     if lhs[i] < rhs{
+                        array[i] = 1 }
         } else if operator == "~=="{
                      if abs(lhs[i] - rhs)<DOUBLE_EPSILON{ array[i] = 1 }
         } else if operator == "<="{
-                     if lhs[i] <= rhs{ array[i] = 1 }
+                     if lhs[i] <= rhs{
+                        array[i] = 1 }
         } else if operator == ">="{
                      if lhs[i] >= rhs{ array[i] = 1 }
         } else if operator == "+"{
@@ -175,18 +177,24 @@ func > (lhs: Double, rhs: matrix) -> matrix{
 // GREATER THAN OR EQUAL
 operator infix >= {associativity none precedence 140}
 func >= (lhs: matrix, rhs: Double) -> matrix{
+    assert(false, "For some reason these operators don't work'")
     return make_operator(lhs, "=>", rhs)}
 func >= (lhs: matrix, rhs: matrix) -> matrix{
+    assert(false, "For some reason these operators don't work'")
     return make_operator(lhs, "=>", rhs)}
 func >= (lhs: Double, rhs: matrix) -> matrix{
+    assert(false, "For some reason these operators don't work'")
     return make_operator(lhs, "=>", rhs)}
 // LESS THAN OR EQUAL
 operator infix <= {associativity none precedence 140}
 func <= (lhs: matrix, rhs: Double) -> matrix{
+    assert(false, "For some reason these operators don't work'")
     return make_operator(lhs, "=>", rhs)}
 func <= (lhs: matrix, rhs: matrix) -> matrix{
+    assert(false, "For some reason these operators don't work'")
     return make_operator(lhs, "=>", rhs)}
 func <= (lhs: Double, rhs: matrix) -> matrix{
+    assert(false, "For some reason these operators don't work'")
     return make_operator(lhs, "=>", rhs)}
 
 
