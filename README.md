@@ -116,12 +116,8 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 
 ## Features to be added
 * x[:, 0] = matrix
-* eye, diag, randn
-* 2d argwhere, find
 * y = x[:, vec]
-* round, min
 * a[b[i]]
-
 
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic

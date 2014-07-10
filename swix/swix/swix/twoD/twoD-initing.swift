@@ -14,6 +14,17 @@ func zeros(shape: (Int, Int)) -> matrix2d{
 func ones(shape: (Int, Int)) -> matrix2d{
     return zeros(shape)+1
 }
+func diag(x: matrix) -> matrix2d{
+    let N = x.count
+    var y = zeros((N,N))
+    for i in 0..<N{
+        y[i,i] = x[i]
+    }
+    return y
+}
+func eye(n: Int) -> matrix2d{
+    return diag(ones(n))
+}
 
 /// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot.
 func array(matlab_like_string: String)->matrix2d{

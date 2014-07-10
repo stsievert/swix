@@ -12,7 +12,7 @@ struct matrix2d {
     var rows: Int
     var columns: Int
     var count: Int
-    var grid: [Double]
+//    var grid: [Double]
     var shape: (Int, Int)
     var flat:matrix
     init(columns: Int, rows: Int) {
@@ -21,7 +21,7 @@ struct matrix2d {
         self.columns = columns
         self.shape = (rows, columns)
         self.count = n
-        grid = Array(count: n, repeatedValue: 0.0)
+//        grid = Array(count: n, repeatedValue: 0.0)
         self.flat = asmatrix(self.grid)
     }
     func indexIsValidForRow(r: Int, c: Int) -> Bool {
@@ -30,12 +30,14 @@ struct matrix2d {
     subscript(i: Int, j: Int) -> Double {
         get {
             assert(indexIsValidForRow(i, c:j), "Index out of range")
-            return grid[i*columns + j]
+//            return grid[i*columns + j]
+            return flat[i*columns + j]
         }
         set {
             assert(indexIsValidForRow(i, c:j), "Index out of range")
-            grid[i*columns + j] = newValue
-            self.flat = asmatrix(self.grid)
+//            grid[i*columns + j] = newValue
+            flat[i*columns + j] = newValue
+//            self.flat = asmatrix(self.grid)
         }
     }
     subscript(r: Range<Int>, c: Range<Int>) -> matrix2d {
@@ -46,7 +48,8 @@ struct matrix2d {
             for i in r {
                 k = 0
                 for j in c{
-                    x[k, m] = grid[j*columns + i]; k += 1
+//                    x[k, m] = grid[j*columns + i]; k += 1
+                    x[k, m] = flat[j*columns + i]; k += 1
                 }
                 m += 1
             }
@@ -58,11 +61,12 @@ struct matrix2d {
             for i in r {
                 j = 0
                 for k in c{
-                    grid[i*columns+k] = newValue[m, j]; j+=1
+//                    grid[i*columns+k] = newValue[m, j]; j+=1
+                    flat[i*columns+k] = newValue[m, j]; j+=1
                 }
                 m += 1
             }
-            self.flat = asmatrix(self.grid)
+//            self.flat = asmatrix(self.grid)
         }
     }
     subscript(r: matrix) -> matrix {
@@ -73,9 +77,10 @@ struct matrix2d {
         set {
             var j = 0
             for i in 0..<r.n{
-                grid[r[i].int] = newValue[j]; j+=1
+//                grid[r[i].int] = newValue[j]; j+=1
+                flat[r[i].int] = newValue[j]; j+=1
             }
-            self.flat = asmatrix(self.grid)
+//            self.flat = asmatrix(self.grid)
         }
     }
 }
@@ -116,6 +121,9 @@ func argwhere(idx: matrix2d) -> matrix{
 
 
 
+//func takesAMutablePointer(x: CMutablePointer<Float>) {
+//    
+//}
 
 
 
