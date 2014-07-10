@@ -75,6 +75,7 @@ struct matrix2d {
             for i in 0..<r.n{
                 grid[r[i].int] = newValue[j]; j+=1
             }
+            self.flat = asmatrix(self.grid)
         }
     }
 }
@@ -109,3 +110,26 @@ func transpose (x: matrix2d) -> matrix2d{
     }
     return y
 }
+func argwhere(idx: matrix2d) -> matrix{
+    return argwhere(idx.flat)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

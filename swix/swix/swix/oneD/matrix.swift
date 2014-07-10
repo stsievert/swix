@@ -48,6 +48,7 @@ struct matrix {
         get {
             var x = zeros(r.n)
             for i in 0..<r.n{
+                assert(r[i] % 1.0 == 0.0, "Index values must be whole numbers")
                 x[i] = grid[r[i].int]
             }
             return x
@@ -55,6 +56,7 @@ struct matrix {
         set {
             var j = 0
             for i in 0..<r.n{
+                assert(r[i] % 1.0 == 0.0, "Index values must be whole numbers")
                 grid[r[i].int] = newValue[j]; j+=1
             }
         }
@@ -105,6 +107,16 @@ func argwhere(idx: matrix) -> matrix{
         }
     }
     return args
+}
+
+// RANGE. | for exclusive range, ! for inclusive range. | chosen for similiarity with Python, ! chosen because ! has a dot, closer to ...
+operator infix | {associativity none precedence 140}
+func | (lhs: Int, rhs: Int) -> Range<Int>{
+    return lhs..<rhs
+}
+operator infix ! {associativity none precedence 140}
+func ! (lhs: Int, rhs: Int) -> Range<Int>{
+    return lhs...rhs
 }
 
 

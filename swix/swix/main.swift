@@ -37,23 +37,38 @@ func argwhere_test(){
     assert(i == array(5, 6, 7, 8, 9))
     x[argwhere(x<2)] = ones(argwhere(x<2).n)
     println("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works.")
-    println(" **   BUG: argwhere returns a matrix of doubles. uses 3.00.int to index")
+    println("    * TODO?: argwhere returns a matrix of doubles but asserts the index is a whole number")
+}
+func matrix2d_indexing_test(){
+    var x = array("1 2 3; 4 5 6; 7 8 9")
+    x[0|2, 0|2] = ones((2,2))
+    assert(x == array("1 1 3; 1 1 6; 7 8 9"))
+    println("    use x[0|2, 0|2] to index *exclusively* (and 0!2 for inclusive)")
+}
+func matrix2d_indexing_matrix_test(){
+    var x = array("1 2 3; 4 5 6; 7 8 9")
+    assert(x[array(0, 1, 2, 3, 4, 5)] == array(1, 2, 3, 4, 5, 6))
+    println("    x[matrix] works and indexes the matrix row first")
 }
 
 println("running tests...")
 operator_test()
 range_test()
 argwhere_test()
+matrix2d_indexing_test()
+matrix2d_indexing_matrix_test()
 
 
-var x = array("1 2; 4 5; 7 8")
-x[0..<2, 0..<2] = array("-1 -2; -3 -4")
-println(x.flat)
 
-println(x[array(1.0, 4.0, 2.0)])
 
-x[array(0, 1, 3, 5, 4, 2)] = ones(6)
-println(x)
+
+
+
+
+
+
+
+
 
 
 
