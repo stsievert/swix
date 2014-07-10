@@ -8,12 +8,6 @@
 
 import Foundation
 
-
-
-
-
-
-
 /// nice printing. optional args: format. ie, use format:"%.3f" to show 3 decimals (c style syntax).
 func println(x: matrix, format: String = "%.3f")  {
     /* print arrays nicely for small arrays. not nice for larger arrays */

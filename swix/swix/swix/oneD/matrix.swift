@@ -8,7 +8,7 @@
 
 import Foundation
 
-// the matrix definition goes here
+// the matrix definition and related functions go here
 
 struct matrix {
     let n: Int
@@ -36,17 +36,12 @@ struct matrix {
         get {
             var x = zeros(r.endIndex - r.startIndex)
             var j = 0
-            for i in r{
-                x[j] = grid[i]
-                j += 1
-            }
+            for i in r {x[j] = grid[i]; j += 1}
             return x
         }
         set {
             var j = 0
-            for i in r{
-                grid[i] = newValue[j]; j+=1
-            }
+            for i in r {grid[i] = newValue[j]; j+=1}
         }
     }
     subscript(r: matrix) -> matrix {
@@ -68,9 +63,7 @@ struct matrix {
 
 func asmatrix(x: [Double]) -> matrix{
     var y = zeros(x.count)
-    for i in 0..<x.count{
-        y[i] = x[i]
-    }
+    y.grid = x
     return y
 }
 
@@ -92,8 +85,8 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
     print(postfix)
     print(newline)
 }
-func print(x: matrix, prefix:String="matrix([", postfix:String="])"){
-    println(x, prefix:prefix, postfix:postfix, newline:"")
+func print(x: matrix, prefix:String="matrix([", postfix:String="])", format:String="%.3f"){
+    println(x, prefix:prefix, postfix:postfix, newline:"", format:format)
 }
 
 

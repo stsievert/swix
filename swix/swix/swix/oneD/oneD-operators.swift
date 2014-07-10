@@ -59,9 +59,9 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
              array[i] = lhs[i] - rhs
         } else if operator == "*"{
              array[i] = lhs[i] * rhs
-        }else if operator == "/"{
+        } else if operator == "/"{
             array[i] = lhs[i] / rhs
-        }else { assert(false, "Operator not reconginzed!") }
+        }
     }
     return array
 }
@@ -122,12 +122,19 @@ func == (lhs: matrix, rhs: matrix) -> Bool{
 }
 operator infix ~== {associativity none precedence 140}
 func ~== (lhs: matrix, rhs: matrix) -> matrix{
-//    assert(lhs.count == rhs.count, "`~==` only works with arrays of equal size!")
-//    var x = zeros(lhs.n)
-//    for i in 0..<lhs.n{
-//        if abs(lhs[i] - rhs[i]) > 1e-9 {return false}
-//    }
     return make_operator(lhs, "~==", rhs)
+}
+@assignment func += (inout x: matrix, right: Double){
+    x = x + right
+}
+@assignment func *= (inout x: matrix, right: Double){
+    x = x * right
+}
+@assignment func -= (inout x: matrix, right: Double){
+    x = x - right
+}
+@assignment func /= (inout x: matrix, right: Double){
+    x = x / right
 }
 
 // PLUS

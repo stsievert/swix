@@ -46,11 +46,6 @@ range_test()
 argwhere_test()
 
 
-var x = array(1, 2, 3, 4, 5)
-
-
-println(asmatrix(x.grid))
-
 
 
 
