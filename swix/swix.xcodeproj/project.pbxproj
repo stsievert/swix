@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20087AF196E14EF00AB26AE /* matrix2d.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20087AE196E14EF00AB26AE /* matrix2d.swift */; };
+		D20087B2196E180C00AB26AE /* twoD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20087B1196E180C00AB26AE /* twoD-initing.swift */; };
+		D20087B4196E186600AB26AE /* twoD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20087B3196E186600AB26AE /* twoD-operators.swift */; };
 		D24A8555196D7D73009C18AC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A8554196D7D73009C18AC /* main.swift */; };
 		D24A855C196D7E86009C18AC /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A855B196D7E86009C18AC /* matrix.swift */; };
 		D2A5CAD4196D805A00749F52 /* oneD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD3196D805A00749F52 /* oneD-initing.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D20087AE196E14EF00AB26AE /* matrix2d.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = matrix2d.swift; path = twoD/matrix2d.swift; sourceTree = "<group>"; };
+		D20087B1196E180C00AB26AE /* twoD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-initing.swift"; path = "twoD/twoD-initing.swift"; sourceTree = "<group>"; };
+		D20087B3196E186600AB26AE /* twoD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-operators.swift"; path = "twoD/twoD-operators.swift"; sourceTree = "<group>"; };
 		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24A8554196D7D73009C18AC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D24A855B196D7E86009C18AC /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
@@ -51,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20087B0196E14FB00AB26AE /* twoD */ = {
+			isa = PBXGroup;
+			children = (
+				D20087AE196E14EF00AB26AE /* matrix2d.swift */,
+				D20087B1196E180C00AB26AE /* twoD-initing.swift */,
+				D20087B3196E186600AB26AE /* twoD-operators.swift */,
+			);
+			name = twoD;
+			sourceTree = "<group>";
+		};
 		D24A8548196D7D73009C18AC = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A5CAD5196D830000749F52 /* numbers.swift */,
+				D20087B0196E14FB00AB26AE /* twoD */,
 				D2BBBDAF196DD9F6004707F3 /* oneD */,
 				D2BBBDAE196DD9EE004707F3 /* objc */,
 			);
@@ -166,7 +183,10 @@
 				D24A855C196D7E86009C18AC /* matrix.swift in Sources */,
 				D24A8555196D7D73009C18AC /* main.swift in Sources */,
 				D2A5CAD4196D805A00749F52 /* oneD-initing.swift in Sources */,
+				D20087AF196E14EF00AB26AE /* matrix2d.swift in Sources */,
+				D20087B4196E186600AB26AE /* twoD-operators.swift in Sources */,
 				D2A5CAD6196D830000749F52 /* numbers.swift in Sources */,
+				D20087B2196E180C00AB26AE /* twoD-initing.swift in Sources */,
 				D2BBBDAD196DD693004707F3 /* fft.m in Sources */,
 				D2A5CADA196D9C0C00749F52 /* oneD-operators.swift in Sources */,
 			);

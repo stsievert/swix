@@ -35,3 +35,8 @@ extension Float{
     var double:Double {return Double(self)}
 
 }
+extension String {
+    var floatValue: Float {
+    return (self as NSString).floatValue
+    }
+}

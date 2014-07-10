@@ -88,7 +88,9 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
 func print(x: matrix, prefix:String="matrix([", postfix:String="])", format:String="%.3f"){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format)
 }
-
+func zeros_like(x: matrix) -> matrix{
+    return zeros(x.n)
+}
 
 
 

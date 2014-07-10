@@ -46,10 +46,9 @@ range_test()
 argwhere_test()
 
 
-
-
-
-
+var x = array("1 2; 4 5; 7 8")
+x[0..<2, 0..<2] = array("-1 -2; -3 -4")
+println(x)
 
 
 
