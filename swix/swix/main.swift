@@ -59,9 +59,15 @@ matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 
 
-var x = ones((4,4))
-println(rand((10,10)))
+//var x = ones((4,4))
+//println(randn((10,10)))
 
+var x = ones((N,N)) * 10
+var y = ones((N,N)) + 10
+
+println(x)
+println(y)
+println(1 + x - 13)
 
 
 

@@ -11,7 +11,8 @@ import Foundation
 func apply_function(function: matrix->matrix, x: matrix2d)->matrix2d{
     var y = function(x.flat)
     var z = zeros_like(x)
-    z.grid = y.grid
+//    z.grid = y.grid
+    z.flat = y
     return z
 }
 func sin(x: matrix2d) -> matrix2d{
@@ -41,18 +42,16 @@ func ceil(x: matrix2d) -> matrix2d{
 func randn(N: (Int, Int), mean: Double=0, sigma: Double=1) -> matrix2d{
     var x = zeros(N)
     for i in 0..<x.n{
-        x.grid[i] = randn()
+        x.flat[i] = randn()
     }
     var y = (x * sigma) + mean;
-    y.flat = asmatrix(y.grid)
     return y
 }
 func rand(N: (Int, Int)) -> matrix2d{
     var x = zeros(N)
     for i in 0..<x.n{
-        x.grid[i] = rand()
+        x.flat[i] = rand()
     }
-    x.flat = asmatrix(x.grid)
     return x
 }
 

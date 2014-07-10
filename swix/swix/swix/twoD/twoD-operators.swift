@@ -13,8 +13,8 @@ func make_operator(lhs: matrix2d, operator: String, rhs: matrix2d)->matrix2d{
     assert(lhs.shape.1 == rhs.shape.1, "Sizes must match!")
     
     var result = zeros_like(lhs) // real result
-    var lhsM = asmatrix(lhs.grid) // flat
-    var rhsM = asmatrix(rhs.grid) // flat
+    var lhsM = lhs.flat
+    var rhsM = rhs.flat
     var resM:matrix = zeros_like(lhsM) // flat matrix
     if operator=="+" {resM = lhsM + rhsM}
     else if operator=="-" {resM = lhsM - rhsM}
@@ -24,13 +24,13 @@ func make_operator(lhs: matrix2d, operator: String, rhs: matrix2d)->matrix2d{
     else if operator==">" {resM = lhsM > rhsM}
     else if operator==">=" {resM = lhsM >= rhsM}
     else if operator=="<=" {resM = lhsM <= rhsM}
-    result.grid = resM.grid
-    result.flat = asmatrix(result.grid)
+    result.flat.grid = resM.grid
     return result
 }
 func make_operator(lhs: matrix2d, operator: String, rhs: Double)->matrix2d{
     var result = zeros_like(lhs) // real result
-    var lhsM = asmatrix(lhs.grid) // flat
+//    var lhsM = asmatrix(lhs.grid) // flat
+    var lhsM = lhs.flat
     var resM:matrix = zeros_like(lhsM) // flat matrix
     if operator=="+" {resM = lhsM + rhs}
     else if operator=="-" {resM = lhsM - rhs}
@@ -40,13 +40,13 @@ func make_operator(lhs: matrix2d, operator: String, rhs: Double)->matrix2d{
     else if operator==">" {resM = lhsM > rhs}
     else if operator==">=" {resM = lhsM >= rhs}
     else if operator=="<=" {resM = lhsM <= rhs}
-    result.grid = resM.grid
-    result.flat = asmatrix(result.grid)
+    result.flat.grid = resM.grid
     return result
 }
 func make_operator(lhs: Double, operator: String, rhs: matrix2d)->matrix2d{
     var result = zeros_like(rhs) // real result
-    var rhsM = asmatrix(rhs.grid) // flat
+//    var rhsM = asmatrix(rhs.grid) // flat
+    var rhsM = rhs.flat
     var resM:matrix = zeros_like(rhsM) // flat matrix
     if operator=="+" {resM = lhs + rhsM}
     else if operator=="-" {resM = lhs - rhsM}
@@ -56,8 +56,7 @@ func make_operator(lhs: Double, operator: String, rhs: matrix2d)->matrix2d{
     else if operator==">" {resM = lhs > rhsM}
     else if operator==">=" {resM = lhs >= rhsM}
     else if operator=="<=" {resM = lhs <= rhsM}
-    result.grid = resM.grid
-    result.flat = asmatrix(result.grid)
+    result.flat.grid = resM.grid
     return result
 }
 
