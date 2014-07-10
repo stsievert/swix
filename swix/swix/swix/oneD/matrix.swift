@@ -74,21 +74,19 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
     var suffix = ", "
     var printed = false
     for i in 0..<x.n{
-        if x.n > 16 && i>3-1 && printed==false{
-            print("... ")
-            printed = true
-        }
-        else if printed==true && i<x.n-3{}
-        else{
-            if i == (x.n-1) { suffix = "" }
+        if i==x.n-1 { suffix = "" }
+        if printWholeMatrix || (x.n)<16 || i<3 || i>(x.n-4){
             print(NSString(format: format+suffix, x[i]))
+        }else if printed == false{
+            printed = true
+            print("..., ")
         }
     }
     print(postfix)
     print(newline)
 }
-func print(x: matrix, prefix:String="matrix([", postfix:String="])", format:String="%.3f"){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format)
+func print(x: matrix, prefix:String="matrix([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
+    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
 func zeros_like(x: matrix) -> matrix{
     return zeros(x.n)

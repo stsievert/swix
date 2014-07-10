@@ -68,7 +68,7 @@ matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 
 var x = ones((2*N,2*N)) * phi
-println(x, printWholeMatrix:true)
+println(x, printWholeMatrix:false)
 
 
 

@@ -128,7 +128,7 @@ func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline
         else {post = "],\n"}
         
         if printWholeMatrix || x.shape.0 < 16 || i<4-1 || i>x.shape.0-4{
-            print(x[i, 0..<x.shape.1], prefix:pre, postfix:post, format: format)
+            print(x[i, 0..<x.shape.1], prefix:pre, postfix:post, format: format, printWholeMatrix:printWholeMatrix)
         }
         else if printedSpacer==false{
             printedSpacer=true
@@ -138,8 +138,8 @@ func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline
     print(postfix)
     print(newline)
 }
-func print(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f"){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format)
+func print(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
 func zeros_like(x: matrix2d) -> matrix2d{
     var y:matrix2d = zeros((x.shape.0, x.shape.1))
