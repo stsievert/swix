@@ -6,4 +6,3 @@
 
 DSPDoubleComplex* fft_objc(NSArray* x);
 double* ifft_objc(NSArray * yr, NSArray * yi, int N);
-

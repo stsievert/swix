@@ -16,7 +16,6 @@
 		D2A5CAD6196D830000749F52 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD5196D830000749F52 /* numbers.swift */; };
 		D2A5CAD8196D89C500749F52 /* oneD-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD7196D89C500749F52 /* oneD-math.swift */; };
 		D2A5CADA196D9C0C00749F52 /* oneD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD9196D9C0C00749F52 /* oneD-operators.swift */; };
-		D2B481A9196F1F4C00DAEDFF /* fft.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B481A7196F1F4C00DAEDFF /* fft.m */; };
 		D2BAB4C4196E656E005020F6 /* twoD-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BAB4C3196E656E005020F6 /* twoD-math.swift */; };
 		D2BBBDAD196DD693004707F3 /* fft.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* fft.m */; };
 /* End PBXBuildFile section */
@@ -44,9 +43,6 @@
 		D2A5CAD5196D830000749F52 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
 		D2A5CAD7196D89C500749F52 /* oneD-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-math.swift"; sourceTree = "<group>"; };
 		D2A5CAD9196D9C0C00749F52 /* oneD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-operators.swift"; sourceTree = "<group>"; };
-		D2B481A7196F1F4C00DAEDFF /* fft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fft.m; sourceTree = "<group>"; };
-		D2B481A8196F1F4C00DAEDFF /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
-		D2B481AD196F204100DAEDFF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D2BAB4C3196E656E005020F6 /* twoD-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-math.swift"; path = "twoD/twoD-math.swift"; sourceTree = "<group>"; };
 		D2BBBDAB196DD693004707F3 /* fft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fft.m; sourceTree = "<group>"; };
 		D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -77,8 +73,6 @@
 		D24A8548196D7D73009C18AC = {
 			isa = PBXGroup;
 			children = (
-				D2B481AD196F204100DAEDFF /* Accelerate.framework */,
-				D2B481A6196F1F4C00DAEDFF /* objc */,
 				D24A8553196D7D73009C18AC /* swix */,
 				D24A8552196D7D73009C18AC /* Products */,
 			);
@@ -110,16 +104,6 @@
 				D2BBBDAE196DD9EE004707F3 /* objc */,
 			);
 			path = swix;
-			sourceTree = "<group>";
-		};
-		D2B481A6196F1F4C00DAEDFF /* objc */ = {
-			isa = PBXGroup;
-			children = (
-				D2B481A7196F1F4C00DAEDFF /* fft.m */,
-				D2B481A8196F1F4C00DAEDFF /* swix-Bridging-Header.h */,
-			);
-			name = objc;
-			path = swix/swix/objc;
 			sourceTree = "<group>";
 		};
 		D2BBBDAE196DD9EE004707F3 /* objc */ = {
@@ -198,7 +182,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B481A9196F1F4C00DAEDFF /* fft.m in Sources */,
 				D2A5CAD8196D89C500749F52 /* oneD-math.swift in Sources */,
 				D24A855C196D7E86009C18AC /* matrix.swift in Sources */,
 				D24A8555196D7D73009C18AC /* main.swift in Sources */,
