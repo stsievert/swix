@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 com.scott. All rights reserved.
 //
 
+// some other useful tips that need an iOS app to use:
+//  1. UIImage to raw array: http://stackoverflow.com/a/1262893/1141256
+//  2. raw array to UIImage: http://stackoverflow.com/a/12868860/1141256
+
 // For these tests, we're going to assume "easy" functions work like normal (abs, sum, pow, etc). It's the operators and stuff like that we want to test.
 
 import Foundation
@@ -42,7 +46,7 @@ func argwhere_test(){
     var i = argwhere(x ~== y)
     assert(i == array(5, 6, 7, 8, 9))
     x[argwhere(x<2)] = ones(argwhere(x<2).n)
-    println("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works.")
+    println("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works for both 1d and 2d.")
 }
 func matrix2d_indexing_test(){
     var x = array("1 2 3; 4 5 6; 7 8 9")
@@ -62,6 +66,9 @@ range_test()
 argwhere_test()
 matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
+
+var x = ones((2*N,2*N)) * phi
+println(x, printWholeMatrix:true)
 
 
 

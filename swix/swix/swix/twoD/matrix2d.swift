@@ -74,22 +74,72 @@ struct matrix2d {
             }
         }
     }
+    subscript(i: Range<Int>, k: Int) -> matrix {
+        get {
+            var j = 0
+            var idx = zeros(i.endIndex - i.startIndex)
+            for ii in i{
+                idx[j] = ii.double; j+=1
+            }
+            var x:matrix = self.flat[idx * self.columns.double + k.double]
+            return x
+        }
+        set {
+            var j=0;
+            var idx = zeros(i.endIndex - i.startIndex)
+            for ii in i{
+                idx[j] = ii.double; j+=1
+            }
+            self.flat[idx * self.columns.double + k.double] = newValue[idx]
+        }
+    }
+    subscript(i: Int, k: Range<Int>) -> matrix {
+        get {
+            var j = 0
+            var idx = zeros(k.endIndex - k.startIndex)
+            for ii in k{
+                idx[j] = ii.double; j+=1
+            }
+            var x:matrix = self.flat[i.double * self.columns.double + idx]
+            return x
+        }
+        set {
+            var j=0;
+            var idx = zeros(k.endIndex - k.startIndex)
+            for ii in k{
+                idx[j] = ii.double; j+=1
+            }
+            self.flat[i.double * self.columns.double + idx] = newValue[idx]
+        }
+    }
 }
 
-func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f"){
+func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     print(prefix)
     var suffix = ", "
-    var printed = false
+    var pre:String
+    var post:String
+    var printedSpacer = false
     for i in 0..<x.shape.0{
-        if i>0 {print("        ")}
-        for j in 0..<x.shape.1{
-            print(x[i, j])
-            print(", ")
+        // pre and post nice -- internal variables
+        if i==0 {pre = ""}
+        else {pre = "        "}
+        if i==x.shape.0-1{post=""}
+        else {post = "],\n"}
+        
+        if printWholeMatrix || x.shape.0 < 16 || i<4-1 || i>x.shape.0-4{
+            print(x[i, 0..<x.shape.1], prefix:pre, postfix:post, format: format)
         }
-        if i<x.shape.0-1 {println("")}
+        else if printedSpacer==false{
+            printedSpacer=true
+            println("        ...,")
+        }
     }
     print(postfix)
     print(newline)
+}
+func print(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f"){
+    println(x, prefix:prefix, postfix:postfix, newline:"", format:format)
 }
 func zeros_like(x: matrix2d) -> matrix2d{
     var y:matrix2d = zeros((x.shape.0, x.shape.1))
