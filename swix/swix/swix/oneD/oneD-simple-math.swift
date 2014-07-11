@@ -33,13 +33,15 @@ func log(x: matrix) -> matrix{
     var y = apply_function(log, x)
     return y
 }
-/// drops into objc
 func abs(x: matrix) -> matrix{
     return apply_function(abs, x)
 }
 func sqrt(x: matrix) -> matrix{
     var y = apply_function(sqrt, x)
     return y
+}
+func round(x: matrix) -> matrix{
+    return apply_function(round, x)
 }
 func floor(x: matrix) -> matrix{
     var y = apply_function(floor, x)
@@ -129,6 +131,30 @@ func randn(N: Int, mean: Double=0, sigma: Double=1) -> matrix{
     }
     var y = (x * sigma) + mean;
     return y
+}
+func min(x: matrix, absValue:Bool=false) -> Double{
+    var min = inf
+    var current:Double
+    for i in 0..<x.n{
+        if absValue {current = abs(x[i])}
+        else {current = x[i]}
+        if current < min{
+            min = current
+        }
+    }
+    return min
+}
+func max(x: matrix, absValue:Bool=false) -> Double{
+    var min = -inf
+    var current:Double
+    for i in 0..<x.n{
+        if absValue {current = abs(x[i])}
+        else {current = x[i]}
+        if current > min{
+            min = current
+        }
+    }
+    return min
 }
 
 

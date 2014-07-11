@@ -25,6 +25,11 @@ func diag(x: matrix) -> matrix2d{
 func eye(n: Int) -> matrix2d{
     return diag(ones(n))
 }
+func reshape(x: matrix, shape:(Int, Int))->matrix2d{
+    var y = zeros(shape)
+    y.flat = x
+    return y
+}
 
 /// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot.
 func array(matlab_like_string: String)->matrix2d{

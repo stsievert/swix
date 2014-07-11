@@ -11,7 +11,6 @@ import Foundation
 func apply_function(function: matrix->matrix, x: matrix2d)->matrix2d{
     var y = function(x.flat)
     var z = zeros_like(x)
-//    z.grid = y.grid
     z.flat = y
     return z
 }
@@ -39,6 +38,9 @@ func floor(x: matrix2d) -> matrix2d{
 func ceil(x: matrix2d) -> matrix2d{
     return apply_function(ceil, x)
 }
+func round(x: matrix2d) -> matrix2d{
+    return apply_function(round, x)
+}
 func randn(N: (Int, Int), mean: Double=0, sigma: Double=1) -> matrix2d{
     var x = zeros(N)
     for i in 0..<x.n{
@@ -59,6 +61,12 @@ func pow(x: matrix2d, power: Double) -> matrix2d{
     var z = zeros_like(x)
     z.flat = y
     return z
+}
+func min(x: matrix2d, absValue:Bool=false)-> Double{
+    return min(x.flat, absValue:absValue)
+}
+func max(x: matrix2d, absValue:Bool=false)-> Double{
+    return max(x.flat, absValue:absValue)
 }
 
 //func pow(x: matrix, power: Double) -> matrix{
