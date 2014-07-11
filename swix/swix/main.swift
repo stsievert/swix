@@ -69,9 +69,12 @@ matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 
 var x = ones(8)
-var X = fft(x)
-println(X)
+var (Yr, Yi) = fft(x)
+println(Yr)
+println(Yi)
 
+var xR = ifft(Yr, Yi)
+println(xR)
 
 
 

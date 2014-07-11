@@ -21,10 +21,16 @@ let FLOAT_EPSILON = FLT_EPSILON
 // use 3.double or 3.14.int or N.int
 extension Int{
     var int:Int {return Int(self)}
+    var cint:CInt {return CInt(self)}
     var float:Float {return Float(self)}
     var double:Double {return Double(self)}
 }
 extension Double{
+    var int:Int {return Int(self)}
+    var float:Float {return Float(self)}
+    var double:Double {return Double(self)}
+}
+extension CInt{
     var int:Int {return Int(self)}
     var float:Float {return Float(self)}
     var double:Double {return Double(self)}

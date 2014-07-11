@@ -24,10 +24,10 @@ double* NSArrayToDoublePointer(NSArray* x){
     return xx;
     
 }
-DSPDoubleComplex* fft_objc(NSArray* x){
-    unsigned long N = [x count];
-    
-    double * xx = NSArrayToDoublePointer(x);
+//DSPDoubleComplex* fft_objc(NSArray* x){
+//DSPDoubleComplex* fft_objc(double* xx, int N){
+//DSPDoubleSplitComplex* fft_objc(double* xx, int N, double*yr, double* yi){
+void fft_objc(double* xx, int N, double*yr, double* yi){
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex xxx;
     xxx.realp = xx;
@@ -43,34 +43,31 @@ DSPDoubleComplex* fft_objc(NSArray* x){
     for (int i=0; i<N; i++) {
         yyy.realp[i] = yyy.realp[i] / 2;
         yyy.imagp[i] = yyy.imagp[i] / 2;
+        yr[i] = yyy.realp[i];
+        yi[i] = yyy.imagp[i];
     }
     
-    DSPDoubleComplex* x4 = (DSPDoubleComplex*)malloc(sizeof(DSPDoubleComplex) * 4 * N);
-    vDSP_ztocD(&yyy, 1, x4, 2, N);
-    return x4;
+//    DSPDoubleComplex* x4 = (DSPDoubleComplex*)malloc(sizeof(DSPDoubleComplex) * 4 * N);
+//    vDSP_ztocD(&yyy, 1, x4, 2, N);
+//    return &yyy;
 }
-double* ifft_objc(//DSPDoubleComplex* x, int N){
-                  NSArray* yr, NSArray* yi, int N){
-    
-    DSPDoubleComplex* x = (DSPDoubleComplex *)malloc(sizeof(DSPDoubleComplex) * N * 2);
-    // slow but nice
-    for (int i=0; i<N; i++){
-        x[i].real = [[yr objectAtIndex:i] doubleValue];
-        x[i].imag = [[yi objectAtIndex:i] doubleValue];
-    }
+//double* ifft_objc(//DSPDoubleComplex* x, int N){
+//                  NSArray* yr, NSArray* yi, int N){
+void ifft_objc(double* yr, double* yi, int N, double* x){
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex x2;
-    x2.realp = (double *)malloc(sizeof(double) * 2*N);
-    x2.imagp = (double *)malloc(sizeof(double) * 2*N);
+    x2.realp = yr;//(double *)malloc(sizeof(double) * 2*N);
+    x2.imagp = yi;//(double *)malloc(sizeof(double) * 2*N);
     
     DSPDoubleSplitComplex result;
-    result.realp = (double *)malloc(sizeof(double) * 2*N);
+    result.realp = x;//(double *)malloc(sizeof(double) * 2*N);
     result.imagp = (double *)malloc(sizeof(double) * 2*N);
-    vDSP_ctozD(x, 2, &x2, 1, N);
-    
+
     vDSP_fft_zropD(setup, &x2, 1, &result, 1, (int)log2(N)+1, FFT_INVERSE);
-    
+
     // why 16? beats me. can be sped up with accelerate
-    for (int i=0; i<N; i++) result.realp[i] = result.realp[i]/16;
-    return result.realp;
+    for (int i=0; i<N; i++){
+        result.realp[i] = result.realp[i]/16;
+        x[i] = result.realp[i];
+    }
 }

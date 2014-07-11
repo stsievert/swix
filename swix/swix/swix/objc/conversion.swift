@@ -11,3 +11,10 @@ import Foundation
 func matrixToPointer(x: matrix)->UnsafePointer<Double>{
     return UnsafePointer<Double>(x.grid)
 }
+func pointerToMatrix(xP: UnsafePointer<Double>, N:Int)->matrix{
+    var x = zeros(N)
+    for i in 0..<N{
+        x[i] = xP[i]
+    }
+    return x
+}
