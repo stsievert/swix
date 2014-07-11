@@ -60,6 +60,19 @@ func matrix2d_indexing_matrix_test(){
     assert(x[array(0, 1, 2, 3, 4, 5)] == array(1, 2, 3, 4, 5, 6))
     println("    x[matrix] works and indexes the matrix row first")
 }
+func fft_test(){
+    var x = arange(8)
+    var (yr, yi) = fft(x)
+    var x2 = ifft(yr, yi)
+    assert(x2 == x)
+    println("    fft/ifft works. fft(x) -> (yreal, yimag)")
+}
+func dot_test(){
+    var x = eye(3) * 2
+    var y = array("1 2 3 1; 4 5 6 1; 7 8 9 1")
+    assert(x *! y == 2*y)
+    println("    dot product works with dot(x, y) or x *! y")
+}
 
 println("running tests...")
 operator_test()
@@ -67,14 +80,10 @@ range_test()
 argwhere_test()
 matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
+fft_test()
+dot_test()
 
-var x = ones(8)
-var (Yr, Yi) = fft(x)
-println(Yr)
-println(Yi)
 
-var xR = ifft(Yr, Yi)
-println(xR)
 
 
 

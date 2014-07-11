@@ -60,6 +60,10 @@ func make_operator(lhs: Double, operator: String, rhs: matrix2d)->matrix2d{
     return result
 }
 
+// DOT PRODUCT
+operator infix *! {associativity none precedence 140}
+func *! (lhs: matrix2d, rhs: matrix2d) -> matrix2d{
+    return dot(lhs, rhs)}
 // PLUS
 operator infix + {associativity none precedence 140}
 func + (lhs: matrix2d, rhs: matrix2d) -> matrix2d{

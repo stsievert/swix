@@ -8,25 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
-double* zeros_objc(int N){
-    double * x = (double *)malloc(sizeof(double) * N);
-    double value = 0.0;
-    vDSP_vfillD(&value, x, 1, N);
-    return x;
+double* zeros_objc(int N);
+
+
+void dot_objc(double* x, double* y, double* z, int m, int n, int k){
+    cblas_dgemm(CblasRowMajor,
+                CblasNoTrans,
+                CblasNoTrans,
+                m, n, k, 1.0,
+                x, k, y, n,
+                1.0, z, n);
 }
 
-double* NSArrayToDoublePointer(NSArray* x){
-    unsigned long N = [x count];
-    double * xx = (double *)malloc(sizeof(double) * N);
-    for (int i=0; i<[x count]; i++) {
-        xx[i] = [[x objectAtIndex:i] doubleValue];
-    }
-    return xx;
-    
-}
-//DSPDoubleComplex* fft_objc(NSArray* x){
-//DSPDoubleComplex* fft_objc(double* xx, int N){
-//DSPDoubleSplitComplex* fft_objc(double* xx, int N, double*yr, double* yi){
 void fft_objc(double* xx, int N, double*yr, double* yi){
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex xxx;
@@ -46,13 +39,7 @@ void fft_objc(double* xx, int N, double*yr, double* yi){
         yr[i] = yyy.realp[i];
         yi[i] = yyy.imagp[i];
     }
-    
-//    DSPDoubleComplex* x4 = (DSPDoubleComplex*)malloc(sizeof(DSPDoubleComplex) * 4 * N);
-//    vDSP_ztocD(&yyy, 1, x4, 2, N);
-//    return &yyy;
 }
-//double* ifft_objc(//DSPDoubleComplex* x, int N){
-//                  NSArray* yr, NSArray* yi, int N){
 void ifft_objc(double* yr, double* yi, int N, double* x){
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex x2;
@@ -70,4 +57,14 @@ void ifft_objc(double* yr, double* yi, int N, double* x){
         result.realp[i] = result.realp[i]/16;
         x[i] = result.realp[i];
     }
+}
+
+
+
+
+double* zeros_objc(int N){
+    double * x = (double *)malloc(sizeof(double) * N);
+    double value = 0.0;
+    vDSP_vfillD(&value, x, 1, N);
+    return x;
 }

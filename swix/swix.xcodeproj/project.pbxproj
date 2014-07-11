@@ -21,7 +21,7 @@
 		D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481AF196F20E400DAEDFF /* Foundation.framework */; };
 		D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481B1196F20EB00DAEDFF /* Accelerate.framework */; };
 		D2BAB4C4196E656E005020F6 /* twoD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BAB4C3196E656E005020F6 /* twoD-simple-math.swift */; };
-		D2BBBDAD196DD693004707F3 /* fft.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* fft.m */; };
+		D2BBBDAD196DD693004707F3 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* math.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,7 +52,7 @@
 		D2B481AF196F20E400DAEDFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2B481B1196F20EB00DAEDFF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D2BAB4C3196E656E005020F6 /* twoD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-simple-math.swift"; path = "twoD/twoD-simple-math.swift"; sourceTree = "<group>"; };
-		D2BBBDAB196DD693004707F3 /* fft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fft.m; sourceTree = "<group>"; };
+		D2BBBDAB196DD693004707F3 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
 		D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +122,7 @@
 		D2BBBDAE196DD9EE004707F3 /* objc */ = {
 			isa = PBXGroup;
 			children = (
-				D2BBBDAB196DD693004707F3 /* fft.m */,
+				D2BBBDAB196DD693004707F3 /* math.m */,
 				D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */,
 				D271C9BD1970328C008E577A /* conversion.swift */,
 			);
@@ -207,7 +207,7 @@
 				D271C9BC197031C1008E577A /* math.swift in Sources */,
 				D2A5CAD6196D830000749F52 /* numbers.swift in Sources */,
 				D20087B2196E180C00AB26AE /* twoD-initing.swift in Sources */,
-				D2BBBDAD196DD693004707F3 /* fft.m in Sources */,
+				D2BBBDAD196DD693004707F3 /* math.m in Sources */,
 				D2A5CADA196D9C0C00749F52 /* oneD-operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
