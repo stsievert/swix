@@ -60,7 +60,6 @@ func make_operator(lhs: Double, operator: String, rhs: matrix2d)->matrix2d{
     return result
 }
 
-
 // PLUS
 operator infix + {associativity none precedence 140}
 func + (lhs: matrix2d, rhs: matrix2d) -> matrix2d{

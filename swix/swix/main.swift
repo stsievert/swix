@@ -53,6 +53,7 @@ func matrix2d_indexing_test(){
     x[0|2, 0|2] = ones((2,2))
     assert(x == array("1 1 3; 1 1 6; 7 8 9"))
     println("    use x[0|2, 0|2] to index *exclusively* (and 0!2 for inclusive)")
+    println("    can use x[0|2, 1], x[1, 0..<2] or x[0..<2, 0|2] to also index")
 }
 func matrix2d_indexing_matrix_test(){
     var x = array("1 2 3; 4 5 6; 7 8 9")
@@ -67,10 +68,9 @@ argwhere_test()
 matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 
-var x = ones((2*N,2*N)) * phi
-println(x, printWholeMatrix:false)
-
-
+var x = ones(8)
+var X = fft(x)
+println(X)
 
 
 

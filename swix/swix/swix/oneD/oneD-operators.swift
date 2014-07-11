@@ -63,7 +63,9 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
              array[i] = lhs[i] * rhs
         } else if operator == "/"{
             array[i] = lhs[i] / rhs
-        }
+        } else if operator == "**"{
+            array[i] = pow(lhs[i], rhs)
+        } else { assert(false, "Operator not reconginzed!") }
     }
     return array
 }

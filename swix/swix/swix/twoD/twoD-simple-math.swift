@@ -54,15 +54,13 @@ func rand(N: (Int, Int)) -> matrix2d{
     }
     return x
 }
+func pow(x: matrix2d, power: Double) -> matrix2d{
+    var y = pow(x.flat, power)
+    var z = zeros_like(x)
+    z.flat = y
+    return z
+}
 
-
-
-
-
-
-//func pow(x: matrix2d) -> matrix2d{
-//    return apply_function(pow, x)
-//}
 //func pow(x: matrix, power: Double) -> matrix{
 //    var y = zeros(x.count)
 //    for i in 0..<x.count{

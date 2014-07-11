@@ -37,6 +37,9 @@ extension Float{
 }
 extension String {
     var floatValue: Float {
-    return (self as NSString).floatValue
+        return (self as NSString).floatValue
+    }
+    var doubleValue: Double {
+        return (self as NSString).doubleValue
     }
 }

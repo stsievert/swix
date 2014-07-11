@@ -17,16 +17,29 @@ add_two_vectors(double * x, double * y, double * result, int N){
         result[i] = x[i] + y[i];
     }
 }
+add_scalar(double x, double * y, double * result, int N){
+    for (int i=0; i<N; i++){
+        result[i] = x + y[i];
+    }
+}
+multiply_two_vectors(double * x, double * y, double * result, int N){
+    for (int i=0; i<N; i++){
+        result[i] = x[i] * y[i];
+    }
+}
 void main(){
     int N = 10;
     double * x = (double *)malloc(sizeof(double) * N);
     double * y = (double *)malloc(sizeof(double) * N);
+    double * intermediate = (double *)malloc(sizeof(double) * N);
     double * result = (double *)malloc(sizeof(double) * N);
     for (int i=0; i<N; i++){
-        x[i] = 3
-        y[i] = 1.618
+        x[i] = 3;
+        y[i] = 1.618;
     }
-    add_two_vector(x, y, result, N)
+    add_two_vectors(x, y, intermediate, N);
+    add_scalar(4, x, x, N);
+    multiply_two_vectors(x, intermediate, result, N);
 }
 ```
 
@@ -36,7 +49,7 @@ The equivalent Swift syntax with this library?
 let N = 10
 var x = ones(N) * 3
 var y = ones(N) * phi
-var result = x + y
+var result = (x+y+4)*x
 ```
 
 While this library is basic, I expect something like [NumPy][numpy] to be
