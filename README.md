@@ -55,9 +55,8 @@ var result = (x+y+4)*x
 While this library is basic, I expect something like [NumPy][numpy] to be
 released: a mathematical library that includes more than you would ever
 possibly need. In most cases, this library just wraps Swift.  However, in other
-cases it calls the [Accelerate framework][accel] or [OpenCV][opencv] (and
-that's to be changed). If you want to add a feature, feel free to submit a pull
-request.
+cases it calls the [Accelerate framework][accel] or [OpenCV][opencv]. If you
+want to add a feature, feel free to submit a pull request.
 
 Currently, this library gives you
 
