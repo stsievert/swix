@@ -49,3 +49,23 @@ func array(numbers: Double...) -> matrix{
     }
     return x
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

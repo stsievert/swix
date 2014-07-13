@@ -42,6 +42,7 @@ struct matrix2d {
             var x = zeros((r.endIndex - r.startIndex, c.endIndex - c.startIndex))
             var j=0
             var m=0, k=0
+            // FOR LOOP
             for i in r {
                 k = 0
                 for j in c{
@@ -54,6 +55,7 @@ struct matrix2d {
         set {
             var j = 0
             var m = 0
+            // FOR LOOP
             for i in r {
                 j = 0
                 for k in c{
@@ -64,21 +66,14 @@ struct matrix2d {
         }
     }
     subscript(r: matrix) -> matrix {
-        get {
-            var x = self.flat[r]
-            return x
-        }
-        set {
-            var j = 0
-            for i in 0..<r.n{
-                flat[r[i].int] = newValue[j]; j+=1
-            }
-        }
+        get {return self.flat[r]}
+        set {flat.grid = newValue.grid}
     }
     subscript(i: Range<Int>, k: Int) -> matrix {
         get {
             var j = 0
             var idx = zeros(i.endIndex - i.startIndex)
+            // FOR LOOP
             for ii in i{
                 idx[j] = ii.double; j+=1
             }
@@ -88,6 +83,7 @@ struct matrix2d {
         set {
             var j=0;
             var idx = zeros(i.endIndex - i.startIndex)
+            // FOR LOOP
             for ii in i{
                 idx[j] = ii.double; j+=1
             }
@@ -98,6 +94,7 @@ struct matrix2d {
         get {
             var j = 0
             var idx = zeros(k.endIndex - k.startIndex)
+            // FOR LOOP
             for ii in k{
                 idx[j] = ii.double; j+=1
             }
@@ -107,6 +104,7 @@ struct matrix2d {
         set {
             var j=0;
             var idx = zeros(k.endIndex - k.startIndex)
+            // FOR LOOP
             for ii in k{
                 idx[j] = ii.double; j+=1
             }
