@@ -71,43 +71,23 @@ struct matrix2d {
     }
     subscript(i: Range<Int>, k: Int) -> matrix {
         get {
-            var j = 0
-            var idx = zeros(i.endIndex - i.startIndex)
-            // FOR LOOP
-            for ii in i{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(i)
             var x:matrix = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
-            var j=0;
-            var idx = zeros(i.endIndex - i.startIndex)
-            // FOR LOOP
-            for ii in i{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(i)
             self.flat[idx * self.columns.double + k.double] = newValue[idx]
         }
     }
     subscript(i: Int, k: Range<Int>) -> matrix {
         get {
-            var j = 0
-            var idx = zeros(k.endIndex - k.startIndex)
-            // FOR LOOP
-            for ii in k{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(k)
             var x:matrix = self.flat[i.double * self.columns.double + idx]
             return x
         }
         set {
-            var j=0;
-            var idx = zeros(k.endIndex - k.startIndex)
-            // FOR LOOP
-            for ii in k{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(k)
             self.flat[i.double * self.columns.double + idx] = newValue[idx]
         }
     }

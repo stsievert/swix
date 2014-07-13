@@ -83,6 +83,11 @@ matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
 
+var x = array("1 2; 3 4")
+var y = x[1, 0...1]
+x[1, 0...1] = ones(2)*3.14
+println(y)
+println(x)
 
 
 

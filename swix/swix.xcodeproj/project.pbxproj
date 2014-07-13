@@ -22,6 +22,7 @@
 		D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481B1196F20EB00DAEDFF /* Accelerate.framework */; };
 		D2BAB4C4196E656E005020F6 /* twoD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BAB4C3196E656E005020F6 /* twoD-simple-math.swift */; };
 		D2BBBDAD196DD693004707F3 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* math.m */; };
+		D2FF0F0B197308440036CD3B /* indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0A197308440036CD3B /* indexing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +55,7 @@
 		D2BAB4C3196E656E005020F6 /* twoD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-simple-math.swift"; path = "twoD/twoD-simple-math.swift"; sourceTree = "<group>"; };
 		D2BBBDAB196DD693004707F3 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
 		D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2FF0F0A197308440036CD3B /* indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = indexing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				D2BBBDAB196DD693004707F3 /* math.m */,
 				D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */,
+				D2FF0F0A197308440036CD3B /* indexing.m */,
 				D271C9BD1970328C008E577A /* conversion.swift */,
 			);
 			path = objc;
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2A5CAD8196D89C500749F52 /* oneD-simple-math.swift in Sources */,
+				D2FF0F0B197308440036CD3B /* indexing.m in Sources */,
 				D24A855C196D7E86009C18AC /* matrix.swift in Sources */,
 				D24A8555196D7D73009C18AC /* main.swift in Sources */,
 				D2BAB4C4196E656E005020F6 /* twoD-simple-math.swift in Sources */,

@@ -49,13 +49,12 @@ struct matrix {
     }
     subscript(r: matrix) -> matrix {
         get {
-            var x = zeros(r.n)
-            // FOR LOOP
-            for i in 0..<r.n{
-                assert(r[i] % 1.0 == 0.0, "Index values must be integers")
-                x[i] = grid[r[i].int]
-            }
-            return x
+            var y = zeros(r.n)
+            var xP = matrixToPointer(self)
+            var yP = matrixToPointer(y)
+            var rP = matrixToPointer(r)
+            index_objc(xP, yP, rP, r.n.cint)
+            return y
         }
         set {
             var j = 0
