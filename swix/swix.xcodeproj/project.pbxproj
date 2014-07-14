@@ -24,6 +24,7 @@
 		D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481B1196F20EB00DAEDFF /* Accelerate.framework */; };
 		D2BAB4C4196E656E005020F6 /* twoD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BAB4C3196E656E005020F6 /* twoD-simple-math.swift */; };
 		D2BBBDAD196DD693004707F3 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* math.m */; };
+		D2BD92AE19746E33001F9EDD /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD92AD19746E33001F9EDD /* opencv2.framework */; };
 		D2FF0F0B197308440036CD3B /* indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0A197308440036CD3B /* indexing.m */; };
 		D2FF0F1119736AEC0036CD3B /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0D19736AEC0036CD3B /* complex.swift */; };
 		D2FF0F1319736AEC0036CD3B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F1019736AEC0036CD3B /* README.md */; };
@@ -62,6 +63,7 @@
 		D2BAB4C3196E656E005020F6 /* twoD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-simple-math.swift"; path = "twoD/twoD-simple-math.swift"; sourceTree = "<group>"; };
 		D2BBBDAB196DD693004707F3 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
 		D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2BD92AD19746E33001F9EDD /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		D2FF0F0A197308440036CD3B /* indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = indexing.m; sourceTree = "<group>"; };
 		D2FF0F0D19736AEC0036CD3B /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complex.swift; sourceTree = "<group>"; };
 		D2FF0F0E19736AEC0036CD3B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BD92AE19746E33001F9EDD /* opencv2.framework in Frameworks */,
 				D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */,
 				D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */,
 			);
@@ -140,6 +143,7 @@
 				D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */,
 				D206A29F1974680A009232B7 /* OpenCV.h */,
 				D206A2A019746886009232B7 /* opencv.mm */,
+				D2BD92AD19746E33001F9EDD /* opencv2.framework */,
 				D2FF0F0A197308440036CD3B /* indexing.m */,
 				D271C9BD1970328C008E577A /* conversion.swift */,
 			);
@@ -330,6 +334,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/swix/swix",
+					"$(PROJECT_DIR)/swix/swix/objc",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,6 +351,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/swix/swix",
+					"$(PROJECT_DIR)/swix/swix/objc",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -104,7 +104,12 @@ matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
 
-CVWrapper.repeat_opencv();
+var x = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+var y = zeros(2*N)
+var xP = matrixToPointer(x)
+var yP = matrixToPointer(y)
+CVWrapper.repeat_opencv(xP, to:yP, n_x:N.cint, n_repeat:2.cint);
+println(y)
 
 
 
