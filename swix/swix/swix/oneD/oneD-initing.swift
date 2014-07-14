@@ -51,6 +51,8 @@ func array(numbers: Double...) -> matrix{
 }
 func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
     var y = zeros(x.n * N)
+    var xP = matrixToPointer(x)
+    var yP = matrixToPointer(y)
     for i in 0..<N{
         y[i*x.n..<(i+1)*x.n] = x
     }

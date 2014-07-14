@@ -3,6 +3,7 @@
 //
 
 #import <Accelerate/Accelerate.h>
+#import "OpenCV.h"
 
 void fft_objc(double*xx, int N, double* yr, double* yi);
 void ifft_objc(double* yr, double* yi, int N, double* x);

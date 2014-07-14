@@ -104,6 +104,7 @@ matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
 
+CVWrapper.repeat_opencv();
 
 
 
