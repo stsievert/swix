@@ -29,6 +29,11 @@ func operator_test(){
     assert(y / x ~== ones(N) * 10)
     println("    basic 1d and 2d operators work")
 }
+func swift_complex_test(){
+    var x = 1.0 + 1.0.i
+    assert(abs(x) == sqrt(2))
+    println("    scalar (not vector) complex number usage works using swift-complex.")
+}
 func range_test(){
     var x = arange(4)
     var y = x[0..<2]
@@ -76,14 +81,13 @@ func dot_test(){
 
 println("running tests...")
 operator_test()
+swift_complex_test()
 range_test()
 argwhere_test()
 matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
-
-
 
 
 
