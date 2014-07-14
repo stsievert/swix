@@ -6,11 +6,21 @@
 //  Copyright (c) 2014 com.scott. All rights reserved.
 //
 
-// some other useful tips that need an iOS app to use:
-//  1. UIImage to raw array: http://stackoverflow.com/a/1262893/1141256
-//  2. raw array to UIImage: http://stackoverflow.com/a/12868860/1141256
+/* 
+ *   some other useful tips that need an iOS app to use:
+ *    1. UIImage to raw array[0]:
+ *    2. raw array to UIImage[1]:
+ *  
+ *   for a working implementation, see[2] (to be published shortly)
+ *  
+ *   [0]:http://stackoverflow.com/a/1262893/1141256
+ *   [1]:http://stackoverflow.com/a/12868860/1141256
+ *   [2]:https://github.com/scottsievert/saliency/blob/master/AVCam/AVCam/saliency/imageToRawArray.m
+ *
+ *
+ * For these tests, we're going to assume (dangerous I know) "easy" functions work like normal (abs, sum, pow, etc). It's the operators and stuff like that we want to test.
+ */
 
-// For these tests, we're going to assume "easy" functions work like normal (abs, sum, pow, etc). It's the operators and stuff like that we want to test.
 
 import Foundation
 
@@ -93,7 +103,6 @@ matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
-
 
 
 

@@ -65,7 +65,7 @@ Currently, this library gives you
 * various functions (sin, etc) and operators (+, etc) that operate on entire arrays
 * dot product
 * machine learning algorithms (SVM, kNN, PCA, more to come)
-* FFTs
+* FFT/IFFT
 
 When I was crafting this library, I primarily depended on [NumPy][numpy]. The
 syntax and operators are relatively similar, so if you're in doubt on how to
@@ -130,8 +130,7 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 ## Features to be added
 * `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
   `var y:matrix = x[0..<5]`. I'll leave it be for now.
-* reintegrate OpenCV framework and machine learning functions (using `double *`!)
-* reintegrate ScalarArithemetic
+* Reintegrate OpenCV framework and machine learning functions (using `double *`!)
 
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic
