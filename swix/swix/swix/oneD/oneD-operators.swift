@@ -88,7 +88,9 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
             array[i] = lhs[i] / rhs
         } else if operator == "**"{
             array[i] = pow(lhs[i], rhs)
-        } else { assert(false, "Operator not reconginzed!") }
+        } else if operator == "%"{
+            array[i] = lhs[i] % rhs
+        }else { assert(false, "Operator not reconginzed!") }
     }
     return array
 }
@@ -121,20 +123,21 @@ func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
 }
 
 // EQUALITY
-operator infix == {associativity none precedence 140}
-func == (lhs: matrix, rhs: matrix) -> Bool{
-    assert(lhs.n == rhs.n, "`+` only works on arrays of equal size")
-    var x = zeros(lhs.n)
-    for i in 0..<lhs.n{
-        if lhs[i] != rhs[i]{ return false}
-    }
-    return true
-    
-}
 operator infix ~== {associativity none precedence 140}
+func ~== (lhs: matrix, rhs: matrix) -> Bool{
+    assert(lhs.n == rhs.n, "`+` only works on arrays of equal size")
+    if max(abs(lhs - rhs)) > 1e-6{
+        return false
+    } else{
+        return true
+    }
+}
 func ~== (lhs: matrix, rhs: matrix) -> matrix{
+    // sees where two matrices are about equal, for use with argwhere
     return make_operator(lhs, "~==", rhs)
 }
+
+// NICE ARITHMETIC
 @assignment func += (inout x: matrix, right: Double){
     x = x + right
 }
@@ -148,6 +151,10 @@ func ~== (lhs: matrix, rhs: matrix) -> matrix{
     x = x / right
 }
 
+// MODJk
+operator infix % {associativity none precedence 140}
+func % (lhs: matrix, rhs: Double) -> matrix{
+    return make_operator(lhs, "%", rhs)}
 // PLUS
 operator infix + {associativity none precedence 140}
 func + (lhs: matrix, rhs: matrix) -> matrix{

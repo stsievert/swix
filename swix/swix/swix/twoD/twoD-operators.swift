@@ -99,10 +99,8 @@ func / (lhs: Double, rhs: matrix2d) -> matrix2d{
 func / (lhs: matrix2d, rhs: Double) -> matrix2d{
     return make_operator(lhs, "/", rhs)}
 // EQUALITY
-operator infix == {associativity none precedence 140}
-func == (lhs: matrix2d, rhs: matrix2d) -> Bool{
-    assert(lhs.n == rhs.n, "`+` only works on arrays of equal size")
-    return lhs.flat == rhs.flat
+func ~== (lhs: matrix2d, rhs: matrix2d) -> Bool{
+    return (rhs.flat ~== lhs.flat)
 }
 // LESS THAN
 operator infix < {associativity none precedence 140}

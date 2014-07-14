@@ -49,6 +49,7 @@ struct matrix {
     }
     subscript(r: matrix) -> matrix {
         get {
+            assert((r%1.0) ~== zeros_like(r))
             var y = zeros(r.n)
             var xP = matrixToPointer(self)
             var yP = matrixToPointer(y)
@@ -57,6 +58,7 @@ struct matrix {
             return y
         }
         set {
+            assert((r%1.0) ~== zeros_like(r))
             var j = 0
             // FOR LOOP
             for i in 0..<r.n{
