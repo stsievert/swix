@@ -84,7 +84,10 @@ use a function, just look at NumPy's docs or [swix's docs in the wiki][swix-doc]
    project. You can add these to your own bridging header and changing the
    paths or [modify your xcode project][br-he] to make that the bridging
    header.
+4. (optional) [Set the compiler optimization flag][setting] to `-O` or `-Ofast`, which can
+   lead to [large speed gains][comp].
 
+[comp]:http://stackoverflow.com/a/24102759/1141256
 [br-he]:http://stackoverflow.com/a/24102433/1141256
 
 Boom. Done. 
