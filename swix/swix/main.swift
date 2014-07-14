@@ -104,12 +104,17 @@ matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
 
-var x = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-var y = zeros(2*N)
-var xP = matrixToPointer(x)
-var yP = matrixToPointer(y)
-CVWrapper.repeat_opencv(xP, to:yP, n_x:N.cint, n_repeat:2.cint);
-println(y)
+//var x = array(0, 1, 3)
+//var y = zeros(2*3)
+//var xP = matrixToPointer(x)
+//var yP = matrixToPointer(y)
+//CVWrapper.repeat_opencv(xP, to:yP, n_x:3.cint, n_repeat:2.cint);
+//println(y)
+var x = array(1, 2, 3, 4, 5)
+var y = array(7, 8)
+var (z1, z2) = meshgrid(x, y)
+println(z1)
+println(z2)
 
 
 

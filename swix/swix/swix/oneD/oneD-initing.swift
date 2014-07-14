@@ -59,6 +59,11 @@ func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
     var z:matrix2d = zeros((N, x.n))
     z.flat = y
     if how=="elements" {z = transpose(z)}
+//    CVWrapper.repeat(xP, to:yP, n_x:x.n.cint, n_repeat:N.cint)
+//    var z:matrix2d = zeros((N, x.n))
+//    z.flat = y
+//    if how=="matrix" {z = transpose(z)}
+//    else if how=="elements" {}
     return z.flat
 }
 

@@ -18,7 +18,7 @@
 
 @interface CVWrapper : NSObject
 
-+ (void) repeat_opencv:(double *)x to:(double*)y n_x:(int)Nx n_repeat:(int)Nrepeat;
++ (void) repeat:(double *)x to:(double*)y n_x:(int)Nx n_repeat:(int)Nrepeat;
 
 
 @end
