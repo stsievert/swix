@@ -45,7 +45,8 @@ struct matrix {
             // assumes that r is not [0, 1, 2, 3...] not [0, 2, 4...]
             return self[toArray(r)]
         }
-        set {self[toArray(r)].grid = newValue.grid}
+        set {
+            self[toArray(r)].grid = newValue.grid}
     }
     subscript(r: matrix) -> matrix {
         get {

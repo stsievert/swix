@@ -13,6 +13,7 @@ As an example, here's some relatively simple Objective-C sample code:
 
 ```objc
 void add_two_vectors(double * x, double * y, double * result, int N){
+    // can be sped up with accelerate, the reason it's a function
     for (int i=0; i<N; i++){
         result[i] = x[i] + y[i];
     }
@@ -116,10 +117,10 @@ array("[1 2; 4 5]") ~== matrix([1 2],
 
 #### Arithmetic
 ```swift
+// same for +, -, *, /, etc
 ones(4) * 4 ~== [4, 4, 4, 4]
 ones(4) * (zeros(4) + 2) ~== [2, 2, 2, 2]
-
-// same for +, -, *, /
+Int(3) + Double(3.14) == 6.14 // through ScalarArithmetic
 ```
 
 Note that `*` is not a dot product operator.  I would have used `@` as a dot
@@ -127,9 +128,10 @@ product operator (like [PEP 465][pep], but custom operators [can't use `@`][@].
 So, I decided to use the symbol for extra-important multiplication: `*!`.
 
 ## Features to be added
-* x[:, 0] = matrix
-* y = x[:, vec]
-* a[b[i]]
+* `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
+  `var y:matrix = x[0..<5]`. I'll leave it be for now.
+* reintegrate OpenCV framework and machine learning functions (using `double *`!)
+* reintegrate ScalarArithemetic
 
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic
