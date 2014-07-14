@@ -31,6 +31,11 @@ func reshape(x: matrix, shape:(Int, Int))->matrix2d{
     y.flat = x
     return y
 }
+func meshgrid(x: matrix, y:matrix) -> (matrix2d, matrix2d){
+    var z1 = reshape(repeat(y, x.n), (x.n, y.n))
+    var z2 = reshape(repeat(x, y.n, how:"elements"), (x.n, y.n))
+    return (z1, z2)
+}
 
 /// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot.
 func array(matlab_like_string: String)->matrix2d{

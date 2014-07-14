@@ -15,7 +15,7 @@
 import Foundation
 
 // TESTS
-let N = 10
+var N = 10
 
 func operator_test(){
     func operator2d_test(){
@@ -82,17 +82,6 @@ matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
-
-var x = array("1 2; 3 4")
-var y = x[1, 0...1]
-x[1, 0...1] = ones(2)*3.14
-println(y)
-println(x)
-
-
-
-
-
 
 
 

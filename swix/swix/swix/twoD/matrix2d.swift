@@ -39,30 +39,20 @@ struct matrix2d {
     }
     subscript(r: Range<Int>, c: Range<Int>) -> matrix2d {
         get {
-            var x = zeros((r.endIndex - r.startIndex, c.endIndex - c.startIndex))
-            var j=0
-            var m=0, k=0
-            // FOR LOOP
-            for i in r {
-                k = 0
-                for j in c{
-                    x[k, m] = flat[j*columns + i]; k += 1
-                }
-                m += 1
-            }
-            return x
+            var rr = toArray(r)
+            var cc = toArray(c)
+            var (i, j) = meshgrid(rr, cc)
+            var idx = (j.flat*columns.double + i.flat)
+            var z = flat[idx]
+            var zz = reshape(z, (rr.n, cc.n))
+            return zz
         }
         set {
-            var j = 0
-            var m = 0
-            // FOR LOOP
-            for i in r {
-                j = 0
-                for k in c{
-                    flat[i*columns+k] = newValue[m, j]; j+=1
-                }
-                m += 1
-            }
+            var rr = toArray(r)
+            var cc = toArray(c)
+            var (i, j) = meshgrid(rr, cc)
+            var idx = j.flat*columns.double + i.flat
+            flat[idx] = newValue.flat
         }
     }
     subscript(r: matrix) -> matrix {
@@ -139,11 +129,6 @@ func argwhere(idx: matrix2d) -> matrix{
     return argwhere(idx.flat)
 }
 
-
-
-//func takesAMutablePointer(x: CMutablePointer<Float>) {
-//    
-//}
 
 
 

@@ -49,6 +49,16 @@ func array(numbers: Double...) -> matrix{
     }
     return x
 }
+func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
+    var y = zeros(x.n * N)
+    for i in 0..<N{
+        y[i*x.n..<(i+1)*x.n] = x
+    }
+    var z:matrix2d = zeros((N, x.n))
+    z.flat = y
+    if how=="elements" {z = transpose(z)}
+    return z.flat
+}
 
 
 
