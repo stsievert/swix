@@ -12,17 +12,17 @@ a pain in the ass, and this library aims to make the MATLAB to iOS conversion
 As an example, here's some relatively simple Objective-C sample code:
 
 ```objc
-add_two_vectors(double * x, double * y, double * result, int N){
+void add_two_vectors(double * x, double * y, double * result, int N){
     for (int i=0; i<N; i++){
         result[i] = x[i] + y[i];
     }
 }
-add_scalar(double x, double * y, double * result, int N){
+void add_scalar(double x, double * y, double * result, int N){
     for (int i=0; i<N; i++){
         result[i] = x + y[i];
     }
 }
-multiply_two_vectors(double * x, double * y, double * result, int N){
+void multiply_two_vectors(double * x, double * y, double * result, int N){
     for (int i=0; i<N; i++){
         result[i] = x[i] * y[i];
     }
@@ -68,7 +68,7 @@ Currently, this library gives you
 
 When I was crafting this library, I primarily depended on [NumPy][numpy]. The
 syntax and operators are relatively similar, so if you're in doubt on how to
-use a function, just look at NumPy's docs or swix's docs in the wiki.
+use a function, just look at NumPy's docs or [swix's docs in the wiki][swix-doc]
 
 ## Third Party Frameworks/Libraries
 * [Accelerate][accel]
@@ -105,19 +105,19 @@ This library also can do one dimensional FFTs.
 
 #### Init'ing arrays
 ```swift
-ones(4) == matrix([1, 1, 1, 1])
-ones((4,4)) == matrix([1, 1],
+ones(4) ~== matrix([1, 1, 1, 1])
+ones((4,4)) ~== matrix([1, 1],
                       [1, 1])
 // same with zeros
-array(1, 2, 3, 4) == [1, 2, 3, 4]
-array("[1 2; 4 5]") == matrix([1 2],
+array(1, 2, 3, 4) ~== [1, 2, 3, 4]
+array("[1 2; 4 5]") ~== matrix([1 2],
                               [4 5])
 ```
 
 #### Arithmetic
 ```swift
-ones(4) * 4 == [4, 4, 4, 4]
-ones(4) * (zeros(4) + 2) == [2, 2, 2, 2]
+ones(4) * 4 ~== [4, 4, 4, 4]
+ones(4) * (zeros(4) + 2) ~== [2, 2, 2, 2]
 
 // same for +, -, *, /
 ```
@@ -140,3 +140,4 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
 [pep]:http://legacy.python.org/dev/peps/pep-0465/#implementation-details
+[swix-doc]:https://github.com/scottsievert/swix/wiki
