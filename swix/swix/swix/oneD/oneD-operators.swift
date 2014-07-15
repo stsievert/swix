@@ -64,11 +64,13 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
 }
 func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
     var array = zeros(lhs.n)
-    if operator == "%"{
+    if operator == "%" || operator=="*" {
         var xP = matrixToPointer(lhs)
         var arrayP = matrixToPointer(array)
-        // mod_objc is a for-loop in C
-        mod_objc(xP, rhs, arrayP, lhs.n.cint);
+        if operator == "%"
+            {mod_objc(xP, rhs, arrayP, lhs.n.cint);
+        } else if operator == "*"
+            {mul_scalar_objc(xP, rhs.cdouble, arrayP, lhs.n.cint)}
     } else{
         for i in 0..<lhs.n{
             if operator == "<"{
@@ -104,28 +106,35 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
 }
 func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
     var array = zeros(rhs.n) // lhs[i], rhs[i]
-    for i in 0..<rhs.n{
-        if operator == "<"{
-            if      lhs < rhs[i]{ array[i] = 1 }
-        } else if operator == ">"{
-            if             lhs > rhs[i]{ array[i] = 1 }
-        } else if operator == "<"{
-            if             lhs < rhs[i]{ array[i] = 1 }
-        } else if operator == "~=="{
-            if         abs(lhs - rhs[i])<1e-9 { array[i] = 1 }
-        } else if operator == "<="{
-            if         lhs <= rhs[i]{ array[i] = 1 }
-        } else if operator == ">="{
-            if             lhs >= rhs[i]{ array[i] = 1 }
-        } else if operator == "+"{
-            array[i] =     lhs + rhs[i]
-        } else if operator == "-"{
-            array[i] =      lhs - rhs[i]
-        } else if operator == "*"{
-            array[i] =     lhs * rhs[i]
-        } else if operator == "/"{
-            array[i] =     lhs / rhs[i]
-        } else { assert(false, "Operator not reconginzed!") }
+    if operator=="*"{
+        var xP = matrixToPointer(rhs)
+        var arrayP = matrixToPointer(array)
+        if operator == "*"
+            {mul_scalar_objc(xP, lhs.cdouble, arrayP, rhs.n.cint)}
+    } else{
+        for i in 0..<rhs.n{
+            if operator == "<"{
+                if      lhs < rhs[i]{ array[i] = 1 }
+            } else if operator == ">"{
+                if             lhs > rhs[i]{ array[i] = 1 }
+            } else if operator == "<"{
+                if             lhs < rhs[i]{ array[i] = 1 }
+            } else if operator == "~=="{
+                if         abs(lhs - rhs[i])<1e-9 { array[i] = 1 }
+            } else if operator == "<="{
+                if         lhs <= rhs[i]{ array[i] = 1 }
+            } else if operator == ">="{
+                if             lhs >= rhs[i]{ array[i] = 1 }
+            } else if operator == "+"{
+                array[i] =     lhs + rhs[i]
+            } else if operator == "-"{
+                array[i] =      lhs - rhs[i]
+            } else if operator == "*"{
+                array[i] =     lhs * rhs[i]
+            } else if operator == "/"{
+                array[i] =     lhs / rhs[i]
+            } else { assert(false, "Operator not reconginzed!") }
+        }
     }
     return array
 }

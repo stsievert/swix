@@ -69,6 +69,14 @@ func min(x: matrix2d, absValue:Bool=false)-> Double{
 func max(x: matrix2d, absValue:Bool=false)-> Double{
     return max(x.flat, absValue:absValue)
 }
+func norm(x: matrix2d, type:String="l2") -> Double{
+    if type=="l0"{ return norm(x.flat, type:"l0")}
+    if type=="l1"{ return norm(x.flat, type:"l1")}
+    if type=="l2"{ return norm(x.flat, type:"l2")}
+    
+    assert(false, "type of norm unrecongnized")
+    return -1.0
+}
 
 //func pow(x: matrix, power: Double) -> matrix{
 //    var y = zeros(x.count)
@@ -101,22 +109,7 @@ func max(x: matrix2d, absValue:Bool=false)-> Double{
 //    var z = x - y
 //    return sum(pow(z, 2) / x.count.double)
 //}
-//func norm(x: matrix, type:String="l2") -> Double{
-//    if type=="l2"{ return sqrt(sum(pow(x, 2)))}
-//    if type=="l1"{ return sum(abs(x))}
-//    if type=="l0"{
-//        var count = 0.0
-//        for i in 0..<x.n{
-//            if x[i] != 0{
-//                count += 1
-//            }
-//        }
-//        return count
-//    }
-//    
-//    assert(false, "type of norm unrecongnized")
-//    return -1.0
-//}
+
 //func cumsum(x: matrix) -> matrix{
 //    let N = x.count
 //    var y = zeros(N)

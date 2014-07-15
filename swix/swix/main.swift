@@ -104,6 +104,8 @@ matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
 
+var x = array("1 2; 4 8; 3 5")
+var (u, s, v) = svd(x)
 
 
 

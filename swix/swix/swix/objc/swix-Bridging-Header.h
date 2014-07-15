@@ -16,3 +16,5 @@ double max_objc(double* x, int N);
 void mod_objc(double * x, double mod, double * y, int N);
 void index_xa_b_objc(double * x, double*a, double*b, int N);
 void copy_objc(double*x, double*y, int N);
+void mul_scalar_objc(double* x, double A, double* y, int N);
+void svd_objc(double * xx, int m, int n, double* sigma, double* vt, double* u);

@@ -95,6 +95,10 @@ void index_xa_b_objc(double* x, double* a, double* b, int N){
 void copy_objc(double*x, double*y, int N){
     cblas_dcopy(N, x, 1, y, 1);
 }
+void mul_scalar_objc(double* x, double A, double* y, int N){
+    double C = 0;
+    vDSP_vsmsaD(x, 1, &A, &C, y, 1, N);
+}
 
 
 
