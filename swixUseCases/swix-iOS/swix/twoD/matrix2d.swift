@@ -39,77 +39,45 @@ struct matrix2d {
     }
     subscript(r: Range<Int>, c: Range<Int>) -> matrix2d {
         get {
-            var x = zeros((r.endIndex - r.startIndex, c.endIndex - c.startIndex))
-            var j=0
-            var m=0, k=0
-            for i in r {
-                k = 0
-                for j in c{
-                    x[k, m] = flat[j*columns + i]; k += 1
-                }
-                m += 1
-            }
-            return x
+            var rr = toArray(r)
+            var cc = toArray(c)
+            var (j, i) = meshgrid(rr, cc)
+            var idx = (j.flat*columns.double + i.flat)
+            var z = flat[idx]
+            var zz = reshape(z, (rr.n, cc.n))
+            return zz
         }
         set {
-            var j = 0
-            var m = 0
-            for i in r {
-                j = 0
-                for k in c{
-                    flat[i*columns+k] = newValue[m, j]; j+=1
-                }
-                m += 1
-            }
+            var rr = toArray(r)
+            var cc = toArray(c)
+            var (j, i) = meshgrid(rr, cc)
+            var idx = j.flat*columns.double + i.flat
+            flat[idx] = newValue.flat
         }
     }
     subscript(r: matrix) -> matrix {
-        get {
-            var x = self.flat[r]
-            return x
-        }
-        set {
-            var j = 0
-            for i in 0..<r.n{
-                flat[r[i].int] = newValue[j]; j+=1
-            }
-        }
+        get {return self.flat[r]}
+        set {flat.grid = newValue.grid}
     }
     subscript(i: Range<Int>, k: Int) -> matrix {
         get {
-            var j = 0
-            var idx = zeros(i.endIndex - i.startIndex)
-            for ii in i{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(i)
             var x:matrix = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
-            var j=0;
-            var idx = zeros(i.endIndex - i.startIndex)
-            for ii in i{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(i)
             self.flat[idx * self.columns.double + k.double] = newValue[idx]
         }
     }
     subscript(i: Int, k: Range<Int>) -> matrix {
         get {
-            var j = 0
-            var idx = zeros(k.endIndex - k.startIndex)
-            for ii in k{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(k)
             var x:matrix = self.flat[i.double * self.columns.double + idx]
             return x
         }
         set {
-            var j=0;
-            var idx = zeros(k.endIndex - k.startIndex)
-            for ii in k{
-                idx[j] = ii.double; j+=1
-            }
+            var idx = toArray(k)
             self.flat[i.double * self.columns.double + idx] = newValue[idx]
         }
     }
@@ -161,11 +129,6 @@ func argwhere(idx: matrix2d) -> matrix{
     return argwhere(idx.flat)
 }
 
-
-
-//func takesAMutablePointer(x: CMutablePointer<Float>) {
-//    
-//}
 
 
 

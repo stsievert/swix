@@ -104,7 +104,8 @@ matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
 
-
+var x = array("1 2; 3 4; 5 6; 7 8")
+println(transpose(x))
 
 
 

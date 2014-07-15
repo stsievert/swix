@@ -27,7 +27,6 @@ extension Int{
     var double:Double {return Double(self)}
 }
 extension Double{
-    var type:String {return self.bridgeToObjectiveC().className}
     var int:Int {return Int(self)}
     var float:Float {return Float(self)}
     var double:Double {return Double(self)}
@@ -39,7 +38,6 @@ extension CInt{
     var double:Double {return Double(self)}
 }
 extension Float{
-    var type:String {return self.bridgeToObjectiveC().className}
     var int:Int {return Int(self)}
     var cfloat:CFloat {return CFloat(self)}
     var float:Float {return Float(self)}

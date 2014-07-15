@@ -9,6 +9,8 @@
 import Foundation
 import Accelerate
 
+// almost all of these function can be sped up (drastically) with Accelerate
+
 func copy(x: matrix, y: matrix){
     var xP = matrixToPointer(x)
     var yP = matrixToPointer(y)
@@ -21,6 +23,9 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
     var array = zeros(lhs.n) // lhs[i], rhs[i]
     var arg_b = zeros(lhs.n)
     var arg_c = zeros(lhs.n)
+    
+    // accelerate integration would go here.
+    // 
     if operator=="+" || operator=="-"{// || operator=="*" || operator=="/"{
         var rP = matrixToPointer(rhs)
         var result = zeros(lhs.n)
@@ -31,8 +36,6 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
         if operator=="+"
             {cblas_daxpy(N.cint, 1.0.cdouble, rP, 1.cint, lP, 1.cint);}
         if operator=="-"
-            {cblas_daxpy(N.cint, -1.0.cdouble, rP, 1.cint, lP, 1.cint);}
-        if operator=="*"
             {cblas_daxpy(N.cint, -1.0.cdouble, rP, 1.cint, lP, 1.cint);}
         return result
     }

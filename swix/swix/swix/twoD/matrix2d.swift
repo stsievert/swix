@@ -118,11 +118,9 @@ func transpose (x: matrix2d) -> matrix2d{
     let n = x.shape.0
     let m = x.shape.1
     var y = zeros((m, n))
-    for i in 0..<m{
-        for j in 0..<n{
-            y[i,j] = x[j,i]
-        }
-    }
+    var xP = matrixToPointer(x.flat)
+    var yP = matrixToPointer(y.flat)
+    transpose_objc(xP, yP, m.cint, n.cint);
     return y
 }
 func argwhere(idx: matrix2d) -> matrix{

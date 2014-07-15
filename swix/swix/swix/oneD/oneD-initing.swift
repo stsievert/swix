@@ -16,6 +16,7 @@ func ones(N: Int) -> matrix{
     return matrix(n: N)+1
 }
 func arange(max: Double, x exclusive:Bool = true) -> matrix{
+    // arange can be further sped up with accelerate
     var pad = 0
     if !exclusive {pad = 1}
     var x = zeros(max.int+pad)

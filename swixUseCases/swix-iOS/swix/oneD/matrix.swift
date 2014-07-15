@@ -10,6 +10,13 @@ import Foundation
 import Accelerate
 
 // the matrix definition and related functions go here
+func toArray(seq: Range<Int>) -> matrix {
+    // improve with https://gist.github.com/nubbel/d5a3639bea96ad568cf2
+    var start:Double = seq.startIndex.double * 1.0
+    var end:Double   = seq.endIndex.double * 1.0
+    var s = arange(start, end, x:true)
+    return s
+}
 
 struct matrix {
     let n: Int
@@ -35,27 +42,26 @@ struct matrix {
     }
     subscript(r: Range<Int>) -> matrix {
         get {
-            var x = zeros(r.endIndex - r.startIndex)
-            var j = 0
-            for i in r {x[j] = grid[i]; j += 1}
-            return x
+            // assumes that r is not [0, 1, 2, 3...] not [0, 2, 4...]
+            return self[toArray(r)]
         }
         set {
-            var j = 0
-            for i in r {grid[i] = newValue[j]; j+=1}
-        }
+            self[toArray(r)].grid = newValue.grid}
     }
     subscript(r: matrix) -> matrix {
         get {
-            var x = zeros(r.n)
-            for i in 0..<r.n{
-                assert(r[i] % 1.0 == 0.0, "Index values must be whole numbers")
-                x[i] = grid[r[i].int]
-            }
-            return x
+            assert((r%1.0) ~== zeros_like(r))
+            var y = zeros(r.n)
+            var xP = matrixToPointer(self)
+            var yP = matrixToPointer(y)
+            var rP = matrixToPointer(r)
+            index_objc(xP, yP, rP, r.n.cint)
+            return y
         }
         set {
+            assert((r%1.0) ~== zeros_like(r))
             var j = 0
+            // FOR LOOP
             for i in 0..<r.n{
                 assert(r[i] % 1.0 == 0.0, "Index values must be whole numbers")
                 grid[r[i].int] = newValue[j]; j+=1

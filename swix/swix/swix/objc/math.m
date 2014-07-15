@@ -58,6 +58,9 @@ void ifft_objc(double* yr, double* yi, int N, double* x){
         x[i] = result.realp[i];
     }
 }
+void transpose_objc(double* x, double* y, int M, int N){
+    vDSP_mtransD(x, 1, y, 1, M, N);
+}
 
 double* zeros_objc(int N){
     double * x = (double *)malloc(sizeof(double) * N);

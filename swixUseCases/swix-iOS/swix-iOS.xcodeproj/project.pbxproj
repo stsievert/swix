@@ -12,18 +12,24 @@
 		D216B6CF1971BDAB00D8CAE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D216B6CD1971BDAB00D8CAE8 /* Main.storyboard */; };
 		D216B6D11971BDAB00D8CAE8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D216B6D01971BDAB00D8CAE8 /* Images.xcassets */; };
 		D216B6DD1971BDAB00D8CAE8 /* swix_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6DC1971BDAB00D8CAE8 /* swix_iOSTests.swift */; };
-		D216B6F71971BDC700D8CAE8 /* math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6E71971BDC700D8CAE8 /* math.swift */; };
-		D216B6F81971BDC700D8CAE8 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6E81971BDC700D8CAE8 /* numbers.swift */; };
-		D216B6F91971BDC700D8CAE8 /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6EA1971BDC700D8CAE8 /* conversion.swift */; };
-		D216B6FA1971BDC700D8CAE8 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D216B6EB1971BDC700D8CAE8 /* math.m */; };
-		D216B6FB1971BDC700D8CAE8 /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6EE1971BDC700D8CAE8 /* matrix.swift */; };
-		D216B6FC1971BDC700D8CAE8 /* oneD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6EF1971BDC700D8CAE8 /* oneD-initing.swift */; };
-		D216B6FD1971BDC700D8CAE8 /* oneD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6F01971BDC700D8CAE8 /* oneD-operators.swift */; };
-		D216B6FE1971BDC700D8CAE8 /* oneD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6F11971BDC700D8CAE8 /* oneD-simple-math.swift */; };
-		D216B6FF1971BDC700D8CAE8 /* matrix2d.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6F31971BDC700D8CAE8 /* matrix2d.swift */; };
-		D216B7001971BDC700D8CAE8 /* twoD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6F41971BDC700D8CAE8 /* twoD-initing.swift */; };
-		D216B7011971BDC700D8CAE8 /* twoD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6F51971BDC700D8CAE8 /* twoD-operators.swift */; };
-		D216B7021971BDC700D8CAE8 /* twoD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6F61971BDC700D8CAE8 /* twoD-simple-math.swift */; };
+		D2BD92CA197573FC001F9EDD /* math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B0197573FC001F9EDD /* math.swift */; };
+		D2BD92CB197573FC001F9EDD /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B1197573FC001F9EDD /* numbers.swift */; };
+		D2BD92CC197573FC001F9EDD /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B3197573FC001F9EDD /* conversion.swift */; };
+		D2BD92CD197573FC001F9EDD /* indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B4197573FC001F9EDD /* indexing.m */; };
+		D2BD92CE197573FC001F9EDD /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B5197573FC001F9EDD /* math.m */; };
+		D2BD92CF197573FC001F9EDD /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B7197573FC001F9EDD /* opencv.mm */; };
+		D2BD92D0197573FC001F9EDD /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD92B8197573FC001F9EDD /* opencv2.framework */; };
+		D2BD92D1197573FC001F9EDD /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BB197573FC001F9EDD /* matrix.swift */; };
+		D2BD92D2197573FC001F9EDD /* oneD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BC197573FC001F9EDD /* oneD-initing.swift */; };
+		D2BD92D3197573FC001F9EDD /* oneD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BD197573FC001F9EDD /* oneD-operators.swift */; };
+		D2BD92D4197573FC001F9EDD /* oneD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BE197573FC001F9EDD /* oneD-simple-math.swift */; };
+		D2BD92D5197573FC001F9EDD /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD92BF197573FC001F9EDD /* opencv2.framework */; };
+		D2BD92D6197573FC001F9EDD /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C2197573FC001F9EDD /* ScalarArithmetic.swift */; };
+		D2BD92D7197573FC001F9EDD /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C4197573FC001F9EDD /* complex.swift */; };
+		D2BD92D8197573FC001F9EDD /* matrix2d.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C6197573FC001F9EDD /* matrix2d.swift */; };
+		D2BD92D9197573FC001F9EDD /* twoD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C7197573FC001F9EDD /* twoD-initing.swift */; };
+		D2BD92DA197573FC001F9EDD /* twoD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C8197573FC001F9EDD /* twoD-operators.swift */; };
+		D2BD92DB197573FC001F9EDD /* twoD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C9197573FC001F9EDD /* twoD-simple-math.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,19 +52,26 @@
 		D216B6D61971BDAB00D8CAE8 /* swix-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swix-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D216B6DB1971BDAB00D8CAE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D216B6DC1971BDAB00D8CAE8 /* swix_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swix_iOSTests.swift; sourceTree = "<group>"; };
-		D216B6E71971BDC700D8CAE8 /* math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = math.swift; sourceTree = "<group>"; };
-		D216B6E81971BDC700D8CAE8 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
-		D216B6EA1971BDC700D8CAE8 /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
-		D216B6EB1971BDC700D8CAE8 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
-		D216B6EC1971BDC700D8CAE8 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
-		D216B6EE1971BDC700D8CAE8 /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
-		D216B6EF1971BDC700D8CAE8 /* oneD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-initing.swift"; sourceTree = "<group>"; };
-		D216B6F01971BDC700D8CAE8 /* oneD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-operators.swift"; sourceTree = "<group>"; };
-		D216B6F11971BDC700D8CAE8 /* oneD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-simple-math.swift"; sourceTree = "<group>"; };
-		D216B6F31971BDC700D8CAE8 /* matrix2d.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix2d.swift; sourceTree = "<group>"; };
-		D216B6F41971BDC700D8CAE8 /* twoD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-initing.swift"; sourceTree = "<group>"; };
-		D216B6F51971BDC700D8CAE8 /* twoD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-operators.swift"; sourceTree = "<group>"; };
-		D216B6F61971BDC700D8CAE8 /* twoD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-simple-math.swift"; sourceTree = "<group>"; };
+		D2BD92B0197573FC001F9EDD /* math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = math.swift; sourceTree = "<group>"; };
+		D2BD92B1197573FC001F9EDD /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
+		D2BD92B3197573FC001F9EDD /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
+		D2BD92B4197573FC001F9EDD /* indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = indexing.m; sourceTree = "<group>"; };
+		D2BD92B5197573FC001F9EDD /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
+		D2BD92B6197573FC001F9EDD /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
+		D2BD92B7197573FC001F9EDD /* opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = opencv.mm; sourceTree = "<group>"; };
+		D2BD92B8197573FC001F9EDD /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D2BD92B9197573FC001F9EDD /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2BD92BB197573FC001F9EDD /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
+		D2BD92BC197573FC001F9EDD /* oneD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-initing.swift"; sourceTree = "<group>"; };
+		D2BD92BD197573FC001F9EDD /* oneD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-operators.swift"; sourceTree = "<group>"; };
+		D2BD92BE197573FC001F9EDD /* oneD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-simple-math.swift"; sourceTree = "<group>"; };
+		D2BD92BF197573FC001F9EDD /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D2BD92C2197573FC001F9EDD /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarArithmetic.swift; sourceTree = "<group>"; };
+		D2BD92C4197573FC001F9EDD /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complex.swift; sourceTree = "<group>"; };
+		D2BD92C6197573FC001F9EDD /* matrix2d.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix2d.swift; sourceTree = "<group>"; };
+		D2BD92C7197573FC001F9EDD /* twoD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-initing.swift"; sourceTree = "<group>"; };
+		D2BD92C8197573FC001F9EDD /* twoD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-operators.swift"; sourceTree = "<group>"; };
+		D2BD92C9197573FC001F9EDD /* twoD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-simple-math.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BD92D5197573FC001F9EDD /* opencv2.framework in Frameworks */,
+				D2BD92D0197573FC001F9EDD /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +97,7 @@
 		D216B6BB1971BDAB00D8CAE8 = {
 			isa = PBXGroup;
 			children = (
-				D216B6E61971BDC700D8CAE8 /* swix */,
+				D2BD92AF197573FB001F9EDD /* swix */,
 				D216B6C61971BDAB00D8CAE8 /* swix-iOS */,
 				D216B6D91971BDAB00D8CAE8 /* swix-iOSTests */,
 				D216B6C51971BDAB00D8CAE8 /* Products */,
@@ -135,46 +150,77 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D216B6E61971BDC700D8CAE8 /* swix */ = {
+		D2BD92AF197573FB001F9EDD /* swix */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6E71971BDC700D8CAE8 /* math.swift */,
-				D216B6E81971BDC700D8CAE8 /* numbers.swift */,
-				D216B6E91971BDC700D8CAE8 /* objc */,
-				D216B6ED1971BDC700D8CAE8 /* oneD */,
-				D216B6F21971BDC700D8CAE8 /* twoD */,
+				D2BD92B0197573FC001F9EDD /* math.swift */,
+				D2BD92B1197573FC001F9EDD /* numbers.swift */,
+				D2BD92B2197573FC001F9EDD /* objc */,
+				D2BD92BA197573FC001F9EDD /* oneD */,
+				D2BD92BF197573FC001F9EDD /* opencv2.framework */,
+				D2BD92C0197573FC001F9EDD /* ScalarArithmetic-1.1.1 */,
+				D2BD92C3197573FC001F9EDD /* swift-complex */,
+				D2BD92C5197573FC001F9EDD /* twoD */,
 			);
 			path = swix;
 			sourceTree = "<group>";
 		};
-		D216B6E91971BDC700D8CAE8 /* objc */ = {
+		D2BD92B2197573FC001F9EDD /* objc */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6EA1971BDC700D8CAE8 /* conversion.swift */,
-				D216B6EB1971BDC700D8CAE8 /* math.m */,
-				D216B6EC1971BDC700D8CAE8 /* swix-Bridging-Header.h */,
+				D2BD92B3197573FC001F9EDD /* conversion.swift */,
+				D2BD92B4197573FC001F9EDD /* indexing.m */,
+				D2BD92B5197573FC001F9EDD /* math.m */,
+				D2BD92B6197573FC001F9EDD /* OpenCV.h */,
+				D2BD92B7197573FC001F9EDD /* opencv.mm */,
+				D2BD92B8197573FC001F9EDD /* opencv2.framework */,
+				D2BD92B9197573FC001F9EDD /* swix-Bridging-Header.h */,
 			);
 			path = objc;
 			sourceTree = "<group>";
 		};
-		D216B6ED1971BDC700D8CAE8 /* oneD */ = {
+		D2BD92BA197573FC001F9EDD /* oneD */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6EE1971BDC700D8CAE8 /* matrix.swift */,
-				D216B6EF1971BDC700D8CAE8 /* oneD-initing.swift */,
-				D216B6F01971BDC700D8CAE8 /* oneD-operators.swift */,
-				D216B6F11971BDC700D8CAE8 /* oneD-simple-math.swift */,
+				D2BD92BB197573FC001F9EDD /* matrix.swift */,
+				D2BD92BC197573FC001F9EDD /* oneD-initing.swift */,
+				D2BD92BD197573FC001F9EDD /* oneD-operators.swift */,
+				D2BD92BE197573FC001F9EDD /* oneD-simple-math.swift */,
 			);
 			path = oneD;
 			sourceTree = "<group>";
 		};
-		D216B6F21971BDC700D8CAE8 /* twoD */ = {
+		D2BD92C0197573FC001F9EDD /* ScalarArithmetic-1.1.1 */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6F31971BDC700D8CAE8 /* matrix2d.swift */,
-				D216B6F41971BDC700D8CAE8 /* twoD-initing.swift */,
-				D216B6F51971BDC700D8CAE8 /* twoD-operators.swift */,
-				D216B6F61971BDC700D8CAE8 /* twoD-simple-math.swift */,
+				D2BD92C1197573FC001F9EDD /* ScalarArithmetic */,
+			);
+			path = "ScalarArithmetic-1.1.1";
+			sourceTree = "<group>";
+		};
+		D2BD92C1197573FC001F9EDD /* ScalarArithmetic */ = {
+			isa = PBXGroup;
+			children = (
+				D2BD92C2197573FC001F9EDD /* ScalarArithmetic.swift */,
+			);
+			path = ScalarArithmetic;
+			sourceTree = "<group>";
+		};
+		D2BD92C3197573FC001F9EDD /* swift-complex */ = {
+			isa = PBXGroup;
+			children = (
+				D2BD92C4197573FC001F9EDD /* complex.swift */,
+			);
+			path = "swift-complex";
+			sourceTree = "<group>";
+		};
+		D2BD92C5197573FC001F9EDD /* twoD */ = {
+			isa = PBXGroup;
+			children = (
+				D2BD92C6197573FC001F9EDD /* matrix2d.swift */,
+				D2BD92C7197573FC001F9EDD /* twoD-initing.swift */,
+				D2BD92C8197573FC001F9EDD /* twoD-operators.swift */,
+				D2BD92C9197573FC001F9EDD /* twoD-simple-math.swift */,
 			);
 			path = twoD;
 			sourceTree = "<group>";
@@ -278,20 +324,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D216B6F81971BDC700D8CAE8 /* numbers.swift in Sources */,
-				D216B6FB1971BDC700D8CAE8 /* matrix.swift in Sources */,
-				D216B6FC1971BDC700D8CAE8 /* oneD-initing.swift in Sources */,
-				D216B6F91971BDC700D8CAE8 /* conversion.swift in Sources */,
-				D216B6FD1971BDC700D8CAE8 /* oneD-operators.swift in Sources */,
-				D216B7021971BDC700D8CAE8 /* twoD-simple-math.swift in Sources */,
+				D2BD92CB197573FC001F9EDD /* numbers.swift in Sources */,
+				D2BD92D6197573FC001F9EDD /* ScalarArithmetic.swift in Sources */,
+				D2BD92D8197573FC001F9EDD /* matrix2d.swift in Sources */,
+				D2BD92D4197573FC001F9EDD /* oneD-simple-math.swift in Sources */,
+				D2BD92CD197573FC001F9EDD /* indexing.m in Sources */,
+				D2BD92DB197573FC001F9EDD /* twoD-simple-math.swift in Sources */,
+				D2BD92D7197573FC001F9EDD /* complex.swift in Sources */,
+				D2BD92D3197573FC001F9EDD /* oneD-operators.swift in Sources */,
+				D2BD92CC197573FC001F9EDD /* conversion.swift in Sources */,
 				D216B6CC1971BDAB00D8CAE8 /* ViewController.swift in Sources */,
-				D216B7001971BDC700D8CAE8 /* twoD-initing.swift in Sources */,
-				D216B6FA1971BDC700D8CAE8 /* math.m in Sources */,
-				D216B6FE1971BDC700D8CAE8 /* oneD-simple-math.swift in Sources */,
-				D216B6F71971BDC700D8CAE8 /* math.swift in Sources */,
-				D216B6FF1971BDC700D8CAE8 /* matrix2d.swift in Sources */,
+				D2BD92D2197573FC001F9EDD /* oneD-initing.swift in Sources */,
+				D2BD92D9197573FC001F9EDD /* twoD-initing.swift in Sources */,
+				D2BD92DA197573FC001F9EDD /* twoD-operators.swift in Sources */,
+				D2BD92CF197573FC001F9EDD /* opencv.mm in Sources */,
+				D2BD92CA197573FC001F9EDD /* math.swift in Sources */,
+				D2BD92D1197573FC001F9EDD /* matrix.swift in Sources */,
+				D2BD92CE197573FC001F9EDD /* math.m in Sources */,
 				D216B6CA1971BDAB00D8CAE8 /* AppDelegate.swift in Sources */,
-				D216B7011971BDC700D8CAE8 /* twoD-operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +461,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/swix/objc",
+					"$(PROJECT_DIR)/swix",
+				);
 				INFOPLIST_FILE = "swix-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,6 +477,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/swix/objc",
+					"$(PROJECT_DIR)/swix",
+				);
 				INFOPLIST_FILE = "swix-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -481,6 +541,7 @@
 				D216B6E21971BDAB00D8CAE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D216B6E31971BDAB00D8CAE8 /* Build configuration list for PBXNativeTarget "swix-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +550,7 @@
 				D216B6E51971BDAB00D8CAE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

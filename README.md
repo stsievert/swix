@@ -133,7 +133,9 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 ## Features to be added
 * `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
   `var y:matrix = x[0..<5]`. I'll leave it be for now.
-* Reintegrate OpenCV framework and machine learning functions (using `double *`!)
+* Reintegrate machine learning functions (using `double *`!)
+* Further Accelerate integration. The basics are down and the actual work needs
+  to be done.
 
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic

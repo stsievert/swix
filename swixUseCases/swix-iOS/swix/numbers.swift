@@ -52,3 +52,21 @@ extension String {
         return (self as NSString).doubleValue
     }
 }
+
+// a quick hack to get what I want
+func isNumber(x: Double)   ->Bool{return true}
+func isNumber(x: Float)    ->Bool{return true}
+func isNumber(x: Int)      ->Bool{return true}
+func isNumber(x: CInt)     ->Bool{return true}
+func isNumber(x: matrix)   ->Bool{return false}
+func isNumber(x: matrix2d) ->Bool{return false}
+func isNumber(x: AnyObject)->Bool{return false}
+
+
+
+
+
+
+
+
+

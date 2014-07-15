@@ -49,3 +49,34 @@ func array(numbers: Double...) -> matrix{
     }
     return x
 }
+func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
+    var y = zeros(x.n * N)
+    var xP = matrixToPointer(x)
+    var yP = matrixToPointer(y)
+    CVWrapper.repeat(xP, to:yP, n_x:x.n.cint, n_repeat:N.cint)
+    var z = zeros((x.n, N))
+    z.flat = y
+    if how=="matrix" {z = transpose(z)}
+    else if how=="elements" {}
+    return z.flat
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
