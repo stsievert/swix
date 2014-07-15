@@ -25,7 +25,9 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
     var arg_c = zeros(lhs.n)
     
     // accelerate integration would go here.
-    // 
+    // see [1] on how to integrate Swift and accelerate
+    //
+    // [1]:https://github.com/haginile/SwiftAccelerate
     if operator=="+" || operator=="-"{// || operator=="*" || operator=="/"{
         var rP = matrixToPointer(rhs)
         var result = zeros(lhs.n)

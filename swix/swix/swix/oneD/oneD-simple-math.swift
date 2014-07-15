@@ -11,6 +11,8 @@ import Foundation
 import Accelerate
 
 
+// almost everything here can be sped up with Acclerate (vDSP or vecLib)
+
 /// applies the function to every element of an array and takes only that argument. This is just a simple for-loop. If you want to use some custom fancy function, define it yourself.
 func apply_function(function: Double->Double, x: matrix) -> matrix{
     var y = zeros(x.count)

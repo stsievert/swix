@@ -14,7 +14,6 @@ func matrixToPointer(x: matrix)->UnsafePointer<Double>{
     return UnsafePointer<Double>(x.grid)
 }
 func matrixToPointer(x: [Int])->UnsafePointer<Int>{
-    // sustains since objc rewrites raw memory!
     return UnsafePointer<Int>(x)
 }
 func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt, M:CInt) -> matrix2d{

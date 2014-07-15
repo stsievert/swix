@@ -16,29 +16,24 @@ func ones(N: Int) -> matrix{
     return matrix(n: N)+1
 }
 func arange(max: Double, x exclusive:Bool = true) -> matrix{
-    // arange can be further sped up with accelerate
-    var pad = 0
-    if !exclusive {pad = 1}
-    var x = zeros(max.int+pad)
-    for i in 0..<max.int+pad{
-        x[i] = i.double
-    }
+    var x = arange(0, max, x:exclusive)
     return x
 }
 func arange(min: Double, max: Double, x exclusive: Bool = true) -> matrix{
     var pad = 0
     if !exclusive {pad = 1}
-    var x = zeros(max.int - min.int + pad)
-    for i in 0..<max.int-min.int+pad{
-        x[i] = i.double + min
-    }
+    let N = max.int - min.int + pad
+    var x = zeros(N)
+    
+    var xP = matrixToPointer(x)
+    var minP = CDouble(min)
+    linspace_objc(xP, (N+pad).cint, (minP), 1.0)
     return x
 }
 func linspace(min: Double, max: Double, num: Int=50) -> matrix{
     var x = zeros(num+1)
-    for i in 0...num{
-        x[i] = min + i.double * (max - min) / num.double
-    }
+    var xP = matrixToPointer(x)
+    linspace_objc(xP, 1+num.cint, min.cdouble, ((max-min)/num).double)
     return x
 }
 func array(numbers: Double...) -> matrix{

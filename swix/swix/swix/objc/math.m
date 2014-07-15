@@ -68,3 +68,25 @@ double* zeros_objc(int N){
     vDSP_vfillD(&value, x, 1, N);
     return x;
 }
+void linspace_objc(double* x, int N, double min, double step){
+    vDSP_vrampD(&min, &step, x, 1, N);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
