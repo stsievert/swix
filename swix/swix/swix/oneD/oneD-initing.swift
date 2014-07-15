@@ -53,17 +53,11 @@ func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
     var y = zeros(x.n * N)
     var xP = matrixToPointer(x)
     var yP = matrixToPointer(y)
-    for i in 0..<N{
-        y[i*x.n..<(i+1)*x.n] = x
-    }
-    var z:matrix2d = zeros((N, x.n))
+    CVWrapper.repeat(xP, to:yP, n_x:x.n.cint, n_repeat:N.cint)
+    var z = zeros((x.n, N))
     z.flat = y
-    if how=="elements" {z = transpose(z)}
-//    CVWrapper.repeat(xP, to:yP, n_x:x.n.cint, n_repeat:N.cint)
-//    var z:matrix2d = zeros((N, x.n))
-//    z.flat = y
-//    if how=="matrix" {z = transpose(z)}
-//    else if how=="elements" {}
+    if how=="matrix" {z = transpose(z)}
+    else if how=="elements" {}
     return z.flat
 }
 

@@ -41,7 +41,7 @@ struct matrix2d {
         get {
             var rr = toArray(r)
             var cc = toArray(c)
-            var (i, j) = meshgrid(rr, cc)
+            var (j, i) = meshgrid(rr, cc)
             var idx = (j.flat*columns.double + i.flat)
             var z = flat[idx]
             var zz = reshape(z, (rr.n, cc.n))
@@ -50,7 +50,7 @@ struct matrix2d {
         set {
             var rr = toArray(r)
             var cc = toArray(c)
-            var (i, j) = meshgrid(rr, cc)
+            var (j, i) = meshgrid(rr, cc)
             var idx = j.flat*columns.double + i.flat
             flat[idx] = newValue.flat
         }

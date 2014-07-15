@@ -69,8 +69,8 @@ func argwhere_test(){
 }
 func matrix2d_indexing_test(){
     var x = array("1 2 3; 4 5 6; 7 8 9")
-    x[0|2, 0|2] = ones((2,2))
-    assert(x ~== array("1 1 3; 1 1 6; 7 8 9"))
+    x[0|2, 0|2] = array("4 3; 2 6")
+    assert(x ~== array("4 3 3; 2 6 6; 7 8 9"))
     println("    use x[0|2, 0|2] to index *exclusively* (and 0!2 for inclusive)")
     println("    can use x[0|2, 1], x[1, 0..<2] or x[0..<2, 0|2] to also index")
 }
@@ -103,18 +103,6 @@ matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
-
-//var x = array(0, 1, 3)
-//var y = zeros(2*3)
-//var xP = matrixToPointer(x)
-//var yP = matrixToPointer(y)
-//CVWrapper.repeat_opencv(xP, to:yP, n_x:3.cint, n_repeat:2.cint);
-//println(y)
-var x = array(1, 2, 3, 4, 5)
-var y = array(7, 8)
-var (z1, z2) = meshgrid(x, y)
-println(z1)
-println(z2)
 
 
 
