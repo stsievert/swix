@@ -9,6 +9,8 @@
 import Foundation
 import Accelerate
 
+// SLOW PARTS: array(doubles). not a huge deal
+
 func zeros(N: Int) -> matrix{
     return matrix(n: N)
 }
@@ -24,9 +26,9 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> matrix{
     if !exclusive {pad = 1}
     let N = max.int - min.int + pad
     var x = zeros(N)
-    
     var xP = matrixToPointer(x)
     var minP = CDouble(min)
+    
     linspace_objc(xP, (N+pad).cint, (minP), 1.0)
     return x
 }

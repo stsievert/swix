@@ -9,6 +9,7 @@
 import Foundation
 import Accelerate
 
+// SLOW PARTS: almost everything
 // almost all of these function can be sped up (drastically) with Accelerate
 
 func copy(x: matrix, y: matrix){
@@ -49,7 +50,7 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
         }else if operator == "<"{
                     if lhs[i] < rhs[i]{ array[i] = 1 }
         }else if operator == "~=="{
-                    if abs(lhs[i] - rhs[i])<DOUBLE_EPSILON{ array[i] = 1 }
+                    if abs(lhs[i] - rhs[i])<1e-9{ array[i] = 1 }
         } else if operator == "<="{
                      if lhs[i] <= rhs[i]{ array[i] = 1 }
         } else if operator == ">="{
@@ -68,6 +69,11 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
 }
 func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
     var array = zeros(lhs.n)
+//    if operator == "%"{
+//        var xP = matrixToPointer(lhs)
+//        var arrayP = matrixToPointer(array)
+//        mod_objc(xP, arrayP, lhs.n.cint);
+//    }
     for i in 0..<lhs.n{
         if operator == "<"{
               if lhs[i] < rhs{ array[i] = 1 }
@@ -77,7 +83,7 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
                      if lhs[i] < rhs{
                         array[i] = 1 }
         } else if operator == "~=="{
-                     if abs(lhs[i] - rhs)<DOUBLE_EPSILON{ array[i] = 1 }
+                     if abs(lhs[i] - rhs)<1e-9{ array[i] = 1 }
         } else if operator == "<="{
                      if lhs[i] <= rhs{
                         array[i] = 1 }
@@ -109,7 +115,7 @@ func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
         } else if operator == "<"{
             if             lhs < rhs[i]{ array[i] = 1 }
         } else if operator == "~=="{
-            if         abs(lhs - rhs[i])<DOUBLE_EPSILON { array[i] = 1 }
+            if         abs(lhs - rhs[i])<1e-9 { array[i] = 1 }
         } else if operator == "<="{
             if         lhs <= rhs[i]{ array[i] = 1 }
         } else if operator == ">="{
@@ -156,7 +162,7 @@ func ~== (lhs: matrix, rhs: matrix) -> matrix{
     x = x / right
 }
 
-// MODJk
+// MOD
 operator infix % {associativity none precedence 140}
 func % (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, "%", rhs)}

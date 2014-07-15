@@ -71,6 +71,20 @@ double* zeros_objc(int N){
 void linspace_objc(double* x, int N, double min, double step){
     vDSP_vrampD(&min, &step, x, 1, N);
 }
+double min_objc(double* x, int N){
+    double minC = 0.0;
+    vDSP_minvD(x, 1, &minC, N);
+    return minC;
+}
+double max_objc(double* x, int N){
+    double maxC = 0.0;
+    vDSP_maxvD(x, 1, &maxC, N);
+    return maxC;
+}
+void mod_objc(double * x, double * y, int N){
+//    vFloat xV;
+//    vfmodf(xV, yV);
+}
 
 
 

@@ -11,6 +11,7 @@ import Foundation
 import Accelerate
 
 
+// SLOW PARTS: almost everything
 // almost everything here can be sped up with Acclerate (vDSP or vecLib)
 
 /// applies the function to every element of an array and takes only that argument. This is just a simple for-loop. If you want to use some custom fancy function, define it yourself.
@@ -135,28 +136,17 @@ func randn(N: Int, mean: Double=0, sigma: Double=1) -> matrix{
     return y
 }
 func min(x: matrix, absValue:Bool=false) -> Double{
+    // absValue not implemeted yet
     var min = inf
-    var current:Double
-    for i in 0..<x.n{
-        if absValue {current = abs(x[i])}
-        else {current = x[i]}
-        if current < min{
-            min = current
-        }
-    }
-    return min
+    var xP = matrixToPointer(x)
+    var minC = min_objc(xP, x.n.cint)
+    return minC
 }
 func max(x: matrix, absValue:Bool=false) -> Double{
-    var max = -inf
-    var current:Double
-    for i in 0..<x.n{
-        if absValue {current = abs(x[i])}
-        else {current = x[i]}
-        if current > max{
-            max = current
-        }
-    }
-    return max
+    // absValue not implemeted yet
+    var xP = matrixToPointer(x)
+    var maxC = max_objc(xP, x.n.cint);
+    return maxC
 }
 
 

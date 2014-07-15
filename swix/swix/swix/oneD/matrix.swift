@@ -10,8 +10,12 @@ import Foundation
 import Accelerate
 
 // the matrix definition and related functions go here
+
+// SLOW PARTS: argwhere, x[matrix, range] set, modulo operator
+
 func toArray(seq: Range<Int>) -> matrix {
-    // improve with https://gist.github.com/nubbel/d5a3639bea96ad568cf2
+    // improve with [1]
+    // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
     var start:Double = seq.startIndex.double * 1.0
     var end:Double   = seq.endIndex.double * 1.0
     var s = arange(start, end, x:true)
@@ -50,7 +54,7 @@ struct matrix {
     }
     subscript(r: matrix) -> matrix {
         get {
-            assert((r%1.0) ~== zeros_like(r))
+//            assert((r%1.0) ~== zeros_like(r))
             var y = zeros(r.n)
             var xP = matrixToPointer(self)
             var yP = matrixToPointer(y)
@@ -59,9 +63,11 @@ struct matrix {
             return y
         }
         set {
-            assert((r%1.0) ~== zeros_like(r))
+//            assert((r % 1.0) ~== zeros_like(r))
             var j = 0
             // FOR LOOP
+            // asked stackoverflow question at [1]
+            // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
             for i in 0..<r.n{
                 assert(r[i] % 1.0 == 0.0, "Index values must be whole numbers")
                 grid[r[i].int] = newValue[j]; j+=1
