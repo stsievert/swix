@@ -54,7 +54,7 @@ struct matrix {
     }
     subscript(r: matrix) -> matrix {
         get {
-//            assert((r%1.0) ~== zeros_like(r))
+            //assert((r%1.0) ~== zeros_like(r))
             var y = zeros(r.n)
             var xP = matrixToPointer(self)
             var yP = matrixToPointer(y)
@@ -63,15 +63,15 @@ struct matrix {
             return y
         }
         set {
-//            assert((r % 1.0) ~== zeros_like(r))
+            //assert((r % 1.0) ~== zeros_like(r))
             var j = 0
-            // FOR LOOP
+            // FOR LOOP in C
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
-            for i in 0..<r.n{
-                assert(r[i] % 1.0 == 0.0, "Index values must be whole numbers")
-                grid[r[i].int] = newValue[j]; j+=1
-            }
+            var xP = matrixToPointer(self)
+            var rP = matrixToPointer(r)
+            var nP = matrixToPointer(newValue)
+            index_xa_b_objc(xP, rP, nP, r.n.cint)
         }
     }
 }

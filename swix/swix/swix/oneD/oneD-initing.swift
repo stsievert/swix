@@ -58,6 +58,12 @@ func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
     else if how=="elements" {}
     return z.flat
 }
+func copy(x: matrix, y: matrix){
+    var xP = matrixToPointer(x)
+    var yP = matrixToPointer(y)
+    var N = x.n
+    cblas_dcopy(N.cint, xP, 1.cint, yP, 1.cint)
+}
 
 
 

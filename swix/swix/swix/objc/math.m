@@ -81,9 +81,19 @@ double max_objc(double* x, int N){
     vDSP_maxvD(x, 1, &maxC, N);
     return maxC;
 }
-void mod_objc(double * x, double * y, int N){
-//    vFloat xV;
-//    vfmodf(xV, yV);
+void mod_objc(double * x, double mod, double * y, int N){
+    for (int i=0; i<N; i++){
+        y[i] = fmod(x[i], mod);
+    }
+    
+}
+void index_xa_b_objc(double* x, double* a, double* b, int N){
+    for (int i=0; i<N; i++){
+        x[(int)a[i]] = b[i];
+    }
+}
+void copy_objc(double*x, double*y, int N){
+    cblas_dcopy(N, x, 1, y, 1);
 }
 
 

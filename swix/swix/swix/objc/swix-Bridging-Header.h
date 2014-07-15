@@ -13,4 +13,6 @@ void transpose_objc(double* x, double* y, int M, int N);
 void linspace_objc(double* x, int N, double min, double step);
 double min_objc(double* x, int N);
 double max_objc(double* x, int N);
-void mod_objc(double * x, double * y, int N);
+void mod_objc(double * x, double mod, double * y, int N);
+void index_xa_b_objc(double * x, double*a, double*b, int N);
+void copy_objc(double*x, double*y, int N);

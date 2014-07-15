@@ -12,12 +12,7 @@ import Accelerate
 // SLOW PARTS: almost everything
 // almost all of these function can be sped up (drastically) with Accelerate
 
-func copy(x: matrix, y: matrix){
-    var xP = matrixToPointer(x)
-    var yP = matrixToPointer(y)
-    var N = x.n
-    cblas_dcopy(N.cint, xP, 1.cint, yP, 1.cint)
-}
+
 
 func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
     assert(lhs.n == rhs.n, "Sizes must match!")
@@ -69,39 +64,41 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
 }
 func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
     var array = zeros(lhs.n)
-//    if operator == "%"{
-//        var xP = matrixToPointer(lhs)
-//        var arrayP = matrixToPointer(array)
-//        mod_objc(xP, arrayP, lhs.n.cint);
-//    }
-    for i in 0..<lhs.n{
-        if operator == "<"{
-              if lhs[i] < rhs{ array[i] = 1 }
-        } else if operator == ">"{
-                     if lhs[i] > rhs{ array[i] = 1 }
-        } else if operator == "<"{
-                     if lhs[i] < rhs{
-                        array[i] = 1 }
-        } else if operator == "~=="{
-                     if abs(lhs[i] - rhs)<1e-9{ array[i] = 1 }
-        } else if operator == "<="{
-                     if lhs[i] <= rhs{
-                        array[i] = 1 }
-        } else if operator == ">="{
-                     if lhs[i] >= rhs{ array[i] = 1 }
-        } else if operator == "+"{
-             array[i] = lhs[i] + rhs
-        } else if operator == "-"{
-             array[i] = lhs[i] - rhs
-        } else if operator == "*"{
-             array[i] = lhs[i] * rhs
-        } else if operator == "/"{
-            array[i] = lhs[i] / rhs
-        } else if operator == "**"{
-            array[i] = pow(lhs[i], rhs)
-        } else if operator == "%"{
-            array[i] = lhs[i] % rhs
-        }else { assert(false, "Operator not reconginzed!") }
+    if operator == "%"{
+        var xP = matrixToPointer(lhs)
+        var arrayP = matrixToPointer(array)
+        // mod_objc is a for-loop in C
+        mod_objc(xP, rhs, arrayP, lhs.n.cint);
+    } else{
+        for i in 0..<lhs.n{
+            if operator == "<"{
+                  if lhs[i] < rhs{ array[i] = 1 }
+            } else if operator == ">"{
+                         if lhs[i] > rhs{ array[i] = 1 }
+            } else if operator == "<"{
+                         if lhs[i] < rhs{
+                            array[i] = 1 }
+            } else if operator == "~=="{
+                         if abs(lhs[i] - rhs)<1e-9{ array[i] = 1 }
+            } else if operator == "<="{
+                         if lhs[i] <= rhs{
+                            array[i] = 1 }
+            } else if operator == ">="{
+                         if lhs[i] >= rhs{ array[i] = 1 }
+            } else if operator == "+"{
+                 array[i] = lhs[i] + rhs
+            } else if operator == "-"{
+                 array[i] = lhs[i] - rhs
+            } else if operator == "*"{
+                 array[i] = lhs[i] * rhs
+            } else if operator == "/"{
+                array[i] = lhs[i] / rhs
+            } else if operator == "**"{
+                array[i] = pow(lhs[i], rhs)
+            } else if operator == "%"{
+                array[i] = lhs[i] % rhs
+            }else { assert(false, "Operator not reconginzed!") }
+        }
     }
     return array
 }
