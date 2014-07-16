@@ -58,47 +58,40 @@ void ifft_objc(double* yr, double* yi, int N, double* x){
         x[i] = result.realp[i];
     }
 }
+void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
+    // adapted from http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
+    // Setup a buffer to hold the singular values:
+    // on MacOSX, I get errors about passing long to int and on iOS I get errors about passing int to long. I'll go with iOS defaults.
+    long lda = (long)m;
+    long mm = m;
+    long nn = n;
+    long numberOfSingularValues = m < n ? m : n;
+    
+    // Workspace and status variables:
+    double workSize;
+    double *work = &workSize;
+    long lwork = -1;
+    long *iwork = malloc(8*numberOfSingularValues);
+    long info = 0;
+    
+    // Call dgesdd_ with lwork = -1 to query optimal workspace size:
+    dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
+    
+    // Optimal workspace size is returned in work[0].
+    lwork = workSize;
+    work = malloc(lwork * sizeof *work);
+    
+    // Call dgesdd_ to do the actual computation:
+    dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
+    free(work);
+
+}
 void transpose_objc(double* x, double* y, int M, int N){
     vDSP_mtransD(x, 1, y, 1, M, N);
 }
 
-double* zeros_objc(int N){
-    double * x = (double *)malloc(sizeof(double) * N);
-    double value = 0.0;
-    vDSP_vfillD(&value, x, 1, N);
-    return x;
-}
-void linspace_objc(double* x, int N, double min, double step){
-    vDSP_vrampD(&min, &step, x, 1, N);
-}
-double min_objc(double* x, int N){
-    double minC = 0.0;
-    vDSP_minvD(x, 1, &minC, N);
-    return minC;
-}
-double max_objc(double* x, int N){
-    double maxC = 0.0;
-    vDSP_maxvD(x, 1, &maxC, N);
-    return maxC;
-}
-void mod_objc(double * x, double mod, double * y, int N){
-    for (int i=0; i<N; i++){
-        y[i] = fmod(x[i], mod);
-    }
-    
-}
-void index_xa_b_objc(double* x, double* a, double* b, int N){
-    for (int i=0; i<N; i++){
-        x[(int)a[i]] = b[i];
-    }
-}
-void copy_objc(double*x, double*y, int N){
-    cblas_dcopy(N, x, 1, y, 1);
-}
-void mul_scalar_objc(double* x, double A, double* y, int N){
-    double C = 0;
-    vDSP_vsmsaD(x, 1, &A, &C, y, 1, N);
-}
+
+
 
 
 
