@@ -14,11 +14,13 @@
 #import <opencv2/highgui/highgui.hpp>
 #import <opencv2/ml/ml.hpp>
 
-#import <Foundation/Foundation.h>
-
 @interface CVWrapper : NSObject
-
 + (void) repeat:(double *)x to:(double*)y n_x:(int)Nx n_repeat:(int)Nrepeat;
+@end
 
-
+// #### SVM (svm.mm)
+@interface cvSVM : NSObject{
+}
+- (void) train:(double *)x targets:(double *)targets m:(int)M n:(int)N;
+- (float) predict:(NSArray *)x;
 @end

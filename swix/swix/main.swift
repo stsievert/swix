@@ -117,6 +117,11 @@ fft_test()
 dot_test()
 svd_test()
 
+var svm = SVM()
+var x = array("501 10; 255 10; 501 255; 10 501")
+var y = array(1, -1, -1, -1)
+
+svm.train(x, targets:y)
 
 
 
