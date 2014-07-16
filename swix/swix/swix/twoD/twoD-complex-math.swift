@@ -9,9 +9,8 @@
 import Foundation
 
 func svd(x: matrix2d) -> (matrix2d, matrix, matrix2d){
-    // 2014-7-15: almost have this working. to change by tomorrow.
     var (m, n) = x.shape
-    var nS = m < n ? m : n
+    var nS = m < n ? m : n // number singular values
     var sigma = zeros(nS)
     var vt = zeros((n,n))
     var u = zeros((m,m))
@@ -24,13 +23,21 @@ func svd(x: matrix2d) -> (matrix2d, matrix, matrix2d){
     var vP = matrixToPointer(vt.flat)
     var uP = matrixToPointer(u.flat)
     
-    println(x)
     svd_objc(xP, m.cint, n.cint, sP, vP, uP);
-    if m > n {vt = transpose(vt)}
+    
+    // to get the svd result to match Python
+    var v = transpose(vt)
+    if m >= n {u = transpose(u)}
 
-    println(sigma)
-    println(vt)
-    println(u)
-
-    return (zeros((2,2)), zeros(2), zeros((2,2)))
+    return (u, sigma, v)
 }
+
+
+
+
+
+
+
+
+
+

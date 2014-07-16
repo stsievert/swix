@@ -11,7 +11,7 @@
 #import <stdint.h>
 #import "swix-Bridging-Header.h" // for copy_objc
 
-void svd_objc(double * xx, int m, int n, double* sigma, double* vt, double* u){
+void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     // adapted from http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
     // Setup a buffer to hold the singular values:
     int lda = m;
@@ -25,14 +25,14 @@ void svd_objc(double * xx, int m, int n, double* sigma, double* vt, double* u){
     int info = 0;
     
     // Call dgesdd_ with lwork = -1 to query optimal workspace size:
-    dgesdd_("A", &m, &n, xx, &lda, sigma, u, &m, vt, &n, work, &lwork, iwork, &info);
+    dgesdd_("A", &m, &n, xx, &lda, s, u, &m, vt, &n, work, &lwork, iwork, &info);
     
     // Optimal workspace size is returned in work[0].
     lwork = workSize;
     work = malloc(lwork * sizeof *work);
     
     // Call dgesdd_ to do the actual computation:
-    dgesdd_("A", &m, &n, xx, &lda, sigma, u, &m, vt, &n, work, &lwork, iwork, &info);
+    dgesdd_("A", &m, &n, xx, &lda, s, u, &m, vt, &n, work, &lwork, iwork, &info);
     free(work);
 }
 

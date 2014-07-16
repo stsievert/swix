@@ -92,6 +92,18 @@ func dot_test(){
     assert((x *! y) ~== 2*y)
     println("    dot product works with dot(x, y) or x *! y")
 }
+func svd_test(){
+    var x = array("1 2; 4 8; 3 5")
+    var (u, s, v) = svd(x)
+    
+    var y = array("1 2 3; 4 5 6")
+    (u, s, v) = svd(y)
+
+    var z = array("1 2 3; 4 5 6; 7 8 9")
+    (u, s, v) = svd(z)
+    
+    println("    svd works and tested by hand for square, fat and skinny matrices against Python")
+}
 
 println("running tests...")
 operator_test()
@@ -103,9 +115,8 @@ matrix2d_indexing_test()
 matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
+svd_test()
 
-var x = array("1 2; 4 8; 3 5")
-var (u, s, v) = svd(x)
 
 
 
