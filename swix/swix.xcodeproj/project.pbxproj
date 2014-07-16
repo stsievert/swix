@@ -14,7 +14,7 @@
 		D2333746197430B40027DFD5 /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2333745197430B40027DFD5 /* ScalarArithmetic.swift */; };
 		D23648CB1975CE290020FB95 /* svd.m in Sources */ = {isa = PBXBuildFile; fileRef = D23648CA1975CE290020FB95 /* svd.m */; };
 		D23648CD1975CED70020FB95 /* twoD-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23648CC1975CED70020FB95 /* twoD-complex-math.swift */; };
-		D23648D01976CB440020FB95 /* svm.mm in Sources */ = {isa = PBXBuildFile; fileRef = D23648CF1976CB440020FB95 /* svm.mm */; };
+		D23648D01976CB440020FB95 /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = D23648CF1976CB440020FB95 /* machine_learning.mm */; };
 		D23648D21976CC720020FB95 /* svm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23648D11976CC720020FB95 /* svm.swift */; };
 		D24A8555196D7D73009C18AC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A8554196D7D73009C18AC /* main.swift */; };
 		D24A855C196D7E86009C18AC /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A855B196D7E86009C18AC /* matrix.swift */; };
@@ -55,7 +55,7 @@
 		D2333745197430B40027DFD5 /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScalarArithmetic.swift; path = "swix/ScalarArithmetic-1.1.1/ScalarArithmetic/ScalarArithmetic.swift"; sourceTree = "<group>"; };
 		D23648CA1975CE290020FB95 /* svd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = svd.m; sourceTree = "<group>"; };
 		D23648CC1975CED70020FB95 /* twoD-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-complex-math.swift"; path = "swix/swix/twoD/twoD-complex-math.swift"; sourceTree = SOURCE_ROOT; };
-		D23648CF1976CB440020FB95 /* svm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = svm.mm; sourceTree = "<group>"; };
+		D23648CF1976CB440020FB95 /* machine_learning.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = machine_learning.mm; sourceTree = "<group>"; };
 		D23648D11976CC720020FB95 /* svm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = svm.swift; path = machine_learning/svm.swift; sourceTree = "<group>"; };
 		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24A8554196D7D73009C18AC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				D23648CA1975CE290020FB95 /* svd.m */,
-				D23648CF1976CB440020FB95 /* svm.mm */,
+				D23648CF1976CB440020FB95 /* machine_learning.mm */,
 			);
 			name = machine_learning;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 				D23648CD1975CED70020FB95 /* twoD-complex-math.swift in Sources */,
 				D2333746197430B40027DFD5 /* ScalarArithmetic.swift in Sources */,
 				D23648D21976CC720020FB95 /* svm.swift in Sources */,
-				D23648D01976CB440020FB95 /* svm.mm in Sources */,
+				D23648D01976CB440020FB95 /* machine_learning.mm in Sources */,
 				D24A8555196D7D73009C18AC /* main.swift in Sources */,
 				D2BAB4C4196E656E005020F6 /* twoD-simple-math.swift in Sources */,
 				D2A5CAD4196D805A00749F52 /* oneD-initing.swift in Sources */,

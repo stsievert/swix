@@ -17,8 +17,6 @@ void doubleToFloat(double * x, float * y, int N){
 
 // #### STATE VECTOR MACHINE
 @implementation cvSVM : NSObject
-
-
 CvSVM ocvSVM;
 CvSVMParams params;
 int N; // number of variables
@@ -41,13 +39,43 @@ int M; // number of responses
     ocvSVM.train(xMat, tMat, x3, x3, params);
 }
 - (float) predict:(double *)x n:(int)N{
-//    float * response = NSArrayToDouble(x);
     float * x2 = (float *)malloc(sizeof(float) * 1 * N);
     doubleToFloat(x, x2, N);
     Mat xMat(1, N, CV_32FC1, x2);
     float targetPredict = ocvSVM.predict(xMat);
     return targetPredict;
-//    return 3.14;
+}
+@end
+
+// #### STATE VECTOR MACHINE
+@implementation kNN : NSObject
+int kN;
+int kM;
+
+CvKNearest cvknn;
+
+-(NSObject*)init{
+    return self;
+}
+
+- (void) train:(double *)x targets:(double *)tar m:(int)M n:(int)N{
+    float * x2 = (float *)malloc(sizeof(float) * M * N);
+    float * t2 = (float *)malloc(sizeof(float) * M * 1);
+    Mat x3(M, N, CV_32FC1, x2);
+    Mat t3(M, 1, CV_32FC1, t2);
+    
+    cvknn.train(x3, t3);
+}
+- (double) predict:(double *)x n:(int)N k:(int)k{
+    float * x2 = (float *)malloc(sizeof(float) * N * 1);
+    Mat x3(1, N, CV_32FC1, x2);
+    Mat results(1, 1, CV_32FC1);
+    float targetPredict = -3.14;
+    targetPredict = cvknn.find_nearest(x3, k, &results);
+    
+    std::cout << results << std::endl;
+    std::cout << results.at<double>(0,0) << std::endl;
+    return results.at<double>(0,0);
 }
 @end
 

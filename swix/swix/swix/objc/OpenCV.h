@@ -24,3 +24,10 @@
 - (void) train:(double *)x targets:(double *)targets m:(int)M n:(int)N;
 - (float) predict:(double *)x n:(int)N;
 @end
+
+// #### k nearest neighbors (knn.mm)
+@interface kNN : NSObject{
+}
+- (void) train:(double *)x targets:(double *)tar m:(int)M n:(int)N;
+- (double) predict:(double *)x n:(int)N k:(int)k;
+@end
