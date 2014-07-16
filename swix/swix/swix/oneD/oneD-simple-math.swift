@@ -54,6 +54,16 @@ func ceil(x: matrix) -> matrix{
     var y = apply_function(ceil, x)
     return y
 }
+func sign(x: Double) -> Double{
+    if x < 0{
+        return -1
+    } else{
+        return 1
+    }
+}
+func sign(x: matrix)->matrix{
+    return apply_function(sign, x)
+}
 func pow(x: matrix, power: Double) -> matrix{
     var y = zeros(x.count)
     for i in 0..<x.count{

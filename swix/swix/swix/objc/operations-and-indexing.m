@@ -10,8 +10,15 @@
 #import <Accelerate/Accelerate.h>
 #import <stdint.h>
 void diag_objc(double* x, double* y, int M, int N){
-    for (int i=0; i<N; i++){
-        y[i] = x[i*M + i];
+    int min = N < M ? N : M; // min
+    for (int i=0; i<min; i++){
+        y[i] = x[i*N + i];
+    }
+}
+void diag_set_objc(double * x, double * y, int M, int N){
+    int min = N < M ? N : M;
+    for (int i=0; i<min; i++){
+        x[i*N + i] = y[i];
     }
 }
 void index_objc(double*x, double*y, double* idx, int N){

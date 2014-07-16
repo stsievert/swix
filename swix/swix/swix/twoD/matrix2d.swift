@@ -24,6 +24,17 @@ struct matrix2d {
         self.flat = zeros(rows * columns)
         
     }
+    subscript(i: String) -> matrix {
+        get {
+            assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
+            var x = diag(self)
+            return x
+        }
+        set {
+            assert(i == "diag")
+            diag_set_objc(!self, !newValue, self.shape.0.cint, self.shape.1.cint)
+        }
+    }
     func indexIsValidForRow(r: Int, c: Int) -> Bool {
         return r >= 0 && r < rows && c>=0 && c < columns
     }

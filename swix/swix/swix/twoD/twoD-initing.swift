@@ -15,16 +15,20 @@ func zeros(shape: (Int, Int)) -> matrix2d{
 func ones(shape: (Int, Int)) -> matrix2d{
     return zeros(shape)+1
 }
-func diag(x: matrix) -> matrix2d{
-    let N = x.count
-    var y = zeros((N,N))
-    for i in 0..<N{
-        y[i,i] = x[i]
-    }
+func diag(x: matrix2d) -> matrix{
+    var m = x.shape.0
+    var n = x.shape.1
+    var size = n < m ? n : m
+    var y = zeros(size)
+    diag_objc(!x, !y, m.cint, n.cint)
     return y
 }
 func eye(n: Int) -> matrix2d{
-    return diag(ones(n))
+    var y = zeros((n,n))
+    for i in 0..<n{
+        y[i,i] = 1
+    }
+    return y
 }
 func reshape(x: matrix, shape:(Int, Int))->matrix2d{
     var y = zeros(shape)

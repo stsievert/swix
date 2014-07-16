@@ -18,5 +18,7 @@ void index_xa_b_objc(double * x, double*a, double*b, int N);
 void copy_objc(double*x, double*y, int N);
 void mul_scalar_objc(double* x, double A, double* y, int N);
 void svd_objc(double * xx, int m, int n, double* sigma, double* vt, double* u);
+void diag_objc(double* x, double* y, int M, int N);
+void diag_set_objc(double * x, double * y, int M, int N);
 
 

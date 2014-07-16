@@ -42,6 +42,12 @@ func ceil(x: matrix2d) -> matrix2d{
 func round(x: matrix2d) -> matrix2d{
     return apply_function(round, x)
 }
+func sign(x: matrix2d) -> matrix2d{
+    var y = apply_function(sign, x.flat)
+    var z = zeros_like(x)
+    z.flat = y
+    return z
+}
 func randn(N: (Int, Int), mean: Double=0, sigma: Double=1) -> matrix2d{
     var x = zeros(N)
     for i in 0..<x.n{
