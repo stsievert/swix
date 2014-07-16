@@ -56,10 +56,7 @@ struct matrix {
         get {
             //assert((r%1.0) ~== zeros_like(r))
             var y = zeros(r.n)
-            var xP = matrixToPointer(self)
-            var yP = matrixToPointer(y)
-            var rP = matrixToPointer(r)
-            index_objc(xP, yP, rP, r.n.cint)
+            index_objc(!self, !y, !r, r.n.cint)
             return y
         }
         set {
@@ -68,10 +65,7 @@ struct matrix {
             // FOR LOOP in C
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
-            var xP = matrixToPointer(self)
-            var rP = matrixToPointer(r)
-            var nP = matrixToPointer(newValue)
-            index_xa_b_objc(xP, rP, nP, r.n.cint)
+            index_xa_b_objc(!self, !r, !newValue, r.n.cint)
         }
     }
 }

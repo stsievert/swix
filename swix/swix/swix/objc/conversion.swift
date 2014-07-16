@@ -22,3 +22,11 @@ func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt, M:CInt) -> matrix2d{
     copy_objc(xPC, xP, N*M);
     return x
 }
+
+/// use !x to get the address. I tried &x but that doesn't work in beta3.
+@prefix func ! (x: matrix) -> UnsafePointer<Double> {
+    return matrixToPointer(x)
+}
+@prefix func ! (x: matrix2d) -> UnsafePointer<Double> {
+    return matrixToPointer(x.flat)
+}

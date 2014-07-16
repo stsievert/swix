@@ -51,7 +51,7 @@ func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
     var y = zeros(x.n * N)
     var xP = matrixToPointer(x)
     var yP = matrixToPointer(y)
-    CVWrapper.repeat(xP, to:yP, n_x:x.n.cint, n_repeat:N.cint)
+    CVWrapper.repeat(!x, to:!y, n_x:x.n.cint, n_repeat:N.cint)
     var z = zeros((x.n, N))
     z.flat = y
     if how=="matrix" {z = transpose(z)}
@@ -59,10 +59,7 @@ func repeat(x: matrix, N:Int, how:String="matrix") -> matrix{
     return z.flat
 }
 func copy(x: matrix, y: matrix){
-    var xP = matrixToPointer(x)
-    var yP = matrixToPointer(y)
-    var N = x.n
-    cblas_dcopy(N.cint, xP, 1.cint, yP, 1.cint)
+    cblas_dcopy(x.n.cint, !x, 1.cint, !y, 1.cint)
 }
 
 
