@@ -30,9 +30,7 @@ class SVM {
     }
     func predict(response: matrix) -> Double{
         assert(self.N == response.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
-//        var r = NSArray(array: response) // response
-//        var tp = self.cvsvm.predict(r); // target_predicted
-//        return tp.double; // since double 'default' value
-        return 3.14;
+        var tp = self.cvsvm.predict(!response, n:self.N.cint)
+        return tp.double
     }
 }

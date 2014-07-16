@@ -11,6 +11,9 @@
 #import "swix-Bridging-Header.h"
 using namespace cv;
 
+void doubleToFloat(double * x, float * y, int N){
+    vDSP_vdpsp(x, 1, y, 1, N);
+}
 
 // #### STATE VECTOR MACHINE
 @implementation cvSVM : NSObject
@@ -30,22 +33,21 @@ int M; // number of responses
     // M is the number of responses or rows; N is columns or variables
     float * x2 = (float *)malloc(sizeof(float) * M * N);
     float * t2 = (float *)malloc(sizeof(float) * M);
-    vDSP_vdpsp(x, 1, x2, 1, M*N);
-    vDSP_vdpsp(targets, 1, t2, 1, M*1);
+    doubleToFloat(x, x2, M*N);
+    doubleToFloat(targets, t2, M*1);
     Mat xMat(M, N, CV_32FC1, x2);
     Mat tMat(M, 1, CV_32FC1, t2);
     Mat x3 = Mat();
     ocvSVM.train(xMat, tMat, x3, x3, params);
 }
-- (float) predict:(NSArray *)x {
+- (float) predict:(double *)x n:(int)N{
 //    float * response = NSArrayToDouble(x);
-//    Mat rMat(1, (int)[x count], CV_32FC1, response);
-//    float targetPredict = ocvSVM.predict(rMat);
-//    return targetPredict;
-    return 3.14;
+    float * x2 = (float *)malloc(sizeof(float) * 1 * N);
+    doubleToFloat(x, x2, N);
+    Mat xMat(1, N, CV_32FC1, x2);
+    float targetPredict = ocvSVM.predict(xMat);
+    return targetPredict;
+//    return 3.14;
 }
 @end
 
-//void doubleToFloat(double * x, float * y, int N){
-//    vDSP_vdpsp(x, 1, y, 1, N);
-//}

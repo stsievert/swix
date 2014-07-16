@@ -104,6 +104,16 @@ func svd_test(){
     
     println("    svd works and tested by hand for square, fat and skinny matrices against Python")
 }
+func svm_test(){
+    var svm = SVM()
+    var x = reshape(arange(4*2) , (4, 2))
+    var y = array(0, 1, 2, 3)
+
+    svm.train(x, targets:y)
+    var z = svm.predict(array(2, 3))
+    assert(z == y[1])
+    println("    svm works via simple test")
+}
 
 println("running tests...")
 operator_test()
@@ -116,12 +126,8 @@ matrix2d_indexing_matrix_test()
 fft_test()
 dot_test()
 svd_test()
+svm_test()
 
-var svm = SVM()
-var x = array("501 10; 255 10; 501 255; 10 501")
-var y = array(1, -1, -1, -1)
-
-svm.train(x, targets:y)
 
 
 
