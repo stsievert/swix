@@ -57,14 +57,18 @@ While this library is basic, I expect something like [NumPy][numpy] to be
 released: a mathematical library that includes more than you would ever
 possibly need. In most cases, this library just wraps Swift.  However, in other
 cases it calls the [Accelerate framework][accel] or [OpenCV][opencv]. If you
-want to add a feature, feel free to submit a pull request.
+want to add add another feature in those libraries, feel free to submit a pull
+request (preferred!) or contact me at [@stsievert][st] or
+[sieve121@umn.edu](mailto:sieve121@umn.edu).
+
+[st]:https://twitter.com/stsievert
 
 Currently, this library gives you
 
-* easy initializers for 1D and 2D arrays
 * various functions (sin, etc) and operators (+, etc) that operate on entire arrays
-* dot product
-* machine learning algorithms (SVM, kNN, PCA, more to come)
+* easy initializers for 1D and 2D arrays
+* dot product, matrix inversion, solution to linear system of equations
+* machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
 * FFT/IFFT
 
 When I was crafting this library, I primarily depended on [NumPy][numpy]. The
