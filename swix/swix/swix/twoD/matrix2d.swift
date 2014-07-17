@@ -66,6 +66,20 @@ struct matrix2d {
             flat[idx] = newValue.flat
         }
     }
+    subscript(r: matrix, c: matrix) -> matrix2d {
+        get {
+            var (j, i) = meshgrid(r, c)
+            var idx = (j.flat*columns.double + i.flat)
+            var z = flat[idx]
+            var zz = reshape(z, (r.n, c.n))
+            return zz
+        }
+        set {
+            var (j, i) = meshgrid(r, c)
+            var idx = j.flat*columns.double + i.flat
+            flat[idx] = newValue.flat
+        }
+    }
     subscript(r: matrix) -> matrix {
         get {return self.flat[r]}
         set {flat.grid = newValue.grid}

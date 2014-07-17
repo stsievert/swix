@@ -128,6 +128,29 @@ dot_test()
 svd_test()
 svm_test()
 
+var N_svd = 1000
+var M_svd = 200
+var x = reshape(arange(N_svd*M_svd), (M_svd, N_svd))
+var (u, s, v) = svd(x)
+println(u)
+println(s)
+println(v)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

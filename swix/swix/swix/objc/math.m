@@ -84,7 +84,6 @@ void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     // Call dgesdd_ to do the actual computation:
     dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
     free(work);
-
 }
 void transpose_objc(double* x, double* y, int M, int N){
     vDSP_mtransD(x, 1, y, 1, M, N);

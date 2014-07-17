@@ -91,14 +91,28 @@ func norm(x: matrix2d, type:String="l2") -> Double{
 //    }
 //    return y
 //}
-//func sum(x: matrix) -> Double{
-//    var y = zeros(x.count)
-//    var s: Double = 0
-//    for i in 0..<x.count{
-//        s = x[i] + s
-//    }
-//    return s
-//}
+func sum(x: matrix2d, dim:Int=0) -> matrix{
+    // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
+    var dimen:Int
+    if dim==1{
+        dimen = x.shape.1
+        var y = zeros(dimen)
+        for i in 0..<dimen{
+            y[i] = sum(x[0..<x.shape.0, i])
+        }
+        return y
+    }
+    else if dim==0{
+        dimen = x.shape.0
+        var y = zeros(dimen)
+        for i in 0..<dimen{
+            y[i] = sum(x[i, 0..<x.shape.1])
+        }
+        return y
+    }
+    assert(false, "Argument `dim` not recongnized")
+    return zeros(1)
+}
 //func avg(x: matrix) -> Double{
 //    var y: Double = sum(x)
 //    

@@ -27,7 +27,8 @@ func svd(x: matrix2d) -> (matrix2d, matrix, matrix2d){
     
     // to get the svd result to match Python
     var v = transpose(vt)
-    if m >= n {u = transpose(u)}
+//    if m >= n {u = transpose(u)}
+    u = transpose(u)
 
     return (u, sigma, v)
 }
