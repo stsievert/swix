@@ -151,6 +151,9 @@ func transpose (x: matrix2d) -> matrix2d{
 func argwhere(idx: matrix2d) -> matrix{
     return argwhere(idx.flat)
 }
+func copy(x: matrix2d, y: matrix2d){
+    copy(x.flat, y.flat)
+}
 
 
 

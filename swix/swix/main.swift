@@ -22,6 +22,11 @@
  */
 
 
+/* TODO:
+ *   * speed up operations
+ *   * include eig
+ */
+
 import Foundation
 
 // TESTS
@@ -114,6 +119,12 @@ func svm_test(){
     assert(z == y[1])
     println("    svm works via simple test")
 }
+func inv_test(){
+    var x = randn((4,4))
+    var y = inv(x)
+    assert((x *! y) ~== eye(4))
+    println("    matrix inversion works")
+}
 
 println("running tests...")
 operator_test()
@@ -127,14 +138,8 @@ fft_test()
 dot_test()
 svd_test()
 svm_test()
+inv_test()
 
-var N_svd = 1000
-var M_svd = 200
-var x = reshape(arange(N_svd*M_svd), (M_svd, N_svd))
-var (u, s, v) = svd(x)
-println(u)
-println(s)
-println(v)
 
 
 

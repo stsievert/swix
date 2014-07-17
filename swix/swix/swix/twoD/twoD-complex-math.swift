@@ -27,10 +27,16 @@ func svd(x: matrix2d) -> (matrix2d, matrix, matrix2d){
     
     // to get the svd result to match Python
     var v = transpose(vt)
-//    if m >= n {u = transpose(u)}
     u = transpose(u)
 
     return (u, sigma, v)
+}
+func inv(x: matrix2d) -> matrix2d{
+    assert(x.shape.0 == x.shape.1, "To take an inverse of a matrix, the matrix must be square. If you want the inverse of a rectangular matrix, use psuedoinverse.")
+    var y = zeros((x.shape.1, x.shape.0))
+    copy(x.flat, y.flat)
+    inv_objc(!y, x.shape.0.cint, x.shape.1.cint);
+    return y
 }
 
 
