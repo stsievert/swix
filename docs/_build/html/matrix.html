@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Matrices &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="next" title="Machine learning" href="machine_learning.html" />
+    <link rel="prev" title="Numbers and constants" href="numbers.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="machine_learning.html" title="Machine learning"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="numbers.html" title="Numbers and constants"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="matrices">
+<h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h1>
+<p>This library contains two types matrix types: a 1D matrix and a 2D matrix. Both
+are indexable through several methods, shown below:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">matrix[0]</span> <span class="pre">=</span> <span class="pre">1</span></tt> for a single element</li>
+<li><tt class="docutils literal"><span class="pre">matrix[0..&lt;5]</span> <span class="pre">=</span> <span class="pre">ones(5)</span></tt> for a several components.</li>
+<li><tt class="docutils literal"><span class="pre">matrix[array(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5)]</span> <span class="pre">=</span> <span class="pre">array(5)</span></tt> also works. Note that floating
+point values are truncated.</li>
+</ul>
+<p>Similar syntax works for 2D matrices. You can access elements through <tt class="docutils literal"><span class="pre">x[Int,</span>
+<span class="pre">Int]</span> <span class="pre">=</span> <span class="pre">Double</span></tt>, <tt class="docutils literal"><span class="pre">x[Int,</span> <span class="pre">Range]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>, <tt class="docutils literal"><span class="pre">x[Range,</span> <span class="pre">Int]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>,
+<tt class="docutils literal"><span class="pre">x[Range,</span> <span class="pre">Range]</span> <span class="pre">=</span> <span class="pre">matrix2d</span></tt>, <tt class="docutils literal"><span class="pre">x[matrix,</span> <span class="pre">matrix]</span> <span class="pre">=</span> <span class="pre">matrix2d</span></tt> and
+<tt class="docutils literal"><span class="pre">x[matrix]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>. The last entry, <tt class="docutils literal"><span class="pre">x[matrix]</span></tt> accesses the 2D matrix by
+accessing the flat elements.</p>
+<div class="section" id="matrix1d">
+<h2><tt class="docutils literal"><span class="pre">matrix1d</span></tt><a class="headerlink" href="#matrix1d" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">n</span></tt> : number of elements in the array.</li>
+<li><tt class="docutils literal"><span class="pre">count</span></tt> : number of elements</li>
+<li><tt class="docutils literal"><span class="pre">grid</span></tt> : the raw <cite>[Double]</cite>. Hopefully you never have to touch this.</li>
+</ul>
+</div>
+<div class="section" id="matrix2d">
+<h2><tt class="docutils literal"><span class="pre">matrix2d</span></tt><a class="headerlink" href="#matrix2d" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">rows,</span> <span class="pre">columns</span></tt> : the number of rows and columns</li>
+<li><tt class="docutils literal"><span class="pre">shape</span> <span class="pre">==</span> <span class="pre">(self.rows,</span> <span class="pre">self.columns)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">rows</span> <span class="pre">*</span> <span class="pre">columns</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">flat</span></tt> : of type matrix, contains the elements in  <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row major order</a>. It&#8217;s
+helpful to use <tt class="docutils literal"><span class="pre">x.flat</span></tt> for any function that can be used on a 2D matrix
+(e.g., <a class="reference external" href="http://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm">Frobenius norm</a>)</li>
+</ul>
+</div>
+<div class="section" id="simple-mathematical-functions">
+<h2>Simple mathematical functions<a class="headerlink" href="#simple-mathematical-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>a host of functions that don&#8217;t depend on any other element (in
+<tt class="docutils literal"><span class="pre">swix/oneD/oneD-simple-math.swift</span></tt>. If you have your own function, just use
+<tt class="docutils literal"><span class="pre">apply_function(func,</span> <span class="pre">x)</span></tt> (and use <tt class="docutils literal"><span class="pre">x.flat</span></tt> for 2D matrices).</li>
+<li>transpose. Performs <span class="math">\(X^T\)</span></li>
+<li>argwhere. Detects locations of element that are precisely 1. Can be optimized
+with <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#compare">compare</a></li>
+<li>inv. Finds the <a class="reference external" href="http://en.wikipedia.org/wiki/Matrix_inverse">inverse</a> of a square matrix.</li>
+<li>solve. Finds the solution to <span class="math">\(Ax=b\)</span> for matrices <span class="math">\(A\)</span> that are
+skinny, fat or square (to be implemented as of 2014-7-17; will be implemented
+very shortly). To be similar to Matlab&#8217;s <tt class="docutils literal"><span class="pre">\</span></tt> operator (and that operator
+will be integrated shortly).</li>
+</ul>
+</div>
+<div class="section" id="initing">
+<h2>Initing<a class="headerlink" href="#initing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ones,</span> <span class="pre">zeros</span></tt> : accepts <tt class="docutils literal"><span class="pre">Int</span></tt> or <tt class="docutils literal"><span class="pre">(Int,</span> <span class="pre">Int)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">diag,</span> <span class="pre">eye</span></tt> : returns the diagonal and makes an identity matrix of input
+size <tt class="docutils literal"><span class="pre">N</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">array(1,</span> <span class="pre">2,</span> <span class="pre">3...),</span> <span class="pre">array(&quot;1</span> <span class="pre">2</span> <span class="pre">3;</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">6;</span> <span class="pre">7</span> <span class="pre">8</span> <span class="pre">9)</span></tt> : returns an array with
+the numbers. In the 2D case, the string isn&#8217;t parsed right, especially with
+two digit numbers or negative numbers; beware!</li>
+<li><tt class="docutils literal"><span class="pre">linspace</span></tt> : makes an <cite>exclusive</cite> linear range; for example, <tt class="docutils literal"><span class="pre">linspace(0,</span>
+<span class="pre">1,</span> <span class="pre">num:</span> <span class="pre">2)</span> <span class="pre">~==</span> <span class="pre">[0,</span> <span class="pre">0.5]</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">meshgrid</span></tt> : Similar to <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html">NumPy&#8217;s meshgrid</a>. <tt class="docutils literal"><span class="pre">meshgrid</span></tt> depends on
+OpenCV&#8217;s repeat and may fail for large matrices.</li>
+<li><tt class="docutils literal"><span class="pre">repeat(x:</span> <span class="pre">matrix,</span> <span class="pre">N:int,</span> <span class="pre">how:String=&quot;matrix&quot;)</span></tt> : Repeats a matrix N times.
+If <tt class="docutils literal"><span class="pre">how==&quot;elements&quot;</span></tt>, it repeats the matrix <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></tt> as <tt class="docutils literal"><span class="pre">[0...,</span> <span class="pre">1...,</span>
+<span class="pre">2...]</span></tt> instead of <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">...</span></tt>.</li>
+</ul>
+</div>
+<div class="section" id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">*!</span></tt> : The dot product operator. Extra important multiplication since <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0465/#implementation-details">the &#64;
+symbol</a> to be used in Python 3.5 can&#8217;t be used.</li>
+<li><tt class="docutils literal"><span class="pre">~==</span></tt> : Sees if two arrays are approximately equal (threshold: 1e-9). I
+should create a function <tt class="docutils literal"><span class="pre">approx_equal(x,</span> <span class="pre">y)</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span></tt> : Element-wise addition. <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span></tt> and everything above is optimized
+with Accelerate; everything else is unoptimized and uses native Swift.
+<tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">+</span> <span class="pre">matrix</span></tt>, <tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">+</span> <span class="pre">Double</span></tt> or <tt class="docutils literal"><span class="pre">Double</span> <span class="pre">+</span> <span class="pre">matrix</span></tt> and likewise
+for <tt class="docutils literal"><span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">*</span> <span class="pre">/</span></tt> : Element-wise multiplication and division. Unoptimized.</li>
+<li><tt class="docutils literal"><span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span></tt> : Element-wise with the array as the left hand argument.</li>
+<li><tt class="docutils literal"><span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span></tt> : Element-wise comparison. Return an array of 0&#8217;s and 1&#8217;s,
+useful with <tt class="docutils literal"><span class="pre">argwhere</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">%</span> <span class="pre">double</span></tt> : Element-wise modulo.</li>
+</ul>
+</div>
+<div class="section" id="complex-math">
+<h2>Complex math<a class="headerlink" href="#complex-math" title="Permalink to this headline">¶</a></h2>
+<p>I&#8217;ll show examples: for these relatively simple functions, they&#8217;re much more valuable.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_transform">FFT/IFFT</a></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>var x = ones(15)
+var (y_real, y_imag) = ifft(x)
+assert(x ~== ifft(y_real, y_imag)) // true
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Matrices</a><ul>
+<li><a class="reference internal" href="#matrix1d"><tt class="docutils literal"><span class="pre">matrix1d</span></tt></a></li>
+<li><a class="reference internal" href="#matrix2d"><tt class="docutils literal"><span class="pre">matrix2d</span></tt></a></li>
+<li><a class="reference internal" href="#simple-mathematical-functions">Simple mathematical functions</a></li>
+<li><a class="reference internal" href="#initing">Initing</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#complex-math">Complex math</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="numbers.html"
+                        title="previous chapter">Numbers and constants</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="machine_learning.html"
+                        title="next chapter">Machine learning</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/matrix.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="machine_learning.html" title="Machine learning"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="numbers.html" title="Numbers and constants"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

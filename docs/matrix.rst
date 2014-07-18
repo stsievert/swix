@@ -1,0 +1,102 @@
+
+Matrices
+==========
+This library contains two types matrix types: a 1D matrix and a 2D matrix. Both
+are indexable through several methods, shown below:
+
+* ``matrix[0] = 1`` for a single element
+* ``matrix[0..<5] = ones(5)`` for a several components.
+* ``matrix[array(1, 2, 3, 4, 5)] = array(5)`` also works. Note that floating
+  point values are truncated.
+
+Similar syntax works for 2D matrices. You can access elements through ``x[Int,
+Int] = Double``, ``x[Int, Range] = matrix``, ``x[Range, Int] = matrix``,
+``x[Range, Range] = matrix2d``, ``x[matrix, matrix] = matrix2d`` and
+``x[matrix] = matrix``. The last entry, ``x[matrix]`` accesses the 2D matrix by
+accessing the flat elements.
+
+
+``matrix1d``
+---------------
+
+* ``n`` : number of elements in the array.
+* ``count`` : number of elements
+* ``grid`` : the raw `[Double]`. Hopefully you never have to touch this.
+
+``matrix2d``
+----------------
+* ``rows, columns`` : the number of rows and columns
+* ``shape == (self.rows, self.columns)``
+* ``n == rows * columns``
+* ``flat`` : of type matrix, contains the elements in  `row major order`_. It's
+  helpful to use ``x.flat`` for any function that can be used on a 2D matrix
+  (e.g., `Frobenius norm`_)
+
+
+Simple mathematical functions
+----------------------
+* a host of functions that don't depend on any other element (in
+  ``swix/oneD/oneD-simple-math.swift``. If you have your own function, just use
+  ``apply_function(func, x)`` (and use ``x.flat`` for 2D matrices).
+* transpose. Performs :math:`X^T`
+* argwhere. Detects locations of element that are precisely 1. Can be optimized
+  with `compare`_
+* inv. Finds the `inverse`_ of a square matrix.
+* solve. Finds the solution to :math:`Ax=b` for matrices :math:`A` that are
+  skinny, fat or square (to be implemented as of 2014-7-17; will be implemented
+  very shortly). To be similar to Matlab's ``\`` operator (and that operator
+  will be integrated shortly).
+
+.. _inverse: http://en.wikipedia.org/wiki/Matrix_inverse
+
+Initing
+--------
+* ``ones, zeros`` : accepts ``Int`` or ``(Int, Int)``
+* ``diag, eye`` : returns the diagonal and makes an identity matrix of input
+  size ``N``.
+* ``array(1, 2, 3...), array("1 2 3; 4 5 6; 7 8 9)`` : returns an array with
+  the numbers. In the 2D case, the string isn't parsed right, especially with
+  two digit numbers or negative numbers; beware!
+* ``linspace`` : makes an `exclusive` linear range; for example, ``linspace(0,
+  1, num: 2) ~== [0, 0.5]``.
+* ``meshgrid`` : Similar to `NumPy's meshgrid`_. ``meshgrid`` depends on
+  OpenCV's repeat and may fail for large matrices.
+* ``repeat(x: matrix, N:int, how:String="matrix")`` : Repeats a matrix N times.
+  If ``how=="elements"``, it repeats the matrix ``[0, 1, 2]`` as ``[0..., 1...,
+  2...]`` instead of ``[0, 1, 2, 0, 1, 2, ...``.
+
+Operators
+-----------
+* ``*!`` : The dot product operator. Extra important multiplication since `the @
+  symbol`_ to be used in Python 3.5 can't be used.
+* ``~==`` : Sees if two arrays are approximately equal (threshold: 1e-9). I
+  should create a function ``approx_equal(x, y)``.
+* ``+ -`` : Element-wise addition. ``+ -`` and everything above is optimized
+  with Accelerate; everything else is unoptimized and uses native Swift.
+  ``matrix + matrix``, ``matrix + Double`` or ``Double + matrix`` and likewise
+  for ``- * / < > <= >=``
+* ``* /`` : Element-wise multiplication and division. Unoptimized.
+* ``+= -= *= /=`` : Element-wise with the array as the left hand argument.
+* ``< > <= >=`` : Element-wise comparison. Return an array of 0's and 1's,
+  useful with ``argwhere``.
+* ``matrix % double`` : Element-wise modulo.
+
+Complex math
+--------------
+I'll show examples: for these relatively simple functions, they're much more valuable.
+
+* `FFT/IFFT`_
+
+::
+
+    var x = ones(15)
+    var (y_real, y_imag) = ifft(x)
+    assert(x ~== ifft(y_real, y_imag)) // true
+
+
+.. _Frobenius norm: http://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm
+.. _FFT/IFFT: https://en.wikipedia.org/wiki/Fourier_transform
+.. _the @ symbol: http://legacy.python.org/dev/peps/pep-0465/#implementation-details
+.. _NumPy's meshgrid: http://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html
+.. _compare: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#compare
+.. _row major order: https://en.wikipedia.org/wiki/Row-major_order

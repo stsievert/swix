@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Machine learning &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="next" title="Bugs" href="bugs.html" />
+    <link rel="prev" title="Matrices" href="matrix.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="bugs.html" title="Bugs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="machine-learning">
+<h1>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h1>
+<p>Again, examples. They&#8217;re more useful.</p>
+<div class="section" id="svd">
+<h2><a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a><a class="headerlink" href="#svd" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>var svm = SVM()
+
+// our responses.
+var responses = reshape(ones(2*3), (2, 3))
+
+// OpenCV can fail for too similar inputs (probably synthetic)
+for i in 0..3{
+    responses[1][i] = -1
+}
+
+// our targets.
+var targets = ones(2); targets[1] = -1
+
+// train with responses
+svm.train(responses, targets: targets)
+
+// predict
+var y = -1 * ones(3) // must have same size!
+var result = svm.predict(y)
+</pre></div>
+</div>
+</div>
+<div class="section" id="knn">
+<h2><a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbor_algorithm">kNN</a><a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h2>
+<p>I haven&#8217;t and don&#8217;t have a use case for this; my simple test failed although I
+believe it&#8217;s correct.</p>
+<div class="highlight-python"><div class="highlight"><pre>var knn = kNearestNeighbors()
+var responses = ones((4,6))
+var targets = arange(4)
+
+knn.train(responses, targets:targets)
+var result = knn.predict(y, k:3)
+</pre></div>
+</div>
+</div>
+<div class="section" id="svd-or-pca">
+<h2><a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a><a class="headerlink" href="#svd-or-pca" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>var x = ones((2,4))
+var (u, s, v) = svd(x)
+x = ones((4,2))
+(u, s, v) = svd(x)
+println(&quot;    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Machine learning</a><ul>
+<li><a class="reference internal" href="#svd">SVD</a></li>
+<li><a class="reference internal" href="#knn">kNN</a></li>
+<li><a class="reference internal" href="#svd-or-pca">SVD or PCA</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="matrix.html"
+                        title="previous chapter">Matrices</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bugs.html"
+                        title="next chapter">Bugs</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/machine_learning.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="bugs.html" title="Bugs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

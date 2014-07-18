@@ -16,6 +16,12 @@ func matrixToPointer(x: matrix)->UnsafePointer<Double>{
 func matrixToPointer(x: [Int])->UnsafePointer<Int>{
     return UnsafePointer<Int>(x)
 }
+func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt) -> matrix{
+    var x = zeros(N.int)
+    var xP = matrixToPointer(x)
+    copy_objc(xPC, xP, N*M);
+    return x
+}
 func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt, M:CInt) -> matrix2d{
     var x = zeros((N.int, M.int))
     var xP = matrixToPointer(x.flat)

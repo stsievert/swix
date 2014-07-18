@@ -35,7 +35,7 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> matrix{
 func linspace(min: Double, max: Double, num: Int=50) -> matrix{
     var x = zeros(num+1)
     var xP = matrixToPointer(x)
-    linspace_objc(xP, 1+num.cint, min.cdouble, ((max-min)/num).double)
+    linspace_objc(xP, num.cint, min.cdouble, ((max-min)/num).double)
     return x
 }
 func array(numbers: Double...) -> matrix{
