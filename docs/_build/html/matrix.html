@@ -121,19 +121,17 @@ If <tt class="docutils literal"><span class="pre">how==&quot;elements&quot;</spa
 <div class="section" id="operators">
 <h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">*!</span></tt> : The dot product operator. Extra important multiplication since <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0465/#implementation-details">the &#64;
-symbol</a> to be used in Python 3.5 can&#8217;t be used.</li>
-<li><tt class="docutils literal"><span class="pre">~==</span></tt> : Sees if two arrays are approximately equal (threshold: 1e-9). I
-should create a function <tt class="docutils literal"><span class="pre">approx_equal(x,</span> <span class="pre">y)</span></tt>.</li>
-<li><tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span></tt> : Element-wise addition. <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span></tt> and everything above is optimized
-with Accelerate; everything else is unoptimized and uses native Swift.
-<tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">+</span> <span class="pre">matrix</span></tt>, <tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">+</span> <span class="pre">Double</span></tt> or <tt class="docutils literal"><span class="pre">Double</span> <span class="pre">+</span> <span class="pre">matrix</span></tt> and likewise
-for <tt class="docutils literal"><span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">*</span> <span class="pre">/</span></tt> : Element-wise multiplication and division. Unoptimized.</li>
-<li><tt class="docutils literal"><span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span></tt> : Element-wise with the array as the left hand argument.</li>
+<li><tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">+=</span> <span class="pre">*=</span> <span class="pre">-=</span> <span class="pre">/=</span></tt> : Element-wise addition. <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span></tt>. Takes  <tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">+</span> <span class="pre">matrix</span></tt>,
+<tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">+</span> <span class="pre">Double</span></tt> or <tt class="docutils literal"><span class="pre">Double</span> <span class="pre">+</span> <span class="pre">matrix</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span></tt> : Element-wise comparison. Return an array of 0&#8217;s and 1&#8217;s,
 useful with <tt class="docutils literal"><span class="pre">argwhere</span></tt>.</li>
 <li><tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">%</span> <span class="pre">double</span></tt> : Element-wise modulo.</li>
+<li><tt class="docutils literal"><span class="pre">~==</span></tt> : Sees if two arrays are approximately equal (threshold: 1e-9). I
+should create a function <tt class="docutils literal"><span class="pre">approx_equal(x,</span> <span class="pre">y)</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">*!</span></tt> : The dot product operator. Extra important multiplication since <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0465/#implementation-details">the &#64;
+symbol</a> to be used in Python 3.5 can&#8217;t be used.</li>
+<li><tt class="docutils literal"><span class="pre">!/</span></tt> : Similar to Matlab&#8217;s <tt class="docutils literal"><span class="pre">\</span></tt> operator (but <tt class="docutils literal"><span class="pre">\</span></tt> couldn&#8217;t be used so
+&#8220;extra important division&#8221; used).</li>
 </ul>
 </div>
 <div class="section" id="complex-math">

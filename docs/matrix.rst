@@ -67,19 +67,17 @@ Initing
 
 Operators
 -----------
-* ``*!`` : The dot product operator. Extra important multiplication since `the @
-  symbol`_ to be used in Python 3.5 can't be used.
-* ``~==`` : Sees if two arrays are approximately equal (threshold: 1e-9). I
-  should create a function ``approx_equal(x, y)``.
-* ``+ -`` : Element-wise addition. ``+ -`` and everything above is optimized
-  with Accelerate; everything else is unoptimized and uses native Swift.
-  ``matrix + matrix``, ``matrix + Double`` or ``Double + matrix`` and likewise
-  for ``- * / < > <= >=``
-* ``* /`` : Element-wise multiplication and division. Unoptimized.
-* ``+= -= *= /=`` : Element-wise with the array as the left hand argument.
+* ``+ - * / < > <= >= += *= -= /=`` : Element-wise addition. ``+ -``. Takes  ``matrix + matrix``, 
+  ``matrix + Double`` or ``Double + matrix`` 
 * ``< > <= >=`` : Element-wise comparison. Return an array of 0's and 1's,
   useful with ``argwhere``.
 * ``matrix % double`` : Element-wise modulo.
+* ``~==`` : Sees if two arrays are approximately equal (threshold: 1e-9). I
+  should create a function ``approx_equal(x, y)``.
+* ``*!`` : The dot product operator. Extra important multiplication since `the @
+  symbol`_ to be used in Python 3.5 can't be used.
+* ``!/`` : Similar to Matlab's ``\`` operator (but ``\`` couldn't be used so
+  "extra important division" used).
 
 Complex math
 --------------

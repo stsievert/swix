@@ -65,6 +65,15 @@ func make_operator(lhs: Double, operator: String, rhs: matrix2d)->matrix2d{
 operator infix *! {associativity none precedence 140}
 func *! (lhs: matrix2d, rhs: matrix2d) -> matrix2d{
     return dot(lhs, rhs)}
+// SOLVE
+operator infix !/ {associativity none precedence 140}
+func !/ (lhs: matrix2d, rhs: matrix) -> matrix{
+    return solve(lhs, rhs)}
+// EQUALITY
+func ~== (lhs: matrix2d, rhs: matrix2d) -> Bool{
+    return (rhs.flat ~== lhs.flat)}
+
+/// ELEMENT WISE OPERATORS
 // PLUS
 operator infix + {associativity none precedence 140}
 func + (lhs: matrix2d, rhs: matrix2d) -> matrix2d{
@@ -98,10 +107,6 @@ func / (lhs: Double, rhs: matrix2d) -> matrix2d{
     return make_operator(lhs, "/", rhs)}
 func / (lhs: matrix2d, rhs: Double) -> matrix2d{
     return make_operator(lhs, "/", rhs)}
-// EQUALITY
-func ~== (lhs: matrix2d, rhs: matrix2d) -> Bool{
-    return (rhs.flat ~== lhs.flat)
-}
 // LESS THAN
 operator infix < {associativity none precedence 140}
 func < (lhs: matrix2d, rhs: Double) -> matrix2d{

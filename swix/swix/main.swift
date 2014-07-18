@@ -125,6 +125,14 @@ func inv_test(){
     assert((x *! y) ~== eye(4))
     println("    matrix inversion works")
 }
+func solve_test(){
+    var A0 = array(1, 2, 3, 4, 2, 1, 4, 6, 7)
+    var A = reshape(A0, (3, 3))
+    var b = array(1, 2, 5)
+    var x = solve(A, b)
+    assert((A !/ b) ~== solve(A, b))
+    println("    solve works, similar to Matlab's \\ operator (and checked by hand). Be careful -- this only works for nxn matrices")
+}
 
 println("running tests...")
 operator_test()
@@ -139,7 +147,7 @@ dot_test()
 svd_test()
 svm_test()
 inv_test()
-
+solve_test()
 
 
 

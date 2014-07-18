@@ -28,9 +28,18 @@ void copy(Mat x, double * y, int N);
     xMat.release();
     yMat.release();
 }
++ (void) solve:(double *)A b:(double*)b x:(double*)x m:(int)m n:(int)n{
+    Mat Amat(m, n, CV_64F, A);
+    Mat bMat(m, 1, CV_64F, b);
+    Mat xMat(1, n, CV_64F, x);
+    solve(Amat, bMat, xMat);
+    matToPointer(xMat, x, n);
+}
 void matToPointer(Mat x, double * y, int N){
-    double * yP = x.ptr<double>(0);
-    copy(yP, y, N);
+//    double * yP = x.ptr<double>(0);
+    uchar* ptr = x.data;
+    double* ptrD = (double*)ptr;
+    copy(ptrD, y, N);
 }
 void copy(double* x, double * y, int N){
     cblas_dcopy(N, x, 1, y, 1);

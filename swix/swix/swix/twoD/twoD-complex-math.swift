@@ -38,6 +38,14 @@ func inv(x: matrix2d) -> matrix2d{
     inv_objc(!y, x.shape.0.cint, x.shape.1.cint);
     return y
 }
+func solve(A: matrix2d, b: matrix) -> matrix{
+    var (m, n) = A.shape
+    assert(b.n == m, "Ax = b, A.rows == b.n. Sizes must match which makes sense mathematically")
+    assert(n == m, "Matrix must be square -- dictated by OpenCV")
+    var x = zeros(n)
+    CVWrapper.solve(!A, b:!b, x:!x, m:m.cint, n:n.cint)
+    return x
+}
 
 
 
