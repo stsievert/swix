@@ -6,6 +6,10 @@ Bugs
   (it will soon) and will give nonsense output. Indexing (``x[0..<2, 0..<2]``)
   depends on this as does various machine learning functions (SVM, kNN) and
   ``solve``.
+* the operator ``-`` is slow; instead, use ``matrix + (-1 * rhs)``.
+* The ``~==`` operator only verifies if entire arrays are equal; use
+  ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
+
 
 Matlab and swix differences
 ---------------------------

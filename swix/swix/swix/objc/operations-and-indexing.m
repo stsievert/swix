@@ -64,3 +64,31 @@ void mul_scalar_objc(double* x, double A, double* y, int N){
     double C = 0;
     vDSP_vsmsaD(x, 1, &A, &C, y, 1, N);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

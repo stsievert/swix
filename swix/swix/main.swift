@@ -67,7 +67,7 @@ func argwhere_test(){
     var x = zeros(N)
     var y = zeros(N)
     x[0..<5] = ones(5)
-    var i = argwhere(x ~== y)
+    var i = argwhere(abs(x-y) < 1e-9)
     assert(i ~== array(5, 6, 7, 8, 9))
     x[argwhere(x<2)] = ones(argwhere(x<2).n)
     println("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works for both 1d and 2d.")
@@ -135,6 +135,8 @@ func solve_test(){
 }
 
 println("running tests...")
+
+runFullTests()
 operator_test()
 swift_complex_test()
 scalar_test()
@@ -149,12 +151,9 @@ svm_test()
 inv_test()
 solve_test()
 
-
-println(FLOAT_EPSILON)
-println(DOUBLE_EPSILON)
-
-
-
+var x = array(1, 2, 3, 4)
+var y = array(3, 1, 3, 4.1)
+var z = zeros(4)
 
 
 

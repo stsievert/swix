@@ -37,6 +37,9 @@ void copy(Mat x, double * y, int N);
 }
 void matToPointer(Mat x, double * y, int N){
 //    double * yP = x.ptr<double>(0);
+    if  (!x.isContinuous()){
+        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
+    }
     uchar* ptr = x.data;
     double* ptrD = (double*)ptr;
     copy(ptrD, y, N);

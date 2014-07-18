@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-// SLOW PARTS: almost everything
+// SLOW PARTS: COMPARISON
 // almost all of these function can be sped up (drastically) with Accelerate
 
 
@@ -20,21 +20,20 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
     var arg_b = zeros(lhs.n)
     var arg_c = zeros(lhs.n)
     
-    // accelerate integration would go here.
     // see [1] on how to integrate Swift and accelerate
-    //
     // [1]:https://github.com/haginile/SwiftAccelerate
-    if operator=="+" || operator=="-"{// || operator=="*" || operator=="/"{
-        var rP = matrixToPointer(rhs)
+    if operator=="+" || operator=="-" || operator=="*" || operator=="/"{
         var result = zeros(lhs.n)
-        
         copy(lhs, result)
-        var lP = matrixToPointer(result)
         var N = lhs.n
         if operator=="+"
-            {cblas_daxpy(N.cint, 1.0.cdouble, rP, 1.cint, lP, 1.cint);}
-        if operator=="-"
-            {cblas_daxpy(N.cint, -1.0.cdouble, rP, 1.cint, lP, 1.cint);}
+            {cblas_daxpy(N.cint, 1.0.cdouble, !rhs, 1.cint, !result, 1.cint);}
+        else if operator=="-"
+            {cblas_daxpy(N.cint, -1.0.cdouble, !rhs, 1.cint, !result, 1.cint);}
+        else if operator=="*"
+            {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
+        else if operator=="/"
+            {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
         return result
     }
     for i in 0..<lhs.n{
@@ -44,33 +43,29 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
                      if lhs[i] > rhs[i]{ array[i] = 1 }
         }else if operator == "<"{
                     if lhs[i] < rhs[i]{ array[i] = 1 }
-        }else if operator == "~=="{
-                    if abs(lhs[i] - rhs[i])<1e-9{ array[i] = 1 }
         } else if operator == "<="{
                      if lhs[i] <= rhs[i]{ array[i] = 1 }
         } else if operator == ">="{
                      if lhs[i] >= rhs[i]{ array[i] = 1 }
-        } else if operator == "+"{
-             array[i] = lhs[i] + rhs[i]
-        } else if operator == "-"{
-             array[i] = lhs[i] - rhs[i]
-        } else if operator == "*"{
-             array[i] = lhs[i] * rhs[i]
-        }  else if operator == "/"{
-              array[i] = lhs[i] / rhs[i]
         }else { assert(false, "Operator not reconginzed!") }
     }
     return array
 }
 func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
     var array = zeros(lhs.n)
-    if operator == "%" || operator=="*" {
-        var xP = matrixToPointer(lhs)
-        var arrayP = matrixToPointer(array)
+    if operator == "%" || operator=="*" || operator=="+" || operator=="/" || operator == "-"{
+        var right = [rhs]
         if operator == "%"
-            {mod_objc(xP, rhs, arrayP, lhs.n.cint);
+            {mod_objc(!lhs, rhs, !array, lhs.n.cint);
         } else if operator == "*"
-            {mul_scalar_objc(xP, rhs.cdouble, arrayP, lhs.n.cint)}
+            {mul_scalar_objc(!lhs, rhs.cdouble, !array, lhs.n.cint)}
+        else if operator == "+"
+            {vDSP_vsaddD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
+        else if operator=="/"
+            {vDSP_vsdivD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
+        else if operator=="-"
+            {array = make_operator(lhs, "-", ones(lhs.n)*rhs)}
+        else {assert(false, "Operator not recongnized! Error with the speedup?")}
     } else{
         for i in 0..<lhs.n{
             if operator == "<"{
@@ -80,37 +75,34 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
             } else if operator == "<"{
                          if lhs[i] < rhs{
                             array[i] = 1 }
-            } else if operator == "~=="{
-                         if abs(lhs[i] - rhs)<1e-9{ array[i] = 1 }
             } else if operator == "<="{
                          if lhs[i] <= rhs{
                             array[i] = 1 }
             } else if operator == ">="{
                          if lhs[i] >= rhs{ array[i] = 1 }
-            } else if operator == "+"{
-                 array[i] = lhs[i] + rhs
             } else if operator == "-"{
                  array[i] = lhs[i] - rhs
-            } else if operator == "*"{
-                 array[i] = lhs[i] * rhs
-            } else if operator == "/"{
-                array[i] = lhs[i] / rhs
             } else if operator == "**"{
                 array[i] = pow(lhs[i], rhs)
-            } else if operator == "%"{
-                array[i] = lhs[i] % rhs
-            }else { assert(false, "Operator not reconginzed!") }
+            } else { assert(false, "Operator not reconginzed!") }
         }
     }
     return array
 }
 func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
     var array = zeros(rhs.n) // lhs[i], rhs[i]
-    if operator=="*"{
+    if operator=="*" || operator=="+" || operator=="-" || operator=="/"{
         var xP = matrixToPointer(rhs)
         var arrayP = matrixToPointer(array)
+        var l = ones(rhs.n) * lhs
         if operator == "*"
-            {mul_scalar_objc(xP, lhs.cdouble, arrayP, rhs.n.cint)}
+            {array = make_operator(rhs, "*", lhs)}
+        else if operator == "+"{
+            array = make_operator(rhs, "+", lhs)}
+        else if operator=="-"
+            {array = -1 * make_operator(rhs, "-", lhs)}
+        else if operator=="/"{
+            array = make_operator(l, "/", rhs)}
     } else{
         for i in 0..<rhs.n{
             if operator == "<"{
@@ -125,14 +117,6 @@ func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
                 if         lhs <= rhs[i]{ array[i] = 1 }
             } else if operator == ">="{
                 if             lhs >= rhs[i]{ array[i] = 1 }
-            } else if operator == "+"{
-                array[i] =     lhs + rhs[i]
-            } else if operator == "-"{
-                array[i] =      lhs - rhs[i]
-            } else if operator == "*"{
-                array[i] =     lhs * rhs[i]
-            } else if operator == "/"{
-                array[i] =     lhs / rhs[i]
             } else { assert(false, "Operator not reconginzed!") }
         }
     }
