@@ -107,7 +107,7 @@ func argwhere(idx: matrix) -> matrix{
     var args = zeros(count)
     var j = 0;
     for i in 0..<idx.n{
-        if idx[i]==1{
+        if idx[i] != 0{
             args[j] = i.double; j+=1
         }
     }

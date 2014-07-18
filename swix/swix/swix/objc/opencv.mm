@@ -35,8 +35,38 @@ void copy(Mat x, double * y, int N);
     solve(Amat, bMat, xMat);
     matToPointer(xMat, x, n);
 }
++ (void) compare:(double*)x with:(double*)y
+           using:(NSString*)op into:(double*)z ofLength:(int)N{
+    // this isn't working.
+    // instead, I can do threshold(abs(x - y), 1e-9)
+    
+    // threshold: vDSP_vthrscD
+    // abs can be vectorized, - vectorized
+    Mat xMat(1, N, CV_64F, x);
+    Mat yMat(1, N, CV_64F, y);
+    Mat zMat(1, N, CV_64F, z);
+    int oper=-1;
+    if      ([op isEqualToString:@"<"  ]) {oper = CMP_LT;}
+    else if ([op isEqualToString:@">"  ]) {oper = CMP_GT;}
+    else if ([op isEqualToString:@"<=" ]) {oper = CMP_LE;}
+    else if ([op isEqualToString:@">=" ]) {oper = CMP_GE;}
+    else if ([op isEqualToString:@"==" ]) {oper = CMP_EQ;}
+    else if ([op isEqualToString:@"!=="]) {oper = CMP_NE;}
+    else printf("Careful! Your operation isn't recognized!\n");
+    printf("double len: %lu\n", sizeof(double));
+    
+    compare(xMat, yMat, zMat, CMP_LT);
+    
+    double * zH = (double *)malloc(sizeof(double) * N);
+    matToPointer(zMat, zH, N);
+    
+    std::cout << zMat << std::endl;
+    for (int i=0; i<N; i++) printf("%f, ", zH[i]);
+    printf("\n");
+}
 void matToPointer(Mat x, double * y, int N){
 //    double * yP = x.ptr<double>(0);
+//    copy(yP, y, N);
     if  (!x.isContinuous()){
         printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
     }

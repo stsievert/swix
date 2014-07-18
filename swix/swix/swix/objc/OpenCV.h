@@ -17,6 +17,7 @@
 @interface CVWrapper : NSObject
 + (void) repeat:(double *)x to:(double*)y n_x:(int)Nx n_repeat:(int)Nrepeat;
 + (void) solve:(double *)A b:(double*)b x:(double*)x m:(int)m n:(int)n;
++ (void) compare:(double*)x with:(double*)y using:(NSString*)op into:(double*)z ofLength:(int)N;
 
 @end
 

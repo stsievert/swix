@@ -65,7 +65,27 @@ void mul_scalar_objc(double* x, double A, double* y, int N){
     vDSP_vsmsaD(x, 1, &A, &C, y, 1, N);
 }
 
-
+void compare_objc(double* x, double* y, double* z, int N, NSString* operation){
+    int operationInt = -1;
+    // converting to int; it's (presumably) faster
+    // follows OpenCV's compare[0] convention
+    // [0]:http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#compare
+    if ([operation isEqualToString:@"=="]) {operationInt = 0;}
+    if ([operation isEqualToString:@">"])  {operationInt = 1;}
+    if ([operation isEqualToString:@">="]) {operationInt = 2;}
+    if ([operation isEqualToString:@"<"])  {operationInt = 3;}
+    if ([operation isEqualToString:@"<="]) {operationInt = 4;}
+    if ([operation isEqualToString:@"!=="]){operationInt = 5;}
+    
+    for (int i=0; i<N; i++){
+             if (operationInt==0 &&   x[i] == y[i]) {z[i] = 1;}
+        else if (operationInt==1 &&   x[i] >  y[i]) {z[i] = 1;}
+        else if (operationInt==2 &&   x[i] >= y[i]) {z[i] = 1;}
+        else if (operationInt==3 &&   x[i] <  y[i]) {z[i] = 1;}
+        else if (operationInt==4 &&   x[i] <= y[i]) {z[i] = 1;}
+        else if (operationInt==5 && !(x[i] == y[i])){z[i] = 1;}
+    }
+}
 
 
 

@@ -51,6 +51,7 @@ extension String {
     var doubleValue: Double {
         return (self as NSString).doubleValue
     }
+    var nsstring:NSString {return NSString(string:self)}
 }
 
 // a quick hack to get what I want

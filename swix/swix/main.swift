@@ -136,7 +136,7 @@ func solve_test(){
 
 println("running tests...")
 
-runFullTests()
+runSimpleTests()
 operator_test()
 swift_complex_test()
 scalar_test()
@@ -150,11 +150,6 @@ svd_test()
 svm_test()
 inv_test()
 solve_test()
-
-var x = array(1, 2, 3, 4)
-var y = array(3, 1, 3, 4.1)
-var z = zeros(4)
-
 
 
 

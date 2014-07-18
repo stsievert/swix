@@ -22,7 +22,7 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
     
     // see [1] on how to integrate Swift and accelerate
     // [1]:https://github.com/haginile/SwiftAccelerate
-    if operator=="+" || operator=="-" || operator=="*" || operator=="/"{
+    if operator=="+" || operator=="-" || operator=="*" || operator=="/" || operator=="<" || operator==">" || operator=="<=" || operator==">="{
         var result = zeros(lhs.n)
         copy(lhs, result)
         var N = lhs.n
@@ -34,20 +34,27 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
             {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
         else if operator=="/"
             {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
+        else if operator=="<" || operator==">" || operator==">=" || operator=="<="{
+            result = zeros(lhs.n)
+            compare_objc(!lhs, !rhs, !result, result.n.cint, operator.nsstring);
+        }
+        else {assert(false, "Operator not recongized!")}
         return result
     }
-    for i in 0..<lhs.n{
-        if operator == "<"{
-              if lhs[i] < rhs[i]{ array[i] = 1 }
-        } else if operator == ">"{
-                     if lhs[i] > rhs[i]{ array[i] = 1 }
-        }else if operator == "<"{
-                    if lhs[i] < rhs[i]{ array[i] = 1 }
-        } else if operator == "<="{
-                     if lhs[i] <= rhs[i]{ array[i] = 1 }
-        } else if operator == ">="{
-                     if lhs[i] >= rhs[i]{ array[i] = 1 }
-        }else { assert(false, "Operator not reconginzed!") }
+    else{
+        for i in 0..<lhs.n{
+            if operator == "<"{
+                  if lhs[i] < rhs[i]{ array[i] = 1 }
+            } else if operator == ">"{
+                         if lhs[i] > rhs[i]{ array[i] = 1 }
+            }else if operator == "<"{
+                        if lhs[i] < rhs[i]{ array[i] = 1 }
+            } else if operator == "<="{
+                         if lhs[i] <= rhs[i]{ array[i] = 1 }
+            } else if operator == ">="{
+                         if lhs[i] >= rhs[i]{ array[i] = 1 }
+            }else { assert(false, "Operator not reconginzed!") }
+        }
     }
     return array
 }
@@ -209,24 +216,22 @@ func > (lhs: Double, rhs: matrix) -> matrix{
 operator infix >= {associativity none precedence 140}
 func >= (lhs: matrix, rhs: Double) -> matrix{
     assert(false, "For some reason these operators don't work'")
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, ">=", rhs)}
 func >= (lhs: matrix, rhs: matrix) -> matrix{
-    assert(false, "For some reason these operators don't work'")
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, ">=", rhs)}
 func >= (lhs: Double, rhs: matrix) -> matrix{
     assert(false, "For some reason these operators don't work'")
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, ">=", rhs)}
 // LESS THAN OR EQUAL
 operator infix <= {associativity none precedence 140}
 func <= (lhs: matrix, rhs: Double) -> matrix{
     assert(false, "For some reason these operators don't work'")
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, "<=", rhs)}
 func <= (lhs: matrix, rhs: matrix) -> matrix{
-    assert(false, "For some reason these operators don't work'")
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, "<=", rhs)}
 func <= (lhs: Double, rhs: matrix) -> matrix{
     assert(false, "For some reason these operators don't work'")
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, "<=", rhs)}
 
 
 

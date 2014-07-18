@@ -19,7 +19,7 @@
 		D24A855C196D7E86009C18AC /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A855B196D7E86009C18AC /* matrix.swift */; };
 		D271C9BC197031C1008E577A /* math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271C9BB197031C1008E577A /* math.swift */; };
 		D271C9BE1970328C008E577A /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271C9BD1970328C008E577A /* conversion.swift */; };
-		D273B68A197997DE00750A09 /* fullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B689197997DE00750A09 /* fullTests.swift */; };
+		D273B68A197997DE00750A09 /* simpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B689197997DE00750A09 /* simpleTests.swift */; };
 		D2A5CAD4196D805A00749F52 /* oneD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD3196D805A00749F52 /* oneD-initing.swift */; };
 		D2A5CAD6196D830000749F52 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD5196D830000749F52 /* numbers.swift */; };
 		D2A5CAD8196D89C500749F52 /* oneD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD7196D89C500749F52 /* oneD-simple-math.swift */; };
@@ -61,7 +61,7 @@
 		D24A855B196D7E86009C18AC /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
 		D271C9BB197031C1008E577A /* math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = math.swift; sourceTree = "<group>"; };
 		D271C9BD1970328C008E577A /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
-		D273B689197997DE00750A09 /* fullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fullTests.swift; sourceTree = "<group>"; };
+		D273B689197997DE00750A09 /* simpleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = simpleTests.swift; sourceTree = "<group>"; };
 		D2A5CAD3196D805A00749F52 /* oneD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-initing.swift"; sourceTree = "<group>"; };
 		D2A5CAD5196D830000749F52 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
 		D2A5CAD7196D89C500749F52 /* oneD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-simple-math.swift"; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				D24A8554196D7D73009C18AC /* main.swift */,
-				D273B689197997DE00750A09 /* fullTests.swift */,
+				D273B689197997DE00750A09 /* simpleTests.swift */,
 				D23648D11976CC720020FB95 /* machine_learning.swift */,
 				D2333745197430B40027DFD5 /* ScalarArithmetic.swift */,
 				D24A855D196D7E90009C18AC /* swix */,
@@ -259,7 +259,7 @@
 				D20087B2196E180C00AB26AE /* twoD-initing.swift in Sources */,
 				D2BBBDAD196DD693004707F3 /* math.m in Sources */,
 				D206A2A119746886009232B7 /* opencv.mm in Sources */,
-				D273B68A197997DE00750A09 /* fullTests.swift in Sources */,
+				D273B68A197997DE00750A09 /* simpleTests.swift in Sources */,
 				D2A5CADA196D9C0C00749F52 /* oneD-operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
