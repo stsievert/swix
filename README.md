@@ -13,7 +13,7 @@ As an example, here's some relatively simple Objective-C sample code:
 
 ```objc
 void add_two_vectors(double * x, double * y, double * result, int N){
-    // can be sped up with accelerate, the reason it's a function
+    // functions can be sped up with blas/lapack, the reason it's a function
     for (int i=0; i<N; i++){
         result[i] = x[i] + y[i];
     }
@@ -28,16 +28,18 @@ void multiply_two_vectors(double * x, double * y, double * result, int N){
         result[i] = x[i] * y[i];
     }
 }
+void set_value(double value, double * x, int N){
+    for (int i=0; i<N; i++) x[i] = value;
+}
 void main(){
     int N = 10;
     double * x = (double *)malloc(sizeof(double) * N);
     double * y = (double *)malloc(sizeof(double) * N);
     double * intermediate = (double *)malloc(sizeof(double) * N);
     double * result = (double *)malloc(sizeof(double) * N);
-    for (int i=0; i<N; i++){
-        x[i] = 3;
-        y[i] = 1.618;
-    }
+
+    set_value(3.142, x, N);
+    set_value(1.618, y, N);
     add_two_vectors(x, y, intermediate, N);
     add_scalar(4, x, x, N);
     multiply_two_vectors(x, intermediate, result, N);
@@ -48,7 +50,7 @@ The equivalent Swift syntax with this library?
 
 ```swift
 let N = 10
-var x = ones(N) * 3
+var x = ones(N) * pi
 var y = ones(N) * phi
 var result = (x+y+4)*x
 ```
@@ -71,9 +73,11 @@ Currently, this library gives you
 * machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
 * FFT/IFFT
 
-When I was crafting this library, I primarily depended on [NumPy][numpy]. The
-syntax and operators are relatively similar, so if you're in doubt on how to
-use a function, just look at NumPy's docs or [swix's docs][swix-doc]
+When I was crafting this library, I primarily depended on [NumPy][numpy].
+
+## Documentation 
+Details on how to install and individual functions can be found in [swix's
+documentation][swix-doc]
 
 ## Third Party Frameworks/Libraries
 * [Accelerate][accel]
@@ -81,65 +85,11 @@ use a function, just look at NumPy's docs or [swix's docs][swix-doc]
 * [swix-complex][complex]
 * [ScalarArithemetic][scalar]
 
-## Usage
-1. Download this repo.
-2. Include the folder `swix` in your project.
-3. Include the declarations in `swix/objc/swift-Bridging-Header.h` in your
-   project. You can add these to your own bridging header and changing the
-   paths or [modify your xcode project][br-he] to make that the bridging
-   header.
-4. (optional) [Set the compiler optimization flag][setting] to `-O` or `-Ofast`, which can
-   lead to [large speed gains][comp].
-
-[comp]:http://stackoverflow.com/a/24102759/1141256
-[br-he]:http://stackoverflow.com/a/24102433/1141256
-
-Boom. Done. 
-
-The operators for Array have been persevered and new operators are defined for
-the `matrix` and `matrix2d` class.
-
-
-#### Functions
-If you have a function that operates on a single element, it can easily be
-applied to the entire array through `apply_function(single_element_function,
-matrix2d`
-
-You can see the wiki for a complete list of functions, but this library
-implements basic functions such as sin, abs while getting into slightly more
-complex norm functions.
-
-This library also can do one dimensional FFTs.
-
-#### Init'ing arrays
-```swift
-ones(4) ~== matrix([1, 1, 1, 1])
-ones((4,4)) ~== matrix([1, 1],
-                      [1, 1])
-// same with zeros
-array(1, 2, 3, 4) ~== [1, 2, 3, 4]
-array("[1 2; 4 5]") ~== matrix([1 2],
-                              [4 5])
-```
-
-#### Arithmetic
-```swift
-// same for +, -, *, /, etc
-ones(4) * 4 ~== [4, 4, 4, 4]
-ones(4) * (zeros(4) + 2) ~== [2, 2, 2, 2]
-Int(3) + Double(3.14) == 6.14 // through ScalarArithmetic
-```
-
-Note that `*` is not a dot product operator.  I would have used `@` as a dot
-product operator (like [PEP 465][pep], but custom operators [can't use `@`][@].
-So, I decided to use the symbol for extra-important multiplication: `*!`.
-
 ## Features to be added
-* `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
-  `var y:matrix = x[0..<5]`. I'll leave it be for now.
-* Reintegrate machine learning functions (using `double *`!)
 * Further Accelerate integration. The basics are down and the actual work needs
   to be done.
+* `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
+  `var y:matrix = x[0..<5]`. I'll leave it be for now.
 
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic

@@ -150,6 +150,8 @@ inv_test()
 solve_test()
 
 
+println(FLOAT_EPSILON)
+println(DOUBLE_EPSILON)
 
 
 
