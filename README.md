@@ -73,7 +73,7 @@ Currently, this library gives you
 
 When I was crafting this library, I primarily depended on [NumPy][numpy]. The
 syntax and operators are relatively similar, so if you're in doubt on how to
-use a function, just look at NumPy's docs or [swix's docs in the wiki][swix-doc]
+use a function, just look at NumPy's docs or [swix's docs][swix-doc]
 
 ## Third Party Frameworks/Libraries
 * [Accelerate][accel]
@@ -150,4 +150,4 @@ So, I decided to use the symbol for extra-important multiplication: `*!`.
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
 [pep]:http://legacy.python.org/dev/peps/pep-0465/#implementation-details
-[swix-doc]:https://github.com/scottsievert/swix/wiki
+[swix-doc]:http://swix.readthedocs.org/en/latest/
