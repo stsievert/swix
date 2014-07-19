@@ -47,7 +47,6 @@ class runSimpleTests {
         var y = array(1, 2,  3,  4,  5,  6)
         
         // matrix <op> matrix
-        println(x<y)
         assert((x < y) ~== array(1, 0, 0, 0, 0, 0))
         assert((x > y) ~== array(0, 1, 0, 0, 0, 1))
         assert((x <= y) ~== array(1, 0, 1, 1, 1, 0))
@@ -58,10 +57,14 @@ class runSimpleTests {
         // double <op> matrix
         assert((4 < x) ~== array(0, 0, 0, 0, 1, 1))
         assert((4 > x) ~== array(1, 1, 1, 0, 0, 0))
+        assert((4 >= x) ~== array(1, 1, 1, 1, 0, 0))
+        assert((4 <= x) ~== array(0, 0, 0, 1, 1, 1))
         
-        // matrix <op> double
+        // matrix <op> ouble
         assert((x > 4) ~== array(0, 0, 0, 0, 1, 1))
         assert((x < 4) ~== array(1, 1, 1, 0, 0, 0))
+        assert((x <= 4) ~== array(1, 1, 1, 1, 0, 0))
+        assert((x >= 4) ~== array(0, 0, 0, 1, 1, 1))
     }
 }
 
