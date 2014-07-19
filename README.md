@@ -24,7 +24,7 @@ void add_scalar(double x, double * y, double * result, int N){
     vDSP_vsaddD(y, 1, &x, result, 1, N)
 }
 void multiply_two_vectors(double * x, double * y, double * result, int N){
-    vDSP_vmulD(!x, 1, !y, 1, !result, 1, N);
+    vDSP_vmulD(x, 1, y, 1, result, 1, N);
 }
 void set_value(double value, double * x, int N){
     catlas_dset(N, value, x, 1);
