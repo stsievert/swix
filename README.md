@@ -57,23 +57,27 @@ var result = (x+y+4)*x
 
 While this library is basic, I expect something like [NumPy][numpy] to be
 released: a mathematical library that includes more than you would ever
-possibly need. In most cases, this library just wraps Swift.  However, in other
-cases it calls the [Accelerate framework][accel] or [OpenCV][opencv]. If you
-want to add add another feature in those libraries, feel free to submit a pull
-request (preferred!) or contact me at [@stsievert][st] or
-[sieve121@umn.edu](mailto:sieve121@umn.edu).
+possibly need. 
 
-[st]:https://twitter.com/stsievert
+In most cases, this library calls [Accelerate][accel] or [OpenCV][opencv]. I
+optimized what I needed to be fast, meaning all operators and select
+mathematical functions are fast. If you want to speed up some function or add
+add another feature in those libraries, feel free to submit a pull request
+(preferred!) or contact me at [@stsievert][st] or
+[sieve121@umn.edu](mailto:sieve121@umn.edu).
 
 Currently, this library gives you
 
-* various functions (sin, etc) and operators (+, etc) that operate on entire arrays
+* operators (+, etc) and various functions (sin, etc) that operate on entire arrays
 * easy initializers for 1D and 2D arrays
 * dot product, matrix inversion, solution to linear system of equations
 * machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
-* FFT/IFFT
+* One dimensional Fourier transforms
 
-When I was crafting this library, I primarily depended on [NumPy][numpy].
+When I was crafting this library, I primarily followed the footsteps and
+example set by [NumPy][numpy]. For the more complex mathematical functions
+(e.g., SVD) I tested it against NumPy. Matlab, at least for the SVD, returns
+different output.
 
 ## Documentation 
 Details on how to install and individual functions can be found in [swix's
@@ -101,3 +105,4 @@ documentation][swix-doc]
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
 [pep]:http://legacy.python.org/dev/peps/pep-0465/#implementation-details
 [swix-doc]:http://swix.readthedocs.org/en/latest/
+[st]:https://twitter.com/stsievert

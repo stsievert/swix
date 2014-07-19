@@ -9,11 +9,6 @@
 import Foundation
 import Accelerate
 
-// SLOW PARTS: COMPARISON
-// almost all of these function can be sped up (drastically) with Accelerate
-
-
-
 func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
     assert(lhs.n == rhs.n, "Sizes must match!")
     var array = zeros(lhs.n) // lhs[i], rhs[i]

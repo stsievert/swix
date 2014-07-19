@@ -12,7 +12,7 @@ import Accelerate
 
 
 // SLOW PARTS: almost everything
-// almost everything here can be sped up with Acclerate (vDSP or vecLib)
+//  to speed up first: abs, sign, norm, rand, randn
 
 /// applies the function to every element of an array and takes only that argument. This is just a simple for-loop. If you want to use some custom fancy function, define it yourself.
 func apply_function(function: Double->Double, x: matrix) -> matrix{
