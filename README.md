@@ -3,46 +3,44 @@ Apple's Swift is a high level language that's *asking* for some numerical
 library to perform computation *fast* or at the very least *easily*. This is a
 bare-bones wrapper for that library.
 
-A way to have iOS run matlab-like code is something I've been waiting for, and
-am incredibly excited to see the results. This will make porting complex signal
-processing algorithms to C *much* easier. Porting from MATLAB to C was (and is)
-a pain in the butt, and this library aims to make the MATLAB to iOS conversion
-*simple.*
+A way to have iOS run high-level code similar to Python or Matlab is something
+I've been waiting for, and am incredibly excited to see the results. This will
+make porting complex signal processing algorithms to C *much* easier. Porting
+from Python/MATLAB to C was (and is) a pain in the butt, and this library aims
+to make the Python/MATLAB to iOS conversion *simple.*
 
-As an example, here's some relatively simple Objective-C sample code:
+As an example, here's some Objective-C sample code that utilizes the
+[Accelerate framework][accel]:
 
 ```objc
+void copy(double* x, double* y, int N){
+    cblas_dcopy(N, x, 1, y, 1);
+}
 void add_two_vectors(double * x, double * y, double * result, int N){
-    // functions can be sped up with blas/lapack, the reason it's a function
-    for (int i=0; i<N; i++){
-        result[i] = x[i] + y[i];
-    }
+    copy(y, result, N);
+    cblas_daxpy(N, 1.0, x, 1, result, 1);
 }
 void add_scalar(double x, double * y, double * result, int N){
-    for (int i=0; i<N; i++){
-        result[i] = x + y[i];
-    }
+    vDSP_vsaddD(y, 1, &x, result, 1, N)
 }
 void multiply_two_vectors(double * x, double * y, double * result, int N){
-    for (int i=0; i<N; i++){
-        result[i] = x[i] * y[i];
-    }
+    vDSP_vmulD(!x, 1, !y, 1, !result, 1, N);
 }
 void set_value(double value, double * x, int N){
-    for (int i=0; i<N; i++) x[i] = value;
+    catlas_dset(N, value, x, 1);
 }
 void main(){
     int N = 10;
     double * x = (double *)malloc(sizeof(double) * N);
     double * y = (double *)malloc(sizeof(double) * N);
-    double * intermediate = (double *)malloc(sizeof(double) * N);
+    double * temp = (double *)malloc(sizeof(double) * N);
     double * result = (double *)malloc(sizeof(double) * N);
 
     set_value(3.142, x, N);
     set_value(1.618, y, N);
-    add_two_vectors(x, y, intermediate, N);
-    add_scalar(4, x, x, N);
-    multiply_two_vectors(x, intermediate, result, N);
+    add_two_vectors(x, y, temp, N);
+    add_scalar(4, temp, temp, N);
+    multiply_two_vectors(x, temp, result, N);
 }
 ```
 
@@ -60,11 +58,11 @@ released: a mathematical library that includes more than you would ever
 possibly need. 
 
 In most cases, this library calls [Accelerate][accel] or [OpenCV][opencv]. I
-optimized what I needed to be fast, meaning all operators and select
-mathematical functions are fast while the functions I didn't need are slow. If
-you want to speed up some function or add add another feature in those
-libraries, feel free to submit a pull request (preferred!) or contact me at
-[@stsievert][st] or [sieve121@umn.edu](mailto:sieve121@umn.edu).
+optimized what I needed to, meaning all operators and select mathematical
+functions are fast while the functions I didn't need are slow. If you want to
+speed up some function or add add another feature in those libraries, feel free
+to submit a pull request (preferred!) or contact me at [@stsievert][st] or
+[sieve121@umn.edu](mailto:sieve121@umn.edu).
 
 Currently, this library gives you
 
@@ -73,11 +71,19 @@ Currently, this library gives you
 * dot product, matrix inversion, solution to linear system of equations
 * machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
 * One dimensional Fourier transforms
+* speed optimization for operators/select simple functions/all complex functions
 
 When I was crafting this library, I primarily followed the footsteps and
 example set by [NumPy][numpy]. For the more complex mathematical functions
 (e.g., SVD) I tested it against NumPy. Matlab, at least for the SVD, returns
-different output.
+slightly different output.
+
+Additionally, I followed NumPy's syntax whenever possible. For example, NumPy
+and Matlab differ in their initializer called `ones` by `ones((M,N))` and
+`ones(M, N)` respectively. If in doubt or getting weird compiler bugs, look at
+[NumPy for Matlab users][nfm].
+
+[nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
 
 ## Documentation 
 Details on how to install and individual functions can be found in [swix's
@@ -90,10 +96,9 @@ documentation][swix-doc]
 * [ScalarArithemetic][scalar]
 
 ## Features to be added
-* Further Accelerate integration. The basics are down and the actual work needs
-  to be done.
 * `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
   `var y:matrix = x[0..<5]`. I'll leave it be for now.
+* cocoapods
 
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic
