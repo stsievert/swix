@@ -9,6 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
 #import <stdint.h>
+double sum_objc(double* x, int N){
+    double sum = 0;
+    vDSP_sveD(x, 1, &sum, N);
+    return sum;
+}
+void find_objc(double* x, double* args, double* idx, int N){
+    // x: array of ones and zeros (but counts non-zeros)
+    // idx: array of indecies... 0..<N
+    // args: the array of arguments, to be overwritten
+    vDSP_vcmprsD(idx, 1, x, 1, args, 1, N);
+}
 void diag_objc(double* x, double* y, int M, int N){
     int min = N < M ? N : M; // min
     for (int i=0; i<min; i++){
