@@ -6,7 +6,7 @@ bare-bones wrapper for that library.
 A way to have iOS run matlab-like code is something I've been waiting for, and
 am incredibly excited to see the results. This will make porting complex signal
 processing algorithms to C *much* easier. Porting from MATLAB to C was (and is)
-a pain in the ass, and this library aims to make the MATLAB to iOS conversion
+a pain in the butt, and this library aims to make the MATLAB to iOS conversion
 *simple.*
 
 As an example, here's some relatively simple Objective-C sample code:
@@ -61,10 +61,10 @@ possibly need.
 
 In most cases, this library calls [Accelerate][accel] or [OpenCV][opencv]. I
 optimized what I needed to be fast, meaning all operators and select
-mathematical functions are fast. If you want to speed up some function or add
-add another feature in those libraries, feel free to submit a pull request
-(preferred!) or contact me at [@stsievert][st] or
-[sieve121@umn.edu](mailto:sieve121@umn.edu).
+mathematical functions are fast while the functions I didn't need are slow. If
+you want to speed up some function or add add another feature in those
+libraries, feel free to submit a pull request (preferred!) or contact me at
+[@stsievert][st] or [sieve121@umn.edu](mailto:sieve121@umn.edu).
 
 Currently, this library gives you
 
