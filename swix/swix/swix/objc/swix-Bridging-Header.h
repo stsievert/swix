@@ -22,5 +22,7 @@ void diag_objc(double* x, double* y, int M, int N);
 void diag_set_objc(double * x, double * y, int M, int N);
 void inv_objc(double * x, int M, int N);
 void compare_objc(double* x, double* y, double* z, int N, NSString* operation);
+void find_objc(double* x, double* args, double* idx, int N);
+double sum_objc(double* x,int N);
 
 

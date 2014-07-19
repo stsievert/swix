@@ -100,17 +100,11 @@ func zeros_like(x: matrix) -> matrix{
 }
 /// argwhere(x < 2) or argwhere(x < y) works as more or less as expected. returns an array of type double (bug, todo)
 func argwhere(idx: matrix) -> matrix{
-    var count = 0
-    for i in 0..<idx.n{
-        if idx[i]==1 {count += 1}
-    }
-    var args = zeros(count)
-    var j = 0;
-    for i in 0..<idx.n{
-        if idx[i] != 0{
-            args[j] = i.double; j+=1
-        }
-    }
+    // counts non-zero elements, return array of doubles (which can be indexed!).
+    var i = arange(idx.n)
+    var sum = sum_objc(!idx, idx.n.cint)
+    var args = zeros(Int(sum))
+    find_objc(!idx, !args, !i, idx.n.cint)
     return args
 }
 
