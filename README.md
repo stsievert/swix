@@ -1,4 +1,4 @@
-## Swift Matrix Library
+## Swift Matrix and Machine Learning Library
 Apple's Swift is a high level language that's *asking* for some numerical
 library to perform computation *fast* or at the very least *easily*. This is a
 bare-bones wrapper for that library.
