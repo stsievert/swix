@@ -48,19 +48,16 @@ func sign(x: matrix2d) -> matrix2d{
     z.flat = y
     return z
 }
-func randn(N: (Int, Int), mean: Double=0, sigma: Double=1) -> matrix2d{
+func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix2d{
     var x = zeros(N)
-    for i in 0..<x.n{
-        x.flat[i] = randn()
-    }
-    var y = (x * sigma) + mean;
-    return y
+    var y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
+    x.flat = y
+    return x
 }
 func rand(N: (Int, Int)) -> matrix2d{
     var x = zeros(N)
-    for i in 0..<x.n{
-        x.flat[i] = rand()
-    }
+    var y = rand(N.0 * N.1)
+    x.flat = y
     return x
 }
 func pow(x: matrix2d, power: Double) -> matrix2d{
@@ -84,13 +81,6 @@ func norm(x: matrix2d, type:String="l2") -> Double{
     return -1.0
 }
 
-//func pow(x: matrix, power: Double) -> matrix{
-//    var y = zeros(x.count)
-//    for i in 0..<x.count{
-//        y[i] = pow(x[i], power)
-//    }
-//    return y
-//}
 func sum(x: matrix2d, dim:Int=0) -> matrix{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     var dimen:Int
@@ -111,8 +101,10 @@ func sum(x: matrix2d, dim:Int=0) -> matrix{
         return y
     }
     assert(false, "Argument `dim` not recongnized")
-    return zeros(1)
+    return zeros(1) // to satisfy the compiler
 }
+// the functions below all need dim arguments; I have to think some more about how to optimize that
+
 //func avg(x: matrix) -> Double{
 //    var y: Double = sum(x)
 //    

@@ -14,6 +14,29 @@ class runSimpleTests {
         self.N = 10
         operatorTests()
         comparisonTests()
+        functionTests()
+    }
+    func functionTests(){
+        var x = array(-1, 0, 1)
+        
+        assert(abs(x) ~== array(1, 0, 1))
+        assert(sign(x+0.1) ~== array(-1, 1, 1))
+        assert(sum(x+1)     == 3)
+        assert(cumsum(x+1) ~== array(0, 1, 3))
+        assert(pow(x+1, 2) ~== array(0, 1, 4))
+        assert(((x+1)^2)   ~== array(0, 1, 4))
+        assert(min(x) == -1)
+        assert(max(x) == 1)
+        assert(variance(ones(4)) == 0)
+        assert(std(ones(4)) == 0)
+        assert(avg(x) == 0)
+        assert(abs(avg(rand(1000)) - 0.5) < 0.1)
+        assert(abs(avg(randn(1000))) < 0.1)
+        assert(abs(std(randn(1000)) - 1) < 0.2)
+        var y = randn((100,100))
+        assert(abs(avg(y.flat)) < 0.1)
+        y = rand((100, 100))
+        assert(abs(avg(y.flat) - 0.5) < 0.1)
     }
     func operatorTests(){
         // l and o similar to 1 and 0
@@ -40,6 +63,8 @@ class runSimpleTests {
         assert((o/l) ~== o)
         assert((1 / l) ~== l)
         
+        // POW
+        assert((array(1, 2, 3)^2) ~== array(1, 4, 9))
     }
     func comparisonTests(){
         //     true:  <, >, <=, >=, ==, !==
@@ -67,8 +92,6 @@ class runSimpleTests {
         assert((x >= 4) ~== array(0, 0, 0, 1, 1, 1))
     }
 }
-
-
 
 
 

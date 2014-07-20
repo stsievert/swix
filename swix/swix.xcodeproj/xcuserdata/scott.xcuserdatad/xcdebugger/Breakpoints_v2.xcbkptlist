@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "swix/simpleTests.swift"
-            timestampString = "427476346.017462"
+            timestampString = "427514325.522364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "comparisonTests()"
             landmarkType = "5">
             <Locations>
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "swix/simpleTests.swift"
-            timestampString = "427476346.017462"
+            timestampString = "427514325.522364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "comparisonTests()"
             landmarkType = "5">
             <Locations>

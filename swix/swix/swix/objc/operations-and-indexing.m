@@ -75,9 +75,27 @@ void mul_scalar_objc(double* x, double A, double* y, int N){
     double C = 0;
     vDSP_vsmsaD(x, 1, &A, &C, y, 1, N);
 }
-
-
-
+void sign_objc(double* x, double* y, int N){
+    // writes sign(x) into y
+    double o = 0;
+    double l = 1;
+    vDSP_vlimD(x, 1, &o, &l, y, 1, N);
+}
+void cumsum_objc(double* x, double* y, int N){
+    double scalar = 1;
+    vDSP_vrsumD(x, 1, &scalar, y, 1, N);
+}
+void rand_objc(double* x, int N, int seedS, int type){
+    __CLPK_integer i = type;
+    __CLPK_integer * seed = (__CLPK_integer *)malloc(sizeof(__CLPK_integer) * 4);
+    for (int j=0; j<4; j++){
+        seed[j] = j;}
+    seed[0] = seedS;
+    __CLPK_integer nn = N;
+    
+    // making the random array
+    dlarnv_(&i, seed, &nn, x);
+}
 
 
 

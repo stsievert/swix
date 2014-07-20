@@ -24,5 +24,8 @@ void inv_objc(double * x, int M, int N);
 void compare_objc(double* x, double* y, double* z, int N, NSString* operation);
 void find_objc(double* x, double* args, double* idx, int N);
 double sum_objc(double* x,int N);
+void sign_objc(double* x, double* y, int N);
+void cumsum_objc(double* x, double* y, int N);
+void rand_objc(double* x, int N, int seedS, int type);
 
 

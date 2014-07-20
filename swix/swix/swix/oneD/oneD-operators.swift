@@ -113,6 +113,10 @@ func ~== (lhs: matrix, rhs: matrix) -> matrix{
 operator infix % {associativity none precedence 140}
 func % (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, "%", rhs)}
+// POW
+operator infix ^ {associativity none precedence 140}
+func ^ (lhs: matrix, rhs: Double) -> matrix{
+    return pow(lhs, rhs)}
 // PLUS
 operator infix + {associativity none precedence 140}
 func + (lhs: matrix, rhs: matrix) -> matrix{

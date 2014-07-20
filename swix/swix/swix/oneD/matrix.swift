@@ -101,6 +101,10 @@ func zeros_like(x: matrix) -> matrix{
 /// argwhere(x < 2) or argwhere(x < y) works as more or less as expected. returns an array of type double (bug, todo)
 func argwhere(idx: matrix) -> matrix{
     // counts non-zero elements, return array of doubles (which can be indexed!).
+
+    // to vectorize:
+    //      * see non-zero elements
+    //      *
     var i = arange(idx.n)
     var sum = sum_objc(!idx, idx.n.cint)
     var args = zeros(Int(sum))

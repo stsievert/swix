@@ -22,6 +22,63 @@ func apply_function(function: Double->Double, x: matrix) -> matrix{
     }
     return y
 }
+func apply_function(function: String, x: matrix)->matrix{
+    var y = zeros_like(x)
+    var n = vDSP_Length(x.n)
+    if function=="abs"{
+        vDSP_vabsD(!x, 1, !y, 1, n);}
+    else if function=="sign"{
+        sign_objc(!x, !y, x.n.cint)}
+    else if function=="cumsum"{
+        cumsum_objc(!x, !y, x.n.cint)}
+    else {assert(false, "Function not recongized")}
+    return y
+}
+// OPTIMIZED FUNCTIONS
+func sum(x: matrix) -> Double{
+    return sum_objc(!x, x.n.cint)}
+func avg(x: matrix) -> Double{
+    return sum(x) / x.n}
+func std(x: matrix) -> Double{
+    return sqrt(variance(x))}
+func variance(x: matrix) -> Double{
+    return sum(pow(x - avg(x), 2) / x.count.double)}
+func cumsum(x: matrix) -> matrix{
+    return apply_function("cumsum", x)}
+func rand(N: Int, seed:Int=42) -> matrix{
+    var x = zeros(N)
+    rand_objc(!x, N.cint, seed.cint, 1)
+    return x
+}
+func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
+    var x = zeros(N)
+    rand_objc(!x, N.cint, seed.cint, 3)
+    var y = (x * sigma) + mean;
+    return y
+}
+func min(x: matrix, absValue:Bool=false) -> Double{
+    return min_objc(!x, x.n.cint)}
+func max(x: matrix, absValue:Bool=false) -> Double{
+    return max_objc(!x, x.n.cint)}
+func sign(x: matrix)->matrix{
+    return apply_function("sign", x)}
+
+// optimized for power==2
+func pow(x: matrix, power: Double) -> matrix{
+    var y = zeros(x.count)
+    if power==2{
+        vDSP_vsqD(!x, 1, !y, 1, vDSP_Length(x.n.cint))
+    } else{
+        if close(2, power) {
+            println("Careful! Large speed optimization missed because power not exactly 2!")
+        }
+        for i in 0..<x.count{
+            y[i] = pow(x[i], power)}
+    }
+    return y
+}
+
+// UNOPTIMIZED FUNCTIONS
 func sin(x: matrix) -> matrix{
     return apply_function(sin, x)
 }
@@ -37,7 +94,7 @@ func log(x: matrix) -> matrix{
     return y
 }
 func abs(x: matrix) -> matrix{
-    return apply_function(abs, x)
+    return apply_function("abs", x)
 }
 func sqrt(x: matrix) -> matrix{
     var y = apply_function(sqrt, x)
@@ -55,46 +112,7 @@ func ceil(x: matrix) -> matrix{
     return y
 }
 func sign(x: Double) -> Double{
-    if x < 0{
-        return -1
-    } else{
-        return 1
-    }
-}
-func sign(x: matrix)->matrix{
-    return apply_function(sign, x)
-}
-func pow(x: matrix, power: Double) -> matrix{
-    var y = zeros(x.count)
-    for i in 0..<x.count{
-        y[i] = pow(x[i], power)
-    }
-    return y
-}
-func sum(x: matrix) -> Double{
-    var y = zeros(x.count)
-    var s: Double = 0
-    for i in 0..<x.count{
-        s = x[i] + s
-    }
-    return s
-}
-func avg(x: matrix) -> Double{
-    var y: Double = sum(x)
-    
-    return y / x.count.double
-}
-func std(x: matrix) -> Double{
-    var y: Double = avg(x)
-    var z = x - y
-    return sqrt(sum(pow(z, 2) / x.count.double))
-}
-/// variance used since var is a keyword
-func variance(x: matrix) -> Double{
-    var y: Double = avg(x)
-    var z = x - y
-    return sum(pow(z, 2) / x.count.double)
-}
+    return x < 0 ? -1 : 1}
 func norm(x: matrix, type:String="l2") -> Double{
     if type=="l2"{ return sqrt(sum(pow(x, 2)))}
     if type=="l1"{ return sum(abs(x))}
@@ -102,61 +120,13 @@ func norm(x: matrix, type:String="l2") -> Double{
         var count = 0.0
         for i in 0..<x.n{
             if x[i] != 0{
-                count += 1
-            }
-        }
-        return count
-    }
-    
+                count += 1}}
+        return count}
     assert(false, "type of norm unrecongnized")
     return -1.0
 }
-func cumsum(x: matrix) -> matrix{
-    let N = x.count
-    var y = zeros(N)
-    for i in 0..<N{
-        if i==0      { y[i] = x[0]          }
-        else if i==1 { y[i] = x[0] + x[1]   }
-        else         { y[i] = x[i] + y[i-1] }
-    }
-    return y
-}
-func rand() -> Double{
-    return Double(arc4random()) / pow(2, 32)
-}
-func rand(N: Int) -> matrix{
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = rand()
-    }
-    return x
-}
-func randn() -> Double{
-    var u:Double = rand()
-    var v:Double = rand()
-    var x = sqrt(-2*log(u))*cos(2*pi*v);
-    return x
-}
-func randn(N: Int, mean: Double=0, sigma: Double=1) -> matrix{
-    var x = zeros(N)
-    for i in 0..<N{
-        x[i] = randn()
-    }
-    var y = (x * sigma) + mean;
-    return y
-}
-func min(x: matrix, absValue:Bool=false) -> Double{
-    // absValue not implemeted yet
-    var min = inf
-    var xP = matrixToPointer(x)
-    var minC = min_objc(xP, x.n.cint)
-    return minC
-}
-func max(x: matrix, absValue:Bool=false) -> Double{
-    // absValue not implemeted yet
-    var xP = matrixToPointer(x)
-    var maxC = max_objc(xP, x.n.cint);
-    return maxC
+func close(x: Double, y: Double)->Bool{
+    return abs(x-y)<1e-9 ? true : false
 }
 
 
