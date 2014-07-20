@@ -73,6 +73,15 @@ func !/ (lhs: matrix2d, rhs: matrix) -> matrix{
 func ~== (lhs: matrix2d, rhs: matrix2d) -> Bool{
     return (rhs.flat ~== lhs.flat)}
 
+operator infix == {associativity none precedence 140}
+func == (lhs: matrix2d, rhs: matrix2d)->matrix2d{
+    return (lhs.flat == rhs.flat).reshape(lhs.shape)
+}
+operator infix !== {associativity none precedence 140}
+func !== (lhs: matrix2d, rhs: matrix2d)->matrix2d{
+    return (lhs.flat !== rhs.flat).reshape(lhs.shape)
+}
+
 /// ELEMENT WISE OPERATORS
 // PLUS
 operator infix + {associativity none precedence 140}

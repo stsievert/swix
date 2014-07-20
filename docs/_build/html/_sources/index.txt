@@ -35,6 +35,7 @@ Table of Contents
    matrix
    machine_learning
    bugs
+   full_docs
 
 
 .. _OpenCV: http://opencv.org

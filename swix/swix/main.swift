@@ -151,9 +151,10 @@ svm_test()
 inv_test()
 solve_test()
 
-
-
-
+var x = arange(6).reshape((2,3))
+var y = x.copy()
+y[0, 0] += 1e-10
+println(y !== x)
 
 
 

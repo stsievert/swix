@@ -24,6 +24,11 @@ struct matrix2d {
         self.flat = zeros(rows * columns)
         
     }
+    func copy()->matrix2d{
+        var y = zeros_like(self)
+        cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
+        return y
+    }
     subscript(i: String) -> matrix {
         get {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")

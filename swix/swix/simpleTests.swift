@@ -76,6 +76,8 @@ class runSimpleTests {
         assert((x > y) ~== array(0, 1, 0, 0, 0, 1))
         assert((x <= y) ~== array(1, 0, 1, 1, 1, 0))
         assert((x >= y) ~== array(0, 1, 1, 1, 1, 1))
+        assert((x == y) ~== array(0, 0, 1, 1, 1, 0))
+        assert((x !== y) ~== array(1, 1, 0, 0, 0, 1))
 //        assert((x == y) ~== array(0, 0, 1, 1, 1, 0))
 //        assert((x != y) ~== array(1, 1, 0, 0, 0, 1))
         

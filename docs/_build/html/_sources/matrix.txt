@@ -16,21 +16,21 @@ Int] = Double``, ``x[Int, Range] = matrix``, ``x[Range, Int] = matrix``,
 accessing the flat elements.
 
 
-``matrix1d``
+matrix1d
 ---------------
 
 * ``n`` : number of elements in the array.
 * ``count`` : number of elements
 * ``grid`` : the raw `[Double]`. Hopefully you never have to touch this.
 
-``matrix2d``
+matrix2d
 ----------------
 * ``rows, columns`` : the number of rows and columns
 * ``shape == (self.rows, self.columns)``
 * ``n == rows * columns``
 * ``flat`` : of type matrix, contains the elements in  `row major order`_. It's
   helpful to use ``x.flat`` for any function that can be used on a 2D matrix
-  (e.g., `Frobenius norm`_)
+  (e.g., sum over all the elements)
 
 
 Simple mathematical functions
@@ -74,6 +74,8 @@ Operators
 * ``matrix % double`` : Element-wise modulo.
 * ``~==`` : Sees if two arrays are approximately equal (threshold: 1e-9). I
   should create a function ``approx_equal(x, y)``.
+* ``matrix ^ power`` takes the power of each element. (``**`` and ``.^`` didn't
+  compile)
 * ``*!`` : The dot product operator. Extra important multiplication since `the @
   symbol`_ to be used in Python 3.5 can't be used.
 * ``!/`` : Similar to Matlab's ``\`` operator (but ``\`` couldn't be used so
