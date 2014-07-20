@@ -95,11 +95,17 @@ documentation][swix-doc]
 * [swix-complex][complex]
 * [ScalarArithemetic][scalar]
 
+...and I used some of [SwiftAccelerate][ais] to avoid some BLAS/LAPACK agony.
+
+[ais]:https://github.com/haginile/SwiftAccelerate
+
 ## Features to be added
 * `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
   `var y:matrix = x[0..<5]`. I'll leave it be for now.
+* speeding up `x[0..<2, 0..<2] = ones((2,2))`; I asked an [SO question][so]
 * cocoapods
 
+[so]:http://stackoverflow.com/q/24727674/1141256
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic
 [complex]:https://github.com/dankogai/swift-complex

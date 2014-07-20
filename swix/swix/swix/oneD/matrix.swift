@@ -31,6 +31,11 @@ struct matrix {
         self.count = n
         grid = Array(count: n, repeatedValue: 0.0)
     }
+    func reshape(shape: (Int,Int)) -> matrix2d{
+        var y:matrix2d = zeros(shape)
+        y.flat = self
+        return y
+    }
     func indexIsValidForRow(index: Int) -> Bool {
         return index >= 0 && index < n
     }
@@ -112,14 +117,10 @@ func argwhere(idx: matrix) -> matrix{
     return args
 }
 
-// RANGE. | for exclusive range, ! for inclusive range. | chosen for similiarity with Python, ! chosen because ! has a dot, closer to ...
+// RANGE. | for exclusive range. | chosen for similiarity with Python
 operator infix | {associativity none precedence 140}
 func | (lhs: Int, rhs: Int) -> Range<Int>{
     return lhs..<rhs
-}
-operator infix ! {associativity none precedence 140}
-func ! (lhs: Int, rhs: Int) -> Range<Int>{
-    return lhs...rhs
 }
 
 
