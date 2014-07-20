@@ -1,11 +1,15 @@
 
 Bugs
 ========
-* operator associativity and precedence doesn't always work (for example, ``x *! inv(x) ~== eye(N)``); it this issue pops up, fix it with some parens: ``(x *! y) ~== eye(N)``.
-* This library depends on OpenCV's memory being continuous. It does not check
-  (it will soon) and will give nonsense output. Indexing (``x[0..<2, 0..<2]``)
-  depends on this as does various machine learning functions (SVM, kNN) and
-  ``solve``.
+* operator associativity and precedence doesn't always work (for example, 
+  ``x *! inv(x) ~== eye(N)``); it this issue pops up, fix it with some parens: ``(x *! y) ~== eye(N)``.
+* This library depends on OpenCV's memory being continuous. It does check
+   and will give nonsense output. Indexing (``x[0..<2, 0..<2]``), machine
+   learning functions (SVM, kNN), ``solve`` and comparison (``< > >= <=``) all depend on
+   this.
+* The ``~==`` operator only verifies if entire arrays are equal; use
+  ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
+
 
 Matlab and swix differences
 ---------------------------

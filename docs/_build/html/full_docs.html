@@ -1,0 +1,636 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Full docs &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Bugs" href="bugs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="bugs.html" title="Bugs"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="full-docs">
+<h1>Full docs<a class="headerlink" href="#full-docs" title="Permalink to this headline">¶</a></h1>
+<p>I&#8217;m going to refactor the code and change <tt class="docutils literal"><span class="pre">matrix</span></tt> to <tt class="docutils literal"><span class="pre">ndarray</span></tt> and
+<tt class="docutils literal"><span class="pre">matrix2d</span></tt> to <tt class="docutils literal"><span class="pre">matrix</span></tt>. The docs reflect this change; in the meantime, just
+substitute.</p>
+<div class="section" id="numbers">
+<h2>numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constants-defined">
+<h3>Constants defined<a class="headerlink" href="#constants-defined" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>pi, <span class="math">\(\pi\)</span>. The circle constant (which really should be <span class="math">\(\tau\)</span>)</li>
+<li>phi, <span class="math">\(\phi\)</span>. The golden ratio ~ 1.6180</li>
+<li>euler. Euler&#8217;s constant</li>
+<li>inf  = 1.0 / 0.0</li>
+<li>DOUBLE_EPSILON: the smallest possible difference between two doubles</li>
+<li>FLOAT_EPSILON: the smallest possible difference between two floats</li>
+</ul>
+</div>
+<div class="section" id="number-elements">
+<h3>Number elements<a class="headerlink" href="#number-elements" title="Permalink to this headline">¶</a></h3>
+<p>Int, Float and Double are extended to have elements <tt class="docutils literal"><span class="pre">.int</span></tt>, <tt class="docutils literal"><span class="pre">.float</span></tt> and
+<tt class="docutils literal"><span class="pre">.double</span></tt>. I found this to be easier when trying to get the compiler to agree
+with me.</p>
+<p>Additionally, there&#8217;s an element called <tt class="docutils literal"><span class="pre">c&lt;type&gt;</span></tt> in Int, Float and Double.
+Use this when interfacing with C; I use <tt class="docutils literal"><span class="pre">x.n.cint</span></tt> all the time.</p>
+</div>
+<div class="section" id="number-functions">
+<h3>Number functions<a class="headerlink" href="#number-functions" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="close">
+<tt class="descname">close</tt><big>(</big><em>x: Double</em>, <em>y: Double</em><big>)</big> &rarr; Bool<a class="headerlink" href="#close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sees if two numbers are close or <span class="math">\(\left| x - y\right| &lt; 10^{-9}\)</span></p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="ndarray">
+<h2>ndarray<a class="headerlink" href="#ndarray" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="class-elements">
+<h3>Class elements<a class="headerlink" href="#class-elements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">n,</span> <span class="pre">Int</span></tt>. The number of elements.</li>
+<li><tt class="docutils literal"><span class="pre">count,</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">n</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">grid,</span> <span class="pre">[Double]</span></tt>. The raw array of elements.</li>
+</ul>
+</div>
+<div class="section" id="indexing">
+<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<tt class="descname">ndarray[Range] -&gt; ndarray</tt></dt>
+<dd><p>Index the array.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4)
+// true: x[0..&lt;2] ~== array(1, 2)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">ndarray[ndarray] -&gt; ndarray</tt></dt>
+<dd><p>Index the array with truncated doubles.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4)
+// true: x[array(3, 3.14, 0)] ~== array(4, 4, 1)
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">ndarray[Int] -&gt; Double</tt></dt>
+<dd><p>Index the array normally.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4)
+// true: x[0] == 1
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ndarray.reshape">
+<tt class="descclassname">ndarray.</tt><tt class="descname">reshape</tt><big>(</big><em>shape</em><big>)</big> &rarr; matrix<a class="headerlink" href="#ndarray.reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>shape</em> : The size of the 2D matrix.</p>
+<p>Also callable with <tt class="docutils literal"><span class="pre">reshape(x,</span> <span class="pre">(2,</span> <span class="pre">3))</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre>var x = arange(6).reshape((2,3))
+// true, matlab syntax: x == [0 1 2; 3 4 5]
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="asmatrix">
+<tt class="descname">asmatrix</tt><big>(</big><span class="optional">[</span><em>Double</em><span class="optional">]</span><big>)</big> &rarr; ndarray<a class="headerlink" href="#asmatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts between an array of doubles and an ndarray.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = [0.0, pi, phi]
+var y = asmatrix(x)
+
+// true: y ~== array(0, pi, phi)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="println">
+<tt class="descname">println</tt><big>(</big><em>x: matrix</em>, <em>prefix:String=&quot;matrix([&quot;</em>, <em>postfix:String=&quot;])&quot;</em>, <em>format:String=&quot;%.3f&quot;</em>, <em>newline:String=&quot;n&quot;</em>, <em>printWholeMatrix:Bool=false</em><big>)</big><a class="headerlink" href="#println" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the contents of an ndarray. <tt class="docutils literal"><span class="pre">print</span></tt> calls the same function with
+<tt class="docutils literal"><span class="pre">newline=&quot;&quot;</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zeros_like">
+<tt class="descname">zeros_like</tt><big>(</big><em>x:ndarray</em><big>)</big><a class="headerlink" href="#zeros_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a bunch of zeros like the input array. Only uses shape right now.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="initing">
+<h3>Initing<a class="headerlink" href="#initing" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="zeros">
+<tt class="descname">zeros</tt><big>(</big><em>Int</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#zeros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array with N elements and filled with zeros</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ones">
+<tt class="descname">ones</tt><big>(</big><em>Int</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#ones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array with N elements and filled with ones</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="arange">
+<tt class="descname">arange</tt><big>(</big><em>min:Int=0</em>, <em>max:Int</em>, <em>x exclusive: Bool=true</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#arange" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>x</cite> : Should it return an exclusive array?</p>
+<p>Callable with <tt class="docutils literal"><span class="pre">arange(N)</span></tt> or <tt class="docutils literal"><span class="pre">arange(3,</span> <span class="pre">N)</span></tt> &#8211; two separate functions.
+Returns <tt class="docutils literal"><span class="pre">[min,</span> <span class="pre">min+1,</span> <span class="pre">...,</span> <span class="pre">max-2,</span> <span class="pre">max-1]</span></tt> or <tt class="docutils literal"><span class="pre">[min,</span> <span class="pre">...,</span> <span class="pre">max-1,</span> <span class="pre">max]</span></tt>
+if x true.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = arange(3) // ~== array(0, 1, 2)
+var y = arrange(3, x:true) // ~== array(0, 1, 2, 3)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linspace">
+<tt class="descname">linspace</tt><big>(</big><em>min:Double</em>, <em>max:Double</em>, <em>num:Int=50</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#linspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an array where each element is seperated by <span class="math">\((\max-\min)/n\)</span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="array">
+<tt class="descname">array</tt><big>(</big><em>numbers: Double...</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not optimized with Accelerate; doesn&#8217;t really have to be (only used for
+test cases).</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4, 5, 6) // ~== arange(6)+1
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="repeat">
+<tt class="descname">repeat</tt><big>(</big><em>x: ndarray</em>, <em>N:Int</em>, <em>how:String=&quot;ndarray&quot;</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repeat the array <span class="math">\(N\)</span> times. Repeats either the whole array of
+individual elements.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = array(0, 1, 2)
+var y = repeat(x, 2) // ~== array(0, 1, 2, 0, 1, 2)
+var z = repeat(x, 2, how:&quot;elements&quot;) // ~== array(0, 0, 1, 1, 2, 2)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="copy">
+<tt class="descname">copy</tt><big>(</big><em>x: ndarray</em>, <em>y:ndarray</em><big>)</big><a class="headerlink" href="#copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy x into y. Also callable with <tt class="docutils literal"><span class="pre">var</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.copy()</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="argwhere">
+<tt class="descname">argwhere</tt><big>(</big><em>idx: ndarray</em><big>)</big> &rarr; ndarray{<a class="headerlink" href="#argwhere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the non-zero elements of an ndarray.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4, 5, 6).reshape((2,3))
+var y = argwhere(x &lt; 3)
+assert(y ~== array(0, 1))
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="simple-math">
+<h3>Simple math<a class="headerlink" href="#simple-math" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="apply_function">
+<tt class="descname">apply_function</tt><big>(</big><em>function: Double-&gt;Double</em>, <em>x: ndarray</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#apply_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the function to every element of the array.</p>
+<p>This is called with sin, cos, tan, sqrt, floor, ceil, round. These are
+unoptimized and should be optimized.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">apply_function</tt><big>(</big><em>function: String</em>, <em>x: ndarray</em><big>)</big> &rarr; ndarray</dt>
+<dd><blockquote>
+<div><p>Applies the optimized function to every element of the array. As of
+2014-7-20, <tt class="docutils literal"><span class="pre">function</span></tt> is assumed to be one of</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">&quot;abs&quot;</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">&quot;sign&quot;</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cumsum</span></tt></li>
+</ul>
+</div></blockquote>
+<p>(to see what&#8217;s optimized, look in <tt class="docutils literal"><span class="pre">swix/matrix/oneD-simple-math.swift</span></tt>)</p>
+<blockquote>
+<div><p>Alerts you using <tt class="docutils literal"><span class="pre">assert</span></tt> if function name is not known.</p>
+<p>Further optimized functions include</p>
+<ul class="simple">
+<li>std, variance, avg</li>
+<li>rand, randn</li>
+<li>min, max, sign</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="rand">
+<tt class="descname">rand</tt><big>(</big><em>Int</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#rand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns random numbers between 0 and 1</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="randn">
+<tt class="descname">randn</tt><big>(</big><em>N: Int</em>, <em>mean: Double=0</em>, <em>sigma: Double=1</em>, <em>seed:Int=42</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#randn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a normally distribution with the mean and variance.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pow">
+<tt class="descname">pow</tt><big>(</big><em>x: matrix</em>, <em>power: Double</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimized for power==2. If power is close to 2, it will print a message
+asking if you really meant two.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="norm">
+<tt class="descname">norm</tt><big>(</big><em>x: ndarray</em>, <em>type:String=&quot;l2&quot;</em><big>)</big> &rarr; Double<a class="headerlink" href="#norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the norm of the array. The type can either be l0, l1 or l2 (and it
+will assert(false) if it&#8217;s not).</p>
+<p>The l0 norm counts non-zero elements.</p>
+<p>The l1 norm performs <span class="math">\(l_1 = \sum \left| x_i \right|\)</span></p>
+<p>The l2 norm perform <span class="math">\(l_2 = \sqrt{\sum x_i^2}\)</span></p>
+<p>The l1 and l2 norms are optimized through sum and pow. The l0 norm isn&#8217;t
+but will be through vDSP_vcmprs</p>
+</dd></dl>
+
+</div>
+<div class="section" id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> all work element-wise and are
+all optimized. They all work similar to Python or C. Note <tt class="docutils literal"><span class="pre">!==</span></tt> sees where
+two arrays are not equal.</p>
+<p><tt class="docutils literal"><span class="pre">ndarray</span> <span class="pre">^</span> <span class="pre">Double</span></tt> calls <tt class="docutils literal"><span class="pre">pow(ndarray,</span> <span class="pre">Double)</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!==</span></tt> see if every element is <cite>exactly</cite> the same (but they&#8217;re
+implemented in OpenCV, which is why they&#8217;re included). I recommend using
+<tt class="docutils literal"><span class="pre">abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9</span></tt> instead.</p>
+<p>The comparison operators are all implemented through OpenCV and rely on the
+array being continuous in memory, which relies on having small input arrays. It
+will print (but not assert) if this is not the case.</p>
+<dl class="function">
+<dt>
+<tt class="descname">array equality, ~==</tt></dt>
+<dd><p>Sees if every element in an array is close because it&#8217;s incredibly hard to
+be precise with floats. Specifically, it sees if the difference between
+every element in two arrays is less that <span class="math">\(10^{-9}\)</span>, just like
+<tt class="docutils literal"><span class="pre">close</span></tt>. However, this function is optimized through max, abs, and <tt class="docutils literal"><span class="pre">-</span></tt>.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="matrix">
+<h2>matrix<a class="headerlink" href="#matrix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Class Elements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">rows,</span> <span class="pre">Int</span></tt> the number of rows</li>
+<li><tt class="docutils literal"><span class="pre">cols,</span> <span class="pre">Int</span></tt> the number of columns</li>
+<li><tt class="docutils literal"><span class="pre">n,</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">row*colums</span></tt> the number of elements</li>
+<li><tt class="docutils literal"><span class="pre">count,</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">n</span></tt> the number of elements</li>
+<li><tt class="docutils literal"><span class="pre">shape,</span> <span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">=</span> <span class="pre">(rows,</span> <span class="pre">columns)</span></tt> The shape of the matrix. This
+notation is the same as mathematical journal articles (and matlab).</li>
+<li><tt class="docutils literal"><span class="pre">flat</span></tt>. The <a class="reference external" href="https://en.wikipedia.org/wiki/Row_major">row-major</a> flat array. Any operation valid for a ndarray is
+valid for this element.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Indexing<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<tt class="descname">matrix[Int, Int]-&gt;Double</tt></dt>
+<dd><p>Indexed like Python (and matlab). The first index corresponds to which row
+and the second corresponds to which column.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = array(&quot;1 2 3; 4 5 6; 7 8 9&quot;)
+assert(x[0, 1] == 2)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">matrix[Range, Range]-&gt;matrix</tt></dt>
+<dd><p>Like NumPy and our ndarray but for two dimensions.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = arange(9).reshape((3,3))
+assert(x[0..&lt;2, 0..&lt;2] ~== array(0, 1, 3, 4).reshape((2,2)))
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">matrix[ndarray, ndarray]-&gt;matrix</tt></dt>
+<dd><p>Performs the same operation as matrix[Range, Range]</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">matrix[ndarray]-&gt;ndarray</tt></dt>
+<dd><p>Access the matrix as a flat array. Note that it&#8217;s row-major, not
+column-major meaning the indexing is like C or Python and not like Matlabs.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">matrix[Range, Int]-&gt;ndarray</tt></dt>
+<dd><p>Selects one specific column and different rows.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">matrix[Int, Range]-&gt;ndarray</tt></dt>
+<dd><p>Selects one specific row and different columns.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">println</tt><big>(</big><em>x: matrix2d</em>, <em>prefix:String=&quot;matrix([&quot;</em>, <em>postfix:String=&quot;])&quot;</em>, <em>newline:String=&quot;n&quot;</em>, <em>format:String=&quot;%.3f&quot;</em>, <em>printWholeMatrix:Bool=false</em><big>)</big></dt>
+<dd><p>Prints the contents of the matrix. Again, there&#8217;s a function called
+<tt class="docutils literal"><span class="pre">print</span></tt> that calls <tt class="docutils literal"><span class="pre">println</span></tt> with newline:&#8221;&#8220;</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">zeros_like</tt><big>(</big><em>matrix</em><big>)</big> &rarr; matrix</dt>
+<dd><p>Like zeros_like for ndarrays. Only depends on shape.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">argwhere</tt><big>(</big><em>idx: matrix</em><big>)</big> &rarr; ndarray{</dt>
+<dd><p>Finds the non-zero elements of an matrix. Again, row-major order applies.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4, 5, 6).reshape((2,3))
+var y = argwhere(x &lt; 3)
+assert(y ~== array(0, 1))
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">copy</tt><big>(</big><em>x: matrix</em>, <em>y: matrix</em><big>)</big></dt>
+<dd><p>Copies x into y. Also callable with <tt class="docutils literal"><span class="pre">var</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.copy()</span></tt></p>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>Simple math<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<tt class="descname">apply_function</tt><big>(</big><em>function: ndarray-&gt;ndarray</em>, <em>x: matrix</em><big>)</big> &rarr; matrix</dt>
+<dd><p>Applies the given function to every element of the array. Called by <tt class="docutils literal"><span class="pre">sin,</span> <span class="pre">cos,</span> <span class="pre">tan,</span> <span class="pre">log,</span> <span class="pre">abs,</span> <span class="pre">sqrt,</span> <span class="pre">floor,</span> <span class="pre">ceil,</span> <span class="pre">round,</span> <span class="pre">sign,</span> <span class="pre">randn,</span> <span class="pre">rand,</span> <span class="pre">pow,</span> <span class="pre">min,</span> <span class="pre">max,</span> <span class="pre">norm</span></tt> (those function take a matrix and return a matrix).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sum">
+<tt class="descname">sum</tt><big>(</big><em>matrix</em>, <em>dim:Int=0</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the sum along the given dimension (through <tt class="docutils literal"><span class="pre">dim</span></tt>). That is, if
+dim==0, all the element in each row will be added up.</p>
+<p>These functions that operate on a whole dimension I need to think about
+more. They&#8217;re slow right now (native Swift for-loops). I&#8217;ll probably call C
+to speed them up &#8211; I don&#8217;t think BLAS/LAPACK does this. Or maybe there&#8217;s
+another matrix library out there that does this?</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>Operators<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> call the ndarray
+versions of those operators; they work element-wise.</p>
+<dl class="function">
+<dt>
+<tt class="descname">Dot product, *!</tt></dt>
+<dd><p>Perform the dot product between the lhs and rhs.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">Solve, !/</tt></dt>
+<dd><p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">!/</span> <span class="pre">b</span></tt> finds the solution to <span class="math">\(Ax = b\)</span> by calling OpenCV&#8217;s solve.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="complex-math">
+<h3>Complex Math<a class="headerlink" href="#complex-math" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="svd">
+<tt class="descname">svd</tt><big>(</big><em>x: matrix) → (matrix</em>, <em>ndarray</em>, <em>matrix</em><big>)</big><a class="headerlink" href="#svd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the SVD on the matrix. Tested against Python for fat, skinny and
+square matrices.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="inv">
+<tt class="descname">inv</tt><big>(</big><em>x: matrix</em><big>)</big> &rarr; matrix<a class="headerlink" href="#inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the inverse of the matrix, <span class="math">\(X^{-1}\)</span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="solve">
+<tt class="descname">solve</tt><big>(</big><em>A:matrix</em>, <em>b:ndarray</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve <span class="math">\(Ax = b\)</span> and returns x. Calls OpenCV&#8217;s solve.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="machine-learning">
+<h2>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="svm">
+<h3>SVM<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machine">support vector machine</a>. Implemented through OpenCV.</p>
+<div class="highlight-python"><div class="highlight"><pre>var svm = SVM()
+var x = reshape(arange(4*2) , (4, 2))
+var y = array(0, 1, 2, 3)
+
+svm.train(x, targets:y)
+var z = svm.predict(array(2, 3))
+assert(z == y[1])
+</pre></div>
+</div>
+</div>
+<div class="section" id="knn">
+<h3>kNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k nearest neighbors</a> algorithm.</p>
+<p>Didn&#8217;t work with my simple test but I believe it&#8217;s correct.</p>
+<div class="highlight-python"><div class="highlight"><pre>var knn = kNearestNeighbors()
+var responses = ones((4,6))
+var targets = arange(4)
+
+knn.train(responses, targets:targets)
+var result = knn.predict(y, k:3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interfacing-with-c">
+<h2>Interfacing with C<a class="headerlink" href="#interfacing-with-c" title="Permalink to this headline">¶</a></h2>
+<p>Use <tt class="docutils literal"><span class="pre">Int(3).cint</span></tt> to pass 3 to a C function; likewise for Float and Double.</p>
+<dl class="function">
+<dt id="matrixToPointer">
+<tt class="descname">matrixToPointer</tt><big>(</big><em>x: ndarray</em><big>)</big> &rarr; UnsafePointer&lt;Double&gt;<a class="headerlink" href="#matrixToPointer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the pointer of a ndarray</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">matrixToPointer</tt><big>(</big><em>x: [Int]</em><big>)</big> &rarr; UnsafePointer&lt;Int&gt;</dt>
+<dd><p>Gets the pointer of a integer array (useful for indexing)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pointerToMatrix">
+<tt class="descname">pointerToMatrix</tt><big>(</big><em>xPC: UnsafePointer&lt;Double&gt;</em>, <em>N: CInt</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#pointerToMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts between a C pointer and ndarray</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pointerTo2DMatrix">
+<tt class="descname">pointerTo2DMatrix</tt><big>(</big><em>xPC: UnsafePointer&lt;Double&gt;</em>, <em>N: CInt</em>, <em>M:CInt</em><big>)</big> &rarr; matrix<a class="headerlink" href="#pointerTo2DMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts between a C pointer and matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">address operator, !</tt></dt>
+<dd><p>Works for both ndarray and matrix. Calls matrixToPointer</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Full docs</a><ul>
+<li><a class="reference internal" href="#numbers">numbers</a><ul>
+<li><a class="reference internal" href="#constants-defined">Constants defined</a></li>
+<li><a class="reference internal" href="#number-elements">Number elements</a></li>
+<li><a class="reference internal" href="#number-functions">Number functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ndarray">ndarray</a><ul>
+<li><a class="reference internal" href="#class-elements">Class elements</a></li>
+<li><a class="reference internal" href="#indexing">Indexing</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#initing">Initing</a></li>
+<li><a class="reference internal" href="#simple-math">Simple math</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#matrix">matrix</a><ul>
+<li><a class="reference internal" href="#id1">Class Elements</a></li>
+<li><a class="reference internal" href="#id2">Indexing</a></li>
+<li><a class="reference internal" href="#id3">Simple math</a></li>
+<li><a class="reference internal" href="#id4">Operators</a></li>
+<li><a class="reference internal" href="#complex-math">Complex Math</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#machine-learning">Machine learning</a><ul>
+<li><a class="reference internal" href="#svm">SVM</a></li>
+<li><a class="reference internal" href="#knn">kNN</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#interfacing-with-c">Interfacing with C</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bugs.html"
+                        title="previous chapter">Bugs</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/full_docs.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="bugs.html" title="Bugs"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

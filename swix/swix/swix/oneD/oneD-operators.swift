@@ -28,7 +28,7 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
         {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
     else if operator=="/"
         {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
-    else if operator=="<" || operator==">" || operator==">=" || operator=="<="{
+    else if operator=="<" || operator==">" || operator==">=" || operator=="<=" || operator=="==" || operator=="!=="{
         result = zeros(lhs.n)
         CVWrapper.compare(!lhs, with: !rhs, using: operator.nsstring, into: !result, ofLength: lhs.n.cint)
         // since opencv uses images which use 8-bit values
@@ -83,31 +83,27 @@ func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
 // EQUALITY
 operator infix ~== {associativity none precedence 140}
 func ~== (lhs: matrix, rhs: matrix) -> Bool{
-    assert(lhs.n == rhs.n, "`+` only works on arrays of equal size")
+    assert(lhs.n == rhs.n, "`~==` only works on arrays of equal size")
     if max(abs(lhs - rhs)) > 1e-6{
         return false
     } else{
         return true
     }
 }
-func ~== (lhs: matrix, rhs: matrix) -> matrix{
-    // sees where two matrices are about equal, for use with argwhere
-    return make_operator(lhs, "~==", rhs)
-}
+func == (lhs: matrix, rhs: matrix) -> matrix{
+    return make_operator(lhs, "==", rhs)}
+func !== (lhs: matrix, rhs: matrix) -> matrix{
+    return make_operator(lhs, "!==", rhs)}
 
 // NICE ARITHMETIC
 @assignment func += (inout x: matrix, right: Double){
-    x = x + right
-}
+    x = x + right}
 @assignment func *= (inout x: matrix, right: Double){
-    x = x * right
-}
+    x = x * right}
 @assignment func -= (inout x: matrix, right: Double){
-    x = x - right
-}
+    x = x - right}
 @assignment func /= (inout x: matrix, right: Double){
-    x = x / right
-}
+    x = x / right}
 
 // MOD
 operator infix % {associativity none precedence 140}

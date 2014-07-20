@@ -66,7 +66,7 @@ point values are truncated.</li>
 <tt class="docutils literal"><span class="pre">x[matrix]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>. The last entry, <tt class="docutils literal"><span class="pre">x[matrix]</span></tt> accesses the 2D matrix by
 accessing the flat elements.</p>
 <div class="section" id="matrix1d">
-<h2><tt class="docutils literal"><span class="pre">matrix1d</span></tt><a class="headerlink" href="#matrix1d" title="Permalink to this headline">¶</a></h2>
+<h2>matrix1d<a class="headerlink" href="#matrix1d" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">n</span></tt> : number of elements in the array.</li>
 <li><tt class="docutils literal"><span class="pre">count</span></tt> : number of elements</li>
@@ -74,14 +74,14 @@ accessing the flat elements.</p>
 </ul>
 </div>
 <div class="section" id="matrix2d">
-<h2><tt class="docutils literal"><span class="pre">matrix2d</span></tt><a class="headerlink" href="#matrix2d" title="Permalink to this headline">¶</a></h2>
+<h2>matrix2d<a class="headerlink" href="#matrix2d" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">rows,</span> <span class="pre">columns</span></tt> : the number of rows and columns</li>
 <li><tt class="docutils literal"><span class="pre">shape</span> <span class="pre">==</span> <span class="pre">(self.rows,</span> <span class="pre">self.columns)</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">rows</span> <span class="pre">*</span> <span class="pre">columns</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">flat</span></tt> : of type matrix, contains the elements in  <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row major order</a>. It&#8217;s
 helpful to use <tt class="docutils literal"><span class="pre">x.flat</span></tt> for any function that can be used on a 2D matrix
-(e.g., <a class="reference external" href="http://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm">Frobenius norm</a>)</li>
+(e.g., sum over all the elements)</li>
 </ul>
 </div>
 <div class="section" id="simple-mathematical-functions">
@@ -128,6 +128,8 @@ useful with <tt class="docutils literal"><span class="pre">argwhere</span></tt>.
 <li><tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">%</span> <span class="pre">double</span></tt> : Element-wise modulo.</li>
 <li><tt class="docutils literal"><span class="pre">~==</span></tt> : Sees if two arrays are approximately equal (threshold: 1e-9). I
 should create a function <tt class="docutils literal"><span class="pre">approx_equal(x,</span> <span class="pre">y)</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">^</span> <span class="pre">power</span></tt> takes the power of each element. (<tt class="docutils literal"><span class="pre">**</span></tt> and <tt class="docutils literal"><span class="pre">.^</span></tt> didn&#8217;t
+compile)</li>
 <li><tt class="docutils literal"><span class="pre">*!</span></tt> : The dot product operator. Extra important multiplication since <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0465/#implementation-details">the &#64;
 symbol</a> to be used in Python 3.5 can&#8217;t be used.</li>
 <li><tt class="docutils literal"><span class="pre">!/</span></tt> : Similar to Matlab&#8217;s <tt class="docutils literal"><span class="pre">\</span></tt> operator (but <tt class="docutils literal"><span class="pre">\</span></tt> couldn&#8217;t be used so
@@ -157,8 +159,8 @@ assert(x ~== ifft(y_real, y_imag)) // true
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Matrices</a><ul>
-<li><a class="reference internal" href="#matrix1d"><tt class="docutils literal"><span class="pre">matrix1d</span></tt></a></li>
-<li><a class="reference internal" href="#matrix2d"><tt class="docutils literal"><span class="pre">matrix2d</span></tt></a></li>
+<li><a class="reference internal" href="#matrix1d">matrix1d</a></li>
+<li><a class="reference internal" href="#matrix2d">matrix2d</a></li>
 <li><a class="reference internal" href="#simple-mathematical-functions">Simple mathematical functions</a></li>
 <li><a class="reference internal" href="#initing">Initing</a></li>
 <li><a class="reference internal" href="#operators">Operators</a></li>

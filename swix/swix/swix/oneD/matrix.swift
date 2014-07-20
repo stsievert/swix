@@ -36,6 +36,11 @@ struct matrix {
         y.flat = self
         return y
     }
+    func copy() -> matrix{
+        var y = zeros(n)
+        cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
+        return y
+    }
     func indexIsValidForRow(index: Int) -> Bool {
         return index >= 0 && index < n
     }

@@ -62,6 +62,8 @@ func max(x: matrix, absValue:Bool=false) -> Double{
     return max_objc(!x, x.n.cint)}
 func sign(x: matrix)->matrix{
     return apply_function("sign", x)}
+func abs(x: matrix) -> matrix{
+    return apply_function("abs", x)}
 
 // optimized for power==2
 func pow(x: matrix, power: Double) -> matrix{
@@ -92,9 +94,6 @@ func tan(x: matrix) -> matrix{
 func log(x: matrix) -> matrix{
     var y = apply_function(log, x)
     return y
-}
-func abs(x: matrix) -> matrix{
-    return apply_function("abs", x)
 }
 func sqrt(x: matrix) -> matrix{
     var y = apply_function(sqrt, x)
