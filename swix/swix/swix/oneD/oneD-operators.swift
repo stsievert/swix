@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
+func make_operator(lhs:ndarray, operator:String, rhs:ndarray) -> ndarray{
     assert(lhs.n == rhs.n, "Sizes must match!")
     var array = zeros(lhs.n) // lhs[i], rhs[i]
     var arg_b = zeros(lhs.n)
@@ -37,7 +37,7 @@ func make_operator(lhs:matrix, operator:String, rhs:matrix) -> matrix{
     else {assert(false, "Operator not recongized!")}
     return result
 }
-func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
+func make_operator(lhs:ndarray, operator:String, rhs:Double) -> ndarray{
     var array = zeros(lhs.n)
     var right = [rhs]
     if operator == "%"
@@ -57,7 +57,7 @@ func make_operator(lhs:matrix, operator:String, rhs:Double) -> matrix{
     else {assert(false, "Operator not recongnized! Error with the speedup?")}
     return array
 }
-func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
+func make_operator(lhs:Double, operator:String, rhs:ndarray) -> ndarray{
     var array = zeros(rhs.n) // lhs[i], rhs[i]
     var l = ones(rhs.n) * lhs
     if operator == "*"
@@ -82,7 +82,7 @@ func make_operator(lhs:Double, operator:String, rhs:matrix) -> matrix{
 
 // EQUALITY
 operator infix ~== {associativity none precedence 140}
-func ~== (lhs: matrix, rhs: matrix) -> Bool{
+func ~== (lhs: ndarray, rhs: ndarray) -> Bool{
     assert(lhs.n == rhs.n, "`~==` only works on arrays of equal size")
     if max(abs(lhs - rhs)) > 1e-6{
         return false
@@ -90,93 +90,93 @@ func ~== (lhs: matrix, rhs: matrix) -> Bool{
         return true
     }
 }
-func == (lhs: matrix, rhs: matrix) -> matrix{
+func == (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "==", rhs)}
-func !== (lhs: matrix, rhs: matrix) -> matrix{
+func !== (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "!==", rhs)}
 
 // NICE ARITHMETIC
-@assignment func += (inout x: matrix, right: Double){
+@assignment func += (inout x: ndarray, right: Double){
     x = x + right}
-@assignment func *= (inout x: matrix, right: Double){
+@assignment func *= (inout x: ndarray, right: Double){
     x = x * right}
-@assignment func -= (inout x: matrix, right: Double){
+@assignment func -= (inout x: ndarray, right: Double){
     x = x - right}
-@assignment func /= (inout x: matrix, right: Double){
+@assignment func /= (inout x: ndarray, right: Double){
     x = x / right}
 
 // MOD
 operator infix % {associativity none precedence 140}
-func % (lhs: matrix, rhs: Double) -> matrix{
+func % (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, "%", rhs)}
 // POW
 operator infix ^ {associativity none precedence 140}
-func ^ (lhs: matrix, rhs: Double) -> matrix{
+func ^ (lhs: ndarray, rhs: Double) -> ndarray{
     return pow(lhs, rhs)}
 // PLUS
 operator infix + {associativity none precedence 140}
-func + (lhs: matrix, rhs: matrix) -> matrix{
+func + (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "+", rhs)}
-func + (lhs: Double, rhs: matrix) -> matrix{
+func + (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "+", rhs)}
-func + (lhs: matrix, rhs: Double) -> matrix{
+func + (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, "+", rhs)}
 // MINUS
 operator infix - {associativity none precedence 140}
-func - (lhs: matrix, rhs: matrix) -> matrix{
+func - (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "-", rhs)}
-func - (lhs: Double, rhs: matrix) -> matrix{
+func - (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "-", rhs)}
-func - (lhs: matrix, rhs: Double) -> matrix{
+func - (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, "-", rhs)}
 // TIMES
 operator infix * {associativity none precedence 140}
-func * (lhs: matrix, rhs: matrix) -> matrix{
+func * (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "*", rhs)}
-func * (lhs: Double, rhs: matrix) -> matrix{
+func * (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "*", rhs)}
-func * (lhs: matrix, rhs: Double) -> matrix{
+func * (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, "*", rhs)}
 // DIVIDE
 operator infix / {associativity none precedence 140}
-func / (lhs: matrix, rhs: matrix) -> matrix{
+func / (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "/", rhs)
     }
-func / (lhs: Double, rhs: matrix) -> matrix{
+func / (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "/", rhs)}
-func / (lhs: matrix, rhs: Double) -> matrix{
+func / (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, "/", rhs)}
 // LESS THAN
 operator infix < {associativity none precedence 140}
-func < (lhs: matrix, rhs: Double) -> matrix{
+func < (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, "<", rhs)}
-func < (lhs: matrix, rhs: matrix) -> matrix{
+func < (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "<", rhs)}
-func < (lhs: Double, rhs: matrix) -> matrix{
+func < (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "<", rhs)}
 // GREATER THAN
 operator infix > {associativity none precedence 140}
-func > (lhs: matrix, rhs: Double) -> matrix{
+func > (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, ">", rhs)}
-func > (lhs: matrix, rhs: matrix) -> matrix{
+func > (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, ">", rhs)}
-func > (lhs: Double, rhs: matrix) -> matrix{
+func > (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, ">", rhs)}
 // GREATER THAN OR EQUAL
 operator infix >= {associativity none precedence 140}
-func >= (lhs: matrix, rhs: Double) -> matrix{
+func >= (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, ">=", rhs)}
-func >= (lhs: matrix, rhs: matrix) -> matrix{
+func >= (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, ">=", rhs)}
-func >= (lhs: Double, rhs: matrix) -> matrix{
+func >= (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, ">=", rhs)}
 // LESS THAN OR EQUAL
 operator infix <= {associativity none precedence 140}
-func <= (lhs: matrix, rhs: Double) -> matrix{
+func <= (lhs: ndarray, rhs: Double) -> ndarray{
     return make_operator(lhs, "<=", rhs)}
-func <= (lhs: matrix, rhs: matrix) -> matrix{
+func <= (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "<=", rhs)}
-func <= (lhs: Double, rhs: matrix) -> matrix{
+func <= (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "<=", rhs)}
 
 

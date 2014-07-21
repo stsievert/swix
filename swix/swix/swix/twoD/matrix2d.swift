@@ -8,13 +8,13 @@
 
 import Foundation
 import Accelerate
-struct matrix2d {
+struct matrix {
     let n: Int
     var rows: Int
     var columns: Int
     var count: Int
     var shape: (Int, Int)
-    var flat:matrix
+    var flat:ndarray
     init(columns: Int, rows: Int) {
         self.n = rows * columns
         self.rows = rows
@@ -24,12 +24,12 @@ struct matrix2d {
         self.flat = zeros(rows * columns)
         
     }
-    func copy()->matrix2d{
+    func copy()->matrix{
         var y = zeros_like(self)
         cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
         return y
     }
-    subscript(i: String) -> matrix {
+    subscript(i: String) -> ndarray {
         get {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
             var x = diag(self)
@@ -53,7 +53,7 @@ struct matrix2d {
             flat[i*columns + j] = newValue
         }
     }
-    subscript(r: Range<Int>, c: Range<Int>) -> matrix2d {
+    subscript(r: Range<Int>, c: Range<Int>) -> matrix {
         get {
             var rr = toArray(r)
             var cc = toArray(c)
@@ -71,7 +71,7 @@ struct matrix2d {
             flat[idx] = newValue.flat
         }
     }
-    subscript(r: matrix, c: matrix) -> matrix2d {
+    subscript(r: ndarray, c: ndarray) -> matrix {
         get {
             var (j, i) = meshgrid(r, c)
             var idx = (j.flat*columns.double + i.flat)
@@ -85,14 +85,14 @@ struct matrix2d {
             flat[idx] = newValue.flat
         }
     }
-    subscript(r: matrix) -> matrix {
+    subscript(r: ndarray) -> ndarray {
         get {return self.flat[r]}
         set {flat.grid = newValue.grid}
     }
-    subscript(i: Range<Int>, k: Int) -> matrix {
+    subscript(i: Range<Int>, k: Int) -> ndarray {
         get {
             var idx = toArray(i)
-            var x:matrix = self.flat[idx * self.columns.double + k.double]
+            var x:ndarray = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
@@ -100,10 +100,10 @@ struct matrix2d {
             self.flat[idx * self.columns.double + k.double] = newValue[idx]
         }
     }
-    subscript(i: Int, k: Range<Int>) -> matrix {
+    subscript(i: Int, k: Range<Int>) -> ndarray {
         get {
             var idx = toArray(k)
-            var x:matrix = self.flat[i.double * self.columns.double + idx]
+            var x:ndarray = self.flat[i.double * self.columns.double + idx]
             return x
         }
         set {
@@ -113,7 +113,7 @@ struct matrix2d {
     }
 }
 
-func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     print(prefix)
     var suffix = ", "
     var pre:String
@@ -137,14 +137,14 @@ func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline
     print(postfix)
     print(newline)
 }
-func print(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+func print(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
-func zeros_like(x: matrix2d) -> matrix2d{
-    var y:matrix2d = zeros((x.shape.0, x.shape.1))
+func zeros_like(x: matrix) -> matrix{
+    var y:matrix = zeros((x.shape.0, x.shape.1))
     return y
 }
-func transpose (x: matrix2d) -> matrix2d{
+func transpose (x: matrix) -> matrix{
     let n = x.shape.0
     let m = x.shape.1
     var y = zeros((m, n))
@@ -153,10 +153,10 @@ func transpose (x: matrix2d) -> matrix2d{
     transpose_objc(xP, yP, m.cint, n.cint);
     return y
 }
-func argwhere(idx: matrix2d) -> matrix{
+func argwhere(idx: matrix) -> ndarray{
     return argwhere(idx.flat)
 }
-func copy(x: matrix2d, y: matrix2d){
+func copy(x: matrix, y: matrix){
     copy(x.flat, y.flat)
 }
 

@@ -37,6 +37,15 @@ class runSimpleTests {
         assert(abs(avg(y.flat)) < 0.1)
         y = rand((100, 100))
         assert(abs(avg(y.flat) - 0.5) < 0.1)
+        
+        assert(repeat(array(0, 1), 2) ~== array(0, 1, 0, 1))
+        assert(repeat(array(0, 1), 2, how:"elements") ~== array(0, 0, 1, 1))
+        
+        var z1 = array(0, 1)
+        var z2 = array(2, 3)
+        var (z11, z22) = meshgrid(z1, z2)
+        assert(z11 ~== array(0, 0, 1, 1).reshape((2,2)))
+        assert(z22 ~== array(2, 3, 2, 3).reshape((2,2)))
     }
     func operatorTests(){
         // l and o similar to 1 and 0

@@ -2,10 +2,6 @@
 Full docs
 ================
 
-I'm going to refactor the code and change ``matrix`` to ``ndarray`` and
-``matrix2d`` to ``matrix``. The docs reflect this change; in the meantime, just
-substitute.
-
 numbers
 ++++++++++++++
 

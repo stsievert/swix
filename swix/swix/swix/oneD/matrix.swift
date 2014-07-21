@@ -13,7 +13,7 @@ import Accelerate
 
 // SLOW PARTS: argwhere, x[matrix, range] set, modulo operator
 
-func toArray(seq: Range<Int>) -> matrix {
+func toArray(seq: Range<Int>) -> ndarray {
     // improve with [1]
     // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
     var start:Double = seq.startIndex.double * 1.0
@@ -22,7 +22,7 @@ func toArray(seq: Range<Int>) -> matrix {
     return s
 }
 
-struct matrix {
+struct ndarray {
     let n: Int
     var count: Int
     var grid: [Double]
@@ -31,12 +31,12 @@ struct matrix {
         self.count = n
         grid = Array(count: n, repeatedValue: 0.0)
     }
-    func reshape(shape: (Int,Int)) -> matrix2d{
-        var y:matrix2d = zeros(shape)
+    func reshape(shape: (Int,Int)) -> matrix{
+        var y:matrix = zeros(shape)
         y.flat = self
         return y
     }
-    func copy() -> matrix{
+    func copy() -> ndarray{
         var y = zeros(n)
         cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
         return y
@@ -54,7 +54,7 @@ struct matrix {
             grid[index] = newValue
         }
     }
-    subscript(r: Range<Int>) -> matrix {
+    subscript(r: Range<Int>) -> ndarray {
         get {
             // assumes that r is not [0, 1, 2, 3...] not [0, 2, 4...]
             return self[toArray(r)]
@@ -62,7 +62,7 @@ struct matrix {
         set {
             self[toArray(r)].grid = newValue.grid}
     }
-    subscript(r: matrix) -> matrix {
+    subscript(r: ndarray) -> ndarray {
         get {
             //assert((r%1.0) ~== zeros_like(r))
             var y = zeros(r.n)
@@ -80,13 +80,13 @@ struct matrix {
     }
 }
 
-func asmatrix(x: [Double]) -> matrix{
+func asmatrix(x: [Double]) -> ndarray{
     var y = zeros(x.count)
     y.grid = x
     return y
 }
 
-func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+func println(x: ndarray, prefix:String="ndarray([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     print(prefix)
     var suffix = ", "
     var printed = false
@@ -102,14 +102,14 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
     print(postfix)
     print(newline)
 }
-func print(x: matrix, prefix:String="matrix([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
+func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
-func zeros_like(x: matrix) -> matrix{
+func zeros_like(x: ndarray) -> ndarray{
     return zeros(x.n)
 }
 /// argwhere(x < 2) or argwhere(x < y) works as more or less as expected. returns an array of type double (bug, todo)
-func argwhere(idx: matrix) -> matrix{
+func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
 
     // to vectorize:

@@ -10,7 +10,7 @@ import Foundation
 import Accelerate
 
 // fft, ifft, dot product, haar wavelet
-func dot(x: matrix2d, y: matrix2d) -> matrix2d{
+func dot(x: matrix, y: matrix) -> matrix{
     var (Mx, Nx) = x.shape
     var (My, Ny) = y.shape
     assert(Nx == My, "Matrix sizes not compatible for dot product")
@@ -22,7 +22,7 @@ func dot(x: matrix2d, y: matrix2d) -> matrix2d{
 }
 
 
-func fft(x: matrix) -> (matrix, matrix){
+func fft(x: ndarray) -> (ndarray, ndarray){
     var N:CInt = x.n.cint
     var yr = zeros(N.int)
     var yi = zeros(N.int)
@@ -30,7 +30,7 @@ func fft(x: matrix) -> (matrix, matrix){
     
     return (yr, yi)
 }
-func ifft(yr: matrix, yi: matrix) -> matrix{
+func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     var N = yr.n
     var x = zeros(N)
     ifft_objc(!yr, !yi, N.cint, !x);
