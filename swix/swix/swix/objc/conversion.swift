@@ -9,14 +9,14 @@
 import Foundation
 import Accelerate
 
-func matrixToPointer(x: matrix)->UnsafePointer<Double>{
+func matrixToPointer(x: ndarray)->UnsafePointer<Double>{
     // sustains since objc rewrites raw memory!
     return UnsafePointer<Double>(x.grid)
 }
 func matrixToPointer(x: [Int])->UnsafePointer<Int>{
     return UnsafePointer<Int>(x)
 }
-func pointerToMatrix(xPC: UnsafePointer<Double>, N: CInt) -> matrix{
+func pointerToMatrix(xPC: UnsafePointer<Double>, N: CInt) -> ndarray{
     var x = zeros(N.int)
     var xP = matrixToPointer(x)
     copy_objc(xPC, xP, N);
@@ -30,7 +30,7 @@ func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt, M:CInt) -> matrix2d{
 }
 
 /// use !x to get the address. I tried &x but that doesn't work in beta3.
-@prefix func ! (x: matrix) -> UnsafePointer<Double> {
+@prefix func ! (x: ndarray) -> UnsafePointer<Double> {
     return matrixToPointer(x)
 }
 @prefix func ! (x: matrix2d) -> UnsafePointer<Double> {

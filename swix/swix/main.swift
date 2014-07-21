@@ -82,7 +82,7 @@ func matrix2d_indexing_test(){
 func matrix2d_indexing_matrix_test(){
     var x = array("1 2 3; 4 5 6; 7 8 9")
     assert(x[array(0, 1, 2, 3, 4, 5)] ~== array(1, 2, 3, 4, 5, 6))
-    println("    x[matrix] works and indexes the matrix row first")
+    println("    x[ndarray] works and indexes the ndarray row first")
 }
 func fft_test(){
     var x = arange(8)
@@ -151,10 +151,6 @@ svm_test()
 inv_test()
 solve_test()
 
-var x = arange(6).reshape((2,3))
-var y = x.copy()
-y[0, 0] += 1e-10
-println(y !== x)
 
 
 

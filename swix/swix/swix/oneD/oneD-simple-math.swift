@@ -15,14 +15,14 @@ import Accelerate
 //  to speed up first: abs, sign, norm, rand, randn
 
 /// applies the function to every element of an array and takes only that argument. This is just a simple for-loop. If you want to use some custom fancy function, define it yourself.
-func apply_function(function: Double->Double, x: matrix) -> matrix{
+func apply_function(function: Double->Double, x: ndarray) -> ndarray{
     var y = zeros(x.count)
     for i in 0..<x.count{
         y[i] = function(x[i])
     }
     return y
 }
-func apply_function(function: String, x: matrix)->matrix{
+func apply_function(function: String, x: ndarray)->ndarray{
     var y = zeros_like(x)
     var n = vDSP_Length(x.n)
     if function=="abs"{
@@ -35,38 +35,38 @@ func apply_function(function: String, x: matrix)->matrix{
     return y
 }
 // OPTIMIZED FUNCTIONS
-func sum(x: matrix) -> Double{
+func sum(x: ndarray) -> Double{
     return sum_objc(!x, x.n.cint)}
-func avg(x: matrix) -> Double{
+func avg(x: ndarray) -> Double{
     return sum(x) / x.n}
-func std(x: matrix) -> Double{
+func std(x: ndarray) -> Double{
     return sqrt(variance(x))}
-func variance(x: matrix) -> Double{
+func variance(x: ndarray) -> Double{
     return sum(pow(x - avg(x), 2) / x.count.double)}
-func cumsum(x: matrix) -> matrix{
+func cumsum(x: ndarray) -> ndarray{
     return apply_function("cumsum", x)}
-func rand(N: Int, seed:Int=42) -> matrix{
+func rand(N: Int, seed:Int=42) -> ndarray{
     var x = zeros(N)
     rand_objc(!x, N.cint, seed.cint, 1)
     return x
 }
-func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
+func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
     var x = zeros(N)
     rand_objc(!x, N.cint, seed.cint, 3)
     var y = (x * sigma) + mean;
     return y
 }
-func min(x: matrix, absValue:Bool=false) -> Double{
+func min(x: ndarray, absValue:Bool=false) -> Double{
     return min_objc(!x, x.n.cint)}
-func max(x: matrix, absValue:Bool=false) -> Double{
+func max(x: ndarray, absValue:Bool=false) -> Double{
     return max_objc(!x, x.n.cint)}
-func sign(x: matrix)->matrix{
+func sign(x: ndarray)->ndarray{
     return apply_function("sign", x)}
-func abs(x: matrix) -> matrix{
+func abs(x: ndarray) -> ndarray{
     return apply_function("abs", x)}
 
 // optimized for power==2
-func pow(x: matrix, power: Double) -> matrix{
+func pow(x: ndarray, power: Double) -> ndarray{
     var y = zeros(x.count)
     if power==2{
         vDSP_vsqD(!x, 1, !y, 1, vDSP_Length(x.n.cint))
@@ -81,38 +81,38 @@ func pow(x: matrix, power: Double) -> matrix{
 }
 
 // UNOPTIMIZED FUNCTIONS
-func sin(x: matrix) -> matrix{
+func sin(x: ndarray) -> ndarray{
     return apply_function(sin, x)
 }
-func cos(x: matrix) -> matrix{
+func cos(x: ndarray) -> ndarray{
     return apply_function(cos, x)
 }
-func tan(x: matrix) -> matrix{
+func tan(x: ndarray) -> ndarray{
     return apply_function(tan, x)
 }
 /// log_e(.)
-func log(x: matrix) -> matrix{
+func log(x: ndarray) -> ndarray{
     var y = apply_function(log, x)
     return y
 }
-func sqrt(x: matrix) -> matrix{
+func sqrt(x: ndarray) -> ndarray{
     var y = apply_function(sqrt, x)
     return y
 }
-func round(x: matrix) -> matrix{
+func round(x: ndarray) -> ndarray{
     return apply_function(round, x)
 }
-func floor(x: matrix) -> matrix{
+func floor(x: ndarray) -> ndarray{
     var y = apply_function(floor, x)
     return y
 }
-func ceil(x: matrix) -> matrix{
+func ceil(x: ndarray) -> ndarray{
     var y = apply_function(ceil, x)
     return y
 }
 func sign(x: Double) -> Double{
     return x < 0 ? -1 : 1}
-func norm(x: matrix, type:String="l2") -> Double{
+func norm(x: ndarray, type:String="l2") -> Double{
     if type=="l2"{ return sqrt(sum(pow(x, 2)))}
     if type=="l1"{ return sum(abs(x))}
     if type=="l0"{

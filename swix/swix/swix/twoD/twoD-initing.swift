@@ -15,7 +15,7 @@ func zeros(shape: (Int, Int)) -> matrix2d{
 func ones(shape: (Int, Int)) -> matrix2d{
     return zeros(shape)+1
 }
-func diag(x: matrix2d) -> matrix{
+func diag(x: matrix2d) -> ndarray{
     var m = x.shape.0
     var n = x.shape.1
     var size = n < m ? n : m
@@ -30,12 +30,12 @@ func eye(n: Int) -> matrix2d{
     }
     return y
 }
-func reshape(x: matrix, shape:(Int, Int))->matrix2d{
+func reshape(x: ndarray, shape:(Int, Int))->matrix2d{
     var y = zeros(shape)
     y.flat = x
     return y
 }
-func meshgrid(x: matrix, y:matrix) -> (matrix2d, matrix2d){
+func meshgrid(x: ndarray, y:ndarray) -> (matrix2d, matrix2d){
     var z1 = reshape(repeat(y, x.n), (x.n, y.n))
     var z2 = reshape(repeat(x, y.n, how:"elements"), (x.n, y.n))
     return (z2, z1)

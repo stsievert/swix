@@ -23,13 +23,13 @@ class SVM {
         self.N = -1
         self.M = -1
     }
-    func train(responses: matrix2d, targets: matrix){
+    func train(responses: matrix2d, targets: ndarray){
         // convert matrix2d to NSArray
         self.M = responses.shape.0
         self.N = responses.shape.1
         self.cvsvm.train(!responses, targets:!targets, m:self.M.cint, n:self.N.cint)
     }
-    func predict(response: matrix) -> Double{
+    func predict(response: ndarray) -> Double{
         assert(self.N == response.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
         var tp = self.cvsvm.predict(!response, n:self.N.cint)
         return tp.double
@@ -48,14 +48,14 @@ class kNearestNeighbors{
         self.N = -1
         self.M = -1
     }
-    func train(responses: matrix2d, targets: matrix){
+    func train(responses: matrix2d, targets: ndarray){
         self.M = responses.shape.0
         self.N = responses.shape.1
         
         self.knn.train(!responses, targets: !targets, m:self.M.cint, n:self.N.cint)
         
     }
-    func predict(x: matrix, k: Int) -> Double{
+    func predict(x: ndarray, k: Int) -> Double{
         assert(self.N == x.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
         assert(k <= 32, "k <= 32 for performance reasons enforced by OpenCV.")
         var result = self.knn.predict(!x, n:x.n.cint, k:k.cint)

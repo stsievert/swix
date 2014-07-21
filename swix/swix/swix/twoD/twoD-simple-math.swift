@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-func apply_function(function: matrix->matrix, x: matrix2d)->matrix2d{
+func apply_function(function: ndarray->ndarray, x: matrix2d)->matrix2d{
     var y = function(x.flat)
     var z = zeros_like(x)
     z.flat = y
@@ -81,7 +81,7 @@ func norm(x: matrix2d, type:String="l2") -> Double{
     return -1.0
 }
 
-func sum(x: matrix2d, dim:Int=0) -> matrix{
+func sum(x: matrix2d, dim:Int=0) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     var dimen:Int
     if dim==1{

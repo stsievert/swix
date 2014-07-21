@@ -16,7 +16,7 @@ func make_operator(lhs: matrix2d, operator: String, rhs: matrix2d)->matrix2d{
     var result = zeros_like(lhs) // real result
     var lhsM = lhs.flat
     var rhsM = rhs.flat
-    var resM:matrix = zeros_like(lhsM) // flat matrix
+    var resM:ndarray = zeros_like(lhsM) // flat ndarray
     if operator=="+" {resM = lhsM + rhsM}
     else if operator=="-" {resM = lhsM - rhsM}
     else if operator=="*" {resM = lhsM * rhsM}
@@ -32,7 +32,7 @@ func make_operator(lhs: matrix2d, operator: String, rhs: Double)->matrix2d{
     var result = zeros_like(lhs) // real result
 //    var lhsM = asmatrix(lhs.grid) // flat
     var lhsM = lhs.flat
-    var resM:matrix = zeros_like(lhsM) // flat matrix
+    var resM:ndarray = zeros_like(lhsM) // flat matrix
     if operator=="+" {resM = lhsM + rhs}
     else if operator=="-" {resM = lhsM - rhs}
     else if operator=="*" {resM = lhsM * rhs}
@@ -48,7 +48,7 @@ func make_operator(lhs: Double, operator: String, rhs: matrix2d)->matrix2d{
     var result = zeros_like(rhs) // real result
 //    var rhsM = asmatrix(rhs.grid) // flat
     var rhsM = rhs.flat
-    var resM:matrix = zeros_like(rhsM) // flat matrix
+    var resM:ndarray = zeros_like(rhsM) // flat matrix
     if operator=="+" {resM = lhs + rhsM}
     else if operator=="-" {resM = lhs - rhsM}
     else if operator=="*" {resM = lhs * rhsM}
@@ -67,7 +67,7 @@ func *! (lhs: matrix2d, rhs: matrix2d) -> matrix2d{
     return dot(lhs, rhs)}
 // SOLVE
 operator infix !/ {associativity none precedence 140}
-func !/ (lhs: matrix2d, rhs: matrix) -> matrix{
+func !/ (lhs: matrix2d, rhs: ndarray) -> ndarray{
     return solve(lhs, rhs)}
 // EQUALITY
 func ~== (lhs: matrix2d, rhs: matrix2d) -> Bool{

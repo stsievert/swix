@@ -8,7 +8,7 @@
 
 import Foundation
 
-func svd(x: matrix2d) -> (matrix2d, matrix, matrix2d){
+func svd(x: matrix2d) -> (matrix2d, ndarray, matrix2d){
     var (m, n) = x.shape
     var nS = m < n ? m : n // number singular values
     var sigma = zeros(nS)
@@ -38,7 +38,7 @@ func inv(x: matrix2d) -> matrix2d{
     inv_objc(!y, x.shape.0.cint, x.shape.1.cint);
     return y
 }
-func solve(A: matrix2d, b: matrix) -> matrix{
+func solve(A: matrix2d, b: ndarray) -> ndarray{
     var (m, n) = A.shape
     assert(b.n == m, "Ax = b, A.rows == b.n. Sizes must match which makes sense mathematically")
     assert(n == m, "Matrix must be square -- dictated by OpenCV")
