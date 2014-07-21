@@ -4,31 +4,34 @@ Matrices
 This library contains two types matrix types: a 1D matrix and a 2D matrix. Both
 are indexable through several methods, shown below:
 
-* ``matrix[0] = 1`` for a single element
-* ``matrix[0..<5] = ones(5)`` for a several components.
-* ``matrix[array(1, 2, 3, 4, 5)] = array(5)`` also works. Note that floating
+* ``ndarray[0] = 1`` for a single element
+* ``ndarray[0..<5] = ones(5)`` for a several components.
+* ``ndarray[array(1, 2, 3, 4, 5)] = array(5)`` also works. Note that floating
   point values are truncated.
 
 Similar syntax works for 2D matrices. You can access elements through ``x[Int,
-Int] = Double``, ``x[Int, Range] = matrix``, ``x[Range, Int] = matrix``,
-``x[Range, Range] = matrix2d``, ``x[matrix, matrix] = matrix2d`` and
-``x[matrix] = matrix``. The last entry, ``x[matrix]`` accesses the 2D matrix by
+Int] = Double``, ``x[Int, Range] = ndarray``, ``x[Range, Int] = ndarray``,
+``x[Range, Range] = matrix``, ``x[ndarray, ndarray] = matrix`` and
+``x[ndarray] = ndarray``. The last entry, ``x[ndarray]`` accesses the matrix by
 accessing the flat elements.
 
 
-matrix1d
+ndarray
 ---------------
+
+This stands for ":math:`N` dimensional array". It's a mix of programming
+language and math language; in math, this is called a vector.
 
 * ``n`` : number of elements in the array.
 * ``count`` : number of elements
 * ``grid`` : the raw `[Double]`. Hopefully you never have to touch this.
 
-matrix2d
+matrix
 ----------------
 * ``rows, columns`` : the number of rows and columns
 * ``shape == (self.rows, self.columns)``
 * ``n == rows * columns``
-* ``flat`` : of type matrix, contains the elements in  `row major order`_. It's
+* ``flat`` : of type ndarray, contains the elements in  `row major order`_. It's
   helpful to use ``x.flat`` for any function that can be used on a 2D matrix
   (e.g., sum over all the elements)
 
@@ -61,8 +64,8 @@ Initing
   1, num: 2) ~== [0, 0.5]``.
 * ``meshgrid`` : Similar to `NumPy's meshgrid`_. ``meshgrid`` depends on
   OpenCV's repeat and may fail for large matrices.
-* ``repeat(x: matrix, N:int, how:String="matrix")`` : Repeats a matrix N times.
-  If ``how=="elements"``, it repeats the matrix ``[0, 1, 2]`` as ``[0..., 1...,
+* ``repeat(x: ndarray, N:int, how:String="ndarray")`` : Repeats a ndarray N times.
+  If ``how=="elements"``, it repeats the ndarray ``[0, 1, 2]`` as ``[0..., 1...,
   2...]`` instead of ``[0, 1, 2, 0, 1, 2, ...``.
 
 Operators
