@@ -41,6 +41,7 @@ func make_operator(lhs:ndarray, operator:String, rhs:Double) -> ndarray{
     var array = zeros(lhs.n)
     var right = [rhs]
     if operator == "%"
+        // unoptimized. for loop in c
         {mod_objc(!lhs, rhs, !array, lhs.n.cint);
     } else if operator == "*"
         {mul_scalar_objc(!lhs, rhs.cdouble, !array, lhs.n.cint)}

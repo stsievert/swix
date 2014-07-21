@@ -32,6 +32,7 @@ struct ndarray {
         grid = Array(count: n, repeatedValue: 0.0)
     }
     func reshape(shape: (Int,Int)) -> matrix{
+        assert(shape.0 * shape.1 == n, "Number of elements must not change.")
         var y:matrix = zeros(shape)
         y.flat = self
         return y
@@ -43,6 +44,12 @@ struct ndarray {
     }
     func indexIsValidForRow(index: Int) -> Bool {
         return index >= 0 && index < n
+    }
+    func min() -> Double{
+        return min_objc(!self, n.cint)
+    }
+    func max() -> Double{
+        return max_objc(!self, n.cint)
     }
     subscript(index: Int) -> Double {
         get {
@@ -65,14 +72,15 @@ struct ndarray {
     subscript(r: ndarray) -> ndarray {
         get {
             //assert((r%1.0) ~== zeros_like(r))
+            // ndarray has fractional parts, and those parts get truncated
+            // dropped for speed results (depends on for-loop in C)
+            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
             var y = zeros(r.n)
             index_objc(!self, !y, !r, r.n.cint)
             return y
         }
         set {
-            //assert((r % 1.0) ~== zeros_like(r))
-            var j = 0
-            // FOR LOOP in C
+            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
             index_xa_b_objc(!self, !r, !newValue, r.n.cint)
@@ -108,13 +116,9 @@ func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:St
 func zeros_like(x: ndarray) -> ndarray{
     return zeros(x.n)
 }
-/// argwhere(x < 2) or argwhere(x < y) works as more or less as expected. returns an array of type double (bug, todo)
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
 
-    // to vectorize:
-    //      * see non-zero elements
-    //      *
     var i = arange(idx.n)
     var sum = sum_objc(!idx, idx.n.cint)
     var args = zeros(Int(sum))

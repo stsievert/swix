@@ -11,10 +11,27 @@ import Foundation
 class runSimpleTests {
     var N:Int
     init(){
+        println("    running many simple tests")
         self.N = 10
         operatorTests()
         comparisonTests()
         functionTests()
+        twoDTests()
+    }
+    func twoDTests(){
+        var x = arange(9).reshape((3,3))
+        assert(x.T ~== transpose(x))
+        assert(x.I ~== inv(x))
+        assert(x["diag"] ~== array(0, 4, 8))
+        var y = x.copy()
+        y["diag"] = array(1, 5, 9)
+        assert(y ~== array(1, 1, 2, 3, 5, 5, 6, 7, 9).reshape((3,3)))
+        assert(eye(2) ~== array(1, 0, 0, 1).reshape((2,2)))
+        
+        assert(x.flat[array(1, 4, 5, 6)] ~== x[array(1, 4, 5, 6)])
+        y = x.copy()
+        y[array(1, 4, 5, 6)] = ones(4)
+        assert(y ~== array(0, 1, 2, 3, 1, 1, 1, 7, 8).reshape((3,3)))
     }
     func functionTests(){
         var x = array(-1, 0, 1)
@@ -41,11 +58,23 @@ class runSimpleTests {
         assert(repeat(array(0, 1), 2) ~== array(0, 1, 0, 1))
         assert(repeat(array(0, 1), 2, how:"elements") ~== array(0, 0, 1, 1))
         
+        var xC = zeros_like(x)
+        copy(x, xC)
+        assert(xC ~== x.copy())
+        
+        assert(array("0 1 2; 3 4 5") ~== arange(6).reshape((2,3)))
+        
         var z1 = array(0, 1)
         var z2 = array(2, 3)
         var (z11, z22) = meshgrid(z1, z2)
         assert(z11 ~== array(0, 0, 1, 1).reshape((2,2)))
         assert(z22 ~== array(2, 3, 2, 3).reshape((2,2)))
+        
+        assert(x.min() == min(x))
+        assert(x.min() == -1)
+        
+        assert(x.max() == max(x))
+        assert(x.max() == 1)
     }
     func operatorTests(){
         // l and o similar to 1 and 0
@@ -74,6 +103,9 @@ class runSimpleTests {
         
         // POW
         assert((array(1, 2, 3)^2) ~== array(1, 4, 9))
+        
+        // MODULO
+        assert(array(1, 3.14, 2.1)%1.0 ~== array(0, 0.14, 0.1))
     }
     func comparisonTests(){
         //     true:  <, >, <=, >=, ==, !==
@@ -87,8 +119,7 @@ class runSimpleTests {
         assert((x >= y) ~== array(0, 1, 1, 1, 1, 1))
         assert((x == y) ~== array(0, 0, 1, 1, 1, 0))
         assert((x !== y) ~== array(1, 1, 0, 0, 0, 1))
-//        assert((x == y) ~== array(0, 0, 1, 1, 1, 0))
-//        assert((x != y) ~== array(1, 1, 0, 0, 0, 1))
+        assert((x == y) ~== array(0, 0, 1, 1, 1, 0))
         
         // double <op> matrix
         assert((4 < x) ~== array(0, 0, 0, 0, 1, 1))

@@ -8,6 +8,16 @@
 
 import Foundation
 
+func dot(x: matrix, y: matrix) -> matrix{
+    var (Mx, Nx) = x.shape
+    var (My, Ny) = y.shape
+    assert(Nx == My, "Matrix sizes not compatible for dot product")
+    var z = zeros((Mx, Ny))
+    
+    dot_objc(!x, !y, !z, Mx.cint, Ny.cint, Nx.cint)
+    
+    return z
+}
 func svd(x: matrix) -> (matrix, ndarray, matrix){
     var (m, n) = x.shape
     var nS = m < n ? m : n // number singular values

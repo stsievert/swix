@@ -56,10 +56,10 @@ func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
     var y = (x * sigma) + mean;
     return y
 }
-func min(x: ndarray, absValue:Bool=false) -> Double{
-    return min_objc(!x, x.n.cint)}
-func max(x: ndarray, absValue:Bool=false) -> Double{
-    return max_objc(!x, x.n.cint)}
+func min(x: ndarray) -> Double{
+    return x.min()}
+func max(x: ndarray) -> Double{
+    return x.max()}
 func sign(x: ndarray)->ndarray{
     return apply_function("sign", x)}
 func abs(x: ndarray) -> ndarray{

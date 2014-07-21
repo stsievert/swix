@@ -19,21 +19,16 @@ func diag(x: matrix) -> ndarray{
     var m = x.shape.0
     var n = x.shape.1
     var size = n < m ? n : m
-    var y = zeros(size)
-    diag_objc(!x, !y, m.cint, n.cint)
-    return y
+    var i = arange(size)
+    return x[i*n + i]
 }
-func eye(n: Int) -> matrix{
-    var y = zeros((n,n))
-    for i in 0..<n{
-        y[i,i] = 1
-    }
-    return y
+func eye(N: Int) -> matrix{
+    var x = zeros((N,N))
+    x["diag"] = ones(N)
+    return x
 }
 func reshape(x: ndarray, shape:(Int, Int))->matrix{
-    var y = zeros(shape)
-    y.flat = x
-    return y
+    return x.reshape(shape)
 }
 func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     var z1 = reshape(repeat(y, x.n), (x.n, y.n))
@@ -41,7 +36,7 @@ func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     return (z2, z1)
 }
 
-/// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot.
+/// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot. String parsing has bugs; I'd use arange(9).reshape((3,3)) or something similar
 func array(matlab_like_string: String)->matrix{
     var mls = matlab_like_string
     var rows = mls.componentsSeparatedByString(";")

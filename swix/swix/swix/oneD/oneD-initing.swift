@@ -39,6 +39,7 @@ func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
     return x
 }
 func array(numbers: Double...) -> ndarray{
+    // okay to leave unoptimized
     var x = zeros(numbers.count)
     var i = 0
     for number in numbers{

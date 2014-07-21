@@ -15,6 +15,8 @@ struct matrix {
     var count: Int
     var shape: (Int, Int)
     var flat:ndarray
+    var T:matrix {return transpose(self)}
+    var I:matrix {return inv(self)}
     init(columns: Int, rows: Int) {
         self.n = rows * columns
         self.rows = rows
@@ -36,8 +38,12 @@ struct matrix {
             return x
         }
         set {
-            assert(i == "diag")
-            diag_set_objc(!self, !newValue, self.shape.0.cint, self.shape.1.cint)
+            assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
+            var m = shape.0
+            var n = shape.1
+            var min_mn = m < n ? m : n
+            var i = arange(min_mn)
+            self[i*n + i] = newValue
         }
     }
     func indexIsValidForRow(r: Int, c: Int) -> Bool {
@@ -87,7 +93,7 @@ struct matrix {
     }
     subscript(r: ndarray) -> ndarray {
         get {return self.flat[r]}
-        set {flat.grid = newValue.grid}
+        set {self.flat[r] = newValue }
     }
     subscript(i: Range<Int>, k: Int) -> ndarray {
         get {

@@ -20,18 +20,6 @@ void find_objc(double* x, double* args, double* idx, int N){
     // args: the array of arguments, to be overwritten
     vDSP_vcmprsD(idx, 1, x, 1, args, 1, N);
 }
-void diag_objc(double* x, double* y, int M, int N){
-    int min = N < M ? N : M; // min
-    for (int i=0; i<min; i++){
-        y[i] = x[i*N + i];
-    }
-}
-void diag_set_objc(double * x, double * y, int M, int N){
-    int min = N < M ? N : M;
-    for (int i=0; i<min; i++){
-        x[i*N + i] = y[i];
-    }
-}
 void index_objc(double*x, double*y, double* idx, int N){
     // getting the matrix at selected indices; y[i] = x[b[i]]
     vDSP_vindexD(x, idx, 1, y, 1, N);
@@ -59,7 +47,6 @@ void mod_objc(double * x, double mod, double * y, int N){
     for (int i=0; i<N; i++){
         y[i] = fmod(x[i], mod);
     }
-    
 }
 void index_xa_b_objc(double* x, double* a, double* b, int N){
     int * j = (int *)malloc(sizeof(int) * N);

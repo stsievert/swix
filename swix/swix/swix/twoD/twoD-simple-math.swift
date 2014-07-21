@@ -67,10 +67,10 @@ func pow(x: matrix, power: Double) -> matrix{
     return z
 }
 func min(x: matrix, absValue:Bool=false)-> Double{
-    return min(x.flat, absValue:absValue)
+    return min(x.flat)
 }
 func max(x: matrix, absValue:Bool=false)-> Double{
-    return max(x.flat, absValue:absValue)
+    return max(x.flat)
 }
 func norm(x: matrix, type:String="l2") -> Double{
     if type=="l0"{ return norm(x.flat, type:"l0")}

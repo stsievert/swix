@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "swix/swix/twoD/matrix2d.swift"
-            timestampString = "427590884.798436"
+            filePath = "swix/swix/twoD/matrix.swift"
+            timestampString = "427647536.74932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "matrix2d"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "matrix"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "swix/simpleTests.swift"
-            timestampString = "427603709.713715"
+            timestampString = "427647962.431732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "comparisonTests()"
             landmarkType = "5">
             <Locations>
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "swix/simpleTests.swift"
-            timestampString = "427603709.713715"
+            timestampString = "427647962.431732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "comparisonTests()"
             landmarkType = "5">
             <Locations>
@@ -141,6 +141,22 @@
                   offsetFromSymbolStart = "3223">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swix/simpleTests.swift"
+            timestampString = "427647962.431732"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "operatorTests()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
