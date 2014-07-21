@@ -10,7 +10,7 @@ import Foundation
 import Accelerate
 
 // fft, ifft, dot product, haar wavelet
-func dot(x: matrix2d, y: matrix2d) -> matrix2d{
+func dot(x: matrix, y: matrix) -> matrix{
     var (Mx, Nx) = x.shape
     var (My, Ny) = y.shape
     assert(Nx == My, "Matrix sizes not compatible for dot product")

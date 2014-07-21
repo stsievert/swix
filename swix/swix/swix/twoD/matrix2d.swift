@@ -8,7 +8,7 @@
 
 import Foundation
 import Accelerate
-struct matrix2d {
+struct matrix {
     let n: Int
     var rows: Int
     var columns: Int
@@ -24,7 +24,7 @@ struct matrix2d {
         self.flat = zeros(rows * columns)
         
     }
-    func copy()->matrix2d{
+    func copy()->matrix{
         var y = zeros_like(self)
         cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
         return y
@@ -53,7 +53,7 @@ struct matrix2d {
             flat[i*columns + j] = newValue
         }
     }
-    subscript(r: Range<Int>, c: Range<Int>) -> matrix2d {
+    subscript(r: Range<Int>, c: Range<Int>) -> matrix {
         get {
             var rr = toArray(r)
             var cc = toArray(c)
@@ -71,7 +71,7 @@ struct matrix2d {
             flat[idx] = newValue.flat
         }
     }
-    subscript(r: ndarray, c: ndarray) -> matrix2d {
+    subscript(r: ndarray, c: ndarray) -> matrix {
         get {
             var (j, i) = meshgrid(r, c)
             var idx = (j.flat*columns.double + i.flat)
@@ -113,7 +113,7 @@ struct matrix2d {
     }
 }
 
-func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     print(prefix)
     var suffix = ", "
     var pre:String
@@ -137,14 +137,14 @@ func println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline
     print(postfix)
     print(newline)
 }
-func print(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+func print(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
-func zeros_like(x: matrix2d) -> matrix2d{
-    var y:matrix2d = zeros((x.shape.0, x.shape.1))
+func zeros_like(x: matrix) -> matrix{
+    var y:matrix = zeros((x.shape.0, x.shape.1))
     return y
 }
-func transpose (x: matrix2d) -> matrix2d{
+func transpose (x: matrix) -> matrix{
     let n = x.shape.0
     let m = x.shape.1
     var y = zeros((m, n))
@@ -153,10 +153,10 @@ func transpose (x: matrix2d) -> matrix2d{
     transpose_objc(xP, yP, m.cint, n.cint);
     return y
 }
-func argwhere(idx: matrix2d) -> ndarray{
+func argwhere(idx: matrix) -> ndarray{
     return argwhere(idx.flat)
 }
-func copy(x: matrix2d, y: matrix2d){
+func copy(x: matrix, y: matrix){
     copy(x.flat, y.flat)
 }
 

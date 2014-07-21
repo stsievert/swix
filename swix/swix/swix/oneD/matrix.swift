@@ -31,8 +31,8 @@ struct ndarray {
         self.count = n
         grid = Array(count: n, repeatedValue: 0.0)
     }
-    func reshape(shape: (Int,Int)) -> matrix2d{
-        var y:matrix2d = zeros(shape)
+    func reshape(shape: (Int,Int)) -> matrix{
+        var y:matrix = zeros(shape)
         y.flat = self
         return y
     }

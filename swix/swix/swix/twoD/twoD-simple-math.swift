@@ -9,70 +9,70 @@
 import Foundation
 import Accelerate
 
-func apply_function(function: ndarray->ndarray, x: matrix2d)->matrix2d{
+func apply_function(function: ndarray->ndarray, x: matrix)->matrix{
     var y = function(x.flat)
     var z = zeros_like(x)
     z.flat = y
     return z
 }
-func sin(x: matrix2d) -> matrix2d{
+func sin(x: matrix) -> matrix{
     return apply_function(sin, x)
 }
-func cos(x: matrix2d) -> matrix2d{
+func cos(x: matrix) -> matrix{
     return apply_function(cos, x)
 }
-func tan(x: matrix2d) -> matrix2d{
+func tan(x: matrix) -> matrix{
     return apply_function(tan, x)
 }
-func log(x: matrix2d) -> matrix2d{
+func log(x: matrix) -> matrix{
     return apply_function(log, x)
 }
-func abs(x: matrix2d) -> matrix2d{
+func abs(x: matrix) -> matrix{
     return apply_function(abs, x)
 }
-func sqrt(x: matrix2d) -> matrix2d{
+func sqrt(x: matrix) -> matrix{
     return apply_function(sqrt, x)
 }
-func floor(x: matrix2d) -> matrix2d{
+func floor(x: matrix) -> matrix{
     return apply_function(floor, x)
 }
-func ceil(x: matrix2d) -> matrix2d{
+func ceil(x: matrix) -> matrix{
     return apply_function(ceil, x)
 }
-func round(x: matrix2d) -> matrix2d{
+func round(x: matrix) -> matrix{
     return apply_function(round, x)
 }
-func sign(x: matrix2d) -> matrix2d{
+func sign(x: matrix) -> matrix{
     var y = apply_function(sign, x.flat)
     var z = zeros_like(x)
     z.flat = y
     return z
 }
-func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix2d{
+func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
     var x = zeros(N)
     var y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
     x.flat = y
     return x
 }
-func rand(N: (Int, Int)) -> matrix2d{
+func rand(N: (Int, Int)) -> matrix{
     var x = zeros(N)
     var y = rand(N.0 * N.1)
     x.flat = y
     return x
 }
-func pow(x: matrix2d, power: Double) -> matrix2d{
+func pow(x: matrix, power: Double) -> matrix{
     var y = pow(x.flat, power)
     var z = zeros_like(x)
     z.flat = y
     return z
 }
-func min(x: matrix2d, absValue:Bool=false)-> Double{
+func min(x: matrix, absValue:Bool=false)-> Double{
     return min(x.flat, absValue:absValue)
 }
-func max(x: matrix2d, absValue:Bool=false)-> Double{
+func max(x: matrix, absValue:Bool=false)-> Double{
     return max(x.flat, absValue:absValue)
 }
-func norm(x: matrix2d, type:String="l2") -> Double{
+func norm(x: matrix, type:String="l2") -> Double{
     if type=="l0"{ return norm(x.flat, type:"l0")}
     if type=="l1"{ return norm(x.flat, type:"l1")}
     if type=="l2"{ return norm(x.flat, type:"l2")}
@@ -81,7 +81,7 @@ func norm(x: matrix2d, type:String="l2") -> Double{
     return -1.0
 }
 
-func sum(x: matrix2d, dim:Int=0) -> ndarray{
+func sum(x: matrix, dim:Int=0) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     var dimen:Int
     if dim==1{

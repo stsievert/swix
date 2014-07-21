@@ -22,7 +22,7 @@ func pointerToMatrix(xPC: UnsafePointer<Double>, N: CInt) -> ndarray{
     copy_objc(xPC, xP, N);
     return x
 }
-func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt, M:CInt) -> matrix2d{
+func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt, M:CInt) -> matrix{
     var x = zeros((N.int, M.int))
     var xP = matrixToPointer(x.flat)
     copy_objc(xPC, xP, N*M);
@@ -33,6 +33,6 @@ func pointerTo2DMatrix(xPC: UnsafePointer<Double>, N: CInt, M:CInt) -> matrix2d{
 @prefix func ! (x: ndarray) -> UnsafePointer<Double> {
     return matrixToPointer(x)
 }
-@prefix func ! (x: matrix2d) -> UnsafePointer<Double> {
+@prefix func ! (x: matrix) -> UnsafePointer<Double> {
     return matrixToPointer(x.flat)
 }
