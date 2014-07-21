@@ -2,6 +2,11 @@
 Full docs
 ================
 
+.. toctree::
+   :maxdepth: 3
+
+   full_docs
+
 numbers
 ++++++++++++++
 
