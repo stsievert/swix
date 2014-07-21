@@ -341,6 +341,17 @@ Simple math
     to speed them up -- I don't think BLAS/LAPACK does this. Or maybe there's
     another matrix library out there that does this?
 
+Complex math
+-------------
+.. function:: fft(x: ndarray) -> (ndarray, ndarray)
+
+    Returns the Fourier transform of the input. Returns the real array first
+    and the imaginary element second.
+
+.. function:: ifft(y_real: ndarray, y_imag: ndarray) -> ndarray
+
+    Takes the inverse Fourier transform of the real and imaginary inputs.
+
 Operators
 -----------
 
