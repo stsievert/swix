@@ -41,9 +41,11 @@ ndarray
 Class elements
 ------------
 
-* ``n, Int``. The number of elements.
-* ``count, Int = n``
-* ``grid, [Double]``. The raw array of elements.
+* ``n: Int``. The number of elements.
+* ``count: Int = n``
+* ``grid: [Double]``. The raw array of elements.
+* ``x.min() -> Double`` returns the minimum value
+* ``x.max() -> Double`` returns the maximum value
 
 
 Indexing
@@ -174,6 +176,14 @@ Initing
 
 Simple math
 -------------
+.. function:: min(x: ndarray) -> Double
+
+    Returns the minimum element, also callable with ``x.min()``
+
+.. function:: max(x: ndarray) -> Double
+
+    Returns the maximum element, also callable with ``x.max()``
+
 .. function:: apply_function(function: Double->Double, x: ndarray) -> ndarray
 
     Applies the function to every element of the array.
@@ -266,6 +276,10 @@ Class Elements
   notation is the same as mathematical journal articles (and matlab).
 * ``flat``. The `row-major`_ flat array. Any operation valid for a ndarray is
   valid for this element.
+* ``x.T`` returns the transpose.
+* ``x.I`` returns the inverse.
+* ``x.min()`` returns the minimum in the whole matrix
+* ``x.max()`` returns the max of the whole matrix.
 
 .. _`row-major`: https://en.wikipedia.org/wiki/Row_major
 
@@ -332,6 +346,14 @@ Indexing
 
 Simple math
 -------------
+.. function:: min(x: matrix) -> Double
+
+    Returns the minimum element over the whole matrix, also callable with ``x.min()``
+
+.. function:: max(x: matrix) -> Double
+
+    Returns the maximum element over the whole matrix, also callable with ``x.max()``
+
 .. function:: apply_function(function: ndarray->ndarray, x: matrix)->matrix
 
     Applies the given function to every element of the array. Called by ``sin, cos, tan, log, abs, sqrt, floor, ceil, round, sign, randn, rand, pow, min, max, norm`` (those function take a matrix and return a matrix).

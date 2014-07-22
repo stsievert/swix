@@ -9,6 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
 #import <stdint.h>
+
+// UNOPTIMIZED
+void mod_objc(double * x, double mod, double * y, int N){
+    for (int i=0; i<N; i++){
+        y[i] = fmod(x[i], mod);
+    }
+}
+void index_xa_b_objc(double* x, double* a, double* b, int N){
+    int * j = (int *)malloc(sizeof(int) * N);
+    vDSP_vfix32D(a, 1, j, 1, N); // double to int
+    for (int i=0; i<N; i++){
+        x[j[i]] = b[i];
+    }
+}
+
+// OPTIMIZED
 double sum_objc(double* x, int N){
     double sum = 0;
     vDSP_sveD(x, 1, &sum, N);
@@ -42,18 +58,6 @@ double max_objc(double* x, int N){
     double maxC = 0.0;
     vDSP_maxvD(x, 1, &maxC, N);
     return maxC;
-}
-void mod_objc(double * x, double mod, double * y, int N){
-    for (int i=0; i<N; i++){
-        y[i] = fmod(x[i], mod);
-    }
-}
-void index_xa_b_objc(double* x, double* a, double* b, int N){
-    int * j = (int *)malloc(sizeof(int) * N);
-    vDSP_vfix32D(a, 1, j, 1, N); // double to int
-    for (int i=0; i<N; i++){
-        x[j[i]] = b[i];
-    }
 }
 void copy_objc(double*x, double*y, int N){
     cblas_dcopy(N, x, 1, y, 1);

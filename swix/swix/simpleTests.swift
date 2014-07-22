@@ -42,8 +42,6 @@ class runSimpleTests {
         assert(cumsum(x+1) ~== array(0, 1, 3))
         assert(pow(x+1, 2) ~== array(0, 1, 4))
         assert(((x+1)^2)   ~== array(0, 1, 4))
-        assert(min(x) == -1)
-        assert(max(x) == 1)
         assert(variance(ones(4)) == 0)
         assert(std(ones(4)) == 0)
         assert(avg(x) == 0)
@@ -75,6 +73,10 @@ class runSimpleTests {
         
         assert(x.max() == max(x))
         assert(x.max() == 1)
+        
+        var z = array(-3, -2, -1, 0, 1, 2, 3)
+        assert(z[argwhere(z < 0)] ~== array(-3, -2, -1))
+        assert((z < 0) ~== array(1, 1, 1, 0, 0, 0, 0))
     }
     func operatorTests(){
         // l and o similar to 1 and 0
@@ -119,7 +121,6 @@ class runSimpleTests {
         assert((x >= y) ~== array(0, 1, 1, 1, 1, 1))
         assert((x == y) ~== array(0, 0, 1, 1, 1, 0))
         assert((x !== y) ~== array(1, 1, 0, 0, 0, 1))
-        assert((x == y) ~== array(0, 0, 1, 1, 1, 0))
         
         // double <op> matrix
         assert((4 < x) ~== array(0, 0, 0, 0, 1, 1))

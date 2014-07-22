@@ -71,7 +71,7 @@ void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     double workSize;
     double *work = &workSize;
     long lwork = -1;
-    long *iwork = malloc(8*numberOfSingularValues);
+    long *iwork = malloc(sizeof(long)*numberOfSingularValues);
     long info = 0;
     
     // Call dgesdd_ with lwork = -1 to query optimal workspace size:
@@ -88,12 +88,14 @@ void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
 void transpose_objc(double* x, double* y, int M, int N){
     vDSP_mtransD(x, 1, y, 1, M, N);
 }
-void inv_objc(double * x, int M, int N){
+void inv_objc(double * x, long M, long N){
+    // compiler complains on MacOSX but this compiles for iOS
+    // "this works" meaning long/int issues
     // M rows, N cols
-    int *ipiv = (int *)malloc(sizeof(int) * M * M);
-    int lwork = N*N;
+    long *ipiv = (long *)malloc(sizeof(long) * M * M);
+    long lwork = N*N;
     double *work = (double*)malloc(sizeof(double) * lwork);
-    int info;
+    long info;
     
     dgetrf_(&N, &N, x, &N, ipiv, &info);
     dgetri_(&N, x, &N, ipiv, work, &lwork, &info);

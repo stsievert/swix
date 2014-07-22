@@ -86,9 +86,11 @@ struct matrix {
             return zz
         }
         set {
-            var (j, i) = meshgrid(r, c)
-            var idx = j.flat*columns.double + i.flat
-            flat[idx] = newValue.flat
+            if r.n > 0 && c.n > 0{
+                var (j, i) = meshgrid(r, c)
+                var idx = j.flat*columns.double + i.flat
+                flat[idx] = newValue.flat
+            }
         }
     }
     subscript(r: ndarray) -> ndarray {
