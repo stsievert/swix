@@ -59,8 +59,7 @@ void ifft_objc(double* yr, double* yi, int N, double* x){
     }
 }
 void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
-    // adapted from http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
-    // Setup a buffer to hold the singular values:
+    // adapted from the buggy code at http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
     // on MacOSX, I get errors about passing long to int and on iOS I get errors about passing int to long. I'll go with iOS defaults.
     long lda = (long)m;
     long mm = m;
@@ -68,22 +67,24 @@ void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     long numberOfSingularValues = m < n ? m : n;
     
     // Workspace and status variables:
-    double workSize;
-    double *work = &workSize;
+    double* work = (double*)malloc(sizeof(double) * 2);
     long lwork = -1;
-    long *iwork = malloc(sizeof(long)*numberOfSingularValues);
+    long* iwork = (long *)malloc(sizeof(long) * 8 * numberOfSingularValues);
     long info = 0;
     
     // Call dgesdd_ with lwork = -1 to query optimal workspace size:
     dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
     
     // Optimal workspace size is returned in work[0].
-    lwork = workSize;
-    work = malloc(lwork * sizeof *work);
+    lwork = work[0];
+    free(work);
+    work = (double *)malloc(lwork * sizeof(double));
     
     // Call dgesdd_ to do the actual computation:
     dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
+    
     free(work);
+    free(iwork);
 }
 void transpose_objc(double* x, double* y, int M, int N){
     vDSP_mtransD(x, 1, y, 1, M, N);
