@@ -17,6 +17,18 @@ class runSimpleTests {
         comparisonTests()
         functionTests()
         twoDTests()
+        readWriteTests()
+    }
+    func readWriteTests(){
+        var x1 = arange(9).reshape((3,3)) * 2
+        write_csv(x1, filename:"python_testing/csvs/image.csv")
+        var y1:matrix = read_csv("python_testing/csvs/image.csv")
+        assert(x1 ~== y1)
+        
+        var x2 = array(1, 2, 3, 4, 5, 2, 1)
+        write_csv(x2, filename:"python_testing/csvs/ndarray.csv")
+        var y2:ndarray = read_csv("python_testing/csvs/ndarray.csv")
+        assert(x2 ~== y2)
     }
     func twoDTests(){
         var x = arange(9).reshape((3,3))

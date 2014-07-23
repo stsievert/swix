@@ -84,6 +84,19 @@ func read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> 
     done.flat.grid = array
     return done
 }
+func write_csv(x:matrix, #filename:String, prefix:String="/Users/scott/Developer/swix/"){
+    var seperator=","
+    var str = ""
+    for i in 0..<x.shape.0{
+        for j in 0..<x.shape.1{
+            seperator = j == x.shape.1-1 ? "" : ","
+            str += String("\(x[i, j])"+seperator)
+        }
+        str += "\n"
+    }
+    str.writeToFile(prefix+filename, atomically: false, encoding: NSUTF8StringEncoding, error: nil)
+}
+
 
 
 
