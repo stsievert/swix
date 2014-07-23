@@ -28,6 +28,7 @@
 }
 - (void) train:(double *)x targets:(double *)targets m:(int)M n:(int)N;
 - (float) predict:(double *)x n:(int)N;
+- (double*) predict:(double*)x into:(double*)y m:(int)M n:(int)N;
 @end
 
 // #### k nearest neighbors (knn.mm)

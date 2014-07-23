@@ -94,9 +94,9 @@ func asmatrix(x: [Double]) -> ndarray{
     return y
 }
 
-func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
     print(prefix)
-    var suffix = ", "
+    var suffix = seperator
     var printed = false
     for i in 0..<x.n{
         if i==x.n-1 { suffix = "" }

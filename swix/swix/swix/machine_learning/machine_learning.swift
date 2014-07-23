@@ -34,6 +34,12 @@ class SVM {
         var tp = self.cvsvm.predict(!response, n:self.N.cint)
         return tp.double
     }
+    func predict(responses: matrix) -> ndarray{
+        var y = zeros(responses.shape.0)
+        assert(self.N == responses.shape.1, "Sizes must match")
+        self.cvsvm.predict(!responses, into:!y, m:responses.shape.0.cint, n:responses.shape.1.cint);
+        return y
+    }
 }
 class kNearestNeighbors{
     // finds the nearest neighbor over all points. if want to change, dive into knn.mm and change `int k = cvknn.get_max_k();` in `predict(...)`

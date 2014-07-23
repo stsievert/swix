@@ -54,6 +54,11 @@ extension String {
     var nsstring:NSString {return NSString(string:self)}
 }
 
+// damn integer division causes headaches
+operator infix / {associativity none precedence 140}
+func / (lhs: Int, rhs: Int) -> Double{
+    return lhs.double / rhs.double}
+
 // a quick hack to get what I want
 func isNumber(x: Double)   ->Bool{return true}
 func isNumber(x: Float)    ->Bool{return true}

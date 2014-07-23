@@ -15,12 +15,28 @@ void doubleToFloat(double * x, float * y, int N){
     vDSP_vdpsp(x, 1, y, 1, N);
 }
 
+
+
 // #### STATE VECTOR MACHINE
 @implementation cvSVM : NSObject
 CvSVM ocvSVM;
 CvSVMParams params;
 int N; // number of variables
 int M; // number of responses
+void copy_float_to_double(float* x, double* y, int N){
+    vDSP_vspdp(x, 1, y, 1, N);
+}
+void copy_float(float* x, float * y, int N){
+    cblas_scopy(N, x, 1, y, 1);
+}
+void matToPointer_float(Mat x, float * y, int N){
+    if  (!x.isContinuous()){
+        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
+    }
+    uchar* ptr = x.data;
+    float* ptrD = (float*)ptr;
+    copy_float(ptrD, y, N);
+}
 -(NSObject*)init{
     params.svm_type    = CvSVM::C_SVC;
     params.kernel_type = CvSVM::LINEAR;
@@ -44,6 +60,18 @@ int M; // number of responses
     Mat xMat(1, N, CV_32FC1, x2);
     float targetPredict = ocvSVM.predict(xMat);
     return targetPredict;
+}
+- (double*) predict:(double*)x into:(double*)y m:(int)M n:(int)N{
+    float * x2 = (float *)malloc(sizeof(float) * M * N);
+    doubleToFloat(x, x2, M*N);
+    Mat xMat(M, N, CV_32FC1, x2);
+    Mat yMat(M, N, CV_32FC1);
+    
+    ocvSVM.predict(xMat, yMat);
+    float* y2 = (float *)malloc(sizeof(float) * M);
+    matToPointer_float(yMat, y2, M);
+    copy_float_to_double(y2, y, M);
+    return y;
 }
 @end
 
@@ -78,4 +106,5 @@ CvKNearest cvknn;
     return results.at<double>(0,0);
 }
 @end
+
 

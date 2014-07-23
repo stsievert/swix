@@ -155,12 +155,15 @@ var x_train:matrix = read_csv("python_testing/x_train.csv")
 var y_train:ndarray = read_csv("python_testing/y_train.csv")
 
 var x_test:matrix = read_csv("python_testing/x_test.csv")
-var y_test:ndarray = read_csv("python_testing/y_test.csv")
 
 var svm = SVM()
 svm.train(x_train, y_train)
-var z = svm.predict(x_test[0, 0..<x_test.shape.1])
-println(z)
+var yhat = svm.predict(x_test)
+
+// how accurate are we?
+var y_test:ndarray = read_csv("python_testing/y_test.csv")
+var percent_correct:Double = argwhere(abs(y_test - yhat) < 0.5).n / yhat.n
+println(percent_correct)
 
 
 
