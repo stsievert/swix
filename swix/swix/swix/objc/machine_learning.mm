@@ -37,6 +37,16 @@ void matToPointer_float(Mat x, float * y, int N){
     float* ptrD = (float*)ptr;
     copy_float(ptrD, y, N);
 }
+-(void)setParams:(NSString*)svm_type kernel:(NSString*)kernel{
+    //if ([svm_type isEqualTo:@"svc"]) { params.svm_type = CvSVM::C_SVC; }
+    //if ([kernel isEqualTo:@"linear"]){ params.kernel_type = CvSVM::LINEAR;}
+    
+    // I don't have enough application to test this right now. See [0] on how to set the SVM parameters; it looks like you call a function.
+    // [0]:http://docs.opencv.org/modules/ml/doc/support_vector_machines.html#cvsvmparams-cvsvmparams
+    params.svm_type    = CvSVM::C_SVC;
+    params.kernel_type = CvSVM::LINEAR;
+    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+}
 -(NSObject*)init{
     params.svm_type    = CvSVM::C_SVC;
     params.kernel_type = CvSVM::LINEAR;

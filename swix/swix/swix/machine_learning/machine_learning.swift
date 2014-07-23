@@ -11,17 +11,25 @@ import Foundation
 class SVM {
     // swift --> objc --> objc++ --> c++
     var cvsvm:cvSVM;
-    var params:Dictionary<String, String>
+    var svm_type:String
+    var kernel_type:String
     var N:Int
     var M:Int
     init(){
         self.cvsvm = cvSVM()
         
-        // not implemented yet -- careful! the defaults are shown
-        self.params = ["svm_type" : "svc", "kernel_type" : "linear"]
         
         self.N = -1
         self.M = -1
+        
+        // with linear svc results, we closely match (and do slightly better than) sk-learn
+        // not implemented yet -- careful! the defaults are shown
+        self.svm_type = "svc"
+        self.kernel_type = "linear"
+        setParams(svm_type, kernel_type:kernel_type)
+    }
+    func setParams(svm_type:String, kernel_type:String){
+        self.cvsvm.setParams(svm_type.nsstring, kernel:kernel_type.nsstring)
     }
     func train(responses: matrix, _ targets: ndarray){
         // convert matrix2d to NSArray
