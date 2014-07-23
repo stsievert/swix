@@ -62,6 +62,21 @@ func repeat(x: ndarray, N:Int, how:String="ndarray") -> ndarray{
 func copy(x: ndarray, y: ndarray){
     cblas_dcopy(x.n.cint, !x, 1.cint, !y, 1.cint)
 }
+func read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> ndarray{
+    var x = String.stringWithContentsOfFile(prefix+filename, encoding: NSUTF8StringEncoding, error: nil)
+    var array:[Double] = []
+    var columns:Int = 0
+    var z = x!.componentsSeparatedByString(",")
+    columns = 0
+    for i in 0..<z.count-1{
+            var num = z[i]
+            array.append(num.doubleValue)
+            columns += 1
+    }
+    var done = zeros(1 * columns)
+    done.grid = array
+    return done
+}
 
 
 

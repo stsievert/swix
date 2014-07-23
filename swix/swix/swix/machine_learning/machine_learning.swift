@@ -23,7 +23,7 @@ class SVM {
         self.N = -1
         self.M = -1
     }
-    func train(responses: matrix, targets: ndarray){
+    func train(responses: matrix, _ targets: ndarray){
         // convert matrix2d to NSArray
         self.M = responses.shape.0
         self.N = responses.shape.1

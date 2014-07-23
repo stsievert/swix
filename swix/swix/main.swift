@@ -114,7 +114,7 @@ func svm_test(){
     var x = reshape(arange(4*2) , (4, 2))
     var y = array(0, 1, 2, 3)
 
-    svm.train(x, targets:y)
+    svm.train(x, y)
     var z = svm.predict(array(2, 3))
     assert(z == y[1])
     println("    svm works via simple test")
@@ -151,12 +151,16 @@ svm_test()
 inv_test()
 solve_test()
 
+var x_train:matrix = read_csv("python_testing/x_train.csv")
+var y_train:ndarray = read_csv("python_testing/y_train.csv")
 
+var x_test:matrix = read_csv("python_testing/x_test.csv")
+var y_test:ndarray = read_csv("python_testing/y_test.csv")
 
-
-
-
-
+var svm = SVM()
+svm.train(x_train, y_train)
+var z = svm.predict(x_test[0, 0..<x_test.shape.1])
+println(z)
 
 
 

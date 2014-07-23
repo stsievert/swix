@@ -78,18 +78,8 @@ Indexing
         var x = array(1, 2, 3, 4)
         // true: x[0] == 1
 
-Functions
+Helper functions
 -----------
-.. function:: ndarray.reshape(shape) -> matrix
-
-    *shape* : The size of the 2D matrix.
-
-    Also callable with ``reshape(x, (2, 3))``
-
-    ::
-
-        var x = arange(6).reshape((2,3))
-        // true, matlab syntax: x == [0 1 2; 3 4 5]
 
 .. function:: asmatrix([Double]) -> ndarray
 
@@ -114,6 +104,17 @@ Functions
 
 Initing
 ------------
+
+.. function:: ndarray.reshape(shape) -> matrix
+
+    *shape* : The size of the 2D matrix.
+
+    Also callable with ``reshape(x, (2, 3))``
+
+    ::
+
+        var x = arange(6).reshape((2,3))
+        // true, matlab syntax: x == [0 1 2; 3 4 5]
 
 .. function:: zeros(Int)->ndarray
 
@@ -173,6 +174,7 @@ Initing
         var x = array(1, 2, 3, 4, 5, 6).reshape((2,3))
         var y = argwhere(x < 3)
         assert(y ~== array(0, 1))
+
 
 Simple math
 -------------
@@ -282,6 +284,44 @@ Class Elements
 * ``x.max()`` returns the max of the whole matrix.
 
 .. _`row-major`: https://en.wikipedia.org/wiki/Row_major
+
+Initing
+------------
+
+ones, zeros like the 1D case but take `((rows, columns))` not `elements`
+
+.. function:: eye(N:Int)->matrix
+
+    Return an identity matrix of size N by N.
+
+.. function:: meshgrid(x: ndarray, y: ndarray) -> (matrix, matrix)
+
+    Repeats the every combination of an element in one array with every other
+    element in another array is present. That is, it takes two one dimensional
+    arrays and make two dimensions, similar to NumPy's meshgrid.
+
+    ::
+
+        var x1 = linspace(-1, 1)
+        var y1 = linspace(-1, 1)
+        var (x, y) = meshgrid(x1, y1)
+        var z = x^2 + y^2
+
+
+.. function:: read_csv(filename:String, prefix="/Users/.../path/to/containing/folder/")->matrix
+
+    Reads a CSV. This is limited and hacked together by Scott.
+
+    `filename`: The `prefix` and `filename` should lead to the file. This
+    filename should be exact: it should start at your root directory, ``/``. For
+    example, my prefix is ``/Users/scott/Developer/swix/swix/swix/``. I can than
+    call this function with ``read_csv("test.csv")`` and the file ``/Users/scott/Developer/swix/swix/swix/test.csv`` gets read.
+
+    This assumes that a valid matrix is given in `exact` CSV format. That is,
+    no trailing and empty lines, no leading and empty lines, no header and
+    every row should have the same number of elements.
+
+    I tested it with ``nan`` and ``inf`` and in both cases it parsed those as ``0``.
 
 Indexing
 ----------

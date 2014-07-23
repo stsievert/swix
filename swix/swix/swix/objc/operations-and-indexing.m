@@ -23,7 +23,6 @@ void index_xa_b_objc(double* x, double* a, double* b, int N){
         x[j[i]] = b[i];
     }
 }
-
 // OPTIMIZED
 double sum_objc(double* x, int N){
     double sum = 0;
