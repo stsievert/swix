@@ -24,8 +24,8 @@ class SVM {
         
         // with linear svc results, we closely match (and do slightly better than) sk-learn
         // not implemented yet -- careful! the defaults are shown
-        self.svm_type = "svc"
-        self.kernel_type = "linear"
+        self.svm_type = "C_SVC"
+        self.kernel_type = "LINEAR"
         setParams(svm_type, kernel_type:kernel_type)
     }
     func setParams(svm_type:String, kernel_type:String){

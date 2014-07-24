@@ -151,20 +151,20 @@ svm_test()
 inv_test()
 solve_test()
 
-//var x_train:matrix = read_csv("python_testing/csvs/x_train.csv")
-//var y_train:ndarray = read_csv("python_testing/csvs/y_train.csv")
-//
-//var x_test:matrix = read_csv("python_testing/csvs/x_test.csv")
-//
-//var svm = SVM()
-//svm.train(x_train, y_train)
-//var yhat = svm.predict(x_test)
-//
-//// how accurate are we?
-//var y_test:ndarray = read_csv("python_testing/csvs/y_test.csv")
-//var percent_correct:Double = argwhere(abs(y_test - yhat) < 0.5).n / yhat.n
-//println(percent_correct)
+var x_train:matrix = read_csv("../../../python_testing/csvs/x_train.csv")
+var y_train:ndarray = read_csv("../../../python_testing/csvs/y_train.csv")
+var x_test:matrix = read_csv("../../../python_testing/csvs/x_test.csv")
 
+var svm = SVM()
+svm.setParams("C_SVC", kernel_type: "SIGMOID")
+
+svm.train(x_train, y_train)
+var yhat = svm.predict(x_test)
+
+// how accurate are we?
+var y_test:ndarray = read_csv("../../../python_testing/csvs/y_test.csv")
+var percent_correct:Double = argwhere(abs(y_test - yhat) < 0.5).n / yhat.n
+println("\nPercent correct: \(percent_correct)")
 
 
 

@@ -22,6 +22,7 @@ void index_xa_b_objc(double* x, double* a, double* b, int N){
     for (int i=0; i<N; i++){
         x[j[i]] = b[i];
     }
+    // vDSP_vtabiD for this?
 }
 // OPTIMIZED
 double sum_objc(double* x, int N){
