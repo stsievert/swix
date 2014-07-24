@@ -1,4 +1,3 @@
-
 Bugs
 ========
 * operator associativity and precedence doesn't always work (for example, 
@@ -9,6 +8,13 @@ Bugs
    this.
 * The ``~==`` operator only verifies if entire arrays are equal; use
   ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
+
+
+Beta bugs
+---------------
+For some reason Xcode can't link to the Accelerate framework from the iOS
+simulator, meaning that swix applications only run on physical devices. It
+gives errors like "unresolved identifier vDSP_vmulD not found"
 
 
 Matlab and swix differences

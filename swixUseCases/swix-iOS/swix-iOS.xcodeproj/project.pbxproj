@@ -7,84 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D216B6CA1971BDAB00D8CAE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6C91971BDAB00D8CAE8 /* AppDelegate.swift */; };
-		D216B6CC1971BDAB00D8CAE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6CB1971BDAB00D8CAE8 /* ViewController.swift */; };
-		D216B6CF1971BDAB00D8CAE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D216B6CD1971BDAB00D8CAE8 /* Main.storyboard */; };
-		D216B6D11971BDAB00D8CAE8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D216B6D01971BDAB00D8CAE8 /* Images.xcassets */; };
-		D216B6DD1971BDAB00D8CAE8 /* swix_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216B6DC1971BDAB00D8CAE8 /* swix_iOSTests.swift */; };
-		D2BD92CA197573FC001F9EDD /* math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B0197573FC001F9EDD /* math.swift */; };
-		D2BD92CB197573FC001F9EDD /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B1197573FC001F9EDD /* numbers.swift */; };
-		D2BD92CC197573FC001F9EDD /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B3197573FC001F9EDD /* conversion.swift */; };
-		D2BD92CD197573FC001F9EDD /* indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B4197573FC001F9EDD /* indexing.m */; };
-		D2BD92CE197573FC001F9EDD /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B5197573FC001F9EDD /* math.m */; };
-		D2BD92CF197573FC001F9EDD /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92B7197573FC001F9EDD /* opencv.mm */; };
-		D2BD92D0197573FC001F9EDD /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD92B8197573FC001F9EDD /* opencv2.framework */; };
-		D2BD92D1197573FC001F9EDD /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BB197573FC001F9EDD /* matrix.swift */; };
-		D2BD92D2197573FC001F9EDD /* oneD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BC197573FC001F9EDD /* oneD-initing.swift */; };
-		D2BD92D3197573FC001F9EDD /* oneD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BD197573FC001F9EDD /* oneD-operators.swift */; };
-		D2BD92D4197573FC001F9EDD /* oneD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92BE197573FC001F9EDD /* oneD-simple-math.swift */; };
-		D2BD92D5197573FC001F9EDD /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD92BF197573FC001F9EDD /* opencv2.framework */; };
-		D2BD92D6197573FC001F9EDD /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C2197573FC001F9EDD /* ScalarArithmetic.swift */; };
-		D2BD92D7197573FC001F9EDD /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C4197573FC001F9EDD /* complex.swift */; };
-		D2BD92D8197573FC001F9EDD /* matrix2d.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C6197573FC001F9EDD /* matrix2d.swift */; };
-		D2BD92D9197573FC001F9EDD /* twoD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C7197573FC001F9EDD /* twoD-initing.swift */; };
-		D2BD92DA197573FC001F9EDD /* twoD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C8197573FC001F9EDD /* twoD-operators.swift */; };
-		D2BD92DB197573FC001F9EDD /* twoD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD92C9197573FC001F9EDD /* twoD-simple-math.swift */; };
+		D2BDDDA1198055560040D4B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDA0198055560040D4B0 /* AppDelegate.swift */; };
+		D2BDDDA3198055560040D4B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDA2198055560040D4B0 /* ViewController.swift */; };
+		D2BDDDA6198055560040D4B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BDDDA4198055560040D4B0 /* Main.storyboard */; };
+		D2BDDDA8198055560040D4B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2BDDDA7198055560040D4B0 /* Images.xcassets */; };
+		D2BDDDB4198055560040D4B0 /* swix_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDB3198055560040D4B0 /* swix_iOSTests.swift */; };
+		D2BDDE10198055F70040D4B0 /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDF3198055F70040D4B0 /* machine_learning.swift */; };
+		D2BDDE11198055F70040D4B0 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDF4198055F70040D4B0 /* numbers.swift */; };
+		D2BDDE12198055F70040D4B0 /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDF6198055F70040D4B0 /* conversion.swift */; };
+		D2BDDE13198055F70040D4B0 /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDF7198055F70040D4B0 /* machine_learning.mm */; };
+		D2BDDE14198055F70040D4B0 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDF8198055F70040D4B0 /* math.m */; };
+		D2BDDE15198055F70040D4B0 /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDFA198055F70040D4B0 /* opencv.mm */; };
+		D2BDDE16198055F70040D4B0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BDDDFB198055F70040D4B0 /* opencv2.framework */; };
+		D2BDDE17198055F70040D4B0 /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDFC198055F70040D4B0 /* operations-and-indexing.m */; };
+		D2BDDE18198055F70040D4B0 /* ndarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDDFF198055F70040D4B0 /* ndarray.swift */; };
+		D2BDDE19198055F70040D4B0 /* oneD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE00198055F70040D4B0 /* oneD-initing.swift */; };
+		D2BDDE1A198055F70040D4B0 /* oneD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE01198055F70040D4B0 /* oneD-operators.swift */; };
+		D2BDDE1B198055F70040D4B0 /* oneD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE02198055F70040D4B0 /* oneD-simple-math.swift */; };
+		D2BDDE1C198055F70040D4B0 /* oneD-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE03198055F70040D4B0 /* oneD-complex-math.swift */; };
+		D2BDDE1D198055F70040D4B0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BDDE04198055F70040D4B0 /* opencv2.framework */; };
+		D2BDDE1E198055F70040D4B0 /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE07198055F70040D4B0 /* ScalarArithmetic.swift */; };
+		D2BDDE1F198055F70040D4B0 /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE09198055F70040D4B0 /* complex.swift */; };
+		D2BDDE20198055F70040D4B0 /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE0B198055F70040D4B0 /* matrix.swift */; };
+		D2BDDE21198055F70040D4B0 /* twoD-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE0C198055F70040D4B0 /* twoD-complex-math.swift */; };
+		D2BDDE22198055F70040D4B0 /* twoD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE0D198055F70040D4B0 /* twoD-initing.swift */; };
+		D2BDDE23198055F70040D4B0 /* twoD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE0E198055F70040D4B0 /* twoD-operators.swift */; };
+		D2BDDE24198055F70040D4B0 /* twoD-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDDE0F198055F70040D4B0 /* twoD-simple-math.swift */; };
+		D2BDDE261980560C0040D4B0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BDDE251980560C0040D4B0 /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D216B6D71971BDAB00D8CAE8 /* PBXContainerItemProxy */ = {
+		D2BDDDAE198055560040D4B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D216B6BC1971BDAB00D8CAE8 /* Project object */;
+			containerPortal = D2BDDD93198055560040D4B0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D216B6C31971BDAB00D8CAE8;
+			remoteGlobalIDString = D2BDDD9A198055560040D4B0;
 			remoteInfo = "swix-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D216B6C41971BDAB00D8CAE8 /* swix-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swix-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D216B6C81971BDAB00D8CAE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D216B6C91971BDAB00D8CAE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D216B6CB1971BDAB00D8CAE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D216B6CE1971BDAB00D8CAE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D216B6D01971BDAB00D8CAE8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D216B6D61971BDAB00D8CAE8 /* swix-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swix-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D216B6DB1971BDAB00D8CAE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D216B6DC1971BDAB00D8CAE8 /* swix_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swix_iOSTests.swift; sourceTree = "<group>"; };
-		D2BD92B0197573FC001F9EDD /* math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = math.swift; sourceTree = "<group>"; };
-		D2BD92B1197573FC001F9EDD /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
-		D2BD92B3197573FC001F9EDD /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
-		D2BD92B4197573FC001F9EDD /* indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = indexing.m; sourceTree = "<group>"; };
-		D2BD92B5197573FC001F9EDD /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
-		D2BD92B6197573FC001F9EDD /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
-		D2BD92B7197573FC001F9EDD /* opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = opencv.mm; sourceTree = "<group>"; };
-		D2BD92B8197573FC001F9EDD /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		D2BD92B9197573FC001F9EDD /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
-		D2BD92BB197573FC001F9EDD /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
-		D2BD92BC197573FC001F9EDD /* oneD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-initing.swift"; sourceTree = "<group>"; };
-		D2BD92BD197573FC001F9EDD /* oneD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-operators.swift"; sourceTree = "<group>"; };
-		D2BD92BE197573FC001F9EDD /* oneD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-simple-math.swift"; sourceTree = "<group>"; };
-		D2BD92BF197573FC001F9EDD /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		D2BD92C2197573FC001F9EDD /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarArithmetic.swift; sourceTree = "<group>"; };
-		D2BD92C4197573FC001F9EDD /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complex.swift; sourceTree = "<group>"; };
-		D2BD92C6197573FC001F9EDD /* matrix2d.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix2d.swift; sourceTree = "<group>"; };
-		D2BD92C7197573FC001F9EDD /* twoD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-initing.swift"; sourceTree = "<group>"; };
-		D2BD92C8197573FC001F9EDD /* twoD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-operators.swift"; sourceTree = "<group>"; };
-		D2BD92C9197573FC001F9EDD /* twoD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-simple-math.swift"; sourceTree = "<group>"; };
+		D2BDDD9B198055560040D4B0 /* swix-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swix-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2BDDD9F198055560040D4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2BDDDA0198055560040D4B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2BDDDA2198055560040D4B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2BDDDA5198055560040D4B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2BDDDA7198055560040D4B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D2BDDDAD198055560040D4B0 /* swix-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swix-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2BDDDB2198055560040D4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2BDDDB3198055560040D4B0 /* swix_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swix_iOSTests.swift; sourceTree = "<group>"; };
+		D2BDDDF3198055F70040D4B0 /* machine_learning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = machine_learning.swift; sourceTree = "<group>"; };
+		D2BDDDF4198055F70040D4B0 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
+		D2BDDDF6198055F70040D4B0 /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
+		D2BDDDF7198055F70040D4B0 /* machine_learning.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = machine_learning.mm; sourceTree = "<group>"; };
+		D2BDDDF8198055F70040D4B0 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
+		D2BDDDF9198055F70040D4B0 /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
+		D2BDDDFA198055F70040D4B0 /* opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = opencv.mm; sourceTree = "<group>"; };
+		D2BDDDFB198055F70040D4B0 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D2BDDDFC198055F70040D4B0 /* operations-and-indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "operations-and-indexing.m"; sourceTree = "<group>"; };
+		D2BDDDFD198055F70040D4B0 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2BDDDFF198055F70040D4B0 /* ndarray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ndarray.swift; sourceTree = "<group>"; };
+		D2BDDE00198055F70040D4B0 /* oneD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-initing.swift"; sourceTree = "<group>"; };
+		D2BDDE01198055F70040D4B0 /* oneD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-operators.swift"; sourceTree = "<group>"; };
+		D2BDDE02198055F70040D4B0 /* oneD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-simple-math.swift"; sourceTree = "<group>"; };
+		D2BDDE03198055F70040D4B0 /* oneD-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-complex-math.swift"; sourceTree = "<group>"; };
+		D2BDDE04198055F70040D4B0 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D2BDDE07198055F70040D4B0 /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarArithmetic.swift; sourceTree = "<group>"; };
+		D2BDDE09198055F70040D4B0 /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complex.swift; sourceTree = "<group>"; };
+		D2BDDE0B198055F70040D4B0 /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
+		D2BDDE0C198055F70040D4B0 /* twoD-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-complex-math.swift"; sourceTree = "<group>"; };
+		D2BDDE0D198055F70040D4B0 /* twoD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-initing.swift"; sourceTree = "<group>"; };
+		D2BDDE0E198055F70040D4B0 /* twoD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-operators.swift"; sourceTree = "<group>"; };
+		D2BDDE0F198055F70040D4B0 /* twoD-simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "twoD-simple-math.swift"; sourceTree = "<group>"; };
+		D2BDDE251980560C0040D4B0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D216B6C11971BDAB00D8CAE8 /* Frameworks */ = {
+		D2BDDD98198055560040D4B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BD92D5197573FC001F9EDD /* opencv2.framework in Frameworks */,
-				D2BD92D0197573FC001F9EDD /* opencv2.framework in Frameworks */,
+				D2BDDE261980560C0040D4B0 /* Accelerate.framework in Frameworks */,
+				D2BDDE1D198055F70040D4B0 /* opencv2.framework in Frameworks */,
+				D2BDDE16198055F70040D4B0 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D216B6D31971BDAB00D8CAE8 /* Frameworks */ = {
+		D2BDDDAA198055560040D4B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -94,133 +103,145 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D216B6BB1971BDAB00D8CAE8 = {
+		D2BDDD92198055560040D4B0 = {
 			isa = PBXGroup;
 			children = (
-				D2BD92AF197573FB001F9EDD /* swix */,
-				D216B6C61971BDAB00D8CAE8 /* swix-iOS */,
-				D216B6D91971BDAB00D8CAE8 /* swix-iOSTests */,
-				D216B6C51971BDAB00D8CAE8 /* Products */,
+				D2BDDE251980560C0040D4B0 /* Accelerate.framework */,
+				D2BDDDF1198055F70040D4B0 /* swix */,
+				D2BDDD9D198055560040D4B0 /* swix-iOS */,
+				D2BDDDB0198055560040D4B0 /* swix-iOSTests */,
+				D2BDDD9C198055560040D4B0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D216B6C51971BDAB00D8CAE8 /* Products */ = {
+		D2BDDD9C198055560040D4B0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6C41971BDAB00D8CAE8 /* swix-iOS.app */,
-				D216B6D61971BDAB00D8CAE8 /* swix-iOSTests.xctest */,
+				D2BDDD9B198055560040D4B0 /* swix-iOS.app */,
+				D2BDDDAD198055560040D4B0 /* swix-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D216B6C61971BDAB00D8CAE8 /* swix-iOS */ = {
+		D2BDDD9D198055560040D4B0 /* swix-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6C91971BDAB00D8CAE8 /* AppDelegate.swift */,
-				D216B6CB1971BDAB00D8CAE8 /* ViewController.swift */,
-				D216B6CD1971BDAB00D8CAE8 /* Main.storyboard */,
-				D216B6D01971BDAB00D8CAE8 /* Images.xcassets */,
-				D216B6C71971BDAB00D8CAE8 /* Supporting Files */,
+				D2BDDDA0198055560040D4B0 /* AppDelegate.swift */,
+				D2BDDDA2198055560040D4B0 /* ViewController.swift */,
+				D2BDDDA4198055560040D4B0 /* Main.storyboard */,
+				D2BDDDA7198055560040D4B0 /* Images.xcassets */,
+				D2BDDD9E198055560040D4B0 /* Supporting Files */,
 			);
 			path = "swix-iOS";
 			sourceTree = "<group>";
 		};
-		D216B6C71971BDAB00D8CAE8 /* Supporting Files */ = {
+		D2BDDD9E198055560040D4B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6C81971BDAB00D8CAE8 /* Info.plist */,
+				D2BDDD9F198055560040D4B0 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D216B6D91971BDAB00D8CAE8 /* swix-iOSTests */ = {
+		D2BDDDB0198055560040D4B0 /* swix-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6DC1971BDAB00D8CAE8 /* swix_iOSTests.swift */,
-				D216B6DA1971BDAB00D8CAE8 /* Supporting Files */,
+				D2BDDDB3198055560040D4B0 /* swix_iOSTests.swift */,
+				D2BDDDB1198055560040D4B0 /* Supporting Files */,
 			);
 			path = "swix-iOSTests";
 			sourceTree = "<group>";
 		};
-		D216B6DA1971BDAB00D8CAE8 /* Supporting Files */ = {
+		D2BDDDB1198055560040D4B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D216B6DB1971BDAB00D8CAE8 /* Info.plist */,
+				D2BDDDB2198055560040D4B0 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D2BD92AF197573FB001F9EDD /* swix */ = {
+		D2BDDDF1198055F70040D4B0 /* swix */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD92B0197573FC001F9EDD /* math.swift */,
-				D2BD92B1197573FC001F9EDD /* numbers.swift */,
-				D2BD92B2197573FC001F9EDD /* objc */,
-				D2BD92BA197573FC001F9EDD /* oneD */,
-				D2BD92BF197573FC001F9EDD /* opencv2.framework */,
-				D2BD92C0197573FC001F9EDD /* ScalarArithmetic-1.1.1 */,
-				D2BD92C3197573FC001F9EDD /* swift-complex */,
-				D2BD92C5197573FC001F9EDD /* twoD */,
+				D2BDDDF2198055F70040D4B0 /* machine_learning */,
+				D2BDDDF4198055F70040D4B0 /* numbers.swift */,
+				D2BDDDF5198055F70040D4B0 /* objc */,
+				D2BDDDFE198055F70040D4B0 /* oneD */,
+				D2BDDE03198055F70040D4B0 /* oneD-complex-math.swift */,
+				D2BDDE04198055F70040D4B0 /* opencv2.framework */,
+				D2BDDE05198055F70040D4B0 /* ScalarArithmetic-1.1.1 */,
+				D2BDDE08198055F70040D4B0 /* swift-complex */,
+				D2BDDE0A198055F70040D4B0 /* twoD */,
 			);
 			path = swix;
 			sourceTree = "<group>";
 		};
-		D2BD92B2197573FC001F9EDD /* objc */ = {
+		D2BDDDF2198055F70040D4B0 /* machine_learning */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD92B3197573FC001F9EDD /* conversion.swift */,
-				D2BD92B4197573FC001F9EDD /* indexing.m */,
-				D2BD92B5197573FC001F9EDD /* math.m */,
-				D2BD92B6197573FC001F9EDD /* OpenCV.h */,
-				D2BD92B7197573FC001F9EDD /* opencv.mm */,
-				D2BD92B8197573FC001F9EDD /* opencv2.framework */,
-				D2BD92B9197573FC001F9EDD /* swix-Bridging-Header.h */,
+				D2BDDDF3198055F70040D4B0 /* machine_learning.swift */,
+			);
+			path = machine_learning;
+			sourceTree = "<group>";
+		};
+		D2BDDDF5198055F70040D4B0 /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				D2BDDDF6198055F70040D4B0 /* conversion.swift */,
+				D2BDDDF7198055F70040D4B0 /* machine_learning.mm */,
+				D2BDDDF8198055F70040D4B0 /* math.m */,
+				D2BDDDF9198055F70040D4B0 /* OpenCV.h */,
+				D2BDDDFA198055F70040D4B0 /* opencv.mm */,
+				D2BDDDFB198055F70040D4B0 /* opencv2.framework */,
+				D2BDDDFC198055F70040D4B0 /* operations-and-indexing.m */,
+				D2BDDDFD198055F70040D4B0 /* swix-Bridging-Header.h */,
 			);
 			path = objc;
 			sourceTree = "<group>";
 		};
-		D2BD92BA197573FC001F9EDD /* oneD */ = {
+		D2BDDDFE198055F70040D4B0 /* oneD */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD92BB197573FC001F9EDD /* matrix.swift */,
-				D2BD92BC197573FC001F9EDD /* oneD-initing.swift */,
-				D2BD92BD197573FC001F9EDD /* oneD-operators.swift */,
-				D2BD92BE197573FC001F9EDD /* oneD-simple-math.swift */,
+				D2BDDDFF198055F70040D4B0 /* ndarray.swift */,
+				D2BDDE00198055F70040D4B0 /* oneD-initing.swift */,
+				D2BDDE01198055F70040D4B0 /* oneD-operators.swift */,
+				D2BDDE02198055F70040D4B0 /* oneD-simple-math.swift */,
 			);
 			path = oneD;
 			sourceTree = "<group>";
 		};
-		D2BD92C0197573FC001F9EDD /* ScalarArithmetic-1.1.1 */ = {
+		D2BDDE05198055F70040D4B0 /* ScalarArithmetic-1.1.1 */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD92C1197573FC001F9EDD /* ScalarArithmetic */,
+				D2BDDE06198055F70040D4B0 /* ScalarArithmetic */,
 			);
 			path = "ScalarArithmetic-1.1.1";
 			sourceTree = "<group>";
 		};
-		D2BD92C1197573FC001F9EDD /* ScalarArithmetic */ = {
+		D2BDDE06198055F70040D4B0 /* ScalarArithmetic */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD92C2197573FC001F9EDD /* ScalarArithmetic.swift */,
+				D2BDDE07198055F70040D4B0 /* ScalarArithmetic.swift */,
 			);
 			path = ScalarArithmetic;
 			sourceTree = "<group>";
 		};
-		D2BD92C3197573FC001F9EDD /* swift-complex */ = {
+		D2BDDE08198055F70040D4B0 /* swift-complex */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD92C4197573FC001F9EDD /* complex.swift */,
+				D2BDDE09198055F70040D4B0 /* complex.swift */,
 			);
 			path = "swift-complex";
 			sourceTree = "<group>";
 		};
-		D2BD92C5197573FC001F9EDD /* twoD */ = {
+		D2BDDE0A198055F70040D4B0 /* twoD */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD92C6197573FC001F9EDD /* matrix2d.swift */,
-				D2BD92C7197573FC001F9EDD /* twoD-initing.swift */,
-				D2BD92C8197573FC001F9EDD /* twoD-operators.swift */,
-				D2BD92C9197573FC001F9EDD /* twoD-simple-math.swift */,
+				D2BDDE0B198055F70040D4B0 /* matrix.swift */,
+				D2BDDE0C198055F70040D4B0 /* twoD-complex-math.swift */,
+				D2BDDE0D198055F70040D4B0 /* twoD-initing.swift */,
+				D2BDDE0E198055F70040D4B0 /* twoD-operators.swift */,
+				D2BDDE0F198055F70040D4B0 /* twoD-simple-math.swift */,
 			);
 			path = twoD;
 			sourceTree = "<group>";
@@ -228,13 +249,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D216B6C31971BDAB00D8CAE8 /* swix-iOS */ = {
+		D2BDDD9A198055560040D4B0 /* swix-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D216B6E01971BDAB00D8CAE8 /* Build configuration list for PBXNativeTarget "swix-iOS" */;
+			buildConfigurationList = D2BDDDB7198055560040D4B0 /* Build configuration list for PBXNativeTarget "swix-iOS" */;
 			buildPhases = (
-				D216B6C01971BDAB00D8CAE8 /* Sources */,
-				D216B6C11971BDAB00D8CAE8 /* Frameworks */,
-				D216B6C21971BDAB00D8CAE8 /* Resources */,
+				D2BDDD97198055560040D4B0 /* Sources */,
+				D2BDDD98198055560040D4B0 /* Frameworks */,
+				D2BDDD99198055560040D4B0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -242,46 +263,46 @@
 			);
 			name = "swix-iOS";
 			productName = "swix-iOS";
-			productReference = D216B6C41971BDAB00D8CAE8 /* swix-iOS.app */;
+			productReference = D2BDDD9B198055560040D4B0 /* swix-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D216B6D51971BDAB00D8CAE8 /* swix-iOSTests */ = {
+		D2BDDDAC198055560040D4B0 /* swix-iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D216B6E31971BDAB00D8CAE8 /* Build configuration list for PBXNativeTarget "swix-iOSTests" */;
+			buildConfigurationList = D2BDDDBA198055560040D4B0 /* Build configuration list for PBXNativeTarget "swix-iOSTests" */;
 			buildPhases = (
-				D216B6D21971BDAB00D8CAE8 /* Sources */,
-				D216B6D31971BDAB00D8CAE8 /* Frameworks */,
-				D216B6D41971BDAB00D8CAE8 /* Resources */,
+				D2BDDDA9198055560040D4B0 /* Sources */,
+				D2BDDDAA198055560040D4B0 /* Frameworks */,
+				D2BDDDAB198055560040D4B0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D216B6D81971BDAB00D8CAE8 /* PBXTargetDependency */,
+				D2BDDDAF198055560040D4B0 /* PBXTargetDependency */,
 			);
 			name = "swix-iOSTests";
 			productName = "swix-iOSTests";
-			productReference = D216B6D61971BDAB00D8CAE8 /* swix-iOSTests.xctest */;
+			productReference = D2BDDDAD198055560040D4B0 /* swix-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D216B6BC1971BDAB00D8CAE8 /* Project object */ = {
+		D2BDDD93198055560040D4B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = com.scott;
 				TargetAttributes = {
-					D216B6C31971BDAB00D8CAE8 = {
+					D2BDDD9A198055560040D4B0 = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					D216B6D51971BDAB00D8CAE8 = {
+					D2BDDDAC198055560040D4B0 = {
 						CreatedOnToolsVersion = 6.0;
-						TestTargetID = D216B6C31971BDAB00D8CAE8;
+						TestTargetID = D2BDDD9A198055560040D4B0;
 					};
 				};
 			};
-			buildConfigurationList = D216B6BF1971BDAB00D8CAE8 /* Build configuration list for PBXProject "swix-iOS" */;
+			buildConfigurationList = D2BDDD96198055560040D4B0 /* Build configuration list for PBXProject "swix-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -289,28 +310,28 @@
 				en,
 				Base,
 			);
-			mainGroup = D216B6BB1971BDAB00D8CAE8;
-			productRefGroup = D216B6C51971BDAB00D8CAE8 /* Products */;
+			mainGroup = D2BDDD92198055560040D4B0;
+			productRefGroup = D2BDDD9C198055560040D4B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D216B6C31971BDAB00D8CAE8 /* swix-iOS */,
-				D216B6D51971BDAB00D8CAE8 /* swix-iOSTests */,
+				D2BDDD9A198055560040D4B0 /* swix-iOS */,
+				D2BDDDAC198055560040D4B0 /* swix-iOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D216B6C21971BDAB00D8CAE8 /* Resources */ = {
+		D2BDDD99198055560040D4B0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D216B6CF1971BDAB00D8CAE8 /* Main.storyboard in Resources */,
-				D216B6D11971BDAB00D8CAE8 /* Images.xcassets in Resources */,
+				D2BDDDA6198055560040D4B0 /* Main.storyboard in Resources */,
+				D2BDDDA8198055560040D4B0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D216B6D41971BDAB00D8CAE8 /* Resources */ = {
+		D2BDDDAB198055560040D4B0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,54 +341,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D216B6C01971BDAB00D8CAE8 /* Sources */ = {
+		D2BDDD97198055560040D4B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BD92CB197573FC001F9EDD /* numbers.swift in Sources */,
-				D2BD92D6197573FC001F9EDD /* ScalarArithmetic.swift in Sources */,
-				D2BD92D8197573FC001F9EDD /* matrix2d.swift in Sources */,
-				D2BD92D4197573FC001F9EDD /* oneD-simple-math.swift in Sources */,
-				D2BD92CD197573FC001F9EDD /* indexing.m in Sources */,
-				D2BD92DB197573FC001F9EDD /* twoD-simple-math.swift in Sources */,
-				D2BD92D7197573FC001F9EDD /* complex.swift in Sources */,
-				D2BD92D3197573FC001F9EDD /* oneD-operators.swift in Sources */,
-				D2BD92CC197573FC001F9EDD /* conversion.swift in Sources */,
-				D216B6CC1971BDAB00D8CAE8 /* ViewController.swift in Sources */,
-				D2BD92D2197573FC001F9EDD /* oneD-initing.swift in Sources */,
-				D2BD92D9197573FC001F9EDD /* twoD-initing.swift in Sources */,
-				D2BD92DA197573FC001F9EDD /* twoD-operators.swift in Sources */,
-				D2BD92CF197573FC001F9EDD /* opencv.mm in Sources */,
-				D2BD92CA197573FC001F9EDD /* math.swift in Sources */,
-				D2BD92D1197573FC001F9EDD /* matrix.swift in Sources */,
-				D2BD92CE197573FC001F9EDD /* math.m in Sources */,
-				D216B6CA1971BDAB00D8CAE8 /* AppDelegate.swift in Sources */,
+				D2BDDE1F198055F70040D4B0 /* complex.swift in Sources */,
+				D2BDDE22198055F70040D4B0 /* twoD-initing.swift in Sources */,
+				D2BDDE1C198055F70040D4B0 /* oneD-complex-math.swift in Sources */,
+				D2BDDE20198055F70040D4B0 /* matrix.swift in Sources */,
+				D2BDDE11198055F70040D4B0 /* numbers.swift in Sources */,
+				D2BDDE24198055F70040D4B0 /* twoD-simple-math.swift in Sources */,
+				D2BDDE23198055F70040D4B0 /* twoD-operators.swift in Sources */,
+				D2BDDE1A198055F70040D4B0 /* oneD-operators.swift in Sources */,
+				D2BDDE18198055F70040D4B0 /* ndarray.swift in Sources */,
+				D2BDDE12198055F70040D4B0 /* conversion.swift in Sources */,
+				D2BDDDA3198055560040D4B0 /* ViewController.swift in Sources */,
+				D2BDDE21198055F70040D4B0 /* twoD-complex-math.swift in Sources */,
+				D2BDDE19198055F70040D4B0 /* oneD-initing.swift in Sources */,
+				D2BDDE1E198055F70040D4B0 /* ScalarArithmetic.swift in Sources */,
+				D2BDDDA1198055560040D4B0 /* AppDelegate.swift in Sources */,
+				D2BDDE15198055F70040D4B0 /* opencv.mm in Sources */,
+				D2BDDE1B198055F70040D4B0 /* oneD-simple-math.swift in Sources */,
+				D2BDDE10198055F70040D4B0 /* machine_learning.swift in Sources */,
+				D2BDDE14198055F70040D4B0 /* math.m in Sources */,
+				D2BDDE17198055F70040D4B0 /* operations-and-indexing.m in Sources */,
+				D2BDDE13198055F70040D4B0 /* machine_learning.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D216B6D21971BDAB00D8CAE8 /* Sources */ = {
+		D2BDDDA9198055560040D4B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D216B6DD1971BDAB00D8CAE8 /* swix_iOSTests.swift in Sources */,
+				D2BDDDB4198055560040D4B0 /* swix_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D216B6D81971BDAB00D8CAE8 /* PBXTargetDependency */ = {
+		D2BDDDAF198055560040D4B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D216B6C31971BDAB00D8CAE8 /* swix-iOS */;
-			targetProxy = D216B6D71971BDAB00D8CAE8 /* PBXContainerItemProxy */;
+			target = D2BDDD9A198055560040D4B0 /* swix-iOS */;
+			targetProxy = D2BDDDAE198055560040D4B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D216B6CD1971BDAB00D8CAE8 /* Main.storyboard */ = {
+		D2BDDDA4198055560040D4B0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D216B6CE1971BDAB00D8CAE8 /* Base */,
+				D2BDDDA5198055560040D4B0 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -375,7 +399,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D216B6DE1971BDAB00D8CAE8 /* Debug */ = {
+		D2BDDDB5198055560040D4B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -413,13 +437,11 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "swix/objc/swix-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D216B6DF1971BDAB00D8CAE8 /* Release */ = {
+		D2BDDDB6198055560040D4B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -450,45 +472,49 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "swix/objc/swix-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		D216B6E11971BDAB00D8CAE8 /* Debug */ = {
+		D2BDDDB8198055560040D4B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/scott/Developer/swix/swix/swix/swix/objc,
+					/Users/scott/Developer/swix/swix/swix/swix,
 					"$(PROJECT_DIR)/swix/objc",
 					"$(PROJECT_DIR)/swix",
 				);
 				INFOPLIST_FILE = "swix-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swix/objc/swix-Bridging-Header.h";
 			};
 			name = Debug;
 		};
-		D216B6E21971BDAB00D8CAE8 /* Release */ = {
+		D2BDDDB9198055560040D4B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/scott/Developer/swix/swix/swix/swix/objc,
+					/Users/scott/Developer/swix/swix/swix/swix,
 					"$(PROJECT_DIR)/swix/objc",
 					"$(PROJECT_DIR)/swix",
 				);
 				INFOPLIST_FILE = "swix-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swix/objc/swix-Bridging-Header.h";
 			};
 			name = Release;
 		};
-		D216B6E41971BDAB00D8CAE8 /* Debug */ = {
+		D2BDDDBB198055560040D4B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/swix-iOS.app/swix-iOS";
@@ -507,7 +533,7 @@
 			};
 			name = Debug;
 		};
-		D216B6E51971BDAB00D8CAE8 /* Release */ = {
+		D2BDDDBC198055560040D4B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/swix-iOS.app/swix-iOS";
@@ -525,34 +551,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D216B6BF1971BDAB00D8CAE8 /* Build configuration list for PBXProject "swix-iOS" */ = {
+		D2BDDD96198055560040D4B0 /* Build configuration list for PBXProject "swix-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D216B6DE1971BDAB00D8CAE8 /* Debug */,
-				D216B6DF1971BDAB00D8CAE8 /* Release */,
+				D2BDDDB5198055560040D4B0 /* Debug */,
+				D2BDDDB6198055560040D4B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D216B6E01971BDAB00D8CAE8 /* Build configuration list for PBXNativeTarget "swix-iOS" */ = {
+		D2BDDDB7198055560040D4B0 /* Build configuration list for PBXNativeTarget "swix-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D216B6E11971BDAB00D8CAE8 /* Debug */,
-				D216B6E21971BDAB00D8CAE8 /* Release */,
+				D2BDDDB8198055560040D4B0 /* Debug */,
+				D2BDDDB9198055560040D4B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		D216B6E31971BDAB00D8CAE8 /* Build configuration list for PBXNativeTarget "swix-iOSTests" */ = {
+		D2BDDDBA198055560040D4B0 /* Build configuration list for PBXNativeTarget "swix-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D216B6E41971BDAB00D8CAE8 /* Debug */,
-				D216B6E51971BDAB00D8CAE8 /* Release */,
+				D2BDDDBB198055560040D4B0 /* Debug */,
+				D2BDDDBC198055560040D4B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D216B6BC1971BDAB00D8CAE8 /* Project object */;
+	rootObject = D2BDDD93198055560040D4B0 /* Project object */;
 }

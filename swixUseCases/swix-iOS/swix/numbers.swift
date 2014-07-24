@@ -9,6 +9,9 @@
 import Foundation
 import Accelerate
 
+// should point to the swif folder
+let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
+
 let pi = 3.1415926535897932384626433832795028841971693993751058
 let π = pi
 let phi = (1 + sqrt(5.double))/2
@@ -51,15 +54,21 @@ extension String {
     var doubleValue: Double {
         return (self as NSString).doubleValue
     }
+    var nsstring:NSString {return NSString(string:self)}
 }
+
+// damn integer division causes headaches
+operator infix / {associativity none precedence 140}
+func / (lhs: Int, rhs: Int) -> Double{
+    return lhs.double / rhs.double}
 
 // a quick hack to get what I want
 func isNumber(x: Double)   ->Bool{return true}
 func isNumber(x: Float)    ->Bool{return true}
 func isNumber(x: Int)      ->Bool{return true}
 func isNumber(x: CInt)     ->Bool{return true}
-func isNumber(x: matrix)   ->Bool{return false}
-func isNumber(x: matrix2d) ->Bool{return false}
+func isNumber(x: ndarray)   ->Bool{return false}
+func isNumber(x: matrix) ->Bool{return false}
 func isNumber(x: AnyObject)->Bool{return false}
 
 

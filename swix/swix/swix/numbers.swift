@@ -9,6 +9,9 @@
 import Foundation
 import Accelerate
 
+// should point to the swif folder
+let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
+
 let pi = 3.1415926535897932384626433832795028841971693993751058
 let π = pi
 let phi = (1 + sqrt(5.double))/2

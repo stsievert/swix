@@ -62,7 +62,7 @@ func repeat(x: ndarray, N:Int, how:String="ndarray") -> ndarray{
 func copy(x: ndarray, y: ndarray){
     cblas_dcopy(x.n.cint, !x, 1.cint, !y, 1.cint)
 }
-func read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> ndarray{
+func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
     var x = String.stringWithContentsOfFile(prefix+filename, encoding: NSUTF8StringEncoding, error: nil)
     var array:[Double] = []
     var columns:Int = 0
@@ -77,7 +77,7 @@ func read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> 
     done.grid = array
     return done
 }
-func write_csv(x:ndarray, #filename:String, prefix:String="/Users/scott/Developer/swix/"){
+func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     var seperator=","
     var str = ""
     for i in 0..<x.n{
@@ -85,7 +85,12 @@ func write_csv(x:ndarray, #filename:String, prefix:String="/Users/scott/Develope
         str += String("\(x[i])"+seperator)
     }
     str += "\n"
-    str.writeToFile(prefix+filename, atomically: false, encoding: NSUTF8StringEncoding, error: nil)
+    var error:NSError?
+    str.writeToFile(prefix+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
+    if let error=error{
+        println("File probably wasn't recognized \n\(error)")
+    }
+    
 }
 
 

@@ -28,12 +28,69 @@ void copy(Mat x, double * y, int N);
     xMat.release();
     yMat.release();
 }
++ (void) solve:(double *)A b:(double*)b x:(double*)x m:(int)m n:(int)n{
+    Mat Amat(m, n, CV_64F, A);
+    Mat bMat(m, 1, CV_64F, b);
+    Mat xMat(1, n, CV_64F, x);
+    solve(Amat, bMat, xMat);
+    matToPointer(xMat, x, n);
+}
++ (void) compare:(double*)x with:(double*)y
+           using:(NSString*)op into:(double*)z ofLength:(int)N{
+    // this isn't working.
+    // instead, I can do threshold(abs(x - y), 1e-9)
+    
+    // threshold: vDSP_vthrscD
+    // abs can be vectorized, - vectorized
+    Mat xMat(1, N, CV_64F, x);
+    Mat yMat(1, N, CV_64F, y);
+    Mat zMat;
+    if      ([op isEqualToString:@"<"  ]) {zMat = xMat < yMat;}
+    else if ([op isEqualToString:@">"  ]) {zMat = xMat > yMat;}
+    else if ([op isEqualToString:@"<=" ]) {zMat = xMat <= yMat;}
+    else if ([op isEqualToString:@">=" ]) {zMat = xMat >= yMat;}
+    else if ([op isEqualToString:@"==" ]) {zMat = xMat == yMat;}
+    else if ([op isEqualToString:@"!=="]) {compare(xMat, yMat, zMat, CMP_NE);}
+    else printf("*** Careful! Your operation isn't recognized!\n");
+    matArgWhereConvert(zMat, z, N);
+}
++ (void) compare:(double*)x withDouble:(double)y
+           using:(NSString*)op into:(double*)z ofLength:(int)N{
+    // this isn't working.
+    // instead, I can do threshold(abs(x - y), 1e-9)
+    
+    // threshold: vDSP_vthrscD
+    // abs can be vectorized, - vectorized
+    Mat xMat(1, N, CV_64F, x);
+    Mat zMat;
+    if      ([op isEqualToString:@"<"  ]) {zMat = xMat < y;}
+    else if ([op isEqualToString:@">"  ]) {zMat = xMat > y;}
+    else if ([op isEqualToString:@"<=" ]) {zMat = xMat <= y;}
+    else if ([op isEqualToString:@">=" ]) {zMat = xMat >= y;}
+    else if ([op isEqualToString:@"==" ]) {zMat = xMat == y;}
+    else if ([op isEqualToString:@"!=="]) {compare(xMat, y, zMat, CMP_NE);}
+    else printf("*** Careful! Your operation isn't recognized!\n");
+    matArgWhereConvert(zMat, z, N);
+}
 void matToPointer(Mat x, double * y, int N){
-    double * yP = x.ptr<double>(0);
-    copy(yP, y, N);
+    if  (!x.isContinuous()){
+        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
+    }
+    uchar* ptr = x.data;
+    double* ptrD = (double*)ptr;
+    copy(ptrD, y, N);
+}
+void matArgWhereConvert(Mat x, double * y, int N){
+    if  (!x.isContinuous()){
+        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
+    }
+    uchar* ptr = x.data;
+    // integer to double conversion
+    vDSP_vfltu8D(ptr, 1, y, 1, N);
 }
 void copy(double* x, double * y, int N){
     cblas_dcopy(N, x, 1, y, 1);
 }
 @end
+
 

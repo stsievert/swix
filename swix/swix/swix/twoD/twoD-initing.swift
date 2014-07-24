@@ -9,6 +9,7 @@
 import Foundation
 import Accelerate
 
+
 func zeros(shape: (Int, Int)) -> matrix{
     return matrix(columns: shape.1, rows: shape.0)
 }
@@ -65,7 +66,7 @@ func array(matlab_like_string: String)->matrix{
 }
 
 
-func read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> matrix{
+func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     // docs need to be written on this
     var x = String.stringWithContentsOfFile(prefix+filename, encoding: NSUTF8StringEncoding, error: nil)
     var y = x!.componentsSeparatedByString("\n")
@@ -84,7 +85,7 @@ func read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> 
     done.flat.grid = array
     return done
 }
-func write_csv(x:matrix, #filename:String, prefix:String="/Users/scott/Developer/swix/"){
+func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
     var seperator=","
     var str = ""
     for i in 0..<x.shape.0{
@@ -94,7 +95,18 @@ func write_csv(x:matrix, #filename:String, prefix:String="/Users/scott/Developer
         }
         str += "\n"
     }
-    str.writeToFile(prefix+filename, atomically: false, encoding: NSUTF8StringEncoding, error: nil)
+    var error:NSError?
+    str.writeToFile(prefix+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
+    if let error=error{
+        println("File probably wasn't recognized \n\(error)")
+    }
+}
+func savefig(x:matrix, filename:String){
+    // prefix should point to the swix folder!
+    // prefix is defined in numbers.swift
+    write_csv(x, filename:"temp.csv")
+    system("cd "+S2_PREFIX+"; ~/anaconda/bin/ipython " + "imshow.py " + filename)
+    system("rm "+S2_PREFIX+"temp.csv")
 }
 
 

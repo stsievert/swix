@@ -175,6 +175,20 @@ Initing
         var y = argwhere(x < 3)
         assert(y ~== array(0, 1))
 
+.. function:: read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> ndarray
+
+    Read a csv. Meant only for testing on MacOSX and needs an absolute path.
+    Unoptimized; I assume you're not using this in production code.
+
+    Oh, and this was tested in Python. It needs an `exact` CSV format. It will
+    take values like ``3.0`` or ``3.0000000E+00`` but needs to have a comma
+    after `every` value, including the last value. It was tested with  ``np.savetxt("y_test.csv", y_test, delimiter=",", newline=",")``
+    
+
+.. function:: write_csv(x:ndarray, #filename:String, prefix:String="/Users/scott/Developer/swix/")
+
+    Again, similar to read_csv
+    
 
 Simple math
 -------------
@@ -322,6 +336,21 @@ ones, zeros like the 1D case but take `((rows, columns))` not `elements`
     every row should have the same number of elements.
 
     I tested it with ``nan`` and ``inf`` and in both cases it parsed those as ``0``.
+
+.. function:: read_csv(filename:String, prefix:String="/Users/scott/Developer/swix/") -> matrix
+
+    Read a csv. Meant only for testing on MacOSX and needs an absolute path.
+    Unoptimized; I assume you're not using this in production code.
+
+    Oh, and this was tested in Python. It needs an `exact` CSV format. It will
+    take values like ``3.0`` or ``3.0000000E+00`` but needs to have a comma
+    after `every` value and newline characters between lines. It was tested with  NumPy's 
+    ``np.savetxt("y_test.csv", y_test, delimiter=","``.
+    
+
+.. function:: write_csv(x:matrix, #filename:String, prefix:String="/Users/scott/Developer/swix/")
+
+    Again, similar to read_csv
 
 Indexing
 ----------

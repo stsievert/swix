@@ -58,10 +58,72 @@ void ifft_objc(double* yr, double* yi, int N, double* x){
         x[i] = result.realp[i];
     }
 }
-
-double* zeros_objc(int N){
-    double * x = (double *)malloc(sizeof(double) * N);
-    double value = 0.0;
-    vDSP_vfillD(&value, x, 1, N);
-    return x;
+void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
+    // adapted from the buggy code at http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
+    // on MacOSX, I get errors about passing long to int and on iOS I get errors about passing int to long. I'll go with iOS defaults.
+    long lda = (long)m;
+    long mm = m;
+    long nn = n;
+    long numberOfSingularValues = m < n ? m : n;
+    
+    // Workspace and status variables:
+    double* work = (double*)malloc(sizeof(double) * 2);
+    long lwork = -1;
+    long* iwork = (long *)malloc(sizeof(long) * 8 * numberOfSingularValues);
+    long info = 0;
+    
+    // Call dgesdd_ with lwork = -1 to query optimal workspace size:
+    dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
+    
+    // Optimal workspace size is returned in work[0].
+    lwork = work[0];
+    free(work);
+    work = (double *)malloc(lwork * sizeof(double));
+    
+    // Call dgesdd_ to do the actual computation:
+    dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
+    
+    free(work);
+    free(iwork);
 }
+void transpose_objc(double* x, double* y, int M, int N){
+    vDSP_mtransD(x, 1, y, 1, M, N);
+}
+void inv_objc(double * x, long M, long N){
+    // compiler complains on MacOSX but this compiles for iOS
+    // "this works" meaning long/int issues
+    // M rows, N cols
+    long *ipiv = (long *)malloc(sizeof(long) * M * M);
+    long lwork = N*N;
+    double *work = (double*)malloc(sizeof(double) * lwork);
+    long info;
+    
+    dgetrf_(&N, &N, x, &N, ipiv, &info);
+    dgetri_(&N, x, &N, ipiv, work, &lwork, &info);
+    
+    free(work);
+    free(ipiv);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,82 +9,102 @@
 import Foundation
 import Accelerate
 
-func apply_function(function: matrix->matrix, x: matrix2d)->matrix2d{
+func apply_function(function: ndarray->ndarray, x: matrix)->matrix{
     var y = function(x.flat)
     var z = zeros_like(x)
     z.flat = y
     return z
 }
-func sin(x: matrix2d) -> matrix2d{
+func sin(x: matrix) -> matrix{
     return apply_function(sin, x)
 }
-func cos(x: matrix2d) -> matrix2d{
+func cos(x: matrix) -> matrix{
     return apply_function(cos, x)
 }
-func tan(x: matrix2d) -> matrix2d{
+func tan(x: matrix) -> matrix{
     return apply_function(tan, x)
 }
-func log(x: matrix2d) -> matrix2d{
+func log(x: matrix) -> matrix{
     return apply_function(log, x)
 }
-func abs(x: matrix2d) -> matrix2d{
+func abs(x: matrix) -> matrix{
     return apply_function(abs, x)
 }
-func sqrt(x: matrix2d) -> matrix2d{
+func sqrt(x: matrix) -> matrix{
     return apply_function(sqrt, x)
 }
-func floor(x: matrix2d) -> matrix2d{
+func floor(x: matrix) -> matrix{
     return apply_function(floor, x)
 }
-func ceil(x: matrix2d) -> matrix2d{
+func ceil(x: matrix) -> matrix{
     return apply_function(ceil, x)
 }
-func round(x: matrix2d) -> matrix2d{
+func round(x: matrix) -> matrix{
     return apply_function(round, x)
 }
-func randn(N: (Int, Int), mean: Double=0, sigma: Double=1) -> matrix2d{
-    var x = zeros(N)
-    for i in 0..<x.n{
-        x.flat[i] = randn()
-    }
-    var y = (x * sigma) + mean;
-    return y
+func sign(x: matrix) -> matrix{
+    var y = apply_function(sign, x.flat)
+    var z = zeros_like(x)
+    z.flat = y
+    return z
 }
-func rand(N: (Int, Int)) -> matrix2d{
+func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
     var x = zeros(N)
-    for i in 0..<x.n{
-        x.flat[i] = rand()
-    }
+    var y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
+    x.flat = y
     return x
 }
-func pow(x: matrix2d, power: Double) -> matrix2d{
+func rand(N: (Int, Int)) -> matrix{
+    var x = zeros(N)
+    var y = rand(N.0 * N.1)
+    x.flat = y
+    return x
+}
+func pow(x: matrix, power: Double) -> matrix{
     var y = pow(x.flat, power)
     var z = zeros_like(x)
     z.flat = y
     return z
 }
-func min(x: matrix2d, absValue:Bool=false)-> Double{
-    return min(x.flat, absValue:absValue)
+func min(x: matrix, absValue:Bool=false)-> Double{
+    return min(x.flat)
 }
-func max(x: matrix2d, absValue:Bool=false)-> Double{
-    return max(x.flat, absValue:absValue)
+func max(x: matrix, absValue:Bool=false)-> Double{
+    return max(x.flat)
+}
+func norm(x: matrix, type:String="l2") -> Double{
+    if type=="l0"{ return norm(x.flat, type:"l0")}
+    if type=="l1"{ return norm(x.flat, type:"l1")}
+    if type=="l2"{ return norm(x.flat, type:"l2")}
+    
+    assert(false, "type of norm unrecongnized")
+    return -1.0
 }
 
-//func pow(x: matrix, power: Double) -> matrix{
-//    var y = zeros(x.count)
-//    for i in 0..<x.count{
-//        y[i] = pow(x[i], power)
-//    }
-//    return y
-//}
-//func sum(x: matrix) -> Double{
-//    var y = zeros(x.count)
-//    var s: Double = 0
-//    for i in 0..<x.count{
-//        s = x[i] + s
-//    }
-//    return s
-//}
+func sum(x: matrix, dim:Int=0) -> ndarray{
+    // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
+    var dimen:Int
+    if dim==1{
+        dimen = x.shape.1
+        var y = zeros(dimen)
+        for i in 0..<dimen{
+            y[i] = sum(x[0..<x.shape.0, i])
+        }
+        return y
+    }
+    else if dim==0{
+        dimen = x.shape.0
+        var y = zeros(dimen)
+        for i in 0..<dimen{
+            y[i] = sum(x[i, 0..<x.shape.1])
+        }
+        return y
+    }
+    assert(false, "Argument `dim` not recongnized")
+    return zeros(1) // to satisfy the compiler
+}
+// the functions below all need dim arguments; I have to think some more about how to optimize that
+
 //func avg(x: matrix) -> Double{
 //    var y: Double = sum(x)
 //    
@@ -101,22 +121,7 @@ func max(x: matrix2d, absValue:Bool=false)-> Double{
 //    var z = x - y
 //    return sum(pow(z, 2) / x.count.double)
 //}
-//func norm(x: matrix, type:String="l2") -> Double{
-//    if type=="l2"{ return sqrt(sum(pow(x, 2)))}
-//    if type=="l1"{ return sum(abs(x))}
-//    if type=="l0"{
-//        var count = 0.0
-//        for i in 0..<x.n{
-//            if x[i] != 0{
-//                count += 1
-//            }
-//        }
-//        return count
-//    }
-//    
-//    assert(false, "type of norm unrecongnized")
-//    return -1.0
-//}
+
 //func cumsum(x: matrix) -> matrix{
 //    let N = x.count
 //    var y = zeros(N)

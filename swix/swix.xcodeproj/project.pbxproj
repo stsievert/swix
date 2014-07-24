@@ -57,7 +57,6 @@
 		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24A8554196D7D73009C18AC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D24A855B196D7E86009C18AC /* ndarray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ndarray.swift; sourceTree = "<group>"; };
-		D2705B28197EEA32009F3566 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 		D271C9BB197031C1008E577A /* oneD-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "oneD-complex-math.swift"; path = "swix/swix/oneD-complex-math.swift"; sourceTree = SOURCE_ROOT; };
 		D271C9BD1970328C008E577A /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
 		D273B689197997DE00750A09 /* simpleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = simpleTests.swift; sourceTree = "<group>"; };
@@ -124,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				D24A8554196D7D73009C18AC /* main.swift */,
-				D2705B28197EEA32009F3566 /* test.csv */,
 				D2E15DF6197DB2ED001F076B /* ScalarArithmetic.swift */,
 				D273B689197997DE00750A09 /* simpleTests.swift */,
 				D23648D11976CC720020FB95 /* machine_learning.swift */,
