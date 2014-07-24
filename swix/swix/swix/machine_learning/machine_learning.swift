@@ -23,13 +23,16 @@ class SVM {
         self.M = -1
         
         // with linear svc results, we closely match (and do slightly better than) sk-learn
-        // not implemented yet -- careful! the defaults are shown
         self.svm_type = "C_SVC"
         self.kernel_type = "LINEAR"
         setParams(svm_type, kernel_type:kernel_type)
     }
-    func setParams(svm_type:String, kernel_type:String){
-        self.cvsvm.setParams(svm_type.nsstring, kernel:kernel_type.nsstring)
+    func setParams(svm_type:String, kernel_type:String, nu:Float=0.5){
+        // kernel: LINEAR, SIGMOID
+        // svm_type: C_SVC, ONE_CLASS, NU_SVC, NU_SVR
+        
+        // careful: NU_SVR and SIGMOID throws an exception error
+        self.cvsvm.setParams(svm_type.nsstring, kernel:kernel_type.nsstring, nu:nu.cfloat)
     }
     func train(responses: matrix, _ targets: ndarray){
         // convert matrix2d to NSArray

@@ -156,7 +156,7 @@ var y_train:ndarray = read_csv("../../../python_testing/csvs/y_train.csv")
 var x_test:matrix = read_csv("../../../python_testing/csvs/x_test.csv")
 
 var svm = SVM()
-svm.setParams("C_SVC", kernel_type: "SIGMOID")
+svm.setParams("C_SVC", kernel_type: "LINEAR")
 
 svm.train(x_train, y_train)
 var yhat = svm.predict(x_test)

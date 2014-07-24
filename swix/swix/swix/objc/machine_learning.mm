@@ -37,18 +37,22 @@ void matToPointer_float(Mat x, float * y, int N){
     float* ptrD = (float*)ptr;
     copy_float(ptrD, y, N);
 }
--(void)setParams:(NSString*)svm_type kernel:(NSString*)kernel{
+-(void)setParams:(NSString*)svm_type kernel:(NSString*)kernel nu:(float)nu{
     if ([svm_type isEqualTo:@"C_SVC"])
         { params.svm_type = CvSVM::C_SVC; }
+    else if ([svm_type isEqualTo:@"ONE_CLASS"])
+        { params.svm_type = CvSVM::ONE_CLASS;}
+    else if ([svm_type isEqualTo:@"NU_SVC"])
+        { params.svm_type = CvSVM::NU_SVC;}
+    else if ([svm_type isEqualTo:@"NU_SVR"])
+        { params.svm_type = CvSVM::NU_SVR;}
     
     if ([kernel isEqualTo:@"LINEAR"])
         { params.kernel_type = CvSVM::LINEAR;}
     else if ([kernel isEqualTo:@"SIGMOID"])
-        { params.svm_type = CvSVM::SIGMOID;}
+        { params.kernel_type = CvSVM::SIGMOID;}
     
-    params.svm_type    = CvSVM::C_SVC;
-//    params.kernel_type = CvSVM::LINEAR;
-    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+    params.nu = nu;
 }
 -(NSObject*)init{
     params.svm_type    = CvSVM::C_SVC;
