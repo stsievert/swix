@@ -23,3 +23,6 @@ Matlab and swix differences
 * Swix follow's NumPy's footprints, meaning if ``(u, s, v) = svd(x)`` then ``transpose(v_matlab) == v_swix == v_numpy``. Additionally, ``s`` is a one dimensional matrix (again like NumPy), not a 2D matrix with only the diagonal non-zero.
 * When printing, swix does not check bounds (as of 2014-7-17). e.g., ``var x = zeros(2); println(x[0..<4])`` will print ``matrix([0, 0, <junk>, <junk>])``
 * ``argwhere`` is the equivalent of Matlab's ``find``. It finds the locations where the input array is 1 (and Matlab finds locations of the *non-zero* entries).
+* The reshape functions works differently in matlab and python. In matlab, it
+  reshapes by column order and in python row-order, meaning you have to use
+  ``x.T.reshape((3,3))`` to get equivalent results.

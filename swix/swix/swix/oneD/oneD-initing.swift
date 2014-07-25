@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-// SLOW PARTS: array(doubles). not a huge deal
+// SLOW PARTS: array(doubles), read_csv, write_csv. not a huge deal -- hopefully not used in final code
 
 func zeros(N: Int) -> ndarray{
     return ndarray(n: N)

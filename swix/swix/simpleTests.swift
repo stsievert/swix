@@ -44,6 +44,10 @@ class runSimpleTests {
         y = x.copy()
         y[array(1, 4, 5, 6)] = ones(4)
         assert(y ~== array(0, 1, 2, 3, 1, 1, 1, 7, 8).reshape((3,3)))
+        
+        var z = arange(3*4).reshape((3,4))
+        assert(sum(z, dim:0) ~== array(6, 22, 38))
+        assert(sum(z, dim:1) ~== array(12, 15, 18, 21))
     }
     func functionTests(){
         var x = array(-1, 0, 1)

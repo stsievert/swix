@@ -85,11 +85,7 @@ func make_operator(lhs:Double, operator:String, rhs:ndarray) -> ndarray{
 operator infix ~== {associativity none precedence 140}
 func ~== (lhs: ndarray, rhs: ndarray) -> Bool{
     assert(lhs.n == rhs.n, "`~==` only works on arrays of equal size")
-    if max(abs(lhs - rhs)) > 1e-6{
-        return false
-    } else{
-        return true
-    }
+    return max(abs(lhs - rhs)) > 1e-6 ? false : true;
 }
 func == (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "==", rhs)}

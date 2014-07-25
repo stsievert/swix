@@ -24,6 +24,20 @@ void index_xa_b_objc(double* x, double* a, double* b, int N){
     }
     // vDSP_vtabiD for this?
 }
+
+void sum_2d_objc(double* x, double* y, int dim, int M, int N){
+    int max = dim==0 ? N : M;
+    
+    int stride   = max==M ? N : 1;
+    int max_iter = max==M ? N : M;
+    int start    = max==M ? 1 : N;
+    
+    for (int i=0; i<max_iter; i++){
+        vDSP_sveD(x+start*i, stride, y+i, max);
+    }
+}
+
+
 // OPTIMIZED
 double sum_objc(double* x, int N){
     double sum = 0;

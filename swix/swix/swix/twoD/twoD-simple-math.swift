@@ -9,6 +9,8 @@
 import Foundation
 import Accelerate
 
+// UNOPTIMIZED: the functions that apply a given function to each row or column.
+
 func apply_function(function: ndarray->ndarray, x: matrix)->matrix{
     var y = function(x.flat)
     var z = zeros_like(x)
@@ -81,27 +83,13 @@ func norm(x: matrix, type:String="l2") -> Double{
     return -1.0
 }
 
-func sum(x: matrix, dim:Int=0) -> ndarray{
+func sum(x: matrix, dim:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
-    var dimen:Int
-    if dim==1{
-        dimen = x.shape.1
-        var y = zeros(dimen)
-        for i in 0..<dimen{
-            y[i] = sum(x[0..<x.shape.0, i])
-        }
-        return y
-    }
-    else if dim==0{
-        dimen = x.shape.0
-        var y = zeros(dimen)
-        for i in 0..<dimen{
-            y[i] = sum(x[i, 0..<x.shape.1])
-        }
-        return y
-    }
-    assert(false, "Argument `dim` not recongnized")
-    return zeros(1) // to satisfy the compiler
+    assert(dim==0 || dim==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")
+    var n = dim==0 ? x.shape.0 : x.shape.1;
+    var z = zeros(n)
+    sum_2d_objc(!x, !z, dim.cint, x.shape.0.cint, x.shape.1.cint)
+    return(z)
 }
 // the functions below all need dim arguments; I have to think some more about how to optimize that
 
