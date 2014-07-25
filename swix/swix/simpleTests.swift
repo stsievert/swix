@@ -48,6 +48,12 @@ class runSimpleTests {
         var z = arange(3*4).reshape((3,4))
         assert(sum(z, dim:0) ~== array(6, 22, 38))
         assert(sum(z, dim:1) ~== array(12, 15, 18, 21))
+        
+        var d1 = x *! y
+        var d2 = x.dot(y)
+        var d3 = dot(x, y)
+        assert(d1 ~== d2)
+        assert(d1 ~== d3)
     }
     func functionTests(){
         var x = array(-1, 0, 1)

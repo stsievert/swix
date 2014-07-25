@@ -11,7 +11,7 @@ import Accelerate
 
 // the matrix definition and related functions go here
 
-// SLOW PARTS: argwhere, x[matrix, range] set, modulo operator
+// SLOW PARTS: x[ndarray, ndarray] set, modulo operator
 
 func toArray(seq: Range<Int>) -> ndarray {
     // improve with [1]
@@ -83,6 +83,7 @@ struct ndarray {
             assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
+            // tried basic optimization myself, but the compiler took care of that.
             index_xa_b_objc(!self, !r, !newValue, r.n.cint)
         }
     }

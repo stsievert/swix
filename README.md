@@ -63,7 +63,8 @@ optimized what I needed to, meaning all operators and select mathematical
 functions are fast while the functions I didn't need are slow. If you want to
 speed up some function or add add another feature in those libraries, feel free
 to submit a pull request (preferred!) or contact me at [@stsievert][st] or
-[sieve121@umn.edu](mailto:sieve121@umn.edu).
+[sieve121@umn.edu](mailto:sieve121@umn.edu). Oh, and if you use this project
+I'd love to hear about it.
 
 Currently, this library gives you
 

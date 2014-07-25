@@ -49,6 +49,9 @@ struct matrix {
     func indexIsValidForRow(r: Int, c: Int) -> Bool {
         return r >= 0 && r < rows && c>=0 && c < columns
     }
+    func dot(y: matrix) -> matrix{
+        return self *! y
+    }
     subscript(i: Int, j: Int) -> Double {
         get {
             assert(indexIsValidForRow(i, c:j), "Index out of range")
