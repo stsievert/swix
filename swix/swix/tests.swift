@@ -208,6 +208,8 @@ class runTests {
         var z = array(-3, -2, -1, 0, 1, 2, 3)
         assert(z[argwhere(z < 0)] ~== array(-3, -2, -1))
         assert((z < 0) ~== array(1, 1, 1, 0, 0, 0, 0))
+        
+        assert(sin(ones(N)*pi) ~== zeros(N))
     }
     func operatorTests(){
         // l and o similar to 1 and 0

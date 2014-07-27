@@ -26,7 +26,6 @@
  */
 
 import Foundation
-
 runTests()
 
 
