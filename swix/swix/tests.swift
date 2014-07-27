@@ -209,7 +209,9 @@ class runTests {
         assert(z[argwhere(z < 0)] ~== array(-3, -2, -1))
         assert((z < 0) ~== array(1, 1, 1, 0, 0, 0, 0))
         
-        assert(sin(ones(N)*pi) ~== zeros(N))
+        assert(sin(array(1, 2, 3, 4)) ~== array(sin(1), sin(2), sin(3), sin(4)))
+        func f(x:Double)->Double {return x+1}
+        assert(apply_function(f,arange(100)) ~== (arange(100)+1))
     }
     func operatorTests(){
         // l and o similar to 1 and 0

@@ -15,13 +15,13 @@ import Accelerate
 //  to speed up first: abs, sign, norm, rand, randn
 
 func apply_function(function: Double->Double, x: ndarray) -> ndarray{
-    // applies the function in parallel with gcd. about a factor of 10 speedup
+    // dispatch_async applies the function in parallel with gcd. about a factor of 10 speedup
     var y = zeros(x.count)
-    dispatch_async(dispatch_get_main_queue(), {
+    //dispatch_async(dispatch_get_main_queue(), {
         for i in 0..<x.count{
             y[i] = function(x[i])
         }
-    })
+    //})
     return y
 }
 func apply_function(function: String, x: ndarray)->ndarray{
