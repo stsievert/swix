@@ -26,5 +26,8 @@ void sign_objc(double* x, double* y, int N);
 void cumsum_objc(double* x, double* y, int N);
 void rand_objc(double* x, int N, int seedS, int type);
 void sum_2d_objc(double* x, double* y, int dim, int M, int N);
+void test();
+void eig_objc(double* x, double* value_real, double* value_imag, double* vector, int N);
+
 
 

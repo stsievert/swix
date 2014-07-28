@@ -19,13 +19,11 @@
  *
  *
  */
-// parallization included in index_xa_b and apply_function(ndarray). could cause nasty bugs
-// TODO: include eig
-
 
 import Foundation
 runTests()
 
+test()
 
 
 

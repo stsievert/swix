@@ -104,6 +104,18 @@ void inv_objc(double * x, long M, long N){
     free(work);
     free(ipiv);
 }
+void eig_objc(double* x, double* value_real, double* value_imag, double* vector, int N){
+    // doesn't match python. return correct eigenvalues but not eigenvectors
+    double * work = (double*)malloc(sizeof(double) * N * N); // N
+    int lwork = 4*N;
+    int info = 1;
+    char jobvl  = 'V';
+    char jobvr = 'N';
+    work[0] = lwork;
+    dgeev_(&jobvl, &jobvr, &N, x, &N, // 5
+           value_real, value_imag, vector, &N, vector, &N, // 11
+           work, &lwork, &info);
+}
 
 
 

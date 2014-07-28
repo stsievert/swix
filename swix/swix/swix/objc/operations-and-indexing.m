@@ -9,6 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
 #import <stdint.h>
+void test(){
+    int N = 10;
+    double * x = (double*)malloc(sizeof(double) * N);
+    double * y = (double*)malloc(sizeof(double) * N);
+    for (int i=0; i<N; i++){ x[i] = i; y[i] = 0;}
+    
+    dispatch_apply(N, dispatch_get_global_queue(0, 0), ^(size_t i){
+        y[i] = 1 / (x[i]+1);
+    });
+//    for (int i=0; i<N; i++){printf("%.2f, ", y[i]);}
+//    printf("\n");
+    
+}
 
 // UNOPTIMIZED
 void mod_objc(double * x, double mod, double * y, int N){

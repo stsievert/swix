@@ -3,12 +3,12 @@ Apple's Swift is a high level language that's *asking* for some numerical
 library to perform computation *fast* or at the very least *easily*. This is a
 bare-bones wrapper for that library.
 
-
 A way to have iOS run high-level code similar to Python or Matlab is something
 I've been waiting for, and am incredibly excited to see the results. This will
 make porting complex signal processing algorithms to C *much* easier. Porting
 from Python/MATLAB to C was (and is) a pain in the butt, and this library aims
-to make the Python/MATLAB to iOS conversion *simple.*
+to make the conversion between a Python/Matlab algorithm and a mobile app
+*simple.*
 
 As an example, here's some Objective-C sample code that utilizes the
 [Accelerate framework][accel]:
@@ -54,10 +54,6 @@ var y = ones(N) * phi
 var result = (x+y+4)*x
 ```
 
-While this library is basic, I expect something like [NumPy][numpy] to be
-released: a mathematical library that includes more than you would ever
-possibly need. 
-
 In most cases, this library calls [Accelerate][accel] or [OpenCV][opencv]. I
 optimized what I needed to, meaning all operators and select mathematical
 functions are fast while the functions I didn't need are slow. If you want to
@@ -70,9 +66,9 @@ Currently, this library gives you
 
 * operators (+, etc) and various functions (sin, etc) that operate on entire arrays
 * easy initializers for 1D and 2D arrays
-* dot product, matrix inversion, solution to linear system of equations
+* dot product, matrix inversion, eigenvalues, etc
 * machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
-* One dimensional Fourier transforms
+* one dimensional Fourier transforms
 * speed optimization for operators/select simple functions/all complex functions
 
 When I was crafting this library, I primarily followed the footsteps and
@@ -102,10 +98,10 @@ documentation][swix-doc]
 [ais]:https://github.com/haginile/SwiftAccelerate
 
 ## Features to be added
+* speeding up `x[0..<2, 0..<2] = ones((2,2))`; I need to work out GCD.
 * `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
   `var y:matrix = x[0..<5]`. I'll leave it be for now.
-* speeding up `x[0..<2, 0..<2] = ones((2,2))`; I asked an [SO question][so]
-* cocoapods
+* cocoapods. Tried but unsuccessful.
 
 [so]:http://stackoverflow.com/q/24727674/1141256
 [opencv]:http://opencv.org

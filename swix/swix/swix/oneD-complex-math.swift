@@ -22,6 +22,5 @@ func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     var N = yr.n
     var x = zeros(N)
     ifft_objc(!yr, !yi, N.cint, !x);
-
     return x
 }

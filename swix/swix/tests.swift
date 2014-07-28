@@ -11,6 +11,7 @@ import Foundation
 class runTests {
     var N:Int
     init(){
+        println("running ~100 tests")
         println("    running many simple tests")
         self.N = 10
         operatorTests()
@@ -115,6 +116,13 @@ class runTests {
             assert((A !/ b) ~== solve(A, b))
             println("    solve works, similar to Matlab's \\ operator (and checked by hand). Be careful -- this only works for nxn matrices")
         }
+        func eig_test(){
+            var x = zeros((3,3))
+            x["diag"] = array(1, 2, 3)
+            var (r, _, _) = eig(x)
+            assert(r ~== array(1, 2, 3))
+            println("    `eig` returns the correct eigenvalues (and not eigenvectors!).")
+        }
         swift_complex_test()
         scalar_test()
         range_test()
@@ -127,6 +135,7 @@ class runTests {
         svm_test()
         inv_test()
         solve_test()
+        eig_test()
     }
     func readWriteTests(){
         var x1 = arange(9).reshape((3,3)) * 2
@@ -212,6 +221,7 @@ class runTests {
         assert(sin(array(1, 2, 3, 4)) ~== array(sin(1), sin(2), sin(3), sin(4)))
         func f(x:Double)->Double {return x+1}
         assert(apply_function(f,arange(100)) ~== (arange(100)+1))
+        
     }
     func operatorTests(){
         // l and o similar to 1 and 0
