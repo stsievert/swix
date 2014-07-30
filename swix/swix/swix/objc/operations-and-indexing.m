@@ -10,17 +10,22 @@
 #import <Accelerate/Accelerate.h>
 #import <stdint.h>
 void test(){
-    int N = 10;
+    int N = 1000;
     double * x = (double*)malloc(sizeof(double) * N);
     double * y = (double*)malloc(sizeof(double) * N);
     for (int i=0; i<N; i++){ x[i] = i; y[i] = 0;}
     
     dispatch_apply(N, dispatch_get_global_queue(0, 0), ^(size_t i){
-        y[i] = 1 / (x[i]+1);
+        y[i] = x[i]+1;
     });
-//    for (int i=0; i<N; i++){printf("%.2f, ", y[i]);}
-//    printf("\n");
     
+    for (int i=0; i<N; i++){
+        double value = x[i]+1 - y[i];
+        if (!(value==0)){
+            printf("%.2e, ", value);
+        }
+    }
+    printf("\n");
 }
 
 // UNOPTIMIZED
@@ -39,15 +44,18 @@ void index_xa_b_objc(double* x, double* a, double* b, int N){
 }
 
 void sum_2d_objc(double* x, double* y, int dim, int M, int N){
-    int max = dim==0 ? N : M;
-    
+    int max      = dim==0 ? N : M;
     int stride   = max==M ? N : 1;
     int max_iter = max==M ? N : M;
     int start    = max==M ? 1 : N;
+    // 2.4s without dispatch_apply
+    // 1.2s with
     
-    for (int i=0; i<max_iter; i++){
+    dispatch_apply(max_iter, dispatch_get_global_queue(0, 0), ^(size_t i){
+//    for (int i=0; i<max_iter; i++){
         vDSP_sveD(x+start*i, stride, y+i, max);
-    }
+//    }
+    });
 }
 
 

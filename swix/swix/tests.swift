@@ -172,6 +172,8 @@ class runTests {
         var d3 = dot(x, y)
         assert(d1 ~== d2)
         assert(d1 ~== d3)
+        
+        assert(sum(x, dim:1) ~== array(0+3+6, 9+3, 9+6))
     }
     func functionTests(){
         var x = array(-1, 0, 1)

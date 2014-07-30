@@ -64,8 +64,6 @@ func array(matlab_like_string: String)->matrix{
     }
     return x
 }
-
-
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     // docs need to be written on this
     var x = String.stringWithContentsOfFile(prefix+filename, encoding: NSUTF8StringEncoding, error: nil)
@@ -101,13 +99,7 @@ func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
         println("File probably wasn't recognized \n\(error)")
     }
 }
-func savefig(x:matrix, filename:String){
-    // prefix should point to the swix folder!
-    // prefix is defined in numbers.swift
-    write_csv(x, filename:"temp.csv")
-    system("cd "+S2_PREFIX+"; ~/anaconda/bin/ipython " + "imshow.py " + filename)
-    system("rm "+S2_PREFIX+"temp.csv")
-}
+
 
 
 
