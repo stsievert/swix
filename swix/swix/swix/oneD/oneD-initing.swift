@@ -33,9 +33,9 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     return x
 }
 func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
-    var x = zeros(num+1)
+    var x = zeros(num+0)
     var xP = matrixToPointer(x)
-    linspace_objc(xP, num.cint, min.cdouble, ((max-min)/num).double)
+    linspace_objc(xP, num.cint, min.cdouble, ((max-min)/(num-1)).double)
     return x
 }
 func array(numbers: Double...) -> ndarray{
