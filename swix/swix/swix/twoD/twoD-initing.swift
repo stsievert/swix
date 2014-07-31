@@ -66,7 +66,7 @@ func array(matlab_like_string: String)->matrix{
 }
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     // docs need to be written on this
-    var x = String.stringWithContentsOfFile(prefix+filename, encoding: NSUTF8StringEncoding, error: nil)
+    var x = String.stringWithContentsOfFile(prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
     var y = x!.componentsSeparatedByString("\n")
     var rows = y.count-1
     var array:[Double] = []
@@ -94,7 +94,7 @@ func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
         str += "\n"
     }
     var error:NSError?
-    str.writeToFile(prefix+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
+    str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
     if let error=error{
         println("File probably wasn't recognized \n\(error)")
     }

@@ -109,7 +109,7 @@ void eig_objc(double* x, double* value_real, double* value_imag, double* vector,
     double * work = (double*)malloc(sizeof(double) * N * N); // N
     int lwork = 4*N;
     int info = 1;
-    char jobvl  = 'V';
+    char jobvl  = 'N';
     char jobvr = 'N';
     work[0] = lwork;
     dgeev_(&jobvl, &jobvr, &N, x, &N, // 5

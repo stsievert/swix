@@ -66,7 +66,7 @@ func savefig(x:matrix, filename:String){
     // prefix is defined in numbers.swift
     // assumes python is on your path
     write_csv(x, filename:"temp.csv")
-    system("cd "+S2_PREFIX+"; ~/anaconda/bin/ipython " + "imshow.py " + filename)
+    system("cd "+S2_PREFIX+"; "+PYTHON_PATH + " imshow.py " + filename)
     system("rm "+S2_PREFIX+"temp.csv")
 }
 

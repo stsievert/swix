@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-// UNOPTIMIZED: the functions that apply a given function to each row or column.
+// UNOPTIMIZED: cumsum
 
 func apply_function(function: ndarray->ndarray, x: matrix)->matrix{
     var y = function(x.flat)
@@ -97,24 +97,11 @@ func sum(x: matrix, dim:Int = -1) -> ndarray{
         return (m *! x).flat
     }
 }
-// the functions below all need dim arguments; I have to think some more about how to optimize that
-
-//func avg(x: matrix) -> Double{
-//    var y: Double = sum(x)
-//    
-//    return y / x.count.double
-//}
-//func std(x: matrix) -> Double{
-//    var y: Double = avg(x)
-//    var z = x - y
-//    return sqrt(sum(pow(z, 2) / x.count.double))
-//}
-///// variance used since var is a keyword
-//func variance(x: matrix) -> Double{
-//    var y: Double = avg(x)
-//    var z = x - y
-//    return sum(pow(z, 2) / x.count.double)
-//}
+func avg(x:matrix, dim:Int = -1) -> ndarray{
+    assert(dim==0 || dim==1, "If you want to find the average of the whole matrix call `avg(x.flat)`")
+    var div = dim==0 ? x.shape.1 : x.shape.0
+    return sum(x, dim:dim) / div
+}
 
 //func cumsum(x: matrix) -> matrix{
 //    let N = x.count

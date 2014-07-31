@@ -15,8 +15,6 @@ void doubleToFloat(double * x, float * y, int N){
     vDSP_vdpsp(x, 1, y, 1, N);
 }
 
-
-
 // #### STATE VECTOR MACHINE
 @implementation cvSVM : NSObject
 CvSVM ocvSVM;
@@ -31,7 +29,7 @@ void copy_float(float* x, float * y, int N){
 }
 void matToPointer_float(Mat x, float * y, int N){
     if  (!x.isContinuous()){
-        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
+        printf("Careful! The OpenCV::Mat-->float* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
     }
     uchar* ptr = x.data;
     float* ptrD = (float*)ptr;

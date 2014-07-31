@@ -63,7 +63,7 @@ func copy(x: ndarray, y: ndarray){
     cblas_dcopy(x.n.cint, !x, 1.cint, !y, 1.cint)
 }
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
-    var x = String.stringWithContentsOfFile(prefix+filename, encoding: NSUTF8StringEncoding, error: nil)
+    var x = String.stringWithContentsOfFile(prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
     var array:[Double] = []
     var columns:Int = 0
     var z = x!.componentsSeparatedByString(",")
@@ -86,7 +86,7 @@ func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     }
     str += "\n"
     var error:NSError?
-    str.writeToFile(prefix+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
+    str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
     if let error=error{
         println("File probably wasn't recognized \n\(error)")
     }

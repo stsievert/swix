@@ -56,9 +56,8 @@ func solve(A: matrix, b: ndarray) -> ndarray{
     CVWrapper.solve(!A, b:!b, x:!x, m:m.cint, n:n.cint)
     return x
 }
-func eig(x: matrix)->(ndarray, ndarray, matrix){
+func eig(x: matrix)->ndarray{
     // matrix, value, vectors
-    println("!!! Caution. `twoD/twoD-complex-math:eig` returns the correct eigenvalues but not the correct eigenvectors.")
     var (m, n) = x.shape
     assert(m == n, "Input must be square")
     
@@ -70,7 +69,7 @@ func eig(x: matrix)->(ndarray, ndarray, matrix){
     eig_objc(!y, !value_real, !value_imag, !vector, n.cint)
     vector = vector.T
     
-    return (value_real, value_imag, vector)
+    return value_real
 }
 
 

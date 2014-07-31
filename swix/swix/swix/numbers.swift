@@ -9,8 +9,9 @@
 import Foundation
 import Accelerate
 
-// should point to the swif folder
+// should point to the swift folder
 let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
+let PYTHON_PATH = "~/anaconda/bin/ipython"
 
 let pi = 3.1415926535897932384626433832795028841971693993751058
 let π = pi
@@ -56,6 +57,8 @@ extension String {
     }
     var nsstring:NSString {return NSString(string:self)}
 }
+func close(x: Double, y: Double)->Bool{
+    return abs(x-y)<1e-9 ? true : false}
 
 // damn integer division causes headaches
 operator infix / {associativity none precedence 140}
