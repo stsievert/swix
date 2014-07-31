@@ -86,10 +86,16 @@ func norm(x: matrix, type:String="l2") -> Double{
 func sum(x: matrix, dim:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     assert(dim==0 || dim==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")
-    var n = dim==0 ? x.shape.0 : x.shape.1;
-    var z = zeros(n)
-    sum_2d_objc(!x, !z, dim.cint, x.shape.0.cint, x.shape.1.cint)
-    return(z)
+    if dim==0{
+        var n = x.shape.1
+        var m = ones((n,1))
+        return (x *! m).flat
+    }
+    else {
+        var n = x.shape.0
+        var m = ones((1,n))
+        return (m *! x).flat
+    }
 }
 // the functions below all need dim arguments; I have to think some more about how to optimize that
 
