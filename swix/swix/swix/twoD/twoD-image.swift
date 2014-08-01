@@ -60,14 +60,17 @@ func rgb2hsv(r:matrix, g:matrix, b:matrix)->(matrix, matrix, matrix){
 }
 
 
-func savefig(x:matrix, filename:String){
+func savefig(x:matrix, filename:String, save:Bool=true, show:Bool=false){
     // assumes Python is on your $PATH and pylab/etc are installed
     // prefix should point to the swix folder!
     // prefix is defined in numbers.swift
     // assumes python is on your path
-    write_csv(x, filename:"temp.csv")
-    system("cd "+S2_PREFIX+"; "+PYTHON_PATH + " imshow.py " + filename)
+    write_csv(x, filename:"swix/temp.csv")
+    system("cd "+S2_PREFIX+"; "+PYTHON_PATH + " imshow.py \(filename) \(save) \(show)")
     system("rm "+S2_PREFIX+"temp.csv")
+}
+func imshow(x: matrix){
+    savefig(x, "junk", save:false, show:true)
 }
 
 

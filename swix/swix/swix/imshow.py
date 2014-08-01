@@ -1,18 +1,30 @@
 from __future__ import division
-from pylab import *
+import pylab as p
 from pandas import read_csv
 import sys
 
 """
-Usage: python imshow.py filename.png
+Usage: python imshow.py filename.png shouldSave shouldShow
 """
 
-filename = sys.argv[1]
-x = read_csv("temp.csv", header=None)
-x = asarray(x)
+def str2bool(string):
+    """ 
+    Only true if string is one of "yes", "true", "t", "1". Returns false
+    otherwise.
+    """
+    return string.lower() in ("yes", "true", "t", "1")
 
-figure()
-imshow(x, interpolation='nearest')
-tight_layout()
-colorbar()
-savefig('../'+filename, dpi=300)
+filename = sys.argv[1]
+shouldSave = str2bool(sys.argv[2])
+shouldShow = str2bool(sys.argv[3])
+
+x = read_csv("temp.csv", header=None)
+x = p.asarray(x)
+
+p.figure()
+p.imshow(x, interpolation='nearest')
+p.tight_layout()
+p.colorbar()
+
+if shouldShow: p.show()
+if shouldSave: p.savefig('../'+filename, dpi=300)
