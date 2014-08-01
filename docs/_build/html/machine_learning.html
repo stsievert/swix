@@ -99,6 +99,21 @@ x = ones((4,2))
 println(&quot;    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)&quot;)
 </pre></div>
 </div>
+<div class="highlight-python"><div class="highlight"><pre>var x_train:matrix = read_csv(&quot;python_testing/csvs/x_train.csv&quot;)
+var y_train:ndarray = read_csv(&quot;python_testing/csvs/y_train.csv&quot;)
+
+var x_test:matrix = read_csv(&quot;python_testing/csvs/x_test.csv&quot;)
+
+var svm = SVM()
+svm.train(x_train, y_train)
+var yhat = svm.predict(x_test)
+
+// how accurate are we?
+var y_test:ndarray = read_csv(&quot;python_testing/csvs/y_test.csv&quot;)
+var percent_correct:Double = argwhere(abs(y_test - yhat) &lt; 0.5).n / yhat.n
+println(percent_correct) // about 94% accurate
+</pre></div>
+</div>
 </div>
 </div>
 

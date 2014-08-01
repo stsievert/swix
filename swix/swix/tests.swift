@@ -216,6 +216,9 @@ class runTests {
         assert(x.max() == max(x))
         assert(x.max() == 1)
         
+//        assert(x.copy() == copy(x))
+        assert(x.copy() ~== array(-1, 0, 1))
+        
         var z = array(-3, -2, -1, 0, 1, 2, 3)
         assert(z[argwhere(z < 0)] ~== array(-3, -2, -1))
         assert((z < 0) ~== array(1, 1, 1, 0, 0, 0, 0))

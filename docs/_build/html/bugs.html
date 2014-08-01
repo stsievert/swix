@@ -68,6 +68,12 @@ this.</p>
 <tt class="docutils literal"><span class="pre">argwhere(abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9)</span></tt> to see where the individual entries are equal.</p>
 </li>
 </ul>
+<div class="section" id="beta-bugs">
+<h2>Beta bugs<a class="headerlink" href="#beta-bugs" title="Permalink to this headline">¶</a></h2>
+<p>For some reason Xcode can&#8217;t link to the Accelerate framework from the iOS
+simulator, meaning that swix applications only run on physical devices. It
+gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
+</div>
 <div class="section" id="matlab-and-swix-differences">
 <h2>Matlab and swix differences<a class="headerlink" href="#matlab-and-swix-differences" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -75,6 +81,9 @@ this.</p>
 <li>Swix follow&#8217;s NumPy&#8217;s footprints, meaning if <tt class="docutils literal"><span class="pre">(u,</span> <span class="pre">s,</span> <span class="pre">v)</span> <span class="pre">=</span> <span class="pre">svd(x)</span></tt> then <tt class="docutils literal"><span class="pre">transpose(v_matlab)</span> <span class="pre">==</span> <span class="pre">v_swix</span> <span class="pre">==</span> <span class="pre">v_numpy</span></tt>. Additionally, <tt class="docutils literal"><span class="pre">s</span></tt> is a one dimensional matrix (again like NumPy), not a 2D matrix with only the diagonal non-zero.</li>
 <li>When printing, swix does not check bounds (as of 2014-7-17). e.g., <tt class="docutils literal"><span class="pre">var</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">zeros(2);</span> <span class="pre">println(x[0..&lt;4])</span></tt> will print <tt class="docutils literal"><span class="pre">matrix([0,</span> <span class="pre">0,</span> <span class="pre">&lt;junk&gt;,</span> <span class="pre">&lt;junk&gt;])</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">argwhere</span></tt> is the equivalent of Matlab&#8217;s <tt class="docutils literal"><span class="pre">find</span></tt>. It finds the locations where the input array is 1 (and Matlab finds locations of the <em>non-zero</em> entries).</li>
+<li>The reshape functions works differently in matlab and python. In matlab, it
+reshapes by column order and in python row-order, meaning you have to use
+<tt class="docutils literal"><span class="pre">x.T.reshape((3,3))</span></tt> to get equivalent results.</li>
 </ul>
 </div>
 </div>
@@ -88,6 +97,7 @@ this.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Bugs</a><ul>
+<li><a class="reference internal" href="#beta-bugs">Beta bugs</a></li>
 <li><a class="reference internal" href="#matlab-and-swix-differences">Matlab and swix differences</a></li>
 </ul>
 </li>

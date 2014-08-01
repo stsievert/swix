@@ -55,31 +55,33 @@
 <p>This library contains two types matrix types: a 1D matrix and a 2D matrix. Both
 are indexable through several methods, shown below:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">matrix[0]</span> <span class="pre">=</span> <span class="pre">1</span></tt> for a single element</li>
-<li><tt class="docutils literal"><span class="pre">matrix[0..&lt;5]</span> <span class="pre">=</span> <span class="pre">ones(5)</span></tt> for a several components.</li>
-<li><tt class="docutils literal"><span class="pre">matrix[array(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5)]</span> <span class="pre">=</span> <span class="pre">array(5)</span></tt> also works. Note that floating
+<li><tt class="docutils literal"><span class="pre">ndarray[0]</span> <span class="pre">=</span> <span class="pre">1</span></tt> for a single element</li>
+<li><tt class="docutils literal"><span class="pre">ndarray[0..&lt;5]</span> <span class="pre">=</span> <span class="pre">ones(5)</span></tt> for a several components.</li>
+<li><tt class="docutils literal"><span class="pre">ndarray[array(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5)]</span> <span class="pre">=</span> <span class="pre">array(5)</span></tt> also works. Note that floating
 point values are truncated.</li>
 </ul>
 <p>Similar syntax works for 2D matrices. You can access elements through <tt class="docutils literal"><span class="pre">x[Int,</span>
-<span class="pre">Int]</span> <span class="pre">=</span> <span class="pre">Double</span></tt>, <tt class="docutils literal"><span class="pre">x[Int,</span> <span class="pre">Range]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>, <tt class="docutils literal"><span class="pre">x[Range,</span> <span class="pre">Int]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>,
-<tt class="docutils literal"><span class="pre">x[Range,</span> <span class="pre">Range]</span> <span class="pre">=</span> <span class="pre">matrix2d</span></tt>, <tt class="docutils literal"><span class="pre">x[matrix,</span> <span class="pre">matrix]</span> <span class="pre">=</span> <span class="pre">matrix2d</span></tt> and
-<tt class="docutils literal"><span class="pre">x[matrix]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>. The last entry, <tt class="docutils literal"><span class="pre">x[matrix]</span></tt> accesses the 2D matrix by
+<span class="pre">Int]</span> <span class="pre">=</span> <span class="pre">Double</span></tt>, <tt class="docutils literal"><span class="pre">x[Int,</span> <span class="pre">Range]</span> <span class="pre">=</span> <span class="pre">ndarray</span></tt>, <tt class="docutils literal"><span class="pre">x[Range,</span> <span class="pre">Int]</span> <span class="pre">=</span> <span class="pre">ndarray</span></tt>,
+<tt class="docutils literal"><span class="pre">x[Range,</span> <span class="pre">Range]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt>, <tt class="docutils literal"><span class="pre">x[ndarray,</span> <span class="pre">ndarray]</span> <span class="pre">=</span> <span class="pre">matrix</span></tt> and
+<tt class="docutils literal"><span class="pre">x[ndarray]</span> <span class="pre">=</span> <span class="pre">ndarray</span></tt>. The last entry, <tt class="docutils literal"><span class="pre">x[ndarray]</span></tt> accesses the matrix by
 accessing the flat elements.</p>
-<div class="section" id="matrix1d">
-<h2>matrix1d<a class="headerlink" href="#matrix1d" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ndarray">
+<h2>ndarray<a class="headerlink" href="#ndarray" title="Permalink to this headline">¶</a></h2>
+<p>This stands for &#8220;<span class="math">\(N\)</span> dimensional array&#8221;. It&#8217;s a mix of programming
+language and math language; in math, this is called a vector.</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">n</span></tt> : number of elements in the array.</li>
 <li><tt class="docutils literal"><span class="pre">count</span></tt> : number of elements</li>
 <li><tt class="docutils literal"><span class="pre">grid</span></tt> : the raw <cite>[Double]</cite>. Hopefully you never have to touch this.</li>
 </ul>
 </div>
-<div class="section" id="matrix2d">
-<h2>matrix2d<a class="headerlink" href="#matrix2d" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="matrix">
+<h2>matrix<a class="headerlink" href="#matrix" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">rows,</span> <span class="pre">columns</span></tt> : the number of rows and columns</li>
 <li><tt class="docutils literal"><span class="pre">shape</span> <span class="pre">==</span> <span class="pre">(self.rows,</span> <span class="pre">self.columns)</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">rows</span> <span class="pre">*</span> <span class="pre">columns</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">flat</span></tt> : of type matrix, contains the elements in  <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row major order</a>. It&#8217;s
+<li><tt class="docutils literal"><span class="pre">flat</span></tt> : of type ndarray, contains the elements in  <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row major order</a>. It&#8217;s
 helpful to use <tt class="docutils literal"><span class="pre">x.flat</span></tt> for any function that can be used on a 2D matrix
 (e.g., sum over all the elements)</li>
 </ul>
@@ -113,8 +115,8 @@ two digit numbers or negative numbers; beware!</li>
 <span class="pre">1,</span> <span class="pre">num:</span> <span class="pre">2)</span> <span class="pre">~==</span> <span class="pre">[0,</span> <span class="pre">0.5]</span></tt>.</li>
 <li><tt class="docutils literal"><span class="pre">meshgrid</span></tt> : Similar to <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html">NumPy&#8217;s meshgrid</a>. <tt class="docutils literal"><span class="pre">meshgrid</span></tt> depends on
 OpenCV&#8217;s repeat and may fail for large matrices.</li>
-<li><tt class="docutils literal"><span class="pre">repeat(x:</span> <span class="pre">matrix,</span> <span class="pre">N:int,</span> <span class="pre">how:String=&quot;matrix&quot;)</span></tt> : Repeats a matrix N times.
-If <tt class="docutils literal"><span class="pre">how==&quot;elements&quot;</span></tt>, it repeats the matrix <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></tt> as <tt class="docutils literal"><span class="pre">[0...,</span> <span class="pre">1...,</span>
+<li><tt class="docutils literal"><span class="pre">repeat(x:</span> <span class="pre">ndarray,</span> <span class="pre">N:int,</span> <span class="pre">how:String=&quot;ndarray&quot;)</span></tt> : Repeats a ndarray N times.
+If <tt class="docutils literal"><span class="pre">how==&quot;elements&quot;</span></tt>, it repeats the ndarray <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></tt> as <tt class="docutils literal"><span class="pre">[0...,</span> <span class="pre">1...,</span>
 <span class="pre">2...]</span></tt> instead of <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">...</span></tt>.</li>
 </ul>
 </div>
@@ -159,8 +161,8 @@ assert(x ~== ifft(y_real, y_imag)) // true
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Matrices</a><ul>
-<li><a class="reference internal" href="#matrix1d">matrix1d</a></li>
-<li><a class="reference internal" href="#matrix2d">matrix2d</a></li>
+<li><a class="reference internal" href="#ndarray">ndarray</a></li>
+<li><a class="reference internal" href="#matrix">matrix</a></li>
 <li><a class="reference internal" href="#simple-mathematical-functions">Simple mathematical functions</a></li>
 <li><a class="reference internal" href="#initing">Initing</a></li>
 <li><a class="reference internal" href="#operators">Operators</a></li>

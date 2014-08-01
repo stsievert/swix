@@ -23,12 +23,16 @@ for-loops are
 * argwhere
 * basically all simple math operators (sin, abs, cos, round, randn, cumsum, norm, variance...)
 
+For a speed comparison, in the real-world example I used I found that on the
+computer, this library was ~3-4x slower than Matlab. Going down to iOS resulted
+in another speed drop of ~10x, meaning iOS is very roughly 30-40 times slower
+than Matlab.
 
 Table of Contents
 -----------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    installation
    numbers

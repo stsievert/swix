@@ -63,6 +63,10 @@ for-loops are</p>
 <li>argwhere</li>
 <li>basically all simple math operators (sin, abs, cos, round, randn, cumsum, norm, variance...)</li>
 </ul>
+<p>For a speed comparison, in the real-world example I used I found that on the
+computer, this library was ~3-4x slower than Matlab. Going down to iOS resulted
+in another speed drop of ~10x, meaning iOS is very roughly 30-40 times slower
+than Matlab.</p>
 <div class="section" id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -70,8 +74,8 @@ for-loops are</p>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#matrix1d">matrix1d</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#matrix2d">matrix2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html#ndarray">ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html#matrix">matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matrix.html#simple-mathematical-functions">Simple mathematical functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matrix.html#initing">Initing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matrix.html#operators">Operators</a></li>
@@ -85,14 +89,43 @@ for-loops are</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bugs.html#beta-bugs">Beta bugs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bugs.html#matlab-and-swix-differences">Matlab and swix differences</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="full_docs.html">Full docs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#numbers">numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#ndarray">ndarray</a></li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#matrix">matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#machine-learning">Machine learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="full_docs.html#numbers">numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#constants-defined">Constants defined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#number-elements">Number elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#number-functions">Number functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="full_docs.html#ndarray">ndarray</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#class-elements">Class elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#indexing">Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#helper-functions">Helper functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#initing">Initing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#operators">Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#simple-math">Simple math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#complex-math">Complex math</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="full_docs.html#matrix">matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id3">Class Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id4">Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id5">Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id6">Helper functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id7">Initing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id8">Simple math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id9">Complex Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#images">Images</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="full_docs.html#machine-learning">Machine learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#svm">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_docs.html#knn">kNN</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="full_docs.html#interfacing-with-c">Interfacing with C</a></li>
 </ul>
 </li>

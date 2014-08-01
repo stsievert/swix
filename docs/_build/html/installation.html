@@ -59,7 +59,10 @@
 either copying swix&#8217;s bridging header to your bridging header or <a class="reference external" href="http://stackoverflow.com/a/24102433/1141256">modify
 your Xcode project</a> to find swix&#8217;s header.</li>
 <li>(optional) Change <a class="reference external" href="http://stackoverflow.com/a/24102759/1141256">your compiler optimization flag</a> which can lead to
-<a class="reference external" href="http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test">incredible speed gains</a>.</li>
+<a class="reference external" href="http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test">incredible speed gains</a>. Be careful &#8211; this skips <tt class="docutils literal"><span class="pre">assert</span></tt>. I would
+recommend testing with <tt class="docutils literal"><span class="pre">-Onone</span></tt> before switching.</li>
+<li>(optional) If you plan on using read_csv, write_csv or savefig, you need to
+change the <tt class="docutils literal"><span class="pre">S2_PREFIX</span></tt> in <tt class="docutils literal"><span class="pre">numbers.swift</span></tt></li>
 </ol>
 </div>
 

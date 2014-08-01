@@ -21,7 +21,7 @@ Constants defined
 * S2_PREFIX: Used for read_csv, write_csv and savefig. Should point to the swix
   folder. For me, ``S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"``
 * PYTHON_PATH: Your path to Python. Assumes you have matplotlib/numpy/pylab
-  science stack installed; for me, ``PYTHON_PATH = ~/anaconda/bin/ipython"
+  science stack installed; for me, ``PYTHON_PATH = ~/anaconda/bin/ipython"``
 
 Number elements
 ----------------

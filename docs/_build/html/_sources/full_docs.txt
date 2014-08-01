@@ -2,9 +2,10 @@
 Full docs
 ================
 
-I'm going to refactor the code and change ``matrix`` to ``ndarray`` and
-``matrix2d`` to ``matrix``. The docs reflect this change; in the meantime, just
-substitute.
+.. toctree::
+   :maxdepth: 3
+
+   full_docs
 
 numbers
 ++++++++++++++
@@ -17,6 +18,10 @@ Constants defined
 * inf  = 1.0 / 0.0
 * DOUBLE_EPSILON: the smallest possible difference between two doubles
 * FLOAT_EPSILON: the smallest possible difference between two floats
+* S2_PREFIX: Used for read_csv, write_csv and savefig. Should point to the swix
+  folder. For me, ``S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"``
+* PYTHON_PATH: Your path to Python. Assumes you have matplotlib/numpy/pylab
+  science stack installed; for me, ``PYTHON_PATH = ~/anaconda/bin/ipython"
 
 Number elements
 ----------------
@@ -40,9 +45,15 @@ ndarray
 Class elements
 ------------
 
-* ``n, Int``. The number of elements.
-* ``count, Int = n``
-* ``grid, [Double]``. The raw array of elements.
+Callable with ``var n = ones(10); n.<element>``
+
+* ``n: Int``. The number of elements.
+* ``count: Int = n``
+* ``grid: [Double]``. The raw array of elements.
+* ``x.min() -> Double`` returns the minimum value
+* ``x.max() -> Double`` returns the maximum value
+* ``x.reshape() -> matrix`` reshapes the matrix; see the function reshape.
+* ``x.copy() -> ndarray`` copies the array.
 
 
 Indexing
@@ -75,22 +86,20 @@ Indexing
         var x = array(1, 2, 3, 4)
         // true: x[0] == 1
 
-Functions
+Helper functions
 -----------
-.. function:: ndarray.reshape(shape) -> matrix
 
-    *shape* : The size of the 2D matrix.
-
-    Also callable with ``reshape(x, (2, 3))``
-
-    ::
-
-        var x = arange(6).reshape((2,3))
-        // true, matlab syntax: x == [0 1 2; 3 4 5]
+.. function:: Int|Int -> Range<Int>
+    
+    0..<5 == 0|5. Used just for Numpy similarity, but I would recommend using
+    0..<4.
+    
 
 .. function:: asmatrix([Double]) -> ndarray
 
     Converts between an array of doubles and an ndarray.
+
+    `TODO: rename to asarray`
 
     ::
 
@@ -109,14 +118,37 @@ Functions
 
     Makes a bunch of zeros like the input array. Only uses shape right now.
 
+.. function:: argwhere(idx: ndarray) -> ndarray{
+
+    Finds the non-zero elements of an ndarray.
+
+    ::
+
+        var x = array(1, 2, 3, 4, 5, 6).reshape((2,3))
+        var y = argwhere(x < 3)
+        assert(y ~== array(0, 1))
+
 Initing
 ------------
 
-.. function:: zeros(Int)->ndarray
+.. function:: reshape(x, shape) -> matrix
+
+    *x* : An ndarray. x.n must equal shape.0 * shape.1
+
+    *shape* : The size of the 2D matrix.
+
+    Also callable with ``x.reshape((2, 3))``
+
+    ::
+
+        var x = arange(6).reshape((2,3))
+        // matlab syntax: x == [0 1 2; 3 4 5]
+
+.. function:: zeros(N:Int)->ndarray
 
     Return an array with N elements and filled with zeros
 
-.. function:: ones(Int)->ndarray
+.. function:: ones(N:Int)->ndarray
 
     Return an array with N elements and filled with ones
 
@@ -161,24 +193,71 @@ Initing
 
     Copy x into y. Also callable with ``var y = x.copy()``
 
-.. function:: argwhere(idx: ndarray) -> ndarray{
+.. function:: read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray
 
-    Finds the non-zero elements of an ndarray.
+    Read a csv. Meant only for testing on MacOSX and needs an absolute path.
+    Unoptimized; I assume you're not using this while testing.
 
-    ::
+    Reads from the parent folder of S2_PREFIX, presumably the same folder
+    containing ``swix/``
 
-        var x = array(1, 2, 3, 4, 5, 6).reshape((2,3))
-        var y = argwhere(x < 3)
-        assert(y ~== array(0, 1))
+    Oh, and this was tested in Python. It needs an `exact` CSV format. It will
+    take values like ``3.0`` or ``3.0000000E+00`` but needs to have a comma
+    after `every` value, including the last value. It was tested with  ``np.savetxt("y_test.csv", y_test, delimiter=",", newline=",")``
+    
+
+.. function:: write_csv(x:ndarray, #filename:String, prefix:String="/Users/scott/Developer/swix/")
+
+    Again, similar to read_csv. Writes to the parent directory of S2_PREFIX,
+    presumably the same folder as the folder containing ``swix/``
+
+Operators
+-------------
+
+The operators ``+ - * / % += -= *= /= < > <= >= == !==`` all work element-wise and are
+all optimized. They all work similar to Python or C. Note ``!==`` sees where
+two arrays are not *exactly* equal.
+
+``ndarray ^ Double`` calls ``pow(ndarray, Double)``
+
+``==`` and ``!==`` see if every element is `exactly` the same (but they're
+implemented in OpenCV, which is why they're included). I recommend using
+``abs(x-y) < 1e-9`` instead.
+
+The comparison operators are all implemented through OpenCV and rely on the
+array being continuous in memory, which relies on having small input arrays. It
+will print (but not assert) if this is not the case.
+
+
+.. function:: array equality, ~==
+
+    Sees if every element in an array is close because it's incredibly hard to
+    be precise with floats. Specifically, it sees if the difference between
+    every element in two arrays is less that :math:`10^{-9}`, just like
+    ``close``. However, this function is optimized through max, abs, and ``-``.
 
 Simple math
 -------------
+.. function:: min(x: ndarray) -> Double
+
+    Returns the minimum element. Callable with ``min(x)``, also callable with ``x.min()``
+
+.. function:: max(x: ndarray) -> Double
+
+    Returns the maximum element. Callable with ``max(x)``, also callable with ``x.max()``
+
+.. function:: sign(x: ndarray) -> ndarray
+
+    Returns the sign of each element. ie, ``array(-1, 0.1, 1) ~== array(-1, 1,1)``
+
 .. function:: apply_function(function: Double->Double, x: ndarray) -> ndarray
 
     Applies the function to every element of the array.
 
     This is called with sin, cos, tan, sqrt, floor, ceil, round. These are
-    unoptimized and should be optimized.
+    unoptimized and should be optimized. To optimize, we should look at Grand
+    Central Dispatch. However (at least in Xcode6b4) dispatch_apply doesn't seem to apply
+    the function to every element of the output array.
 
 .. function:: apply_function(function: String, x: ndarray) -> ndarray
 
@@ -195,7 +274,7 @@ Simple math
 
     Further optimized functions include
 
-    * std, variance, avg
+    * std, variance, avg, norm
     * rand, randn
     * min, max, sign
 
@@ -223,49 +302,37 @@ Simple math
 
     The l2 norm perform :math:`l_2 = \sqrt{\sum x_i^2}`
 
-    The l1 and l2 norms are optimized through sum and pow. The l0 norm isn't
-    but will be through vDSP_vcmprs
-
-
-Operators
+Complex math
 -------------
+.. function:: fft(x: ndarray) -> (ndarray, ndarray)
 
-The operators ``+ - * / % += -= *= /= < > <= >= == !==`` all work element-wise and are
-all optimized. They all work similar to Python or C. Note ``!==`` sees where
-two arrays are not equal.
+    Returns the Fourier transform of the input. Returns the real array first
+    and the imaginary element second.
 
-``ndarray ^ Double`` calls ``pow(ndarray, Double)``
+.. function:: ifft(y_real: ndarray, y_imag: ndarray) -> ndarray
 
-``==`` and ``!==`` see if every element is `exactly` the same (but they're
-implemented in OpenCV, which is why they're included). I recommend using
-``abs(x-y) < 1e-9`` instead.
-
-The comparison operators are all implemented through OpenCV and rely on the
-array being continuous in memory, which relies on having small input arrays. It
-will print (but not assert) if this is not the case.
-
-
-.. function:: array equality, ~==
-
-    Sees if every element in an array is close because it's incredibly hard to
-    be precise with floats. Specifically, it sees if the difference between
-    every element in two arrays is less that :math:`10^{-9}`, just like
-    ``close``. However, this function is optimized through max, abs, and ``-``.
-
+    Takes the inverse Fourier transform of the real and imaginary inputs.
 
 matrix
 ++++++++++
 Class Elements
 -----------
-* ``rows, Int`` the number of rows
-* ``cols, Int`` the number of columns
-* ``n, Int = row*colums`` the number of elements 
-* ``count, Int = n`` the number of elements 
-* ``shape, (Int, Int) = (rows, columns)`` The shape of the matrix. This
+* ``n: Int = row*colums`` the number of elements 
+* ``rows: Int`` the number of rows
+* ``cols: Int`` the number of columns
+* ``count: Int = n`` the number of elements 
+* ``shape: (Int, Int) = (rows, columns)`` The shape of the matrix. This
   notation is the same as mathematical journal articles (and matlab).
 * ``flat``. The `row-major`_ flat array. Any operation valid for a ndarray is
   valid for this element.
+* ``x.T`` returns the transpose, ``transpose(x)``
+* ``x.I`` returns the inverse, ``inv(x)``
+* ``x.min()`` returns the minimum in the whole matrix
+* ``x.max()`` returns the max of the whole matrix.
+* ``x.copy()`` copies the array
+* ``x.dot(y:matrix)`` `dot product`_ with another y
 
+.. _`dot product`: https://en.wikipedia.org/wiki/Dot_product
 .. _`row-major`: https://en.wikipedia.org/wiki/Row_major
 
 Indexing
@@ -295,7 +362,7 @@ Indexing
 
 .. function:: matrix[ndarray]->ndarray
     
-    Access the matrix as a flat array. Note that it's row-major, not
+    Access the matrix as a flat array. Note that it's `row-major`_, not
     column-major meaning the indexing is like C or Python and not like Matlabs.
 
 .. function:: matrix[Range, Int]->ndarray
@@ -305,6 +372,24 @@ Indexing
 .. function:: matrix[Int, Range]->ndarray
 
     Selects one specific row and different columns.
+
+Operators
+-----------
+
+The operators ``+ - * / += -= *= /= < > <= >= == !==`` call the ndarray
+versions of those operators; they work element-wise.
+
+.. function:: Dot product, *!
+
+    Perform the dot product between the lhs and rhs.
+
+.. function:: Solve, !/
+
+    ``A !/ b`` finds the solution to :math:`Ax = b` by calling OpenCV's solve.
+
+
+Helper functions
+-----------------
 
 .. function:: println(x: matrix2d, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false)
 
@@ -329,42 +414,97 @@ Indexing
     
     Copies x into y. Also callable with ``var y = x.copy()``
 
+Initing
+------------
+
+ones, zeros like the 1D case but take `((rows, columns))` not `elements`
+
+.. function:: eye(N:Int)->matrix
+
+    Return an identity matrix of size N by N.
+
+.. function:: meshgrid(x: ndarray, y: ndarray) -> (matrix, matrix)
+
+    Repeats the every combination of an element in one array with every other
+    element in another array is present. That is, it takes two one dimensional
+    arrays and make two dimensions, similar to NumPy's meshgrid.
+
+    ::
+
+        var x1 = linspace(-1, 1)
+        var y1 = linspace(-1, 1)
+        var (x, y) = meshgrid(x1, y1)
+        var z = x^2 + y^2
+
+
+.. function:: read_csv(filename:String, prefix=S2_PREFIX)->matrix
+
+    Reads a CSV. This is limited and hacked together by Scott.
+
+    `filename`: The `prefix` and `filename` should lead to the file. This
+    filename should be exact: it should start at your root directory, ``/``. For
+    example, my prefix is ``/Users/scott/Developer/swix/swix/swix/``. I can than
+    call this function with ``read_csv("test.csv")`` and the file ``/Users/scott/Developer/swix/swix/swix/test.csv`` gets read.
+
+    This assumes that a valid matrix is given in `exact` CSV format. That is,
+    no trailing and empty lines, no leading and empty lines, no header and
+    every row should have the same number of elements.
+
+    I tested it with ``nan`` and ``inf`` and in both cases it parsed those as ``0``.
+
+    Reads from the folder containing ``swix/``
+
+.. function:: write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX) -> matrix
+
+    Writes a csv. Meant only for testing on MacOSX and needs an absolute path.
+    Unoptimized; I assume you're not using this in production code.
+
+    Writes to the folder containing ``swix/``
+
+    
+
+.. function:: write_csv(x:matrix, #filename:String, prefix:String="/Users/scott/Developer/swix/")
+
+    Again, similar to read_csv
+
+
 Simple math
 -------------
+.. function:: min(x: matrix) -> Double
+
+    Returns the minimum element over the whole matrix, also callable with ``x.min()``
+
+.. function:: max(x: matrix) -> Double
+
+    Returns the maximum element over the whole matrix, also callable with ``x.max()``
+
 .. function:: apply_function(function: ndarray->ndarray, x: matrix)->matrix
 
-    Applies the given function to every element of the array. Called by ``sin, cos, tan, log, abs, sqrt, floor, ceil, round, sign, randn, rand, pow, min, max, norm`` (those function take a matrix and return a matrix).
+    Applies the given function to every element of the array. Called by ``sin, cos, tan, log, abs, sqrt, floor, ceil, round, sign, randn, rand, pow, min, max, norm``; applied element-wise (those function take a matrix and return a matrix).
 
-.. function:: sum(matrix, dim:Int=0)->ndarray
+.. function:: sum(matrix, dim:Int=-1)->ndarray
 
     Performs the sum along the given dimension (through ``dim``). That is, if
     dim==0, all the element in each row will be added up.
 
-    These functions that operate on a whole dimension I need to think about
-    more. They're slow right now (native Swift for-loops). I'll probably call C
-    to speed them up -- I don't think BLAS/LAPACK does this. Or maybe there's
-    another matrix library out there that does this?
+    This function is optimized with a dot product.
 
-Operators
------------
+    If dim is not 0 or 1, call ``sum(x.flat)``.
 
-The operators ``+ - * / += -= *= /= < > <= >= == !==`` call the ndarray
-versions of those operators; they work element-wise.
+.. function:: avg(matrix, dim:Int=-1)->ndarray
 
-.. function:: Dot product, *!
+    Performs the sum along the given dimension (through ``dim``). That is, if
+    dim==0, all the element in each row will be added up.
 
-    Perform the dot product between the lhs and rhs.
+    This function is optimized with a dot product.
 
-.. function:: Solve, !/
-
-    ``A !/ b`` finds the solution to :math:`Ax = b` by calling OpenCV's solve.
 
 
 Complex Math
 -------------------
 .. function:: svd(x: matrix) → (matrix, ndarray, matrix)
     
-    Performs the SVD on the matrix. Tested against Python for fat, skinny and
+    Performs the SVD on the matrix. Tested against Python for fat, tall and
     square matrices.
 
 .. function:: inv(x: matrix) -> matrix
@@ -375,6 +515,27 @@ Complex Math
 .. function:: solve(A:matrix, b:ndarray)->ndarray
 
     Solve :math:`Ax = b` and returns x. Calls OpenCV's solve.
+
+.. function:: eig(x: matrix)->ndarray
+
+    Computes the real eigenvalues for a given array. Imaginary eigenvalues and
+    the eigenvectors are both ignored. I tried to compute the eigenvectors but
+    LAPACK and Python's output differed even though they said they were using
+    the same function.
+
+Images
+-------------
+.. function:: rgb2hsv(r:matrix, g:matrix, b:matrix)->(matrix, matrix, matrix)
+
+    Converts the RGB color planes to HSV. Tested against wikipedias `HSL and
+    HSL`_ page. Under the examples on that page, returns H, S_HSV and V.
+
+.. _`HSV and HSL`: https://en.wikipedia.org/wiki/HSV_and_HSL
+
+.. function:: savefig(x:matrix, filename:String)
+
+    Saves a figure using the python script imshow.py. Assumes that
+    matplotlib/pylab can be found on PYTHON_PATH.
 
 
 Machine learning
@@ -395,7 +556,8 @@ The `support vector machine`_. Implemented through OpenCV.
     var y = array(0, 1, 2, 3)
 
     svm.train(x, targets:y)
-    var z = svm.predict(array(2, 3))
+    var z1:Double = svm.predict(array(2, 3))
+    var z2:ndarray = svm.predict(arange(4).reshape((2,2)))
     assert(z == y[1])
 
 
@@ -442,6 +604,7 @@ Use ``Int(3).cint`` to pass 3 to a C function; likewise for Float and Double.
 
 .. function:: address operator, !
 
-    Works for both ndarray and matrix. Calls matrixToPointer
+    Works for both ndarray and matrix. Calls matrixToPointer. Converts a matrix
+    to a to ``double *``.
 
 

@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="next" title="Full docs" href="" />
     <link rel="prev" title="Bugs" href="bugs.html" /> 
   </head>
   <body>
@@ -34,6 +35,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="#" title="Full docs"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="bugs.html" title="Bugs"
              accesskey="P">previous</a> |</li>
@@ -48,9 +52,46 @@
             
   <div class="section" id="full-docs">
 <h1>Full docs<a class="headerlink" href="#full-docs" title="Permalink to this headline">¶</a></h1>
-<p>I&#8217;m going to refactor the code and change <tt class="docutils literal"><span class="pre">matrix</span></tt> to <tt class="docutils literal"><span class="pre">ndarray</span></tt> and
-<tt class="docutils literal"><span class="pre">matrix2d</span></tt> to <tt class="docutils literal"><span class="pre">matrix</span></tt>. The docs reflect this change; in the meantime, just
-substitute.</p>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Full docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#numbers">numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constants-defined">Constants defined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#number-elements">Number elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#number-functions">Number functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ndarray">ndarray</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#class-elements">Class elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexing">Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#helper-functions">Helper functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initing">Initing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operators">Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-math">Simple math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complex-math">Complex math</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matrix">matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Class Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Helper functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Initing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Simple math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Complex Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#images">Images</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#machine-learning">Machine learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#svm">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#knn">kNN</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interfacing-with-c">Interfacing with C</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="numbers">
 <h2>numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="constants-defined">
@@ -62,6 +103,10 @@ substitute.</p>
 <li>inf  = 1.0 / 0.0</li>
 <li>DOUBLE_EPSILON: the smallest possible difference between two doubles</li>
 <li>FLOAT_EPSILON: the smallest possible difference between two floats</li>
+<li>S2_PREFIX: Used for read_csv, write_csv and savefig. Should point to the swix
+folder. For me, <tt class="docutils literal"><span class="pre">S2_PREFIX</span> <span class="pre">=</span> <span class="pre">&quot;\(NSHomeDirectory())/Developer/swix/swix/swix/swix/&quot;</span></tt></li>
+<li>PYTHON_PATH: Your path to Python. Assumes you have matplotlib/numpy/pylab
+science stack installed; for me, <a href="#id1"><span class="problematic" id="id2">``</span></a>PYTHON_PATH = ~/anaconda/bin/ipython&#8221;</li>
 </ul>
 </div>
 <div class="section" id="number-elements">
@@ -86,10 +131,15 @@ Use this when interfacing with C; I use <tt class="docutils literal"><span class
 <h2>ndarray<a class="headerlink" href="#ndarray" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="class-elements">
 <h3>Class elements<a class="headerlink" href="#class-elements" title="Permalink to this headline">¶</a></h3>
+<p>Callable with <tt class="docutils literal"><span class="pre">var</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">ones(10);</span> <span class="pre">n.&lt;element&gt;</span></tt></p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">n,</span> <span class="pre">Int</span></tt>. The number of elements.</li>
-<li><tt class="docutils literal"><span class="pre">count,</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">n</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">grid,</span> <span class="pre">[Double]</span></tt>. The raw array of elements.</li>
+<li><tt class="docutils literal"><span class="pre">n:</span> <span class="pre">Int</span></tt>. The number of elements.</li>
+<li><tt class="docutils literal"><span class="pre">count:</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">n</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">grid:</span> <span class="pre">[Double]</span></tt>. The raw array of elements.</li>
+<li><tt class="docutils literal"><span class="pre">x.min()</span> <span class="pre">-&gt;</span> <span class="pre">Double</span></tt> returns the minimum value</li>
+<li><tt class="docutils literal"><span class="pre">x.max()</span> <span class="pre">-&gt;</span> <span class="pre">Double</span></tt> returns the maximum value</li>
+<li><tt class="docutils literal"><span class="pre">x.reshape()</span> <span class="pre">-&gt;</span> <span class="pre">matrix</span></tt> reshapes the matrix; see the function reshape.</li>
+<li><tt class="docutils literal"><span class="pre">x.copy()</span> <span class="pre">-&gt;</span> <span class="pre">ndarray</span></tt> copies the array.</li>
 </ul>
 </div>
 <div class="section" id="indexing">
@@ -129,23 +179,20 @@ Use this when interfacing with C; I use <tt class="docutils literal"><span class
 </dd></dl>
 
 </div>
-<div class="section" id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="helper-functions">
+<h3>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="ndarray.reshape">
-<tt class="descclassname">ndarray.</tt><tt class="descname">reshape</tt><big>(</big><em>shape</em><big>)</big> &rarr; matrix<a class="headerlink" href="#ndarray.reshape" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>shape</em> : The size of the 2D matrix.</p>
-<p>Also callable with <tt class="docutils literal"><span class="pre">reshape(x,</span> <span class="pre">(2,</span> <span class="pre">3))</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre>var x = arange(6).reshape((2,3))
-// true, matlab syntax: x == [0 1 2; 3 4 5]
-</pre></div>
-</div>
+<dt>
+<tt class="descname">Int|Int -&gt; Range&lt;Int&gt;</tt></dt>
+<dd><p>0..&lt;5 == 0|5. Used just for Numpy similarity, but I would recommend using
+0..&lt;4.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="asmatrix">
 <tt class="descname">asmatrix</tt><big>(</big><span class="optional">[</span><em>Double</em><span class="optional">]</span><big>)</big> &rarr; ndarray<a class="headerlink" href="#asmatrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts between an array of doubles and an ndarray.</p>
+<p><cite>TODO: rename to asarray</cite></p>
 <div class="highlight-python"><div class="highlight"><pre>var x = [0.0, pi, phi]
 var y = asmatrix(x)
 
@@ -167,18 +214,41 @@ var y = asmatrix(x)
 <dd><p>Makes a bunch of zeros like the input array. Only uses shape right now.</p>
 </dd></dl>
 
+<dl class="function">
+<dt id="argwhere">
+<tt class="descname">argwhere</tt><big>(</big><em>idx: ndarray</em><big>)</big> &rarr; ndarray{<a class="headerlink" href="#argwhere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the non-zero elements of an ndarray.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4, 5, 6).reshape((2,3))
+var y = argwhere(x &lt; 3)
+assert(y ~== array(0, 1))
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 <div class="section" id="initing">
 <h3>Initing<a class="headerlink" href="#initing" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
+<dt id="reshape">
+<tt class="descname">reshape</tt><big>(</big><em>x</em>, <em>shape</em><big>)</big> &rarr; matrix<a class="headerlink" href="#reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>x</em> : An ndarray. x.n must equal shape.0 * shape.1</p>
+<p><em>shape</em> : The size of the 2D matrix.</p>
+<p>Also callable with <tt class="docutils literal"><span class="pre">x.reshape((2,</span> <span class="pre">3))</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre>var x = arange(6).reshape((2,3))
+// matlab syntax: x == [0 1 2; 3 4 5]
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="zeros">
-<tt class="descname">zeros</tt><big>(</big><em>Int</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#zeros" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">zeros</tt><big>(</big><em>N:Int</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#zeros" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an array with N elements and filled with zeros</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="ones">
-<tt class="descname">ones</tt><big>(</big><em>Int</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#ones" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ones</tt><big>(</big><em>N:Int</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#ones" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an array with N elements and filled with ones</p>
 </dd></dl>
 
@@ -230,25 +300,75 @@ var z = repeat(x, 2, how:&quot;elements&quot;) // ~== array(0, 0, 1, 1, 2, 2)
 </dd></dl>
 
 <dl class="function">
-<dt id="argwhere">
-<tt class="descname">argwhere</tt><big>(</big><em>idx: ndarray</em><big>)</big> &rarr; ndarray{<a class="headerlink" href="#argwhere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the non-zero elements of an ndarray.</p>
-<div class="highlight-python"><div class="highlight"><pre>var x = array(1, 2, 3, 4, 5, 6).reshape((2,3))
-var y = argwhere(x &lt; 3)
-assert(y ~== array(0, 1))
-</pre></div>
+<dt id="read_csv">
+<tt class="descname">read_csv</tt><big>(</big><em>filename:String</em>, <em>prefix:String=S2_PREFIX</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#read_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a csv. Meant only for testing on MacOSX and needs an absolute path.
+Unoptimized; I assume you&#8217;re not using this while testing.</p>
+<p>Reads from the parent folder of S2_PREFIX, presumably the same folder
+containing <tt class="docutils literal"><span class="pre">swix/</span></tt></p>
+<p>Oh, and this was tested in Python. It needs an <cite>exact</cite> CSV format. It will
+take values like <tt class="docutils literal"><span class="pre">3.0</span></tt> or <tt class="docutils literal"><span class="pre">3.0000000E+00</span></tt> but needs to have a comma
+after <cite>every</cite> value, including the last value. It was tested with  <tt class="docutils literal"><span class="pre">np.savetxt(&quot;y_test.csv&quot;,</span> <span class="pre">y_test,</span> <span class="pre">delimiter=&quot;,&quot;,</span> <span class="pre">newline=&quot;,&quot;)</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="write_csv">
+<tt class="descname">write_csv</tt><big>(</big><em>x:ndarray</em>, <em>#filename:String</em>, <em>prefix:String=&quot;/Users/scott/Developer/swix/&quot;</em><big>)</big><a class="headerlink" href="#write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Again, similar to read_csv. Writes to the parent directory of S2_PREFIX,
+presumably the same folder as the folder containing <tt class="docutils literal"><span class="pre">swix/</span></tt></p>
+</dd></dl>
+
 </div>
+<div class="section" id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> all work element-wise and are
+all optimized. They all work similar to Python or C. Note <tt class="docutils literal"><span class="pre">!==</span></tt> sees where
+two arrays are not <em>exactly</em> equal.</p>
+<p><tt class="docutils literal"><span class="pre">ndarray</span> <span class="pre">^</span> <span class="pre">Double</span></tt> calls <tt class="docutils literal"><span class="pre">pow(ndarray,</span> <span class="pre">Double)</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!==</span></tt> see if every element is <cite>exactly</cite> the same (but they&#8217;re
+implemented in OpenCV, which is why they&#8217;re included). I recommend using
+<tt class="docutils literal"><span class="pre">abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9</span></tt> instead.</p>
+<p>The comparison operators are all implemented through OpenCV and rely on the
+array being continuous in memory, which relies on having small input arrays. It
+will print (but not assert) if this is not the case.</p>
+<dl class="function">
+<dt>
+<tt class="descname">array equality, ~==</tt></dt>
+<dd><p>Sees if every element in an array is close because it&#8217;s incredibly hard to
+be precise with floats. Specifically, it sees if the difference between
+every element in two arrays is less that <span class="math">\(10^{-9}\)</span>, just like
+<tt class="docutils literal"><span class="pre">close</span></tt>. However, this function is optimized through max, abs, and <tt class="docutils literal"><span class="pre">-</span></tt>.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="simple-math">
 <h3>Simple math<a class="headerlink" href="#simple-math" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
+<dt id="min">
+<tt class="descname">min</tt><big>(</big><em>x: ndarray</em><big>)</big> &rarr; Double<a class="headerlink" href="#min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the minimum element. Callable with <tt class="docutils literal"><span class="pre">min(x)</span></tt>, also callable with <tt class="docutils literal"><span class="pre">x.min()</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="max">
+<tt class="descname">max</tt><big>(</big><em>x: ndarray</em><big>)</big> &rarr; Double<a class="headerlink" href="#max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the maximum element. Callable with <tt class="docutils literal"><span class="pre">max(x)</span></tt>, also callable with <tt class="docutils literal"><span class="pre">x.max()</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sign">
+<tt class="descname">sign</tt><big>(</big><em>x: ndarray</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the sign of each element. ie, <tt class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0.1,</span> <span class="pre">1)</span> <span class="pre">~==</span> <span class="pre">array(-1,</span> <span class="pre">1,1)</span></tt></p>
+</dd></dl>
+
+<dl class="function">
 <dt id="apply_function">
 <tt class="descname">apply_function</tt><big>(</big><em>function: Double-&gt;Double</em>, <em>x: ndarray</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#apply_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies the function to every element of the array.</p>
 <p>This is called with sin, cos, tan, sqrt, floor, ceil, round. These are
-unoptimized and should be optimized.</p>
+unoptimized and should be optimized. To optimize, we should look at Grand
+Central Dispatch. However (at least in Xcode6b4) dispatch_apply doesn&#8217;t seem to apply
+the function to every element of the output array.</p>
 </dd></dl>
 
 <dl class="function">
@@ -268,7 +388,7 @@ unoptimized and should be optimized.</p>
 <div><p>Alerts you using <tt class="docutils literal"><span class="pre">assert</span></tt> if function name is not known.</p>
 <p>Further optimized functions include</p>
 <ul class="simple">
-<li>std, variance, avg</li>
+<li>std, variance, avg, norm</li>
 <li>rand, randn</li>
 <li>min, max, sign</li>
 </ul>
@@ -302,51 +422,49 @@ will assert(false) if it&#8217;s not).</p>
 <p>The l0 norm counts non-zero elements.</p>
 <p>The l1 norm performs <span class="math">\(l_1 = \sum \left| x_i \right|\)</span></p>
 <p>The l2 norm perform <span class="math">\(l_2 = \sqrt{\sum x_i^2}\)</span></p>
-<p>The l1 and l2 norms are optimized through sum and pow. The l0 norm isn&#8217;t
-but will be through vDSP_vcmprs</p>
 </dd></dl>
 
 </div>
-<div class="section" id="operators">
-<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
-<p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> all work element-wise and are
-all optimized. They all work similar to Python or C. Note <tt class="docutils literal"><span class="pre">!==</span></tt> sees where
-two arrays are not equal.</p>
-<p><tt class="docutils literal"><span class="pre">ndarray</span> <span class="pre">^</span> <span class="pre">Double</span></tt> calls <tt class="docutils literal"><span class="pre">pow(ndarray,</span> <span class="pre">Double)</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!==</span></tt> see if every element is <cite>exactly</cite> the same (but they&#8217;re
-implemented in OpenCV, which is why they&#8217;re included). I recommend using
-<tt class="docutils literal"><span class="pre">abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9</span></tt> instead.</p>
-<p>The comparison operators are all implemented through OpenCV and rely on the
-array being continuous in memory, which relies on having small input arrays. It
-will print (but not assert) if this is not the case.</p>
+<div class="section" id="complex-math">
+<h3>Complex math<a class="headerlink" href="#complex-math" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt>
-<tt class="descname">array equality, ~==</tt></dt>
-<dd><p>Sees if every element in an array is close because it&#8217;s incredibly hard to
-be precise with floats. Specifically, it sees if the difference between
-every element in two arrays is less that <span class="math">\(10^{-9}\)</span>, just like
-<tt class="docutils literal"><span class="pre">close</span></tt>. However, this function is optimized through max, abs, and <tt class="docutils literal"><span class="pre">-</span></tt>.</p>
+<dt id="fft">
+<tt class="descname">fft</tt><big>(</big><em>x: ndarray) -&gt; (ndarray</em>, <em>ndarray</em><big>)</big><a class="headerlink" href="#fft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Fourier transform of the input. Returns the real array first
+and the imaginary element second.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ifft">
+<tt class="descname">ifft</tt><big>(</big><em>y_real: ndarray</em>, <em>y_imag: ndarray</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#ifft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the inverse Fourier transform of the real and imaginary inputs.</p>
 </dd></dl>
 
 </div>
 </div>
 <div class="section" id="matrix">
 <h2>matrix<a class="headerlink" href="#matrix" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Class Elements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Class Elements<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">rows,</span> <span class="pre">Int</span></tt> the number of rows</li>
-<li><tt class="docutils literal"><span class="pre">cols,</span> <span class="pre">Int</span></tt> the number of columns</li>
-<li><tt class="docutils literal"><span class="pre">n,</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">row*colums</span></tt> the number of elements</li>
-<li><tt class="docutils literal"><span class="pre">count,</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">n</span></tt> the number of elements</li>
-<li><tt class="docutils literal"><span class="pre">shape,</span> <span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">=</span> <span class="pre">(rows,</span> <span class="pre">columns)</span></tt> The shape of the matrix. This
+<li><tt class="docutils literal"><span class="pre">n:</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">row*colums</span></tt> the number of elements</li>
+<li><tt class="docutils literal"><span class="pre">rows:</span> <span class="pre">Int</span></tt> the number of rows</li>
+<li><tt class="docutils literal"><span class="pre">cols:</span> <span class="pre">Int</span></tt> the number of columns</li>
+<li><tt class="docutils literal"><span class="pre">count:</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">n</span></tt> the number of elements</li>
+<li><tt class="docutils literal"><span class="pre">shape:</span> <span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">=</span> <span class="pre">(rows,</span> <span class="pre">columns)</span></tt> The shape of the matrix. This
 notation is the same as mathematical journal articles (and matlab).</li>
 <li><tt class="docutils literal"><span class="pre">flat</span></tt>. The <a class="reference external" href="https://en.wikipedia.org/wiki/Row_major">row-major</a> flat array. Any operation valid for a ndarray is
 valid for this element.</li>
+<li><tt class="docutils literal"><span class="pre">x.T</span></tt> returns the transpose, <tt class="docutils literal"><span class="pre">transpose(x)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">x.I</span></tt> returns the inverse, <tt class="docutils literal"><span class="pre">inv(x)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">x.min()</span></tt> returns the minimum in the whole matrix</li>
+<li><tt class="docutils literal"><span class="pre">x.max()</span></tt> returns the max of the whole matrix.</li>
+<li><tt class="docutils literal"><span class="pre">x.copy()</span></tt> copies the array</li>
+<li><tt class="docutils literal"><span class="pre">x.dot(y:matrix)</span></tt> <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> with another y</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>Indexing<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Indexing<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 <tt class="descname">matrix[Int, Int]-&gt;Double</tt></dt>
@@ -377,7 +495,7 @@ assert(x[0..&lt;2, 0..&lt;2] ~== array(0, 1, 3, 4).reshape((2,2)))
 <dl class="function">
 <dt>
 <tt class="descname">matrix[ndarray]-&gt;ndarray</tt></dt>
-<dd><p>Access the matrix as a flat array. Note that it&#8217;s row-major, not
+<dd><p>Access the matrix as a flat array. Note that it&#8217;s <a class="reference external" href="https://en.wikipedia.org/wiki/Row_major">row-major</a>, not
 column-major meaning the indexing is like C or Python and not like Matlabs.</p>
 </dd></dl>
 
@@ -393,6 +511,26 @@ column-major meaning the indexing is like C or Python and not like Matlabs.</p>
 <dd><p>Selects one specific row and different columns.</p>
 </dd></dl>
 
+</div>
+<div class="section" id="id5">
+<h3>Operators<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> call the ndarray
+versions of those operators; they work element-wise.</p>
+<dl class="function">
+<dt>
+<tt class="descname">Dot product, *!</tt></dt>
+<dd><p>Perform the dot product between the lhs and rhs.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">Solve, !/</tt></dt>
+<dd><p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">!/</span> <span class="pre">b</span></tt> finds the solution to <span class="math">\(Ax = b\)</span> by calling OpenCV&#8217;s solve.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h3>Helper functions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 <tt class="descname">println</tt><big>(</big><em>x: matrix2d</em>, <em>prefix:String=&quot;matrix([&quot;</em>, <em>postfix:String=&quot;])&quot;</em>, <em>newline:String=&quot;n&quot;</em>, <em>format:String=&quot;%.3f&quot;</em>, <em>printWholeMatrix:Bool=false</em><big>)</big></dt>
@@ -424,49 +562,103 @@ assert(y ~== array(0, 1))
 </dd></dl>
 
 </div>
-<div class="section" id="id3">
-<h3>Simple math<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Initing<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>ones, zeros like the 1D case but take <cite>((rows, columns))</cite> not <cite>elements</cite></p>
+<dl class="function">
+<dt id="eye">
+<tt class="descname">eye</tt><big>(</big><em>N:Int</em><big>)</big> &rarr; matrix<a class="headerlink" href="#eye" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an identity matrix of size N by N.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="meshgrid">
+<tt class="descname">meshgrid</tt><big>(</big><em>x: ndarray</em>, <em>y: ndarray) -&gt; (matrix</em>, <em>matrix</em><big>)</big><a class="headerlink" href="#meshgrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repeats the every combination of an element in one array with every other
+element in another array is present. That is, it takes two one dimensional
+arrays and make two dimensions, similar to NumPy&#8217;s meshgrid.</p>
+<div class="highlight-python"><div class="highlight"><pre>var x1 = linspace(-1, 1)
+var y1 = linspace(-1, 1)
+var (x, y) = meshgrid(x1, y1)
+var z = x^2 + y^2
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">read_csv</tt><big>(</big><em>filename:String</em>, <em>prefix=S2_PREFIX</em><big>)</big> &rarr; matrix</dt>
+<dd><p>Reads a CSV. This is limited and hacked together by Scott.</p>
+<p><cite>filename</cite>: The <cite>prefix</cite> and <cite>filename</cite> should lead to the file. This
+filename should be exact: it should start at your root directory, <tt class="docutils literal"><span class="pre">/</span></tt>. For
+example, my prefix is <tt class="docutils literal"><span class="pre">/Users/scott/Developer/swix/swix/swix/</span></tt>. I can than
+call this function with <tt class="docutils literal"><span class="pre">read_csv(&quot;test.csv&quot;)</span></tt> and the file <tt class="docutils literal"><span class="pre">/Users/scott/Developer/swix/swix/swix/test.csv</span></tt> gets read.</p>
+<p>This assumes that a valid matrix is given in <cite>exact</cite> CSV format. That is,
+no trailing and empty lines, no leading and empty lines, no header and
+every row should have the same number of elements.</p>
+<p>I tested it with <tt class="docutils literal"><span class="pre">nan</span></tt> and <tt class="docutils literal"><span class="pre">inf</span></tt> and in both cases it parsed those as <tt class="docutils literal"><span class="pre">0</span></tt>.</p>
+<p>Reads from the folder containing <tt class="docutils literal"><span class="pre">swix/</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">write_csv</tt><big>(</big><em>x:matrix</em>, <em>filename:String</em>, <em>prefix:String=S2_PREFIX</em><big>)</big> &rarr; matrix</dt>
+<dd><p>Writes a csv. Meant only for testing on MacOSX and needs an absolute path.
+Unoptimized; I assume you&#8217;re not using this in production code.</p>
+<p>Writes to the folder containing <tt class="docutils literal"><span class="pre">swix/</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">write_csv</tt><big>(</big><em>x:matrix</em>, <em>#filename:String</em>, <em>prefix:String=&quot;/Users/scott/Developer/swix/&quot;</em><big>)</big></dt>
+<dd><p>Again, similar to read_csv</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id8">
+<h3>Simple math<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<tt class="descname">min</tt><big>(</big><em>x: matrix</em><big>)</big> &rarr; Double</dt>
+<dd><p>Returns the minimum element over the whole matrix, also callable with <tt class="docutils literal"><span class="pre">x.min()</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">max</tt><big>(</big><em>x: matrix</em><big>)</big> &rarr; Double</dt>
+<dd><p>Returns the maximum element over the whole matrix, also callable with <tt class="docutils literal"><span class="pre">x.max()</span></tt></p>
+</dd></dl>
+
 <dl class="function">
 <dt>
 <tt class="descname">apply_function</tt><big>(</big><em>function: ndarray-&gt;ndarray</em>, <em>x: matrix</em><big>)</big> &rarr; matrix</dt>
-<dd><p>Applies the given function to every element of the array. Called by <tt class="docutils literal"><span class="pre">sin,</span> <span class="pre">cos,</span> <span class="pre">tan,</span> <span class="pre">log,</span> <span class="pre">abs,</span> <span class="pre">sqrt,</span> <span class="pre">floor,</span> <span class="pre">ceil,</span> <span class="pre">round,</span> <span class="pre">sign,</span> <span class="pre">randn,</span> <span class="pre">rand,</span> <span class="pre">pow,</span> <span class="pre">min,</span> <span class="pre">max,</span> <span class="pre">norm</span></tt> (those function take a matrix and return a matrix).</p>
+<dd><p>Applies the given function to every element of the array. Called by <tt class="docutils literal"><span class="pre">sin,</span> <span class="pre">cos,</span> <span class="pre">tan,</span> <span class="pre">log,</span> <span class="pre">abs,</span> <span class="pre">sqrt,</span> <span class="pre">floor,</span> <span class="pre">ceil,</span> <span class="pre">round,</span> <span class="pre">sign,</span> <span class="pre">randn,</span> <span class="pre">rand,</span> <span class="pre">pow,</span> <span class="pre">min,</span> <span class="pre">max,</span> <span class="pre">norm</span></tt>; applied element-wise (those function take a matrix and return a matrix).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="sum">
-<tt class="descname">sum</tt><big>(</big><em>matrix</em>, <em>dim:Int=0</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#sum" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sum</tt><big>(</big><em>matrix</em>, <em>dim:Int=-1</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#sum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs the sum along the given dimension (through <tt class="docutils literal"><span class="pre">dim</span></tt>). That is, if
 dim==0, all the element in each row will be added up.</p>
-<p>These functions that operate on a whole dimension I need to think about
-more. They&#8217;re slow right now (native Swift for-loops). I&#8217;ll probably call C
-to speed them up &#8211; I don&#8217;t think BLAS/LAPACK does this. Or maybe there&#8217;s
-another matrix library out there that does this?</p>
-</dd></dl>
-
-</div>
-<div class="section" id="id4">
-<h3>Operators<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> call the ndarray
-versions of those operators; they work element-wise.</p>
-<dl class="function">
-<dt>
-<tt class="descname">Dot product, *!</tt></dt>
-<dd><p>Perform the dot product between the lhs and rhs.</p>
+<p>This function is optimized with a dot product.</p>
+<p>If dim is not 0 or 1, call <tt class="docutils literal"><span class="pre">sum(x.flat)</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt>
-<tt class="descname">Solve, !/</tt></dt>
-<dd><p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">!/</span> <span class="pre">b</span></tt> finds the solution to <span class="math">\(Ax = b\)</span> by calling OpenCV&#8217;s solve.</p>
+<dt id="avg">
+<tt class="descname">avg</tt><big>(</big><em>matrix</em>, <em>dim:Int=-1</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#avg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the sum along the given dimension (through <tt class="docutils literal"><span class="pre">dim</span></tt>). That is, if
+dim==0, all the element in each row will be added up.</p>
+<p>This function is optimized with a dot product.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="complex-math">
-<h3>Complex Math<a class="headerlink" href="#complex-math" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>Complex Math<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="svd">
 <tt class="descname">svd</tt><big>(</big><em>x: matrix) → (matrix</em>, <em>ndarray</em>, <em>matrix</em><big>)</big><a class="headerlink" href="#svd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs the SVD on the matrix. Tested against Python for fat, skinny and
+<dd><p>Performs the SVD on the matrix. Tested against Python for fat, tall and
 square matrices.</p>
 </dd></dl>
 
@@ -482,6 +674,32 @@ square matrices.</p>
 <dd><p>Solve <span class="math">\(Ax = b\)</span> and returns x. Calls OpenCV&#8217;s solve.</p>
 </dd></dl>
 
+<dl class="function">
+<dt id="eig">
+<tt class="descname">eig</tt><big>(</big><em>x: matrix</em><big>)</big> &rarr; ndarray<a class="headerlink" href="#eig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the real eigenvalues for a given array. Imaginary eigenvalues and
+the eigenvectors are both ignored. I tried to compute the eigenvectors but
+LAPACK and Python&#8217;s output differed even though they said they were using
+the same function.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="images">
+<h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="rgb2hsv">
+<tt class="descname">rgb2hsv</tt><big>(</big><em>r:matrix</em>, <em>g:matrix</em>, <em>b:matrix)-&gt;(matrix</em>, <em>matrix</em>, <em>matrix</em><big>)</big><a class="headerlink" href="#rgb2hsv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the RGB color planes to HSV. Tested against wikipedias <a href="#id10"><span class="problematic" id="id11">`HSL and
+HSL`_</span></a> page. Under the examples on that page, returns H, S_HSV and V.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="savefig">
+<tt class="descname">savefig</tt><big>(</big><em>x:matrix</em>, <em>filename:String</em><big>)</big><a class="headerlink" href="#savefig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a figure using the python script imshow.py. Assumes that
+matplotlib/pylab can be found on PYTHON_PATH.</p>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="machine-learning">
@@ -494,7 +712,8 @@ var x = reshape(arange(4*2) , (4, 2))
 var y = array(0, 1, 2, 3)
 
 svm.train(x, targets:y)
-var z = svm.predict(array(2, 3))
+var z1:Double = svm.predict(array(2, 3))
+var z2:ndarray = svm.predict(arange(4).reshape((2,2)))
 assert(z == y[1])
 </pre></div>
 </div>
@@ -543,7 +762,8 @@ var result = knn.predict(y, k:3)
 <dl class="function">
 <dt>
 <tt class="descname">address operator, !</tt></dt>
-<dd><p>Works for both ndarray and matrix. Calls matrixToPointer</p>
+<dd><p>Works for both ndarray and matrix. Calls matrixToPointer. Converts a matrix
+to a to <tt class="docutils literal"><span class="pre">double</span> <span class="pre">*</span></tt>.</p>
 </dd></dl>
 
 </div>
@@ -567,18 +787,22 @@ var result = knn.predict(y, k:3)
 <li><a class="reference internal" href="#ndarray">ndarray</a><ul>
 <li><a class="reference internal" href="#class-elements">Class elements</a></li>
 <li><a class="reference internal" href="#indexing">Indexing</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#helper-functions">Helper functions</a></li>
 <li><a class="reference internal" href="#initing">Initing</a></li>
-<li><a class="reference internal" href="#simple-math">Simple math</a></li>
 <li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#simple-math">Simple math</a></li>
+<li><a class="reference internal" href="#complex-math">Complex math</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#matrix">matrix</a><ul>
-<li><a class="reference internal" href="#id1">Class Elements</a></li>
-<li><a class="reference internal" href="#id2">Indexing</a></li>
-<li><a class="reference internal" href="#id3">Simple math</a></li>
-<li><a class="reference internal" href="#id4">Operators</a></li>
-<li><a class="reference internal" href="#complex-math">Complex Math</a></li>
+<li><a class="reference internal" href="#id3">Class Elements</a></li>
+<li><a class="reference internal" href="#id4">Indexing</a></li>
+<li><a class="reference internal" href="#id5">Operators</a></li>
+<li><a class="reference internal" href="#id6">Helper functions</a></li>
+<li><a class="reference internal" href="#id7">Initing</a></li>
+<li><a class="reference internal" href="#id8">Simple math</a></li>
+<li><a class="reference internal" href="#id9">Complex Math</a></li>
+<li><a class="reference internal" href="#images">Images</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#machine-learning">Machine learning</a><ul>
@@ -594,6 +818,9 @@ var result = knn.predict(y, k:3)
   <h4>Previous topic</h4>
   <p class="topless"><a href="bugs.html"
                         title="previous chapter">Bugs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href=""
+                        title="next chapter">Full docs</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/full_docs.txt"
@@ -622,6 +849,9 @@ var result = knn.predict(y, k:3)
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="#" title="Full docs"
+             >next</a> |</li>
         <li class="right" >
           <a href="bugs.html" title="Bugs"
              >previous</a> |</li>

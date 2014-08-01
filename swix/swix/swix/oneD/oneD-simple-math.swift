@@ -86,8 +86,7 @@ func pow(x: ndarray, power: Double) -> ndarray{
         vDSP_vsqD(!x, 1, !y, 1, vDSP_Length(x.n.cint))
     } else{
         if close(2, power) {println("Careful! Large speed optimization missed because power not exactly 2!")}
-        for i in 0..<x.count{
-            y[i] = pow(x[i], power)}}
+        for i in 0..<x.count {y[i] = pow(x[i], power)}}
     return y
 }
 
