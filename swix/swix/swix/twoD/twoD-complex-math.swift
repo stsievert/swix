@@ -44,7 +44,7 @@ func svd(x: matrix) -> (matrix, ndarray, matrix){
 func inv(x: matrix) -> matrix{
     assert(x.shape.0 == x.shape.1, "To take an inverse of a matrix, the matrix must be square. If you want the inverse of a rectangular matrix, use psuedoinverse.")
     var y = zeros((x.shape.1, x.shape.0))
-    copy(x.flat, y.flat)
+    y.flat = copy(x.flat)
     inv_objc(!y, x.shape.0.cint, x.shape.1.cint);
     return y
 }

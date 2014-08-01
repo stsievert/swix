@@ -198,8 +198,8 @@ class runTests {
         assert(repeat(array(0, 1), 2) ~== array(0, 1, 0, 1))
         assert(repeat(array(0, 1), 2, how:"elements") ~== array(0, 0, 1, 1))
         
-        var xC = zeros_like(x)
-        copy(x, xC)
+//        var xC = zeros_like(x)
+        var xC = copy(x)
         assert(xC ~== x.copy())
         
         assert(array("0 1 2; 3 4 5") ~== arange(6).reshape((2,3)))
@@ -216,8 +216,10 @@ class runTests {
         assert(x.max() == max(x))
         assert(x.max() == 1)
         
-//        assert(x.copy() == copy(x))
+        assert(x.copy() ~== copy(x))
         assert(x.copy() ~== array(-1, 0, 1))
+        
+        assert(arange(4).reshape((2,2)).copy() ~== arange(4).reshape((2,2)))
         
         var z = array(-3, -2, -1, 0, 1, 2, 3)
         assert(z[argwhere(z < 0)] ~== array(-3, -2, -1))

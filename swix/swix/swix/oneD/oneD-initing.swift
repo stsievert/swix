@@ -59,8 +59,8 @@ func repeat(x: ndarray, N:Int, how:String="ndarray") -> ndarray{
     else if how=="elements" {}
     return z.flat
 }
-func copy(x: ndarray, y: ndarray){
-    cblas_dcopy(x.n.cint, !x, 1.cint, !y, 1.cint)
+func copy(x: ndarray) -> ndarray{
+    return x.copy()
 }
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
     var x = String.stringWithContentsOfFile(prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)

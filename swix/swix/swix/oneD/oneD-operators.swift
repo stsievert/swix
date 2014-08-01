@@ -17,8 +17,7 @@ func make_operator(lhs:ndarray, operator:String, rhs:ndarray) -> ndarray{
     
     // see [1] on how to integrate Swift and accelerate
     // [1]:https://github.com/haginile/SwiftAccelerate
-    var result = zeros(lhs.n)
-    copy(lhs, result)
+    var result = lhs.copy()
     var N = lhs.n
     if operator=="+"
         {cblas_daxpy(N.cint, 1.0.cdouble, !rhs, 1.cint, !result, 1.cint);}

@@ -28,7 +28,7 @@ struct matrix {
     }
     func copy()->matrix{
         var y = zeros_like(self)
-        cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
+        y.flat = self.flat.copy()
         return y
     }
     subscript(i: String) -> ndarray {
@@ -168,7 +168,8 @@ func argwhere(idx: matrix) -> ndarray{
     return argwhere(idx.flat)
 }
 func copy(x: matrix, y: matrix){
-    copy(x.flat, y.flat)
+    var y = zeros_like(x)
+    y.flat = copy(x.flat)
 }
 
 
