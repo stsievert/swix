@@ -82,7 +82,7 @@ func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     var str = ""
     for i in 0..<x.n{
         seperator = i == x.n-1 ? "," : ","
-        str += String("\(x[i])"+seperator)
+        str += String(format: "\(x[i])"+seperator)
     }
     str += "\n"
     var error:NSError?

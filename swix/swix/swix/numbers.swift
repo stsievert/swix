@@ -61,7 +61,7 @@ func close(x: Double, y: Double)->Bool{
     return abs(x-y)<1e-9 ? true : false}
 
 // damn integer division causes headaches
-operator infix / {associativity none precedence 140}
+infix operator  / {associativity none precedence 140}
 func / (lhs: Int, rhs: Int) -> Double{
     return lhs.double / rhs.double}
 

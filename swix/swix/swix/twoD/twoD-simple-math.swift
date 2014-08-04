@@ -100,7 +100,7 @@ func sum(x: matrix, dim:Int = -1) -> ndarray{
 func avg(x:matrix, dim:Int = -1) -> ndarray{
     assert(dim==0 || dim==1, "If you want to find the average of the whole matrix call `avg(x.flat)`")
     var div = dim==0 ? x.shape.1 : x.shape.0
-    return sum(x, dim:dim) / div
+    return sum(x, dim:dim)// / div
 }
 
 //func cumsum(x: matrix) -> matrix{

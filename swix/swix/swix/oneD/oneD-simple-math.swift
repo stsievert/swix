@@ -47,9 +47,13 @@ func max(x: ndarray) -> Double{
 func sign(x: ndarray)->ndarray{
     return apply_function("sign", x)}
 func sum(x: ndarray) -> Double{
-    return sum_objc(!x, x.n.cint)}
+    var ret = sum_objc(!x, x.n.cint)
+    return Double(ret)
+}
 func avg(x: ndarray) -> Double{
-    return sum(x) / x.n}
+    var ret = sum(x) / x.n.double
+    return Double(ret)
+}
 func std(x: ndarray) -> Double{
     return sqrt(variance(x))}
 func variance(x: ndarray) -> Double{

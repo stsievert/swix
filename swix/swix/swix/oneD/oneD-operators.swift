@@ -49,7 +49,7 @@ func make_operator(lhs:ndarray, operation:String, rhs:Double) -> ndarray{
     else if operation=="/"
         {vDSP_vsdivD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
     else if operation=="-"
-        {array = make_operation(lhs, "-", ones(lhs.n)*rhs)}
+        {array = make_operator(lhs, "-", ones(lhs.n)*rhs)}
     else if operation=="<" || operation==">" || operation=="<=" || operation==">="{
         CVWrapper.compare(!lhs, withDouble:rhs.cdouble, using:operation.nsstring, into:!array, ofLength:lhs.n.cint)
         array /= 255

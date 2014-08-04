@@ -74,13 +74,13 @@ struct ndarray {
             //assert((r%1.0) ~== zeros_like(r))
             // ndarray has fractional parts, and those parts get truncated
             // dropped for speed results (depends on for-loop in C)
-            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
+//            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
             var y = zeros(r.n)
             index_objc(!self, !y, !r, r.n.cint)
             return y
         }
         set {
-            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
+//            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
             // tried basic optimization myself, but the compiler took care of that.
@@ -128,7 +128,7 @@ func argwhere(idx: ndarray) -> ndarray{
 }
 
 // RANGE. | for exclusive range. | chosen for similiarity with Python
-operator infix | {associativity none precedence 140}
+infix operator  | {associativity none precedence 140}
 func | (lhs: Int, rhs: Int) -> Range<Int>{
     return lhs..<rhs
 }

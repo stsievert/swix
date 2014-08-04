@@ -42,8 +42,8 @@ struct matrix {
             var m = shape.0
             var n = shape.1
             var min_mn = m < n ? m : n
-            var i = arange(min_mn)
-            self[i*n + i] = newValue
+            var j = n.double * arange(min_mn)
+            self[j + j/n.double] = newValue
         }
     }
     func indexIsValidForRow(r: Int, c: Int) -> Bool {

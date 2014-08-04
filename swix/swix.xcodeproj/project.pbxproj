@@ -31,7 +31,6 @@
 		D2E15DF7197DB2ED001F076B /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E15DF6197DB2ED001F076B /* ScalarArithmetic.swift */; };
 		D2E776A419897E5200FD3B1D /* twoD-image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E776A319897E5200FD3B1D /* twoD-image.swift */; };
 		D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0A197308440036CD3B /* operations-and-indexing.m */; };
-		D2FF0F1119736AEC0036CD3B /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0D19736AEC0036CD3B /* complex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,7 +73,6 @@
 		D2E15DF6197DB2ED001F076B /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScalarArithmetic.swift; path = "swix/ScalarArithmetic-1.1.1/ScalarArithmetic/ScalarArithmetic.swift"; sourceTree = "<group>"; };
 		D2E776A319897E5200FD3B1D /* twoD-image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-image.swift"; path = "twoD/twoD-image.swift"; sourceTree = "<group>"; };
 		D2FF0F0A197308440036CD3B /* operations-and-indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "operations-and-indexing.m"; sourceTree = "<group>"; };
-		D2FF0F0D19736AEC0036CD3B /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +174,6 @@
 		D2FF0F0C19736AEC0036CD3B /* swift-complex */ = {
 			isa = PBXGroup;
 			children = (
-				D2FF0F0D19736AEC0036CD3B /* complex.swift */,
 			);
 			path = "swift-complex";
 			sourceTree = "<group>";
@@ -237,7 +234,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2FF0F1119736AEC0036CD3B /* complex.swift in Sources */,
 				D2A5CAD8196D89C500749F52 /* oneD-simple-math.swift in Sources */,
 				D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */,
 				D24A855C196D7E86009C18AC /* ndarray.swift in Sources */,

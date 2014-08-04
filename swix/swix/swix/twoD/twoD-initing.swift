@@ -21,7 +21,7 @@ func diag(x: matrix) -> ndarray{
     var n = x.shape.1
     var size = n < m ? n : m
     var i = arange(size)
-    return x[i*n + i]
+    return x[i*n.double + i]
 }
 func eye(N: Int) -> matrix{
     var x = zeros((N,N))
@@ -89,7 +89,7 @@ func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
     for i in 0..<x.shape.0{
         for j in 0..<x.shape.1{
             seperator = j == x.shape.1-1 ? "" : ","
-            str += String("\(x[i, j])"+seperator)
+            str += String(format: "\(x[i, j])"+seperator)
         }
         str += "\n"
     }
