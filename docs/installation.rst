@@ -9,8 +9,9 @@ Installation
 4. (optional) Change `your compiler optimization flag`_ which can lead to
    `incredible speed gains`_. Be careful -- this skips ``assert``. I would
    recommend testing with ``-Onone`` before switching.
-5. (optional) If you plan on using read_csv, write_csv or savefig, you need to
-   change the ``S2_PREFIX`` in ``numbers.swift``
+5. (optional) If you plan on using ``read_csv, write_csv, savefig, imshow`` you need to
+   change the ``S2_PREFIX`` in ``numbers.swift``. This should point to the swix
+   folder; something like ``the/path/to/yourXcodeProjectName/swix/``
 
 .. _this file: https://github.com/scottsievert/swix/archive/master.zip
 .. _the repo: https://github.com/scottsievert/swix

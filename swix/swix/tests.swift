@@ -28,13 +28,16 @@ class runTests {
     }
     func complexTests(){
         func scalar_test(){
-//            assert(Int(1) + Double(1) == 2)
-//            println("    Int(1)+Double(1)==2 through ScalarArithmetic")
+            var x:Int = 1
+            var y:Double = 4
+            var z = x +  y
+            assert(z == 5)
+            println("    Int(1)+Double(1)==2 through ScalarArithmetic")
         }
         func swift_complex_test(){
-//            var x = 1.0 + 1.0.i
-//            assert(abs(x) == sqrt(2))
-//            println("    scalar (not vector) complex number usage works using swift-complex.")
+            var x = 1.0 + 1.0.i
+            assert(abs(x) == sqrt(2))
+            println("    scalar (not vector) complex number usage works using swift-complex.")
         }
         func range_test(){
             var x = arange(4)

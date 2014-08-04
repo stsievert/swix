@@ -11,12 +11,13 @@
 		D20087B2196E180C00AB26AE /* twoD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20087B1196E180C00AB26AE /* twoD-initing.swift */; };
 		D20087B4196E186600AB26AE /* twoD-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20087B3196E186600AB26AE /* twoD-operators.swift */; };
 		D206A2A119746886009232B7 /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = D206A2A019746886009232B7 /* opencv.mm */; };
+		D218B20F19901CF800D519E4 /* oneD-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218B20E19901CF800D519E4 /* oneD-complex-math.swift */; };
+		D218B21119901D1E00D519E4 /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218B21019901D1E00D519E4 /* complex.swift */; };
 		D23648CD1975CED70020FB95 /* twoD-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23648CC1975CED70020FB95 /* twoD-complex-math.swift */; };
 		D23648D01976CB440020FB95 /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = D23648CF1976CB440020FB95 /* machine_learning.mm */; };
 		D23648D21976CC720020FB95 /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23648D11976CC720020FB95 /* machine_learning.swift */; };
 		D24A8555196D7D73009C18AC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A8554196D7D73009C18AC /* main.swift */; };
 		D24A855C196D7E86009C18AC /* ndarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A855B196D7E86009C18AC /* ndarray.swift */; };
-		D271C9BC197031C1008E577A /* oneD-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271C9BB197031C1008E577A /* oneD-complex-math.swift */; };
 		D271C9BE1970328C008E577A /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271C9BD1970328C008E577A /* conversion.swift */; };
 		D273B68A197997DE00750A09 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B689197997DE00750A09 /* tests.swift */; };
 		D2A5CAD4196D805A00749F52 /* oneD-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD3196D805A00749F52 /* oneD-initing.swift */; };
@@ -51,13 +52,14 @@
 		D20087B3196E186600AB26AE /* twoD-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-operators.swift"; path = "twoD/twoD-operators.swift"; sourceTree = "<group>"; };
 		D206A29F1974680A009232B7 /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
 		D206A2A019746886009232B7 /* opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = opencv.mm; sourceTree = "<group>"; };
+		D218B20E19901CF800D519E4 /* oneD-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-complex-math.swift"; sourceTree = "<group>"; };
+		D218B21019901D1E00D519E4 /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = complex.swift; path = "swix/swix/swift-complex/complex.swift"; sourceTree = "<group>"; };
 		D23648CC1975CED70020FB95 /* twoD-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "twoD-complex-math.swift"; path = "swix/swix/twoD/twoD-complex-math.swift"; sourceTree = SOURCE_ROOT; };
 		D23648CF1976CB440020FB95 /* machine_learning.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = machine_learning.mm; sourceTree = "<group>"; };
 		D23648D11976CC720020FB95 /* machine_learning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = machine_learning.swift; path = swix/machine_learning/machine_learning.swift; sourceTree = "<group>"; };
 		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24A8554196D7D73009C18AC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D24A855B196D7E86009C18AC /* ndarray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ndarray.swift; sourceTree = "<group>"; };
-		D271C9BB197031C1008E577A /* oneD-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "oneD-complex-math.swift"; path = "swix/swix/oneD-complex-math.swift"; sourceTree = SOURCE_ROOT; };
 		D271C9BD1970328C008E577A /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
 		D273B689197997DE00750A09 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		D2A5CAD3196D805A00749F52 /* oneD-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "oneD-initing.swift"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		D24A8548196D7D73009C18AC = {
 			isa = PBXGroup;
 			children = (
+				D218B21019901D1E00D519E4 /* complex.swift */,
 				D2B481B1196F20EB00DAEDFF /* Accelerate.framework */,
 				D2B481AF196F20E400DAEDFF /* Foundation.framework */,
 				D24A8553196D7D73009C18AC /* swix */,
@@ -163,10 +166,10 @@
 			isa = PBXGroup;
 			children = (
 				D24A855B196D7E86009C18AC /* ndarray.swift */,
+				D218B20E19901CF800D519E4 /* oneD-complex-math.swift */,
 				D2A5CAD3196D805A00749F52 /* oneD-initing.swift */,
 				D2A5CAD9196D9C0C00749F52 /* oneD-operators.swift */,
 				D2A5CAD7196D89C500749F52 /* oneD-simple-math.swift */,
-				D271C9BB197031C1008E577A /* oneD-complex-math.swift */,
 			);
 			path = oneD;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D218B20F19901CF800D519E4 /* oneD-complex-math.swift in Sources */,
 				D2A5CAD8196D89C500749F52 /* oneD-simple-math.swift in Sources */,
 				D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */,
 				D24A855C196D7E86009C18AC /* ndarray.swift in Sources */,
@@ -243,12 +247,12 @@
 				D24A8555196D7D73009C18AC /* main.swift in Sources */,
 				D2BAB4C4196E656E005020F6 /* twoD-simple-math.swift in Sources */,
 				D2E776A419897E5200FD3B1D /* twoD-image.swift in Sources */,
+				D218B21119901D1E00D519E4 /* complex.swift in Sources */,
 				D2E15DF7197DB2ED001F076B /* ScalarArithmetic.swift in Sources */,
 				D2A5CAD4196D805A00749F52 /* oneD-initing.swift in Sources */,
 				D20087AF196E14EF00AB26AE /* matrix.swift in Sources */,
 				D20087B4196E186600AB26AE /* twoD-operators.swift in Sources */,
 				D271C9BE1970328C008E577A /* conversion.swift in Sources */,
-				D271C9BC197031C1008E577A /* oneD-complex-math.swift in Sources */,
 				D2A5CAD6196D830000749F52 /* numbers.swift in Sources */,
 				D20087B2196E180C00AB26AE /* twoD-initing.swift in Sources */,
 				D2BBBDAD196DD693004707F3 /* math.m in Sources */,
