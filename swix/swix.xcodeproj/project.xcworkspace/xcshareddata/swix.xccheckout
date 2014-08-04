@@ -10,29 +10,29 @@
 	<string>swix</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F55F092E-008D-4A30-A2E2-2B32B75040A2</key>
+		<key>F09A4F7C2419C22FA24C2D7BFB469CAE070427A9</key>
 		<string>https://github.com/scottsievert/swix.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>swix/swix.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F55F092E-008D-4A30-A2E2-2B32B75040A2</key>
+		<key>F09A4F7C2419C22FA24C2D7BFB469CAE070427A9</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/scottsievert/swix.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F55F092E-008D-4A30-A2E2-2B32B75040A2</string>
+	<string>F09A4F7C2419C22FA24C2D7BFB469CAE070427A9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F55F092E-008D-4A30-A2E2-2B32B75040A2</string>
+			<string>F09A4F7C2419C22FA24C2D7BFB469CAE070427A9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>swix</string>
 		</dict>
