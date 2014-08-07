@@ -72,13 +72,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#matrix">matrix</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Class Elements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Indexing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Helper functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Initing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Simple math</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Complex Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Class Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Helper functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Initing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Simple math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Complex Math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#images">Images</a></li>
 </ul>
 </li>
@@ -106,7 +106,7 @@
 <li>S2_PREFIX: Used for read_csv, write_csv and savefig. Should point to the swix
 folder. For me, <tt class="docutils literal"><span class="pre">S2_PREFIX</span> <span class="pre">=</span> <span class="pre">&quot;\(NSHomeDirectory())/Developer/swix/swix/swix/swix/&quot;</span></tt></li>
 <li>PYTHON_PATH: Your path to Python. Assumes you have matplotlib/numpy/pylab
-science stack installed; for me, <a href="#id1"><span class="problematic" id="id2">``</span></a>PYTHON_PATH = ~/anaconda/bin/ipython&#8221;</li>
+science stack installed; for me, <tt class="docutils literal"><span class="pre">PYTHON_PATH</span> <span class="pre">=</span> <span class="pre">~/anaconda/bin/ipython&quot;</span></tt></li>
 </ul>
 </div>
 <div class="section" id="number-elements">
@@ -444,8 +444,8 @@ and the imaginary element second.</p>
 </div>
 <div class="section" id="matrix">
 <h2>matrix<a class="headerlink" href="#matrix" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Class Elements<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Class Elements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">n:</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">row*colums</span></tt> the number of elements</li>
 <li><tt class="docutils literal"><span class="pre">rows:</span> <span class="pre">Int</span></tt> the number of rows</li>
@@ -463,8 +463,8 @@ valid for this element.</li>
 <li><tt class="docutils literal"><span class="pre">x.dot(y:matrix)</span></tt> <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> with another y</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>Indexing<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Indexing<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 <tt class="descname">matrix[Int, Int]-&gt;Double</tt></dt>
@@ -512,8 +512,8 @@ column-major meaning the indexing is like C or Python and not like Matlabs.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="id5">
-<h3>Operators<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Operators<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> call the ndarray
 versions of those operators; they work element-wise.</p>
 <dl class="function">
@@ -529,8 +529,8 @@ versions of those operators; they work element-wise.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="id6">
-<h3>Helper functions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Helper functions<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 <tt class="descname">println</tt><big>(</big><em>x: matrix2d</em>, <em>prefix:String=&quot;matrix([&quot;</em>, <em>postfix:String=&quot;])&quot;</em>, <em>newline:String=&quot;n&quot;</em>, <em>format:String=&quot;%.3f&quot;</em>, <em>printWholeMatrix:Bool=false</em><big>)</big></dt>
@@ -562,8 +562,8 @@ assert(y ~== array(0, 1))
 </dd></dl>
 
 </div>
-<div class="section" id="id7">
-<h3>Initing<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Initing<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>ones, zeros like the 1D case but take <cite>((rows, columns))</cite> not <cite>elements</cite></p>
 <dl class="function">
 <dt id="eye">
@@ -615,8 +615,8 @@ Unoptimized; I assume you&#8217;re not using this in production code.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="id8">
-<h3>Simple math<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Simple math<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 <tt class="descname">min</tt><big>(</big><em>x: matrix</em><big>)</big> &rarr; Double</dt>
@@ -653,8 +653,8 @@ dim==0, all the element in each row will be added up.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="id9">
-<h3>Complex Math<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Complex Math<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="svd">
 <tt class="descname">svd</tt><big>(</big><em>x: matrix) → (matrix</em>, <em>ndarray</em>, <em>matrix</em><big>)</big><a class="headerlink" href="#svd" title="Permalink to this definition">¶</a></dt>
@@ -689,7 +689,7 @@ the same function.</p>
 <dl class="function">
 <dt id="rgb2hsv">
 <tt class="descname">rgb2hsv</tt><big>(</big><em>r:matrix</em>, <em>g:matrix</em>, <em>b:matrix)-&gt;(matrix</em>, <em>matrix</em>, <em>matrix</em><big>)</big><a class="headerlink" href="#rgb2hsv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts the RGB color planes to HSV. Tested against wikipedias <a href="#id10"><span class="problematic" id="id11">`HSL and
+<dd><p>Converts the RGB color planes to HSV. Tested against wikipedias <a href="#id8"><span class="problematic" id="id9">`HSL and
 HSL`_</span></a> page. Under the examples on that page, returns H, S_HSV and V.</p>
 </dd></dl>
 
@@ -795,13 +795,13 @@ to a to <tt class="docutils literal"><span class="pre">double</span> <span class
 </ul>
 </li>
 <li><a class="reference internal" href="#matrix">matrix</a><ul>
-<li><a class="reference internal" href="#id3">Class Elements</a></li>
-<li><a class="reference internal" href="#id4">Indexing</a></li>
-<li><a class="reference internal" href="#id5">Operators</a></li>
-<li><a class="reference internal" href="#id6">Helper functions</a></li>
-<li><a class="reference internal" href="#id7">Initing</a></li>
-<li><a class="reference internal" href="#id8">Simple math</a></li>
-<li><a class="reference internal" href="#id9">Complex Math</a></li>
+<li><a class="reference internal" href="#id1">Class Elements</a></li>
+<li><a class="reference internal" href="#id2">Indexing</a></li>
+<li><a class="reference internal" href="#id3">Operators</a></li>
+<li><a class="reference internal" href="#id4">Helper functions</a></li>
+<li><a class="reference internal" href="#id5">Initing</a></li>
+<li><a class="reference internal" href="#id6">Simple math</a></li>
+<li><a class="reference internal" href="#id7">Complex Math</a></li>
 <li><a class="reference internal" href="#images">Images</a></li>
 </ul>
 </li>

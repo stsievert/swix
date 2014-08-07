@@ -79,8 +79,11 @@ slightly different output.
 Additionally, I followed NumPy's syntax whenever possible. For example, NumPy
 and Matlab differ in their initializer called `ones` by `ones((M,N))` and
 `ones(M, N)` respectively. If in doubt or getting weird compiler bugs, look at
-[NumPy for Matlab users][nfm].
+[NumPy for Matlab users][nfm] or the section on possible swix bugs while
+[installing] or [nasty bugs] that may pop up.
 
+[installing]:http://swix.readthedocs.org/en/latest/installation.html
+[nasty bugs]:http://swix.readthedocs.org/en/latest/bugs.html
 [nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
 
 ## Documentation 

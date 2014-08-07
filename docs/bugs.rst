@@ -10,12 +10,6 @@ Bugs
   ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
 
 
-Beta bugs
----------------
-For some reason Xcode can't link to the Accelerate framework from the iOS
-simulator, meaning that swix applications only run on physical devices. It
-gives errors like "unresolved identifier vDSP_vmulD not found"
-
 
 Matlab and swix differences
 ---------------------------
@@ -26,3 +20,16 @@ Matlab and swix differences
 * The reshape functions works differently in matlab and python. In matlab, it
   reshapes by column order and in python row-order, meaning you have to use
   ``x.T.reshape((3,3))`` to get equivalent results.
+
+Beta bugs
+---------------
+For some reason Xcode can't link to the Accelerate framework from the iOS
+simulator, meaning that swix applications only run on physical devices. It
+gives errors like "unresolved identifier vDSP_vmulD not found"
+
+.. _this file: https://github.com/scottsievert/swix/archive/master.zip
+.. _the repo: https://github.com/scottsievert/swix
+.. _modify your Xcode project: http://stackoverflow.com/a/24102433/1141256
+.. _your compiler optimization flag: http://stackoverflow.com/a/24102759/1141256 
+.. _incredible speed gains: http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test
+
