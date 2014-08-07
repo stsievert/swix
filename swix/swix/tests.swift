@@ -231,7 +231,14 @@ class runTests {
         assert(sin(array(1, 2, 3, 4)) ~== array(sin(1), sin(2), sin(3), sin(4)))
         func f(x:Double)->Double {return x+1}
         assert(apply_function(f,arange(100)) ~== (arange(100)+1))
+        var x5 = arange(5)
+        var y5 = array(1, 5, 3, 2, 6)
+        assert(max(x5, y5) ~== array(1, 5, 3, 3, 6))
+        assert(min(x5, y5) ~== array(0, 1, 2, 2, 4))
         
+        var mx5 = arange(4).reshape((2,2))
+        var my5 = array(4, 2, 1, 0).reshape((2,2))
+        assert(min(mx5, my5) ~== array(0, 1, 1, 0).reshape((2,2)))
     }
     func operatorTests(){
         // l and o similar to 1 and 0

@@ -44,18 +44,6 @@ func min(x: ndarray) -> Double{
     return x.min()}
 func max(x: ndarray) -> Double{
     return x.max()}
-func max(x: ndarray, y:ndarray)->ndarray{
-    assert(x.n == y.n)
-    var z = zeros_like(x)
-    vDSP_vmaxD(!x, 1.cint, !y, 1.cint, !z, 1.cint, vDSP_Length((x.n)))
-    return z
-}
-func min(x: ndarray, y:ndarray)->ndarray{
-    assert(x.n == y.n)
-    var z = zeros_like(x)
-    vDSP_vminD(!x, 1.cint, !y, 1.cint, !z, 1.cint, vDSP_Length((x.n)))
-    return z
-}
 func sign(x: ndarray)->ndarray{
     return apply_function("sign", x)}
 func sum(x: ndarray) -> Double{

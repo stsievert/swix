@@ -51,9 +51,6 @@ struct ndarray {
     func max() -> Double{
         return max_objc(!self, n.cint)
     }
-    func mean() -> Double{
-        return avg(self)
-    }
     subscript(index: Int) -> Double {
         get {
             assert(indexIsValidForRow(index), "Index out of range")

@@ -13,6 +13,19 @@ Installation
    change the ``S2_PREFIX`` in ``numbers.swift``. This should point to the swix
    folder; something like ``the/path/to/yourXcodeProjectName/swix/``
 
+
+Possible bugs
+---------------
+* If you get errors like "Unresolved identifier *_objc" you probably haven't added the
+  bridging header correctly.
+* ".../swix/objc/OpenCV.h:12: 'opencv2/opencv.hpp' file not found". This bug
+  had me for a while since opencv2.framework was clearly in my project.. It
+  turns out under Build Phases/Link Binary with Libraries you need to "add
+  other" and select the opencv2.framework in swix/objc/. Oh, and if you can't
+  see the "Link Binary with Libraries" section hit the little "+" in the upper
+  left (at least for XCode 6).
+
+
 .. _this file: https://github.com/scottsievert/swix/archive/master.zip
 .. _the repo: https://github.com/scottsievert/swix
 .. _modify your Xcode project: http://stackoverflow.com/a/24102433/1141256

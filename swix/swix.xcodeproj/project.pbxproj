@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D206A2A119746886009232B7 /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = D206A2A019746886009232B7 /* opencv.mm */; };
 		D218B21119901D1E00D519E4 /* complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218B21019901D1E00D519E4 /* complex.swift */; };
-		D218B21319901F5D00D519E4 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D218B21219901F5D00D519E4 /* opencv2.framework */; };
 		D218B21A19901FDF00D519E4 /* ndarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218B21519901FDF00D519E4 /* ndarray.swift */; };
 		D218B2231990202800D519E4 /* complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218B21F1990202800D519E4 /* complex-math.swift */; };
 		D218B2241990202800D519E4 /* initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218B2201990202800D519E4 /* initing.swift */; };
@@ -24,6 +23,7 @@
 		D23648D01976CB440020FB95 /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = D23648CF1976CB440020FB95 /* machine_learning.mm */; };
 		D23648D21976CC720020FB95 /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23648D11976CC720020FB95 /* machine_learning.swift */; };
 		D24A8555196D7D73009C18AC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A8554196D7D73009C18AC /* main.swift */; };
+		D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24D7132199272E600D4B9D8 /* opencv2.framework */; };
 		D271C9BE1970328C008E577A /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271C9BD1970328C008E577A /* conversion.swift */; };
 		D273B68A197997DE00750A09 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B689197997DE00750A09 /* tests.swift */; };
 		D2A5CAD6196D830000749F52 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD5196D830000749F52 /* numbers.swift */; };
@@ -50,7 +50,6 @@
 		D206A29F1974680A009232B7 /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
 		D206A2A019746886009232B7 /* opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = opencv.mm; sourceTree = "<group>"; };
 		D218B21019901D1E00D519E4 /* complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = complex.swift; path = "swix/swift-complex/complex.swift"; sourceTree = "<group>"; };
-		D218B21219901F5D00D519E4 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/swix/opencv2.framework; sourceTree = "<group>"; };
 		D218B21519901FDF00D519E4 /* ndarray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ndarray.swift; sourceTree = "<group>"; };
 		D218B21F1990202800D519E4 /* complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "complex-math.swift"; sourceTree = "<group>"; };
 		D218B2201990202800D519E4 /* initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = initing.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		D23648D11976CC720020FB95 /* machine_learning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = machine_learning.swift; path = machine_learning/machine_learning.swift; sourceTree = "<group>"; };
 		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24A8554196D7D73009C18AC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D24D7132199272E600D4B9D8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
 		D271C9BD1970328C008E577A /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
 		D273B689197997DE00750A09 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		D2A5CAD5196D830000749F52 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D218B21319901F5D00D519E4 /* opencv2.framework in Frameworks */,
+				D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */,
 				D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */,
 				D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */,
 			);
@@ -119,7 +119,7 @@
 		D24A8548196D7D73009C18AC = {
 			isa = PBXGroup;
 			children = (
-				D218B21219901F5D00D519E4 /* opencv2.framework */,
+				D24D7132199272E600D4B9D8 /* opencv2.framework */,
 				D2B481B1196F20EB00DAEDFF /* Accelerate.framework */,
 				D2B481AF196F20E400DAEDFF /* Foundation.framework */,
 				D24A8553196D7D73009C18AC /* swix */,
