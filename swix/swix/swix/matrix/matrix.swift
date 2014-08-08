@@ -151,25 +151,8 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
 func print(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
-func zeros_like(x: matrix) -> matrix{
-    var y:matrix = zeros((x.shape.0, x.shape.1))
-    return y
-}
-func transpose (x: matrix) -> matrix{
-    let n = x.shape.0
-    let m = x.shape.1
-    var y = zeros((m, n))
-    var xP = matrixToPointer(x.flat)
-    var yP = matrixToPointer(y.flat)
-    transpose_objc(xP, yP, m.cint, n.cint);
-    return y
-}
 func argwhere(idx: matrix) -> ndarray{
     return argwhere(idx.flat)
-}
-func copy(x: matrix, y: matrix){
-    var y = zeros_like(x)
-    y.flat = copy(x.flat)
 }
 
 

@@ -10,7 +10,8 @@
 import Foundation
 runTests()
 
-
+var x = arange(6).reshape((2,3))
+println(sum(x, dim:1))
 
 
 

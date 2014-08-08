@@ -13,8 +13,16 @@ import Accelerate
 func zeros(shape: (Int, Int)) -> matrix{
     return matrix(columns: shape.1, rows: shape.0)
 }
+func zeros_like(x: matrix) -> matrix{
+    var y:matrix = zeros((x.shape.0, x.shape.1))
+    return y
+}
 func ones(shape: (Int, Int)) -> matrix{
     return zeros(shape)+1
+}
+func copy(x: matrix, y: matrix){
+    var y = zeros_like(x)
+    y.flat = copy(x.flat)
 }
 func diag(x: matrix) -> ndarray{
     var m = x.shape.0
@@ -36,6 +44,15 @@ func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     var z1 = reshape(repeat(y, x.n), (x.n, y.n))
     var z2 = reshape(repeat(x, y.n, how:"elements"), (x.n, y.n))
     return (z2, z1)
+}
+func transpose (x: matrix) -> matrix{
+    let n = x.shape.0
+    let m = x.shape.1
+    var y = zeros((m, n))
+    var xP = matrixToPointer(x.flat)
+    var yP = matrixToPointer(y.flat)
+    transpose_objc(xP, yP, m.cint, n.cint);
+    return y
 }
 
 /// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot. String parsing has bugs; I'd use arange(9).reshape((3,3)) or something similar

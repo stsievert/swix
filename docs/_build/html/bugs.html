@@ -36,6 +36,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="full_docs.html" title="Full docs"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -68,25 +71,6 @@ this.</p>
 <tt class="docutils literal"><span class="pre">argwhere(abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9)</span></tt> to see where the individual entries are equal.</p>
 </li>
 </ul>
-<div class="section" id="beta-bugs">
-<h2>Beta bugs<a class="headerlink" href="#beta-bugs" title="Permalink to this headline">¶</a></h2>
-<p>For some reason Xcode can&#8217;t link to the Accelerate framework from the iOS
-simulator, meaning that swix applications only run on physical devices. It
-gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
-</div>
-<div class="section" id="possible-installation-bugs">
-<h2>Possible installation bugs<a class="headerlink" href="#possible-installation-bugs" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>If you get errors like &#8220;Unresolved identifier <a href="#id1"><span class="problematic" id="id2">*</span></a>_objc&#8221; you probably haven&#8217;t added the
-bridging header correctly.</li>
-<li>&#8221;.../swix/objc/OpenCV.h:12: &#8216;opencv2/opencv.hpp&#8217; file not found&#8221;. This bug
-had me for a while since opencv2.framework was clearly in my project.. It
-turns out under Build Phases/Link Binary with Libraries you need to &#8220;add
-other&#8221; and select the opencv2.framework in swix/objc/. Oh, and if you can&#8217;t
-see the &#8220;Link Binary with Libraries&#8221; section hit the little &#8220;+&#8221; in the upper
-left (at least for XCode 6).</li>
-</ul>
-</div>
 <div class="section" id="matlab-and-swix-differences">
 <h2>Matlab and swix differences<a class="headerlink" href="#matlab-and-swix-differences" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -99,6 +83,12 @@ reshapes by column order and in python row-order, meaning you have to use
 <tt class="docutils literal"><span class="pre">x.T.reshape((3,3))</span></tt> to get equivalent results.</li>
 </ul>
 </div>
+<div class="section" id="beta-bugs">
+<h2>Beta bugs<a class="headerlink" href="#beta-bugs" title="Permalink to this headline">¶</a></h2>
+<p>For some reason Xcode can&#8217;t link to the Accelerate framework from the iOS
+simulator, meaning that swix applications only run on physical devices. It
+gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
+</div>
 </div>
 
 
@@ -110,9 +100,8 @@ reshapes by column order and in python row-order, meaning you have to use
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Bugs</a><ul>
-<li><a class="reference internal" href="#beta-bugs">Beta bugs</a></li>
-<li><a class="reference internal" href="#possible-installation-bugs">Possible installation bugs</a></li>
 <li><a class="reference internal" href="#matlab-and-swix-differences">Matlab and swix differences</a></li>
+<li><a class="reference internal" href="#beta-bugs">Beta bugs</a></li>
 </ul>
 </li>
 </ul>
@@ -151,6 +140,9 @@ reshapes by column order and in python row-order, meaning you have to use
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="full_docs.html" title="Full docs"
              >next</a> |</li>

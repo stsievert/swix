@@ -67,7 +67,7 @@ func savefig(x:matrix, filename:String, save:Bool=true, show:Bool=false){
     // assumes python is on your path
     write_csv(x, filename:"swix/temp.csv")
     system("cd "+S2_PREFIX+"; "+PYTHON_PATH + " imshow.py \(filename) \(save) \(show)")
-//    system("rm "+S2_PREFIX+"temp.csv")
+    system("rm "+S2_PREFIX+"temp.csv")
 }
 func imshow(x: matrix){
     savefig(x, "junk", save:false, show:true)

@@ -11,8 +11,16 @@ import Accelerate
 
 // SLOW PARTS: array(doubles), read_csv, write_csv. not a huge deal -- hopefully not used in final code
 
+func asmatrix(x: [Double]) -> ndarray{
+    var y = zeros(x.count)
+    y.grid = x
+    return y
+}
 func zeros(N: Int) -> ndarray{
     return ndarray(n: N)
+}
+func zeros_like(x: ndarray) -> ndarray{
+    return zeros(x.n)
 }
 func ones(N: Int) -> ndarray{
     return ndarray(n: N)+1
@@ -92,7 +100,14 @@ func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     }
     
 }
-
+func toArray(seq: Range<Int>) -> ndarray {
+    // improve with [1]
+    // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
+    var start:Double = seq.startIndex.double * 1.0
+    var end:Double   = seq.endIndex.double * 1.0
+    var s = arange(start, end, x:true)
+    return s
+}
 
 
 

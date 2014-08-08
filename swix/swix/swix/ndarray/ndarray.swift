@@ -13,14 +13,6 @@ import Accelerate
 
 // SLOW PARTS: x[ndarray, ndarray] set, modulo operator
 
-func toArray(seq: Range<Int>) -> ndarray {
-    // improve with [1]
-    // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
-    var start:Double = seq.startIndex.double * 1.0
-    var end:Double   = seq.endIndex.double * 1.0
-    var s = arange(start, end, x:true)
-    return s
-}
 
 struct ndarray {
     let n: Int
@@ -92,11 +84,6 @@ struct ndarray {
     }
 }
 
-func asmatrix(x: [Double]) -> ndarray{
-    var y = zeros(x.count)
-    y.grid = x
-    return y
-}
 
 func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
     print(prefix)
@@ -116,9 +103,6 @@ func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:S
 }
 func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
-}
-func zeros_like(x: ndarray) -> ndarray{
-    return zeros(x.n)
 }
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).

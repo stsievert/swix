@@ -10,23 +10,6 @@ Bugs
   ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
 
 
-Beta bugs
----------------
-For some reason Xcode can't link to the Accelerate framework from the iOS
-simulator, meaning that swix applications only run on physical devices. It
-gives errors like "unresolved identifier vDSP_vmulD not found"
-
-Possible installation bugs
---------------------------
-* If you get errors like "Unresolved identifier *_objc" you probably haven't added the
-  bridging header correctly.
-* ".../swix/objc/OpenCV.h:12: 'opencv2/opencv.hpp' file not found". This bug
-  had me for a while since opencv2.framework was clearly in my project.. It
-  turns out under Build Phases/Link Binary with Libraries you need to "add
-  other" and select the opencv2.framework in swix/objc/. Oh, and if you can't
-  see the "Link Binary with Libraries" section hit the little "+" in the upper
-  left (at least for XCode 6).
-
 
 Matlab and swix differences
 ---------------------------
@@ -37,6 +20,12 @@ Matlab and swix differences
 * The reshape functions works differently in matlab and python. In matlab, it
   reshapes by column order and in python row-order, meaning you have to use
   ``x.T.reshape((3,3))`` to get equivalent results.
+
+Beta bugs
+---------------
+For some reason Xcode can't link to the Accelerate framework from the iOS
+simulator, meaning that swix applications only run on physical devices. It
+gives errors like "unresolved identifier vDSP_vmulD not found"
 
 .. _this file: https://github.com/scottsievert/swix/archive/master.zip
 .. _the repo: https://github.com/scottsievert/swix

@@ -64,6 +64,8 @@ func close(x: Double, y: Double)->Bool{
 infix operator  / {associativity none precedence 140}
 func / (lhs: Int, rhs: Int) -> Double{
     return lhs.double / rhs.double}
+func / (lhs: Double, rhs: Int) -> Double{
+    return lhs / rhs.double}
 
 // a quick hack to get what I want
 func isNumber(x: Double)   ->Bool{return true}
