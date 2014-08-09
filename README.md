@@ -88,7 +88,11 @@ and Matlab differ in their initializer called `ones` by `ones((M,N))` and
 
 ## Documentation 
 Details on how to install and individual functions can be found in [swix's
-documentation][swix-doc]
+documentation][swix-doc]. There is also a [mobile friendly version] on
+readthedocs, but this is harder to maintain and is most likely out of date.
+
+[mobile friendly version]:http://swix.readthedocs.org/
+[swix-doc]:http://scottsievert.github.io/swix/
 
 ## Third Party Frameworks/Libraries
 * [Accelerate][accel]
@@ -116,5 +120,4 @@ documentation][swix-doc]
 [ones]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 [zeros]:http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros
 [pep]:http://legacy.python.org/dev/peps/pep-0465/#implementation-details
-[swix-doc]:http://swix.readthedocs.org/en/latest/
 [st]:https://twitter.com/stsievert
