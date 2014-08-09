@@ -1,5 +1,6 @@
-from numbers import S2_PREFIX
-import ndarray
+#from numbers import S2_PREFIX
+S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
+#import ndarray
 
 def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
     """

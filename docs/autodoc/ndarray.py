@@ -1,5 +1,5 @@
-from numbers import S2_PREFIX
-import links as l
+#from numbers import S2_PREFIX
+S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
 
 
 class ndarray:
