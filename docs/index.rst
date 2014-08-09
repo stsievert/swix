@@ -5,12 +5,14 @@
 
 Welcome to swix's documentation!
 ================================
-The explicit goal of swix is to allow easy conversion between a complicated
-signal processing algorithm and a mobile app. Converting from Python/Matlab to
-C was (and is) a pain. I would certainly like to see more mobile apps and hope
-this will help.
+The explicit goal of swix is to allow easy *conversion* (and not easy
+developement) between a complicated signal processing algorithm and a mobile
+app. Converting from Python/Matlab to C was (and is) a pain. I would certainly
+like to see more mobile apps and hope this will help.
 
-This function relies on NumPy and implements the most basic usage. If in doubt about a function, look at NumPy's docs for a function of the same name; I tried to include links.
+This function relies on NumPy and implements the most basic usage. If in doubt
+about a function, look at NumPy's docs for a function of the same name; I tried
+to include links.
 
 This library is optimized through the `Accelerate framework`_ in most cases.
 All operations and the important operations (well, the ones I used) are
@@ -22,12 +24,8 @@ computer, this library was ~2-3x slower than Matlab. Going down to iOS resulted
 in another speed drop of ~10x, meaning iOS is very roughly 20-30 times slower
 than Matlab. Not bad for an underpowered mobile device!
 
-Todo
----------
-* internet links
-* seealso
-* function links
-
+Examples are perhaps the most useful aspect of documentation, so I've included
+some examples in :doc:`examples`
 
 Table of Contents
 -----------------

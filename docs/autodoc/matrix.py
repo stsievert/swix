@@ -22,7 +22,7 @@ def argwhere(idx):
     :type idx: matrix
     :rtype: ndarray. Returns the indicies where ``idx`` is not zero.
 
-    .. seealso:: :class:`ndarray.argwhere`
+    .. seealso:: :class:`ndarray.argwhere`, :class:`operators.element_operators`
     """
         
 

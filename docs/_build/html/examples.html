@@ -51,14 +51,26 @@
             
   <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="making-a-ring">
-<h2>Making a ring<a class="headerlink" href="#making-a-ring" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">let</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">var</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">var</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span>
-<span class="n">var</span> <span class="n">j</span> <span class="o">=</span> <span class="n">argwhere</span><span class="p">(</span><span class="n">z</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="section" id="pi-approximation">
+<h2>Pi approximation<a class="headerlink" href="#pi-approximation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">var</span> <span class="n">N</span> <span class="o">=</span> <span class="mf">1e3</span>
+<span class="n">var</span> <span class="n">k</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">pi_approx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pi_approx</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">println</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">pi_approx</span><span class="p">)</span>
+<span class="c"># prints 3.14059265383979</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="project-euler-1">
+<h2>Project Euler #1<a class="headerlink" href="#project-euler-1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://projecteuler.net/problem=1">Project Euler #1</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">var</span> <span class="n">N</span> <span class="o">=</span> <span class="mf">1e3</span>
+<span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="c"># seeing where that modulo is 0</span>
+<span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">argwhere</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="c"># prints 233168.0, the correct answer</span>
 </pre></div>
 </div>
 </div>
@@ -85,7 +97,8 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Examples</a><ul>
-<li><a class="reference internal" href="#making-a-ring">Making a ring</a></li>
+<li><a class="reference internal" href="#pi-approximation">Pi approximation</a></li>
+<li><a class="reference internal" href="#project-euler-1">Project Euler #1</a></li>
 <li><a class="reference internal" href="#soft-thresholding">Soft thresholding</a></li>
 </ul>
 </li>

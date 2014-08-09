@@ -215,6 +215,17 @@ class operators:
         .. note:: ``==`` and ``!==`` see when two arrays are *exactly* equal for the incredibly percise doubles. I recommend using ``abs(x-y)<1e-9``.
 
         """
+    def logical_operators(lhs, rhs):
+        """
+        :param lhs: An array of true/false (meaning 0 or 1)
+        :type lhs: ndarray
+        :param rhs: An array of true/false (meaning 0 or 1)
+        :type rhs: ndarray
+        :rtype: ndarray. The logical operator between the two elements.
+
+        Currently only logical AND and logical OR are implemented through
+        ``&&`` and ``||`` respectively.
+        """
     def equality(lhs, rhs):
         """
         :param lhs: Left hand side.

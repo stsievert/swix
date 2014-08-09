@@ -564,6 +564,28 @@ language and math language; in math, this is called a vector.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.operators.logical_operators">
+<tt class="descname">logical_operators</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="headerlink" href="#ndarray.operators.logical_operators" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lhs</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of true/false (meaning 0 or 1)</li>
+<li><strong>rhs</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of true/false (meaning 0 or 1)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. The logical operator between the two elements.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Currently only logical AND and logical OR are implemented through
+<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt> and <tt class="docutils literal"><span class="pre">||</span></tt> respectively.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.operators.power">
 <tt class="descname">power</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="headerlink" href="#ndarray.operators.power" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
