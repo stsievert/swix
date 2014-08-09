@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Machine learning &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="next" title="Interfacing with C" href="c.html" />
+    <link rel="prev" title="Matrices" href="matrix.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="c.html" title="Interfacing with C"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="machine-learning">
+<h1>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h1>
+<p>This library integrates <a class="reference external" href="http://opencv.org">OpenCV</a>. What I needed was implemented and not much more; if you want something you&#8217;ll probably have to implement it yourself using OpenCV.</p>
+<div class="section" id="docs">
+<h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
+<p>This is a file that describes classes.</p>
+<span class="target" id="module-machine_learning"></span><dl class="class">
+<dt id="machine_learning.SVM">
+<em class="property">class </em><tt class="descclassname">machine_learning.</tt><tt class="descname">SVM</tt><a class="headerlink" href="#machine_learning.SVM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implemented through <a class="reference external" href="http://docs.opencv.org/modules/ml/doc/support_vector_machines.html">OpenCV&#8217;s SVM</a></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.opencv.org/modules/ml/doc/support_vector_machines.html">OpenCV&#8217;s SVM</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machines">Support vector machines</a></p>
+</div>
+<p>example:</p>
+<div class="highlight-python"><div class="highlight"><pre>var svm = SVM()
+
+# our responses. 
+var responses = reshape(ones(2*3), (2, 3))
+
+#/ OpenCV can fail for too similar inputs (probably synthetic)
+for i in 0..3{
+    responses[1][i] = -1
+}
+
+#/ our targets.
+var targets = ones(2); targets[1] = -1
+
+#/ train with responses
+svm.train(responses, targets: targets)
+
+#/ predict
+var y = -1 * ones(3) // must have same size!
+var result = svm.predict(y)
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="machine_learning.SVM.M">
+<tt class="descname">M</tt><em class="property"> = 'number of responses'</em><a class="headerlink" href="#machine_learning.SVM.M" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of responses.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="machine_learning.SVM.N">
+<tt class="descname">N</tt><em class="property"> = 'number of variables in a response'</em><a class="headerlink" href="#machine_learning.SVM.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of variables.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="machine_learning.SVM.kernel_type">
+<tt class="descname">kernel_type</tt><em class="property"> = 'kernel type'</em><a class="headerlink" href="#machine_learning.SVM.kernel_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Useful in mapping to a nonlinear function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="machine_learning.SVM.predict">
+<tt class="descname">predict</tt><big>(</big><em>responses</em><big>)</big><a class="headerlink" href="#machine_learning.SVM.predict" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>responses</strong> (<em>matrix, ndarray</em>) &#8211; The response to some unknown variable.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray, Double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="machine_learning.SVM.setParams">
+<tt class="descname">setParams</tt><big>(</big><em>svm_type</em>, <em>kernel</em>, <em>nu=0.5</em><big>)</big><a class="headerlink" href="#machine_learning.SVM.setParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>svm_type</strong> (<em>String</em>) &#8211; Assumed to be either C_SVC, ONE_CLASS, NU_SVC or NU_SVR</li>
+<li><strong>kernel</strong> (<em>String</em>) &#8211; Assumed to be one of LIENAR or SIGMOID</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the parameters for the SVM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="machine_learning.SVM.svm_type">
+<tt class="descname">svm_type</tt><em class="property"> = 'SVM type'</em><a class="headerlink" href="#machine_learning.SVM.svm_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can drastically change performance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="machine_learning.SVM.train">
+<tt class="descname">train</tt><big>(</big><em>responses</em>, <em>targets</em><big>)</big><a class="headerlink" href="#machine_learning.SVM.train" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resonses</strong> &#8211; The matrix of responses to some (known!) variable.</li>
+<li><strong>targets</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The known variables a response is associated with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="machine_learning.kNearestNeighbors">
+<em class="property">class </em><tt class="descclassname">machine_learning.</tt><tt class="descname">kNearestNeighbors</tt><a class="headerlink" href="#machine_learning.kNearestNeighbors" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/K_nearest_neighbors">k-nearest neighbors algorithm</a></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">My simple test failed.</p>
+</div>
+<dl class="attribute">
+<dt id="machine_learning.kNearestNeighbors.M">
+<tt class="descname">M</tt><em class="property"> = 'responses'</em><a class="headerlink" href="#machine_learning.kNearestNeighbors.M" title="Permalink to this definition">¶</a></dt>
+<dd><p>the number of variables in a response</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="machine_learning.kNearestNeighbors.N">
+<tt class="descname">N</tt><em class="property"> = 'variables'</em><a class="headerlink" href="#machine_learning.kNearestNeighbors.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>the number of variables you train for</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="machine_learning.kNearestNeighbors.predict">
+<tt class="descname">predict</tt><big>(</big><em>x</em>, <em>k</em><big>)</big><a class="headerlink" href="#machine_learning.kNearestNeighbors.predict" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The reponse you want to train for.</li>
+<li><strong>k</strong> (<em>Int</em>) &#8211; The number of neighest neighbors you want to train against.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. The predicted response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="machine_learning.kNearestNeighbors.train">
+<tt class="descname">train</tt><big>(</big><em>responses</em>, <em>targets</em><big>)</big><a class="headerlink" href="#machine_learning.kNearestNeighbors.train" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>responses</strong> (<a class="reference internal" href="matrix.html#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The responses.</li>
+<li><strong>targets</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The targets you <em>know</em> exist.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="svm">
+<h3><a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machine">SVM</a><a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>var svm = SVM()
+
+// our responses.
+var responses = reshape(ones(2*3), (2, 3))
+
+// OpenCV can fail for too similar inputs (probably synthetic)
+for i in 0..3{
+    responses[1][i] = -1
+}
+
+// our targets.
+var targets = ones(2); targets[1] = -1
+
+// train with responses
+svm.train(responses, targets: targets)
+
+// predict
+var y = -1 * ones(3) // must have same size!
+var result = svm.predict(y)
+</pre></div>
+</div>
+</div>
+<div class="section" id="knn">
+<h3><a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbor_algorithm">kNN</a><a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h3>
+<p>I haven&#8217;t and don&#8217;t have a use case for this; my simple test failed although I
+believe it&#8217;s correct.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">var</span> <span class="n">knn</span> <span class="o">=</span> <span class="n">kNearestNeighbors</span><span class="p">()</span>
+<span class="n">var</span> <span class="n">responses</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">var</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">knn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">responses</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span><span class="n">targets</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="svd-or-pca">
+<h3><a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a><a class="headerlink" href="#svd-or-pca" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">var</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>var x_train:matrix = read_csv(&quot;python_testing/csvs/x_train.csv&quot;)
+var y_train:ndarray = read_csv(&quot;python_testing/csvs/y_train.csv&quot;)
+
+var x_test:matrix = read_csv(&quot;python_testing/csvs/x_test.csv&quot;)
+
+var svm = SVM()
+svm.train(x_train, y_train)
+var yhat = svm.predict(x_test)
+
+// how accurate are we?
+var y_test:ndarray = read_csv(&quot;python_testing/csvs/y_test.csv&quot;)
+var percent_correct:Double = argwhere(abs(y_test - yhat) &lt; 0.5).n / yhat.n
+println(percent_correct) // about 94% accurate
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Machine learning</a><ul>
+<li><a class="reference internal" href="#docs">Docs</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#svm">SVM</a></li>
+<li><a class="reference internal" href="#knn">kNN</a></li>
+<li><a class="reference internal" href="#svd-or-pca">SVD or PCA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="matrix.html"
+                        title="previous chapter">Matrices</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="c.html"
+                        title="next chapter">Interfacing with C</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/machine_learning.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="c.html" title="Interfacing with C"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

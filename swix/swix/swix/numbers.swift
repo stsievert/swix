@@ -15,6 +15,8 @@ let PYTHON_PATH = "~/anaconda/bin/ipython"
 
 let pi = 3.1415926535897932384626433832795028841971693993751058
 let π = pi
+let tau = 2 * pi
+let τ = tau
 let phi = (1 + sqrt(5.double))/2
 let φ = phi
 let e = exp(1.double)
