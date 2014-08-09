@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to swix’s documentation! &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="#" />
+    <link rel="next" title="Installation" href="installation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="welcome-to-swix-s-documentation">
+<h1>Welcome to swix&#8217;s documentation!<a class="headerlink" href="#welcome-to-swix-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The explicit goal of swix is to allow easy <em>conversion</em> (and not easy
+developement) between a complicated signal processing algorithm and a mobile
+app. Converting from Python/Matlab to C was (and is) a pain. I would certainly
+like to see more mobile apps and hope this will help.</p>
+<p>This function relies on NumPy and implements the most basic usage. If in doubt
+about a function, look at NumPy&#8217;s docs for a function of the same name; I tried
+to include links.</p>
+<p>This library is optimized through the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> in most cases.
+All operations and the important operations (well, the ones I used) are
+optimized through this framework. And luckily, examples exist in swix on how to
+call C functions.</p>
+<p>For a speed comparison, in the real-world example I used I found that on the
+computer, this library was ~2-3x slower than Matlab. Going down to iOS resulted
+in another speed drop of ~10x, meaning iOS is very roughly 20-30 times slower
+than Matlab. Not bad for an underpowered mobile device!</p>
+<p>Examples are perhaps the most useful aspect of documentation, so I&#8217;ve included
+some examples in <a class="reference internal" href="examples.html"><em>Examples</em></a></p>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#possible-bugs">Possible bugs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="numbers.html#module-numbers">Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html#docs">Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html#module-matrix">Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c.html#module-objc">Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bugs.html#matlab-and-swix-differences">Matlab and swix differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bugs.html#beta-bugs">Beta bugs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#pi-approximation">Pi approximation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#project-euler-1">Project Euler #1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#soft-thresholding">Soft thresholding</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to swix&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="next chapter">Installation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >next</a> |</li>
+        <li><a href="#">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
