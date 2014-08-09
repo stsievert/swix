@@ -71,9 +71,9 @@ folder; something like <tt class="docutils literal"><span class="pre">the/path/t
 <div class="section" id="possible-bugs">
 <h2>Possible bugs<a class="headerlink" href="#possible-bugs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>If you get errors like &#8220;Unresolved identifier <a href="#id1"><span class="problematic" id="id2">*</span></a>_objc&#8221; you probably haven&#8217;t added the
+<li>If you get errors like <tt class="docutils literal"><span class="pre">&quot;Unresolved</span> <span class="pre">identifier</span> <span class="pre">*_objc&quot;</span></tt> you probably haven&#8217;t added the
 bridging header correctly.</li>
-<li>&#8221;.../swix/objc/OpenCV.h:12: &#8216;opencv2/opencv.hpp&#8217; file not found&#8221;. This bug
+<li><tt class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.hpp'</span> <span class="pre">file</span> <span class="pre">not</span> <span class="pre">found&quot;.</span></tt> This bug
 had me for a while since opencv2.framework was clearly in my project.. It
 turns out under Build Phases/Link Binary with Libraries you need to &#8220;add
 other&#8221; and select the opencv2.framework in swix/objc/. Oh, and if you can&#8217;t

@@ -1,4 +1,5 @@
 from numbers import S2_PREFIX
+import links as l
 
 
 class ndarray:
@@ -14,6 +15,9 @@ class ndarray:
         >>> x = arange(2*2).reshape((2,2))
         >>> println(x)
         # prints [0 1; 2 3]
+
+        .. seealso::
+            `np.reshape`_
         """
     def copy():
         """
@@ -26,6 +30,9 @@ class ndarray:
         :rtype: Double. The minimum value in the array.
 
         >>> assert(array(1, 2, 3, 4).min() == 1)
+
+        .. seealso::
+            `np.min`_
         """
     def max():
         """
@@ -64,6 +71,9 @@ def argwhere(idx):
     :param idx: An array of 0's and 1's (analagous to true and false).
     :type idx: ndarray
     :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
+
+    .. seealso::
+        `np.argwhere`_
     """
 
 
@@ -80,6 +90,9 @@ class initing():
         :type N: Int
 
         >>> assert(zeros(3) ~== array(0, 0, 0))
+
+        .. seealso::
+            `np.zeros`_
         """
     def zeros_like(x):
         """
@@ -88,6 +101,8 @@ class initing():
 
         >>> var x = array(3, 8)
         >>> assert(zeros_like(x) ~== array(0, 0)
+
+        .. seealso:: `np.zeros_like`_
         """
     def ones(N):
         """
@@ -109,6 +124,7 @@ class initing():
         >>> assert(arange(4, 6) ~== array(4, 5))
         >>> assert(arange(2, x:true) ~== array(0, 1, 2))
 
+        .. seealso:: `np.arange`_
         """
     def linspace(min, max, num=50):
         """
@@ -120,6 +136,8 @@ class initing():
         :type num: Int
 
         >>> assert(linspace(0, 1, num:3) ~== array(0.0, 0.5, 1.0))
+
+        .. seealso:: `np.linspace`_
         """
     def array(numbers):
         """
@@ -311,6 +329,8 @@ class simple_math:
         :param x: An array.
         :type x: ndarray
         :rtype: Double. The variance of the array.
+
+        .. seealso:: `Variance`_
         """
     def cumsum(x):
         """
@@ -329,6 +349,8 @@ class simple_math:
         :rtype: ndarray. Random integers normally distributed.
 
         .. warning:: The seed stays constant for each call.
+
+        .. seealso:: `np.random.rand`_
         """
     def randn(N, seed=42, mean=0.0, sigma=1.0):
         """
@@ -341,6 +363,8 @@ class simple_math:
         :param sigma: The standard deviation of this distribution.
         :type sigma: Double
         :rtype: ndarray. Random integers that are normally distributed.
+
+        .. seealso:: `np.random.randn`_
         """
     def abs(x):
         """
@@ -355,6 +379,8 @@ class simple_math:
         :param type: One of "l0", "l1", "l0"
         :type type: String
         :rtype: ndarray. A specific norm of the array. Either the :math:`l_0`, :math:`l_1` or :math:`l_2` norm.
+
+        .. seealso:: `np.linalg.norm`_
         """
     def pow(x, power):
         """
@@ -429,6 +455,8 @@ class complex_math:
 
         >>> x = arange(10)
         >>> assert(x ~== ifft(fft(x)))
+
+        .. seealso:: `np.fft.fft`_, `Fourier Transform`_
         """
     def ifft(y_real, y_imag):
         """
@@ -437,6 +465,8 @@ class complex_math:
         :param y_imag: The imaginary part of fft(x)
         :type y_imag: ndarray
         :rtype: ndarray. The inverse Fourier transform of :math:`y_{real} + j \\cdot y_{imag}`
+
+        .. seealso:: `np.fft.ifft`_, `Fourier Transform`_
         """
 
 

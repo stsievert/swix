@@ -16,9 +16,9 @@ Installation
 
 Possible bugs
 ---------------
-* If you get errors like "Unresolved identifier *_objc" you probably haven't added the
+* If you get errors like ``"Unresolved identifier *_objc"`` you probably haven't added the
   bridging header correctly.
-* ".../swix/objc/OpenCV.h:12: 'opencv2/opencv.hpp' file not found". This bug
+* ``".../swix/objc/OpenCV.h:12: 'opencv2/opencv.hpp' file not found".`` This bug
   had me for a while since opencv2.framework was clearly in my project.. It
   turns out under Build Phases/Link Binary with Libraries you need to "add
   other" and select the opencv2.framework in swix/objc/. Oh, and if you can't

@@ -51,25 +51,27 @@
             
   <div class="section" id="welcome-to-swix-s-documentation">
 <h1>Welcome to swix&#8217;s documentation!<a class="headerlink" href="#welcome-to-swix-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>The goal of swix is to ease the Python/Matlab-C conversion. It does not aim to
-allow easy development, meaning that there are still areas where the ease could
-be improved (e.g., <tt class="docutils literal"><span class="pre">x[0..&lt;2]</span> <span class="pre">=</span> <span class="pre">zeros(2)</span></tt>). Regardless, this library provides
-almost a one-to-one conversion between Matlab and Swift.</p>
-<p>This library wraps <a class="reference external" href="http://opencv.org">OpenCV</a> and through this integrates the ObjC, ObjC++, C++,
-C and Swift languages.</p>
-<p>This library is optimized through the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> in some cases.
-Notable areas that need to be optimized and not depend on native Swift
-for-loops are</p>
-<ul class="simple">
-<li>element-wise division and multiplication, for <tt class="docutils literal"><span class="pre">Double</span> <span class="pre">*</span> <span class="pre">matrix</span></tt>, <tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">*</span>
-<span class="pre">matrix</span></tt> and <tt class="docutils literal"><span class="pre">matrix</span> <span class="pre">*</span> <span class="pre">Double</span></tt> including <tt class="docutils literal"><span class="pre">&gt;</span> <span class="pre">&lt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">%</span></tt></li>
-<li>argwhere</li>
-<li>basically all simple math operators (sin, abs, cos, round, randn, cumsum, norm, variance...)</li>
-</ul>
+<p>The explicit goal of swix is to allow easy conversion between a complicated
+signal processing algorithm and a mobile app. Converting from Python/Matlab to
+C was (and is) a pain. I would certainly like to see more mobile apps and hope
+this will help.</p>
+<p>This function relies on NumPy and implements the most basic usage. If in doubt about a function, look at NumPy&#8217;s docs for a function of the same name; I tried to include links.</p>
+<p>This library is optimized through the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> in most cases.
+All operations and the important operations (well, the ones I used) are
+optimized through this framework. And luckily, examples exist in swix on how to
+call C functions.</p>
 <p>For a speed comparison, in the real-world example I used I found that on the
-computer, this library was ~3-4x slower than Matlab. Going down to iOS resulted
-in another speed drop of ~10x, meaning iOS is very roughly 30-40 times slower
-than Matlab.</p>
+computer, this library was ~2-3x slower than Matlab. Going down to iOS resulted
+in another speed drop of ~10x, meaning iOS is very roughly 20-30 times slower
+than Matlab. Not bad for an underpowered mobile device!</p>
+<div class="section" id="todo">
+<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>internet links</li>
+<li>seealso</li>
+<li>function links</li>
+</ul>
+</div>
 <div class="section" id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -78,20 +80,25 @@ than Matlab.</p>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#possible-bugs">Possible bugs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="numbers.html#module-numbers">Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html#docs">Docs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#ndarray">ndarray</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#matrix">matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#simple-mathematical-functions">Simple mathematical functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#initing">Initing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#operators">Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#complex-math">Complex math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html#module-matrix">Docs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#svd">SVD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#knn">kNN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#svd-or-pca">SVD or PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c.html#module-objc">Docs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a><ul>
@@ -99,35 +106,18 @@ than Matlab.</p>
 <li class="toctree-l2"><a class="reference internal" href="bugs.html#beta-bugs">Beta bugs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="full_docs.html">Full docs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#todo">Todo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#numbers">numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#ndarray">ndarray</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#ndarray-class">ndarray class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#initing">initing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#operators">operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#simple-math">Simple math</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#complex-math">Complex math</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#module-matrix_docs">matrix</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#matrix-class">matrix class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id2">initing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id3">Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id4">Simple Math</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#id5">Complex math</a></li>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#images">Images</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#module-machine_learning_docs">Machine learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="full_docs.html#module-c_docs">Interfacing with C</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="full_docs.html#tips">Tips</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#making-a-ring">Making a ring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#soft-thresholding">Soft thresholding</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
 </div>
 </div>
 
@@ -140,6 +130,7 @@ than Matlab.</p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Welcome to swix&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#todo">Todo</a></li>
 <li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
 </ul>
 </li>

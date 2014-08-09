@@ -1,27 +1,33 @@
 
 class SVM:
     """
+    Implemented through `OpenCV's SVM`_
+
+    .. seealso:: `OpenCV's SVM`_, `Support vector machines`_
+
     example:
 
-    >>> var svm = SVM()
+    .. code-block:: python
 
-    >>> # our responses. 
-    >>> var responses = reshape(ones(2*3), (2, 3))
+        var svm = SVM()
 
-    >>> #/ OpenCV can fail for too similar inputs (probably synthetic)
-    >>> for i in 0..3{
-    >>>     responses[1][i] = -1
-    >>> }
+        # our responses. 
+        var responses = reshape(ones(2*3), (2, 3))
 
-    >>> #/ our targets.
-    >>> var targets = ones(2); targets[1] = -1
+        #/ OpenCV can fail for too similar inputs (probably synthetic)
+        for i in 0..3{
+            responses[1][i] = -1
+        }
 
-    >>> #/ train with responses
-    >>> svm.train(responses, targets: targets)
+        #/ our targets.
+        var targets = ones(2); targets[1] = -1
 
-    >>> #/ predict
-    >>> var y = -1 * ones(3) // must have same size!
-    >>> var result = svm.predict(y)
+        #/ train with responses
+        svm.train(responses, targets: targets)
+
+        #/ predict
+        var y = -1 * ones(3) // must have same size!
+        var result = svm.predict(y)
     """
     M = "number of responses" #: The number of responses.
     N = "number of variables in a response" #: The number of variables.
@@ -51,6 +57,7 @@ class SVM:
         """
 class kNearestNeighbors:
     """
+    .. seealso:: `k-nearest neighbors algorithm`_
     .. warning:: My simple test failed.
     """
     N = "variables" #: the number of variables you train for

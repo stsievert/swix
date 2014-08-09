@@ -5,54 +5,51 @@
 
 Welcome to swix's documentation!
 ================================
+The explicit goal of swix is to allow easy conversion between a complicated
+signal processing algorithm and a mobile app. Converting from Python/Matlab to
+C was (and is) a pain. I would certainly like to see more mobile apps and hope
+this will help.
 
-The goal of swix is to ease the Python/Matlab-C conversion. It does not aim to
-allow easy development, meaning that there are still areas where the ease could
-be improved (e.g., ``x[0..<2] = zeros(2)``). Regardless, this library provides
-almost a one-to-one conversion between Matlab and Swift.
+This function relies on NumPy and implements the most basic usage. If in doubt about a function, look at NumPy's docs for a function of the same name; I tried to include links.
 
-This library wraps `OpenCV`_ and through this integrates the ObjC, ObjC++, C++,
-C and Swift languages.
-
-This library is optimized through the `Accelerate framework`_ in some cases.
-Notable areas that need to be optimized and not depend on native Swift
-for-loops are
-
-* element-wise division and multiplication, for ``Double * matrix``, ``matrix *
-  matrix`` and ``matrix * Double`` including ``> < <= >= %``
-* argwhere
-* basically all simple math operators (sin, abs, cos, round, randn, cumsum, norm, variance...)
+This library is optimized through the `Accelerate framework`_ in most cases.
+All operations and the important operations (well, the ones I used) are
+optimized through this framework. And luckily, examples exist in swix on how to
+call C functions.
 
 For a speed comparison, in the real-world example I used I found that on the
-computer, this library was ~3-4x slower than Matlab. Going down to iOS resulted
-in another speed drop of ~10x, meaning iOS is very roughly 30-40 times slower
-than Matlab.
+computer, this library was ~2-3x slower than Matlab. Going down to iOS resulted
+in another speed drop of ~10x, meaning iOS is very roughly 20-30 times slower
+than Matlab. Not bad for an underpowered mobile device!
+
+Todo
+---------
+* internet links
+* seealso
+* function links
+
 
 Table of Contents
 -----------------
-
-
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    installation
    numbers
+   ndarray
    matrix
    machine_learning
+   c
    bugs
-   full_docs
+   examples
 
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
 .. _OpenCV: http://opencv.org
 .. _Accelerate framework: https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465
 
-
-..
-    Indices and tables
-    ==================
-
-    * :ref:`genindex`
-    * :ref:`modindex`
-    * :ref:`search`
 
 

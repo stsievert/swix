@@ -1,12 +1,28 @@
+.. include:: links.rst
 
 Machine learning
 ================
+This library integrates `OpenCV`_. What I needed was implemented and not much more; if you want something you'll probably have to implement it yourself using OpenCV.
 
-Again, examples. They're more useful.
+.. _`OpenCV`: http://opencv.org
 
-`SVD`_ 
+
+Docs
++++++++++++++++++++
+This is a file that describes classes.
+
+.. automodule:: machine_learning
+.. autoclass:: SVM
+    :members:
+.. autoclass:: kNearestNeighbors
+    :members:
+
+
+Examples
+++++++++++++++
+`SVM`_ 
 ----------
-::
+.. code-block:: python
 
     var svm = SVM()
 
@@ -34,7 +50,7 @@ Again, examples. They're more useful.
 I haven't and don't have a use case for this; my simple test failed although I
 believe it's correct.
 
-::
+.. code-block:: python
 
     var knn = kNearestNeighbors()
     var responses = ones((4,6))
@@ -45,7 +61,7 @@ believe it's correct.
 
 `SVD`_ or `PCA`_
 -------------------
-::
+.. code-block:: python
 
     var x = ones((2,4))
     var (u, s, v) = svd(x)
@@ -53,7 +69,7 @@ believe it's correct.
     (u, s, v) = svd(x)
     println("    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)")
 
-::
+.. code-block:: python
 
     var x_train:matrix = read_csv("python_testing/csvs/x_train.csv")
     var y_train:ndarray = read_csv("python_testing/csvs/y_train.csv")
@@ -68,6 +84,7 @@ believe it's correct.
     var y_test:ndarray = read_csv("python_testing/csvs/y_test.csv")
     var percent_correct:Double = argwhere(abs(y_test - yhat) < 0.5).n / yhat.n
     println(percent_correct) // about 94% accurate
+
 
 .. _PCA: https://en.wikipedia.org/wiki/Principal_component_analysis
 .. _SVM: https://en.wikipedia.org/wiki/Support_vector_machine

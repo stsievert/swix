@@ -23,14 +23,12 @@ that numbers have handy conversions and we can access complex numbers through
 ``1.0+1.0.i`` respectively.
 
 
+Docs
+++++++++++++++
+.. automodule:: numbers
+    :members:
 
 
-..
-    Indices and tables
-    ==================
-    * :ref:`genindex`
-    * :ref:`modindex`
-    * :ref:`search`
 
 
 .. _ScalarArithmetic: https://github.com/seivan/ScalarArithmetic

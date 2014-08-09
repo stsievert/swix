@@ -15,6 +15,9 @@ phi = (1 + sqrt(5))/2
 #: The classic `circle constant <https://en.wikipedia.org/wiki/Pi>`_. Also called π
 pi = np.pi
 
+#: The more intuitive circle constant. Also τ
+tau = 2 * np.pi
+
 #: `Euler's number <https://en.wikipedia.org/wiki/E_(mathematical_constant)>`_
 e = np.e
 
