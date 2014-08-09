@@ -58,7 +58,7 @@
 <span class="n">var</span> <span class="n">pi_approx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">pi_approx</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">println</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">pi_approx</span><span class="p">)</span>
-<span class="c"># prints 3.14059265383979</span>
+<span class="c">#// prints 3.14059265383979</span>
 </pre></div>
 </div>
 </div>
@@ -67,10 +67,26 @@
 <p><a class="reference external" href="http://projecteuler.net/problem=1">Project Euler #1</a></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">var</span> <span class="n">N</span> <span class="o">=</span> <span class="mf">1e3</span>
 <span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="c"># seeing where that modulo is 0</span>
+<span class="c">#// seeing where that modulo is 0</span>
 <span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">argwhere</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">))</span>
 <span class="n">println</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<span class="c"># prints 233168.0, the correct answer</span>
+<span class="c">#// prints 233168.0, the correct answer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="project-euler-10">
+<h2>Project Euler #10<a class="headerlink" href="#project-euler-10" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://projecteuler.net/problem=10">Project Euler #10</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#// find all primes</span>
+<span class="n">var</span> <span class="n">N</span> <span class="o">=</span> <span class="mf">2e6</span><span class="o">.</span><span class="n">int</span>
+<span class="n">var</span> <span class="n">primes</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mf">2.</span><span class="o">.&lt;</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">int</span><span class="p">{</span>
+    <span class="n">var</span> <span class="nb">max</span><span class="p">:</span><span class="n">Int</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">var</span> <span class="n">j</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span><span class="o">.</span><span class="n">double</span>
+    <span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.0</span>
+<span class="p">}</span>
+<span class="n">println</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">primes</span><span class="p">))</span>
+<span class="c">#// prints the correct answer</span>
 </pre></div>
 </div>
 </div>
@@ -99,6 +115,7 @@
 <li><a class="reference internal" href="#">Examples</a><ul>
 <li><a class="reference internal" href="#pi-approximation">Pi approximation</a></li>
 <li><a class="reference internal" href="#project-euler-1">Project Euler #1</a></li>
+<li><a class="reference internal" href="#project-euler-10">Project Euler #10</a></li>
 <li><a class="reference internal" href="#soft-thresholding">Soft thresholding</a></li>
 </ul>
 </li>
