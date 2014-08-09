@@ -27,6 +27,14 @@ than Matlab. Not bad for an underpowered mobile device!
 Examples are perhaps the most useful aspect of documentation, so I've included
 some examples in :doc:`examples`
 
+There exist two versions of these docs. There is a `mobile friendly`_ version on
+readthedocs and `another version`_ on scottsievert.github.io/swix. The version on
+readthedocs is mobile friendly but out of date; the other version is easier to
+maintain.
+
+.. _`mobile friendly`: http://swix.readthedocs.org/
+.. _`another version`: http://scottsievert.github.io/swix/
+
 Table of Contents
 -----------------
 .. toctree::
