@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Numbers and constants &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="next" title="Array" href="ndarray.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndarray.html" title="Array"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="numbers-and-constants">
+<h1>Numbers and constants<a class="headerlink" href="#numbers-and-constants" title="Permalink to this headline">¶</a></h1>
+<p>Swix defines several convince constants including π (or pi), φ (or phi), e, inf, as well as the
+smallest possible difference between a float or double, <tt class="docutils literal"><span class="pre">FLOAT_EPSILON</span></tt> and
+<tt class="docutils literal"><span class="pre">DOUBLE_EPSILON</span></tt></p>
+<p>It should be noted that this library defaults to the type <tt class="docutils literal"><span class="pre">double</span></tt>. While it
+does use the most memory, it&#8217;s the most precise. If the compiler ever complains
+about conversion or can&#8217;t find a function, try calling it with a double value.</p>
+<p>I&#8217;ve extended the native types to include a dot syntax. That is,
+<tt class="docutils literal"><span class="pre">Int(3).double</span></tt> will return 3.0. These are included for <tt class="docutils literal"><span class="pre">Int</span></tt>, <tt class="docutils literal"><span class="pre">Double</span></tt>,
+<tt class="docutils literal"><span class="pre">CInt</span></tt>, and <tt class="docutils literal"><span class="pre">Float</span></tt>. For integrating with C, use <tt class="docutils literal"><span class="pre">Int(3).cint</span></tt>.</p>
+<p>The library includes both <a class="reference external" href="https://github.com/seivan/ScalarArithmetic">ScalarArithmetic</a> and <a class="reference external" href="https://github.com/dankogai/swift-complex">swift-complex</a>. This means
+that numbers have handy conversions and we can access complex numbers through
+<tt class="docutils literal"><span class="pre">1.0+1.0.i</span></tt> respectively.</p>
+<div class="section" id="module-numbers">
+<span id="docs"></span><h2>Docs<a class="headerlink" href="#module-numbers" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="numbers.DOUBLE_EPSILON">
+<tt class="descclassname">numbers.</tt><tt class="descname">DOUBLE_EPSILON</tt><em class="property"> = 'smaller'</em><a class="headerlink" href="#numbers.DOUBLE_EPSILON" title="Permalink to this definition">¶</a></dt>
+<dd><p>The smallest possible difference between two doubles. See <a class="reference external" href="http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C">machine epsilon</a> for more
+detail.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.FLOAT_EPSILON">
+<tt class="descclassname">numbers.</tt><tt class="descname">FLOAT_EPSILON</tt><em class="property"> = 'small'</em><a class="headerlink" href="#numbers.FLOAT_EPSILON" title="Permalink to this definition">¶</a></dt>
+<dd><p>The smallest possible difference between two floats. See <a class="reference external" href="http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C">machine epsilon</a> for more
+detail.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.PYTHON_PATH">
+<tt class="descclassname">numbers.</tt><tt class="descname">PYTHON_PATH</tt><em class="property"> = '~/anaconda/bin/ipython'</em><a class="headerlink" href="#numbers.PYTHON_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where is Python found? Used for imshow and savefig (testing on MacOSX only!). Assumes <a class="reference external" href="http://wiki.scipy.org/PyLab">pylab</a> is installed.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.S2_PREFIX">
+<tt class="descclassname">numbers.</tt><tt class="descname">S2_PREFIX</tt><em class="property"> = '\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><a class="headerlink" href="#numbers.S2_PREFIX" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path that should point to the swix directory. The file imshow.py, numbers.swix would be found by appending to this path.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="numbers.close">
+<tt class="descclassname">numbers.</tt><tt class="descname">close</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#numbers.close" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; Double. An input value.</li>
+<li><strong>y</strong> &#8211; Double. Another value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Bool. True only if the two values are close numerically.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Specifically, true only if <span class="math">\(|x-y|&lt;10^{-9}\)</span>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">close</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">)</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="numbers.convience_elements">
+<tt class="descclassname">numbers.</tt><tt class="descname">convience_elements</tt><big>(</big><big>)</big><a class="headerlink" href="#numbers.convience_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>The built in class numeric classes has convience elements.</p>
+<ul class="simple">
+<li>{Float|Double|Int|CInt}.int. Returns the integer value</li>
+<li>{Float|Double|Int|CInt}.float. The floating point value</li>
+<li>{Float|Double|Int|CInt}.double. The double value.</li>
+<li>String.floatValue, String.doubleValue. Converts the string to a numeric value by interpetting a NSString.</li>
+<li>String.nsstring. For interfacing with C.</li>
+</ul>
+<p>Additionally, Int has an element cint, Double has element cdouble, Float
+has element cfloat.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="mf">3.14</span><span class="o">.</span><span class="n">int</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="s">&quot;3.14&quot;</span><span class="o">.</span><span class="n">floatValue</span> <span class="o">==</span> <span class="mf">3.14</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.e">
+<tt class="descclassname">numbers.</tt><tt class="descname">e</tt><em class="property"> = 2.718281828459045</em><a class="headerlink" href="#numbers.e" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler&#8217;s number</a></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.euler">
+<tt class="descclassname">numbers.</tt><tt class="descname">euler</tt><em class="property"> = 0.5772156649015329</em><a class="headerlink" href="#numbers.euler" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Euler–Mascheroni_constant">Euler&#8217;s constant</a></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.inf">
+<tt class="descclassname">numbers.</tt><tt class="descname">inf</tt><em class="property"> = inf</em><a class="headerlink" href="#numbers.inf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infinity.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="numbers.isNumber">
+<tt class="descclassname">numbers.</tt><tt class="descname">isNumber</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#numbers.isNumber" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; AnyObject.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Bool. True only if x is a number (a float, double, cint, int). Returns false for ndarray and matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="numbers.operator_slash">
+<tt class="descclassname">numbers.</tt><tt class="descname">operator_slash</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="headerlink" href="#numbers.operator_slash" title="Permalink to this definition">¶</a></dt>
+<dd><p>The operator <tt class="docutils literal"><span class="pre">/</span></tt> that represents division. Converts integer division to floating point division.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lhs</strong> &#8211; Int.</li>
+<li><strong>rhs</strong> &#8211; Int.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double = lhs / rhs</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.phi">
+<tt class="descclassname">numbers.</tt><tt class="descname">phi</tt><em class="property"> = 1.618033988749895</em><a class="headerlink" href="#numbers.phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/The_golden_ratio">golden ratio</a>
+Also callable with φ</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.pi">
+<tt class="descclassname">numbers.</tt><tt class="descname">pi</tt><em class="property"> = 3.141592653589793</em><a class="headerlink" href="#numbers.pi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The classic <a class="reference external" href="https://en.wikipedia.org/wiki/Pi">circle constant</a>. Also called π</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="numbers.tau">
+<tt class="descclassname">numbers.</tt><tt class="descname">tau</tt><em class="property"> = 6.283185307179586</em><a class="headerlink" href="#numbers.tau" title="Permalink to this definition">¶</a></dt>
+<dd><p>The more intuitive circle constant. Also τ</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Numbers and constants</a><ul>
+<li><a class="reference internal" href="#module-numbers">Docs</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ndarray.html"
+                        title="next chapter">Array</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/numbers.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndarray.html" title="Array"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
