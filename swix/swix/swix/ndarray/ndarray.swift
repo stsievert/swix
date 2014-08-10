@@ -85,43 +85,6 @@ struct ndarray {
 }
 
 
-func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
-    print(prefix)
-    var suffix = seperator
-    var printed = false
-    for i in 0..<x.n{
-        if i==x.n-1 { suffix = "" }
-        if printWholeMatrix || (x.n)<16 || i<3 || i>(x.n-4){
-            print(NSString(format: format+suffix, x[i]))
-        }else if printed == false{
-            printed = true
-            print("..., ")
-        }
-    }
-    print(postfix)
-    print(newline)
-}
-func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
-}
-func argwhere(idx: ndarray) -> ndarray{
-    // counts non-zero elements, return array of doubles (which can be indexed!).
-
-    var i = arange(idx.n)
-    var sum = sum_objc(!idx, idx.n.cint)
-    var args = zeros(Int(sum))
-    find_objc(!idx, !args, !i, idx.n.cint)
-    return args
-}
-
-// RANGE. | for exclusive range. | chosen for similiarity with Python
-infix operator  | {associativity none precedence 140}
-func | (lhs: Int, rhs: Int) -> Range<Int>{
-    return lhs..<rhs
-}
-
-
-
 
 
 

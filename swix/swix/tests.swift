@@ -35,9 +35,9 @@ class runTests {
             println("    Int(1)+Double(1)==2 through ScalarArithmetic")
         }
         func swift_complex_test(){
-            var x = 1.0 + 1.0.i
-            assert(abs(x) == sqrt(2))
-            println("    scalar (not vector) complex number usage works using swift-complex.")
+//            var x = 1.0 + 1.0.i
+//            assert(abs(x) == sqrt(2))
+//            println("    scalar (not vector) complex number usage works using swift-complex.")
         }
         func range_test(){
             var x = arange(4)
@@ -60,10 +60,9 @@ class runTests {
         }
         func matrix2d_indexing_test(){
             var x = array("1 2 3; 4 5 6; 7 8 9")
-            x[0|2, 0|2] = array("4 3; 2 6")
+            x[0..<2, 0..<2] = array("4 3; 2 6")
             assert(x ~== array("4 3 3; 2 6 6; 7 8 9"))
-            println("    use x[0|2, 0|2] to index *exclusively* (and 0!2 for inclusive)")
-            println("    can use x[0|2, 1], x[1, 0..<2] or x[0..<2, 0|2] to also index")
+            println("    can use x[1, 0..<2] or x[0..<2, 0..<2] to also index")
         }
         func matrix2d_indexing_matrix_test(){
             var x = array("1 2 3; 4 5 6; 7 8 9")
