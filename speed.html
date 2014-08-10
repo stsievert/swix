@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Speed &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="Examples"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="speed">
+<h1>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h1>
+<p>Very generally, this library is about as fast as Python and Matlab, at least at
+in beta5. Going down to iOS is approximately 10x slower.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All tests were run on my machine, a 2012 macbook air with an SSD and 8GB RAM</p>
+</div>
+<div class="section" id="swix-times-s">
+<h2>swix times (s)<a class="headerlink" href="#swix-times-s" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="18%" />
+<col width="16%" />
+<col width="30%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Function</td>
+<td>-Onone</td>
+<td>-O</td>
+<td>-Ounchecked</td>
+</tr>
+<tr class="row-even"><td>pe1</td>
+<td>2.151</td>
+<td>0.140</td>
+<td>0.116</td>
+</tr>
+<tr class="row-odd"><td>pe10</td>
+<td>6.640</td>
+<td>0.585</td>
+<td>0.560</td>
+</tr>
+<tr class="row-even"><td>pi_approx</td>
+<td>6.188</td>
+<td>0.258</td>
+<td>0.258</td>
+</tr>
+<tr class="row-odd"><td>soft_threshold</td>
+<td>0.051</td>
+<td>0.002</td>
+<td>0.002</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="comparison-times">
+<h2>Comparison times:<a class="headerlink" href="#comparison-times" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="24%" />
+<col width="18%" />
+<col width="35%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Function</td>
+<td>Python time (s)</td>
+<td>swix -Ofast</td>
+<td>Relative (swix / numpy)</td>
+</tr>
+<tr class="row-even"><td>pe1</td>
+<td>0.170</td>
+<td>0.140</td>
+<td>0.82</td>
+</tr>
+<tr class="row-odd"><td>pe10</td>
+<td>2.04</td>
+<td>0.585</td>
+<td>0.34</td>
+</tr>
+<tr class="row-even"><td>pi_approx</td>
+<td>0.046</td>
+<td>0.258</td>
+<td>5.61</td>
+</tr>
+<tr class="row-odd"><td>soft_threshold</td>
+<td>0.081</td>
+<td>0.002</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>project euler 1 was very simple</li>
+<li>project euler 10 depended on a for loop in Python &#8211; slow.</li>
+<li>I&#8217;m surprised about the soft thresholding result. I&#8217;m guessing I had some
+simple speed optimization to make.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Speed</a><ul>
+<li><a class="reference internal" href="#swix-times-s">swix times (s)</a></li>
+<li><a class="reference internal" href="#comparison-times">Comparison times:</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="previous chapter">Examples</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/speed.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="Examples"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
