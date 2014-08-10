@@ -12,10 +12,10 @@ PYTHON_PATH = "~/anaconda/bin/ipython"
 #: Also callable with φ
 phi = (1 + sqrt(5))/2
 
-#: The classic `circle constant <https://en.wikipedia.org/wiki/Pi>`_. Also called π
+#: The classic `circle constant <https://en.wikipedia.org/wiki/Pi>`_, pi and :math:`\pi`.
 pi = np.pi
 
-#: The more intuitive circle constant. Also τ
+#: The much more `intuitive circle constant <http://www.tauday.com/tau-manifesto>`_, tau and :math:`\tau`.
 tau = 2 * np.pi
 
 #: `Euler's number <https://en.wikipedia.org/wiki/E_(mathematical_constant)>`_

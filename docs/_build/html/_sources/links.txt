@@ -34,3 +34,4 @@
 .. _`Matrix multiplication`: https://en.wikipedia.org/wiki/Matrix_multiplication
 .. _`Support vector machines`: https://en.wikipedia.org/wiki/Support_vector_machines
 .. _`k-nearest neighbors algorithm`: https://en.wikipedia.org/wiki/K_nearest_neighbors
+

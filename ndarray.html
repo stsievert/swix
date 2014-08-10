@@ -71,41 +71,7 @@ language and math language; in math, this is called a vector.</p>
 <div class="section" id="docs">
 <h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
 <p>Found in <tt class="docutils literal"><span class="pre">swix/ndarray/</span></tt></p>
-<span class="target" id="module-ndarray"></span><dl class="function">
-<dt id="ndarray.argwhere">
-<tt class="descclassname">ndarray.</tt><tt class="descname">argwhere</tt><big>(</big><em>idx</em><big>)</big><a class="headerlink" href="#ndarray.argwhere" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of 0&#8217;s and 1&#8217;s (analagous to true and false).</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Returns the indices where idx has <em>non-zero</em> elements.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argwhere.html">np.argwhere</a></p>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="ndarray.println">
-<tt class="descclassname">ndarray.</tt><tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='\n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="headerlink" href="#ndarray.println" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; Prints that matrix.</td>
-</tr>
-</tbody>
-</table>
-<p>Prints the ndarray with the above optional formatters. They are all of type String.</p>
-<p>Also callable: <tt class="docutils literal"><span class="pre">print(x,</span> <span class="pre">...,</span> <span class="pre">newline=&quot;&quot;)</span></tt> with the same options.</p>
-</dd></dl>
-
-<div class="section" id="ndarray-class">
+<span class="target" id="module-ndarray"></span><div class="section" id="ndarray-class">
 <h3>ndarray class<a class="headerlink" href="#ndarray-class" title="Permalink to this headline">¶</a></h3>
 <p>Yes, an actual class (or struct).</p>
 <dl class="class">
@@ -298,8 +264,8 @@ language and math language; in math, this is called a vector.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="ndarray.initing.asmatrix">
-<tt class="descname">asmatrix</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#ndarray.initing.asmatrix" title="Permalink to this definition">¶</a></dt>
+<dt id="ndarray.initing.asarray">
+<tt class="descname">asarray</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#ndarray.initing.asarray" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -392,6 +358,10 @@ language and math language; in math, this is called a vector.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Assuming that you&#8217;re only using the on MacOSX to test your app; not optimized.</p>
 </div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#ndarray.helper_functions.write_csv" title="ndarray.helper_functions.write_csv"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.write_csv</span></tt></a></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -436,28 +406,6 @@ language and math language; in math, this is called a vector.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="ndarray.initing.write_csv">
-<tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="headerlink" href="#ndarray.initing.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The ndarray to write to a csv</li>
-<li><strong>filename</strong> (<em>String</em>) &#8211; Where to write.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Unoptimized. I assume you&#8217;re only using this on MacOSX to test your app.</p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="ndarray.initing.zeros">
 <tt class="descname">zeros</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#ndarray.initing.zeros" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -495,6 +443,74 @@ language and math language; in math, this is called a vector.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros_like.html">np.zeros_like</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="helper-functions">
+<h3>helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="ndarray.helper_functions">
+<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">helper_functions</tt><a class="headerlink" href="#ndarray.helper_functions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ndarray.helper_functions.argwhere">
+<tt class="descname">argwhere</tt><big>(</big><em>idx</em><big>)</big><a class="headerlink" href="#ndarray.helper_functions.argwhere" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of 0&#8217;s and 1&#8217;s (analagous to true and false).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Returns the indices where idx has <em>non-zero</em> elements.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argwhere.html">np.argwhere</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.println">
+<tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="headerlink" href="#ndarray.helper_functions.println" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; Prints that matrix.</td>
+</tr>
+</tbody>
+</table>
+<p>Prints the ndarray with the above optional formatters. They are all of type String.</p>
+<p>Also callable: <tt class="docutils literal"><span class="pre">print(x,</span> <span class="pre">...,</span> <span class="pre">newline=&quot;&quot;)</span></tt> with the same options.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.write_csv">
+<tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="headerlink" href="#ndarray.helper_functions.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The ndarray to write to a csv</li>
+<li><strong>filename</strong> (<em>String</em>) &#8211; Where to write.</li>
+<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unoptimized. I assume you&#8217;re only using this on MacOSX to test your app.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#ndarray.initing.read_csv" title="ndarray.initing.read_csv"><tt class="xref py py-class docutils literal"><span class="pre">initing.read_csv</span></tt></a></p>
 </div>
 </dd></dl>
 
@@ -1109,6 +1125,7 @@ language and math language; in math, this is called a vector.</p>
 <li><a class="reference internal" href="#docs">Docs</a><ul>
 <li><a class="reference internal" href="#ndarray-class">ndarray class</a></li>
 <li><a class="reference internal" href="#initing">initing</a></li>
+<li><a class="reference internal" href="#helper-functions">helper functions</a></li>
 <li><a class="reference internal" href="#operators">operators</a></li>
 <li><a class="reference internal" href="#simple-math">simple math</a></li>
 <li><a class="reference internal" href="#complex-math">complex math</a></li>

@@ -71,46 +71,6 @@
 </div>
 <div class="section" id="module-matrix">
 <span id="docs"></span><h2>Docs<a class="headerlink" href="#module-matrix" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="matrix.argwhere">
-<tt class="descclassname">matrix.</tt><tt class="descname">argwhere</tt><big>(</big><em>idx</em><big>)</big><a class="headerlink" href="#matrix.argwhere" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix of zeros and ones. Normally indicates where some condition is true.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Returns the indicies where <tt class="docutils literal"><span class="pre">idx</span></tt> is not zero.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="ndarray.html#ndarray.argwhere" title="ndarray.argwhere"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.argwhere</span></tt></a>, <a class="reference internal" href="#matrix.operators.element_operators" title="matrix.operators.element_operators"><tt class="xref py py-class docutils literal"><span class="pre">operators.element_operators</span></tt></a></p>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="matrix.println">
-<tt class="descclassname">matrix.</tt><tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='matrix(['</em>, <em>postfix='])'</em>, <em>newline='\n'</em>, <em>format='%.3f'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="headerlink" href="#matrix.println" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix to print.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; The prefix.</li>
-<li><strong>postfix</strong> (<em>String</em>) &#8211; The postfix.</li>
-<li><strong>newline</strong> (<em>String</em>) &#8211; The newline character.</li>
-<li><strong>format</strong> (<em>Bool</em>) &#8211; The format, C style.</li>
-<li><strong>printWholeMatrix</strong> &#8211; If true, prints every element.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="class">
 <dt id="matrix.simple_math">
 <em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">simple_math</tt><a class="headerlink" href="#matrix.simple_math" title="Permalink to this definition">¶</a></dt>
@@ -376,7 +336,7 @@
 <dl class="attribute">
 <dt id="matrix.matrix.T">
 <tt class="descname">T</tt><em class="property"> = 'transpose'</em><a class="headerlink" href="#matrix.matrix.T" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the transpose of the matrix. Call <a class="reference internal" href="#matrix.initing.transpose" title="matrix.initing.transpose"><tt class="xref py py-class docutils literal"><span class="pre">initing.transpose</span></tt></a></p>
+<dd><p>Returns the transpose of the matrix. Call <tt class="xref py py-class docutils literal"><span class="pre">initing.transpose</span></tt></p>
 </dd></dl>
 
 <dl class="attribute">
@@ -695,43 +655,6 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.initing.transpose">
-<tt class="descname">transpose</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#matrix.initing.transpose" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A source matrix.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The transpose of the matrix.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.transpose.html">np.transpose</a>, <a class="reference internal" href="#matrix.matrix.T" title="matrix.matrix.T"><tt class="xref py py-class docutils literal"><span class="pre">matrix.T</span></tt></a>, <a class="reference external" href="org/wiki/Matrix_transpose">Transpose</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="matrix.initing.write_csv">
-<tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="headerlink" href="#matrix.initing.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix.</li>
-<li><strong>filename</strong> &#8211; The file to write to. Writes to a file named filename in the directory <em>above</em> the prefix.</li>
-<li><strong>prefix</strong> &#8211; Defaults to S2_PREFIX.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="matrix.initing.zeros">
 <tt class="descname">zeros</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#matrix.initing.zeros" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -766,6 +689,91 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="helper-functions">
+<h3>helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="matrix.helper_functions">
+<em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">helper_functions</tt><a class="headerlink" href="#matrix.helper_functions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="matrix.helper_functions.argwhere">
+<tt class="descname">argwhere</tt><big>(</big><em>idx</em><big>)</big><a class="headerlink" href="#matrix.helper_functions.argwhere" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix of zeros and ones. Normally indicates where some condition is true.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Returns the indicies where <tt class="docutils literal"><span class="pre">idx</span></tt> is not zero.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.argwhere</span></tt>, <a class="reference internal" href="#matrix.operators.element_operators" title="matrix.operators.element_operators"><tt class="xref py py-class docutils literal"><span class="pre">operators.element_operators</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.println">
+<tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='matrix(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="headerlink" href="#matrix.helper_functions.println" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix to print.</li>
+<li><strong>prefix</strong> (<em>String</em>) &#8211; The prefix.</li>
+<li><strong>postfix</strong> (<em>String</em>) &#8211; The postfix.</li>
+<li><strong>newline</strong> (<em>String</em>) &#8211; The newline character.</li>
+<li><strong>format</strong> (<em>Bool</em>) &#8211; The format, C style.</li>
+<li><strong>printWholeMatrix</strong> &#8211; If true, prints every element.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.transpose">
+<tt class="descname">transpose</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#matrix.helper_functions.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A source matrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The transpose of the matrix.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.transpose.html">np.transpose</a>, <a class="reference internal" href="#matrix.matrix.T" title="matrix.matrix.T"><tt class="xref py py-class docutils literal"><span class="pre">matrix.T</span></tt></a>, <a class="reference external" href="org/wiki/Matrix_transpose">Transpose</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.write_csv">
+<tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="headerlink" href="#matrix.helper_functions.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix.</li>
+<li><strong>filename</strong> &#8211; The file to write to. Writes to a file named filename in the directory <em>above</em> the prefix.</li>
+<li><strong>prefix</strong> &#8211; Defaults to S2_PREFIX.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1370,6 +1378,7 @@
 <li><a class="reference internal" href="#module-matrix">Docs</a><ul>
 <li><a class="reference internal" href="#matrix-class">matrix class</a></li>
 <li><a class="reference internal" href="#initing">initing</a></li>
+<li><a class="reference internal" href="#helper-functions">helper functions</a></li>
 <li><a class="reference internal" href="#operators">Operators</a></li>
 <li><a class="reference internal" href="#simple-math">Simple Math</a></li>
 <li><a class="reference internal" href="#complex-math">Complex math</a></li>

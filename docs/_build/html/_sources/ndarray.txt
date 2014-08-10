@@ -38,6 +38,11 @@ This is a file, not an actual class.
 .. autoclass:: initing
    :members:
 
+helper functions
+-----------------
+.. autoclass:: helper_functions
+    :members:
+
 operators
 ------------
 This is a file, not an actual class.

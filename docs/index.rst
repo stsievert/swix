@@ -27,10 +27,11 @@ than Matlab. Not bad for an underpowered mobile device!
 Examples are perhaps the most useful aspect of documentation, so I've included
 some examples in :doc:`examples`
 
-There exist two versions of these docs. There is a `mobile friendly`_ version on
-readthedocs and `another version`_ on scottsievert.github.io/swix. The version on
-readthedocs is mobile friendly but out of date; the other version is easier to
-maintain.
+.. note:: There is a `mobile friendly`_ version that is out of date.
+
+.. note:: These docs use ``np`` for NumPy and ``mpl`` for ``matplotlib``, both Python modules.
+
+.. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``
 
 .. _`mobile friendly`: http://swix.readthedocs.org/
 .. _`another version`: http://scottsievert.github.io/swix/
@@ -48,6 +49,12 @@ Table of Contents
    c
    bugs
    examples
+   speed
+
+There exist two versions of these docs. There is a `mobile friendly`_ version on
+readthedocs and `another version`_ on scottsievert.github.io/swix. The version on
+readthedocs is mobile friendly but out of date; the other version is easier to
+maintain.
 
 
 * :ref:`genindex`

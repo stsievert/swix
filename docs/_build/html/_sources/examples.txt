@@ -2,17 +2,35 @@
 Examples
 =============
 
-Pi approximation
---------------------
+Soft thresholding
+----------------------
 
 .. code-block:: python
+    
+    let N = 10
+    var j = linspace(-1, 1)
+    var (x, y) = meshgrid(j, j)
+    var z = x^2 + y^2
+    var i = abs(z) < 0.5
+    z[argwhere(i)] = 0
+    z[argwhere(1-i)] -= 0.5
 
-    var N = 1e3
-    var k = arange(N)
-    var pi_approx = 1 / (2*k + 1)
-    pi_approx[2*k[arange(N/2)]+1] *= -1
-    println(4 * pi_approx)
-    #// prints 3.14059265383979
+
+Interfacing with C
+--------------------
+
+Here's a sample calling of `cblas_dcopy <https://developer.apple.com/library/mac/documentation/Accelerate/Reference/BLAS_Ref/Reference/reference.html#//apple_ref/c/func/cblas_dcopy>`_ 
+
+.. code-block:: c
+
+    cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
+
+And `vDSP_vmulD <apple.com/library/ios/documentation/Accelerate/Reference/vDSPRef/Reference/reference.html#//apple_ref/c/func/vDSP_vmulD>`_
+
+.. code-block:: c
+
+    vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))
+
 
 Project Euler #1
 ------------------
@@ -46,19 +64,15 @@ Project Euler #10
     println(sum(primes))
     #// prints the correct answer
 
-
-Soft thresholding
-----------------------
+Pi approximation
+--------------------
 
 .. code-block:: python
-    
-    let N = 10
-    var j = linspace(-1, 1)
-    var (x, y) = meshgrid(j, j)
-    var z = x^2 + y^2
-    var i = abs(z) < 0.5
-    z[argwhere(i)] = 0
-    z[argwhere(1-i)] -= 0.5
 
-
+    var N = 1e3
+    var k = arange(N)
+    var pi_approx = 1 / (2*k + 1)
+    pi_approx[2*k[arange(N/2)]+1] *= -1
+    println(4 * pi_approx)
+    #// prints 3.14059265383979
 

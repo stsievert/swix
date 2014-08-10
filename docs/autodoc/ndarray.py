@@ -56,29 +56,41 @@ class ndarray:
         >>> assert(x[0..<2] ~== array(0, 1))
         >>> assert(x[array(0, 1)] ~== array(0, 1))
         """
+class helper_functions:
+    def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
+        """
+        :param x: Prints that matrix.
+        :type x: ndarray
 
-def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
-    """
-    :param x: Prints that matrix.
-    :type x: ndarray
+        Prints the ndarray with the above optional formatters. They are all of type String.
 
-    Prints the ndarray with the above optional formatters. They are all of type String.
+        Also callable: ``print(x, ..., newline="")`` with the same options.
+        """
+    def argwhere(idx):
+        """
+        :param idx: An array of 0's and 1's (analagous to true and false).
+        :type idx: ndarray
+        :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
 
-    Also callable: ``print(x, ..., newline="")`` with the same options.
-    """
-def argwhere(idx):
-    """
-    :param idx: An array of 0's and 1's (analagous to true and false).
-    :type idx: ndarray
-    :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
+        .. seealso::
+            `np.argwhere`_
+        """
+    def write_csv(x, filename, prefix=S2_PREFIX):
+        """
+        :param x: The ndarray to write to a csv
+        :type x: ndarray
+        :type filename: String
+        :param filename: Where to write.
+        :param prefix: Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.
+        :type prefix: String
 
-    .. seealso::
-        `np.argwhere`_
-    """
+        .. note:: Unoptimized. I assume you're only using this on MacOSX to test your app.
 
+        .. seealso:: :class:`initing.read_csv`
+        """
 
 class initing():
-    def asmatrix(x):
+    def asarray(x):
         """
         :param x: A native Swift array.
         :type x: [Double]
@@ -179,17 +191,8 @@ class initing():
         :rtype: ndarray. The contents of the csv.
 
         .. note:: Assuming that you're only using the on MacOSX to test your app; not optimized.
-        """
-    def write_csv(x, filename, prefix=S2_PREFIX):
-        """
-        :param x: The ndarray to write to a csv
-        :type x: ndarray
-        :type filename: String
-        :param filename: Where to write.
-        :param prefix: Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.
-        :type prefix: String
-
-        .. note:: Unoptimized. I assume you're only using this on MacOSX to test your app.
+        
+        .. seealso:: :class:`helper_functions.write_csv`
         """
     def toArray(sequence):
         """

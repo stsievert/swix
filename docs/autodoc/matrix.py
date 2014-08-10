@@ -1,32 +1,48 @@
-#from numbers import S2_PREFIX
-S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
-#import ndarray
+from numbers import S2_PREFIX
+import ndarray 
+# unused but in docs
 
-def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
-    """
-    :param x: The matrix to print.
-    :type x: matrix
-    :param prefix: The prefix.
-    :type prefix: String
-    :param postfix: The postfix.
-    :type postfix: String
-    :param newline: The newline character.
-    :type newline: String
-    :param format: The format, C style.
-    :type format: String
-    :param printWholeMatrix: If true, prints every element.
-    :type format: Bool
-    """
-def argwhere(idx):
-    """
-    :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
-    :type idx: matrix
-    :rtype: ndarray. Returns the indicies where ``idx`` is not zero.
-
-    .. seealso:: :class:`ndarray.argwhere`, :class:`operators.element_operators`
-    """
         
 
+class helper_functions:
+    def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
+        """
+        :param x: The matrix to print.
+        :type x: matrix
+        :param prefix: The prefix.
+        :type prefix: String
+        :param postfix: The postfix.
+        :type postfix: String
+        :param newline: The newline character.
+        :type newline: String
+        :param format: The format, C style.
+        :type format: String
+        :param printWholeMatrix: If true, prints every element.
+        :type format: Bool
+        """
+    def argwhere(idx):
+        """
+        :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
+        :type idx: matrix
+        :rtype: ndarray. Returns the indicies where ``idx`` is not zero.
+
+        .. seealso:: :class:`ndarray.argwhere`, :class:`operators.element_operators`
+        """
+    def write_csv(x, filename, prefix=S2_PREFIX):
+        """
+        :param x: A matrix.
+        :type x: matrix
+        :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
+        :param prefix: Defaults to S2_PREFIX.
+        """
+    def transpose(x):
+        """
+        :param x: A source matrix.
+        :type x: matrix
+        :rtype: The transpose of the matrix.
+
+        .. seealso:: `np.transpose`_, :class:`matrix.T`, `Transpose`_
+        """
 class matrix:
     n = "Int" #: Number of elements
     rows = "Int" #: Number of rows
@@ -163,14 +179,6 @@ class initing:
 
         .. seealso:: `np.meshgrid`_
         """
-    def transpose(x):
-        """
-        :param x: A source matrix.
-        :type x: matrix
-        :rtype: The transpose of the matrix.
-
-        .. seealso:: `np.transpose`_, :class:`matrix.T`, `Transpose`_
-        """
     def array(matlab_like_string):
         """
         :param matlike_like_string:
@@ -190,13 +198,6 @@ class initing:
         :param filename: The file to read from. Reads from the same folder as the folder *above* the prefix.
         :param prefix: Defaults to S2_PREFIX.
         :rtype: matrix. The contents of the CSV.
-        """
-    def write_csv(x, filename, prefix=S2_PREFIX):
-        """
-        :param x: A matrix.
-        :type x: matrix
-        :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
-        :param prefix: Defaults to S2_PREFIX.
         """
 
 class operators:
@@ -254,7 +255,6 @@ class operators:
         .. seealso:: :class:`numbers.close`
         """
 
-from ndarray import simple_math
 class simple_math:
     """
     Often, a function is applied to every element. Uses :class:`ndarray.simple_math`
