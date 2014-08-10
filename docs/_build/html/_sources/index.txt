@@ -16,22 +16,20 @@ to include links.
 
 This library is optimized through the `Accelerate framework`_ in most cases.
 All operations and the important operations (well, the ones I used) are
-optimized through this framework. And luckily, examples exist in swix on how to
-call C functions.
+optimized through this framework. And luckily, examples exist in swix and the
+docs on how to call C functions.
 
-For a speed comparison, in the real-world example I used I found that on the
-computer, this library was ~2-3x slower than Matlab. Going down to iOS resulted
-in another speed drop of ~10x, meaning iOS is very roughly 20-30 times slower
-than Matlab. Not bad for an underpowered mobile device!
+Speed results can be seen in :doc:`speed`. We see similar performance to Python/Matlab on MacOSX and a 10x speed drop on iOS. Still, not bad for an underpowered mobile device!
 
 Examples are perhaps the most useful aspect of documentation, so I've included
 some examples in :doc:`examples`
 
-.. note:: There is a `mobile friendly`_ version that is out of date.
+.. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``. The only exceptions are the classes ``ndarray`` and ``matrix``.
+
+.. note:: There is a `mobile friendly`_ version of these docs that is out of date.
 
 .. note:: These docs use ``np`` for NumPy and ``mpl`` for ``matplotlib``, both Python modules.
 
-.. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``
 
 .. _`mobile friendly`: http://swix.readthedocs.org/
 .. _`another version`: http://scottsievert.github.io/swix/
@@ -50,11 +48,6 @@ Table of Contents
    bugs
    examples
    speed
-
-There exist two versions of these docs. There is a `mobile friendly`_ version on
-readthedocs and `another version`_ on scottsievert.github.io/swix. The version on
-readthedocs is mobile friendly but out of date; the other version is easier to
-maintain.
 
 
 * :ref:`genindex`

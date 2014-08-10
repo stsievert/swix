@@ -9,8 +9,6 @@ Bugs
 * The ``~==`` operator only verifies if entire arrays are equal; use
   ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
 
-
-
 Matlab and swix differences
 ---------------------------
 * ``x[array(1, 2, 3)] = 1`` and ``x[array(1, 2), array(1, 2)] = 1`` does not work; use ``ones(3)`` and ``ones((2,2))`` instead.
@@ -26,6 +24,10 @@ Beta bugs
 For some reason Xcode can't link to the Accelerate framework from the iOS
 simulator, meaning that swix applications only run on physical devices. It
 gives errors like "unresolved identifier vDSP_vmulD not found"
+
+Installation bugs
+-------------------
+These are covered in :doc:`installation`
 
 .. _this file: https://github.com/scottsievert/swix/archive/master.zip
 .. _the repo: https://github.com/scottsievert/swix
