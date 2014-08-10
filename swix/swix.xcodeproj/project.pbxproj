@@ -32,6 +32,7 @@
 		D2B6F68B1996F57600F2466D /* helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B6F68A1996F57600F2466D /* helper-functions.swift */; };
 		D2B6F68D1996F5B200F2466D /* helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B6F68C1996F5B200F2466D /* helper-functions.swift */; };
 		D2BBBDAD196DD693004707F3 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* math.m */; };
+		D2CEF76C1996FB1D00AC6D34 /* speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CEF76B1996FB1D00AC6D34 /* speed.swift */; };
 		D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0A197308440036CD3B /* operations-and-indexing.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		D2B6F68C1996F5B200F2466D /* helper-functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "helper-functions.swift"; sourceTree = "<group>"; };
 		D2BBBDAB196DD693004707F3 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
 		D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2CEF76B1996FB1D00AC6D34 /* speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = speed.swift; sourceTree = "<group>"; };
 		D2FF0F0A197308440036CD3B /* operations-and-indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "operations-and-indexing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				D24A8554196D7D73009C18AC /* main.swift */,
+				D2CEF76B1996FB1D00AC6D34 /* speed.swift */,
 				D23DADA41996DEF200E0F469 /* ScalarArithmetic.swift */,
 				D273B689197997DE00750A09 /* tests.swift */,
 				D24A855D196D7E90009C18AC /* swix */,
@@ -239,6 +242,7 @@
 				D23648D01976CB440020FB95 /* machine_learning.mm in Sources */,
 				D24A8555196D7D73009C18AC /* main.swift in Sources */,
 				D218B2251990202800D519E4 /* operators.swift in Sources */,
+				D2CEF76C1996FB1D00AC6D34 /* speed.swift in Sources */,
 				D2B6F68B1996F57600F2466D /* helper-functions.swift in Sources */,
 				D218B2321990206800D519E4 /* operators.swift in Sources */,
 				D218B2301990206800D519E4 /* initing.swift in Sources */,
@@ -349,7 +353,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/objc/swix-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Ounchecked";
 			};
 			name = Debug;
 		};
@@ -366,7 +370,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/objc/swix-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Ounchecked";
 			};
 			name = Release;
 		};

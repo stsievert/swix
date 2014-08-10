@@ -9,6 +9,7 @@
 
 import Foundation
 runTests()
+SpeedTests()
 
 
 
