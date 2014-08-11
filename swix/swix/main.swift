@@ -12,11 +12,12 @@
 //   * fliplr, flipud
 
 import Foundation
+
 runTests()
+var x = array(0, 1, 2)
+println(repeat(x, 2, how:"ndarray"))
+println(repeat(x, 2, how:"elements"))
 //SpeedTests()
-
-
-
 
 
 
