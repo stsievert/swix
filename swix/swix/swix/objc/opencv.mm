@@ -52,12 +52,12 @@ void copy(Mat x, double * y, int N);
     Mat xMat(n_x, 1, CV_64F, x);
     Mat yMat(n_x * n_repeat, 1, CV_64F, y);
     
-    repeat(xMat, 1, n_repeat, yMat);
-//    repeat(xMat, n_repeat, 1, yMat);
+//    repeat(xMat, 1, n_repeat, yMat);
+    repeat(xMat, n_repeat, 1, yMat);
     
-    matToPointer(yMat, y, n_x * n_repeat);
+//    matToPointer(yMat, y, n_x * n_repeat);
     xMat.release();
-    yMat.release();
+//    yMat.release();
 }
 + (void) solve:(double *)A b:(double*)b x:(double*)x m:(int)m n:(int)n{
     Mat Amat(m, n, CV_64F, A);

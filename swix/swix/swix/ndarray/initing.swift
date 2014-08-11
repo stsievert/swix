@@ -53,16 +53,14 @@ func array(numbers: Double...) -> ndarray{
     return x
 }
 func repeat(x: ndarray, N:Int, how:String="ndarray") -> ndarray{
-    var y = zeros(x.n * N)
-    var xP = matrixToPointer(x)
-    var yP = matrixToPointer(y)
+    var y = zeros((N, x.n))
+
+    // wrapping using OpenCV
     CVWrapper.repeat(!x, to:!y, n_x:x.n.cint, n_repeat:N.cint)
-    var z = zeros((x.n, N))
-    z.flat = y
-    println(z)
-    if how=="ndarray" {z = transpose(z)}
-    else if how=="elements" {}
-    return z.flat
+
+    if how=="ndarray" {}
+    else if how=="elements" { y = y.T}
+    return y.flat
 }
 func copy(x: ndarray) -> ndarray{
     return x.copy()
