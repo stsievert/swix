@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Examples &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="next" title="Speed" href="speed.html" />
+    <link rel="prev" title="Bugs" href="bugs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="speed.html" title="Speed"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bugs.html" title="Bugs"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="soft-thresholding">
+<h2>Soft thresholding<a class="headerlink" href="#soft-thresholding" title="Permalink to this headline">¶</a></h2>
+<p>Making a cone with a flat bottom.</p>
+<div class="highlight-scala"><div class="highlight"><pre>var N = 10
+var j = linspace(-1, 1)
+var (x, y) = meshgrid(j, j)
+var z = x^2 + y^2
+var i = abs(z) &lt; 0.5
+z[argwhere(i)] = 0
+z[argwhere(1-i)] -= 0.5
+</pre></div>
+</div>
+</div>
+<div class="section" id="project-euler-1">
+<h2>Project Euler #1<a class="headerlink" href="#project-euler-1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://projecteuler.net/problem=1">Project Euler #1</a></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">var</span> <span class="n">N</span> <span class="k">=</span> <span class="mi">1</span><span class="n">e3</span>
+<span class="k">var</span> <span class="n">x</span> <span class="k">=</span> <span class="n">arange</span><span class="o">(</span><span class="n">N</span><span class="o">)</span>
+<span class="c1">// seeing where that modulo is 0</span>
+<span class="k">var</span> <span class="n">i</span> <span class="k">=</span> <span class="n">argwhere</span><span class="o">((</span><span class="n">abs</span><span class="o">(</span><span class="n">x</span><span class="o">%</span><span class="mi">3</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">9</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">abs</span><span class="o">(</span><span class="n">x</span><span class="o">%</span><span class="mi">5</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">9</span><span class="o">))</span>
+<span class="n">println</span><span class="o">(</span><span class="n">sum</span><span class="o">(</span><span class="n">x</span><span class="o">[</span><span class="kt">i</span><span class="o">]))</span>
+<span class="c1">// prints 233168.0, the correct answer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="project-euler-10">
+<h2>Project Euler #10<a class="headerlink" href="#project-euler-10" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://projecteuler.net/problem=10">Project Euler #10</a></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// find all primes</span>
+<span class="k">var</span> <span class="n">N</span> <span class="k">=</span> <span class="mi">2</span><span class="n">e6</span><span class="o">.</span><span class="n">int</span>
+<span class="k">var</span> <span class="n">primes</span> <span class="k">=</span> <span class="n">arange</span><span class="o">(</span><span class="n">N</span><span class="o">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="mf">2.</span><span class="o">.&lt;</span><span class="n">sqrt</span><span class="o">(</span><span class="n">N</span><span class="o">).</span><span class="n">int</span><span class="o">{</span>
+    <span class="k">var</span> <span class="n">max</span><span class="k">:</span><span class="kt">Int</span> <span class="o">=</span> <span class="o">(</span><span class="n">N</span><span class="o">/</span><span class="n">i</span><span class="o">)</span>
+    <span class="k">var</span> <span class="n">j</span> <span class="k">=</span> <span class="n">arange</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">max</span><span class="o">)</span> <span class="o">*</span> <span class="n">i</span><span class="o">.</span><span class="n">double</span>
+    <span class="n">primes</span><span class="o">[</span><span class="kt">j</span><span class="o">]</span> <span class="o">*=</span> <span class="mf">0.0</span>
+<span class="o">}</span>
+<span class="n">println</span><span class="o">(</span><span class="n">sum</span><span class="o">(</span><span class="n">primes</span><span class="o">))</span>
+<span class="c1">// prints the correct answer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pi-approximation">
+<h2>Pi approximation<a class="headerlink" href="#pi-approximation" title="Permalink to this headline">¶</a></h2>
+<p>Doing a pretty bad job of approximating <span class="math">\(\pi\)</span>.</p>
+<div class="highlight-scala"><div class="highlight"><pre>var N = 1e3
+var k = arange(N)
+var pi_approx = 1 / (2*k + 1)
+pi_approx[2*k[arange(N/2)]+1] *= -1
+println(4 * pi_approx)
+// prints 3.14059265383979
+</pre></div>
+</div>
+</div>
+<div class="section" id="interfacing-with-c">
+<h2>Interfacing with C<a class="headerlink" href="#interfacing-with-c" title="Permalink to this headline">¶</a></h2>
+<p>I hope you never have to look at this, but here&#8217;s a sample calling of
+<a class="reference external" href="https://developer.apple.com/library/mac/documentation/Accelerate/Reference/BLAS_Ref/Reference/reference.html#//apple_ref/c/func/cblas_dcopy">cblas_dcopy</a></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">cblas_dcopy</span><span class="o">(</span><span class="n">self</span><span class="o">.</span><span class="n">n</span><span class="o">.</span><span class="n">cint</span><span class="o">,</span> <span class="o">!</span><span class="n">self</span><span class="o">,</span> <span class="mf">1.</span><span class="n">cint</span><span class="o">,</span> <span class="o">!</span><span class="n">y</span><span class="o">,</span> <span class="mf">1.</span><span class="n">cint</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>and <a class="reference external" href="apple.com/library/ios/documentation/Accelerate/Reference/vDSPRef/Reference/reference.html#//apple_ref/c/func/vDSP_vmulD">vDSP_vmulD</a></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">vDSP_vmulD</span><span class="o">(!</span><span class="n">lhs</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">!</span><span class="n">rhs</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">!</span><span class="n">result</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">vDSP_Length</span><span class="o">(</span><span class="n">lhs</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">count</span><span class="o">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Examples</a><ul>
+<li><a class="reference internal" href="#soft-thresholding">Soft thresholding</a></li>
+<li><a class="reference internal" href="#project-euler-1">Project Euler #1</a></li>
+<li><a class="reference internal" href="#project-euler-10">Project Euler #10</a></li>
+<li><a class="reference internal" href="#pi-approximation">Pi approximation</a></li>
+<li><a class="reference internal" href="#interfacing-with-c">Interfacing with C</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="speed.html" title="Speed"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bugs.html" title="Bugs"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
