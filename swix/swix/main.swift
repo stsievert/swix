@@ -12,11 +12,9 @@
 //   * fliplr, flipud
 
 import Foundation
+
 runTests()
 //SpeedTests()
-
-
-
 
 
 

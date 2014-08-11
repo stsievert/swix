@@ -20,6 +20,24 @@ using namespace cv;
 void matToPointer(Mat x, double * y, int N);
 void copy(Mat x, double * y, int N);
 @implementation CVWrapper
++ (void) pointerTest{
+    // to test whether a matrix copies to the pointer
+    // makes sense; the raw values have to be stored somewhere
+    // it does not make sense that repeat( , 1, r, ) vs repeat( , r , 1) has a difference in shared data
+    int N = 3;
+    int r = 2;
+    double * x = (double *)malloc(sizeof(double)* N);
+    double * y = (double *)malloc(sizeof(double)* N * r);
+    for (int i=0; i<N; i++) x[i] = i;
+    Mat xMat(N, 1, CV_64F, x);
+    Mat yMat(N * r, 1, CV_64F, y);
+
+    repeat(xMat, r, 1, yMat);
+    
+    std::cout << yMat << std::endl;
+    for (int i=0; i<N * r; i++) printf("%f, ", y[i]);
+    printf("\n");
+}
 + (void) flip:(double*)x into:(double*)y how:(NSString*)how M:(int)M N:(int)N{
     Mat xMat(M, N, CV_64F, x);
     Mat yMat(M, N, CV_64F, y);
@@ -29,10 +47,14 @@ void copy(Mat x, double * y, int N);
     
     flip(xMat, yMat, direction);
 }
-+ (void) repeat:(double *)x to:(double*)y n_x:(int)n_x n_repeat:(int)n_repeat{
++ (void) repeat:(double *)x to:(double *)y
+            n_x:(int)n_x n_repeat:(int)n_repeat{
     Mat xMat(n_x, 1, CV_64F, x);
-    Mat yMat(n_x*n_repeat, 1, CV_64F, y);
+    Mat yMat(n_x * n_repeat, 1, CV_64F, y);
+    
     repeat(xMat, 1, n_repeat, yMat);
+//    repeat(xMat, n_repeat, 1, yMat);
+    
     matToPointer(yMat, y, n_x * n_repeat);
     xMat.release();
     yMat.release();
@@ -69,7 +91,6 @@ void copy(Mat x, double * y, int N);
     // instead, I can do threshold(abs(x - y), 1e-9)
     
     // threshold: vDSP_vthrscD
-    // abs can be vectorized, - vectorized
     Mat xMat(1, N, CV_64F, x);
     Mat zMat;
     if      ([op isEqualToString:@"<"  ]) {zMat = xMat < y;}

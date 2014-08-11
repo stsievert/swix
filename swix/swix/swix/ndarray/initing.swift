@@ -59,6 +59,7 @@ func repeat(x: ndarray, N:Int, how:String="ndarray") -> ndarray{
     CVWrapper.repeat(!x, to:!y, n_x:x.n.cint, n_repeat:N.cint)
     var z = zeros((x.n, N))
     z.flat = y
+    println(z)
     if how=="ndarray" {z = transpose(z)}
     else if how=="elements" {}
     return z.flat
