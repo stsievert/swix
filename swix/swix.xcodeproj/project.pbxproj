@@ -21,11 +21,11 @@
 		D218B2331990206800D519E4 /* simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218B22D1990206800D519E4 /* simple-math.swift */; };
 		D23648D01976CB440020FB95 /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = D23648CF1976CB440020FB95 /* machine_learning.mm */; };
 		D23648D21976CC720020FB95 /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23648D11976CC720020FB95 /* machine_learning.swift */; };
-		D23DADA51996DEF200E0F469 /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DADA41996DEF200E0F469 /* ScalarArithmetic.swift */; };
 		D24A8555196D7D73009C18AC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A8554196D7D73009C18AC /* main.swift */; };
 		D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24D7132199272E600D4B9D8 /* opencv2.framework */; };
 		D271C9BE1970328C008E577A /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271C9BD1970328C008E577A /* conversion.swift */; };
 		D273B68A197997DE00750A09 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B689197997DE00750A09 /* tests.swift */; };
+		D2809563199934FE007607E1 /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2809562199934FE007607E1 /* ScalarArithmetic.swift */; };
 		D2A5CAD6196D830000749F52 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD5196D830000749F52 /* numbers.swift */; };
 		D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481AF196F20E400DAEDFF /* Foundation.framework */; };
 		D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481B1196F20EB00DAEDFF /* Accelerate.framework */; };
@@ -64,12 +64,12 @@
 		D218B22D1990206800D519E4 /* simple-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simple-math.swift"; sourceTree = "<group>"; };
 		D23648CF1976CB440020FB95 /* machine_learning.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = machine_learning.mm; sourceTree = "<group>"; };
 		D23648D11976CC720020FB95 /* machine_learning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = machine_learning.swift; path = machine_learning/machine_learning.swift; sourceTree = "<group>"; };
-		D23DADA41996DEF200E0F469 /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarArithmetic.swift; sourceTree = "<group>"; };
 		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24A8554196D7D73009C18AC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D24D7132199272E600D4B9D8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
 		D271C9BD1970328C008E577A /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
 		D273B689197997DE00750A09 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
+		D2809562199934FE007607E1 /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScalarArithmetic.swift; path = swix/ScalarArithmetic.swift; sourceTree = "<group>"; };
 		D2A5CAD5196D830000749F52 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
 		D2B481AF196F20E400DAEDFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2B481B1196F20EB00DAEDFF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -145,8 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				D24A8554196D7D73009C18AC /* main.swift */,
+				D2809562199934FE007607E1 /* ScalarArithmetic.swift */,
 				D2CEF76B1996FB1D00AC6D34 /* speed.swift */,
-				D23DADA41996DEF200E0F469 /* ScalarArithmetic.swift */,
 				D273B689197997DE00750A09 /* tests.swift */,
 				D24A855D196D7E90009C18AC /* swix */,
 			);
@@ -236,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D218B22E1990206800D519E4 /* complex-math.swift in Sources */,
+				D2809563199934FE007607E1 /* ScalarArithmetic.swift in Sources */,
 				D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */,
 				D23648D21976CC720020FB95 /* machine_learning.swift in Sources */,
 				D218B21A19901FDF00D519E4 /* ndarray.swift in Sources */,
@@ -253,7 +254,6 @@
 				D218B2331990206800D519E4 /* simple-math.swift in Sources */,
 				D218B2241990202800D519E4 /* initing.swift in Sources */,
 				D2BBBDAD196DD693004707F3 /* math.m in Sources */,
-				D23DADA51996DEF200E0F469 /* ScalarArithmetic.swift in Sources */,
 				D2B6F68D1996F5B200F2466D /* helper-functions.swift in Sources */,
 				D206A2A119746886009232B7 /* opencv.mm in Sources */,
 				D218B2231990202800D519E4 /* complex-math.swift in Sources */,
@@ -353,7 +353,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/objc/swix-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Ounchecked";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -370,7 +370,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/objc/swix-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Ounchecked";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};

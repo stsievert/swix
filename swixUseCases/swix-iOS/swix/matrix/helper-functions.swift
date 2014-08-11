@@ -37,16 +37,6 @@ func print(x: matrix, prefix:String="matrix([", postfix:String="])", newline:Str
 func argwhere(idx: matrix) -> ndarray{
     return argwhere(idx.flat)
 }
-func flipud(x:matrix)->matrix{
-    var y = x.copy()
-    CVWrapper.flip(!x, into:!y, how:"ud", m:x.shape.0.cint, n:x.shape.1.cint)
-    return y
-}
-func fliplr(x:matrix)->matrix{
-    var y = x.copy()
-    CVWrapper.flip(!x, into:!y, how:"lr", m:x.shape.0.cint, n:x.shape.1.cint)
-    return y
-}
 func transpose (x: matrix) -> matrix{
     let n = x.shape.0
     let m = x.shape.1

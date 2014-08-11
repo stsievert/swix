@@ -27,11 +27,17 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
         {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
     else if operation=="/"
         {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
-    else if operation=="<" || operation==">" || operation==">=" || operation=="<=" || operation=="==" || operation=="!=="{
+    else if operation=="<" || operation==">" || operation==">=" || operation=="<=" {
         result = zeros(lhs.n)
         CVWrapper.compare(!lhs, with: !rhs, using: operation.nsstring, into: !result, ofLength: lhs.n.cint)
         // since opencv uses images which use 8-bit values
         result /= 255
+    }
+    else if operation == "=="{
+        return abs(lhs-rhs) < 1e-9
+    }
+    else if operation == "!=="{
+        return abs(lhs-rhs) > 1e-9
     }
     else {assert(false, "operation not recongized!")}
     return result
@@ -174,6 +180,17 @@ func <= (lhs: ndarray, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "<=", rhs)}
 func <= (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "<=", rhs)}
+// LOGICAL AND
+infix operator && {associativity none precedence 140}
+func && (lhs: ndarray, rhs: ndarray) -> ndarray{
+    return lhs * rhs}
+// LOGICAL OR
+func || (lhs: ndarray, rhs: ndarray) -> ndarray {
+    var i = lhs + rhs
+    var j = argwhere(i>1.double)
+    i[j] = ones(j.n)
+    return i}
+
 
 
 

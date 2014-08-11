@@ -238,6 +238,16 @@ class runTests {
         var mx5 = arange(4).reshape((2,2))
         var my5 = array(4, 2, 1, 0).reshape((2,2))
         assert(min(mx5, my5) ~== array(0, 1, 1, 0).reshape((2,2)))
+        assert(reverse(y5) ~== array(6, 2, 3, 5, 1))
+        
+        assert(sort(y5) ~== array(1, 2, 3, 5, 6))
+        
+        func helper_test(){
+            var x = arange(2*3).reshape((2,3))
+            assert(fliplr(x) ~== array(2, 1, 0, 5, 4, 3).reshape((2,3)))
+            assert(flipud(x) ~== array(3, 4, 5, 0, 1, 2).reshape((2,3)))
+        }
+        helper_test()
     }
     func operatorTests(){
         // l and o similar to 1 and 0

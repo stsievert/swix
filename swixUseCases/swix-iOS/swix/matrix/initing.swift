@@ -13,8 +13,16 @@ import Accelerate
 func zeros(shape: (Int, Int)) -> matrix{
     return matrix(columns: shape.1, rows: shape.0)
 }
+func zeros_like(x: matrix) -> matrix{
+    var y:matrix = zeros((x.shape.0, x.shape.1))
+    return y
+}
 func ones(shape: (Int, Int)) -> matrix{
     return zeros(shape)+1
+}
+func copy(x: matrix, y: matrix){
+    var y = zeros_like(x)
+    y.flat = copy(x.flat)
 }
 func diag(x: matrix) -> ndarray{
     var m = x.shape.0
@@ -37,6 +45,7 @@ func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     var z2 = reshape(repeat(x, y.n, how:"elements"), (x.n, y.n))
     return (z2, z1)
 }
+
 
 /// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot. String parsing has bugs; I'd use arange(9).reshape((3,3)) or something similar
 func array(matlab_like_string: String)->matrix{
@@ -83,22 +92,7 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     done.flat.grid = array
     return done
 }
-func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
-    var seperator=","
-    var str = ""
-    for i in 0..<x.shape.0{
-        for j in 0..<x.shape.1{
-            seperator = j == x.shape.1-1 ? "" : ","
-            str += String(format: "\(x[i, j])"+seperator)
-        }
-        str += "\n"
-    }
-    var error:NSError?
-    str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
-    if let error=error{
-        println("File probably wasn't recognized \n\(error)")
-    }
-}
+
 
 
 

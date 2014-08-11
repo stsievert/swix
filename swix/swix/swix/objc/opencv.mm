@@ -20,6 +20,15 @@ using namespace cv;
 void matToPointer(Mat x, double * y, int N);
 void copy(Mat x, double * y, int N);
 @implementation CVWrapper
++ (void) flip:(double*)x into:(double*)y how:(NSString*)how M:(int)M N:(int)N{
+    Mat xMat(M, N, CV_64F, x);
+    Mat yMat(M, N, CV_64F, y);
+    int direction=0;
+    if ([how isEqualToString:@"ud"]) direction=0;
+    if ([how isEqualToString:@"lr"]) direction=1;
+    
+    flip(xMat, yMat, direction);
+}
 + (void) repeat:(double *)x to:(double*)y n_x:(int)n_x n_repeat:(int)n_repeat{
     Mat xMat(n_x, 1, CV_64F, x);
     Mat yMat(n_x*n_repeat, 1, CV_64F, y);

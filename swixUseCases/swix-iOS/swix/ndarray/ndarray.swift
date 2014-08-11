@@ -13,14 +13,6 @@ import Accelerate
 
 // SLOW PARTS: x[ndarray, ndarray] set, modulo operator
 
-func toArray(seq: Range<Int>) -> ndarray {
-    // improve with [1]
-    // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
-    var start:Double = seq.startIndex.double * 1.0
-    var end:Double   = seq.endIndex.double * 1.0
-    var s = arange(start, end, x:true)
-    return s
-}
 
 struct ndarray {
     let n: Int
@@ -51,6 +43,9 @@ struct ndarray {
     func max() -> Double{
         return max_objc(!self, n.cint)
     }
+    func mean() -> Double{
+        return avg(self)
+    }
     subscript(index: Int) -> Double {
         get {
             assert(indexIsValidForRow(index), "Index out of range")
@@ -74,13 +69,13 @@ struct ndarray {
             //assert((r%1.0) ~== zeros_like(r))
             // ndarray has fractional parts, and those parts get truncated
             // dropped for speed results (depends on for-loop in C)
-//            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
+            assert((r.max().int < self.n) && (r.min() >= 0), "An index is out of bounds")
             var y = zeros(r.n)
             index_objc(!self, !y, !r, r.n.cint)
             return y
         }
         set {
-//            assert((r.max() < self.n) && (r.min() >= 0), "An index is out of bounds")
+            assert((r.max().int < self.n) && (r.min() >= 0), "An index is out of bounds")
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
             // tried basic optimization myself, but the compiler took care of that.
@@ -88,51 +83,6 @@ struct ndarray {
         }
     }
 }
-
-func asmatrix(x: [Double]) -> ndarray{
-    var y = zeros(x.count)
-    y.grid = x
-    return y
-}
-
-func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
-    print(prefix)
-    var suffix = seperator
-    var printed = false
-    for i in 0..<x.n{
-        if i==x.n-1 { suffix = "" }
-        if printWholeMatrix || (x.n)<16 || i<3 || i>(x.n-4){
-            print(NSString(format: format+suffix, x[i]))
-        }else if printed == false{
-            printed = true
-            print("..., ")
-        }
-    }
-    print(postfix)
-    print(newline)
-}
-func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
-}
-func zeros_like(x: ndarray) -> ndarray{
-    return zeros(x.n)
-}
-func argwhere(idx: ndarray) -> ndarray{
-    // counts non-zero elements, return array of doubles (which can be indexed!).
-
-    var i = arange(idx.n)
-    var sum = sum_objc(!idx, idx.n.cint)
-    var args = zeros(Int(sum))
-    find_objc(!idx, !args, !i, idx.n.cint)
-    return args
-}
-
-// RANGE. | for exclusive range. | chosen for similiarity with Python
-infix operator  | {associativity none precedence 140}
-func | (lhs: Int, rhs: Int) -> Range<Int>{
-    return lhs..<rhs
-}
-
 
 
 

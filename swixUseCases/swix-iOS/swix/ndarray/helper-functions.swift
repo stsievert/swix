@@ -36,16 +36,6 @@ func argwhere(idx: ndarray) -> ndarray{
     find_objc(!idx, !args, !i, idx.n.cint)
     return args
 }
-func reverse(x:ndarray) -> ndarray{
-    var y = x.copy()
-    vDSP_vrvrsD(!y, 1.cint, vDSP_Length(y.n.cint))
-    return y
-}
-func sort(x:ndarray)->ndarray{
-    var y = x.copy()
-    y.sort()
-    return y
-}
 func delete(x:ndarray, idx:ndarray) -> ndarray{
     var i = ones(x.n)
     i[idx] *= 0

@@ -13,17 +13,24 @@ import Accelerate
 let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
 let PYTHON_PATH = "~/anaconda/bin/ipython"
 
-let pi = 3.1415926535897932384626433832795028841971693993751058
-let π = pi
-let tau = 2 * pi
-let τ = tau
-let phi = (1 + sqrt(5.double))/2
-let φ = phi
-let e = exp(1.double)
-let euler = 0.57721566490153286060651209008240243104215933593992
-let inf = 1.0 / 0.0
-let DOUBLE_EPSILON = DBL_EPSILON // smallest possible difference
-let FLOAT_EPSILON = FLT_EPSILON
+// not using let in case someone wants a variable name phi/etc
+
+// various important constants
+var pi = 3.1415926535897932384626433832795028841971693993751058
+var π = pi
+var tau = 2 * pi
+var τ = tau
+var phi = (1 + sqrt(5.double))/2
+var φ = phi
+var e = exp(1.double)
+var euler = 0.57721566490153286060651209008240243104215933593992
+
+// largest possible value
+var inf = 1.0 / 0.0
+
+// smallest possible difference
+var DOUBLE_EPSILON = DBL_EPSILON
+var FLOAT_EPSILON = FLT_EPSILON
 
 // use 3.double or 3.14.int or N.int
 extension Int{

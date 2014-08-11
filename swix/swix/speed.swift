@@ -20,7 +20,7 @@ class SpeedTests {
 func time(f:()->(), name:String="function"){
     var start = NSDate()
     f()
-    println(NSString(format:"\(name) time (s): %.3f", -1 * start.timeIntervalSinceNow))
+    println(NSString(format:"\(name) time (s): %.4f", -1 * start.timeIntervalSinceNow))
 }
 func pe1(){
     var N = 1e6
@@ -54,7 +54,7 @@ func pi_approx(){
     var N = 1e6
     var k = arange(N)
     var pi_approx = 1 / (2*k + 1)
-    pi_approx[2*k[arange(N/2)]+1] *= -1
+    pi_approx[2*k[0..<(N/2).int]+1] *= -1
     // println(4 * pi_approx)
     // prints 3.14059265383979
 }

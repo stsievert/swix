@@ -74,6 +74,16 @@ func min(x: matrix, absValue:Bool=false)-> Double{
 func max(x: matrix, absValue:Bool=false)-> Double{
     return max(x.flat)
 }
+func min(x:matrix, y:matrix)->matrix{
+    var z = zeros_like(x)
+    z.flat = min(x.flat, y.flat)
+    return z
+}
+func max(x:matrix, y:matrix)->matrix{
+    var z = zeros_like(x)
+    z.flat = max(x.flat, y.flat)
+    return z
+}
 func norm(x: matrix, type:String="l2") -> Double{
     if type=="l0"{ return norm(x.flat, type:"l0")}
     if type=="l1"{ return norm(x.flat, type:"l1")}
@@ -82,7 +92,6 @@ func norm(x: matrix, type:String="l2") -> Double{
     assert(false, "type of norm unrecongnized")
     return -1.0
 }
-
 func sum(x: matrix, dim:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     assert(dim==0 || dim==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")

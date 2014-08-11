@@ -20,6 +20,7 @@
 + (void) compare:(double*)x with:(double*)y using:(NSString*)op into:(double*)z ofLength:(int)N;
 + (void) compare:(double*)x withDouble:(double)y
            using:(NSString*)op into:(double*)z ofLength:(int)N;
++ (void) flip:(double*)x into:(double*)y how:(NSString*)how M:(int)M N:(int)N;
 @end
 
 // #### SVM (svm.mm)

@@ -34,6 +34,9 @@ struct ndarray {
         cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
         return y
     }
+    func sort(){
+        vDSP_vsortD(!self, vDSP_Length(self.n.cint), 1.cint)
+    }
     func indexIsValidForRow(index: Int) -> Bool {
         return index >= 0 && index < n
     }
