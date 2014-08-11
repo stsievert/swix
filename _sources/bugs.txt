@@ -11,11 +11,12 @@ Bugs
   ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
 
 Matlab and swix differences
----------------------------
+-----------------------------
 * ``x[array(1, 2, 3)] = 1`` and ``x[array(1, 2), array(1, 2)] = 1`` does not work; use ``ones(3)`` and ``ones((2,2))`` instead.
 * Swix follow's NumPy's footprints, meaning if ``(u, s, v) = svd(x)`` then ``transpose(v_matlab) == v_swix == v_numpy``. Additionally, ``s`` is a one dimensional matrix (again like NumPy), not a 2D matrix with only the diagonal non-zero.
 * When printing, swix does not check bounds (as of 2014-7-17). e.g., ``var x = zeros(2); println(x[0..<4])`` will print ``matrix([0, 0, <junk>, <junk>])``
 * ``argwhere`` is the equivalent of Matlab's ``find``. It finds the locations where the input array is 1 (and Matlab finds locations of the *non-zero* entries).
+* Element-wise multiplication is ``*`` and dot product is ``*!``. Matlab uses ``.*`` and ``*`` respectively.
 * The reshape functions works differently in matlab and python. In matlab, it
   reshapes by column order and in python row-order, meaning you have to use
   ``x.T.reshape((3,3))`` to get equivalent results.

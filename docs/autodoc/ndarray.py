@@ -25,6 +25,18 @@ class ndarray:
 
         >>> assert(x.copy() ~== x)
         """
+    def sort():
+        """
+        Sorts the array in-place.
+
+        .. seealso:: :class:`helper_functions.sort`
+        """
+    def reverse():
+        """
+        Reverses the array in place.
+
+        .. seealso:: :class:`helper_functions.reverse`
+        """
     def min():
         """
         :rtype: Double. The minimum value in the array.
@@ -56,6 +68,7 @@ class ndarray:
         >>> assert(x[0..<2] ~== array(0, 1))
         >>> assert(x[array(0, 1)] ~== array(0, 1))
         """
+
 class helper_functions:
     def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
         """
@@ -75,6 +88,14 @@ class helper_functions:
         .. seealso::
             `np.argwhere`_
         """
+    def sort(x):
+        """
+        :param x: Array to be sorted.
+        :type x: ndarray
+        :rtype: ndarray. The sorted array.
+
+        .. seealso:: :class:`ndarray.sort`
+        """
     def write_csv(x, filename, prefix=S2_PREFIX):
         """
         :param x: The ndarray to write to a csv
@@ -87,6 +108,14 @@ class helper_functions:
         .. note:: Unoptimized. I assume you're only using this on MacOSX to test your app.
 
         .. seealso:: :class:`initing.read_csv`
+        """
+    def reverse(x):
+        """
+        :param x: The array to be reversed.
+        :type x: ndarray
+        :rtype: The reveresed ndarray.
+
+        .. seealso:: :class:`ndarray.reverse`
         """
 
 class initing():
@@ -460,6 +489,7 @@ class simple_math:
 
         >>> assert(ceil(array(0.4, 0.6)) ~== array(1, 1))
         """
+
 class complex_math:
     def fft(x):
         """

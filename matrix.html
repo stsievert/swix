@@ -708,13 +708,61 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix of zeros and ones. Normally indicates where some condition is true.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Returns the indicies where <tt class="docutils literal"><span class="pre">idx</span></tt> is not zero.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Returns the indicies where <tt class="docutils literal"><span class="pre">idx</span></tt> is not zero. Useful with comparison operators which return an array of 0&#8217;s and 1&#8217;s.</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.argwhere</span></tt>, <a class="reference internal" href="#matrix.operators.element_operators" title="matrix.operators.element_operators"><tt class="xref py py-class docutils literal"><span class="pre">operators.element_operators</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argwhere.html">np.argwhere</a>, <a class="reference internal" href="#matrix.operators.element_operators" title="matrix.operators.element_operators"><tt class="xref py py-class docutils literal"><span class="pre">operators.element_operators</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.fliplr">
+<tt class="descname">fliplr</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.fliplr" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The array to flip.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The flipped matrix.</td>
+</tr>
+</tbody>
+</table>
+<p>Implemented through <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#void%20flip(InputArray%20src,%20OutputArray%20dst,%20int%20flipCode)">cv.flip</a></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#matrix.helper_functions.flipud" title="matrix.helper_functions.flipud"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.flipud</span></tt></a></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;2 1; 4 3&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.flipud">
+<tt class="descname">flipud</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.flipud" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The array to flip.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The flipped matrix.</td>
+</tr>
+</tbody>
+</table>
+<p>Implemented through <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#void%20flip(InputArray%20src,%20OutputArray%20dst,%20int%20flipCode)">cv.flip</a></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#matrix.helper_functions.fliplr" title="matrix.helper_functions.fliplr"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.fliplr</span></tt></a></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;3 4; 1 2&quot;</span><span class="p">))</span>
+</pre></div>
 </div>
 </dd></dl>
 

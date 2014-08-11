@@ -2,47 +2,6 @@ from numbers import S2_PREFIX
 import ndarray 
 # unused but in docs
 
-        
-
-class helper_functions:
-    def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
-        """
-        :param x: The matrix to print.
-        :type x: matrix
-        :param prefix: The prefix.
-        :type prefix: String
-        :param postfix: The postfix.
-        :type postfix: String
-        :param newline: The newline character.
-        :type newline: String
-        :param format: The format, C style.
-        :type format: String
-        :param printWholeMatrix: If true, prints every element.
-        :type format: Bool
-        """
-    def argwhere(idx):
-        """
-        :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
-        :type idx: matrix
-        :rtype: ndarray. Returns the indicies where ``idx`` is not zero.
-
-        .. seealso:: :class:`ndarray.argwhere`, :class:`operators.element_operators`
-        """
-    def write_csv(x, filename, prefix=S2_PREFIX):
-        """
-        :param x: A matrix.
-        :type x: matrix
-        :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
-        :param prefix: Defaults to S2_PREFIX.
-        """
-    def transpose(x):
-        """
-        :param x: A source matrix.
-        :type x: matrix
-        :rtype: The transpose of the matrix.
-
-        .. seealso:: `np.transpose`_, :class:`matrix.T`, `Transpose`_
-        """
 class matrix:
     n = "Int" #: Number of elements
     rows = "Int" #: Number of rows
@@ -96,6 +55,72 @@ class matrix:
         :rtype: ndarray
 
         Gets or sets the diagonal of a matrix.
+        """
+
+class helper_functions:
+    def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
+        """
+        :param x: The matrix to print.
+        :type x: matrix
+        :param prefix: The prefix.
+        :type prefix: String
+        :param postfix: The postfix.
+        :type postfix: String
+        :param newline: The newline character.
+        :type newline: String
+        :param format: The format, C style.
+        :type format: String
+        :param printWholeMatrix: If true, prints every element.
+        :type format: Bool
+        """
+    def argwhere(idx):
+        """
+        :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
+        :type idx: matrix
+        :rtype: ndarray. Returns the indicies where ``idx`` is not zero. Useful with comparison operators which return an array of 0's and 1's.
+
+        .. seealso:: `np.argwhere`_, :class:`operators.element_operators`
+        """
+    def write_csv(x, filename, prefix=S2_PREFIX):
+        """
+        :param x: A matrix.
+        :type x: matrix
+        :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
+        :param prefix: Defaults to S2_PREFIX.
+        """
+    def transpose(x):
+        """
+        :param x: A source matrix.
+        :type x: matrix
+        :rtype: The transpose of the matrix.
+
+        .. seealso:: `np.transpose`_, :class:`matrix.T`, `Transpose`_
+        """
+    def fliplr(x):
+        """
+        :param x: The array to flip.
+        :type x: matrix
+        :rtype: The flipped matrix.
+
+        Implemented through `cv.flip`_
+
+        .. seealso:: :class:`helper_functions.flipud`
+
+        >>> x = array("1 2; 3 4")
+        >>> assert(fliplr(x) ~== array("2 1; 4 3"))
+        """
+    def flipud(x):
+        """
+        :param x: The array to flip.
+        :type x: matrix
+        :rtype: The flipped matrix.
+
+        Implemented through `cv.flip`_
+
+        .. seealso:: :class:`helper_functions.fliplr`
+
+        >>> x = array("1 2; 3 4")
+        >>> assert(fliplr(x) ~== array("3 4; 1 2"))
         """
 
 class initing:
@@ -394,6 +419,7 @@ class images:
 
         .. seealso:: `mpl.imshow`_
         """
+
 class complex_math:
     def dot(x, y):
         """

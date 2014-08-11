@@ -4,7 +4,7 @@ Speed
 Very generally, this library is about as fast as Python and Matlab, at least at
 in beta5. Going down to iOS is approximately 10x slower.
 
-All functions are `on Github <https://github.com/scottsievert/swix/blob/master/swix/speed.py>`_ for your browsing.
+All functions are `on Github <https://github.com/scottsievert/swix/blob/master/swix/speed/>`_ for your browsing.
 
 .. note:: OSX tests were run on my machine, a 2012 macbook air with an SSD and 8GB RAM
 

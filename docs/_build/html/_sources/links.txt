@@ -23,6 +23,7 @@
 .. _`mpl.savefig`: http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.savefig
 .. _`mpl.imshow`: http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.imshow
 .. _`OpenCV's SVM`: http://docs.opencv.org/modules/ml/doc/support_vector_machines.html
+.. _`cv.flip`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#void%20flip(InputArray%20src,%20OutputArray%20dst,%20int%20flipCode)
 
 .. _`Variance`: https://en.wikipedia.org/wiki/Variance
 .. _`Fourier Transform`: https://en.wikipedia.org/wiki/Fourier_transform

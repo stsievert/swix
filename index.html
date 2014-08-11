@@ -68,7 +68,7 @@ make the conversion between a Python/Matlab algorithm and a mobile app
 <li>speed optimizations</li>
 <li>one dimensional Fourier transforms</li>
 </ul>
-<p>In most cases, this library calls the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> or <a class="reference external" href="http://opencv.org">OpenCV</a>. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn&#8217;t need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request <a class="reference external" href="https://github.com/scottsievert/swix">on Github</a> (preferred!) or contact me at <a class="reference external" href="https://twitter.com/stsievert">&#64;stsievert</a> or <a class="reference external" href="mailto:sieve121&#37;&#52;&#48;umn&#46;edu">sieve121<span>&#64;</span>umn<span>&#46;</span>edu</a>. Oh, and if you use this project I&#8217;d love to hear about it.</p>
+<p>In most cases, this library calls the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> or <a class="reference external" href="http://opencv.org">OpenCV</a>. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn&#8217;t need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request <a class="reference external" href="https://github.com/scottsievert/swix">on Github</a> (preferred!) or contact me at <a class="reference external" href="https://twitter.com/stsievert">&#64;stsievert</a> or <a class="reference external" href="mailto:sieve121&#37;&#52;&#48;umn&#46;edu">sieve121<span>&#64;</span>umn<span>&#46;</span>edu</a>. Oh, and if you use this project I&#8217;d love to hear about it!</p>
 <p>When I was crafting this library, I primarily followed the footsteps and
 example set by NumPy. For the more complex mathematical functions (e.g., SVD) I
 tested it against NumPy. Matlab, at least for the SVD, returns slightly
@@ -134,7 +134,7 @@ Matlab users</a> or the section on <a class="reference external" href="http://sc
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">These docs use <tt class="docutils literal"><span class="pre">np</span></tt> for NumPy and <tt class="docutils literal"><span class="pre">mpl</span></tt> for <tt class="docutils literal"><span class="pre">matplotlib</span></tt>, both Python modules.</p>
+<p class="last">These docs use <tt class="docutils literal"><span class="pre">np</span></tt> for NumPy, <tt class="docutils literal"><span class="pre">mpl</span></tt> for <tt class="docutils literal"><span class="pre">matplotlib</span></tt> and <tt class="docutils literal"><span class="pre">cv</span></tt> for OpenCV</p>
 </div>
 <div class="section" id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>

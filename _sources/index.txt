@@ -26,7 +26,7 @@ Currently, the `Sw`\ ift Matr\ `ix` Library or `swix` gives you
 * speed optimizations
 * one dimensional Fourier transforms
 
-In most cases, this library calls the `Accelerate framework`_ or `OpenCV`_. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn't need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request `on Github`_ (preferred!) or contact me at `@stsievert`_ or `sieve121@umn.edu`_. Oh, and if you use this project I'd love to hear about it.
+In most cases, this library calls the `Accelerate framework`_ or `OpenCV`_. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn't need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request `on Github`_ (preferred!) or contact me at `@stsievert`_ or `sieve121@umn.edu`_. Oh, and if you use this project I'd love to hear about it!
 
 .. _`on Github`: https://github.com/scottsievert/swix
 
@@ -100,7 +100,7 @@ The equivalent Swift syntax with this library?
 
 .. note:: There is a `mobile friendly`_ version of these docs that is out of date.
 
-.. note:: These docs use ``np`` for NumPy and ``mpl`` for ``matplotlib``, both Python modules.
+.. note:: These docs use ``np`` for NumPy, ``mpl`` for ``matplotlib`` and ``cv`` for OpenCV
 
 
 Table of Contents
