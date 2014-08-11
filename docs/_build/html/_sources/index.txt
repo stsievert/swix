@@ -17,7 +17,7 @@ Python/MATLAB to C was (and is) a pain in the butt, and this library aims to
 make the conversion between a Python/Matlab algorithm and a mobile app
 `simple`.
 
-Currently, this library gives you
+Currently, the `Sw`\ ift Matr\ `ix` Library or `swix` gives you
 
 * operators (+, etc) and various functions (sin, etc) that operate on entire arrays
 * easy initializers for 1D and 2D arrays
@@ -95,8 +95,6 @@ The equivalent Swift syntax with this library?
 .. note:: Examples, the most important part of documentation can be found at :doc:`examples`
 
 .. note:: Speed results can be found at :doc:`speed`. We find that on MacOSX Python/Matlab and swix are roughly comparable.
-
-.. note:: "swix" is from the italicized letters: "`Sw`\ ift matr\ `ix` library"
 
 .. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``. The only exceptions are the classes ``ndarray`` and ``matrix``.
 
