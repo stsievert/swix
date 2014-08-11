@@ -3,18 +3,43 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to swix's documentation!
-================================
-Apple's Swift is a high level language that's `asking` for some numerical
-library to perform computation `fast` or at the very least `easily`. This is a
-wrapper for that library.
+`Swift Matrix and Machine Learning Library`_
+=============================================
 
-A way to have iOS run high-level code similar to Python or Matlab is something
-I've been waiting for, and am incredibly excited to see the results. This will
-make porting complex signal processing algorithms to C much easier. Porting
-from Python/MATLAB to C was (and is) a pain in the butt, and this library aims
-to make the conversion between a Python/Matlab algorithm and a mobile app
+.. _`Swift Matrix and Machine Learning Library`: https://github.com/scottsievert/swix
+
+Apple's Swift is a high level language that's `asking` for some numerical
+library to perform computation `fast` or at the very least `easily`. A way to
+have iOS run high-level code similar to Python or Matlab is something I've been
+waiting for, and am incredibly excited to see the results. This will make
+porting complex signal processing algorithms to C much easier. Porting from
+Python/MATLAB to C was (and is) a pain in the butt, and this library aims to
+make the conversion between a Python/Matlab algorithm and a mobile app
 `simple`.
+
+Currently, this library gives you
+
+* operators (+, etc) and various functions (sin, etc) that operate on entire arrays
+* easy initializers for 1D and 2D arrays
+* dot product, matrix inversion, eigenvalues, etc
+* machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
+* speed optimizations
+* one dimensional Fourier transforms
+
+In most cases, this library calls the `Accelerate framework`_ or `OpenCV`_. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn't need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request `on Github`_ (preferred!) or contact me at `@stsievert`_ or `sieve121@umn.edu`_. Oh, and if you use this project I'd love to hear about it.
+
+.. _`on Github`: https://github.com/scottsievert/swix
+
+When I was crafting this library, I primarily followed the footsteps and
+example set by NumPy. For the more complex mathematical functions (e.g., SVD) I
+tested it against NumPy. Matlab, at least for the SVD, returns slightly
+different output.
+
+Additionally, I followed NumPy's syntax whenever possible. For example, NumPy
+and Matlab differ in their initializer called ``ones`` by ``ones((M,N))`` and 
+``ones(M,N)`` respectively. If in doubt or getting weird compiler bugs, look at `NumPy for
+Matlab users`_ or the section on `possible bugs`_.
+
 
 As an example, here's some Objective-C sample code that integrates the `Accelerate framework`_:
 
@@ -59,38 +84,19 @@ As an example, here's some Objective-C sample code that integrates the `Accelera
 
 The equivalent Swift syntax with this library?
 
-.. code-block:: c
+.. code-block:: scala
 
-    let N = 10
+    var N = 10
     var x = ones(N) * pi
     var y = ones(N) * phi
     var result = (x+y+4)*x
-
-In most cases, this library calls the `Accelerate framework`_ or `OpenCV`_. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn't need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request (preferred!) or contact me at `@stsievert`_ or `sieve121@umn.edu`_. Oh, and if you use this project I'd love to hear about it.
-
-Currently, this library gives you
-
-* operators (+, etc) and various functions (sin, etc) that operate on entire arrays
-* easy initializers for 1D and 2D arrays
-* dot product, matrix inversion, eigenvalues, etc
-* machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
-* one dimensional Fourier transforms
-* speed optimization for operators/select simple functions/all complex functions
-
-When I was crafting this library, I primarily followed the footsteps and
-example set by NumPy. For the more complex mathematical functions (e.g., SVD) I
-tested it against NumPy. Matlab, at least for the SVD, returns slightly
-different output.
-
-Additionally, I followed NumPy's syntax whenever possible. For example, NumPy
-and Matlab differ in their initializer called ``ones`` by ``ones((M,N))`` and 
-``ones(M,N)`` respectively. If in doubt or getting weird compiler bugs, look at `NumPy for
-Matlab users`_ or the section on `possible bugs`_.
 
 
 .. note:: Examples, the most important part of documentation can be found at :doc:`examples`
 
 .. note:: Speed results can be found at :doc:`speed`. We find that on MacOSX Python/Matlab and swix are roughly comparable.
+
+.. note:: "swix" is from the italicized letters: "`Sw`\ ift matr\ `ix` library"
 
 .. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``. The only exceptions are the classes ``ndarray`` and ``matrix``.
 
@@ -98,10 +104,11 @@ Matlab users`_ or the section on `possible bugs`_.
 
 .. note:: These docs use ``np`` for NumPy and ``mpl`` for ``matplotlib``, both Python modules.
 
+
 Table of Contents
 -----------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    installation
    numbers

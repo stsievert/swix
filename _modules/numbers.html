@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>numbers &mdash; swix 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.1 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">swix 0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for numbers</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c">#: The path that should point to the swix directory. The file imshow.py, numbers.swix would be found by appending to this path.</span>
+<span class="n">S2_PREFIX</span> <span class="o">=</span> <span class="s">&quot;\(NSHomeDirectory())/Developer/swix/swix/swix/swix/&quot;</span>
+
+<span class="c">#: Where is Python found? Used for imshow and savefig (testing on MacOSX only!). Assumes `pylab &lt;http://wiki.scipy.org/PyLab&gt;`_ is installed.</span>
+<span class="n">PYTHON_PATH</span> <span class="o">=</span> <span class="s">&quot;~/anaconda/bin/ipython&quot;</span>
+
+<span class="c">#: The `golden ratio &lt;https://en.wikipedia.org/wiki/The_golden_ratio&gt;`_</span>
+<span class="c">#: Also callable with φ</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="c">#: The classic `circle constant &lt;https://en.wikipedia.org/wiki/Pi&gt;`_, pi and :math:`\pi`.</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="c">#: The much more `intuitive circle constant &lt;http://www.tauday.com/tau-manifesto&gt;`_, tau and :math:`\tau`.</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="c">#: `Euler&#39;s number &lt;https://en.wikipedia.org/wiki/E_(mathematical_constant)&gt;`_</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span>
+
+<span class="c">#: `Euler&#39;s constant &lt;https://en.wikipedia.org/wiki/Euler–Mascheroni_constant&gt;`_</span>
+<span class="n">euler</span> <span class="o">=</span> <span class="mf">0.57721566490153286060651209008240243104215933593992</span>
+
+<span class="c">#: Infinity.</span>
+<span class="n">inf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="c">#: The smallest possible difference between two doubles. See `machine epsilon</span>
+<span class="c">#: &lt;http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C&gt;`_ for more</span>
+<span class="c">#: detail.</span>
+<span class="n">DOUBLE_EPSILON</span> <span class="o">=</span> <span class="s">&quot;smaller&quot;</span>
+
+<span class="c">#: The smallest possible difference between two floats. See `machine epsilon </span>
+<span class="c">#: &lt;http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C&gt;`_ for more</span>
+<span class="c">#: detail.</span>
+<span class="n">FLOAT_EPSILON</span> <span class="o">=</span> <span class="s">&quot;small&quot;</span>
+
+<div class="viewcode-block" id="close"><a class="viewcode-back" href="../numbers.html#numbers.close">[docs]</a><span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param x: Double. An input value.</span>
+<span class="sd">    :param y: Double. Another value.</span>
+
+<span class="sd">    :rtype: Bool. True only if the two values are close numerically.</span>
+<span class="sd">    Specifically, true only if :math:`|x-y|&lt;10^{-9}`.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; assert(close(0, 1e-10) == true)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</div>
+<div class="viewcode-block" id="convience_elements"><a class="viewcode-back" href="../numbers.html#numbers.convience_elements">[docs]</a><span class="k">def</span> <span class="nf">convience_elements</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The built in class numeric classes has convience elements.</span>
+
+<span class="sd">    * {Float|Double|Int|CInt}.int. Returns the integer value</span>
+<span class="sd">    * {Float|Double|Int|CInt}.float. The floating point value</span>
+<span class="sd">    * {Float|Double|Int|CInt}.double. The double value.</span>
+<span class="sd">    * String.floatValue, String.doubleValue. Converts the string to a numeric value by interpetting a NSString.</span>
+<span class="sd">    * String.nsstring. For interfacing with C.</span>
+
+<span class="sd">    Additionally, Int has an element cint, Double has element cdouble, Float</span>
+<span class="sd">    has element cfloat.</span>
+
+<span class="sd">    &gt;&gt;&gt; assert(3.14.int == 3)</span>
+<span class="sd">    &gt;&gt;&gt; assert(&quot;3.14&quot;.floatValue == 3.14)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+</div>
+<div class="viewcode-block" id="operator_slash"><a class="viewcode-back" href="../numbers.html#numbers.operator_slash">[docs]</a><span class="k">def</span> <span class="nf">operator_slash</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The operator ``/`` that represents division. Converts integer division to floating point division.</span>
+
+<span class="sd">    :param lhs: Int.</span>
+<span class="sd">    :param rhs: Int.</span>
+<span class="sd">    :rtype: Double = lhs / rhs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</div>
+<div class="viewcode-block" id="isNumber"><a class="viewcode-back" href="../numbers.html#numbers.isNumber">[docs]</a><span class="k">def</span> <span class="nf">isNumber</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param x: AnyObject.</span>
+<span class="sd">    :rtype: Bool. True only if x is a number (a float, double, cint, int). Returns false for ndarray and matrix.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/icon.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numbers.html">Numbers and constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrix.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning.html">Machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c.html">Interfacing with C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speed.html">Speed</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">swix 0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

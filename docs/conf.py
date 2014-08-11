@@ -19,7 +19,6 @@ import os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('autodoc'))
-#sys.path.insert(0, "autodoc")
 
 # -- General configuration ------------------------------------------------
 
@@ -30,9 +29,24 @@ sys.path.insert(0, os.path.abspath('autodoc'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.mathjax',
-    'sphinx.ext.autodoc',
+    'sphinx.ext.mathjax', # for latex
+    'sphinx.ext.autodoc', # for autodoc ease
+    'sphinx.ext.linkcode', # for linking to source
 ]
+
+# to include [Source] links
+def linkcode_resolve(domain, info):
+    PREFIX = "https://github.com/scottsievert/swix/tree/master/swix/swix/swix/"
+    if domain != 'py':
+        return None
+    if not info['module']:
+        return None
+    filename = info['module'].replace('.', '/')
+    POSTFIX = "/"
+    if filename=="numbers": POSTFIX = ".swift"
+    if filename=="machine_learning": POSTFIX = "/machine_learning.swift"
+    FIX = "%s" % filename
+    return PREFIX + FIX + POSTFIX
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -149,7 +163,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-   '**': ['localtoc.html', 'globaltoc.html', 'sourcelink.html', 'searchbox.html'],
+   '**': ['localtoc.html', 'globaltoc.html', 'searchbox.html'],
    'using/windows': ['windowssidebar.html', 'searchbox.html'],
 }
 

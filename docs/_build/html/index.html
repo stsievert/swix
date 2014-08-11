@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to swix’s documentation! &mdash; swix 0.1 documentation</title>
+    <title>Swift Matrix and Machine Learning Library &mdash; swix 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -49,17 +49,34 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="welcome-to-swix-s-documentation">
-<h1>Welcome to swix&#8217;s documentation!<a class="headerlink" href="#welcome-to-swix-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="swift-matrix-and-machine-learning-library">
+<h1><a class="reference external" href="https://github.com/scottsievert/swix">Swift Matrix and Machine Learning Library</a><a class="headerlink" href="#swift-matrix-and-machine-learning-library" title="Permalink to this headline">¶</a></h1>
 <p>Apple&#8217;s Swift is a high level language that&#8217;s <cite>asking</cite> for some numerical
-library to perform computation <cite>fast</cite> or at the very least <cite>easily</cite>. This is a
-wrapper for that library.</p>
-<p>A way to have iOS run high-level code similar to Python or Matlab is something
-I&#8217;ve been waiting for, and am incredibly excited to see the results. This will
-make porting complex signal processing algorithms to C much easier. Porting
-from Python/MATLAB to C was (and is) a pain in the butt, and this library aims
-to make the conversion between a Python/Matlab algorithm and a mobile app
+library to perform computation <cite>fast</cite> or at the very least <cite>easily</cite>. A way to
+have iOS run high-level code similar to Python or Matlab is something I&#8217;ve been
+waiting for, and am incredibly excited to see the results. This will make
+porting complex signal processing algorithms to C much easier. Porting from
+Python/MATLAB to C was (and is) a pain in the butt, and this library aims to
+make the conversion between a Python/Matlab algorithm and a mobile app
 <cite>simple</cite>.</p>
+<p>Currently, this library gives you</p>
+<ul class="simple">
+<li>operators (+, etc) and various functions (sin, etc) that operate on entire arrays</li>
+<li>easy initializers for 1D and 2D arrays</li>
+<li>dot product, matrix inversion, eigenvalues, etc</li>
+<li>machine learning algorithms (SVM, kNN, SVD/PCA, more to come)</li>
+<li>speed optimizations</li>
+<li>one dimensional Fourier transforms</li>
+</ul>
+<p>In most cases, this library calls the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> or <a class="reference external" href="http://opencv.org">OpenCV</a>. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn&#8217;t need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request <a class="reference external" href="https://github.com/scottsievert/swix">on Github</a> (preferred!) or contact me at <a class="reference external" href="https://twitter.com/stsievert">&#64;stsievert</a> or <a class="reference external" href="mailto:sieve121&#37;&#52;&#48;umn&#46;edu">sieve121<span>&#64;</span>umn<span>&#46;</span>edu</a>. Oh, and if you use this project I&#8217;d love to hear about it.</p>
+<p>When I was crafting this library, I primarily followed the footsteps and
+example set by NumPy. For the more complex mathematical functions (e.g., SVD) I
+tested it against NumPy. Matlab, at least for the SVD, returns slightly
+different output.</p>
+<p>Additionally, I followed NumPy&#8217;s syntax whenever possible. For example, NumPy
+and Matlab differ in their initializer called <tt class="docutils literal"><span class="pre">ones</span></tt> by <tt class="docutils literal"><span class="pre">ones((M,N))</span></tt> and
+<tt class="docutils literal"><span class="pre">ones(M,N)</span></tt> respectively. If in doubt or getting weird compiler bugs, look at <a class="reference external" href="http://wiki.scipy.org/NumPy_for_Matlab_Users">NumPy for
+Matlab users</a> or the section on <a class="reference external" href="http://scottsievert.github.io/swix/bugs.html">possible bugs</a>.</p>
 <p>As an example, here&#8217;s some Objective-C sample code that integrates the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a>:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">){</span>
     <span class="n">cblas_dcopy</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -93,30 +110,12 @@ to make the conversion between a Python/Matlab algorithm and a mobile app
 </pre></div>
 </div>
 <p>The equivalent Swift syntax with this library?</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">let</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">pi</span>
-<span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">phi</span>
-<span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">var</span> <span class="n">N</span> <span class="k">=</span> <span class="mi">10</span>
+<span class="k">var</span> <span class="n">x</span> <span class="k">=</span> <span class="n">ones</span><span class="o">(</span><span class="n">N</span><span class="o">)</span> <span class="o">*</span> <span class="n">pi</span>
+<span class="k">var</span> <span class="n">y</span> <span class="k">=</span> <span class="n">ones</span><span class="o">(</span><span class="n">N</span><span class="o">)</span> <span class="o">*</span> <span class="n">phi</span>
+<span class="k">var</span> <span class="n">result</span> <span class="k">=</span> <span class="o">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="mi">4</span><span class="o">)*</span><span class="n">x</span>
 </pre></div>
 </div>
-<p>In most cases, this library calls the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> or <a class="reference external" href="http://opencv.org">OpenCV</a>. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn&#8217;t need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request (preferred!) or contact me at <a class="reference external" href="https://twitter.com/stsievert">&#64;stsievert</a> or <a class="reference external" href="mailto:sieve121&#37;&#52;&#48;umn&#46;edu">sieve121<span>&#64;</span>umn<span>&#46;</span>edu</a>. Oh, and if you use this project I&#8217;d love to hear about it.</p>
-<p>Currently, this library gives you</p>
-<ul class="simple">
-<li>operators (+, etc) and various functions (sin, etc) that operate on entire arrays</li>
-<li>easy initializers for 1D and 2D arrays</li>
-<li>dot product, matrix inversion, eigenvalues, etc</li>
-<li>machine learning algorithms (SVM, kNN, SVD/PCA, more to come)</li>
-<li>one dimensional Fourier transforms</li>
-<li>speed optimization for operators/select simple functions/all complex functions</li>
-</ul>
-<p>When I was crafting this library, I primarily followed the footsteps and
-example set by NumPy. For the more complex mathematical functions (e.g., SVD) I
-tested it against NumPy. Matlab, at least for the SVD, returns slightly
-different output.</p>
-<p>Additionally, I followed NumPy&#8217;s syntax whenever possible. For example, NumPy
-and Matlab differ in their initializer called <tt class="docutils literal"><span class="pre">ones</span></tt> by <tt class="docutils literal"><span class="pre">ones((M,N))</span></tt> and
-<tt class="docutils literal"><span class="pre">ones(M,N)</span></tt> respectively. If in doubt or getting weird compiler bugs, look at <a class="reference external" href="http://wiki.scipy.org/NumPy_for_Matlab_Users">NumPy for
-Matlab users</a> or the section on <a class="reference external" href="http://scottsievert.github.io/swix/bugs.html">possible bugs</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Examples, the most important part of documentation can be found at <a class="reference internal" href="examples.html"><em>Examples</em></a></p>
@@ -124,6 +123,10 @@ Matlab users</a> or the section on <a class="reference external" href="http://sc
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Speed results can be found at <a class="reference internal" href="speed.html"><em>Speed</em></a>. We find that on MacOSX Python/Matlab and swix are roughly comparable.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">&#8220;swix&#8221; is from the italicized letters: &#8220;<cite>Sw</cite>ift matr<cite>ix</cite> library&#8221;</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -141,50 +144,15 @@ Matlab users</a> or the section on <a class="reference external" href="http://sc
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#possible-bugs">Possible bugs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="numbers.html#module-numbers">Docs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ndarray.html#docs">Docs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="matrix.html#module-matrix">Docs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#docs">Docs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine_learning.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="c.html#module-objc">Docs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bugs.html#matlab-and-swix-differences">Matlab and swix differences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bugs.html#beta-bugs">Beta bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bugs.html#installation-bugs">Installation bugs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#soft-thresholding">Soft thresholding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#interfacing-with-c">Interfacing with C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#project-euler-1">Project Euler #1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#project-euler-10">Project Euler #10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#pi-approximation">Pi approximation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="speed.html#times">Times</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speed.html#comments">Comments</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 </div>
 <ul class="simple">
@@ -206,7 +174,7 @@ Matlab users</a> or the section on <a class="reference external" href="http://sc
             </a></p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to swix&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#">Swift Matrix and Machine Learning Library</a><ul>
 <li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
 </ul>
 </li>
@@ -225,11 +193,6 @@ Matlab users</a> or the section on <a class="reference external" href="http://sc
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/index.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
