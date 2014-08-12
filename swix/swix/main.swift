@@ -12,10 +12,16 @@ import Foundation
 runTests()
 //SpeedTests()
 
+var x:Double = 3.0
+var y:Double = 3.0 + 1e-10
 
-var x = rand((4,4))
-var (u, s, v) = svd(x)
-println(u)
-println(s)
-//println(v)
+func ~= (x:Double, y:Double)->Bool{
+    return abs(x-y) < 1e-9
+}
+
+
+
+
+
+
 

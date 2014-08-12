@@ -182,6 +182,7 @@ class runTests {
             assert(sort(y) ~== array(1, 2, 3, 4, 5))
             assert(delete(y, array(0, 1)) ~== array(4, 3, 1))
             assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
+            assert(hstack(array(1, 2), array(3, 4)) ~== (arange(4)+1))
         }
     }
     func readWriteTests(){
