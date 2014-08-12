@@ -8,16 +8,10 @@
 
 
 import Foundation
+import Swift
 
 runTests()
 //SpeedTests()
-
-var x:Double = 3.0
-var y:Double = 3.0 + 1e-10
-
-func ~= (x:Double, y:Double)->Bool{
-    return abs(x-y) < 1e-9
-}
 
 
 

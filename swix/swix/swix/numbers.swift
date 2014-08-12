@@ -32,6 +32,13 @@ var inf = 1.0 / 0.0
 var DOUBLE_EPSILON = DBL_EPSILON
 var FLOAT_EPSILON = FLT_EPSILON
 
+func close(x: Double, y: Double)->Bool{
+    return abs(x-y)<1e-9
+}
+func ~= (x:Double, y:Double)->Bool{
+    return close(x, y)
+}
+
 // use 3.double or 3.14.int or N.int
 extension Int{
     var int:Int {return Int(self)}
@@ -66,8 +73,6 @@ extension String {
     }
     var nsstring:NSString {return NSString(string:self)}
 }
-func close(x: Double, y: Double)->Bool{
-    return abs(x-y)<1e-9 ? true : false}
 
 // damn integer division causes headaches
 infix operator  / {associativity none precedence 140}
