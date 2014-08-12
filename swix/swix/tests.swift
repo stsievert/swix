@@ -182,10 +182,6 @@ class runTests {
             assert(sort(y) ~== array(1, 2, 3, 4, 5))
             assert(delete(y, array(0, 1)) ~== array(4, 3, 1))
             assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
-            
-            var (yr, yi) = fft(y)
-            var yh = ifft(yr, yi)
-            println(yh)
         }
     }
     func readWriteTests(){

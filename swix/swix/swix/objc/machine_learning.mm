@@ -27,14 +27,6 @@ void copy_float_to_double(float* x, double* y, int N){
 void copy_float(float* x, float * y, int N){
     cblas_scopy(N, x, 1, y, 1);
 }
-void matToPointer_float(Mat x, float * y, int N){
-    if  (!x.isContinuous()){
-        printf("Careful! The OpenCV::Mat-->float* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
-    }
-    uchar* ptr = x.data;
-    float* ptrD = (float*)ptr;
-    copy_float(ptrD, y, N);
-}
 -(void)setParams:(NSString*)svm_type kernel:(NSString*)kernel nu:(float)nu{
     if ([svm_type isEqualToString:@"C_SVC"])
         { params.svm_type = CvSVM::C_SVC; }
@@ -79,12 +71,11 @@ void matToPointer_float(Mat x, float * y, int N){
 - (double*) predict:(double*)x into:(double*)y m:(int)M n:(int)N{
     float * x2 = (float *)malloc(sizeof(float) * M * N);
     doubleToFloat(x, x2, M*N);
+    float* y2 = (float *)malloc(sizeof(float) * M);
     Mat xMat(M, N, CV_32FC1, x2);
-    Mat yMat(M, N, CV_32FC1);
+    Mat yMat(M, 1, CV_32FC1, y2);
     
     ocvSVM.predict(xMat, yMat);
-    float* y2 = (float *)malloc(sizeof(float) * M);
-    matToPointer_float(yMat, y2, M);
     copy_float_to_double(y2, y, M);
     return y;
 }
