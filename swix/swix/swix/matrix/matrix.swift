@@ -34,8 +34,9 @@ struct matrix {
     subscript(i: String) -> ndarray {
         get {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
-            var x = diag(self)
-            return x
+            var size = rows < columns ? rows : columns
+            var i = arange(size)
+            return self[i*columns.double + i]
         }
         set {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
@@ -64,8 +65,8 @@ struct matrix {
     }
     subscript(r: Range<Int>, c: Range<Int>) -> matrix {
         get {
-            var rr = toArray(r)
-            var cc = toArray(c)
+            var rr = asarray(r)
+            var cc = asarray(c)
             var (j, i) = meshgrid(rr, cc)
             var idx = (j.flat*columns.double + i.flat)
             var z = flat[idx]
@@ -73,8 +74,8 @@ struct matrix {
             return zz
         }
         set {
-            var rr = toArray(r)
-            var cc = toArray(c)
+            var rr = asarray(r)
+            var cc = asarray(c)
             var (j, i) = meshgrid(rr, cc)
             var idx = j.flat*columns.double + i.flat
             flat[idx] = newValue.flat
@@ -102,23 +103,23 @@ struct matrix {
     }
     subscript(i: Range<Int>, k: Int) -> ndarray {
         get {
-            var idx = toArray(i)
+            var idx = asarray(i)
             var x:ndarray = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
-            var idx = toArray(i)
+            var idx = asarray(i)
             self.flat[idx * self.columns.double + k.double] = newValue[idx]
         }
     }
     subscript(i: Int, k: Range<Int>) -> ndarray {
         get {
-            var idx = toArray(k)
+            var idx = asarray(k)
             var x:ndarray = self.flat[i.double * self.columns.double + idx]
             return x
         }
         set {
-            var idx = toArray(k)
+            var idx = asarray(k)
             self.flat[i.double * self.columns.double + idx] = newValue[idx]
         }
     }

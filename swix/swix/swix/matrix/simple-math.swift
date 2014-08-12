@@ -92,10 +92,10 @@ func norm(x: matrix, type:String="l2") -> Double{
     assert(false, "type of norm unrecongnized")
     return -1.0
 }
-func sum(x: matrix, dim:Int = -1) -> ndarray{
+func sum(x: matrix, axis:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
-    assert(dim==0 || dim==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")
-    if dim==0{
+    assert(axis==0 || axis==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")
+    if axis==0{
         var n = x.shape.1
         var m = ones((n,1))
         return (x *! m).flat
@@ -109,7 +109,7 @@ func sum(x: matrix, dim:Int = -1) -> ndarray{
 func avg(x:matrix, dim:Int = -1) -> ndarray{
     assert(dim==0 || dim==1, "If you want to find the average of the whole matrix call `avg(x.flat)`")
     var div = dim==0 ? x.shape.1 : x.shape.0
-    return sum(x, dim:dim)// / div
+    return sum(x, axis:dim)// / div
 }
 
 //func cumsum(x: matrix) -> matrix{

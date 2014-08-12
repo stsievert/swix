@@ -52,6 +52,14 @@ func array(numbers: Double...) -> ndarray{
     }
     return x
 }
+func asarray(seq: Range<Int>) -> ndarray {
+    // improve with [1]
+    // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
+    var start:Double = seq.startIndex.double * 1.0
+    var end:Double   = seq.endIndex.double * 1.0
+    var s = arange(start, end, x:true)
+    return s
+}
 
 func copy(x: ndarray) -> ndarray{
     return x.copy()
@@ -72,14 +80,6 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
     return done
 }
 
-func toArray(seq: Range<Int>) -> ndarray {
-    // improve with [1]
-    // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
-    var start:Double = seq.startIndex.double * 1.0
-    var end:Double   = seq.endIndex.double * 1.0
-    var s = arange(start, end, x:true)
-    return s
-}
 
 
 

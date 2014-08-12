@@ -57,7 +57,6 @@ func delete(x:ndarray, idx:ndarray) -> ndarray{
     i[idx] *= 0
     return x[argwhere(i)]
 }
-//func repeat(x: ndarray, N:Int, how:String="ndarray") -> ndarray{
 func repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
     var y = zeros((N, x.n))
     
