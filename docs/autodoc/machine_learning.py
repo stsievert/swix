@@ -7,14 +7,14 @@ class SVM:
 
     example:
 
-    .. code-block:: python
+    .. code-block:: scala
 
         var svm = SVM()
 
         # our responses. 
         var responses = reshape(ones(2*3), (2, 3))
 
-        #/ OpenCV can fail for too similar inputs (probably synthetic)
+        #/ OpenCV can fail for too similar inputs
         for i in 0..3{
             responses[1][i] = -1
         }

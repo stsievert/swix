@@ -57,7 +57,7 @@
 <h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h1>
 <p>The full docs are below but I&#8217;ll touch on some highlights:</p>
 <ul class="simple">
-<li>depends on ndarray. Access the <a class="reference external" href="https://en.wikipedia.org/wiki/Row_major">row-major</a> indexed flat array via <tt class="docutils literal"><span class="pre">matrix.flat</span></tt>. This means that any function that takes a flat array can be applied to a matrix.</li>
+<li>depends on ndarray. Access the <a href="#id3"><span class="problematic" id="id4">`row-major`_</span></a> indexed flat array via <tt class="docutils literal"><span class="pre">matrix.flat</span></tt>. This means that any function that takes a flat array can be applied to a matrix.</li>
 <li>Implements some complex math: solve, dot, svd, and inv</li>
 <li>has some nice functions for image, including functions to show and save images.</li>
 </ul>
@@ -72,9 +72,188 @@
 <div class="section" id="module-matrix">
 <span id="docs"></span><h2>Docs<a class="headerlink" href="#module-matrix" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="matrix.matrix">
+<em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">matrix</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class depends on <tt class="docutils literal"><span class="pre">ndarray</span></tt> where possible since <tt class="docutils literal"><span class="pre">matrix</span></tt> is really
+a flat and <a href="#id5"><span class="problematic" id="id6">`row-major`_</span></a> array. To implement a 2D matrix, I just return
+select indices when indexing.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Row major order differs from Matlab and it&#8217;s column major order. While the <cite>flat</cite> indexing differs, NumPy, Matlab and swix all index the same with two indices. ie, <tt class="docutils literal"><span class="pre">x[1,3]</span></tt> will return similar values in all three.</p>
+</div>
+<dl class="attribute">
+<dt id="matrix.matrix.I">
+<tt class="descname">I</tt><em class="property"> = 'inverse'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.I" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the inverse of the matrix. Calls <a class="reference internal" href="#matrix.complex_math.inv" title="matrix.complex_math.inv"><tt class="xref py py-class docutils literal"><span class="pre">complex_math.inv</span></tt></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matrix.matrix.T">
+<tt class="descname">T</tt><em class="property"> = 'transpose'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the transpose of the matrix. Call <a class="reference internal" href="#matrix.helper_functions.transpose" title="matrix.helper_functions.transpose"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.transpose</span></tt></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matrix.matrix.columns">
+<tt class="descname">columns</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of columns</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.matrix.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.copy" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A copy of the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="ndarray.html#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray.copy</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.matrix.dot">
+<tt class="descname">dot</tt><big>(</big><em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.dot" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The lhs of the matrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix. The dot product <tt class="docutils literal"><span class="pre">dot(self,</span> <span class="pre">y)</span></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><tt class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></tt></a>, <a class="reference internal" href="#matrix.operators.dot" title="matrix.operators.dot"><tt class="xref py py-class docutils literal"><span class="pre">operators.dot</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matrix.matrix.flat">
+<tt class="descname">flat</tt><em class="property"> = 'ndarray'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base ndarray stored in row-major order. Is of type <a class="reference internal" href="ndarray.html#ndarray.ndarray" title="ndarray.ndarray"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray</span></tt></a>; any function that takes an ndarray can take this element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.matrix.index">
+<tt class="descname">index</tt><big>(</big><em>one</em>, <em>two</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, ndarray</em>) &#8211; The row selector.</li>
+<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, ndarray</em>) &#8211; The column selector.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matrix</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use <tt class="docutils literal"><span class="pre">x[3,</span> <span class="pre">4]</span></tt> to index, not the function name.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="go"># x = [0 1 2; 3 4 5; 6 7 8]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/user/basics.indexing.html">np.indexing</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.matrix.index_diag">
+<tt class="descname">index_diag</tt><big>(</big><em>string</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index_diag" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> (<em>String</em>) &#8211; This asserts that this input string must be &#8220;diag&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+<p>Gets or sets the diagonal of a matrix.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go"># prints [-1 1 2; 3 -2 5; 6 7 -3]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.matrix.index_flat">
+<tt class="descname">index_flat</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index_flat" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; In row major order, the elements to take.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Indexes <tt class="docutils literal"><span class="pre">matrix.flat</span></tt> in row-major order.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use <tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">x.shape.0+1)]</span></tt> to index, not the function name.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">rehshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flat.html">np.flat</a></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matrix.matrix.n">
+<tt class="descname">n</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matrix.matrix.rows">
+<tt class="descname">rows</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of rows</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matrix.matrix.shape">
+<tt class="descname">shape</tt><em class="property"> = '(rows, columns)'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>The shape of the matrix (in typical mathematical language)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="matrix.simple_math">
 <em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">simple_math</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math" title="Permalink to this definition">¶</a></dt>
-<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="ndarray.html#ndarray.simple_math" title="ndarray.simple_math"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.simple_math</span></tt></a></p>
+<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="ndarray.html#ndarray.simple_math" title="ndarray.simple_math"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.simple_math</span></tt></a>. This applies a function to every element and simply calls <tt class="docutils literal"><span class="pre">function(x.flat)</span></tt>.</p>
 <dl class="method">
 <dt id="matrix.simple_math.abs">
 <tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.abs" title="Permalink to this definition">¶</a></dt>
@@ -92,7 +271,7 @@
 
 <dl class="method">
 <dt id="matrix.simple_math.avg">
-<tt class="descname">avg</tt><big>(</big><em>x</em>, <em>dim=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.avg" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">avg</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.avg" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -282,7 +461,7 @@
 
 <dl class="method">
 <dt id="matrix.simple_math.sum">
-<tt class="descname">sum</tt><big>(</big><em>x</em>, <em>dim=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.sum" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sum</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.sum" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -325,29 +504,36 @@
 <div class="section" id="matrix-class">
 <h3>matrix class<a class="headerlink" href="#matrix-class" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="matrix.matrix">
-<em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">matrix</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="matrix.matrix.I">
-<tt class="descname">I</tt><em class="property"> = 'inverse'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.I" title="Permalink to this definition">¶</a></dt>
+<dt>
+<em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">matrix</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This class depends on <tt class="docutils literal"><span class="pre">ndarray</span></tt> where possible since <tt class="docutils literal"><span class="pre">matrix</span></tt> is really
+a flat and <a href="#id7"><span class="problematic" id="id8">`row-major`_</span></a> array. To implement a 2D matrix, I just return
+select indices when indexing.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Row major order differs from Matlab and it&#8217;s column major order. While the <cite>flat</cite> indexing differs, NumPy, Matlab and swix all index the same with two indices. ie, <tt class="docutils literal"><span class="pre">x[1,3]</span></tt> will return similar values in all three.</p>
+</div>
+<dl class="attribute">
+<dt>
+<tt class="descname">I</tt><em class="property"> = 'inverse'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Returns the inverse of the matrix. Calls <a class="reference internal" href="#matrix.complex_math.inv" title="matrix.complex_math.inv"><tt class="xref py py-class docutils literal"><span class="pre">complex_math.inv</span></tt></a></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="matrix.matrix.T">
-<tt class="descname">T</tt><em class="property"> = 'transpose'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.T" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the transpose of the matrix. Call <tt class="xref py py-class docutils literal"><span class="pre">initing.transpose</span></tt></p>
+<dt>
+<tt class="descname">T</tt><em class="property"> = 'transpose'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns the transpose of the matrix. Call <a class="reference internal" href="#matrix.helper_functions.transpose" title="matrix.helper_functions.transpose"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.transpose</span></tt></a></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="matrix.matrix.columns">
-<tt class="descname">columns</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.columns" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">columns</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Number of columns</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.matrix.copy">
-<tt class="descname">copy</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.copy" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -360,11 +546,15 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
 </pre></div>
 </div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="ndarray.html#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray.copy</span></tt></a></p>
+</div>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.matrix.dot">
-<tt class="descname">dot</tt><big>(</big><em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.dot" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">dot</tt><big>(</big><em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -382,14 +572,14 @@
 </dd></dl>
 
 <dl class="attribute">
-<dt id="matrix.matrix.flat">
-<tt class="descname">flat</tt><em class="property"> = 'ndarray'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.flat" title="Permalink to this definition">¶</a></dt>
-<dd><p>The base ndarray stored in row-major order.</p>
+<dt>
+<tt class="descname">flat</tt><em class="property"> = 'ndarray'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>The base ndarray stored in row-major order. Is of type <a class="reference internal" href="ndarray.html#ndarray.ndarray" title="ndarray.ndarray"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray</span></tt></a>; any function that takes an ndarray can take this element.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.matrix.index">
-<tt class="descname">index</tt><big>(</big><em>one</em>, <em>two</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">index</tt><big>(</big><em>one</em>, <em>two</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -405,6 +595,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use <tt class="docutils literal"><span class="pre">x[3,</span> <span class="pre">4]</span></tt> to index, not the function name.</p>
+</div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="go"># x = [0 1 2; 3 4 5; 6 7 8]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
@@ -412,11 +606,15 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/user/basics.indexing.html">np.indexing</a></p>
+</div>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.matrix.index_diag">
-<tt class="descname">index_diag</tt><big>(</big><em>string</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index_diag" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">index_diag</tt><big>(</big><em>string</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -428,11 +626,18 @@
 </tbody>
 </table>
 <p>Gets or sets the diagonal of a matrix.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go"># prints [-1 1 2; 3 -2 5; 6 7 -3]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.matrix.index_flat">
-<tt class="descname">index_flat</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index_flat" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">index_flat</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -443,27 +648,35 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use <tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">x.shape.0+1)]</span></tt> to index, not the function name.</p>
+</div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">rehshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flat.html">np.flat</a></p>
+</div>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="matrix.matrix.n">
-<tt class="descname">n</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.n" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">n</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Number of elements</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="matrix.matrix.rows">
-<tt class="descname">rows</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.rows" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">rows</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Number of rows</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="matrix.matrix.shape">
-<tt class="descname">shape</tt><em class="property"> = '(rows, columns)'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.shape" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">shape</tt><em class="property"> = '(rows, columns)'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>The shape of the matrix (in typical mathematical language)</p>
 </dd></dl>
 
@@ -500,48 +713,6 @@
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.matrix.html">np.matrix</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="matrix.initing.copy">
-<tt class="descname">copy</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.copy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The source matrix.</li>
-<li><strong>y</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The destination matrix.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Modifies <tt class="docutils literal"><span class="pre">y</span></tt> to contain exactly <tt class="docutils literal"><span class="pre">x</span></tt>.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This function is deprecated. Don&#8217;t use it!</p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="matrix.initing.diag">
-<tt class="descname">diag</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.diag" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
-</tr>
-</tbody>
-</table>
-<p>Returns the diagonal of an array.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This function is deprecated.</p>
 </div>
 </dd></dl>
 
@@ -612,6 +783,10 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">~==</span> <span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="ndarray.html#ndarray.initing.ones" title="ndarray.initing.ones"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.initing.ones</span></tt></a></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -652,6 +827,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="ndarray.html#ndarray.ndarray.reshape" title="ndarray.ndarray.reshape"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray.reshape</span></tt></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html">np.reshape</a></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -669,6 +848,10 @@
 </table>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="ndarray.html#ndarray.initing.zeros" title="ndarray.initing.zeros"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.initing.zeros</span></tt></a></p>
 </div>
 </dd></dl>
 
@@ -688,6 +871,10 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros_like.html">np.zeros_like</a></p>
 </div>
 </dd></dl>
 
@@ -734,7 +921,7 @@
 <p>Implemented through <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#void%20flip(InputArray%20src,%20OutputArray%20dst,%20int%20flipCode)">cv.flip</a></p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#matrix.helper_functions.flipud" title="matrix.helper_functions.flipud"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.flipud</span></tt></a></p>
+<p class="last"><a class="reference internal" href="#matrix.helper_functions.flipud" title="matrix.helper_functions.flipud"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.flipud</span></tt></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.fliplr.html">np.fliplr</a></p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;2 1; 4 3&quot;</span><span class="p">))</span>
@@ -758,7 +945,7 @@
 <p>Implemented through <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#void%20flip(InputArray%20src,%20OutputArray%20dst,%20int%20flipCode)">cv.flip</a></p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#matrix.helper_functions.fliplr" title="matrix.helper_functions.fliplr"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.fliplr</span></tt></a></p>
+<p class="last"><a class="reference internal" href="#matrix.helper_functions.fliplr" title="matrix.helper_functions.fliplr"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.fliplr</span></tt></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.flipud.html">np.flipud</a></p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;3 4; 1 2&quot;</span><span class="p">))</span>
@@ -858,7 +1045,7 @@
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.matrix.dot" title="matrix.matrix.dot"><tt class="xref py py-class docutils literal"><span class="pre">matrix.dot</span></tt></a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><tt class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.matrix.dot" title="matrix.matrix.dot"><tt class="xref py py-class docutils literal"><span class="pre">matrix.dot</span></tt></a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><tt class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></tt></a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">Matrix multiplication</a></p>
 </div>
 </dd></dl>
 
@@ -886,11 +1073,15 @@
 <p class="first admonition-title">Note</p>
 <p class="last"><tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!==</span></tt> see when two arrays are <em>exactly</em> equal for the incredibly percise doubles. I recommend using <tt class="docutils literal"><span class="pre">abs(x-y)&lt;1e-9</span></tt>.</p>
 </div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://wiki.scipy.org/Tentative_NumPy_Tutorial#head-4c1d53fe504adc97baf27b65513b4b97586a4fc5">np.operators</a></p>
+</div>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.operators.equailty">
-<tt class="descname">equailty</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.equailty" title="Permalink to this definition">¶</a></dt>
+<dt id="matrix.operators.equality">
+<tt class="descname">equality</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.equality" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -906,6 +1097,13 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Callable through <tt class="docutils literal"><span class="pre">~==</span></tt></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="numbers.html#numbers.close" title="numbers.close"><tt class="xref py py-class docutils literal"><span class="pre">numbers.close</span></tt></a></p>
@@ -941,7 +1139,7 @@
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#matrix.complex_math.solve" title="matrix.complex_math.solve"><tt class="xref py py-class docutils literal"><span class="pre">complex_math.solve</span></tt></a></p>
+<p class="last"><a class="reference internal" href="#matrix.complex_math.solve" title="matrix.complex_math.solve"><tt class="xref py py-class docutils literal"><span class="pre">complex_math.solve</span></tt></a>, <a class="reference external" href="https://en.wikipedia.org/wiki/System_of_linear_equations">System of linear equations</a></p>
 </div>
 </dd></dl>
 
@@ -954,7 +1152,7 @@
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">simple_math</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="ndarray.html#ndarray.simple_math" title="ndarray.simple_math"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.simple_math</span></tt></a></p>
+<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="ndarray.html#ndarray.simple_math" title="ndarray.simple_math"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.simple_math</span></tt></a>. This applies a function to every element and simply calls <tt class="docutils literal"><span class="pre">function(x.flat)</span></tt>.</p>
 <dl class="method">
 <dt>
 <tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
@@ -972,7 +1170,7 @@
 
 <dl class="method">
 <dt>
-<tt class="descname">avg</tt><big>(</big><em>x</em>, <em>dim=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<tt class="descname">avg</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1162,7 +1360,7 @@
 
 <dl class="method">
 <dt>
-<tt class="descname">sum</tt><big>(</big><em>x</em>, <em>dim=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<tt class="descname">sum</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

@@ -68,12 +68,12 @@
 <p class="last"><a class="reference external" href="http://docs.opencv.org/modules/ml/doc/support_vector_machines.html">OpenCV&#8217;s SVM</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machines">Support vector machines</a></p>
 </div>
 <p>example:</p>
-<div class="highlight-python"><div class="highlight"><pre>var svm = SVM()
+<div class="highlight-scala"><div class="highlight"><pre>var svm = SVM()
 
 # our responses. 
 var responses = reshape(ones(2*3), (2, 3))
 
-#/ OpenCV can fail for too similar inputs (probably synthetic)
+#/ OpenCV can fail for too similar inputs
 for i in 0..3{
     responses[1][i] = -1
 }

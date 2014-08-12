@@ -1,7 +1,19 @@
 
 .. _`np.reshape`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html
+.. _`np.repeat`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.repeat.html
+.. _`np.copy`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html
+.. _`np.fliplr`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fliplr.html
+.. _`np.flipud`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.flipud.html
+.. _`np.power`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html
+.. _`np.flat`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flat.html
+.. _`np.operators`: http://wiki.scipy.org/Tentative_NumPy_Tutorial#head-4c1d53fe504adc97baf27b65513b4b97586a4fc5
+.. _`np.sort`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html
+.. _`np.max`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.maximum.html
+.. _`np.mean`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html
+.. _`np.indexing`: http://docs.scipy.org/doc/numpy/user/basics.indexing.html
 .. _`np.argwhere`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.argwhere.html
 .. _`np.zeros`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
+.. _`np.ones`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
 .. _`np.min`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.minimum.html
 .. _`np.arange`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html
 .. _`np.linspace`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html
@@ -26,6 +38,8 @@
 .. _`cv.flip`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#void%20flip(InputArray%20src,%20OutputArray%20dst,%20int%20flipCode)
 .. _`np.concatenate`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html#numpy.concatenate
 
+.. _`Matrix multiplication`: https://en.wikipedia.org/wiki/Matrix_multiplication
+.. _`row-major`: https://en.wikipedia.org/wiki/Row-major_order
 .. _`Variance`: https://en.wikipedia.org/wiki/Variance
 .. _`Fourier Transform`: https://en.wikipedia.org/wiki/Fourier_transform
 .. _`Matrix inverse`: https://en.wikipedia.org/wiki/Matrix_inverse

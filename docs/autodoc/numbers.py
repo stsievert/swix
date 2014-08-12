@@ -51,7 +51,7 @@ def close(x, y):
 
 def convience_elements():
     """
-    The built in class numeric classes has convience elements.
+    The built in numeric classes have convience elements.
 
     * {Float|Double|Int|CInt}.int. Returns the integer value
     * {Float|Double|Int|CInt}.float. The floating point value

@@ -3,12 +3,19 @@ import ndarray
 # unused but in docs
 
 class matrix:
+    """
+    This class depends on ``ndarray`` where possible since ``matrix`` is really
+    a flat and `row-major`_ array. To implement a 2D matrix, I just return
+    select indices when indexing.
+
+    .. note:: Row major order differs from Matlab and it's column major order. While the `flat` indexing differs, NumPy, Matlab and swix all index the same with two indices. ie, ``x[1,3]`` will return similar values in all three.
+    """
     n = "Int" #: Number of elements
     rows = "Int" #: Number of rows
     columns = "Int" #: Number of columns
     shape = "(rows, columns)" #: The shape of the matrix (in typical mathematical language)
-    flat = "ndarray" #: The base ndarray stored in row-major order.
-    T = "transpose" #: Returns the transpose of the matrix. Call :class:`initing.transpose`
+    flat = "ndarray" #: The base ndarray stored in row-major order. Is of type :class:`ndarray.ndarray`; any function that takes an ndarray can take this element.
+    T = "transpose" #: Returns the transpose of the matrix. Call :class:`helper_functions.transpose`
     I = "inverse" #: Returns the inverse of the matrix. Calls :class:`complex_math.inv`
     def copy():
         """
@@ -16,6 +23,8 @@ class matrix:
 
         >>> x = arange(4).reshape((2,2))
         >>> assert(x ~== x.copy())
+
+        .. seealso:: :class:`ndarray.ndarray.copy`
         """
     def dot(y):
         """
@@ -33,20 +42,28 @@ class matrix:
         :type two: Int, Range<Int>, ndarray
         :rtype: matrix
 
+        .. note:: Use ``x[3, 4]`` to index, not the function name.
+
         >>> x = arange(9).reshape((3,3))
         # x = [0 1 2; 3 4 5; 6 7 8]
         >>> assert(x[0,1] == 1)
         >>> assert(x[0..<2, 0..<3] ~== array("0 1 2; 3 4 5")
         >>> assert(x[arange(2), arange(3)] ~== array("0 1 2; 3 4 5")
+
+        .. seealso:: `np.indexing`_
         """
     def index_flat(idx):
         """
         :param idx: In row major order, the elements to take.
         :type idx: ndarray
         :rtype: ndarray. Indexes ``matrix.flat`` in row-major order.
+
+        .. note:: Use ``x[array(1, 2, 3, x.shape.0+1)]`` to index, not the function name.
         
         >>> x = arange(9).rehshape((3,3))
         >>> assert(x[array(0, 3, 6)] ~== array(0, 3, 6))
+
+        .. seealso:: `np.flat`_
         """
     def index_diag(string):
         """
@@ -55,120 +72,28 @@ class matrix:
         :rtype: ndarray
 
         Gets or sets the diagonal of a matrix.
-        """
 
-class helper_functions:
-    def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
-        """
-        :param x: The matrix to print.
-        :type x: matrix
-        :param prefix: The prefix.
-        :type prefix: String
-        :param postfix: The postfix.
-        :type postfix: String
-        :param newline: The newline character.
-        :type newline: String
-        :param format: The format, C style.
-        :type format: String
-        :param printWholeMatrix: If true, prints every element.
-        :type format: Bool
-        """
-    def argwhere(idx):
-        """
-        :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
-        :type idx: matrix
-        :rtype: ndarray. Returns the indicies where ``idx`` is not zero. Useful with comparison operators which return an array of 0's and 1's.
-
-        .. seealso:: `np.argwhere`_, :class:`operators.element_operators`
-        """
-    def write_csv(x, filename, prefix=S2_PREFIX):
-        """
-        :param x: A matrix.
-        :type x: matrix
-        :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
-        :param prefix: Defaults to S2_PREFIX.
-        """
-    def transpose(x):
-        """
-        :param x: A source matrix.
-        :type x: matrix
-        :rtype: The transpose of the matrix.
-
-        .. seealso:: `np.transpose`_, :class:`matrix.T`, `Transpose`_
-        """
-    def fliplr(x):
-        """
-        :param x: The array to flip.
-        :type x: matrix
-        :rtype: The flipped matrix.
-
-        Implemented through `cv.flip`_
-
-        .. seealso:: :class:`helper_functions.flipud`
-
-        >>> x = array("1 2; 3 4")
-        >>> assert(fliplr(x) ~== array("2 1; 4 3"))
-        """
-    def flipud(x):
-        """
-        :param x: The array to flip.
-        :type x: matrix
-        :rtype: The flipped matrix.
-
-        Implemented through `cv.flip`_
-
-        .. seealso:: :class:`helper_functions.fliplr`
-
-        >>> x = array("1 2; 3 4")
-        >>> assert(fliplr(x) ~== array("3 4; 1 2"))
+        >>> x = arange(9).reshape((3,3))
+        >>> x["diag"] = array(-1, -2, -3)
+        >>> assert(x["diag"] = array(-1, -2, -3))
+        >>> println(x)
+        # prints [-1 1 2; 3 -2 5; 6 7 -3]
         """
 
 class initing:
-    def zeros(shape):
+    def array(matlab_like_string):
         """
-        :param shape: The shape of the new matrix. (rows, columns)
-        :type shape: (Int, Int)
+        :param matlike_like_string:
+        :type matlab_like_string: String
         :rtype: matrix
 
-        >>> assert(zeros((2,2)) ~== zeros(4).reshape((2,2)))
-        """
-    def zeros_like(x):
-        """
-        :param x: The matrix to imitate.
-        :type x: matrix
-        :rtype: matrix
+        Interpets the string as a matrix, matlab style. ``;`` is interpets as a new row.
 
-        >>> x = array(1, 2, 3, 4).reshape((2,2))
-        >>> assert(zeros_like(x) ~== zeros((2,2)))
-        """
-    def ones(shape):
-        """
-        :param shape: The shape of the new matrix. (rows, columns)
-        :type shape: (Int, Int)
-        :rtype: matrix
+        .. warning:: This currently only works with one digit positive numbers. Negative numbers and multiple digit numbers throw it for a loop. I would recommend using ``array(Double...).reshape((M,N))`` instead.
 
-        >>> assert(ones((2,2)) ~== ones(4).reshape((2,2)))
-        """
-    def copy(x, y):
-        """
-        :param x: The source matrix.
-        :param y: The destination matrix.
-        :type x: matrix
-        :type y: matrix
+        >>> assert(array("1 2; 3 4") ~== array(1, 2, 3, 4).reshape((2,2))
 
-        Modifies ``y`` to contain exactly ``x``.
-
-        .. warning:: This function is deprecated. Don't use it!
-        """
-    def diag(x):
-        """
-        :param x: A matrix.
-        :type x: matrix
-        :rtype: ndarray
-
-        Returns the diagonal of an array.
-
-        .. warning:: This function is deprecated.
+        .. seealso:: `np.matrix`_
         """
     def eye(N):
         """
@@ -177,14 +102,6 @@ class initing:
         :rtype: matrix. An identity matrix.
 
         .. seealso:: `np.eye`_
-        """
-    def reshape(x, shape):
-        """
-        :param x: An ndarray
-        :type x: ndarray
-        :param shape: The size of the new matrix
-        :type shape: (Int, Int)
-        :rtype: A resized matrix.
         """
     def meshgrid(x, y):
         """
@@ -204,25 +121,118 @@ class initing:
 
         .. seealso:: `np.meshgrid`_
         """
-    def array(matlab_like_string):
+    def ones(shape):
         """
-        :param matlike_like_string:
-        :type matlab_like_string: String
+        :param shape: The shape of the new matrix. (rows, columns)
+        :type shape: (Int, Int)
         :rtype: matrix
 
-        Interpets the string as a matrix, matlab style. ``;`` is interpets as a new row.
+        >>> assert(ones((2,2)) ~== ones(4).reshape((2,2)))
 
-        .. warning:: This currently only works with one digit positive numbers. Negative numbers and multiple digit numbers throw it for a loop. I would recommend using ``array(Double...).reshape((M,N))`` instead.
-
-        >>> assert(array("1 2; 3 4") ~== array(1, 2, 3, 4).reshape((2,2))
-
-        .. seealso:: `np.matrix`_
+        .. seealso:: :class:`ndarray.initing.ones`
         """
     def read_csv(filename, prefix=S2_PREFIX):
         """
         :param filename: The file to read from. Reads from the same folder as the folder *above* the prefix.
         :param prefix: Defaults to S2_PREFIX.
         :rtype: matrix. The contents of the CSV.
+        """
+    def reshape(x, shape):
+        """
+        :param x: An ndarray
+        :type x: ndarray
+        :param shape: The size of the new matrix
+        :type shape: (Int, Int)
+        :rtype: A resized matrix.
+
+        .. seealso:: :class:`ndarray.ndarray.reshape`, `np.reshape`_
+        """
+    def zeros(shape):
+        """
+        :param shape: The shape of the new matrix. (rows, columns)
+        :type shape: (Int, Int)
+        :rtype: matrix
+
+        >>> assert(zeros((2,2)) ~== zeros(4).reshape((2,2)))
+
+        .. seealso:: :class:`ndarray.initing.zeros`
+        """
+    def zeros_like(x):
+        """
+        :param x: The matrix to imitate.
+        :type x: matrix
+        :rtype: matrix
+
+        >>> x = array(1, 2, 3, 4).reshape((2,2))
+        >>> assert(zeros_like(x) ~== zeros((2,2)))
+
+        .. seealso:: `np.zeros_like`_
+        """
+
+class helper_functions:
+    def argwhere(idx):
+        """
+        :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
+        :type idx: matrix
+        :rtype: ndarray. Returns the indicies where ``idx`` is not zero. Useful with comparison operators which return an array of 0's and 1's.
+
+        .. seealso:: `np.argwhere`_, :class:`operators.element_operators`
+        """
+    def fliplr(x):
+        """
+        :param x: The array to flip.
+        :type x: matrix
+        :rtype: The flipped matrix.
+
+        Implemented through `cv.flip`_
+
+        .. seealso:: :class:`helper_functions.flipud`, `np.fliplr`_
+
+        >>> x = array("1 2; 3 4")
+        >>> assert(fliplr(x) ~== array("2 1; 4 3"))
+        """
+    def flipud(x):
+        """
+        :param x: The array to flip.
+        :type x: matrix
+        :rtype: The flipped matrix.
+
+        Implemented through `cv.flip`_
+
+        .. seealso:: :class:`helper_functions.fliplr`, `np.flipud`_
+
+        >>> x = array("1 2; 3 4")
+        >>> assert(fliplr(x) ~== array("3 4; 1 2"))
+        """
+    def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
+        """
+        :param x: The matrix to print.
+        :type x: matrix
+        :param prefix: The prefix.
+        :type prefix: String
+        :param postfix: The postfix.
+        :type postfix: String
+        :param newline: The newline character.
+        :type newline: String
+        :param format: The format, C style.
+        :type format: String
+        :param printWholeMatrix: If true, prints every element.
+        :type format: Bool
+        """
+    def transpose(x):
+        """
+        :param x: A source matrix.
+        :type x: matrix
+        :rtype: The transpose of the matrix.
+
+        .. seealso:: `np.transpose`_, :class:`matrix.T`, `Transpose`_
+        """
+    def write_csv(x, filename, prefix=S2_PREFIX):
+        """
+        :param x: A matrix.
+        :type x: matrix
+        :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
+        :param prefix: Defaults to S2_PREFIX.
         """
 
 class operators:
@@ -238,6 +248,8 @@ class operators:
         .. note:: Callable through the natural operators (+, -, etc).
 
         .. note:: ``==`` and ``!==`` see when two arrays are *exactly* equal for the incredibly percise doubles. I recommend using ``abs(x-y)<1e-9``.
+
+        .. seealso:: `np.operators`_
         """
     def dot(x, y):
         """
@@ -251,7 +263,7 @@ class operators:
 
         .. note:: Also callable through ``*!`` and ``x.dot(y)``
 
-        .. seealso:: `np.dot`_, :class:`matrix.dot`, :class:`complex_math.dot`
+        .. seealso:: `np.dot`_, :class:`matrix.dot`, :class:`complex_math.dot`, `Matrix multiplication`_
         """
     def solve(A, b):
         """
@@ -267,9 +279,9 @@ class operators:
 
         .. note:: Also callable through ``!/``
 
-        .. seealso:: :class:`complex_math.solve`
+        .. seealso:: :class:`complex_math.solve`, `System of linear equations`_
         """
-    def equailty(x, y):
+    def equality(x, y):
         """
         :param x:
         :param y:
@@ -277,12 +289,16 @@ class operators:
         :type y: matrix
         :rtype: Bool. true only if the two arrays are approximately equal.
 
+        .. note:: Callable through ``~==``
+
+        >>> assert(array(0, 1) ~== arange(2))
+
         .. seealso:: :class:`numbers.close`
         """
 
 class simple_math:
     """
-    Often, a function is applied to every element. Uses :class:`ndarray.simple_math`
+    Often, a function is applied to every element. Uses :class:`ndarray.simple_math`. This applies a function to every element and simply calls ``function(x.flat)``.
     """
     def sin(x):
         """
@@ -364,7 +380,7 @@ class simple_math:
         :type power: Double
         :rtype: Applies the function to every element.
         """
-    def sum(x, dim=-1):
+    def sum(x, axis=-1):
         """
         :param x:
         :type x: matrix
@@ -376,7 +392,7 @@ class simple_math:
         >>> assert(sum(x, dim:0) ~== array(3, 12))
         >>> assert(sum(x, dim:1) ~== array(3, 5, 7))
         """
-    def avg(x, dim=-1):
+    def avg(x, axis=-1):
         """
         :param x:
         :type x: matrix
@@ -398,7 +414,6 @@ class images:
 
         .. note:: This function isn't optimized. If you want to go fast, look at only including the V plane and using max.
         """
-
     def savefig(x, filename, save=True, show=False):
         """
         :param x: The matrix you want to see. 
@@ -435,15 +450,15 @@ class complex_math:
 
         .. seealso:: `np.dot`_, :class:`matrix.dot`, :class:`operators.dot`, `Matrix multiplication`_
         """
-    def svd(x):
+    def eig(x):
         """
-        :param x: The input to the singular value decomposition.
+        :param x: The matrix to find the eigenvalues of.
         :type x: matrix
-        :rtype: (matrix, ndarray, matrix)
+        :rtype: the eigenvalues the matrix.
 
-        Finds a factorization such that :math:`x = U S V`.
+        .. note:: This function does not find any eigenvectors (and should but bugs).
 
-        .. seealso:: `np.linalg.svd`_, `Singular value decomposition`_
+        .. seealso:: `np.linalg.eig`_, `Eigenvalues`_
         """
     def inv(x):
         """
@@ -472,14 +487,14 @@ class complex_math:
 
         .. seealso:: `np.linalg.solve`_, `System of linear equations`_
         """
-    def eig(x):
+    def svd(x):
         """
-        :param x: The matrix to find the eigenvalues of.
+        :param x: The input to the singular value decomposition.
         :type x: matrix
-        :rtype: the eigenvalues the matrix.
+        :rtype: (matrix, ndarray, matrix)
 
-        .. note:: This function does not find any eigenvectors (and should but bugs).
+        Finds a factorization such that :math:`x = U S V`.
 
-        .. seealso:: `np.linalg.eig`_, `Eigenvalues`_
+        .. seealso:: `np.linalg.svd`_, `Singular value decomposition`_
         """
 

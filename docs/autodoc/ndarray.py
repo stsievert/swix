@@ -16,20 +16,22 @@ class ndarray:
         >>> println(x)
         # prints [0 1; 2 3]
 
-        .. seealso::
-            `np.reshape`_
+        .. seealso:: 
+            `np.reshape`_, :class:`matrix.initing.reshape`
         """
     def copy():
         """
         :rtype: ndarray. An exact copy of the array.
 
         >>> assert(x.copy() ~== x)
+
+        .. seealso:: `np.copy`_
         """
     def sort():
         """
         Sorts the array in-place.
 
-        .. seealso:: :class:`helper_functions.sort`
+        .. seealso:: :class:`helper_functions.sort`, `np.sort`_
         """
     def reverse():
         """
@@ -51,12 +53,16 @@ class ndarray:
         :rtype: Double. The maximum value in the array.
 
         >>> assert(array(1, 2, 3, 4).max() == 4)
+
+        .. seealso:: `np.max`_
         """
     def mean():
         """
         :rtype: Double. The mean value in the array.
 
         >>> assert(array(1, 2, 3, 4).mean() == 2.5)
+
+        .. seealso:: `np.mean`_
         """
     def indexing(idx):
         """
@@ -67,77 +73,90 @@ class ndarray:
         >>> assert(x[1] == 1)
         >>> assert(x[0..<2] ~== array(0, 1))
         >>> assert(x[array(0, 1)] ~== array(0, 1))
-        """
 
-class helper_functions:
-    def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
-        """
-        :param x: Prints that matrix.
-        :type x: ndarray
-
-        Prints the ndarray with the above optional formatters. They are all of type String.
-
-        Also callable: ``print(x, ..., newline="")`` with the same options.
-        """
-    def argwhere(idx):
-        """
-        :param idx: An array of 0's and 1's (analagous to true and false).
-        :type idx: ndarray
-        :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
-
-        .. seealso::
-            `np.argwhere`_
-        """
-    def sort(x):
-        """
-        :param x: Array to be sorted.
-        :type x: ndarray
-        :rtype: ndarray. The sorted array.
-
-        .. seealso:: :class:`ndarray.sort`
-        """
-    def write_csv(x, filename, prefix=S2_PREFIX):
-        """
-        :param x: The ndarray to write to a csv
-        :type x: ndarray
-        :type filename: String
-        :param filename: Where to write.
-        :param prefix: Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.
-        :type prefix: String
-
-        .. note:: Unoptimized. I assume you're only using this on MacOSX to test your app.
-
-        .. seealso:: :class:`initing.read_csv`
-        """
-    def reverse(x):
-        """
-        :param x: The array to be reversed.
-        :type x: ndarray
-        :rtype: The reveresed ndarray.
-
-        .. seealso:: :class:`ndarray.reverse`
-        """
-    def concat(x, y):
-        """
-        :param x: The first array to stack.
-        :type x: ndarray
-        :param y: The second array to stack.
-        :type y: ndarray
-        :rtype: ndarray. Equivalent to ``concatenate((x, y))`` in NumPy or ``[x y]`` in Matlab.
-
-        >>> var x = array(0, 1)
-        >>> var y = array(2, 3)
-        >>> assert(concat(x, y) ~== arange(4))
-
-        .. seealso:: `np.concatenate`_
+        .. seealso:: `np.indexing`_
         """
 
 class initing():
+    def arange(max, min=0, x=True):
+        """
+        :param max: How high should the array index up to?
+        :type max: Int
+        :param min: Where should the indexing start?
+        :type min: Int
+        :param x: Should the array be exclusive?
+        :type x: Bool
+
+        >>> assert(arange(2) ~== array(0, 1))
+        >>> assert(arange(4, 6) ~== array(4, 5))
+        >>> assert(arange(2, x:true) ~== array(0, 1, 2))
+
+        .. seealso:: `np.arange`_
+        """
+    def array(numbers):
+        """
+        :param numbers: A list of numbers to make an array.
+        :type numbers: Double...
+        .. note:: Unoptimized. I assume this is only being used in test code.
+
+        >>> println(array(0, 1, 2, 3, 4))
+        # prints array([0.000, 1.000, 2.000, 3.000, 4.000])
+        """
     def asarray(x):
         """
+        Convert the input to an ndarray.
+
         :param x: A native Swift array.
-        :type x: [Double]
+        :type x: [Double], Range<Int>
         :rtype: ndarray. The native Swift array converted to an ndarray.
+
+        >>> assert(asarray(0..<2) ~== array(0, 1))
+        >>> assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
+        """
+    def copy(x):
+        """
+        :param x: The array to copy.
+        :type x: ndarray
+
+        Returns :func:`ndarray.copy`
+
+        >>> assert(copy(x) ~== x.copy())
+
+        .. seealso:: :class:`ndarray.copy` `np.copy`_
+        """
+    def linspace(min, max, num=50):
+        """
+        :param min: The minimum value.
+        :type min: Double.
+        :param max: The maximum value.
+        :type max: Double.
+        :param num: How many elements?
+        :type num: Int
+
+        >>> assert(linspace(0, 1, num:3) ~== array(0.0, 0.5, 1.0))
+
+        .. seealso:: `np.linspace`_
+        """
+    def ones(N):
+        """
+        :param N: The length of the array.
+        :type N: Int
+
+        >>> assert(ones(3) ~== array(1, 1, 1))
+
+        .. seealso:: `np.ones`_
+        """
+    def read_csv(filename, prefix=S2_PREFIX):
+        """
+        :param filename: The file to read from. The file read from the directory containing ``swix/``.
+        :param prefix: Defaults to ``S2_PREFIX``
+        :type filename: String
+        :type prefix: String
+        :rtype: ndarray. The contents of the csv.
+
+        .. note:: Assuming that you're only using the on MacOSX to test your app; not optimized.
+        
+        .. seealso:: :class:`helper_functions.write_csv`
         """
     def zeros(N):
         """
@@ -159,91 +178,91 @@ class initing():
 
         .. seealso:: `np.zeros_like`_
         """
-    def ones(N):
-        """
-        :param N: The length of the array.
-        :type N: Int
 
-        >>> assert(ones(3) ~== array(1, 1, 1))
+class helper_functions:
+    def argwhere(idx):
         """
-    def arange(max, min=0, x=True):
-        """
-        :param max: How high should the array index up to?
-        :type max: Int
-        :param min: Where should the indexing start?
-        :type min: Int
-        :param x: Should the array be exclusive?
-        :type x: Bool
+        :param idx: An array of 0's and 1's (analagous to true and false).
+        :type idx: ndarray
+        :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
 
-        >>> assert(arange(2) ~== array(0, 1))
-        >>> assert(arange(4, 6) ~== array(4, 5))
-        >>> assert(arange(2, x:true) ~== array(0, 1, 2))
+        .. seealso::
+            `np.argwhere`_
+        """
+    def delete(x, idx):
+        """
+        :param x: The original array.
+        :param idx: The indices to remove.
+        :type x: ndarray
+        :type idx: ndarray
+        :rtype: ndarray. The array with the specified indices deleted.
+        """
+    def concat(x, y):
+        """
+        :param x: The first array to stack.
+        :type x: ndarray
+        :param y: The second array to stack.
+        :type y: ndarray
+        :rtype: ndarray. Equivalent to ``concatenate((x, y))`` in NumPy or ``[x y]`` in Matlab.
 
-        .. seealso:: `np.arange`_
-        """
-    def linspace(min, max, num=50):
-        """
-        :param min: The minimum value.
-        :type min: Double.
-        :param max: The maximum value.
-        :type max: Double.
-        :param num: How many elements?
-        :type num: Int
+        >>> var x = array(0, 1)
+        >>> var y = array(2, 3)
+        >>> assert(concat(x, y) ~== arange(4))
 
-        >>> assert(linspace(0, 1, num:3) ~== array(0.0, 0.5, 1.0))
+        .. seealso:: `np.concatenate`_
+        """
+    def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
+        """
+        :param x: Prints that matrix.
+        :type x: ndarray
 
-        .. seealso:: `np.linspace`_
-        """
-    def array(numbers):
-        """
-        :param numbers: A list of numbers to make an array.
-        :type numbers: Double...
-        .. note:: Unoptimized. I assume this is only being used in test code.
+        Prints the ndarray with the above optional formatters. They are all of type String.
 
-        >>> println(array(0, 1, 2, 3, 4))
-        # prints array([0.000, 1.000, 2.000, 3.000, 4.000])
+        Also callable: ``print(x, ..., newline="")`` with the same options.
         """
-    def repeat(x, N, how="ndarray"):
+    def repeat(x, N, axis=0):
         """
         :param x: The array to repeat.
         :param N: How many times to repeat the array.
-        :param how: Assumed to be "ndarray" or "elements".
+        :param axis: Assumed to be "ndarray" or "elements".
         :type x: ndarray
         :type N: Int
-        :type how: String
+        :type axis: Int
 
         >>> var x = array(0, 1)
-        >>> assert(repeat(x, 2, how:"ndarray") ~== array(0, 1, 0, 1))
-        >>> assert(repeat(x, 2, how:"elements") ~== array(0, 0, 1, 1))
+        >>> assert(repeat(x, 2, axis:0) ~== array(0, 1, 0, 1))
+        >>> assert(repeat(x, 2, axis:1) ~== array(0, 0, 1, 1))
+
+        .. seealso:: `np.repeat`_
         """
-    def copy(x):
+    def reverse(x):
         """
-        :param x: The array to copy.
+        :param x: The array to be reversed.
         :type x: ndarray
+        :rtype: The reveresed ndarray.
 
-        Returns :func:`ndarray.copy`
+        .. seealso:: :class:`ndarray.reverse`
+        """
+    def sort(x):
+        """
+        :param x: Array to be sorted.
+        :type x: ndarray
+        :rtype: ndarray. The sorted array.
 
-        >>> assert(copy(x) ~== x.copy())
+        .. seealso:: :class:`ndarray.sort`, `np.sort`_
         """
-    def read_csv(filename, prefix=S2_PREFIX):
+    def write_csv(x, filename, prefix=S2_PREFIX):
         """
-        :param filename: The file to read from. The file read from the directory containing ``swix/``.
-        :param prefix: Defaults to ``S2_PREFIX``
+        :param x: The ndarray to write to a csv
+        :type x: ndarray
         :type filename: String
+        :param filename: Where to write.
+        :param prefix: Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.
         :type prefix: String
-        :rtype: ndarray. The contents of the csv.
 
-        .. note:: Assuming that you're only using the on MacOSX to test your app; not optimized.
-        
-        .. seealso:: :class:`helper_functions.write_csv`
-        """
-    def toArray(sequence):
-        """
-        :param sequence: A range of numbers.
-        :type sequence: Range<Int>
-        :rtype: ndarray. The sequence converted to an array.
+        .. note:: Unoptimized. I assume you're only using this on MacOSX to test your app.
 
-        >>> assert(toArray(0..<2) ~== array(0, 1))
+        .. seealso:: :class:`initing.read_csv`
         """
 
 class operators:
@@ -260,6 +279,7 @@ class operators:
 
         .. note:: ``==`` and ``!==`` see when two arrays are *exactly* equal for the incredibly percise doubles. I recommend using ``abs(x-y)<1e-9``.
 
+        .. seealso:: `np.operators`_
         """
     def logical_operators(lhs, rhs):
         """
@@ -285,25 +305,37 @@ class operators:
 
         .. note:: Callable through the ``~==`` operator. 
 
-        
-        .. note:: To be changed to ``~=``.
-
         >>> assert(array(0, 1) ~== array(0, 1+1e-10))
         """
-    def power(lhs, rhs):
+    def pow(lhs, rhs):
         """
         :param lhs: The ndarray
         :param rhs: The power.
-        :type lhs: ndarray
-        :type rhs: Double.
+        :type lhs: ndarray, Double, ndarray
+        :type rhs: Double, ndarray, ndarray.
         :rtype: ndarray, ``pow(lhs, rhs)``.
+        
+        .. note:: callable with ``x^y``.
 
-        .. note:: Optimized for rhs=2. If ``close(2, rhs) == True``, prints message but no assert.
+        .. note:: Optimized for lhs:ndarray, rhs=2. If ``close(2, rhs) == True``, prints message but no assert.
 
         >>> assert(array(1, 4) ~== array(1, 2)^2)
+
+        .. seealso:: `np.power`_, :class:`simple_math.pow`
         """
 
 class simple_math:
+    """
+    The following are detailed docs on various functions, but the following
+    functions work like expected:
+
+    * min, max, avg, std, variance
+    * sign, abs, norm, pow, sqrt
+    * sum, cumsum, 
+    * rand, randn
+    * sin, cos, tan
+    * round, floor, ceil
+    """
     def apply_function(function, x):
         """
         :param function: Callable function.
@@ -442,10 +474,12 @@ class simple_math:
     def pow(x, power):
         """
         :param x: An array.
-        :type x: ndarray
+        :type x: ndarray, Double, ndarray
         :param power: The power
-        :type power: Double
+        :type power: Double, ndarray, Double
         :rtype: ndarray. Performs the same action as the operator ``^``. Raises each element to a power.
+
+        .. note:: Also callable through ``x^y``
 
         >>> assert(pow(array(1, 2, 3), 2) ~== array(1, 4, 9))
         """
