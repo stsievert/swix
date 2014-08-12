@@ -244,7 +244,7 @@ class runTests {
         assert(abs(avg(y.flat) - 0.5) < 0.1)
         
         assert(repeat(array(0, 1), 2) ~== array(0, 1, 0, 1))
-        assert(repeat(array(0, 1), 2, how:1) ~== array(0, 0, 1, 1))
+        assert(repeat(array(0, 1), 2, axis:1) ~== array(0, 0, 1, 1))
         
 //        var xC = zeros_like(x)
         var xC = copy(x)

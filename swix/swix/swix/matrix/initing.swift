@@ -42,7 +42,7 @@ func reshape(x: ndarray, shape:(Int, Int))->matrix{
 func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     assert(x.n > 0 && y.n > 0, "If these matrices are empty meshgrid fails")
     var z1 = reshape(repeat(y, x.n), (x.n, y.n))
-    var z2 = reshape(repeat(x, y.n, how:1), (x.n, y.n))
+    var z2 = reshape(repeat(x, y.n, axis:1), (x.n, y.n))
     return (z2, z1)
 }
 
