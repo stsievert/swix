@@ -48,8 +48,11 @@ func make_operator(lhs:ndarray, operation:String, rhs:Double) -> ndarray{
     if operation == "%"
         // unoptimized. for loop in c
         {mod_objc(!lhs, rhs, !array, lhs.n.cint);
-    } else if operation == "*"
-        {mul_scalar_objc(!lhs, rhs.cdouble, !array, lhs.n.cint)}
+    } else if operation == "*"{
+        var C:CDouble = 0
+        var mul = CDouble(rhs)
+        vDSP_vsmsaD(!lhs, 1.cint, &mul, &C, !array, 1.cint, vDSP_Length(lhs.n.cint))
+    }
     else if operation == "+"
         {vDSP_vsaddD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
     else if operation=="/"

@@ -184,6 +184,8 @@ class runTests {
             assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
             assert(asarray(0..<2) ~== array(0, 1))
             assert(concat(array(1, 2), array(3, 4)) ~== (arange(4)+1))
+
+            assert(arange(4) ~== array(0, 1, 2, 3))
         }
     }
     func readWriteTests(){

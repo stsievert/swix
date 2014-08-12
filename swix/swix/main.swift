@@ -12,6 +12,10 @@ import Swift
 
 runTests()
 //SpeedTests()
+var x = array(-1, -2, -4, 1, 1, 5)
+println(max(x))
+
+
 
 
 

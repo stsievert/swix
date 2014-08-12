@@ -8,6 +8,7 @@
 
 import Foundation
 import Accelerate
+import Swift
 
 // SLOW PARTS: array(doubles), read_csv, write_csv. not a huge deal -- hopefully not used in final code
 
@@ -30,16 +31,16 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     if !exclusive {pad = 1}
     let N = max.int - min.int + pad
     var x = zeros(N)
-    var xP = matrixToPointer(x)
-    var minP = CDouble(min)
-    
-    linspace_objc(xP, (N+pad).cint, (minP), 1.0)
+    var o = CDouble(min)
+    var l = CDouble(1)
+    vDSP_vrampD(&o, &l, !x, 1.cint, vDSP_Length(N))
     return x
 }
 func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
     var x = zeros(num+0)
-    var xP = matrixToPointer(x)
-    linspace_objc(xP, num.cint, min.cdouble, ((max-min)/(num-1)).double)
+    var min  = CDouble(min)
+    var step = CDouble((max-min).double/(num-1).double)
+    vDSP_vrampD(&min, &step, !x, 1.cint, vDSP_Length(x.n.cint))
     return x
 }
 func array(numbers: Double...) -> ndarray{
