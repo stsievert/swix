@@ -52,6 +52,11 @@ func array(numbers: Double...) -> ndarray{
     }
     return x
 }
+func asarray(x: [Double]) -> ndarray{
+    var y = zeros(x.count)
+    y.grid = x
+    return y
+}
 func asarray(seq: Range<Int>) -> ndarray {
     // improve with [1]
     // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2

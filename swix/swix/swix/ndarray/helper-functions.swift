@@ -67,11 +67,6 @@ func repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
     else if axis==1 { y = y.T}
     return y.flat
 }
-func asarray(x: [Double]) -> ndarray{
-    var y = zeros(x.count)
-    y.grid = x
-    return y
-}
 func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     var seperator=","
     var str = ""

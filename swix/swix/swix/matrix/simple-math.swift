@@ -106,10 +106,10 @@ func sum(x: matrix, axis:Int = -1) -> ndarray{
         return (m *! x).flat
     }
 }
-func avg(x:matrix, dim:Int = -1) -> ndarray{
-    assert(dim==0 || dim==1, "If you want to find the average of the whole matrix call `avg(x.flat)`")
-    var div = dim==0 ? x.shape.1 : x.shape.0
-    return sum(x, axis:dim)// / div
+func avg(x:matrix, axis:Int = -1) -> ndarray{
+    assert(axis==0 || axis==1, "If you want to find the average of the whole matrix call `avg(x.flat)`")
+    var div = axis==0 ? x.shape.1 : x.shape.0
+    return sum(x, axis:axis) / div.double
 }
 
 //func cumsum(x: matrix) -> matrix{
