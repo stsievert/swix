@@ -115,6 +115,10 @@ func % (lhs: ndarray, rhs: Double) -> ndarray{
 infix operator ^ {associativity none precedence 140}
 func ^ (lhs: ndarray, rhs: Double) -> ndarray{
     return pow(lhs, rhs)}
+func ^ (lhs: ndarray, rhs: ndarray) -> ndarray{
+    return pow(lhs, rhs)}
+func ^ (lhs: Double, rhs: ndarray) -> ndarray{
+    return pow(lhs, rhs)}
 // PLUS
 infix operator + {associativity none precedence 140}
 func + (lhs: ndarray, rhs: ndarray) -> ndarray{
