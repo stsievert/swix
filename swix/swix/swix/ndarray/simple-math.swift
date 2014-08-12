@@ -105,6 +105,20 @@ func pow(x: ndarray, power: Double) -> ndarray{
         for i in 0..<x.count {y[i] = pow(x[i], power)}}
     return y
 }
+func pow(x:ndarray, y:ndarray)->ndarray{
+    var z = zeros_like(x)
+    for i in 0..<x.n{
+        z[i] = pow(x[i], y[i])
+    }
+    return z
+}
+func pow(x:Double, y:ndarray)->ndarray{
+    var z = zeros_like(y)
+    for i in 0..<y.n{
+        z[i] = pow(x, y[i])
+    }
+    return z
+}
 
 // UNOPTIMIZED FUNCTIONS
 func sin(x: ndarray) -> ndarray{

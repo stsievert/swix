@@ -157,7 +157,7 @@ class runTests {
             assert(linspace(0,1,num:3) ~== array(0, 0.5, 1))
             assert(repeat(arange(2), 2) ~== array(0,1,0,1))
             assert(copy(arange(4)) ~== arange(4))
-            assert(toArray(0..<2) ~== array(0, 1))
+            assert(asarray(0..<2) ~== array(0, 1))
         }
         func ndarraySwiftTests(){
             // testing the file ndarray.swift
@@ -182,6 +182,7 @@ class runTests {
             assert(sort(y) ~== array(1, 2, 3, 4, 5))
             assert(delete(y, array(0, 1)) ~== array(4, 3, 1))
             assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
+            assert(asarray(0..<2) ~== array(0, 1))
             assert(concat(array(1, 2), array(3, 4)) ~== (arange(4)+1))
         }
     }
@@ -212,8 +213,8 @@ class runTests {
         assert(y ~== array(0, 1, 2, 3, 1, 1, 1, 7, 8).reshape((3,3)))
         
         var z = arange(3*4).reshape((3,4))
-        assert(sum(z, dim:0) ~== array(6, 22, 38))
-        assert(sum(z, dim:1) ~== array(12, 15, 18, 21))
+        assert(sum(z, axis:0) ~== array(6, 22, 38))
+        assert(sum(z, axis:1) ~== array(12, 15, 18, 21))
         
         var d1 = x *! y
         var d2 = x.dot(y)
@@ -221,7 +222,7 @@ class runTests {
         assert(d1 ~== d2)
         assert(d1 ~== d3)
         
-        assert(sum(x, dim:1) ~== array(0+3+6, 9+3, 9+6))
+        assert(sum(x, axis:1) ~== array(0+3+6, 9+3, 9+6))
     }
     func functionTests(){
         var x = array(-1, 0, 1)
@@ -244,7 +245,7 @@ class runTests {
         assert(abs(avg(y.flat) - 0.5) < 0.1)
         
         assert(repeat(array(0, 1), 2) ~== array(0, 1, 0, 1))
-        assert(repeat(array(0, 1), 2, how:1) ~== array(0, 0, 1, 1))
+        assert(repeat(array(0, 1), 2, axis:1) ~== array(0, 0, 1, 1))
         
 //        var xC = zeros_like(x)
         var xC = copy(x)

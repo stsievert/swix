@@ -20,17 +20,6 @@ func zeros_like(x: matrix) -> matrix{
 func ones(shape: (Int, Int)) -> matrix{
     return zeros(shape)+1
 }
-func copy(x: matrix, y: matrix){
-    var y = zeros_like(x)
-    y.flat = copy(x.flat)
-}
-func diag(x: matrix) -> ndarray{
-    var m = x.shape.0
-    var n = x.shape.1
-    var size = n < m ? n : m
-    var i = arange(size)
-    return x[i*n.double + i]
-}
 func eye(N: Int) -> matrix{
     var x = zeros((N,N))
     x["diag"] = ones(N)
@@ -42,7 +31,7 @@ func reshape(x: ndarray, shape:(Int, Int))->matrix{
 func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     assert(x.n > 0 && y.n > 0, "If these matrices are empty meshgrid fails")
     var z1 = reshape(repeat(y, x.n), (x.n, y.n))
-    var z2 = reshape(repeat(x, y.n, how:1), (x.n, y.n))
+    var z2 = reshape(repeat(x, y.n, axis:1), (x.n, y.n))
     return (z2, z1)
 }
 
