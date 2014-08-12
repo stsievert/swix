@@ -27,13 +27,8 @@ func svd(x: matrix) -> (matrix, ndarray, matrix){
 
     var xx = zeros_like(x)
     xx.flat = x.flat
-    xx = transpose(xx)
-    var xP = matrixToPointer(xx.flat)
-    var sP = matrixToPointer(sigma)
-    var vP = matrixToPointer(vt.flat)
-    var uP = matrixToPointer(u.flat)
-    
-    svd_objc(xP, m.cint, n.cint, sP, vP, uP);
+    xx = xx.T
+    svd_objc(!xx, m.cint, n.cint, !sigma, !vt, !u);
     
     // to get the svd result to match Python
     var v = transpose(vt)

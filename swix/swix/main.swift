@@ -12,13 +12,10 @@ import Foundation
 runTests()
 //SpeedTests()
 
-var train = rand((4,6))
-println(train)
-var targets = array(1, 2, 3, 4)
-var predict = rand((6,6))
-var svm = SVM()
-svm.train(train, targets)
-var results = svm.predict(predict)
-println(results)
 
+var x = rand((4,4))
+var (u, s, v) = svd(x)
+println(u)
+println(s)
+//println(v)
 

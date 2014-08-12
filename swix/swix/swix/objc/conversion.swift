@@ -24,3 +24,4 @@ prefix func ! (x: ndarray) -> UnsafeMutablePointer<Double> {
 prefix func ! (x: matrix) -> UnsafeMutablePointer<Double> {
     return matrixToPointer(x.flat)
 }
+

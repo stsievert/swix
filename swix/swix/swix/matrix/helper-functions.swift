@@ -51,9 +51,7 @@ func transpose (x: matrix) -> matrix{
     let n = x.shape.0
     let m = x.shape.1
     var y = zeros((m, n))
-    var xP = matrixToPointer(x.flat)
-    var yP = matrixToPointer(y.flat)
-    transpose_objc(xP, yP, m.cint, n.cint);
+    transpose_objc(!x, !y, m.cint, n.cint);
     return y
 }
 func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
