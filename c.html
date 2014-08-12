@@ -73,60 +73,7 @@
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you want pointer to matrix, use <tt class="docutils literal"><span class="pre">matrixToPointer(x.flat)</span></tt></p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
 <p class="last">Callable through operator <tt class="docutils literal"><span class="pre">!x</span></tt> for both ndarray and matrix.</p>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="objc.pointerTo2DMatrix">
-<tt class="descclassname">objc.</tt><tt class="descname">pointerTo2DMatrix</tt><big>(</big><em>xPC</em>, <em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/objc/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#objc.pointerTo2DMatrix" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>N</strong> (<em>CInt</em>) &#8211; Int</li>
-<li><strong>M</strong> (<em>CInt</em>) &#8211; Int</li>
-<li><strong>xPC</strong> (<em>UnsafeMutablePointer&lt;Double&gt;</em>) &#8211; The pointer to the first element of the matrix</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matrix</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">I recommend initalizing some array then passing <tt class="docutils literal"><span class="pre">!x</span></tt> to a C function. This seems dangerous.</p>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="objc.pointerToMatrix">
-<tt class="descclassname">objc.</tt><tt class="descname">pointerToMatrix</tt><big>(</big><em>xPC</em>, <em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/objc/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#objc.pointerToMatrix" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>N</strong> (<em>CInt</em>) &#8211; Int</li>
-<li><strong>xPC</strong> (<em>UnsafeMutablePointer&lt;Double&gt;</em>) &#8211; The pointer to the first element of the matrix</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">I recommend initalizing some array then passing <tt class="docutils literal"><span class="pre">!x</span></tt> to a C function. This seems dangerous.</p>
 </div>
 </dd></dl>
 

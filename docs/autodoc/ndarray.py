@@ -117,6 +117,20 @@ class helper_functions:
 
         .. seealso:: :class:`ndarray.reverse`
         """
+    def concat(x, y):
+        """
+        :param x: The first array to stack.
+        :type x: ndarray
+        :param y: The second array to stack.
+        :type y: ndarray
+        :rtype: ndarray. Equivalent to ``concatenate((x, y))`` in NumPy or ``[x y]`` in Matlab.
+
+        >>> var x = array(0, 1)
+        >>> var y = array(2, 3)
+        >>> assert(concat(x, y) ~== arange(4))
+
+        .. seealso:: `np.concatenate`_
+        """
 
 class initing():
     def asarray(x):
