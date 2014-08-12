@@ -16,8 +16,6 @@
 #import "OpenCV.h"
 using namespace cv;
 
-
-void matToPointer(Mat x, double * y, int N);
 void copy(Mat x, double * y, int N);
 @implementation CVWrapper
 + (void) pointerTest{
@@ -52,19 +50,13 @@ void copy(Mat x, double * y, int N);
     Mat xMat(n_x, 1, CV_64F, x);
     Mat yMat(n_x * n_repeat, 1, CV_64F, y);
     
-//    repeat(xMat, 1, n_repeat, yMat);
     repeat(xMat, n_repeat, 1, yMat);
-    
-//    matToPointer(yMat, y, n_x * n_repeat);
-    xMat.release();
-//    yMat.release();
 }
 + (void) solve:(double *)A b:(double*)b x:(double*)x m:(int)m n:(int)n{
     Mat Amat(m, n, CV_64F, A);
     Mat bMat(m, 1, CV_64F, b);
-    Mat xMat(1, n, CV_64F, x);
+    Mat xMat(n, 1, CV_64F, x);
     solve(Amat, bMat, xMat);
-    matToPointer(xMat, x, n);
 }
 + (void) compare:(double*)x with:(double*)y
            using:(NSString*)op into:(double*)z ofLength:(int)N{
@@ -102,17 +94,9 @@ void copy(Mat x, double * y, int N);
     else printf("*** Careful! Your operation isn't recognized!\n");
     matArgWhereConvert(zMat, z, N);
 }
-void matToPointer(Mat x, double * y, int N){
-    if  (!x.isContinuous()){
-        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
-    }
-    uchar* ptr = x.data;
-    double* ptrD = (double*)ptr;
-    copy(ptrD, y, N);
-}
 void matArgWhereConvert(Mat x, double * y, int N){
     if  (!x.isContinuous()){
-        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matToPointer)\n");
+        printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matArgWhereConvert)\n");
     }
     uchar* ptr = x.data;
     // integer to double conversion

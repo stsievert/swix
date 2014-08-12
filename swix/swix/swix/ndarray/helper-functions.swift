@@ -27,6 +27,12 @@ func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:S
 func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
+func hstack(x:ndarray, y:ndarray)->ndarray{
+    var z = zeros(x.n + y.n)
+    z[0..<x.n] = x
+    z[x.n..<y.n+x.n] = y
+    return z
+}
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
     

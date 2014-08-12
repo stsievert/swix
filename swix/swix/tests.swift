@@ -25,6 +25,8 @@ class runTests {
         readWriteTests()
         println("       read_csv, write_csv, savefig work like Python")
         complexTests()
+        
+        ndarrayTests()
     }
     func complexTests(){
         func scalar_test(){
@@ -138,6 +140,50 @@ class runTests {
         inv_test()
         solve_test()
         eig_test()
+    }
+    class ndarrayTests{
+        init(){
+            initingTests()
+            ndarraySwiftTests()
+            
+        }
+        func initingTests(){
+            // testing zeros and array
+            assert(zeros(4) ~== array(0,0,0,0))
+            assert(ones(4) ~== (zeros(4)+1))
+            assert(zeros_like(zeros(4)) ~== zeros(4))
+            assert(arange(4) ~== array(0, 1, 2, 3))
+            assert(arange(2, 4) ~== array(2, 3))
+            assert(linspace(0,1,num:3) ~== array(0, 0.5, 1))
+            assert(repeat(arange(2), 2) ~== array(0,1,0,1))
+            assert(copy(arange(4)) ~== arange(4))
+            assert(toArray(0..<2) ~== array(0, 1))
+        }
+        func ndarraySwiftTests(){
+            // testing the file ndarray.swift
+            assert(arange(4).reshape((2,2)) ~== array("0 1; 2 3"))
+            assert(arange(4).copy() ~== arange(4))
+            var x = array(4, 2, 3, 1)
+            x.sort()
+            assert(x ~== array(1, 2, 3, 4))
+            assert(x.min() == 1)
+            assert(x.max() == 4)
+            assert(x.mean() == 2.5)
+            x[0] = 0
+            assert(x[0] == 0)
+            x[0..<2] = array(1, 3)
+            assert(x[0..<2] ~== array(1, 3))
+            x[arange(2)] = array(4, 1)
+            assert(x[arange(2)] ~== array(4, 1))
+            
+            var y = array(5, 2, 4, 3, 1)
+            assert((y < 2) ~== array(0, 0, 0, 0, 1))
+            assert(reverse(y) ~== array(1, 3, 4, 2, 5))
+            assert(sort(y) ~== array(1, 2, 3, 4, 5))
+            assert(delete(y, array(0, 1)) ~== array(4, 3, 1))
+            assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
+            assert(hstack(array(1, 2), array(3, 4)) ~== (arange(4)+1))
+        }
     }
     func readWriteTests(){
         var x1 = arange(9).reshape((3,3)) * 2

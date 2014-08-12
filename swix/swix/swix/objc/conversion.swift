@@ -16,18 +16,6 @@ func matrixToPointer(x: ndarray)->UnsafeMutablePointer<Double>{
 func matrixToPointer(x: [Int])->UnsafeMutablePointer<Int>{
     return UnsafeMutablePointer<Int>(x)
 }
-func pointerToMatrix(xPC: UnsafeMutablePointer<Double>, N: CInt) -> ndarray{
-    var x = zeros(N.int)
-    var xP = matrixToPointer(x)
-    copy_objc(xPC, xP, N);
-    return x
-}
-func pointerTo2DMatrix(xPC: UnsafeMutablePointer<Double>, N: CInt, M:CInt) -> matrix{
-    var x = zeros((N.int, M.int))
-    var xP = matrixToPointer(x.flat)
-    copy_objc(xPC, xP, N*M);
-    return x
-}
 
 /// use !x to get the address. I tried &x but that doesn't work in beta3.
 prefix func ! (x: ndarray) -> UnsafeMutablePointer<Double> {
@@ -36,3 +24,4 @@ prefix func ! (x: ndarray) -> UnsafeMutablePointer<Double> {
 prefix func ! (x: matrix) -> UnsafeMutablePointer<Double> {
     return matrixToPointer(x.flat)
 }
+
