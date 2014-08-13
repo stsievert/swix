@@ -11,15 +11,6 @@
 double* zeros_objc(int N);
 
 
-void dot_objc(double* x, double* y, double* z, int m, int n, int k){
-    cblas_dgemm(CblasRowMajor,
-                CblasNoTrans,
-                CblasNoTrans,
-                m, n, k, 1.0,
-                x, k, y, n,
-                1.0, z, n);
-}
-
 void fft_objc(double* xx, int N, double*yr, double* yi){
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
     DSPDoubleSplitComplex xxx;
@@ -85,36 +76,6 @@ void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     
     free(work);
     free(iwork);
-}
-void transpose_objc(double* x, double* y, int M, int N){
-    vDSP_mtransD(x, 1, y, 1, M, N);
-}
-void inv_objc(double * x, long M, long N){
-    // compiler complains on MacOSX but this compiles for iOS
-    // "this works" meaning long/int issues
-    // M rows, N cols
-    long *ipiv = (long *)malloc(sizeof(long) * M * M);
-    long lwork = N*N;
-    double *work = (double*)malloc(sizeof(double) * lwork);
-    long info;
-    
-    dgetrf_(&N, &N, x, &N, ipiv, &info);
-    dgetri_(&N, x, &N, ipiv, work, &lwork, &info);
-    
-    free(work);
-    free(ipiv);
-}
-void eig_objc(double* x, double* value_real, double* value_imag, double* vector, int N){
-    // doesn't match python. return correct eigenvalues but not eigenvectors
-    double * work = (double*)malloc(sizeof(double) * N * N); // N
-    int lwork = 4*N;
-    int info = 1;
-    char jobvl  = 'N';
-    char jobvr = 'N';
-    work[0] = lwork;
-    dgeev_(&jobvl, &jobvr, &N, x, &N, // 5
-           value_real, value_imag, vector, &N, vector, &N, // 11
-           work, &lwork, &info);
 }
 
 

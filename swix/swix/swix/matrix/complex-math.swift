@@ -7,15 +7,18 @@
 //
 
 import Foundation
+import Swift
 
 func dot(x: matrix, y: matrix) -> matrix{
     var (Mx, Nx) = x.shape
     var (My, Ny) = y.shape
     assert(Nx == My, "Matrix sizes not compatible for dot product")
     var z = zeros((Mx, Ny))
-    
-    dot_objc(!x, !y, !z, Mx.cint, Ny.cint, Nx.cint)
-    
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+        Mx.cint, Ny.cint, Nx.cint, 1.0,
+        !x, Nx.cint,
+        !y, Ny.cint, 1.0,
+        !z, Ny.cint)
     return z
 }
 func svd(x: matrix) -> (matrix, ndarray, matrix){
@@ -38,9 +41,16 @@ func svd(x: matrix) -> (matrix, ndarray, matrix){
 }
 func inv(x: matrix) -> matrix{
     assert(x.shape.0 == x.shape.1, "To take an inverse of a matrix, the matrix must be square. If you want the inverse of a rectangular matrix, use psuedoinverse.")
-    var y = zeros((x.shape.1, x.shape.0))
-    y.flat = copy(x.flat)
-    inv_objc(!y, x.shape.0.cint, x.shape.1.cint);
+    var y = x.copy()
+    var (M, N) = x.shape
+    
+    var ipiv:Array<__CLPK_integer> = Array(count:M*M, repeatedValue:0)
+    var lwork:__CLPK_integer = __CLPK_integer(N*N)
+    var work:[CDouble] = Array(count:lwork, repeatedValue:0.0)
+    var info:__CLPK_integer=0
+    var nc:CInt = N.cint
+    dgetrf_(&nc, &nc, !y, &nc, &ipiv, &info)
+    dgetri_(&nc, !y, &nc, &ipiv, &work, &lwork, &info)
     return y
 }
 func solve(A: matrix, b: ndarray) -> ndarray{
@@ -61,7 +71,23 @@ func eig(x: matrix)->ndarray{
     var vector = zeros((n,n))
     
     var y = x.copy()
-    eig_objc(!y, !value_real, !value_imag, !vector, n.cint)
+    
+    var work:[Double] = Array(count:n*n, repeatedValue:0.0)
+    var lwork:CInt = 4 * n.cint
+    var info:CInt = 1
+    
+    // don't compute right or left eigenvectors
+    var job = "N"
+    var ccharOptional = job.cStringUsingEncoding(NSUTF8StringEncoding)?[0]  // CChar?
+    var jobvl = (job.cStringUsingEncoding(NSUTF8StringEncoding)?[0])!
+    var jobvr = (job.cStringUsingEncoding(NSUTF8StringEncoding)?[0])!
+    
+    work[0] = lwork
+    var nc = n.cint
+    dgeev_(&jobvl, &jobvr, &nc, !x, &nc,
+        !value_real, !value_imag, !vector, &nc, !vector, &nc,
+        &work, &lwork, &info)
+    
     vector = vector.T
     
     return value_real
