@@ -81,6 +81,18 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
     return done
 }
 
+func rand(N: Int, seed:Int=42, distro:String="uniform") -> ndarray{
+    var x = zeros(N)
+    var i:__CLPK_integer = 1
+    if distro=="normal" {i = __CLPK_integer(3)}
+    var seed:Array<__CLPK_integer> = [__CLPK_integer(seed), 42, 2, 29]
+    var nn:__CLPK_integer  = __CLPK_integer(N)
+    dlarnv_(&i, &seed, &nn, !x)
+    return x
+}
+func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
+    return (rand(N, distro:"normal") * sigma) + mean;
+}
 
 
 

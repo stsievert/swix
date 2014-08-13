@@ -50,17 +50,6 @@ double* zeros_objc(int N){
     vDSP_vfillD(&value, x, 1, N);
     return x;
 }
-void rand_objc(double* x, int N, int seedS, int type){
-    __CLPK_integer i = type;
-    __CLPK_integer * seed = (__CLPK_integer *)malloc(sizeof(__CLPK_integer) * 4);
-    for (int j=0; j<4; j++){
-        seed[j] = j;}
-    seed[0] = seedS;
-    __CLPK_integer nn = N;
-    
-    // making the random array
-    dlarnv_(&i, seed, &nn, x);
-}
 
 
 

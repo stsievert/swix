@@ -78,17 +78,6 @@ func variance(x: ndarray) -> Double{
     return sum(pow(x - avg(x), 2) / x.count.double)}
 func cumsum(x: ndarray) -> ndarray{
     return apply_function("cumsum", x)}
-func rand(N: Int, seed:Int=42) -> ndarray{
-    var x = zeros(N)
-    rand_objc(!x, N.cint, seed.cint, 1)
-    return x
-}
-func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
-    var x = zeros(N)
-    rand_objc(!x, N.cint, seed.cint, 3)
-    var y = (x * sigma) + mean;
-    return y
-}
 func abs(x: ndarray) -> ndarray{
     return apply_function("abs", x)}
 func sign(x: Double) -> Double{
