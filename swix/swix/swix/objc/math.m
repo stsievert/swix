@@ -18,18 +18,10 @@ void fft_objc(double* xx, int N, double*yr, double* yi){
     xxx.imagp = zeros_objc((int)N);
     
     DSPDoubleSplitComplex yyy;
-    yyy.realp = (double *)malloc(sizeof(double) * 2*N);
-    yyy.imagp = (double *)malloc(sizeof(double) * 2*N);
+    yyy.realp = yr;
+    yyy.imagp = yi;
     
     vDSP_fft_zropD(setup, &xxx, 1, &yyy, 1, (int)log2(N)+1, FFT_FORWARD);
-    
-    // can be sped up with accelerate multiply
-    for (int i=0; i<N; i++) {
-        yyy.realp[i] = yyy.realp[i] / 2;
-        yyy.imagp[i] = yyy.imagp[i] / 2;
-        yr[i] = yyy.realp[i];
-        yi[i] = yyy.imagp[i];
-    }
 }
 void ifft_objc(double* yr, double* yi, int N, double* x){
     FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
@@ -42,29 +34,22 @@ void ifft_objc(double* yr, double* yi, int N, double* x){
     result.imagp = (double *)malloc(sizeof(double) * 2*N);
 
     vDSP_fft_zropD(setup, &x2, 1, &result, 1, (int)log2(N)+1, FFT_INVERSE);
-
-    // why 16? beats me. can be sped up with accelerate
-    for (int i=0; i<N; i++){
-        result.realp[i] = result.realp[i]/16;
-        x[i] = result.realp[i];
-    }
 }
 void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     // adapted from the buggy code at http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
-    // on MacOSX, I get errors about passing long to int and on iOS I get errors about passing int to long. I'll go with iOS defaults.
-    long lda = (long)m;
-    long mm = m;
-    long nn = n;
+    __CLPK_integer lda = (__CLPK_integer)m;
     long numberOfSingularValues = m < n ? m : n;
     
     // Workspace and status variables:
+    __CLPK_integer _n = n;
+    __CLPK_integer _m = m;
     double* work = (double*)malloc(sizeof(double) * 2);
-    long lwork = -1;
-    long* iwork = (long *)malloc(sizeof(long) * 8 * numberOfSingularValues);
-    long info = 0;
+    __CLPK_integer lwork = -1;
+    __CLPK_integer * iwork = (__CLPK_integer *)malloc(sizeof(__CLPK_integer) * 8 * numberOfSingularValues);
+    __CLPK_integer info = 0;
     
     // Call dgesdd_ with lwork = -1 to query optimal workspace size:
-    dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
+    dgesdd_("A", &_m, &_n, xx, &lda, s, u, &_m, vt, &_n, work, &lwork, iwork, &info);
     
     // Optimal workspace size is returned in work[0].
     lwork = work[0];
@@ -72,7 +57,7 @@ void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     work = (double *)malloc(lwork * sizeof(double));
     
     // Call dgesdd_ to do the actual computation:
-    dgesdd_("A", &mm, &nn, xx, &lda, s, u, &mm, vt, &nn, work, &lwork, iwork, &info);
+    dgesdd_("A", &_m, &_n, xx, &lda, s, u, &_m, vt, &_n, work, &lwork, iwork, &info);
     
     free(work);
     free(iwork);

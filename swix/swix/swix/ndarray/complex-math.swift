@@ -16,11 +16,17 @@ func fft(x: ndarray) -> (ndarray, ndarray){
     var yi = zeros(N.int)
     fft_objc(!x, N, !yr, !yi);
     
+    // this divide seems wrong
+    yr /= 2.0
+    yi /= 2.0
     return (yr, yi)
 }
 func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     var N = yr.n
     var x = zeros(N)
     ifft_objc(!yr, !yi, N.cint, !x);
+    
+    // this divide seems wrong
+    x /= 16.0
     return x
 }

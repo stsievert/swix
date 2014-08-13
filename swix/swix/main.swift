@@ -10,12 +10,6 @@
 import Foundation
 import Swift
 
-var x = eye(4) * 2
-var y = x.I
-println(x)
-println(y)
-println(x *! y)
-
 runTests()
 //SpeedTests()
 
