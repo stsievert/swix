@@ -48,10 +48,10 @@ func fliplr(x:matrix)->matrix{
     return y
 }
 func transpose (x: matrix) -> matrix{
-    let n = x.shape.0
-    let m = x.shape.1
+    var m = x.shape.1
+    var n = x.shape.0
     var y = zeros((m, n))
-    transpose_objc(!x, !y, m.cint, n.cint);
+    vDSP_mtransD(!x, 1.cint, !y, 1.cint, vDSP_Length(m), vDSP_Length(n))
     return y
 }
 func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){

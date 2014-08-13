@@ -41,10 +41,14 @@ struct ndarray {
         return index >= 0 && index < n
     }
     func min() -> Double{
-        return min_objc(!self, n.cint)
+        var m:CDouble=0
+        vDSP_minvD(!self, 1.cint, &m, vDSP_Length(self.n.cint))
+        return Double(m)
     }
     func max() -> Double{
-        return max_objc(!self, n.cint)
+        var m:CDouble=0
+        vDSP_maxvD(!self, 1.cint, &m, vDSP_Length(self.n))
+        return m
     }
     func mean() -> Double{
         return avg(self)
@@ -67,22 +71,22 @@ struct ndarray {
         set {
             self[asarray(r)].grid = newValue.grid}
     }
-    subscript(r: ndarray) -> ndarray {
+    subscript(idx: ndarray) -> ndarray {
         get {
             //assert((r%1.0) ~== zeros_like(r))
             // ndarray has fractional parts, and those parts get truncated
             // dropped for speed results (depends on for-loop in C)
-            assert((r.max().int < self.n) && (r.min() >= 0), "An index is out of bounds")
-            var y = zeros(r.n)
-            index_objc(!self, !y, !r, r.n.cint)
+            assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
+            var y = zeros(idx.n)
+            vDSP_vindexD(!self, !idx, 1.cint, !y, 1.cint, vDSP_Length(idx.n))
             return y
         }
         set {
-            assert((r.max().int < self.n) && (r.min() >= 0), "An index is out of bounds")
+            assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
             // tried basic optimization myself, but the compiler took care of that.
-            index_xa_b_objc(!self, !r, !newValue, r.n.cint)
+            index_xa_b_objc(!self, !idx, !newValue, idx.n.cint)
         }
     }
 }

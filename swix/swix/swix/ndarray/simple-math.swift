@@ -33,9 +33,14 @@ func apply_function(function: String, x: ndarray)->ndarray{
     if function=="abs"{
         vDSP_vabsD(!x, 1, !y, 1, n);}
     else if function=="sign"{
-        sign_objc(!x, !y, x.n.cint)}
+        var o = CDouble(0)
+        var l = CDouble(1)
+        vDSP_vlimD(!x, 1.cint, &o, &l, !y, 1.cint, n)
+    }
     else if function=="cumsum"{
-        cumsum_objc(!x, !y, x.n.cint)}
+        var scalar:CDouble = 1
+        vDSP_vrsumD(!x, 1.cint, &scalar, !y, 1.cint, n)
+    }
     else {assert(false, "Function not recongized")}
     return y
 }
@@ -59,7 +64,8 @@ func min(x: ndarray, y:ndarray)->ndarray{
 func sign(x: ndarray)->ndarray{
     return apply_function("sign", x)}
 func sum(x: ndarray) -> Double{
-    var ret = sum_objc(!x, x.n.cint)
+    var ret:CDouble = 0
+    vDSP_sveD(!x, 1.cint, &ret, vDSP_Length(x.n))
     return Double(ret)
 }
 func avg(x: ndarray) -> Double{
@@ -72,17 +78,6 @@ func variance(x: ndarray) -> Double{
     return sum(pow(x - avg(x), 2) / x.count.double)}
 func cumsum(x: ndarray) -> ndarray{
     return apply_function("cumsum", x)}
-func rand(N: Int, seed:Int=42) -> ndarray{
-    var x = zeros(N)
-    rand_objc(!x, N.cint, seed.cint, 1)
-    return x
-}
-func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
-    var x = zeros(N)
-    rand_objc(!x, N.cint, seed.cint, 3)
-    var y = (x * sigma) + mean;
-    return y
-}
 func abs(x: ndarray) -> ndarray{
     return apply_function("abs", x)}
 func sign(x: Double) -> Double{

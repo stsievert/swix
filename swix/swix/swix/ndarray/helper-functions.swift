@@ -35,11 +35,9 @@ func concat(x:ndarray, y:ndarray)->ndarray{
 }
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
-    
     var i = arange(idx.n)
-    var sum = sum_objc(!idx, idx.n.cint)
-    var args = zeros(Int(sum))
-    find_objc(!idx, !args, !i, idx.n.cint)
+    var args = zeros(sum(idx).int)
+    vDSP_vcmprsD(!i, 1.cint, !idx, 1.cint, !args, 1.cint, vDSP_Length(idx.n))
     return args
 }
 func reverse(x:ndarray) -> ndarray{
