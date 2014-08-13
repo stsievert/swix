@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
-double* zeros_objc(int N);
 
 void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     // adapted from the buggy code at http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
