@@ -10,31 +10,6 @@
 #import <Accelerate/Accelerate.h>
 double* zeros_objc(int N);
 
-
-void fft_objc(double* xx, int N, double*yr, double* yi){
-    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
-    DSPDoubleSplitComplex xxx;
-    xxx.realp = xx;
-    xxx.imagp = zeros_objc((int)N);
-    
-    DSPDoubleSplitComplex yyy;
-    yyy.realp = yr;
-    yyy.imagp = yi;
-    
-    vDSP_fft_zropD(setup, &xxx, 1, &yyy, 1, (int)log2(N)+1, FFT_FORWARD);
-}
-void ifft_objc(double* yr, double* yi, int N, double* x){
-    FFTSetupD setup = vDSP_create_fftsetupD((int)log2(N)+1, FFT_RADIX2);
-    DSPDoubleSplitComplex x2;
-    x2.realp = yr;//(double *)malloc(sizeof(double) * 2*N);
-    x2.imagp = yi;//(double *)malloc(sizeof(double) * 2*N);
-    
-    DSPDoubleSplitComplex result;
-    result.realp = x;//(double *)malloc(sizeof(double) * 2*N);
-    result.imagp = (double *)malloc(sizeof(double) * 2*N);
-
-    vDSP_fft_zropD(setup, &x2, 1, &result, 1, (int)log2(N)+1, FFT_INVERSE);
-}
 void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     // adapted from the buggy code at http://stackoverflow.com/questions/5047503/lapack-svd-singular-value-decomposition
     __CLPK_integer lda = (__CLPK_integer)m;
