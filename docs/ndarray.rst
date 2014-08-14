@@ -2,8 +2,8 @@
 Array
 =============
 
-This stands for ":math:`N` dimensional array". It's a mix of programming
-language and math language; in math, this is called a vector.
+``ndarray`` stands for ":math:`N` dimensional array". It's a mix of programming
+language and math language; in math, this is called an :math:`N` dimensional vector.
 
 The full docs can be found below but I'll touch on some highlights:
 

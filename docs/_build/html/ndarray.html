@@ -55,8 +55,8 @@
             
   <div class="section" id="array">
 <h1>Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h1>
-<p>This stands for &#8220;<span class="math">\(N\)</span> dimensional array&#8221;. It&#8217;s a mix of programming
-language and math language; in math, this is called a vector.</p>
+<p><tt class="docutils literal"><span class="pre">ndarray</span></tt> stands for &#8220;<span class="math">\(N\)</span> dimensional array&#8221;. It&#8217;s a mix of programming
+language and math language; in math, this is called an <span class="math">\(N\)</span> dimensional vector.</p>
 <p>The full docs can be found below but I&#8217;ll touch on some highlights:</p>
 <ul class="simple">
 <li>operators. All arithmetic operators and a host of comparison operators work element-wise</li>
@@ -312,60 +312,6 @@ functions work like expected:</p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 </pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.rand">
-<tt class="descname">rand</tt><big>(</big><em>N</em>, <em>seed=42</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.rand" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
-<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Random integers normally distributed.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The seed stays constant for each call.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html">np.random.rand</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.randn">
-<tt class="descname">randn</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.randn" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
-<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
-<li><strong>mean</strong> (<em>Double</em>) &#8211; The mean of this distribution.</li>
-<li><strong>sigma</strong> (<em>Double</em>) &#8211; The standard deviation of this distribution.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Random integers that are normally distributed.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html">np.random.randn</a></p>
 </div>
 </dd></dl>
 
@@ -815,6 +761,61 @@ functions work like expected:</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html">np.ones</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.initing.rand">
+<tt class="descname">rand</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>distro='uniform'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.rand" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
+<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
+<li><strong>distro</strong> (<em>String</em>) &#8211; The type of distribution. Assumed to be either <tt class="docutils literal"><span class="pre">&quot;uniform&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;normal&quot;</span></tt></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Random integers normally distributed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The seed stays constant for each call.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html">np.random.rand</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.initing.randn">
+<tt class="descname">randn</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
+<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
+<li><strong>mean</strong> (<em>Double</em>) &#8211; The mean of this distribution.</li>
+<li><strong>sigma</strong> (<em>Double</em>) &#8211; The standard deviation of this distribution.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Random integers that are normally distributed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html">np.random.randn</a></p>
 </div>
 </dd></dl>
 
@@ -1438,60 +1439,6 @@ functions work like expected:</p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 </pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<tt class="descname">rand</tt><big>(</big><em>N</em>, <em>seed=42</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
-<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Random integers normally distributed.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The seed stays constant for each call.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html">np.random.rand</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<tt class="descname">randn</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
-<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
-<li><strong>mean</strong> (<em>Double</em>) &#8211; The mean of this distribution.</li>
-<li><strong>sigma</strong> (<em>Double</em>) &#8211; The standard deviation of this distribution.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Random integers that are normally distributed.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html">np.random.randn</a></p>
 </div>
 </dd></dl>
 

@@ -26,7 +26,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.1 documentation" href="index.html" />
     <link rel="next" title="Numbers and constants" href="numbers.html" />
-    <link rel="prev" title="Welcome to swix’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Swift Matrix and Machine Learning Library" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -42,7 +42,7 @@
           <a href="numbers.html" title="Numbers and constants"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to swix’s documentation!"
+          <a href="index.html" title="Swift Matrix and Machine Learning Library"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
       </ul>
@@ -73,12 +73,19 @@ folder; something like <tt class="docutils literal"><span class="pre">the/path/t
 <ul class="simple">
 <li>If you get errors like <tt class="docutils literal"><span class="pre">&quot;Unresolved</span> <span class="pre">identifier</span> <span class="pre">*_objc&quot;</span></tt> you probably haven&#8217;t added the
 bridging header correctly.</li>
+<li>If error <tt class="docutils literal"><span class="pre">Unresolved</span> <span class="pre">identifier</span> <span class="pre">dgemm_</span></tt> or similar, you need to add the
+Accelerate framework in Build Phases/Link Binary with Libraries.</li>
 <li><tt class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.hpp'</span> <span class="pre">file</span> <span class="pre">not</span> <span class="pre">found&quot;.</span></tt> This bug
 had me for a while since opencv2.framework was clearly in my project.. It
 turns out under Build Phases/Link Binary with Libraries you need to &#8220;add
 other&#8221; and select the opencv2.framework in swix/objc/. Oh, and if you can&#8217;t
 see the &#8220;Link Binary with Libraries&#8221; section hit the little &#8220;+&#8221; in the upper
 left (at least for XCode 6).</li>
+<li>Another bug with <tt class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.pp'</span> <span class="pre">file</span> <span class="pre">not</span>
+<span class="pre">found&quot;</span></tt>. When crafting my simple OSX test app, I found that deleting
+<tt class="docutils literal"><span class="pre">swix-OSXTests</span></tt> from my XCode project allowed me to compile; I would guess
+that adding <tt class="docutils literal"><span class="pre">opencv2.framework</span></tt> in Build Phases/Link Binary with Libraries
+<cite>under swix-OSXTests</cite> would solve this problem.</li>
 </ul>
 </div>
 </div>
@@ -143,7 +150,7 @@ left (at least for XCode 6).</li>
           <a href="numbers.html" title="Numbers and constants"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to swix’s documentation!"
+          <a href="index.html" title="Swift Matrix and Machine Learning Library"
              >previous</a> |</li>
         <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
       </ul>

@@ -1,4 +1,5 @@
 
+
 Installation
 =============
 1. Download `the repo`_ or `this file`_
@@ -18,12 +19,19 @@ Possible bugs
 ---------------
 * If you get errors like ``"Unresolved identifier *_objc"`` you probably haven't added the
   bridging header correctly.
+* If error ``Unresolved identifier dgemm_`` or similar, you need to add the
+  Accelerate framework in Build Phases/Link Binary with Libraries.
 * ``".../swix/objc/OpenCV.h:12: 'opencv2/opencv.hpp' file not found".`` This bug
   had me for a while since opencv2.framework was clearly in my project.. It
   turns out under Build Phases/Link Binary with Libraries you need to "add
   other" and select the opencv2.framework in swix/objc/. Oh, and if you can't
   see the "Link Binary with Libraries" section hit the little "+" in the upper
   left (at least for XCode 6).
+* Another bug with ``".../swix/objc/OpenCV.h:12: 'opencv2/opencv.pp' file not
+  found"``. When crafting my simple OSX test app, I found that deleting
+  ``swix-OSXTests`` from my XCode project allowed me to compile; I would guess
+  that adding ``opencv2.framework`` in Build Phases/Link Binary with Libraries
+  `under swix-OSXTests` would solve this problem.
 
 
 .. _this file: https://github.com/scottsievert/swix/archive/master.zip

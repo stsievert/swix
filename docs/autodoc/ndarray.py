@@ -78,6 +78,34 @@ class ndarray:
         """
 
 class initing():
+    def rand(N, seed=42, distro="uniform"):
+        """
+        :param N: The size of the array.
+        :type N: Int
+        :param seed: The random number generator seed.
+        :type seed: Int
+        :param distro: The type of distribution. Assumed to be either ``"uniform"`` or ``"normal"``
+        :type distro: String
+        :rtype: ndarray. Random integers normally distributed.
+
+        .. warning:: The seed stays constant for each call.
+
+        .. seealso:: `np.random.rand`_
+        """
+    def randn(N, seed=42, mean=0.0, sigma=1.0):
+        """
+        :param N: The size of the array.
+        :type N: Int
+        :param seed: The random number generator seed.
+        :type seed: Int
+        :param mean: The mean of this distribution.
+        :type mean: Double
+        :param sigma: The standard deviation of this distribution.
+        :type sigma: Double
+        :rtype: ndarray. Random integers that are normally distributed.
+
+        .. seealso:: `np.random.randn`_
+        """
     def arange(max, min=0, x=True):
         """
         :param max: How high should the array index up to?
@@ -428,32 +456,6 @@ class simple_math:
         :rtype: ndarray. The cumulative sum of the array.
 
         >>> assert(cumsum(arange(5)) ~== array(0, 1, 3, 6))
-        """
-    def rand(N, seed=42):
-        """
-        :param N: The size of the array.
-        :type N: Int
-        :param seed: The random number generator seed.
-        :type seed: Int
-        :rtype: ndarray. Random integers normally distributed.
-
-        .. warning:: The seed stays constant for each call.
-
-        .. seealso:: `np.random.rand`_
-        """
-    def randn(N, seed=42, mean=0.0, sigma=1.0):
-        """
-        :param N: The size of the array.
-        :type N: Int
-        :param seed: The random number generator seed.
-        :type seed: Int
-        :param mean: The mean of this distribution.
-        :type mean: Double
-        :param sigma: The standard deviation of this distribution.
-        :type sigma: Double
-        :rtype: ndarray. Random integers that are normally distributed.
-
-        .. seealso:: `np.random.randn`_
         """
     def abs(x):
         """
