@@ -8,6 +8,7 @@
 
 import Foundation
 import Swift
+import Accelerate
 
 func dot(x: matrix, y: matrix) -> matrix{
     var (Mx, Nx) = x.shape
@@ -48,7 +49,7 @@ func inv(x: matrix) -> matrix{
     var lwork:__CLPK_integer = __CLPK_integer(N*N)
     var work:[CDouble] = Array(count:lwork, repeatedValue:0.0)
     var info:__CLPK_integer=0
-    var nc:CInt = N.cint
+    var nc = __CLPK_integer(N)
     dgetrf_(&nc, &nc, !y, &nc, &ipiv, &info)
     dgetri_(&nc, !y, &nc, &ipiv, &work, &lwork, &info)
     return y
@@ -73,8 +74,8 @@ func eig(x: matrix)->ndarray{
     var y = x.copy()
     
     var work:[Double] = Array(count:n*n, repeatedValue:0.0)
-    var lwork:CInt = 4 * n.cint
-    var info:CInt = 1
+    var lwork = __CLPK_integer(4 * n)
+    var info = __CLPK_integer(1)
     
     // don't compute right or left eigenvectors
     var job = "N"
@@ -83,7 +84,7 @@ func eig(x: matrix)->ndarray{
     var jobvr = (job.cStringUsingEncoding(NSUTF8StringEncoding)?[0])!
     
     work[0] = lwork
-    var nc = n.cint
+    var nc = __CLPK_integer(n)
     dgeev_(&jobvl, &jobvr, &nc, !x, &nc,
         !value_real, !value_imag, !vector, &nc, !vector, &nc,
         &work, &lwork, &info)
