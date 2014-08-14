@@ -19,6 +19,8 @@ class matrix:
     I = "inverse" #: Returns the inverse of the matrix. Calls :class:`complex_math.inv`
     def copy():
         """
+        Copies the matrix.
+
         :rtype: A copy of the array.
 
         >>> x = arange(4).reshape((2,2))
@@ -28,6 +30,8 @@ class matrix:
         """
     def dot(y):
         """
+        Matrix multiplication with another matrix.
+
         :param y: The lhs of the matrix.
         :type y: matrix
         :rtype: matrix. The dot product ``dot(self, y)``
@@ -36,6 +40,8 @@ class matrix:
         """
     def index(one, two):
         """
+        Indexes with two numbers; range<int>, ndarray or int.
+
         :param one: The row selector.
         :param two: The column selector.
         :type one: Int, Range<Int>, ndarray
@@ -54,6 +60,8 @@ class matrix:
         """
     def index_flat(idx):
         """
+        Indexes in the row-major flat array.
+
         :param idx: In row major order, the elements to take.
         :type idx: ndarray
         :rtype: ndarray. Indexes ``matrix.flat`` in row-major order.
@@ -67,6 +75,8 @@ class matrix:
         """
     def index_diag(string):
         """
+        Gets or sets the diagonal.
+
         :param string: This asserts that this input string must be "diag".
         :type string: String
         :rtype: ndarray
@@ -83,6 +93,8 @@ class matrix:
 class initing:
     def array(matlab_like_string):
         """
+        An array from a matlab like string.
+
         :param matlike_like_string:
         :type matlab_like_string: String
         :rtype: matrix
@@ -97,6 +109,8 @@ class initing:
         """
     def eye(N):
         """
+        Makes the identity matrix.
+
         :param N: The size of the array will be N x N
         :type N: Int
         :rtype: matrix. An identity matrix.
@@ -105,6 +119,8 @@ class initing:
         """
     def meshgrid(x, y):
         """
+        Makes a mesh out of two ndarrays.
+
         :param x: One set of elements.
         :type x: ndarray
         :param y: Another set of elements.
@@ -123,6 +139,8 @@ class initing:
         """
     def ones(shape):
         """
+        Makes a matrix full of ones.
+
         :param shape: The shape of the new matrix. (rows, columns)
         :type shape: (Int, Int)
         :rtype: matrix
@@ -133,12 +151,16 @@ class initing:
         """
     def read_csv(filename, prefix=S2_PREFIX):
         """
+        Reads a csv.
+
         :param filename: The file to read from. Reads from the same folder as the folder *above* the prefix.
         :param prefix: Defaults to S2_PREFIX.
         :rtype: matrix. The contents of the CSV.
         """
     def reshape(x, shape):
         """
+        Reshapes to the specified size.
+
         :param x: An ndarray
         :type x: ndarray
         :param shape: The size of the new matrix
@@ -149,6 +171,8 @@ class initing:
         """
     def zeros(shape):
         """
+        Makes a matrix full of zeros.
+
         :param shape: The shape of the new matrix. (rows, columns)
         :type shape: (Int, Int)
         :rtype: matrix
@@ -159,6 +183,8 @@ class initing:
         """
     def zeros_like(x):
         """
+        A matrix like the other matrix.
+
         :param x: The matrix to imitate.
         :type x: matrix
         :rtype: matrix
@@ -172,6 +198,8 @@ class initing:
 class helper_functions:
     def argwhere(idx):
         """
+        Sees where a condition applies.
+
         :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
         :type idx: matrix
         :rtype: ndarray. Returns the indicies where ``idx`` is not zero. Useful with comparison operators which return an array of 0's and 1's.
@@ -180,6 +208,8 @@ class helper_functions:
         """
     def fliplr(x):
         """
+        Flips each row.
+
         :param x: The array to flip.
         :type x: matrix
         :rtype: The flipped matrix.
@@ -193,6 +223,8 @@ class helper_functions:
         """
     def flipud(x):
         """
+        Flips each column.
+
         :param x: The array to flip.
         :type x: matrix
         :rtype: The flipped matrix.
@@ -206,6 +238,8 @@ class helper_functions:
         """
     def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
         """
+        Prints the matrix.
+
         :param x: The matrix to print.
         :type x: matrix
         :param prefix: The prefix.
@@ -221,6 +255,8 @@ class helper_functions:
         """
     def transpose(x):
         """
+        Finds the transpose.
+
         :param x: A source matrix.
         :type x: matrix
         :rtype: The transpose of the matrix.
@@ -229,6 +265,8 @@ class helper_functions:
         """
     def write_csv(x, filename, prefix=S2_PREFIX):
         """
+        Writes a CSV.
+
         :param x: A matrix.
         :type x: matrix
         :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
@@ -238,6 +276,8 @@ class helper_functions:
 class operators:
     def element_operators(lhs, rhs):
         """
+        Element wise artithmetic operators.
+
         :param lhs: The left hand side
         :type lhs: Double, matrix
         :param rhs: The right hand side
@@ -253,6 +293,8 @@ class operators:
         """
     def dot(x, y):
         """
+        The dot product operator.
+
         :param x: The lhs.
         :type x: matrix
         :param y: The rhs
@@ -267,6 +309,8 @@ class operators:
         """
     def solve(A, b):
         """
+        Solves a system of eqautions similar to Matlab's backslash.
+
         :param A: When multplied with x, this is what the equation equals.
         :param b: What the equation equals.
         :type A: matrix
@@ -283,6 +327,8 @@ class operators:
         """
     def equality(x, y):
         """
+        Sees if two matrices are approximately equal.
+
         :param x:
         :param y:
         :type x: matrix
@@ -404,6 +450,8 @@ class simple_math:
 class images:
     def rgb2hsv(r, g, b):
         """
+        Converts RGB values to HSV values.
+
         :param r: The red color plane.
         :param g: The green color plane.
         :param b: The blue color plane.
@@ -416,6 +464,8 @@ class images:
         """
     def savefig(x, filename, save=True, show=False):
         """
+        Saves a figure using Python.
+
         :param x: The matrix you want to see. 
         :type x: matrix
         :param filename: The filename you want to save at. 
@@ -427,6 +477,8 @@ class images:
         """
     def imshow(x):
         """
+        Shows a matrix using Python.
+
         :param x: The matrix you want to see. 
         :type x: matrix
 
@@ -438,6 +490,8 @@ class images:
 class complex_math:
     def dot(x, y):
         """
+        Matrix multiplication between two matrices.
+
         :param x: The lhs.
         :type x: matrix
         :param y: The rhs
@@ -452,6 +506,8 @@ class complex_math:
         """
     def eig(x):
         """
+        Find the eigenvaleus of a matrix.
+
         :param x: The matrix to find the eigenvalues of.
         :type x: matrix
         :rtype: the eigenvalues the matrix.
@@ -462,6 +518,8 @@ class complex_math:
         """
     def inv(x):
         """
+        Find the inverse of a matrix.
+
         :param x: Finds the inverse of this matrix.
         :type x: matrix
         :rtype: :math:`x^{-1}`
@@ -473,6 +531,8 @@ class complex_math:
         """
     def solve(A, b):
         """
+        Solve a system of linear equations.
+
         :param A: When multplied with x, this is what the equation equals.
         :param b: What the equation equals.
         :type A: matrix
@@ -489,6 +549,8 @@ class complex_math:
         """
     def svd(x):
         """
+        Compute the singular value decomposition.
+
         :param x: The input to the singular value decomposition.
         :type x: matrix
         :rtype: (matrix, ndarray, matrix)

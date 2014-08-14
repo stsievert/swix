@@ -32,6 +32,7 @@ extensions = [
     'sphinx.ext.mathjax', # for latex
     'sphinx.ext.autodoc', # for autodoc ease
     'sphinx.ext.linkcode', # for linking to source
+    'sphinx.ext.autosummary', # for function list
 ]
 
 # to include [Source] links

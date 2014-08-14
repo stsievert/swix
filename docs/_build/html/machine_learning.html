@@ -166,8 +166,8 @@ var result = svm.predict(y)
 </dd></dl>
 
 <dl class="class">
-<dt id="machine_learning.kNearestNeighbors">
-<em class="property">class </em><tt class="descclassname">machine_learning.</tt><tt class="descname">kNearestNeighbors</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNearestNeighbors" title="Permalink to this definition">¶</a></dt>
+<dt id="machine_learning.kNN">
+<em class="property">class </em><tt class="descclassname">machine_learning.</tt><tt class="descname">kNN</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNN" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/K_nearest_neighbors">k-nearest neighbors algorithm</a></p>
@@ -176,21 +176,25 @@ var result = svm.predict(y)
 <p class="first admonition-title">Warning</p>
 <p class="last">My simple test failed.</p>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Actually called &#8220;kNearestNeighbors&#8221;. To change very soon.</p>
+</div>
 <dl class="attribute">
-<dt id="machine_learning.kNearestNeighbors.M">
-<tt class="descname">M</tt><em class="property"> = 'responses'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNearestNeighbors.M" title="Permalink to this definition">¶</a></dt>
+<dt id="machine_learning.kNN.M">
+<tt class="descname">M</tt><em class="property"> = 'responses'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNN.M" title="Permalink to this definition">¶</a></dt>
 <dd><p>the number of variables in a response</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="machine_learning.kNearestNeighbors.N">
-<tt class="descname">N</tt><em class="property"> = 'variables'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNearestNeighbors.N" title="Permalink to this definition">¶</a></dt>
+<dt id="machine_learning.kNN.N">
+<tt class="descname">N</tt><em class="property"> = 'variables'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNN.N" title="Permalink to this definition">¶</a></dt>
 <dd><p>the number of variables you train for</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="machine_learning.kNearestNeighbors.predict">
-<tt class="descname">predict</tt><big>(</big><em>x</em>, <em>k</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNearestNeighbors.predict" title="Permalink to this definition">¶</a></dt>
+<dt id="machine_learning.kNN.predict">
+<tt class="descname">predict</tt><big>(</big><em>x</em>, <em>k</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNN.predict" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -209,8 +213,8 @@ var result = svm.predict(y)
 </dd></dl>
 
 <dl class="method">
-<dt id="machine_learning.kNearestNeighbors.train">
-<tt class="descname">train</tt><big>(</big><em>responses</em>, <em>targets</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNearestNeighbors.train" title="Permalink to this definition">¶</a></dt>
+<dt id="machine_learning.kNN.train">
+<tt class="descname">train</tt><big>(</big><em>responses</em>, <em>targets</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/machine_learning/machine_learning.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#machine_learning.kNN.train" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -232,13 +236,13 @@ var result = svm.predict(y)
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="svm">
 <h3><a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machine">SVM</a><a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>var svm = SVM()
+<div class="highlight-scala"><div class="highlight"><pre>var svm = SVM()
 
 // our responses.
 var responses = reshape(ones(2*3), (2, 3))
 
-// OpenCV can fail for too similar inputs (probably synthetic)
-for i in 0..3{
+// OpenCV can fail for too similar inputs
+for i in 0..&lt;3{
     responses[1][i] = -1
 }
 
@@ -329,6 +333,7 @@ println(percent_correct) // about 94% accurate
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
 </ul>
 
 <div id="searchbox" style="display: none">

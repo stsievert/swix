@@ -87,7 +87,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.abs">
 <tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.abs" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the absolute value of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -102,27 +103,33 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.apply_function">
 <tt class="descname">apply_function</tt><big>(</big><em>function</em>, <em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.apply_function" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Apply a function to every element of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>function</strong> (<em>String</em>) &#8211; Assumed to be one of &#8220;abs&#8221;, &#8220;sign&#8221; or &#8220;cumsum&#8221;</li>
+<li><strong>function</strong> (<em>String, Double-&gt;Double</em>) &#8211; Assumed to be one of &#8220;abs&#8221;, &#8220;sign&#8221; or &#8220;cumsum&#8221; or a simple Double-&gt;Double function.</li>
 <li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A new array with the function applied to every element. Optimized.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A new array with the function applied to every element. Optimized for string case.</p>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unoptimized for function type Double-&gt;Double. I tried to optimize with Grand Central Dispatch&#8217;s <tt class="docutils literal"><span class="pre">dispatch_apply</span></tt>, but no luck.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.simple_math.avg">
 <tt class="descname">avg</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.avg" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the mean of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -137,7 +144,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.ceil">
 <tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.ceil" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Ceil&#8217;s each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -155,7 +163,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.cos">
 <tt class="descname">cos</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cos" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the cos of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -170,7 +179,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.cumsum">
 <tt class="descname">cumsum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cumsum" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the cumulative sum of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -188,7 +198,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.floor">
 <tt class="descname">floor</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.floor" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Floors each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -206,7 +217,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.log">
 <tt class="descname">log</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the log of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -221,7 +233,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.max">
 <tt class="descname">max</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.max" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the maximum of two arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -244,7 +257,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.min">
 <tt class="descname">min</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.min" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the minimum of two arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -267,7 +281,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.norm">
 <tt class="descname">norm</tt><big>(</big><em>x</em>, <em>type='l2'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.norm" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the norm of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -291,7 +306,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.pow">
 <tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.pow" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>The power of a {Double, ndarray} to {Double, ndarray}</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -318,7 +334,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.round">
 <tt class="descname">round</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.round" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Rounds each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -336,7 +353,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.sign">
 <tt class="descname">sign</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sign" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the sign an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -354,7 +372,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.sin">
 <tt class="descname">sin</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sin" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the sin of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -369,7 +388,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.sqrt">
 <tt class="descname">sqrt</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sqrt" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Takes the sqrt of each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -384,7 +404,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.std">
 <tt class="descname">std</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.std" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the standard deviation of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -399,7 +420,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.sum">
 <tt class="descname">sum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sum" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the sum of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -417,7 +439,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.tan">
 <tt class="descname">tan</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.tan" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the tan of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -432,7 +455,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.simple_math.variance">
 <tt class="descname">variance</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.variance" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the variance of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -459,7 +483,8 @@ functions work like expected:</p>
 <dd><dl class="method">
 <dt id="ndarray.ndarray.copy">
 <tt class="descname">copy</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.copy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Copies the contents of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -491,7 +516,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.ndarray.indexing">
 <tt class="descname">indexing</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.indexing" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Grabs elements using an ndarray, Range&lt;Int&gt; or integers.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -514,7 +540,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.ndarray.max">
 <tt class="descname">max</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.max" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the maximum value.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -534,7 +561,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.ndarray.mean">
 <tt class="descname">mean</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.mean" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the average value.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -554,7 +582,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.ndarray.min">
 <tt class="descname">min</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.min" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the minimum value.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -580,7 +609,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.ndarray.reshape">
 <tt class="descname">reshape</tt><big>(</big><em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.reshape" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reshapes the matrix to the specified size.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -633,7 +663,8 @@ functions work like expected:</p>
 <dd><dl class="method">
 <dt id="ndarray.initing.arange">
 <tt class="descname">arange</tt><big>(</big><em>max</em>, <em>min=0</em>, <em>x=True</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.arange" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes an array of integers.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -660,7 +691,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.array">
 <tt class="descname">array</tt><big>(</big><em>numbers</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.array" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes an array out of a list of numbers.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -701,7 +733,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.copy">
 <tt class="descname">copy</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.copy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Copies the contents of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -722,7 +755,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.linspace">
 <tt class="descname">linspace</tt><big>(</big><em>min</em>, <em>max</em>, <em>num=50</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.linspace" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes a series of values linearly interpolated between two poitns.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -747,7 +781,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.ones">
 <tt class="descname">ones</tt><big>(</big><em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.ones" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes an array of ones.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -767,7 +802,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.rand">
 <tt class="descname">rand</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>distro='uniform'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.rand" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes an array of uniform random variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -796,7 +832,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.randn">
 <tt class="descname">randn</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randn" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes an array of normally distributed random variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -822,7 +859,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.read_csv">
 <tt class="descname">read_csv</tt><big>(</big><em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.read_csv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reads a CSV.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -850,7 +888,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.zeros">
 <tt class="descname">zeros</tt><big>(</big><em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.zeros" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes an array of 0&#8217;s.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -870,7 +909,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.initing.zeros_like">
 <tt class="descname">zeros_like</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.zeros_like" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes an array like another array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -899,7 +939,8 @@ functions work like expected:</p>
 <dd><dl class="method">
 <dt id="ndarray.helper_functions.argwhere">
 <tt class="descname">argwhere</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argwhere" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Sees where a condition exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -918,7 +959,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.helper_functions.concat">
 <tt class="descname">concat</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.concat" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Concatenates two arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -947,7 +989,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.helper_functions.delete">
 <tt class="descname">delete</tt><big>(</big><em>x</em>, <em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.delete" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Deletes elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -967,7 +1010,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.helper_functions.println">
 <tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.println" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Prints an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -982,7 +1026,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.helper_functions.repeat">
 <tt class="descname">repeat</tt><big>(</big><em>x</em>, <em>N</em>, <em>axis=0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.repeat" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Repeats an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1009,7 +1054,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.helper_functions.reverse">
 <tt class="descname">reverse</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.reverse" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reverses an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1028,7 +1074,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.helper_functions.sort">
 <tt class="descname">sort</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.sort" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Sorts an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1047,7 +1094,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.helper_functions.write_csv">
 <tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Writes a CSV.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1082,7 +1130,8 @@ functions work like expected:</p>
 <dd><dl class="method">
 <dt id="ndarray.operators.add_subtract_multiply_divide">
 <tt class="descname">add_subtract_multiply_divide</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.add_subtract_multiply_divide" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Element-wise operators.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1112,7 +1161,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.operators.equality">
 <tt class="descname">equality</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.equality" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Seeing if two arrays are about equal.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1138,7 +1188,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.operators.logical_operators">
 <tt class="descname">logical_operators</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.logical_operators" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Logical operators.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1160,7 +1211,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.operators.pow">
 <tt class="descname">pow</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.pow" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>The power operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1214,7 +1266,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the absolute value of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1229,27 +1282,33 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">apply_function</tt><big>(</big><em>function</em>, <em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Apply a function to every element of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>function</strong> (<em>String</em>) &#8211; Assumed to be one of &#8220;abs&#8221;, &#8220;sign&#8221; or &#8220;cumsum&#8221;</li>
+<li><strong>function</strong> (<em>String, Double-&gt;Double</em>) &#8211; Assumed to be one of &#8220;abs&#8221;, &#8220;sign&#8221; or &#8220;cumsum&#8221; or a simple Double-&gt;Double function.</li>
 <li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A new array with the function applied to every element. Optimized.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A new array with the function applied to every element. Optimized for string case.</p>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unoptimized for function type Double-&gt;Double. I tried to optimize with Grand Central Dispatch&#8217;s <tt class="docutils literal"><span class="pre">dispatch_apply</span></tt>, but no luck.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt>
 <tt class="descname">avg</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the mean of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1264,7 +1323,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Ceil&#8217;s each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1282,7 +1342,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">cos</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the cos of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1297,7 +1358,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">cumsum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the cumulative sum of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1315,7 +1377,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">floor</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Floors each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1333,7 +1396,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">log</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the log of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1348,7 +1412,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">max</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the maximum of two arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1371,7 +1436,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">min</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the minimum of two arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1394,7 +1460,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">norm</tt><big>(</big><em>x</em>, <em>type='l2'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the norm of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1418,7 +1485,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>The power of a {Double, ndarray} to {Double, ndarray}</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1445,7 +1513,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">round</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Rounds each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1463,7 +1532,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">sign</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the sign an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1481,7 +1551,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">sin</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the sin of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1496,7 +1567,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">sqrt</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Takes the sqrt of each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1511,7 +1583,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">std</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the standard deviation of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1526,7 +1599,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">sum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the sum of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1544,7 +1618,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">tan</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the tan of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1559,7 +1634,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt>
 <tt class="descname">variance</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the variance of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1587,7 +1663,8 @@ functions work like expected:</p>
 <dd><dl class="method">
 <dt id="ndarray.complex_math.fft">
 <tt class="descname">fft</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.fft" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Takes the discrete Fourier Transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1610,7 +1687,8 @@ functions work like expected:</p>
 <dl class="method">
 <dt id="ndarray.complex_math.ifft">
 <tt class="descname">ifft</tt><big>(</big><em>y_real</em>, <em>y_imag</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.ifft" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Takes the inverse Foureir Transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1673,6 +1751,7 @@ functions work like expected:</p>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
 </ul>
 
 <div id="searchbox" style="display: none">

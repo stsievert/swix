@@ -1,5 +1,5 @@
-#from numbers import S2_PREFIX
-S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
+from numbers import S2_PREFIX
+#S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
 
 
 class ndarray:
@@ -8,6 +8,8 @@ class ndarray:
     grid = "[Double]" #: The Array this ndarray depends on.
     def reshape(shape):
         """
+        Reshapes the matrix to the specified size.
+
         :param shape: The size of the new matrix.
         :type shape: (Int, Int)
         :rtype: matrix. The ndarray reshaped as a matrix.
@@ -21,6 +23,8 @@ class ndarray:
         """
     def copy():
         """
+        Copies the contents of an array.
+
         :rtype: ndarray. An exact copy of the array.
 
         >>> assert(x.copy() ~== x)
@@ -41,6 +45,8 @@ class ndarray:
         """
     def min():
         """
+        Finds the minimum value.
+
         :rtype: Double. The minimum value in the array.
 
         >>> assert(array(1, 2, 3, 4).min() == 1)
@@ -50,6 +56,8 @@ class ndarray:
         """
     def max():
         """
+        Finds the maximum value.
+
         :rtype: Double. The maximum value in the array.
 
         >>> assert(array(1, 2, 3, 4).max() == 4)
@@ -58,6 +66,8 @@ class ndarray:
         """
     def mean():
         """
+        Finds the average value.
+
         :rtype: Double. The mean value in the array.
 
         >>> assert(array(1, 2, 3, 4).mean() == 2.5)
@@ -66,6 +76,8 @@ class ndarray:
         """
     def indexing(idx):
         """
+        Grabs elements using an ndarray, Range<Int> or integers.
+
         :param idx: The values to get the index from.
         :type idx: Int, Range<Int>, ndarray
 
@@ -80,6 +92,8 @@ class ndarray:
 class initing():
     def rand(N, seed=42, distro="uniform"):
         """
+        Makes an array of uniform random variables.
+
         :param N: The size of the array.
         :type N: Int
         :param seed: The random number generator seed.
@@ -94,6 +108,8 @@ class initing():
         """
     def randn(N, seed=42, mean=0.0, sigma=1.0):
         """
+        Makes an array of normally distributed random variables.
+
         :param N: The size of the array.
         :type N: Int
         :param seed: The random number generator seed.
@@ -108,6 +124,8 @@ class initing():
         """
     def arange(max, min=0, x=True):
         """
+        Makes an array of integers.
+
         :param max: How high should the array index up to?
         :type max: Int
         :param min: Where should the indexing start?
@@ -123,6 +141,8 @@ class initing():
         """
     def array(numbers):
         """
+        Makes an array out of a list of numbers.
+
         :param numbers: A list of numbers to make an array.
         :type numbers: Double...
         .. note:: Unoptimized. I assume this is only being used in test code.
@@ -143,6 +163,8 @@ class initing():
         """
     def copy(x):
         """
+        Copies the contents of an array.
+
         :param x: The array to copy.
         :type x: ndarray
 
@@ -154,6 +176,8 @@ class initing():
         """
     def linspace(min, max, num=50):
         """
+        Makes a series of values linearly interpolated between two poitns.
+
         :param min: The minimum value.
         :type min: Double.
         :param max: The maximum value.
@@ -167,6 +191,8 @@ class initing():
         """
     def ones(N):
         """
+        Makes an array of ones.
+
         :param N: The length of the array.
         :type N: Int
 
@@ -176,6 +202,8 @@ class initing():
         """
     def read_csv(filename, prefix=S2_PREFIX):
         """
+        Reads a CSV.
+
         :param filename: The file to read from. The file read from the directory containing ``swix/``.
         :param prefix: Defaults to ``S2_PREFIX``
         :type filename: String
@@ -188,6 +216,8 @@ class initing():
         """
     def zeros(N):
         """
+        Makes an array of 0's.
+
         :param N: The length of the array.
         :type N: Int
 
@@ -198,6 +228,8 @@ class initing():
         """
     def zeros_like(x):
         """
+        Makes an array like another array.
+
         :param x: The array to imitate.
         :type x: ndarray
 
@@ -210,6 +242,8 @@ class initing():
 class helper_functions:
     def argwhere(idx):
         """
+        Sees where a condition exists.
+
         :param idx: An array of 0's and 1's (analagous to true and false).
         :type idx: ndarray
         :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
@@ -219,6 +253,8 @@ class helper_functions:
         """
     def delete(x, idx):
         """
+        Deletes elements.
+
         :param x: The original array.
         :param idx: The indices to remove.
         :type x: ndarray
@@ -227,6 +263,8 @@ class helper_functions:
         """
     def concat(x, y):
         """
+        Concatenates two arrays.
+
         :param x: The first array to stack.
         :type x: ndarray
         :param y: The second array to stack.
@@ -241,6 +279,8 @@ class helper_functions:
         """
     def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
         """
+        Prints an array.
+
         :param x: Prints that matrix.
         :type x: ndarray
 
@@ -250,6 +290,8 @@ class helper_functions:
         """
     def repeat(x, N, axis=0):
         """
+        Repeats an array.
+
         :param x: The array to repeat.
         :param N: How many times to repeat the array.
         :param axis: Assumed to be "ndarray" or "elements".
@@ -265,6 +307,8 @@ class helper_functions:
         """
     def reverse(x):
         """
+        Reverses an array.
+
         :param x: The array to be reversed.
         :type x: ndarray
         :rtype: The reveresed ndarray.
@@ -273,6 +317,8 @@ class helper_functions:
         """
     def sort(x):
         """
+        Sorts an array.
+
         :param x: Array to be sorted.
         :type x: ndarray
         :rtype: ndarray. The sorted array.
@@ -281,6 +327,8 @@ class helper_functions:
         """
     def write_csv(x, filename, prefix=S2_PREFIX):
         """
+        Writes a CSV.
+
         :param x: The ndarray to write to a csv
         :type x: ndarray
         :type filename: String
@@ -296,6 +344,8 @@ class helper_functions:
 class operators:
     def add_subtract_multiply_divide(lhs, rhs):
         """
+        Element-wise operators.
+
         :param lhs: Left hand side.
         :param rhs: Right hand side.
         :type lhs: ndarray, Double
@@ -311,6 +361,8 @@ class operators:
         """
     def logical_operators(lhs, rhs):
         """
+        Logical operators. 
+
         :param lhs: An array of true/false (meaning 0 or 1)
         :type lhs: ndarray
         :param rhs: An array of true/false (meaning 0 or 1)
@@ -322,6 +374,8 @@ class operators:
         """
     def equality(lhs, rhs):
         """
+        Seeing if two arrays are about equal.
+
         :param lhs: Left hand side.
         :param rhs: Right hand side.
         :type lhs: ndarray, Double
@@ -337,6 +391,8 @@ class operators:
         """
     def pow(lhs, rhs):
         """
+        The power operator.
+
         :param lhs: The ndarray
         :param rhs: The power.
         :type lhs: ndarray, Double, ndarray
@@ -366,35 +422,36 @@ class simple_math:
     """
     def apply_function(function, x):
         """
-        :param function: Callable function.
+        Apply a function to every element of an array.
+
+        :param function: Assumed to be one of "abs", "sign" or "cumsum" or a simple Double->Double function.
         :param x: An array.
-        :type function: Double->Double
+        :type function: String, Double->Double
         :type x: ndarray
-        :rtype: A new array with the function applied to every element.
-        .. note:: Unoptimized. I tried to optimize with Grand Central Dispatch's ``dispatch_apply``, but no luck.
-        """
-    def apply_function(function, x):
-        """
-        :param function: Assumed to be one of "abs", "sign" or "cumsum"
-        :param x: An array.
-        :type function: String
-        :type x: ndarray
-        :rtype: A new array with the function applied to every element. Optimized.
+        :rtype: A new array with the function applied to every element. Optimized for string case.
+
+        .. note:: Unoptimized for function type Double->Double. I tried to optimize with Grand Central Dispatch's ``dispatch_apply``, but no luck.
         """
     def min(x):
         """
+        Finds the minimum element.
+
         :param x: An array.
         :type x: ndarray
         :rtype: Double. The minimum value of the array.
         """
     def max(x):
         """
+        Finds the maximum element.
+
         :param x: An array.
         :type x: ndarray
         :rtype: Double. The maximum value of the array.
         """
     def max(x, y):
         """
+        Finds the maximum of two arrays.
+
         :param x: An array.
         :param y: Another array.
         :type x: ndarray
@@ -405,6 +462,8 @@ class simple_math:
         """
     def min(x, y):
         """
+        Finds the minimum of two arrays.
+
         :param x: An array.
         :param y: Another array.
         :type x: ndarray
@@ -415,6 +474,8 @@ class simple_math:
         """
     def sign(x):
         """
+        Finds the sign an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: The sign of the array centered at 0.
@@ -423,6 +484,8 @@ class simple_math:
         """
     def sum(x):
         """
+        Finds the sum of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: Double. The sum of all the elements in x. Returns the result from the following operation: :math:`\sum x_i`
@@ -431,18 +494,24 @@ class simple_math:
         """
     def avg(x):
         """
+        Finds the mean of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: Double. The average of all the components or :math:`\sum x_i / N`
         """
     def std(x):
         """
+        Finds the standard deviation of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: Double. The standard deviation of the array.
         """
     def variance(x):
         """
+        Finds the variance of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: Double. The variance of the array.
@@ -451,6 +520,8 @@ class simple_math:
         """
     def cumsum(x):
         """
+        Finds the cumulative sum of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. The cumulative sum of the array.
@@ -459,12 +530,16 @@ class simple_math:
         """
     def abs(x):
         """
+        Finds the absolute value of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. The absolute value of the array
         """
     def norm(x, type="l2"):
         """
+        Finds the norm of an array.
+
         :param x: An array.
         :type x: ndarray
         :param type: One of "l0", "l1", "l0"
@@ -475,6 +550,8 @@ class simple_math:
         """
     def pow(x, power):
         """
+        The power of a {Double, ndarray} to {Double, ndarray}
+
         :param x: An array.
         :type x: ndarray, Double, ndarray
         :param power: The power
@@ -487,36 +564,48 @@ class simple_math:
         """
     def sin(x):
         """
+        Finds the sin of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``sin`` on each element.
         """
     def cos(x):
         """
+        Finds the cos of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``cos`` on each element.
         """
     def tan(x):
         """
+        Finds the tan of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``tan`` on each element.
         """
     def log(x):
         """
+        Finds the log of an array.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``log`` on each element.
         """
     def sqrt(x):
         """
+        Takes the sqrt of each element.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``sqrt`` on each element.
         """
     def round(x):
         """
+        Rounds each element.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``round`` on each element.
@@ -525,6 +614,8 @@ class simple_math:
         """
     def floor(x):
         """
+        Floors each element.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``floor`` on each element.
@@ -533,6 +624,8 @@ class simple_math:
         """
     def ceil(x):
         """
+        Ceil's each element.
+
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``sin`` on each element.
@@ -543,6 +636,8 @@ class simple_math:
 class complex_math:
     def fft(x):
         """
+        Takes the discrete Fourier Transform.
+
         :param x: An array to perform the fft on.
         :type x: ndarray
         :rtype: ndarray, ndarray. The real and imaginary components of the Fourier transform.
@@ -554,6 +649,8 @@ class complex_math:
         """
     def ifft(y_real, y_imag):
         """
+        Takes the inverse Foureir Transform.
+
         :param y_real: The real part of fft(x).
         :type y_real: ndarray
         :param y_imag: The imaginary part of fft(x)

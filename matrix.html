@@ -57,7 +57,7 @@
 <h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h1>
 <p>The full docs are below but I&#8217;ll touch on some highlights:</p>
 <ul class="simple">
-<li>depends on ndarray. Access the <a href="#id3"><span class="problematic" id="id4">`row-major`_</span></a> indexed flat array via <tt class="docutils literal"><span class="pre">matrix.flat</span></tt>. This means that any function that takes a flat array can be applied to a matrix.</li>
+<li>depends on ndarray. Access the <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row-major</a> indexed flat array via <tt class="docutils literal"><span class="pre">matrix.flat</span></tt>. This means that any function that takes a flat array can be applied to a matrix.</li>
 <li>Implements some complex math: solve, dot, svd, and inv</li>
 <li>has some nice functions for image, including functions to show and save images.</li>
 </ul>
@@ -75,7 +75,7 @@
 <dt id="matrix.matrix">
 <em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">matrix</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class depends on <tt class="docutils literal"><span class="pre">ndarray</span></tt> where possible since <tt class="docutils literal"><span class="pre">matrix</span></tt> is really
-a flat and <a href="#id5"><span class="problematic" id="id6">`row-major`_</span></a> array. To implement a 2D matrix, I just return
+a flat and <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row-major</a> array. To implement a 2D matrix, I just return
 select indices when indexing.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -102,7 +102,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.matrix.copy">
 <tt class="descname">copy</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.copy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Copies the matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -123,7 +124,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.matrix.dot">
 <tt class="descname">dot</tt><big>(</big><em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.dot" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Matrix multiplication with another matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -148,7 +150,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.matrix.index">
 <tt class="descname">index</tt><big>(</big><em>one</em>, <em>two</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -183,7 +186,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.matrix.index_diag">
 <tt class="descname">index_diag</tt><big>(</big><em>string</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index_diag" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Gets or sets the diagonal.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -206,7 +210,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.matrix.index_flat">
 <tt class="descname">index_flat</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index_flat" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Indexes in the row-major flat array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -507,7 +512,7 @@ select indices when indexing.</p>
 <dt>
 <em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">matrix</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>This class depends on <tt class="docutils literal"><span class="pre">ndarray</span></tt> where possible since <tt class="docutils literal"><span class="pre">matrix</span></tt> is really
-a flat and <a href="#id7"><span class="problematic" id="id8">`row-major`_</span></a> array. To implement a 2D matrix, I just return
+a flat and <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row-major</a> array. To implement a 2D matrix, I just return
 select indices when indexing.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -534,7 +539,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt>
 <tt class="descname">copy</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Copies the matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -555,7 +561,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt>
 <tt class="descname">dot</tt><big>(</big><em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Matrix multiplication with another matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -580,7 +587,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt>
 <tt class="descname">index</tt><big>(</big><em>one</em>, <em>two</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -615,7 +623,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt>
 <tt class="descname">index_diag</tt><big>(</big><em>string</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Gets or sets the diagonal.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -638,7 +647,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt>
 <tt class="descname">index_flat</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Indexes in the row-major flat array.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -692,7 +702,8 @@ select indices when indexing.</p>
 <dd><dl class="method">
 <dt id="matrix.initing.array">
 <tt class="descname">array</tt><big>(</big><em>matlab_like_string</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.array" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>An array from a matlab like string.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -719,7 +730,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.initing.eye">
 <tt class="descname">eye</tt><big>(</big><em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.eye" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes the identity matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -738,7 +750,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.initing.meshgrid">
 <tt class="descname">meshgrid</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.meshgrid" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes a mesh out of two ndarrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -770,7 +783,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.initing.ones">
 <tt class="descname">ones</tt><big>(</big><em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.ones" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes a matrix full of ones.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -792,7 +806,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.initing.read_csv">
 <tt class="descname">read_csv</tt><big>(</big><em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.read_csv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reads a csv.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -812,7 +827,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.initing.reshape">
 <tt class="descname">reshape</tt><big>(</big><em>x</em>, <em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.reshape" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reshapes to the specified size.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -836,7 +852,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.initing.zeros">
 <tt class="descname">zeros</tt><big>(</big><em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.zeros" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Makes a matrix full of zeros.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -858,7 +875,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.initing.zeros_like">
 <tt class="descname">zeros_like</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.zeros_like" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>A matrix like the other matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -889,7 +907,8 @@ select indices when indexing.</p>
 <dd><dl class="method">
 <dt id="matrix.helper_functions.argwhere">
 <tt class="descname">argwhere</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.argwhere" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Sees where a condition applies.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -908,7 +927,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.helper_functions.fliplr">
 <tt class="descname">fliplr</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.fliplr" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Flips each row.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -932,7 +952,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.helper_functions.flipud">
 <tt class="descname">flipud</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.flipud" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Flips each column.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -956,7 +977,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.helper_functions.println">
 <tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='matrix(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.println" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Prints the matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -977,7 +999,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.helper_functions.transpose">
 <tt class="descname">transpose</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.transpose" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Finds the transpose.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -996,7 +1019,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.helper_functions.write_csv">
 <tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Writes a CSV.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1023,7 +1047,8 @@ select indices when indexing.</p>
 <dd><dl class="method">
 <dt id="matrix.operators.dot">
 <tt class="descname">dot</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.dot" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>The dot product operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1052,7 +1077,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.operators.element_operators">
 <tt class="descname">element_operators</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.element_operators" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Element wise artithmetic operators.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1082,7 +1108,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.operators.equality">
 <tt class="descname">equality</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.equality" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Sees if two matrices are approximately equal.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1113,7 +1140,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.operators.solve">
 <tt class="descname">solve</tt><big>(</big><em>A</em>, <em>b</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.solve" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Solves a system of eqautions similar to Matlab&#8217;s backslash.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1410,7 +1438,8 @@ select indices when indexing.</p>
 <dd><dl class="method">
 <dt id="matrix.complex_math.dot">
 <tt class="descname">dot</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.dot" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Matrix multiplication between two matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1439,7 +1468,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.complex_math.eig">
 <tt class="descname">eig</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.eig" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Find the eigenvaleus of a matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1462,7 +1492,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.complex_math.inv">
 <tt class="descname">inv</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.inv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Find the inverse of a matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1482,7 +1513,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.complex_math.solve">
 <tt class="descname">solve</tt><big>(</big><em>A</em>, <em>b</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.solve" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Solve a system of linear equations.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1515,7 +1547,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.complex_math.svd">
 <tt class="descname">svd</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.svd" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Compute the singular value decomposition.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1544,7 +1577,8 @@ select indices when indexing.</p>
 <dd><dl class="method">
 <dt id="matrix.images.imshow">
 <tt class="descname">imshow</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.imshow" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Shows a matrix using Python.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1562,7 +1596,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.images.rgb2hsv">
 <tt class="descname">rgb2hsv</tt><big>(</big><em>r</em>, <em>g</em>, <em>b</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.rgb2hsv" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Converts RGB values to HSV values.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1587,7 +1622,8 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.images.savefig">
 <tt class="descname">savefig</tt><big>(</big><em>x</em>, <em>filename</em>, <em>save=True</em>, <em>show=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.savefig" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Saves a figure using Python.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1649,6 +1685,7 @@ select indices when indexing.</p>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
 </ul>
 
 <div id="searchbox" style="display: none">

@@ -14,7 +14,7 @@ This is a file that describes classes.
 .. automodule:: machine_learning
 .. autoclass:: SVM
     :members:
-.. autoclass:: kNearestNeighbors
+.. autoclass:: kNN
     :members:
 
 
@@ -22,15 +22,15 @@ Examples
 ++++++++++++++
 `SVM`_ 
 ----------
-.. code-block:: python
+.. code-block:: scala
 
     var svm = SVM()
 
     // our responses. 
     var responses = reshape(ones(2*3), (2, 3))
 
-    // OpenCV can fail for too similar inputs (probably synthetic)
-    for i in 0..3{
+    // OpenCV can fail for too similar inputs
+    for i in 0..<3{
         responses[1][i] = -1
     }
 

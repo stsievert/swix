@@ -55,10 +55,12 @@ class SVM:
         :type responses: matrix, ndarray
         :rtype: ndarray, Double
         """
-class kNearestNeighbors:
+class kNN:
     """
     .. seealso:: `k-nearest neighbors algorithm`_
     .. warning:: My simple test failed.
+
+    .. note:: Actually called "kNearestNeighbors". To change very soon.
     """
     N = "variables" #: the number of variables you train for
     M = "responses" #: the number of variables in a response

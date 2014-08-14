@@ -12,9 +12,11 @@ The full docs can be found below but I'll touch on some highlights:
 * simple math. Math that applies to each element.
 * nice indexing, including accessing multiple elements at once (goodbye for loops!).
 
+
 .. note:: ``*`` is an element-wise multiplication. ``*!`` is used for a dot product or matrix multiplication. Not like matlab!
 
 .. include:: links.rst
+
 
 Docs
 ++++++++

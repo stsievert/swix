@@ -31,7 +31,6 @@ This is a file, not an actual class.
 
 
 .. _`dot product`: https://en.wikipedia.org/wiki/Dot_product
-.. _`row-major`: https://en.wikipedia.org/wiki/Row_major
 
 helper functions
 ------------------
