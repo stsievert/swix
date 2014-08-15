@@ -111,11 +111,11 @@ Table of Contents
    :maxdepth: 1
 
    installation
+   overview
    numbers
    ndarray
    matrix
    machine_learning
-   summary
    c
    bugs
    examples

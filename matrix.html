@@ -1575,6 +1575,62 @@ select indices when indexing.</p>
 <dt id="matrix.images">
 <em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">images</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
+<dt id="matrix.images.RGBAToUIImage">
+<tt class="descname">RGBAToUIImage</tt><big>(</big><em>r</em>, <em>g</em>, <em>b</em>, <em>a</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.RGBAToUIImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the RGBA color planes into a UIImage</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The red color plane.</li>
+<li><strong>g</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The green color plane.</li>
+<li><strong>b</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The blur color plane.</li>
+<li><strong>a</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The alpha color plane.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">UIImage</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Commented out in <tt class="docutils literal"><span class="pre">swix/matrix/image.swift</span></tt> as UIKit doesn&#8217;t compile for MacOSX</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#matrix.images.UIImageToRGBAImage" title="matrix.images.UIImageToRGBAImage"><tt class="xref py py-class docutils literal"><span class="pre">images.UIImageToRGBAImage</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.images.UIImageToRGBAImage">
+<tt class="descname">UIImageToRGBAImage</tt><big>(</big><em>image</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.UIImageToRGBAImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an RGBA UIImage into 4 different arrays corresponding to the
+RGBA color planes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> (<em>UIImage</em>) &#8211; The image to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix, matrix, matrix, matrix.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Commented out in <tt class="docutils literal"><span class="pre">swix/matrix/image.swift</span></tt> as UIKit doesn&#8217;t compile for MacOSX.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#matrix.images.RGBAToUIImage" title="matrix.images.RGBAToUIImage"><tt class="xref py py-class docutils literal"><span class="pre">images.RGBAToUIImage</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.images.imshow">
 <tt class="descname">imshow</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.imshow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows a matrix using Python.</p>
@@ -1590,6 +1646,28 @@ select indices when indexing.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.imshow">mpl.imshow</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.images.resizeImage">
+<tt class="descname">resizeImage</tt><big>(</big><em>image</em>, <em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.resizeImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize an image to the given shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>image</strong> (<em>UIImage</em>) &#8211; The image to resize.</li>
+<li><strong>shape</strong> (<em>(Int, Int)</em>) &#8211; The desired size; (vertical_length, horizontal_length)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Commented out in <tt class="docutils literal"><span class="pre">swix/matrix/image.swift</span></tt> as UIKit doesn&#8217;t compile for MacOSX</p>
 </div>
 </dd></dl>
 
@@ -1681,11 +1759,11 @@ select indices when indexing.</p>
 <li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
 </ul>
 
 <div id="searchbox" style="display: none">

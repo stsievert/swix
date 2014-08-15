@@ -1,5 +1,20 @@
-Summary
+Overview
 ==============
+
+This file only includes functions. For constants defined, see the specific module. Almost all global vars are declared in :class:`numbers`.
+
+numbers
+-----------------------
+.. autosummary::
+
+numbers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autosummary::
+    numbers.close
+    numbers.convience_elements
+    numbers.isNumber
+    numbers.operator_slash
+
 ndarray
 -----------------------
 .. autosummary::
@@ -193,4 +208,13 @@ machine_learning.kNN
 
     machine_learning.kNN.predict
     machine_learning.kNN.train
+
+objc
+-----------------------
+.. autosummary::
+
+objc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autosummary::
+    objc.matrixToPointer
 

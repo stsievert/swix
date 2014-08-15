@@ -40,6 +40,8 @@ FLOAT_EPSILON = "small"
 
 def close(x, y):
     """
+    See if two numbers are approximately equal.
+
     :param x: Double. An input value.
     :param y: Double. Another value.
 
@@ -78,6 +80,8 @@ def operator_slash(lhs, rhs):
 
 def isNumber(x):
     """
+    See if the input object is a number.
+
     :param x: AnyObject.
     :rtype: Bool. True only if x is a number (a float, double, cint, int). Returns false for ndarray and matrix.
     """

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Summary &mdash; swix 0.1 documentation</title>
+    <title>Overview &mdash; swix 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="swix 0.1 documentation" href="index.html" /> 
+    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="next" title="Numbers and constants" href="numbers.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,6 +38,12 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="numbers.html" title="Numbers and constants"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
         <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -45,8 +53,43 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>This file only includes functions. For constants defined, see the specific module. Almost all global vars are declared in <a class="reference internal" href="numbers.html#module-numbers" title="numbers"><tt class="xref py py-class docutils literal"><span class="pre">numbers</span></tt></a>.</p>
+<div class="section" id="numbers">
+<h2>numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<div class="section" id="id1">
+<h3>numbers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers.close" title="numbers.close"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.close</span></tt></a>(x,&nbsp;y)</td>
+<td>See if two numbers are approximately equal.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers.convience_elements" title="numbers.convience_elements"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.convience_elements</span></tt></a>()</td>
+<td>The built in numeric classes have convience elements.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers.isNumber" title="numbers.isNumber"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.isNumber</span></tt></a>(x)</td>
+<td>See if the input object is a number.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers.operator_slash" title="numbers.operator_slash"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.operator_slash</span></tt></a>(lhs,&nbsp;rhs)</td>
+<td>The operator <tt class="docutils literal"><span class="pre">/</span></tt> that represents division.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="ndarray">
 <h2>ndarray<a class="headerlink" href="#ndarray" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="longtable docutils">
@@ -728,6 +771,39 @@
 </table>
 </div>
 </div>
+<div class="section" id="objc">
+<h2>objc<a class="headerlink" href="#objc" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<div class="section" id="id2">
+<h3>objc<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="c.html#objc.matrixToPointer" title="objc.matrixToPointer"><tt class="xref py py-obj docutils literal"><span class="pre">objc.matrixToPointer</span></tt></a>(x)</td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param x:</th><td class="field-body">The ndarray you want to take the address of.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 
@@ -741,7 +817,11 @@
             </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Summary</a><ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#numbers">numbers</a><ul>
+<li><a class="reference internal" href="#id1">numbers</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#ndarray">ndarray</a><ul>
 <li><a class="reference internal" href="#ndarray-initing">ndarray.initing</a></li>
 <li><a class="reference internal" href="#ndarray-helper-functions">ndarray.helper_functions</a></li>
@@ -766,14 +846,18 @@
 <li><a class="reference internal" href="#machine-learning-knn">machine_learning.kNN</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#objc">objc</a><ul>
+<li><a class="reference internal" href="#id2">objc</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
 <h3><a href="index.html">Table Of Contents</a></h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
@@ -810,6 +894,12 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="numbers.html" title="Numbers and constants"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
         <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>

@@ -486,6 +486,48 @@ class images:
 
         .. seealso:: `mpl.imshow`_
         """
+    def UIImageToRGBAImage(image):
+        """
+        Convert an RGBA UIImage into 4 different arrays corresponding to the
+        RGBA color planes.
+
+        :param image: The image to convert.
+        :type image: UIImage
+        :rtype: matrix, matrix, matrix, matrix.
+
+        .. note:: Commented out in ``swix/matrix/image.swift`` as UIKit doesn't compile for MacOSX.
+
+        .. seealso:: :class:`images.RGBAToUIImage`
+        """
+    def RGBAToUIImage(r, g, b, a):
+        """
+        Convert the RGBA color planes into a UIImage
+
+        :param r: The red color plane.
+        :type r: matrix
+        :param g: The green color plane.
+        :type g: matrix
+        :param b: The blur color plane.
+        :type b: matrix
+        :param a: The alpha color plane.
+        :type a: matrix
+        :rtype: UIImage
+
+        .. note:: Commented out in ``swix/matrix/image.swift`` as UIKit doesn't compile for MacOSX
+
+        .. seealso:: :class:`images.UIImageToRGBAImage`
+        """
+    def resizeImage(image, shape):
+        """
+        Resize an image to the given shape.
+
+        :param image: The image to resize.
+        :type image: UIImage
+        :param shape: The desired size; (vertical_length, horizontal_length)
+        :type shape: (Int, Int)
+
+        .. note:: Commented out in ``swix/matrix/image.swift`` as UIKit doesn't compile for MacOSX
+        """
 
 class complex_math:
     def dot(x, y):
