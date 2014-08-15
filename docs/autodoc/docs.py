@@ -11,7 +11,7 @@ def print_functions(root_module, modules):
     for module in modules:
         f = inspect.ismethod
         methods = inspect.getmembers(module, predicate=f)
-        strings += ["\n"+str(module)+"\n"+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"]
+        strings += ["\n"+str(module)+"\n"+"^"*25]
         strings += [".. autosummary::\n"]
         for method in methods:
             strings += ["    "+str(module)+"."+method[0]]
@@ -20,7 +20,7 @@ def print_functions(root_module, modules):
 def print_root_functions(root_module, module_name):
     strings = []
     fs = inspect.getmembers(root_module, predicate=inspect.isfunction)
-    strings += ["\n"+module_name+"\n"+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"]
+    strings += ["\n"]
     strings += [".. autosummary::"]
     for f in fs:
         strings += ["    "+module_name+"."+f[0]]
@@ -49,16 +49,16 @@ objcs = print_root_functions(objc, "objc")
 
 
 def write_list(file, name, list_of_string):
-    file.write(name+"\n-----------------------\n")
+    file.write("\n")
+    file.write(name+"\n"+"-"*25+"\n")
     file.write(".. autosummary::\n")
     for f in list_of_string:
         file.write(f+"\n")
-    file.write("\n")
 
-intro = "\nThis file only includes functions. All constants are defined in :class:`numbers`.\n\n"
+intro = "\nThis page only includes functions. All constants are defined in :class:`numbers`.\n\n"
 
 file = open("../overview.rst", "w")
-file.write("Overview\n==============\n")
+file.write("Overview\n"+"="*25+"\n")
 file.write(intro)
 write_list(file, "numbers", nu)
 write_list(file, "ndarray", n)

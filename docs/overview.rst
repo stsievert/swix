@@ -1,14 +1,14 @@
 Overview
-==============
+=========================
 
-This file only includes functions. For constants defined, see the specific module. Almost all global vars are declared in :class:`numbers`.
+This page only includes functions. All constants are defined in :class:`numbers`.
+
 
 numbers
------------------------
+-------------------------
 .. autosummary::
 
-numbers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. autosummary::
     numbers.close
     numbers.convience_elements
@@ -16,11 +16,11 @@ numbers
     numbers.operator_slash
 
 ndarray
------------------------
+-------------------------
 .. autosummary::
 
 ndarray.initing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     ndarray.initing.arange
@@ -36,7 +36,7 @@ ndarray.initing
     ndarray.initing.zeros_like
 
 ndarray.helper_functions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     ndarray.helper_functions.argwhere
@@ -49,7 +49,7 @@ ndarray.helper_functions
     ndarray.helper_functions.write_csv
 
 ndarray.ndarray
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     ndarray.ndarray.copy
@@ -62,14 +62,14 @@ ndarray.ndarray
     ndarray.ndarray.sort
 
 ndarray.complex_math
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     ndarray.complex_math.fft
     ndarray.complex_math.ifft
 
 ndarray.simple_math
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     ndarray.simple_math.abs
@@ -94,7 +94,7 @@ ndarray.simple_math
     ndarray.simple_math.variance
 
 ndarray.operators
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     ndarray.operators.add_subtract_multiply_divide
@@ -103,11 +103,11 @@ ndarray.operators
     ndarray.operators.pow
 
 matrix
------------------------
+-------------------------
 .. autosummary::
 
 matrix.initing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     matrix.initing.array
@@ -120,7 +120,7 @@ matrix.initing
     matrix.initing.zeros_like
 
 matrix.helper_functions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     matrix.helper_functions.argwhere
@@ -131,7 +131,7 @@ matrix.helper_functions
     matrix.helper_functions.write_csv
 
 matrix.matrix
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     matrix.matrix.copy
@@ -141,7 +141,7 @@ matrix.matrix
     matrix.matrix.index_flat
 
 matrix.complex_math
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     matrix.complex_math.dot
@@ -151,7 +151,7 @@ matrix.complex_math
     matrix.complex_math.svd
 
 matrix.images
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     matrix.images.RGBAToUIImage
@@ -162,7 +162,7 @@ matrix.images
     matrix.images.savefig
 
 matrix.simple_math
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     matrix.simple_math.abs
@@ -182,7 +182,7 @@ matrix.simple_math
     matrix.simple_math.tan
 
 matrix.operators
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     matrix.operators.dot
@@ -191,11 +191,11 @@ matrix.operators
     matrix.operators.solve
 
 machine learning
------------------------
+-------------------------
 .. autosummary::
 
 machine_learning.SVM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     machine_learning.SVM.predict
@@ -203,18 +203,16 @@ machine_learning.SVM
     machine_learning.SVM.train
 
 machine_learning.kNN
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
     machine_learning.kNN.predict
     machine_learning.kNN.train
 
 objc
------------------------
+-------------------------
 .. autosummary::
 
-objc
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. autosummary::
     objc.matrixToPointer
-

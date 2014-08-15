@@ -1,5 +1,7 @@
 all:
-	# make
+	# update overview page
+	cd docs/autodoc/; ipython docs.py
+	# make docs
 	cd docs; make html
 	
 	# removing folders

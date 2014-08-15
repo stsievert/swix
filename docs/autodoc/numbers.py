@@ -71,7 +71,7 @@ def convience_elements():
 
 def operator_slash(lhs, rhs):
     """
-    The operator ``/`` that represents division. Converts integer division to floating point division.
+    Operator ``/`` converts integer divison to double division.
 
     :param lhs: Int.
     :param rhs: Int.
