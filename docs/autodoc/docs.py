@@ -55,7 +55,7 @@ def write_list(file, name, list_of_string):
         file.write(f+"\n")
     file.write("\n")
 
-intro = "\nThis file only includes functions. For constants defined, see the specific module. Almost all global vars are declared in :class:`numbers`.\n\n"
+intro = "\nThis file only includes functions. All constants are defined in :class:`numbers`.\n\n"
 
 file = open("../overview.rst", "w")
 file.write("Overview\n==============\n")

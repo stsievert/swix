@@ -96,7 +96,7 @@ The equivalent Swift syntax with this library?
 
 .. note:: Speed results can be found at :doc:`speed`. We find that on MacOSX Python/Matlab and swix are roughly comparable.
 
-.. note:: Most "important" functions are listed in :doc:`summary`.
+.. note:: Most  functions are listed in :doc:`overview`.
 
 .. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``. The only exceptions are the classes ``ndarray`` and ``matrix``.
 
