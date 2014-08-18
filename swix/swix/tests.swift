@@ -230,6 +230,11 @@ class runTests {
         assert(y ~== array(1, 1, 2, 3, 5, 5, 6, 7, 9).reshape((3,3)))
         assert(eye(2) ~== array(1, 0, 0, 1).reshape((2,2)))
         
+        assert(x[0..<2, 0..<2] ~== array(0, 1, 3, 4).reshape((2,2)))
+        var z2 = x.copy()
+        z2[0..<2, 0..<2] = array(1, 2, 3, 4).reshape((2,2))
+        assert(z2[0..<2, 0..<2] ~== array(1, 2, 3, 4).reshape((2,2)))
+        
         assert(x.flat[array(1, 4, 5, 6)] ~== x[array(1, 4, 5, 6)])
         y = x.copy()
         y[array(1, 4, 5, 6)] = ones(4)

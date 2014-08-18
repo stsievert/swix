@@ -76,22 +76,21 @@ struct matrix {
         get {
             var rr = asarray(r)
             var cc = asarray(c)
-            var (j, i) = meshgrid(rr, cc)
-            var idx = (j.flat*columns.double + i.flat)
-            var z = flat[idx]
-            var zz = reshape(z, (rr.n, cc.n))
-            return zz
+            return self[rr, cc]
         }
         set {
             var rr = asarray(r)
             var cc = asarray(c)
-            var (j, i) = meshgrid(rr, cc)
-            var idx = j.flat*columns.double + i.flat
-            flat[idx] = newValue.flat
+            self[rr, cc] = newValue
         }
     }
-    subscript(r: ndarray, c: ndarray) -> matrix {
+    subscript(or: ndarray, oc: ndarray) -> matrix {
         get {
+            var r = or.copy()
+            var c = oc.copy()
+            if r.max() < 0.0 {r += 1.0 * rows}
+            if c.max() < 0.0 {c += 1.0 * columns}
+            
             var (j, i) = meshgrid(r, c)
             var idx = (j.flat*columns.double + i.flat)
             var z = flat[idx]
@@ -99,6 +98,10 @@ struct matrix {
             return zz
         }
         set {
+            var r = or.copy()
+            var c = oc.copy()
+            if r.max() < 0.0 {r += 1.0 * rows}
+            if c.max() < 0.0 {c += 1.0 * columns}
             if r.n > 0 && c.n > 0{
                 var (j, i) = meshgrid(r, c)
                 var idx = j.flat*columns.double + i.flat
@@ -113,23 +116,41 @@ struct matrix {
     subscript(i: Range<Int>, k: Int) -> ndarray {
         get {
             var idx = asarray(i)
+            return self[idx, k]
+        }
+        set {
+            var idx = asarray(i)
+            self[idx, k] = newValue
+        }
+    }
+    subscript(i: ndarray, k: Int) -> ndarray {
+        get {
+            var idx = i.copy()
             var x:ndarray = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
-            var idx = asarray(i)
-            self.flat[idx * self.columns.double + k.double] = newValue[idx]
+            var idx = i.copy()
+            self.flat[idx * self.columns.double + k.double] = newValue
         }
     }
     subscript(i: Int, k: Range<Int>) -> ndarray {
         get {
             var idx = asarray(k)
-            var x:ndarray = self.flat[i.double * self.columns.double + idx]
-            return x
+            return self[i, idx]
         }
         set {
             var idx = asarray(k)
-            self.flat[i.double * self.columns.double + idx] = newValue[idx]
+            self[i, idx] = newValue
+        }
+    }
+    subscript(i: Int, k: ndarray) -> ndarray {
+        get {
+            var x:ndarray = self.flat[i.double * self.columns.double + k]
+            return x
+        }
+        set {
+            self.flat[i.double * self.columns.double + k] = newValue
         }
     }
 }
