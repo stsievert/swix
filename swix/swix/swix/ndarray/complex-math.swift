@@ -9,7 +9,14 @@
 import Foundation
 import Accelerate
 
-// fft, ifft
+
+func inner(x:ndarray, y:ndarray)->Double{
+    return sum(x * y)
+}
+func outer(x:ndarray, y:ndarray)->matrix{
+    var (xm, ym) = meshgrid(x, y)
+    return xm * ym
+}
 func fft(x: ndarray) -> (ndarray, ndarray){
     var N:CInt = x.n.cint
     var yr = zeros(N.int)

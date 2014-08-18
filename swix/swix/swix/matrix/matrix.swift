@@ -17,6 +17,7 @@ struct matrix {
     var flat:ndarray
     var T:matrix {return transpose(self)}
     var I:matrix {return inv(self)}
+    var pI:matrix {return pinv(self)}
     init(columns: Int, rows: Int) {
         self.n = rows * columns
         self.rows = rows

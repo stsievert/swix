@@ -13,13 +13,7 @@ import Swift
 runTests()
 //SpeedTests()
 
-// 0: which row?
-// 1: which column?
-// repeat along 0 axis: repeat each row. aka the whole ndarray
-// repeat along 1 axis: repeat element wise
-
-
-
-
-
+var x1 = array(1.1, 1.3, 1.5)
+var x2 = array(1, 1, 1)
+println(remainder(x1, x2))
 

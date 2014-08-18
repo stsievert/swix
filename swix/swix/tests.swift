@@ -128,6 +128,13 @@ class runTests {
             assert(r ~== array(1, 2, 3))
             println("    `eig` returns the correct eigenvalues and no eigenvectors.")
         }
+        func pinv_test(){
+            var x = arange(3*4).reshape((3,4))
+            var y = pinv(x)
+            assert(x.dot(y).dot(x) ~== x)
+            assert(x.pI ~== pinv(x))
+            println("    pseudo-inverse works")
+        }
         swift_complex_test()
         scalar_test()
         range_test()
@@ -141,6 +148,7 @@ class runTests {
         inv_test()
         solve_test()
         eig_test()
+        pinv_test()
     }
     class ndarrayTests{
         init(){
@@ -187,6 +195,14 @@ class runTests {
             assert(concat(array(1, 2), array(3, 4)) ~== (arange(4)+1))
 
             assert(arange(4) ~== array(0, 1, 2, 3))
+            var xO = array(1, 2, 3)
+            var yO = array(1, 2, 3) + 3
+            assert(outer(xO, yO) ~== array(4, 5, 6, 8, 10, 12, 12, 15, 18).reshape((3,3)))
+            var xR1 = array(1.1, 1.2, 1.3)
+            var xR2 = array(1, 1, 1)
+            assert(remainder(xR1, xR2) ~== array(0.1, 0.2, 0.3))
+            assert(xR1 % 1.0 ~== array(0.1, 0.2, 0.3))
+            assert(1.0 % xR1 ~== ones(3))
         }
     }
     func readWriteTests(){

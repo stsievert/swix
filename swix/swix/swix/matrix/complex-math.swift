@@ -40,6 +40,21 @@ func svd(x: matrix) -> (matrix, ndarray, matrix){
 
     return (u, sigma, v)
 }
+func pinv(x:matrix)->matrix{
+    var (u, s, v) = svd(x)
+    var m = u.shape.0
+    var n = v.shape.1
+    var cutoff = DOUBLE_EPSILON * max(m, n) * max(s)
+    var i = s > cutoff
+    var ipos = argwhere(i)
+    s[ipos] = 1 / s[ipos]
+    var ineg = argwhere(1-i)
+    s[ineg] = zeros_like(ineg)
+    var z = zeros((n, m))
+    z["diag"] = s
+    var res = v.T.dot(z).dot(u.T)
+    return res
+}
 func inv(x: matrix) -> matrix{
     assert(x.shape.0 == x.shape.1, "To take an inverse of a matrix, the matrix must be square. If you want the inverse of a rectangular matrix, use psuedoinverse.")
     var y = x.copy()

@@ -26,6 +26,9 @@ func arange(max: Double, x exclusive:Bool = true) -> ndarray{
     var x = arange(0, max, x:exclusive)
     return x
 }
+func range(min:Double, max:Double, step:Double) -> ndarray{
+    return linspace(min, max, num:1+((max-min)/step).int)
+}
 func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     var pad = 0
     if !exclusive {pad = 1}

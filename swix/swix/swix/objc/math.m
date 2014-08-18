@@ -36,6 +36,9 @@ void svd_objc(double * xx, int m, int n, double* s, double* vt, double* u){
     free(work);
     free(iwork);
 }
+void pinv_objc(double* x, double* y, int m, int n){
+    printf("in objc\n");
+}
 
 
 

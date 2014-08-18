@@ -50,18 +50,7 @@ func sign(x: matrix) -> matrix{
     z.flat = y
     return z
 }
-func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
-    var x = zeros(N)
-    var y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
-    x.flat = y
-    return x
-}
-func rand(N: (Int, Int)) -> matrix{
-    var x = zeros(N)
-    var y = rand(N.0 * N.1)
-    x.flat = y
-    return x
-}
+
 func pow(x: matrix, power: Double) -> matrix{
     var y = pow(x.flat, power)
     var z = zeros_like(x)

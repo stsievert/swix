@@ -41,6 +41,11 @@ func apply_function(function: String, x: ndarray)->ndarray{
         var scalar:CDouble = 1
         vDSP_vrsumD(!x, 1.cint, &scalar, !y, 1.cint, n)
     }
+    else if function=="floor"{
+        var z = zeros_like(x)
+        vDSP_vfracD(!x, 1.cint, !z, 1.cint, vDSP_Length(x.n))
+        y = x - z
+    }
     else {assert(false, "Function not recongized")}
     return y
 }
@@ -71,6 +76,9 @@ func sum(x: ndarray) -> Double{
 func avg(x: ndarray) -> Double{
     var ret = sum(x) / x.n.double
     return Double(ret)
+}
+func remainder(x1:ndarray, x2:ndarray)->ndarray{
+    return (x1 - floor(x1 / x2) * x2)
 }
 func std(x: ndarray) -> Double{
     return sqrt(variance(x))}
@@ -138,7 +146,7 @@ func round(x: ndarray) -> ndarray{
     return apply_function(round, x)
 }
 func floor(x: ndarray) -> ndarray{
-    var y = apply_function(floor, x)
+    var y = apply_function("floor", x)
     return y
 }
 func ceil(x: ndarray) -> ndarray{
