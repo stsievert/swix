@@ -170,6 +170,7 @@ class runTests {
         }
         func ndarraySwiftTests(){
             // testing the file ndarray.swift
+            assert(arange(4)[-1] == 3.0)
             assert(arange(4).reshape((2,2)) ~== array("0 1; 2 3"))
             assert(arange(4).copy() ~== arange(4))
             var x = array(4, 2, 3, 1)

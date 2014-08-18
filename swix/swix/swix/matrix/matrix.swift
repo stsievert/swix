@@ -56,12 +56,20 @@ struct matrix {
     }
     subscript(i: Int, j: Int) -> Double {
         get {
-            assert(indexIsValidForRow(i, c:j), "Index out of range")
-            return flat[i*columns + j]
+            var nI = i
+            var nJ = j
+            if nI < 0 {nI = rows + i}
+            if nJ < 0 {nJ = rows + j}
+            assert(indexIsValidForRow(nI, c:nJ), "Index out of range")
+            return flat[nI * columns + nJ]
         }
         set {
-            assert(indexIsValidForRow(i, c:j), "Index out of range")
-            flat[i*columns + j] = newValue
+            var nI = i
+            var nJ = j
+            if nI < 0 {nI = rows + i}
+            if nJ < 0 {nJ = rows + j}
+            assert(indexIsValidForRow(nI, c:nJ), "Index out of range")
+            flat[nI * columns + nJ] = newValue
         }
     }
     subscript(r: Range<Int>, c: Range<Int>) -> matrix {

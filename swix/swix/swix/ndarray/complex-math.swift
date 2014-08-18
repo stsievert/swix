@@ -10,6 +10,17 @@ import Foundation
 import Accelerate
 
 
+// integration
+func cumtrapz(x:ndarray)->ndarray{
+    var y = zeros_like(x)
+    var dx:CDouble = 1.0
+    vDSP_vtrapzD(!x, 1.cint, &dx, !y, 1.cint, vDSP_Length(x.n))
+    return y
+}
+func trapz(x:ndarray)->Double{
+    return cumtrapz(x)[-1]
+}
+// basic definitions
 func inner(x:ndarray, y:ndarray)->Double{
     return sum(x * y)
 }
@@ -17,6 +28,7 @@ func outer(x:ndarray, y:ndarray)->matrix{
     var (xm, ym) = meshgrid(x, y)
     return xm * ym
 }
+// fourier transforms
 func fft(x: ndarray) -> (ndarray, ndarray){
     var N:CInt = x.n.cint
     var yr = zeros(N.int)

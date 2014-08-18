@@ -15,13 +15,15 @@ runTests()
 //SpeedTests()
 
 
-var x = array(1, 2, 3)
-func cumtrapz(x:ndarray)->ndarray{
-    var y = zeros_like(x)
-    var dx:CDouble = 1.0
-    vDSP_vtrapzD(!x, 1.cint, &dx, !y, 1.cint, vDSP_Length(x.n))
-    return y
-}
-//func trapz(x:ndarray)->Double{
-//    return cumtrapz(x)
-//}
+var x = arange(4*2)
+//x[array(-2, -3)] = array(5, 3)
+//println(x[])
+
+
+
+
+
+
+
+
+
