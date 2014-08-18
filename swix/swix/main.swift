@@ -10,10 +10,18 @@
 import Foundation
 import Swift
 
+
 runTests()
 //SpeedTests()
 
-var x1 = array(1.1, 1.3, 1.5)
-var x2 = array(1, 1, 1)
-println(remainder(x1, x2))
 
+var x = array(1, 2, 3)
+func cumtrapz(x:ndarray)->ndarray{
+    var y = zeros_like(x)
+    var dx:CDouble = 1.0
+    vDSP_vtrapzD(!x, 1.cint, &dx, !y, 1.cint, vDSP_Length(x.n))
+    return y
+}
+//func trapz(x:ndarray)->Double{
+//    return cumtrapz(x)
+//}

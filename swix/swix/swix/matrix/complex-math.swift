@@ -10,6 +10,11 @@ import Foundation
 import Swift
 import Accelerate
 
+func rank(x:matrix)->Double{
+    var (u, S, v) = svd(x, compute_uv:false)
+    var tol = S.max() * max(x.shape.0, x.shape.1) * DOUBLE_EPSILON
+    return sum(S > tol)
+}
 func dot(x: matrix, y: matrix) -> matrix{
     var (Mx, Nx) = x.shape
     var (My, Ny) = y.shape
@@ -22,7 +27,7 @@ func dot(x: matrix, y: matrix) -> matrix{
         !z, Ny.cint)
     return z
 }
-func svd(x: matrix) -> (matrix, ndarray, matrix){
+func svd(x: matrix, compute_uv:Bool=true) -> (matrix, ndarray, matrix){
     var (m, n) = x.shape
     var nS = m < n ? m : n // number singular values
     var sigma = zeros(nS)
@@ -32,7 +37,8 @@ func svd(x: matrix) -> (matrix, ndarray, matrix){
     var xx = zeros_like(x)
     xx.flat = x.flat
     xx = xx.T
-    svd_objc(!xx, m.cint, n.cint, !sigma, !vt, !u);
+    var c_uv:CInt = compute_uv==true ? 1 : 0
+    svd_objc(!xx, m.cint, n.cint, !sigma, !vt, !u, c_uv)
     
     // to get the svd result to match Python
     var v = transpose(vt)

@@ -203,6 +203,9 @@ class runTests {
             assert(remainder(xR1, xR2) ~== array(0.1, 0.2, 0.3))
             assert(xR1 % 1.0 ~== array(0.1, 0.2, 0.3))
             assert(1.0 % xR1 ~== ones(3))
+            
+            var xR = arange(4*4).reshape((4,4))
+            assert(rank(xR) == 2.0)
         }
     }
     func readWriteTests(){

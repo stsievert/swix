@@ -33,6 +33,10 @@ func concat(x:ndarray, y:ndarray)->ndarray{
     z[x.n..<y.n+x.n] = y
     return z
 }
+func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
+    var i = (a > a_min) && (a < a_max)
+    return a * i
+}
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
     var i = arange(idx.n)
