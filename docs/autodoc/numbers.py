@@ -68,6 +68,22 @@ def convience_elements():
     >>> assert("3.14".floatValue == 3.14)
     """
 
+def deg2rad(x):
+    """
+    Convert from degrees to radians.
+
+    :param x: Angle in degrees.
+    :type x: Double
+    :rtype: Double. Angle in radians.
+    """
+def rad2deg(x):
+    """
+    Convert from radians to degrees.
+
+    :param x: Angle in radians.
+    :type x: Double
+    :rtype: Double. Angle in degrees.
+    """
 
 def operator_slash(lhs, rhs):
     """

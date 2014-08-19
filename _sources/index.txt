@@ -91,18 +91,17 @@ The equivalent Swift syntax with this library?
     var y = ones(N) * phi
     var result = (x+y+4)*x
 
+Looking at the speed results in :doc:`speed` we find that Swift is roughly
+equal with Python/Matlab with this library.
 
-.. note:: Examples, the most important part of documentation can be found at :doc:`examples`
-
-.. note:: Speed results can be found at :doc:`speed`. We find that on MacOSX Python/Matlab and swix are roughly comparable.
-
-.. note:: All  functions are listed in :doc:`overview`.
 
 .. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``. The only exceptions are the classes ``ndarray`` and ``matrix``.
 
 .. note:: There is a `mobile friendly`_ version of these docs that is out of date.
 
 .. note:: These docs use ``np`` for NumPy, ``mpl`` for ``matplotlib`` and ``cv`` for OpenCV
+
+.. note:: If a variable has the same name as a function included in swix you will get compile errors. I'll wait to resolve this until Swift has good package handling.
 
 
 Table of Contents

@@ -56,6 +56,7 @@ def write_list(file, name, list_of_string):
         file.write(f+"\n")
 
 intro = "\nThis page only includes functions. All constants are defined in :class:`numbers`.\n\n"
+intro += "\n.. include:: links.rst\n"
 
 file = open("../overview.rst", "w")
 file.write("Overview\n"+"="*25+"\n")

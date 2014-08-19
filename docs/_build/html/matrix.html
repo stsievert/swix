@@ -150,14 +150,21 @@ select indices when indexing.</p>
 <dl class="method">
 <dt id="matrix.matrix.index">
 <tt class="descname">index</tt><big>(</big><em>one</em>, <em>two</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int.</p>
+<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int. Includes negative
+indexing like Python</p>
+<p>Use <tt class="docutils literal"><span class="pre">x[1,</span> <span class="pre">&quot;all&quot;]</span></tt> to access an entire row or column.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Assumes wholly negative or positive. Indexes like</p>
+</div>
+<p><tt class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></tt> aren&#8217;t supported.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, ndarray</em>) &#8211; The row selector.</li>
-<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, ndarray</em>) &#8211; The column selector.</li>
+<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The row selector.</li>
+<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The column selector.</li>
 </ul>
 </td>
 </tr>
@@ -175,6 +182,7 @@ select indices when indexing.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -275,26 +283,6 @@ select indices when indexing.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.simple_math.avg">
-<tt class="descname">avg</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.avg" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </li>
-<li><strong>dim</strong> (<em>Int</em>) &#8211; The dimension to which compute the average over.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Returns the avg along each dimension</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="matrix.simple_math.ceil">
 <tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.ceil" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -355,6 +343,26 @@ select indices when indexing.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="matrix.simple_math.mean">
+<tt class="descname">mean</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.mean" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </li>
+<li><strong>dim</strong> (<em>Int</em>) &#8211; The dimension to which compute the average over.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Returns the mean along each dimension</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.simple_math.pow">
 <tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.pow" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -369,36 +377,6 @@ select indices when indexing.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Applies the function to every element.</p>
 </td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="matrix.simple_math.rand">
-<tt class="descname">rand</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.rand" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Applies the function to every element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="matrix.simple_math.randn">
-<tt class="descname">randn</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.randn" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Applies the function to every element.</td>
 </tr>
 </tbody>
 </table>
@@ -587,14 +565,21 @@ select indices when indexing.</p>
 <dl class="method">
 <dt>
 <tt class="descname">index</tt><big>(</big><em>one</em>, <em>two</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int.</p>
+<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int. Includes negative
+indexing like Python</p>
+<p>Use <tt class="docutils literal"><span class="pre">x[1,</span> <span class="pre">&quot;all&quot;]</span></tt> to access an entire row or column.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Assumes wholly negative or positive. Indexes like</p>
+</div>
+<p><tt class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></tt> aren&#8217;t supported.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, ndarray</em>) &#8211; The row selector.</li>
-<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, ndarray</em>) &#8211; The column selector.</li>
+<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The row selector.</li>
+<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The column selector.</li>
 </ul>
 </td>
 </tr>
@@ -612,6 +597,7 @@ select indices when indexing.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -804,6 +790,36 @@ select indices when indexing.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="matrix.initing.rand">
+<tt class="descname">rand</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.rand" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Applies the function to every element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.initing.randn">
+<tt class="descname">randn</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.randn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Applies the function to every element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.initing.read_csv">
 <tt class="descname">read_csv</tt><big>(</big><em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.read_csv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads a csv.</p>
@@ -971,6 +987,28 @@ select indices when indexing.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;3 4; 1 2&quot;</span><span class="p">))</span>
 </pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.kron">
+<tt class="descname">kron</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.kron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the <a class="reference external" href="https://en.wikipedia.org/wiki/Kronecker_product">Kronecker product</a> between two matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The first term for kron.</li>
+<li><strong>b</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The second term in kron.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/Kronecker_product">Kronecker product</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html">np.kron</a></p>
 </div>
 </dd></dl>
 
@@ -1198,26 +1236,6 @@ select indices when indexing.</p>
 
 <dl class="method">
 <dt>
-<tt class="descname">avg</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </li>
-<li><strong>dim</strong> (<em>Int</em>) &#8211; The dimension to which compute the average over.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Returns the avg along each dimension</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt>
 <tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1278,6 +1296,26 @@ select indices when indexing.</p>
 
 <dl class="method">
 <dt>
+<tt class="descname">mean</tt><big>(</big><em>x</em>, <em>axis=-1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </li>
+<li><strong>dim</strong> (<em>Int</em>) &#8211; The dimension to which compute the average over.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Returns the mean along each dimension</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
 <tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1291,36 +1329,6 @@ select indices when indexing.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Applies the function to every element.</p>
 </td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<tt class="descname">rand</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Applies the function to every element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<tt class="descname">randn</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Applies the function to every element.</td>
 </tr>
 </tbody>
 </table>
@@ -1511,6 +1519,46 @@ select indices when indexing.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="matrix.complex_math.pinv">
+<tt class="descname">pinv</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.pinv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the <a class="reference external" href="https://en.wikipedia.org/wiki/Moore–Penrose_pseudoinverse">Moore-Penrose pseudoinverse</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; Finds the inverse of this matrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/Moore–Penrose_pseudoinverse">Moore-Penrose pseudoinverse</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.pinv.html">np.linalg.pinv</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.complex_math.rank">
+<tt class="descname">rank</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the <a class="reference external" href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">matrix rank</a> of a matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix to compute the rank of.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The rank of the matrix.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">matrix rank</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.linalg.matrix_rank.html">np.linalg.matrix_rank</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.complex_math.solve">
 <tt class="descname">solve</tt><big>(</big><em>A</em>, <em>b</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.solve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve a system of linear equations.</p>
@@ -1546,15 +1594,20 @@ select indices when indexing.</p>
 
 <dl class="method">
 <dt id="matrix.complex_math.svd">
-<tt class="descname">svd</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.svd" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">svd</tt><big>(</big><em>x</em>, <em>compute_uv=True</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.svd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the singular value decomposition.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The input to the singular value decomposition.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The input to the singular value decomposition.</li>
+<li><strong>compute_uv</strong> (<em>Bool</em>) &#8211; Compute U and V.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(matrix, ndarray, matrix)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(matrix, ndarray, matrix)</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1693,7 +1746,38 @@ RGBA color planes.</p>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This function isn&#8217;t optimized. If you want to go fast, look at only including the V plane and using max.</p>
+<p class="last">This function isn&#8217;t optimized.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#matrix.images.rgb2hsv_vplane" title="matrix.images.rgb2hsv_vplane"><tt class="xref py py-class docutils literal"><span class="pre">rgb2hsv_vplane</span></tt></a>, <a class="reference external" href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSV</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.images.rgb2hsv_vplane">
+<tt class="descname">rgb2hsv_vplane</tt><big>(</big><em>r</em>, <em>g</em>, <em>b</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.images.rgb2hsv_vplane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a set of RGB color values to the HSV v plane only. Since
+<span class="math">\(v = \max(r, g, b)\)</span>, this function is optimized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The red color plane.</li>
+<li><strong>g</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The blue color plane.</li>
+<li><strong>b</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The green color plane.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matrix. The v plane.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#matrix.images.rgb2hsv" title="matrix.images.rgb2hsv"><tt class="xref py py-class docutils literal"><span class="pre">images.rgb2hsv</span></tt></a></p>
 </div>
 </dd></dl>
 

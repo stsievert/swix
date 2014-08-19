@@ -76,15 +76,21 @@ class ndarray:
         """
     def indexing(idx):
         """
-        Grabs elements using an ndarray, Range<Int> or integers.
+        Grabs elements using an ndarray, Range<Int> or integers. Includes negative indexing like Python.
+
+        .. warning:: Assumes an index is either wholly positive or negative; indexes like ``array(-1, 0, 1)`` aren't supported.
+
+        Use ``x["all"]`` to grab all elements from this array.
 
         :param idx: The values to get the index from.
-        :type idx: Int, Range<Int>, ndarray
+        :type idx: Int, Range<Int>, ndarray, String
 
         >>> var x = arange(10)
         >>> assert(x[1] == 1)
         >>> assert(x[0..<2] ~== array(0, 1))
         >>> assert(x[array(0, 1)] ~== array(0, 1))
+        >>> assert(x[-1] == 9)
+        >>> assert(x["all"] ~== arange(10))
 
         .. seealso:: `np.indexing`_
         """
@@ -121,6 +127,16 @@ class initing():
         :rtype: ndarray. Random integers that are normally distributed.
 
         .. seealso:: `np.random.randn`_
+        """
+    def randperm(N):
+        """
+        Shuffle an array of (typically) indices.
+
+        :param N: The size of the array. Values included are between 0 and N-1.
+        :type N: Int
+        :rtype: ndarray
+
+        .. seealso:: :class:`helper_functions.shuffle`, `np.random.permutation`_
         """
     def arange(max, min=0, x=True):
         """
@@ -240,6 +256,32 @@ class initing():
         """
 
 class helper_functions:
+    def shuffle(x):
+        """
+        Randomly shuffle an array.
+
+        :param x: The array to shuffle.
+        :type x: ndarray
+        :rtype: The array shuffled. Not in place!
+
+        .. seealso:: `cv.randShuffle`_, `np.random.shuffle`_
+        """
+    def clip(a, a_min, a_max):
+        """
+        Only keep values between a_min and a_max; set the rest to 0. Performs the following operation:
+
+        :math:`(x_i < a_{min}) \lor (x_i > a_{max}) \implies x_i = 0`
+
+        Similar to Numeric's clip.
+
+        :param a: The array to clip.
+        :type a: ndarray
+        :param a_min: The minimum value.
+        :type a_min: Double
+        :param a_max: The maximum value.
+        :type a_max: Double
+        :rtype: ndarray
+        """
     def argwhere(idx):
         """
         Sees where a condition exists.
@@ -249,7 +291,40 @@ class helper_functions:
         :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
 
         .. seealso::
-            `np.argwhere`_
+            `np.argwhere`_, :class:`argmin`, :class:`argsort`, :class:`argwhere`
+        """
+    def argsort(x):
+        """
+        Sort the array but using indices.
+
+        :param x: An array.
+        :type x: ndarray
+        :rtype: ndarray
+
+        >>> var x = array(1, 4, 2, 6, 7)
+        >>> assert(argsort(x) ~== array(0, 2, 1, 3, 4))
+
+        .. seealso:: `np.argsort`_, `cv.sortIdx`_, :class:`argmin`, :class:`argsort`, :class:`argwhere`
+        """
+    def argmin(x):
+        """
+        The location of the minimum.
+
+        :param x: An array.
+        :type x: ndarray
+        :rtype: Double. The location of the maximum value.
+
+        .. seealso:: `np.argmin`_, `cv.minMaxLoc`_, :class:`argmax`, :class:`argmin`, :class:`argsort`, :class:`argwhere`
+        """
+    def argmax(x):
+        """
+        The location of the maximum.
+
+        :param x: An array.
+        :type x: ndarray
+        :rtype: Double. The location of the maximum value.
+
+        .. seealso:: `np.argmax`_, `cv.minMaxLoc`_, :class:`argmin`, :class:`argsort`, :class:`argwhere`
         """
     def delete(x, idx):
         """
@@ -275,7 +350,7 @@ class helper_functions:
         >>> var y = array(2, 3)
         >>> assert(concat(x, y) ~== arange(4))
 
-        .. seealso:: `np.concatenate`_
+        .. seealso:: `np.concatenate`_, `np.append`_
         """
     def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
         """
@@ -342,7 +417,7 @@ class helper_functions:
         """
 
 class operators:
-    def add_subtract_multiply_divide(lhs, rhs):
+    def elementwise_operators(lhs, rhs):
         """
         Element-wise operators.
 
@@ -413,7 +488,7 @@ class simple_math:
     The following are detailed docs on various functions, but the following
     functions work like expected:
 
-    * min, max, avg, std, variance
+    * min, max, mean, std, variance
     * sign, abs, norm, pow, sqrt
     * sum, cumsum, 
     * rand, randn
@@ -424,7 +499,7 @@ class simple_math:
         """
         Apply a function to every element of an array.
 
-        :param function: Assumed to be one of "abs", "sign" or "cumsum" or a simple Double->Double function.
+        :param function: Assumed to be one of "abs", "sign", "floor" or "cumsum" or a simple Double->Double function.
         :param x: An array.
         :type function: String, Double->Double
         :type x: ndarray
@@ -432,45 +507,47 @@ class simple_math:
 
         .. note:: Unoptimized for function type Double->Double. I tried to optimize with Grand Central Dispatch's ``dispatch_apply``, but no luck.
         """
-    def min(x):
+    def remainer(x1, x2):
         """
-        Finds the minimum element.
+        Finds the element wise remainder after dividing the two arrays.
 
-        :param x: An array.
-        :type x: ndarray
-        :rtype: Double. The minimum value of the array.
+        >>> assert(array(1.1, 1.2, 1.3) % ones(3) ~== array(0.1, 0.2, 0.3))
+
+        :param x1: The top divisor.
+        :type x1: ndarray, Double, ndarray
+        :param x2: The bottom divisor.
+        :type x2: Double, ndarray, ndarray
+        :rtype: ndarray
         """
-    def max(x):
+    def min(x, y=None):
         """
         Finds the maximum element.
 
-        :param x: An array.
-        :type x: ndarray
-        :rtype: Double. The maximum value of the array.
-        """
-    def max(x, y):
-        """
-        Finds the maximum of two arrays.
+        If only one array specified, it only finds the maximum element of that
+        array. If two arrays specficied, it finds the maximum element wise.
+
+        >>> assert(max(array(0, 1), array(1, 0)) ~== array(0, 0))
 
         :param x: An array.
+        :type x: ndarray
         :param y: Another array.
-        :type x: ndarray
         :type y: ndarray
-        :rtype: ndarray. The maximum of either array.
+        :rtype: Double, ndarray. The maximum value of the array or the maximum element from both arrays.
+        """
+    def max(x, y=None):
+        """
+        Finds the maximum element.
 
-        >>> assert(max(array(0, 1, 5), array(2, 1, 0)) ~== array(2, 1, 5))
-        """
-    def min(x, y):
-        """
-        Finds the minimum of two arrays.
+        If only one array specified, it only finds the maximum element of that
+        array. If two arrays specficied, it finds the maximum element wise.
+
+        >>> assert(max(array(0, 1), array(1, 0)) ~== array(1, 1))
 
         :param x: An array.
-        :param y: Another array.
         :type x: ndarray
+        :param y: Another array.
         :type y: ndarray
-        :rtype: ndarray. The minimum of either array.
-
-        >>> assert(max(array(0, 1, 5), array(2, 1, 0)) ~== array(0, 1, 0))
+        :rtype: Double, ndarray. The maximum value of the array or the maximum element from both arrays.
         """
     def sign(x):
         """
@@ -492,7 +569,7 @@ class simple_math:
 
         >>> assert(sum(array(1, 2, 3)) == 6)
         """
-    def avg(x):
+    def mean(x):
         """
         Finds the mean of an array.
 
@@ -634,6 +711,22 @@ class simple_math:
         """
 
 class complex_math:
+    def fftconvolve(x, kernel):
+        """
+        Convolve x with a kernel.
+
+        :param x: The base signal.
+        :type x: ndarray
+        :param kernel: The convolution kernel.
+        :type kernel: ndarray
+        :rtype: x convolved with kernel through the Fourier transform. That is, if :math:`y = x \\otimes k` then :math:`F(y) = F(x) \\cdot F(k)`
+
+        .. warning:: There are bugs in this function. My simple tests with a delta function failed, possibly do to the funky divide in :class:`fft`/:class:`ifft`.
+
+        .. warning:: The number of elements in kernel is assumed to be less than the number of elements in x.
+
+        .. seealso:: `scipy.signal.fftconvolve`_, `Convolution`_
+        """
     def fft(x):
         """
         Takes the discrete Fourier Transform.
@@ -646,6 +739,8 @@ class complex_math:
         >>> assert(x ~== ifft(fft(x)))
 
         .. seealso:: `np.fft.fft`_, `Fourier Transform`_
+
+        .. warning:: I had to do some weird dividing; possibly related to dimension?
         """
     def ifft(y_real, y_imag):
         """
@@ -658,6 +753,8 @@ class complex_math:
         :rtype: ndarray. The inverse Fourier transform of :math:`y_{real} + j \\cdot y_{imag}`
 
         .. seealso:: `np.fft.ifft`_, `Fourier Transform`_
+
+        .. warning:: I had to do some weird dividing; possibly related to dimension?
         """
 
 

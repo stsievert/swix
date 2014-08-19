@@ -37,7 +37,25 @@
 .. _`OpenCV's SVM`: http://docs.opencv.org/modules/ml/doc/support_vector_machines.html
 .. _`cv.flip`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#void%20flip(InputArray%20src,%20OutputArray%20dst,%20int%20flipCode)
 .. _`np.concatenate`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html#numpy.concatenate
+.. _`np.linalg.pinv`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.pinv.html
+.. _`np.linalg.matrix_rank`: http://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.linalg.matrix_rank.html
+.. _`np.kron`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html
+.. _`np.append`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.append.html
+.. _`np.argsort`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.argsort.html
+.. _`np.argmax`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html
+.. _`np.argmin`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html
+.. _`cv.minMaxLoc`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#minmaxloc
+.. _`cv.sortIdx`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#sortidx
+.. _`cv.randShuffle`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#randshuffle
+.. _`np.random.shuffle`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.shuffle.html
+.. _`np.random.permutation`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.permutation.html
+.. _`scipy.signal.fftconvolve`: http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.fftconvolve.html
 
+.. _`Kronecker Product`: https://en.wikipedia.org/wiki/Kronecker_product
+.. _`Convolution`: https://en.wikipedia.org/wiki/Convolution
+.. _`matrix rank`: https://en.wikipedia.org/wiki/Rank_(linear_algebra)
+.. _`Moore-Penrose pseudoinverse`: https://en.wikipedia.org/wiki/Moore–Penrose_pseudoinverse
+.. _`HSV`: https://en.wikipedia.org/wiki/HSL_and_HSV
 .. _`Matrix multiplication`: https://en.wikipedia.org/wiki/Matrix_multiplication
 .. _`row-major`: https://en.wikipedia.org/wiki/Row-major_order
 .. _`Variance`: https://en.wikipedia.org/wiki/Variance

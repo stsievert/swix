@@ -4,6 +4,8 @@ Overview
 This page only includes functions. All constants are defined in :class:`numbers`.
 
 
+.. include:: links.rst
+
 numbers
 -------------------------
 .. autosummary::
@@ -12,8 +14,10 @@ numbers
 .. autosummary::
     numbers.close
     numbers.convience_elements
+    numbers.deg2rad
     numbers.isNumber
     numbers.operator_slash
+    numbers.rad2deg
 
 ndarray
 -------------------------
@@ -31,6 +35,7 @@ ndarray.initing
     ndarray.initing.ones
     ndarray.initing.rand
     ndarray.initing.randn
+    ndarray.initing.randperm
     ndarray.initing.read_csv
     ndarray.initing.zeros
     ndarray.initing.zeros_like
@@ -39,12 +44,17 @@ ndarray.helper_functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
+    ndarray.helper_functions.argmax
+    ndarray.helper_functions.argmin
+    ndarray.helper_functions.argsort
     ndarray.helper_functions.argwhere
+    ndarray.helper_functions.clip
     ndarray.helper_functions.concat
     ndarray.helper_functions.delete
     ndarray.helper_functions.println
     ndarray.helper_functions.repeat
     ndarray.helper_functions.reverse
+    ndarray.helper_functions.shuffle
     ndarray.helper_functions.sort
     ndarray.helper_functions.write_csv
 
@@ -66,6 +76,7 @@ ndarray.complex_math
 .. autosummary::
 
     ndarray.complex_math.fft
+    ndarray.complex_math.fftconvolve
     ndarray.complex_math.ifft
 
 ndarray.simple_math
@@ -74,16 +85,17 @@ ndarray.simple_math
 
     ndarray.simple_math.abs
     ndarray.simple_math.apply_function
-    ndarray.simple_math.avg
     ndarray.simple_math.ceil
     ndarray.simple_math.cos
     ndarray.simple_math.cumsum
     ndarray.simple_math.floor
     ndarray.simple_math.log
     ndarray.simple_math.max
+    ndarray.simple_math.mean
     ndarray.simple_math.min
     ndarray.simple_math.norm
     ndarray.simple_math.pow
+    ndarray.simple_math.remainer
     ndarray.simple_math.round
     ndarray.simple_math.sign
     ndarray.simple_math.sin
@@ -97,7 +109,7 @@ ndarray.operators
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
-    ndarray.operators.add_subtract_multiply_divide
+    ndarray.operators.elementwise_operators
     ndarray.operators.equality
     ndarray.operators.logical_operators
     ndarray.operators.pow
@@ -114,6 +126,8 @@ matrix.initing
     matrix.initing.eye
     matrix.initing.meshgrid
     matrix.initing.ones
+    matrix.initing.rand
+    matrix.initing.randn
     matrix.initing.read_csv
     matrix.initing.reshape
     matrix.initing.zeros
@@ -126,6 +140,7 @@ matrix.helper_functions
     matrix.helper_functions.argwhere
     matrix.helper_functions.fliplr
     matrix.helper_functions.flipud
+    matrix.helper_functions.kron
     matrix.helper_functions.println
     matrix.helper_functions.transpose
     matrix.helper_functions.write_csv
@@ -147,6 +162,8 @@ matrix.complex_math
     matrix.complex_math.dot
     matrix.complex_math.eig
     matrix.complex_math.inv
+    matrix.complex_math.pinv
+    matrix.complex_math.rank
     matrix.complex_math.solve
     matrix.complex_math.svd
 
@@ -159,6 +176,7 @@ matrix.images
     matrix.images.imshow
     matrix.images.resizeImage
     matrix.images.rgb2hsv
+    matrix.images.rgb2hsv_vplane
     matrix.images.savefig
 
 matrix.simple_math
@@ -166,14 +184,12 @@ matrix.simple_math
 .. autosummary::
 
     matrix.simple_math.abs
-    matrix.simple_math.avg
     matrix.simple_math.ceil
     matrix.simple_math.cos
     matrix.simple_math.floor
     matrix.simple_math.log
+    matrix.simple_math.mean
     matrix.simple_math.pow
-    matrix.simple_math.rand
-    matrix.simple_math.randn
     matrix.simple_math.round
     matrix.simple_math.sign
     matrix.simple_math.sin

@@ -40,12 +40,18 @@ class matrix:
         """
     def index(one, two):
         """
-        Indexes with two numbers; range<int>, ndarray or int.
+        Indexes with two numbers; range<int>, ndarray or int. Includes negative
+        indexing like Python
+
+        Use ``x[1, "all"]`` to access an entire row or column.
+        
+        .. warning:: Assumes wholly negative or positive. Indexes like
+        ``array(-1, 0, 1)`` aren't supported.
 
         :param one: The row selector.
         :param two: The column selector.
-        :type one: Int, Range<Int>, ndarray
-        :type two: Int, Range<Int>, ndarray
+        :type one: Int, Range<Int>, ndarray, String
+        :type two: Int, Range<Int>, ndarray, String
         :rtype: matrix
 
         .. note:: Use ``x[3, 4]`` to index, not the function name.
@@ -55,6 +61,7 @@ class matrix:
         >>> assert(x[0,1] == 1)
         >>> assert(x[0..<2, 0..<3] ~== array("0 1 2; 3 4 5")
         >>> assert(x[arange(2), arange(3)] ~== array("0 1 2; 3 4 5")
+        >>> assert(x[0, "all"] ~== array(0, 1, 2))
 
         .. seealso:: `np.indexing`_
         """
@@ -91,6 +98,18 @@ class matrix:
         """
 
 class initing:
+    def randn(x):
+        """
+        :param x:
+        :type x: matrix
+        :rtype: Applies the function to every element.
+        """
+    def rand(x):
+        """
+        :param x:
+        :type x: matrix
+        :rtype: Applies the function to every element.
+        """
     def array(matlab_like_string):
         """
         An array from a matlab like string.
@@ -196,6 +215,17 @@ class initing:
         """
 
 class helper_functions:
+    def kron(a, b):
+        """
+        Find the `Kronecker product`_ between two matrices. 
+
+        :param a: The first term for kron.
+        :type a: matrix
+        :param b: The second term in kron.
+        :type b: matrix
+
+        .. seealso:: `Kronecker product`_, `np.kron`_
+        """
     def argwhere(idx):
         """
         Sees where a condition applies.
@@ -406,18 +436,6 @@ class simple_math:
         :type x: matrix
         :rtype: Applies the function to every element.
         """
-    def randn(x):
-        """
-        :param x:
-        :type x: matrix
-        :rtype: Applies the function to every element.
-        """
-    def rand(x):
-        """
-        :param x:
-        :type x: matrix
-        :rtype: Applies the function to every element.
-        """
     def pow(x, power):
         """
         :param x:
@@ -438,13 +456,13 @@ class simple_math:
         >>> assert(sum(x, dim:0) ~== array(3, 12))
         >>> assert(sum(x, dim:1) ~== array(3, 5, 7))
         """
-    def avg(x, axis=-1):
+    def mean(x, axis=-1):
         """
         :param x:
         :type x: matrix
         :type dim: Int
         :param dim: The dimension to which compute the average over.
-        :rtype: Returns the avg along each dimension
+        :rtype: Returns the mean along each dimension
         """
 
 class images:
@@ -460,7 +478,24 @@ class images:
         :type b: matrix
         :rtype: (matrix, matrix, matrix). Returns the HSV color planes.
 
-        .. note:: This function isn't optimized. If you want to go fast, look at only including the V plane and using max.
+        .. note:: This function isn't optimized.
+
+        .. seealso:: :class:`rgb2hsv_vplane`, `HSV`_
+        """
+    def rgb2hsv_vplane(r, g, b):
+        """
+        Converts a set of RGB color values to the HSV v plane only. Since
+        :math:`v = \max(r, g, b)`, this function is optimized.
+
+        :param r: The red color plane.
+        :type r: matrix
+        :param g: The blue color plane.
+        :type g: matrix
+        :param b: The green color plane.
+        :type b: matrix
+        :rtype: matrix. The v plane.
+
+        .. seealso:: :class:`images.rgb2hsv`
         """
     def savefig(x, filename, save=True, show=False):
         """
@@ -530,6 +565,16 @@ class images:
         """
 
 class complex_math:
+    def rank(x):
+        """
+        Compute the `matrix rank`_ of a matrix.
+
+        :param x: The matrix to compute the rank of.
+        :type x: matrix
+        :rtype: Double. The rank of the matrix.
+
+        .. seealso:: `matrix rank`_, `np.linalg.matrix_rank`_
+        """
     def dot(x, y):
         """
         Matrix multiplication between two matrices.
@@ -589,16 +634,28 @@ class complex_math:
 
         .. seealso:: `np.linalg.solve`_, `System of linear equations`_
         """
-    def svd(x):
+    def svd(x, compute_uv=True):
         """
         Compute the singular value decomposition.
 
         :param x: The input to the singular value decomposition.
         :type x: matrix
+        :param compute_uv: Compute U and V.
+        :type compute_uv: Bool
         :rtype: (matrix, ndarray, matrix)
 
         Finds a factorization such that :math:`x = U S V`.
 
         .. seealso:: `np.linalg.svd`_, `Singular value decomposition`_
+        """
+    def pinv(x):
+        """
+        Finds the `Moore-Penrose pseudoinverse`_.
+
+        :param x: Finds the inverse of this matrix.
+        :type x: matrix
+        :rtype: matrix
+
+        .. seealso:: `Moore-Penrose pseudoinverse`_, `np.linalg.pinv`_
         """
 
