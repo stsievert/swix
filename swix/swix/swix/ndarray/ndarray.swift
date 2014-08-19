@@ -51,7 +51,7 @@ struct ndarray {
         return m
     }
     func mean() -> Double{
-        return avg(self)
+        return sum(self) / n
     }
     subscript(index:String)->ndarray{
         get {

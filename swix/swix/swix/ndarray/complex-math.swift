@@ -75,3 +75,19 @@ func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     x /= 16.0
     return x
 }
+func fftconvolve(x:ndarray, kernel:ndarray)->ndarray{
+    // zero padding, assuming kernel is smaller than x
+    var k_pad = zeros_like(x)
+    k_pad[0..<k.n] = k
+    
+    // performing the fft
+    var (Kr, Ki) = fft(k_pad)
+    var (Xr, Xi) = fft(x)
+    
+    // computing the multiplication (yes, a hack)
+    // (xr+xi*j) * (yr+yi*j) = xr*xi - xi*yi + j*(xi*yr) + j*(yr*xi)
+    var Yr = Xr*Kr - Xi*Ki
+    var Yi = Xr*Ki + Xi*Kr
+    var y = ifft(Yr, Yi)
+    return y
+}

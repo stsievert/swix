@@ -73,9 +73,8 @@ func sum(x: ndarray) -> Double{
     vDSP_sveD(!x, 1.cint, &ret, vDSP_Length(x.n))
     return Double(ret)
 }
-func avg(x: ndarray) -> Double{
-    var ret = sum(x) / x.n.double
-    return Double(ret)
+func mean(x: ndarray) -> Double{
+    return x.mean()
 }
 func remainder(x1:ndarray, x2:ndarray)->ndarray{
     return (x1 - floor(x1 / x2) * x2)
@@ -83,7 +82,7 @@ func remainder(x1:ndarray, x2:ndarray)->ndarray{
 func std(x: ndarray) -> Double{
     return sqrt(variance(x))}
 func variance(x: ndarray) -> Double{
-    return sum(pow(x - avg(x), 2) / x.count.double)}
+    return sum(pow(x - mean(x), 2) / x.count.double)}
 func cumsum(x: ndarray) -> ndarray{
     return apply_function("cumsum", x)}
 func abs(x: ndarray) -> ndarray{

@@ -57,3 +57,12 @@ def kronTest():
     A = array([1, 2, 3, 4, 5, 6]).reshape(2, 3)
     B = array([3, 2, 5, 0, 1, 2]).reshape(3,2)
     print kron(A, B)
+
+#def convolveTest():
+from scipy.signal import fftconvolve
+
+x = arange(10)
+k = ones(4) / 4
+y = fftconvolve(x, k, mode='same')
+
+print np.around(y, decimals=3)
