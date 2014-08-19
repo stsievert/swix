@@ -14,7 +14,14 @@ import Swift
 runTests()
 //SpeedTests()
 
+var x = rand(100)
+var k = ones(3)
+// convolution
 
+// zero padding
+// assuming kernel is smaller than x
+
+// (2+j) * (3+j) = 2*3 + j*j + 3*j + 2*j
 
 
 

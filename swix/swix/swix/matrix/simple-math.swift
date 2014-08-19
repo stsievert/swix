@@ -73,14 +73,9 @@ func max(x:matrix, y:matrix)->matrix{
     z.flat = max(x.flat, y.flat)
     return z
 }
-func norm(x: matrix, type:String="l2") -> Double{
-    if type=="l0"{ return norm(x.flat, type:"l0")}
-    if type=="l1"{ return norm(x.flat, type:"l1")}
-    if type=="l2"{ return norm(x.flat, type:"l2")}
-    
-    assert(false, "type of norm unrecongnized")
-    return -1.0
-}
+// we should take the norm over each row/column
+//func norm(x: matrix, type:String="l2") -> Double{
+//}
 func sum(x: matrix, axis:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     assert(axis==0 || axis==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")

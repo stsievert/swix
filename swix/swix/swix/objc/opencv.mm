@@ -109,6 +109,15 @@ void copy(Mat x, double * y, int N);
     Mat yMat(N, 1, CV_32S, y);
     sortIdx(xMat, yMat, CV_SORT_ASCENDING + CV_SORT_EVERY_COLUMN);
 }
++ (void) pow:(double*)x N:(int)N power:(double)power into:(double*)y{
+    Mat xMat(N,1,CV_64F, x);
+    Mat yMat(N,1,CV_64F, y);
+    pow(xMat, power, yMat);
+}
++ (void) shuffle:(double*)x n:(int)n{
+    Mat xMat(n, 1, CV_64F, x);
+    randShuffle(xMat);
+}
 
 void matArgWhereConvert(Mat x, double * y, int N){
     if  (!x.isContinuous()){

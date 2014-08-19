@@ -25,6 +25,9 @@
 + (void) argmax:(double*)x N:(int)N max:(int*)max;
 + (void) argmin:(double*)x N:(int)N min:(int*)min;
 + (void) argsort:(double*)x N:(int)N into:(int*)y;
++ (void) pow:(double*)x N:(int)N power:(double)power into:(double*)y;
++ (void) shuffle:(double*)x n:(int)n;
+
 @end
 
 // #### SVM (svm.mm)
