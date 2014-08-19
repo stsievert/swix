@@ -58,9 +58,6 @@ func rgb2hsv(r:matrix, g:matrix, b:matrix)->(matrix, matrix, matrix){
     }
     return (h, s, v)
 }
-func rgb2_hsv_vplane(r:matrix, g:matrix, b:matrix)->matrix{
-    return max(max(r, g), b)
-}
 
 
 func savefig(x:matrix, filename:String, save:Bool=true, show:Bool=false){

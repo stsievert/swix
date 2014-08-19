@@ -33,6 +33,15 @@ func concat(x:ndarray, y:ndarray)->ndarray{
     z[x.n..<y.n+x.n] = y
     return z
 }
+func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
+    var i = (a > a_min) && (a < a_max)
+    return a * i
+}
+func shuffle(x:ndarray)->ndarray{
+    var y = x.copy()
+    CVWrapper.shuffle(!y, n:y.n.cint)
+    return y
+}
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
     var i = arange(idx.n)
@@ -64,6 +73,26 @@ func repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
     if axis==0{}
     else if axis==1 { y = y.T}
     return y.flat
+}
+func argmax(x:ndarray)->Int{
+    var m:CInt = 0
+    CVWrapper.argmax(!x, n: x.n.cint, max: &m)
+    return Int(m)
+}
+func argmin(x:ndarray)->Int{
+    var m:CInt = 0
+    CVWrapper.argmin(!x, n: x.n.cint, min: &m)
+    return Int(m)
+}
+func argsort(x:ndarray)->ndarray{
+    // the array of integers that OpenCV needs
+    var y:[CInt] = Array(count:x.n, repeatedValue:0)
+    // calling opencv's sortidx
+    CVWrapper.argsort(!x, n: x.n.cint, into:&y)
+    // the integer-->double conversion
+    var z = zeros_like(x)
+    vDSP_vflt32D(&y, 1.cint, !z, 1.cint, vDSP_Length(x.n))
+    return z
 }
 func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     var seperator=","

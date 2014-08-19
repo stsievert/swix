@@ -128,6 +128,13 @@ class runTests {
             assert(r ~== array(1, 2, 3))
             println("    `eig` returns the correct eigenvalues and no eigenvectors.")
         }
+        func pinv_test(){
+            var x = arange(3*4).reshape((3,4))
+            var y = pinv(x)
+            assert(x.dot(y).dot(x) ~== x)
+            assert(x.pI ~== pinv(x))
+            println("    pseudo-inverse works")
+        }
         swift_complex_test()
         scalar_test()
         range_test()
@@ -141,6 +148,7 @@ class runTests {
         inv_test()
         solve_test()
         eig_test()
+        pinv_test()
     }
     class ndarrayTests{
         init(){
@@ -162,6 +170,7 @@ class runTests {
         }
         func ndarraySwiftTests(){
             // testing the file ndarray.swift
+            assert(arange(4)[-1] == 3.0)
             assert(arange(4).reshape((2,2)) ~== array("0 1; 2 3"))
             assert(arange(4).copy() ~== arange(4))
             var x = array(4, 2, 3, 1)
@@ -187,6 +196,17 @@ class runTests {
             assert(concat(array(1, 2), array(3, 4)) ~== (arange(4)+1))
 
             assert(arange(4) ~== array(0, 1, 2, 3))
+            var xO = array(1, 2, 3)
+            var yO = array(1, 2, 3) + 3
+            assert(outer(xO, yO) ~== array(4, 5, 6, 8, 10, 12, 12, 15, 18).reshape((3,3)))
+            var xR1 = array(1.1, 1.2, 1.3)
+            var xR2 = array(1, 1, 1)
+            assert(remainder(xR1, xR2) ~== array(0.1, 0.2, 0.3))
+            assert(xR1 % 1.0 ~== array(0.1, 0.2, 0.3))
+            assert(1.0 % xR1 ~== ones(3))
+            
+            var xR = arange(4*4).reshape((4,4))
+            assert(rank(xR) == 2.0)
         }
     }
     func readWriteTests(){
@@ -209,6 +229,11 @@ class runTests {
         y["diag"] = array(1, 5, 9)
         assert(y ~== array(1, 1, 2, 3, 5, 5, 6, 7, 9).reshape((3,3)))
         assert(eye(2) ~== array(1, 0, 0, 1).reshape((2,2)))
+        
+        assert(x[0..<2, 0..<2] ~== array(0, 1, 3, 4).reshape((2,2)))
+        var z2 = x.copy()
+        z2[0..<2, 0..<2] = array(1, 2, 3, 4).reshape((2,2))
+        assert(z2[0..<2, 0..<2] ~== array(1, 2, 3, 4).reshape((2,2)))
         
         assert(x.flat[array(1, 4, 5, 6)] ~== x[array(1, 4, 5, 6)])
         y = x.copy()
@@ -238,14 +263,14 @@ class runTests {
         assert(((x+1)^2)   ~== array(0, 1, 4))
         assert(variance(ones(4)) == 0)
         assert(std(ones(4)) == 0)
-        assert(avg(x) == 0)
-        assert(abs(avg(rand(1000)) - 0.5) < 0.1)
-        assert(abs(avg(randn(1000))) < 0.1)
+        assert(mean(x) == 0)
+        assert(abs(mean(rand(1000)) - 0.5) < 0.1)
+        assert(abs(mean(randn(1000))) < 0.1)
         assert(abs(std(randn(1000)) - 1) < 0.2)
         var y = randn((100,100))
-        assert(abs(avg(y.flat)) < 0.1)
+        assert(abs(mean(y.flat)) < 0.1)
         y = rand((100, 100))
-        assert(abs(avg(y.flat) - 0.5) < 0.1)
+        assert(abs(mean(y.flat) - 0.5) < 0.1)
         
         assert(repeat(array(0, 1), 2) ~== array(0, 1, 0, 1))
         assert(repeat(array(0, 1), 2, axis:1) ~== array(0, 0, 1, 1))

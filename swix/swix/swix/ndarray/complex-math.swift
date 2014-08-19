@@ -9,7 +9,26 @@
 import Foundation
 import Accelerate
 
-// fft, ifft
+
+// integration
+func cumtrapz(x:ndarray)->ndarray{
+    var y = zeros_like(x)
+    var dx:CDouble = 1.0
+    vDSP_vtrapzD(!x, 1.cint, &dx, !y, 1.cint, vDSP_Length(x.n))
+    return y
+}
+func trapz(x:ndarray)->Double{
+    return cumtrapz(x)[-1]
+}
+// basic definitions
+func inner(x:ndarray, y:ndarray)->Double{
+    return sum(x * y)
+}
+func outer(x:ndarray, y:ndarray)->matrix{
+    var (xm, ym) = meshgrid(x, y)
+    return xm * ym
+}
+// fourier transforms
 func fft(x: ndarray) -> (ndarray, ndarray){
     var N:CInt = x.n.cint
     var yr = zeros(N.int)
@@ -55,4 +74,20 @@ func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     // this divide seems wrong
     x /= 16.0
     return x
+}
+func fftconvolve(x:ndarray, kernel:ndarray)->ndarray{
+    // zero padding, assuming kernel is smaller than x
+    var k_pad = zeros_like(x)
+    k_pad[0..<k.n] = k
+    
+    // performing the fft
+    var (Kr, Ki) = fft(k_pad)
+    var (Xr, Xi) = fft(x)
+    
+    // computing the multiplication (yes, a hack)
+    // (xr+xi*j) * (yr+yi*j) = xr*xi - xi*yi + j*(xi*yr) + j*(yr*xi)
+    var Yr = Xr*Kr - Xi*Ki
+    var Yi = Xr*Ki + Xi*Kr
+    var y = ifft(Yr, Yi)
+    return y
 }

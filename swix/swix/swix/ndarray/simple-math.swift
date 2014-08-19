@@ -41,6 +41,11 @@ func apply_function(function: String, x: ndarray)->ndarray{
         var scalar:CDouble = 1
         vDSP_vrsumD(!x, 1.cint, &scalar, !y, 1.cint, n)
     }
+    else if function=="floor"{
+        var z = zeros_like(x)
+        vDSP_vfracD(!x, 1.cint, !z, 1.cint, vDSP_Length(x.n))
+        y = x - z
+    }
     else {assert(false, "Function not recongized")}
     return y
 }
@@ -68,36 +73,37 @@ func sum(x: ndarray) -> Double{
     vDSP_sveD(!x, 1.cint, &ret, vDSP_Length(x.n))
     return Double(ret)
 }
-func avg(x: ndarray) -> Double{
-    var ret = sum(x) / x.n.double
-    return Double(ret)
+func mean(x: ndarray) -> Double{
+    return x.mean()
+}
+func remainder(x1:ndarray, x2:ndarray)->ndarray{
+    return (x1 - floor(x1 / x2) * x2)
 }
 func std(x: ndarray) -> Double{
     return sqrt(variance(x))}
 func variance(x: ndarray) -> Double{
-    return sum(pow(x - avg(x), 2) / x.count.double)}
+    return sum(pow(x - mean(x), 2) / x.count.double)}
 func cumsum(x: ndarray) -> ndarray{
     return apply_function("cumsum", x)}
 func abs(x: ndarray) -> ndarray{
     return apply_function("abs", x)}
 func sign(x: Double) -> Double{
     return x < 0 ? -1 : 1}
-func norm(x: ndarray, type:String="l2") -> Double{
-    if type=="l2"{ return sqrt(sum(pow(x, 2)))}
-    if type=="l1"{ return sum(abs(x))}
-    if type=="l0"{ return sum(abs(x) > 1e-9)}
-    assert(false, "type of norm unrecongnized")
-    return -1.0}
+//func norm(x: ndarray, type:String="l2") -> Double{
+//    if type=="l2"{ return sqrt(sum(pow(x, 2)))}
+//    if type=="l1"{ return sum(abs(x))}
+//    if type=="l0"{ return sum(abs(x) > 1e-9)}
+//    assert(false, "type of norm unrecongnized")
+//    return -1.0}
+func l0norm(x:ndarray)->Double {return sum(abs(x) > 1e-9)}
+func l1norm(x:ndarray)->Double {return sum(abs(x))}
+func l2norm(x:ndarray)->Double {return sqrt(sum(pow(x, 2)))}
 
 
-// optimized for power==2
-func pow(x: ndarray, power: Double) -> ndarray{
-    var y = zeros(x.count)
-    if power==2{
-        vDSP_vsqD(!x, 1, !y, 1, vDSP_Length(x.n.cint))
-    } else{
-        if close(2, power) {println("Careful! Large speed optimization missed because power not exactly 2!")}
-        for i in 0..<x.count {y[i] = pow(x[i], power)}}
+// optimized for pow(ndarray, double)
+func pow(x:ndarray, power:Double)->ndarray{
+    var y = zeros_like(x)
+    CVWrapper.pow(!x, n:x.n.cint, power:power, into:!y)
     return y
 }
 func pow(x:ndarray, y:ndarray)->ndarray{
@@ -138,7 +144,7 @@ func round(x: ndarray) -> ndarray{
     return apply_function(round, x)
 }
 func floor(x: ndarray) -> ndarray{
-    var y = apply_function(floor, x)
+    var y = apply_function("floor", x)
     return y
 }
 func ceil(x: ndarray) -> ndarray{

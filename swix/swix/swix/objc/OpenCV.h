@@ -22,6 +22,12 @@
 + (void) compare:(double*)x withDouble:(double)y
            using:(NSString*)op into:(double*)z ofLength:(int)N;
 + (void) flip:(double*)x into:(double*)y how:(NSString*)how M:(int)M N:(int)N;
++ (void) argmax:(double*)x N:(int)N max:(int*)max;
++ (void) argmin:(double*)x N:(int)N min:(int*)min;
++ (void) argsort:(double*)x N:(int)N into:(int*)y;
++ (void) pow:(double*)x N:(int)N power:(double)power into:(double*)y;
++ (void) shuffle:(double*)x n:(int)n;
+
 @end
 
 // #### SVM (svm.mm)

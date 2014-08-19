@@ -148,7 +148,12 @@ func imshow(x: matrix){
 //}
 //func resizeImage(image:UIImage, shape:(Int, Int)) -> UIImage{
 //    // nice variables
+<<<<<<< HEAD
 //    var (height, width) = shape
+=======
+//    var height = shape.0
+//    var width = shape.1
+>>>>>>> dev
 //    var cgSize = CGSizeMake(width, height)
 //    
 //    // draw on new CGSize

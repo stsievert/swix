@@ -26,6 +26,9 @@ func arange(max: Double, x exclusive:Bool = true) -> ndarray{
     var x = arange(0, max, x:exclusive)
     return x
 }
+func range(min:Double, max:Double, step:Double) -> ndarray{
+    return linspace(min, max, num:1+((max-min)/step).int)
+}
 func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     var pad = 0
     if !exclusive {pad = 1}
@@ -97,6 +100,11 @@ func rand(N: Int, seed:Int=42, distro:String="uniform") -> ndarray{
 }
 func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
     return (rand(N, distro:"normal") * sigma) + mean;
+}
+func randperm(N:Int)->ndarray{
+    var x = arange(N)
+    var y = shuffle(x)
+    return y
 }
 
 
