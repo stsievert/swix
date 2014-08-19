@@ -11,7 +11,7 @@ import Accelerate
 
 // the matrix definition and related functions go here
 
-// SLOW PARTS: x[ndarray, ndarray] set, modulo operator
+// SLOW PARTS: x[ndarray, ndarray] set
 
 
 struct ndarray {
