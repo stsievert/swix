@@ -89,15 +89,12 @@ func abs(x: ndarray) -> ndarray{
     return apply_function("abs", x)}
 func sign(x: Double) -> Double{
     return x < 0 ? -1 : 1}
-//func norm(x: ndarray, type:String="l2") -> Double{
-//    if type=="l2"{ return sqrt(sum(pow(x, 2)))}
-//    if type=="l1"{ return sum(abs(x))}
-//    if type=="l0"{ return sum(abs(x) > 1e-9)}
-//    assert(false, "type of norm unrecongnized")
-//    return -1.0}
-func l0norm(x:ndarray)->Double {return sum(abs(x) > 1e-9)}
-func l1norm(x:ndarray)->Double {return sum(abs(x))}
-func l2norm(x:ndarray)->Double {return sqrt(sum(pow(x, 2)))}
+func norm(x: ndarray, type:String="l2") -> Double{
+    if type=="l2"{ return sqrt(sum(pow(x, 2)))}
+    if type=="l1"{ return sum(abs(x))}
+    if type=="l0"{ return sum(abs(x) > 1e-9)}
+    assert(false, "type of norm unrecongnized")
+    return -1.0}
 
 
 // optimized for pow(ndarray, double)
