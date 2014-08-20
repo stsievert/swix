@@ -12,7 +12,7 @@ import Swift
 
 
 runTests()
-SpeedTests()
+//SpeedTests()
 
 var x = arange(10)
 var k = ones(1) / 1
