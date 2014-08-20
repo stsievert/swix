@@ -56,10 +56,6 @@
 		D2A06F11199C5ABC0039BDAB /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A06EE2199C5ABC0039BDAB /* opencv2.framework */; };
 		D2A06F12199C5ABC0039BDAB /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A06EE3199C5ABC0039BDAB /* operations-and-indexing.m */; };
 		D2A06F13199C5ABC0039BDAB /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A06EE3199C5ABC0039BDAB /* operations-and-indexing.m */; };
-		D2A06F14199C5ABC0039BDAB /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A06EE5199C5ABC0039BDAB /* ScalarArithmetic.swift */; };
-		D2A06F15199C5ABC0039BDAB /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A06EE5199C5ABC0039BDAB /* ScalarArithmetic.swift */; };
-		D2A06F16199C5ABC0039BDAB /* temp.csv in Resources */ = {isa = PBXBuildFile; fileRef = D2A06EE7199C5ABC0039BDAB /* temp.csv */; };
-		D2A06F17199C5ABC0039BDAB /* temp.csv in Resources */ = {isa = PBXBuildFile; fileRef = D2A06EE7199C5ABC0039BDAB /* temp.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,8 +102,6 @@
 		D2A06EE2199C5ABC0039BDAB /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		D2A06EE3199C5ABC0039BDAB /* operations-and-indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "operations-and-indexing.m"; sourceTree = "<group>"; };
 		D2A06EE4199C5ABC0039BDAB /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
-		D2A06EE5199C5ABC0039BDAB /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarArithmetic.swift; sourceTree = "<group>"; };
-		D2A06EE7199C5ABC0039BDAB /* temp.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temp.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,9 +189,6 @@
 				D2A06ED4199C5ABC0039BDAB /* ndarray */,
 				D2A06EDB199C5ABC0039BDAB /* numbers.swift */,
 				D2A06EDC199C5ABC0039BDAB /* objc */,
-				D2A06EE5199C5ABC0039BDAB /* ScalarArithmetic.swift */,
-				D2A06EE6199C5ABC0039BDAB /* swift-complex */,
-				D2A06EE7199C5ABC0039BDAB /* temp.csv */,
 			);
 			path = swix;
 			sourceTree = "<group>";
@@ -250,13 +241,6 @@
 				D2A06EE4199C5ABC0039BDAB /* swix-Bridging-Header.h */,
 			);
 			path = objc;
-			sourceTree = "<group>";
-		};
-		D2A06EE6199C5ABC0039BDAB /* swift-complex */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "swift-complex";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,7 +323,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A06F16199C5ABC0039BDAB /* temp.csv in Resources */,
 				D2A06EB1199C5AA20039BDAB /* Main.storyboard in Resources */,
 				D2A06EB3199C5AA20039BDAB /* Images.xcassets in Resources */,
 				D2A06EE8199C5ABC0039BDAB /* imshow.py in Resources */,
@@ -350,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A06F17199C5ABC0039BDAB /* temp.csv in Resources */,
 				D2A06EE9199C5ABC0039BDAB /* imshow.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +352,6 @@
 				D2A06EFC199C5ABC0039BDAB /* helper-functions.swift in Sources */,
 				D2A06EF6199C5ABC0039BDAB /* operators.swift in Sources */,
 				D2A06EEE199C5ABC0039BDAB /* helper-functions.swift in Sources */,
-				D2A06F14199C5ABC0039BDAB /* ScalarArithmetic.swift in Sources */,
 				D2A06F08199C5ABC0039BDAB /* conversion.swift in Sources */,
 				D2A06EAE199C5AA20039BDAB /* ViewController.swift in Sources */,
 				D2A06EF4199C5ABC0039BDAB /* matrix.swift in Sources */,
@@ -401,7 +382,6 @@
 				D2A06F05199C5ABC0039BDAB /* simple-math.swift in Sources */,
 				D2A06F0D199C5ABC0039BDAB /* math.m in Sources */,
 				D2A06EFF199C5ABC0039BDAB /* initing.swift in Sources */,
-				D2A06F15199C5ABC0039BDAB /* ScalarArithmetic.swift in Sources */,
 				D2A06EF7199C5ABC0039BDAB /* operators.swift in Sources */,
 				D2A06EF5199C5ABC0039BDAB /* matrix.swift in Sources */,
 				D2A06EEB199C5ABC0039BDAB /* machine_learning.swift in Sources */,
@@ -603,6 +583,7 @@
 				D2A06EC4199C5AA20039BDAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2A06EC5199C5AA20039BDAB /* Build configuration list for PBXNativeTarget "swix-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -611,6 +592,7 @@
 				D2A06EC7199C5AA20039BDAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
