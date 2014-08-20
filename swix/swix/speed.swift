@@ -13,8 +13,8 @@ class SpeedTests {
     init(){
         time(pe1, name:"Project Euler 1")
         time(pe10, name:"Project Euler 10")
-        time(soft_thresholding, name:"Soft thresholding")
         time(pi_approx, name:"Pi approximation")
+        time(soft_thresholding, name:"Soft thresholding")
     }
 }
 func time(f:()->(), name:String="function"){
@@ -34,12 +34,12 @@ func pe10(){
     // find all primes
     var N = 2e6.int
     var primes = arange(Double(N))
-//    var top = Int(floor(sqrt(N)))
-//    for i in 2 ..< top{
-//        var max:Int = (N/i)
-//        var j = arange(2, max) * i.double
-//        primes[j] *= 0.0
-//    }
+    var top = (sqrt(N.double)).int
+    for i in 2 ..< top{
+        var max:Int = (N/i)
+        var j = arange(2, max.double) * i.double
+        primes[j] *= 0.0
+    }
     // sum(primes) is the correct answer
 }
 func soft_thresholding(){
