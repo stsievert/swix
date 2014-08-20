@@ -32,7 +32,6 @@
 		D2B6F68D1996F5B200F2466D /* helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B6F68C1996F5B200F2466D /* helper-functions.swift */; };
 		D2BBBDAD196DD693004707F3 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* math.m */; };
 		D2CEF76C1996FB1D00AC6D34 /* speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CEF76B1996FB1D00AC6D34 /* speed.swift */; };
-		D2D1AC0D199A871C00E81E43 /* ScalarArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1AC0C199A871C00E81E43 /* ScalarArithmetic.swift */; };
 		D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0A197308440036CD3B /* operations-and-indexing.m */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +76,6 @@
 		D2BBBDAB196DD693004707F3 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
 		D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2CEF76B1996FB1D00AC6D34 /* speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = speed.swift; sourceTree = "<group>"; };
-		D2D1AC0C199A871C00E81E43 /* ScalarArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScalarArithmetic.swift; path = swix/ScalarArithmetic.swift; sourceTree = "<group>"; };
 		D2FF0F0A197308440036CD3B /* operations-and-indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "operations-and-indexing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +144,6 @@
 			children = (
 				D24A8554196D7D73009C18AC /* main.swift */,
 				D2CEF76B1996FB1D00AC6D34 /* speed.swift */,
-				D2D1AC0C199A871C00E81E43 /* ScalarArithmetic.swift */,
 				D273B689197997DE00750A09 /* tests.swift */,
 				D24A855D196D7E90009C18AC /* swix */,
 			);
@@ -236,7 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D218B22E1990206800D519E4 /* complex-math.swift in Sources */,
-				D2D1AC0D199A871C00E81E43 /* ScalarArithmetic.swift in Sources */,
 				D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */,
 				D23648D21976CC720020FB95 /* machine_learning.swift in Sources */,
 				D218B21A19901FDF00D519E4 /* ndarray.swift in Sources */,
