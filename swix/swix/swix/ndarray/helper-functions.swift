@@ -44,14 +44,14 @@ func shuffle(x:ndarray)->ndarray{
 }
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
-    var i = arange(idx.n)
+    var i = arange(Double(idx.n))
     var args = zeros(sum(idx).int)
-    vDSP_vcmprsD(!i, 1.cint, !idx, 1.cint, !args, 1.cint, vDSP_Length(idx.n))
+    vDSP_vcmprsD(!i, vDSP_Stride(1), !idx, vDSP_Stride(1), !args, vDSP_Stride(1), vDSP_Length(idx.n))
     return args
 }
 func reverse(x:ndarray) -> ndarray{
     var y = x.copy()
-    vDSP_vrvrsD(!y, 1.cint, vDSP_Length(y.n.cint))
+    vDSP_vrvrsD(!y, vDSP_Stride(1), vDSP_Length(y.n.cint))
     return y
 }
 func sort(x:ndarray)->ndarray{
@@ -91,7 +91,7 @@ func argsort(x:ndarray)->ndarray{
     CVWrapper.argsort(!x, n: x.n.cint, into:&y)
     // the integer-->double conversion
     var z = zeros_like(x)
-    vDSP_vflt32D(&y, 1.cint, !z, 1.cint, vDSP_Length(x.n))
+    vDSP_vflt32D(&y, vDSP_Stride(1), !z, vDSP_Stride(1), vDSP_Length(x.n))
     return z
 }
 func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){

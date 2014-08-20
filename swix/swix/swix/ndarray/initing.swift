@@ -26,6 +26,10 @@ func arange(max: Double, x exclusive:Bool = true) -> ndarray{
     var x = arange(0, max, x:exclusive)
     return x
 }
+func arange(max: Int, x exclusive:Bool = true) -> ndarray{
+    var x = arange(0, max.double, x:exclusive)
+    return x
+}
 func range(min:Double, max:Double, step:Double) -> ndarray{
     return linspace(min, max, num:1+((max-min)/step).int)
 }
@@ -36,14 +40,14 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     var x = zeros(N)
     var o = CDouble(min)
     var l = CDouble(1)
-    vDSP_vrampD(&o, &l, !x, 1.cint, vDSP_Length(N))
+    vDSP_vrampD(&o, &l, !x, vDSP_Stride(1), vDSP_Length(N))
     return x
 }
 func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
     var x = zeros(num+0)
     var min  = CDouble(min)
     var step = CDouble((max-min).double/(num-1).double)
-    vDSP_vrampD(&min, &step, !x, 1.cint, vDSP_Length(x.n.cint))
+    vDSP_vrampD(&min, &step, !x, vDSP_Stride(1), vDSP_Length(x.n.cint))
     return x
 }
 func array(numbers: Double...) -> ndarray{
@@ -102,7 +106,7 @@ func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
     return (rand(N, distro:"normal") * sigma) + mean;
 }
 func randperm(N:Int)->ndarray{
-    var x = arange(N)
+    var x = arange(N.double)
     var y = shuffle(x)
     return y
 }

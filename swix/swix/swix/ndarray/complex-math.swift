@@ -14,7 +14,7 @@ import Accelerate
 func cumtrapz(x:ndarray)->ndarray{
     var y = zeros_like(x)
     var dx:CDouble = 1.0
-    vDSP_vtrapzD(!x, 1.cint, &dx, !y, 1.cint, vDSP_Length(x.n))
+    vDSP_vtrapzD(!x, 1.stride, &dx, !y, 1.stride, vDSP_Length(x.n))
     return y
 }
 func trapz(x:ndarray)->Double{
@@ -39,7 +39,7 @@ func fft(x: ndarray) -> (ndarray, ndarray){
     var pass:vDSP_Length = vDSP_Length((log2(N.double)+1.0).int)
     var setup:FFTSetupD = vDSP_create_fftsetupD(pass, radix)
     var log2n:Int = (log2(N.double)+1.0).int
-    var z = zeros(N)
+    var z = zeros(N.int)
     var x2:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !x, imagp:!z)
     var y = DSPDoubleSplitComplex(realp:!yr, imagp:!yi)
     var dir = FFTDirection(FFT_FORWARD)

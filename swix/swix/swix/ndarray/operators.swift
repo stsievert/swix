@@ -55,7 +55,7 @@ func make_operator(lhs:ndarray, operation:String, rhs:Double) -> ndarray{
     } else if operation == "*"{
         var C:CDouble = 0
         var mul = CDouble(rhs)
-        vDSP_vsmsaD(!lhs, 1.cint, &mul, &C, !array, 1.cint, vDSP_Length(lhs.n.cint))
+        vDSP_vsmsaD(!lhs, vDSP_Stride(1), &mul, &C, !array, vDSP_Stride(1), vDSP_Length(lhs.n.cint))
     }
     else if operation == "+"
         {vDSP_vsaddD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}

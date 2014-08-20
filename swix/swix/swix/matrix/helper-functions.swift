@@ -51,7 +51,7 @@ func transpose (x: matrix) -> matrix{
     var m = x.shape.1
     var n = x.shape.0
     var y = zeros((m, n))
-    vDSP_mtransD(!x, 1.cint, !y, 1.cint, vDSP_Length(m), vDSP_Length(n))
+    vDSP_mtransD(!x, 1.stride, !y, 1.stride, vDSP_Length(m), vDSP_Length(n))
     return y
 }
 func kron(A:matrix, B:matrix)->matrix{

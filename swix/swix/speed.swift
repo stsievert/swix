@@ -33,12 +33,13 @@ func pe1(){
 func pe10(){
     // find all primes
     var N = 2e6.int
-    var primes = arange(N)
-    for i in 2..<sqrt(N).int{
-        var max:Int = (N/i)
-        var j = arange(2, max) * i.double
-        primes[j] *= 0.0
-    }
+    var primes = arange(Double(N))
+//    var top = Int(floor(sqrt(N)))
+//    for i in 2 ..< top{
+//        var max:Int = (N/i)
+//        var j = arange(2, max) * i.double
+//        primes[j] *= 0.0
+//    }
     // sum(primes) is the correct answer
 }
 func soft_thresholding(){

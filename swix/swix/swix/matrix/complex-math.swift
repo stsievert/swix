@@ -12,7 +12,8 @@ import Accelerate
 
 func rank(x:matrix)->Double{
     var (u, S, v) = svd(x, compute_uv:false)
-    var tol = S.max() * max(x.shape.0, x.shape.1) * DOUBLE_EPSILON
+    var m:Double = (x.shape.0 < x.shape.1 ? x.shape.1 : x.shape.0).double
+    var tol = S.max() * m * DOUBLE_EPSILON
     return sum(S > tol)
 }
 func dot(x: matrix, y: matrix) -> matrix{
@@ -50,7 +51,8 @@ func pinv(x:matrix)->matrix{
     var (u, s, v) = svd(x)
     var m = u.shape.0
     var n = v.shape.1
-    var cutoff = DOUBLE_EPSILON * max(m, n) * max(s)
+    var ma = m < n ? n : m
+    var cutoff = DOUBLE_EPSILON * ma.double * max(s)
     var i = s > cutoff
     var ipos = argwhere(i)
     s[ipos] = 1 / s[ipos]
@@ -68,7 +70,8 @@ func inv(x: matrix) -> matrix{
     
     var ipiv:Array<__CLPK_integer> = Array(count:M*M, repeatedValue:0)
     var lwork:__CLPK_integer = __CLPK_integer(N*N)
-    var work:[CDouble] = Array(count:lwork, repeatedValue:0.0)
+//    var work:[CDouble] = [CDouble](count:lwork, repeatedValue:0)
+    var work = [CDouble](count: Int(lwork), repeatedValue: 0.0)
     var info:__CLPK_integer=0
     var nc = __CLPK_integer(N)
     dgetrf_(&nc, &nc, !y, &nc, &ipiv, &info)
@@ -104,7 +107,7 @@ func eig(x: matrix)->ndarray{
     var jobvl = (job.cStringUsingEncoding(NSUTF8StringEncoding)?[0])!
     var jobvr = (job.cStringUsingEncoding(NSUTF8StringEncoding)?[0])!
     
-    work[0] = lwork
+    work[0] = Double(lwork)
     var nc = __CLPK_integer(n)
     dgeev_(&jobvl, &jobvr, &nc, !x, &nc,
         !value_real, !value_imag, !vector, &nc, !vector, &nc,
