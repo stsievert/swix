@@ -40,14 +40,14 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     var x = zeros(N)
     var o = CDouble(min)
     var l = CDouble(1)
-    vDSP_vrampD(&o, &l, !x, vDSP_Stride(1), vDSP_Length(N))
+    vDSP_vrampD(&o, &l, !x, 1.stride, N.length)
     return x
 }
 func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
     var x = zeros(num+0)
     var min  = CDouble(min)
     var step = CDouble((max-min).double/(num-1).double)
-    vDSP_vrampD(&min, &step, !x, vDSP_Stride(1), vDSP_Length(x.n.cint))
+    vDSP_vrampD(&min, &step, !x, 1.stride, x.n.length)
     return x
 }
 func array(numbers: Double...) -> ndarray{

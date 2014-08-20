@@ -35,19 +35,19 @@ struct ndarray {
         return y
     }
     func sort(){
-        vDSP_vsortD(!self, vDSP_Length(self.n.cint), 1.cint)
+        vDSP_vsortD(!self, self.n.length, 1.cint)
     }
     func indexIsValidForRow(index: Int) -> Bool {
         return index >= 0 && index < n
     }
     func min() -> Double{
         var m:CDouble=0
-        vDSP_minvD(!self, vDSP_Stride(1), &m, vDSP_Length(self.n))
+        vDSP_minvD(!self, 1.stride, &m, self.n.length)
         return Double(m)
     }
     func max() -> Double{
         var m:CDouble=0
-        vDSP_maxvD(!self, vDSP_Stride(1), &m, vDSP_Length(self.n))
+        vDSP_maxvD(!self, 1.stride, &m, self.n.length)
         return m
     }
     func mean() -> Double{
@@ -92,7 +92,7 @@ struct ndarray {
             if idx.max() < 0 {idx += n.double }
             assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
             var y = zeros(idx.n)
-            vDSP_vindexD(!self, !idx, vDSP_Stride(1), !y, vDSP_Stride(1), vDSP_Length(idx.n))
+            vDSP_vindexD(!self, !idx, 1.stride, !y, 1.stride, idx.n.length)
             return y
         }
         set {
