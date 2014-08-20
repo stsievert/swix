@@ -14,7 +14,7 @@ import Accelerate
 func cumtrapz(x:ndarray)->ndarray{
     var y = zeros_like(x)
     var dx:CDouble = 1.0
-    vDSP_vtrapzD(!x, 1.cint, &dx, !y, 1.cint, vDSP_Length(x.n))
+    vDSP_vtrapzD(!x, 1.stride, &dx, !y, 1.stride, x.n.length)
     return y
 }
 func trapz(x:ndarray)->Double{
@@ -39,14 +39,14 @@ func fft(x: ndarray) -> (ndarray, ndarray){
     var pass:vDSP_Length = vDSP_Length((log2(N.double)+1.0).int)
     var setup:FFTSetupD = vDSP_create_fftsetupD(pass, radix)
     var log2n:Int = (log2(N.double)+1.0).int
-    var z = zeros(N)
+    var z = zeros(N.int)
     var x2:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !x, imagp:!z)
     var y = DSPDoubleSplitComplex(realp:!yr, imagp:!yi)
     var dir = FFTDirection(FFT_FORWARD)
-    var stride = vDSP_Stride(1)
+    var stride = 1.stride
     
     // perform the actual computation
-    vDSP_fft_zropD(setup, &x2, stride, &y, stride, vDSP_Length(log2n), dir)
+    vDSP_fft_zropD(setup, &x2, stride, &y, stride, log2n.length, dir)
     
     // this divide seems wrong
     yr /= 2.0
@@ -66,10 +66,10 @@ func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     var x2:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !yr, imagp:!yi)
     var result:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !x, imagp:!z)
     var dir = FFTDirection(FFT_INVERSE)
-    var stride = vDSP_Stride(1)
+    var stride = 1.stride
     
     // doing the actual computation
-    vDSP_fft_zropD(setup, &x2, stride, &result, stride, vDSP_Length(log2n), dir)
+    vDSP_fft_zropD(setup, &x2, stride, &result, stride, log2n.length, dir)
     
     // this divide seems wrong
     x /= 16.0

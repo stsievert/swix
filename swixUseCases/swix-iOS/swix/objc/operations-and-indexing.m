@@ -29,11 +29,6 @@ void test(){
 }
 
 // UNOPTIMIZED
-void mod_objc(double * x, double mod, double * y, int N){
-    for (int i=0; i<N; i++){
-        y[i] = fmod(x[i], mod);
-    }
-}
 void index_xa_b_objc(double* x, double* a, double* b, int N){
     int * j = (int *)malloc(sizeof(int) * N);
     vDSP_vfix32D(a, 1, j, 1, N); // double to int

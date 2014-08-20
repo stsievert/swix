@@ -99,7 +99,7 @@ func imshow(x: matrix){
 //    
 //    // unsigned char to double conversion
 //    var rawDataArray = zeros(count)-1
-//    vDSP_vfltu8D(&rawData, 1, &rawDataArray.grid, 1, vDSP_Length(count))
+//    vDSP_vfltu8D(&rawData, 1, &rawDataArray.grid, 1, count.length)
 //    
 //    // pulling the RGBA channels out of the color
 //    var i = arange(pix)

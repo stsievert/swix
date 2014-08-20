@@ -24,9 +24,9 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
     else if operation=="-"
         {cblas_daxpy(N.cint, -1.0.cdouble, !rhs, 1.cint, !result, 1.cint);}
     else if operation=="*"
-        {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, lhs.n.length)}
     else if operation=="/"
-        {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, lhs.n.length)}
     else if operation=="%"{
         array = remainder(lhs, rhs)
     }
@@ -55,12 +55,12 @@ func make_operator(lhs:ndarray, operation:String, rhs:Double) -> ndarray{
     } else if operation == "*"{
         var C:CDouble = 0
         var mul = CDouble(rhs)
-        vDSP_vsmsaD(!lhs, 1.cint, &mul, &C, !array, 1.cint, vDSP_Length(lhs.n.cint))
+        vDSP_vsmsaD(!lhs, 1.stride, &mul, &C, !array, 1.stride, lhs.n.length)
     }
     else if operation == "+"
-        {vDSP_vsaddD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vsaddD(!lhs, 1, &right, !array, 1, lhs.n.length)}
     else if operation=="/"
-        {vDSP_vsdivD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vsdivD(!lhs, 1, &right, !array, 1, lhs.n.length)}
     else if operation=="-"
         {array = make_operator(lhs, "-", ones(lhs.n)*rhs)}
     else if operation=="<" || operation==">" || operation=="<=" || operation==">="{

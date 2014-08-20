@@ -50,18 +50,7 @@ func sign(x: matrix) -> matrix{
     z.flat = y
     return z
 }
-func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
-    var x = zeros(N)
-    var y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
-    x.flat = y
-    return x
-}
-func rand(N: (Int, Int)) -> matrix{
-    var x = zeros(N)
-    var y = rand(N.0 * N.1)
-    x.flat = y
-    return x
-}
+
 func pow(x: matrix, power: Double) -> matrix{
     var y = pow(x.flat, power)
     var z = zeros_like(x)
@@ -84,14 +73,9 @@ func max(x:matrix, y:matrix)->matrix{
     z.flat = max(x.flat, y.flat)
     return z
 }
-func norm(x: matrix, type:String="l2") -> Double{
-    if type=="l0"{ return norm(x.flat, type:"l0")}
-    if type=="l1"{ return norm(x.flat, type:"l1")}
-    if type=="l2"{ return norm(x.flat, type:"l2")}
-    
-    assert(false, "type of norm unrecongnized")
-    return -1.0
-}
+// we should take the norm over each row/column
+//func norm(x: matrix, type:String="l2") -> Double{
+//}
 func sum(x: matrix, axis:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     assert(axis==0 || axis==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")
@@ -106,8 +90,8 @@ func sum(x: matrix, axis:Int = -1) -> ndarray{
         return (m *! x).flat
     }
 }
-func avg(x:matrix, axis:Int = -1) -> ndarray{
-    assert(axis==0 || axis==1, "If you want to find the average of the whole matrix call `avg(x.flat)`")
+func mean(x:matrix, axis:Int = -1) -> ndarray{
+    assert(axis==0 || axis==1, "If you want to find the average of the whole matrix call `mean(x.flat)`")
     var div = axis==0 ? x.shape.1 : x.shape.0
     return sum(x, axis:axis) / div.double
 }

@@ -11,7 +11,7 @@ import Accelerate
 
 // the matrix definition and related functions go here
 
-// SLOW PARTS: x[ndarray, ndarray] set, modulo operator
+// SLOW PARTS: x[ndarray, ndarray] set
 
 
 struct ndarray {
@@ -35,32 +35,46 @@ struct ndarray {
         return y
     }
     func sort(){
-        vDSP_vsortD(!self, vDSP_Length(self.n.cint), 1.cint)
+        vDSP_vsortD(!self, self.n.length, 1.cint)
     }
     func indexIsValidForRow(index: Int) -> Bool {
         return index >= 0 && index < n
     }
     func min() -> Double{
         var m:CDouble=0
-        vDSP_minvD(!self, 1.cint, &m, vDSP_Length(self.n.cint))
+        vDSP_minvD(!self, 1.stride, &m, self.n.length)
         return Double(m)
     }
     func max() -> Double{
         var m:CDouble=0
-        vDSP_maxvD(!self, 1.cint, &m, vDSP_Length(self.n))
+        vDSP_maxvD(!self, 1.stride, &m, self.n.length)
         return m
     }
     func mean() -> Double{
-        return avg(self)
+        return sum(self) / n
+    }
+    subscript(index:String)->ndarray{
+        get {
+            assert(index == "all", "Currently only \"all\" is supported")
+            return self
+        }
+        set {
+            assert(index == "all", "Currently only \"all\" is supported")
+            self[0..<n] = newValue
+        }
     }
     subscript(index: Int) -> Double {
         get {
-            assert(indexIsValidForRow(index), "Index out of range")
-            return grid[index]
+            var newIndex:Int = index
+            if newIndex < 0 {newIndex = self.n + index}
+            assert(indexIsValidForRow(newIndex), "Index out of range")
+            return grid[newIndex]
         }
         set {
-            assert(indexIsValidForRow(index), "Index out of range")
-            grid[index] = newValue
+            var newIndex:Int = index
+            if newIndex < 0 {newIndex = self.n + index}
+            assert(indexIsValidForRow(newIndex), "Index out of range")
+            grid[newIndex] = newValue
         }
     }
     subscript(r: Range<Int>) -> ndarray {
@@ -71,21 +85,24 @@ struct ndarray {
         set {
             self[asarray(r)].grid = newValue.grid}
     }
-    subscript(idx: ndarray) -> ndarray {
+    subscript(oidx: ndarray) -> ndarray {
         get {
-            //assert((r%1.0) ~== zeros_like(r))
             // ndarray has fractional parts, and those parts get truncated
-            // dropped for speed results (depends on for-loop in C)
+            var idx = oidx.copy()
+            if idx.max() < 0 {idx += n.double }
             assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
             var y = zeros(idx.n)
-            vDSP_vindexD(!self, !idx, 1.cint, !y, 1.cint, vDSP_Length(idx.n))
+            vDSP_vindexD(!self, !idx, 1.stride, !y, 1.stride, idx.n.length)
             return y
         }
         set {
+            var idx = oidx.copy()
+            if idx.max() < 0 {idx += n.double }
             assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
             // asked stackoverflow question at [1]
             // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
             // tried basic optimization myself, but the compiler took care of that.
+            // dropped for speed results (depends on for-loop in C)
             index_xa_b_objc(!self, !idx, !newValue, idx.n.cint)
         }
     }

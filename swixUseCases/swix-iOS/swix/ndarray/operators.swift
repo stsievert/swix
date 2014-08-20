@@ -24,9 +24,12 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
     else if operation=="-"
         {cblas_daxpy(N.cint, -1.0.cdouble, !rhs, 1.cint, !result, 1.cint);}
     else if operation=="*"
-        {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, lhs.n.length)}
     else if operation=="/"
-        {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vdivD(!rhs, 1, !lhs, 1, !result, 1, lhs.n.length)}
+    else if operation=="%"{
+        array = remainder(lhs, rhs)
+    }
     else if operation=="<" || operation==">" || operation==">=" || operation=="<=" {
         result = zeros(lhs.n)
         CVWrapper.compare(!lhs, with: !rhs, using: operation.nsstring, into: !result, ofLength: lhs.n.cint)
@@ -45,18 +48,19 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
 func make_operator(lhs:ndarray, operation:String, rhs:Double) -> ndarray{
     var array = zeros(lhs.n)
     var right = [rhs]
-    if operation == "%"
+    if operation == "%"{
         // unoptimized. for loop in c
-        {mod_objc(!lhs, rhs, !array, lhs.n.cint);
+        var r = zeros_like(lhs) + rhs
+        array = remainder(lhs, r)
     } else if operation == "*"{
         var C:CDouble = 0
         var mul = CDouble(rhs)
-        vDSP_vsmsaD(!lhs, 1.cint, &mul, &C, !array, 1.cint, vDSP_Length(lhs.n.cint))
+        vDSP_vsmsaD(!lhs, 1.stride, &mul, &C, !array, 1.stride, lhs.n.length)
     }
     else if operation == "+"
-        {vDSP_vsaddD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vsaddD(!lhs, 1, &right, !array, 1, lhs.n.length)}
     else if operation=="/"
-        {vDSP_vsdivD(!lhs, 1, &right, !array, 1, vDSP_Length(lhs.grid.count))}
+        {vDSP_vsdivD(!lhs, 1, &right, !array, 1, lhs.n.length)}
     else if operation=="-"
         {array = make_operator(lhs, "-", ones(lhs.n)*rhs)}
     else if operation=="<" || operation==">" || operation=="<=" || operation==">="{
@@ -71,6 +75,10 @@ func make_operator(lhs:Double, operation:String, rhs:ndarray) -> ndarray{
     var l = ones(rhs.n) * lhs
     if operation == "*"
         {array = make_operator(rhs, "*", lhs)}
+    else if operation=="%"{
+        var l = zeros_like(rhs) + lhs
+        array = remainder(l, rhs)
+    }
     else if operation == "+"{
         array = make_operator(rhs, "+", lhs)}
     else if operation=="-"
@@ -113,6 +121,10 @@ func /= (inout x: ndarray, right: Double){
 // MOD
 infix operator % {associativity none precedence 140}
 func % (lhs: ndarray, rhs: Double) -> ndarray{
+    return make_operator(lhs, "%", rhs)}
+func % (lhs: ndarray, rhs: ndarray) -> ndarray{
+    return make_operator(lhs, "%", rhs)}
+func % (lhs: Double, rhs: ndarray) -> ndarray{
     return make_operator(lhs, "%", rhs)}
 // POW
 infix operator ^ {associativity none precedence 140}

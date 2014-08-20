@@ -51,8 +51,29 @@ func transpose (x: matrix) -> matrix{
     var m = x.shape.1
     var n = x.shape.0
     var y = zeros((m, n))
-    vDSP_mtransD(!x, 1.cint, !y, 1.cint, vDSP_Length(m), vDSP_Length(n))
+    vDSP_mtransD(!x, 1.stride, !y, 1.stride, m.length, n.length)
     return y
+}
+func kron(A:matrix, B:matrix)->matrix{
+    // an O(n^4) operation!
+    func assign_kron_row(A:matrix, B:matrix,inout C:matrix, p:Int, m:Int, m_max:Int){
+        var row = (m+0)*(p+0) + p-0
+        row = m_max*m + 1*p
+        
+        var i = arange(B.shape.1 * A.shape.1)
+        var n1 = arange(A.shape.1)
+        var q1 = arange(B.shape.1)
+        var (n, q) = meshgrid(n1, q1)
+        C[row, i] = A[m, n.flat] * B[p, q.flat]
+    }
+    var C = zeros((A.shape.0*B.shape.0, A.shape.1*B.shape.1))
+    for p in 0..<A.shape.1{
+        for m in 0..<B.shape.1{
+            assign_kron_row(A, B, &C, p, m, A.shape.1)
+        }
+    }
+    
+    return C
 }
 func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
     var seperator=","

@@ -9,7 +9,26 @@
 import Foundation
 import Accelerate
 
-// fft, ifft
+
+// integration
+func cumtrapz(x:ndarray)->ndarray{
+    var y = zeros_like(x)
+    var dx:CDouble = 1.0
+    vDSP_vtrapzD(!x, 1.stride, &dx, !y, 1.stride, x.n.length)
+    return y
+}
+func trapz(x:ndarray)->Double{
+    return cumtrapz(x)[-1]
+}
+// basic definitions
+func inner(x:ndarray, y:ndarray)->Double{
+    return sum(x * y)
+}
+func outer(x:ndarray, y:ndarray)->matrix{
+    var (xm, ym) = meshgrid(x, y)
+    return xm * ym
+}
+// fourier transforms
 func fft(x: ndarray) -> (ndarray, ndarray){
     var N:CInt = x.n.cint
     var yr = zeros(N.int)
@@ -20,14 +39,14 @@ func fft(x: ndarray) -> (ndarray, ndarray){
     var pass:vDSP_Length = vDSP_Length((log2(N.double)+1.0).int)
     var setup:FFTSetupD = vDSP_create_fftsetupD(pass, radix)
     var log2n:Int = (log2(N.double)+1.0).int
-    var z = zeros(N)
+    var z = zeros(N.int)
     var x2:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !x, imagp:!z)
     var y = DSPDoubleSplitComplex(realp:!yr, imagp:!yi)
     var dir = FFTDirection(FFT_FORWARD)
-    var stride = vDSP_Stride(1)
+    var stride = 1.stride
     
     // perform the actual computation
-    vDSP_fft_zropD(setup, &x2, stride, &y, stride, vDSP_Length(log2n), dir)
+    vDSP_fft_zropD(setup, &x2, stride, &y, stride, log2n.length, dir)
     
     // this divide seems wrong
     yr /= 2.0
@@ -47,12 +66,28 @@ func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     var x2:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !yr, imagp:!yi)
     var result:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !x, imagp:!z)
     var dir = FFTDirection(FFT_INVERSE)
-    var stride = vDSP_Stride(1)
+    var stride = 1.stride
     
     // doing the actual computation
-    vDSP_fft_zropD(setup, &x2, stride, &result, stride, vDSP_Length(log2n), dir)
+    vDSP_fft_zropD(setup, &x2, stride, &result, stride, log2n.length, dir)
     
     // this divide seems wrong
     x /= 16.0
     return x
+}
+func fftconvolve(x:ndarray, kernel:ndarray)->ndarray{
+    // zero padding, assuming kernel is smaller than x
+    var k_pad = zeros_like(x)
+    k_pad[0..<kernel.n] = kernel
+    
+    // performing the fft
+    var (Kr, Ki) = fft(k_pad)
+    var (Xr, Xi) = fft(x)
+    
+    // computing the multiplication (yes, a hack)
+    // (xr+xi*j) * (yr+yi*j) = xr*xi - xi*yi + j*(xi*yr) + j*(yr*xi)
+    var Yr = Xr*Kr - Xi*Ki
+    var Yi = Xr*Ki + Xi*Kr
+    var y = ifft(Yr, Yi)
+    return y
 }

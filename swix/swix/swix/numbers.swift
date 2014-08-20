@@ -44,9 +44,17 @@ func rad2deg(x:Double)->Double{
 func deg2rad(x:Double)->Double{
     return x * pi / 180.0
 }
+func max(x:Double, y:Double)->Double{
+    return x < y ? y : x
+}
+func min(x:Double, y:Double)->Double{
+    return x < y ? x : y
+}
 
 // use 3.double or 3.14.int or N.int
 extension Int{
+    var stride:vDSP_Stride {return vDSP_Stride(self)}
+    var length:vDSP_Length {return vDSP_Length(self)}
     var int:Int {return Int(self)}
     var cint:CInt {return CInt(self)}
     var float:Float {return Float(self)}

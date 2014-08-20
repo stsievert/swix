@@ -29,21 +29,21 @@ func apply_function(function: Double->Double, x: ndarray) -> ndarray{
 }
 func apply_function(function: String, x: ndarray)->ndarray{
     var y = zeros_like(x)
-    var n = vDSP_Length(x.n)
+    var n = x.n.length
     if function=="abs"{
         vDSP_vabsD(!x, 1, !y, 1, n);}
     else if function=="sign"{
         var o = CDouble(0)
         var l = CDouble(1)
-        vDSP_vlimD(!x, 1.cint, &o, &l, !y, 1.cint, n)
+        vDSP_vlimD(!x, 1.stride, &o, &l, !y, 1.stride, n)
     }
     else if function=="cumsum"{
         var scalar:CDouble = 1
-        vDSP_vrsumD(!x, 1.cint, &scalar, !y, 1.cint, n)
+        vDSP_vrsumD(!x, 1.stride, &scalar, !y, 1.stride, n)
     }
     else if function=="floor"{
         var z = zeros_like(x)
-        vDSP_vfracD(!x, 1.cint, !z, 1.cint, vDSP_Length(x.n))
+        vDSP_vfracD(!x, 1.stride, !z, 1.stride, x.n.length)
         y = x - z
     }
     else {assert(false, "Function not recongized")}
@@ -57,20 +57,20 @@ func max(x: ndarray) -> Double{
 func max(x: ndarray, y:ndarray)->ndarray{
     assert(x.n == y.n)
     var z = zeros_like(x)
-    vDSP_vmaxD(!x, 1.cint, !y, 1.cint, !z, 1.cint, vDSP_Length((x.n)))
+    vDSP_vmaxD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
 func min(x: ndarray, y:ndarray)->ndarray{
     assert(x.n == y.n)
     var z = zeros_like(x)
-    vDSP_vminD(!x, 1.cint, !y, 1.cint, !z, 1.cint, vDSP_Length((x.n)))
+    vDSP_vminD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
 func sign(x: ndarray)->ndarray{
     return apply_function("sign", x)}
 func sum(x: ndarray) -> Double{
     var ret:CDouble = 0
-    vDSP_sveD(!x, 1.cint, &ret, vDSP_Length(x.n))
+    vDSP_sveD(!x, 1.stride, &ret, x.n.length)
     return Double(ret)
 }
 func mean(x: ndarray) -> Double{

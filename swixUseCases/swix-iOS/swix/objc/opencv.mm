@@ -79,6 +79,7 @@ void copy(Mat x, double * y, int N);
 }
 + (void) compare:(double*)x withDouble:(double)y
            using:(NSString*)op into:(double*)z ofLength:(int)N{
+    
     // this isn't working.
     // instead, I can do threshold(abs(x - y), 1e-9)
     
@@ -94,6 +95,30 @@ void copy(Mat x, double * y, int N);
     else printf("*** Careful! Your operation isn't recognized!\n");
     matArgWhereConvert(zMat, z, N);
 }
+
++ (void) argmax:(double*)x N:(int)N max:(int *)max{
+    Mat xMat(N, 1, CV_64F, x);
+    minMaxIdx(xMat, NULL, NULL, NULL, max);
+}
++ (void) argmin:(double*)x N:(int)N min:(int *)min{
+    Mat xMat(N, 1, CV_64F, x);
+    minMaxIdx(xMat, NULL, NULL, min, NULL);
+}
++ (void) argsort:(double*)x N:(int)N into:(int*)y{
+    Mat xMat(N, 1, CV_64F, x);
+    Mat yMat(N, 1, CV_32S, y);
+    sortIdx(xMat, yMat, CV_SORT_ASCENDING + CV_SORT_EVERY_COLUMN);
+}
++ (void) pow:(double*)x N:(int)N power:(double)power into:(double*)y{
+    Mat xMat(N,1,CV_64F, x);
+    Mat yMat(N,1,CV_64F, y);
+    pow(xMat, power, yMat);
+}
++ (void) shuffle:(double*)x n:(int)n{
+    Mat xMat(n, 1, CV_64F, x);
+    randShuffle(xMat);
+}
+
 void matArgWhereConvert(Mat x, double * y, int N){
     if  (!x.isContinuous()){
         printf("Careful! The OpenCV::Mat-->double* conversion didn't go well as x is not continuous in memory! (message printed from swix/objc/opencv.mm:matArgWhereConvert)\n");
