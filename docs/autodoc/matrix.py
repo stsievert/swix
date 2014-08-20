@@ -44,9 +44,8 @@ class matrix:
         indexing like Python
 
         Use ``x[1, "all"]`` to access an entire row or column.
-        
-        .. warning:: Assumes wholly negative or positive. Indexes like
-        ``array(-1, 0, 1)`` aren't supported.
+
+        .. warning:: Assumes wholly negative or positive. Indexes like ``array(-1, 0, 1)`` aren't supported.
 
         :param one: The row selector.
         :param two: The column selector.
@@ -64,6 +63,7 @@ class matrix:
         >>> assert(x[0, "all"] ~== array(0, 1, 2))
 
         .. seealso:: `np.indexing`_
+
         """
     def index_flat(idx):
         """
