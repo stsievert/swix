@@ -34,7 +34,7 @@ func concat(x:ndarray, y:ndarray)->ndarray{
     return z
 }
 func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
-    var i = (a > a_min) && (a < a_max)
+    var i = (a >= a_min) && (a <= a_max)
     return a * i
 }
 func shuffle(x:ndarray)->ndarray{

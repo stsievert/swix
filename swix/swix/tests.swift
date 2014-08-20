@@ -11,7 +11,7 @@ import Foundation
 class runTests {
     var N:Int
     init(){
-        println("running ~100 tests")
+        println("running ~150 tests")
         println("    running many simple tests")
         self.N = 10
         operatorTests()
@@ -26,7 +26,9 @@ class runTests {
         println("       read_csv, write_csv, savefig work like Python")
         complexTests()
         
+        numberTests()
         ndarrayTests()
+        matrixTests()
     }
     func complexTests(){
         func scalar_test(){
@@ -150,27 +152,41 @@ class runTests {
         eig_test()
         pinv_test()
     }
+    func numberTests(){
+        assert(close(0, 1e-10) == true)
+        assert(close(0, 1e-10) == (1e-10 ~= 0))
+        assert(rad2deg(pi/2) == 90)
+        assert(deg2rad(90) == pi/2)
+        assert(max(0, 1) == 1)
+        assert(min(0, 1) == 0)
+        assert("3.14".floatValue == 3.14)
+        assert(3 / 4 == 0.75)
+        assert(3.25 / 4 == 0.8125)
+        assert(isNumber(3))
+        assert(!isNumber(zeros(2)))
+        assert(!isNumber("3.14"))
+    }
     class ndarrayTests{
         init(){
             initingTests()
             ndarraySwiftTests()
-            
         }
         func initingTests(){
             // testing zeros and array
             assert(zeros(4) ~== array(0,0,0,0))
             assert(ones(4) ~== (zeros(4)+1))
-            assert(zeros_like(zeros(4)) ~== zeros(4))
+            assert(zeros_like(ones(4)) ~== zeros(4))
             assert(arange(4) ~== array(0, 1, 2, 3))
             assert(arange(2, 4) ~== array(2, 3))
             assert(linspace(0,1,num:3) ~== array(0, 0.5, 1))
             assert(repeat(arange(2), 2) ~== array(0,1,0,1))
             assert(copy(arange(4)) ~== arange(4))
             assert(asarray(0..<2) ~== array(0, 1))
+            assert(copy(arange(3)) ~== array(0, 1, 2))
+            assert(sum((rand(3) - array(0.516, 0.294, 0.727)) < 1e-2) == 3)
         }
         func ndarraySwiftTests(){
             // testing the file ndarray.swift
-            assert(arange(4)[-1] == 3.0)
             assert(arange(4).reshape((2,2)) ~== array("0 1; 2 3"))
             assert(arange(4).copy() ~== arange(4))
             var x = array(4, 2, 3, 1)
@@ -179,6 +195,7 @@ class runTests {
             assert(x.min() == 1)
             assert(x.max() == 4)
             assert(x.mean() == 2.5)
+            assert(x["all"] ~== array(1, 2, 3, 4))
             x[0] = 0
             assert(x[0] == 0)
             x[0..<2] = array(1, 3)
@@ -194,6 +211,13 @@ class runTests {
             assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
             assert(asarray(0..<2) ~== array(0, 1))
             assert(concat(array(1, 2), array(3, 4)) ~== (arange(4)+1))
+            assert(clip(y, 2, 4) ~== array(0, 2, 4, 3, 0))
+            assert(delete(y, array(0, 1)) ~== array(4,3,1))
+            assert(repeat(array(0,1),2) ~== array(0,1,0,1))
+            assert(repeat(array(0,1),2, axis:1) ~== array(0,0,1,1))
+            assert(argmax(array(1,4,2,5)) == 3)
+            assert(argmin(array(1,4,2,5)) == 0)
+            assert(argsort(array(1,4,2,5)) ~== array(0, 2, 1, 3))
 
             assert(arange(4) ~== array(0, 1, 2, 3))
             var xO = array(1, 2, 3)
@@ -204,11 +228,29 @@ class runTests {
             assert(remainder(xR1, xR2) ~== array(0.1, 0.2, 0.3))
             assert(xR1 % 1.0 ~== array(0.1, 0.2, 0.3))
             assert(1.0 % xR1 ~== ones(3))
+            assert(arange(4)[-1] == 3.0)
             
             var xR = arange(4*4).reshape((4,4))
             assert(rank(xR) == 2.0)
+            
+            assert(pow(array(1,2,3,4), 2) ~== array(1,4,9,16))
+            assert(pow(ones(4)*2, ones(4)*2) ~== array(4, 4, 4, 4))
+            assert(pow(-1, array(1, 2, 3, 4)) ~== array(-1, 1, -1, 1))
+            assert(norm(array(1,1,1), type:"l2") == sqrt(3))
+            assert(norm(array(1,0,1), type:"l1") == 2)
+            assert(norm(array(4,0,0), type:"l0") == 1)
+            assert(sign(array(-3, 4, 5)) ~== array(-1, 1, 1))
         }
     }
+    func matrixTests(){
+        var x = randn((4,4))
+        assert(eye(4).dot(eye(4)) ~== eye(4))
+        assert(x.dot(x.I) ~== eye(4))
+        var (u,v) = meshgrid(array(0,1), array(2,3))
+        assert(u ~== repeat(array(0,1), 2).reshape((2,2)).T)
+        assert(v ~== repeat(array(2,3), 2).reshape((2,2)))
+    }
+    
     func readWriteTests(){
         var x1 = arange(9).reshape((3,3)) * 2
         write_csv(x1, filename:"../../python_testing/csvs/image.csv")
@@ -381,7 +423,6 @@ class runTests {
         assert((x >= 4) ~== array(0, 0, 0, 1, 1, 1))
     }
 }
-
 
 
 

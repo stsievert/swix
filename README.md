@@ -97,10 +97,12 @@ readthedocs, but this is harder to maintain and is most likely out of date.
 ## Third Party Frameworks/Libraries
 * [Accelerate][accel]
 * [OpenCV][opencv]
-* [swix-complex][complex]
-* [ScalarArithemetic][scalar]
 
 ...and I used some of [SwiftAccelerate][ais] to avoid some BLAS/LAPACK agony.
+
+#### To be integrated
+* [swix-complex][complex]
+* [ScalarArithemetic][scalar]
 
 [ais]:https://github.com/haginile/SwiftAccelerate
 
