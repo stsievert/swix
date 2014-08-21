@@ -49,8 +49,12 @@
 .. _`cv.randShuffle`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#randshuffle
 .. _`np.random.shuffle`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.shuffle.html
 .. _`np.random.permutation`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.permutation.html
+.. _`np.sum`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
 .. _`scipy.signal.fftconvolve`: http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.fftconvolve.html
 
+.. _`Pylab`: http://wiki.scipy.org/PyLab
+.. _`Norm`: https://en.wikipedia.org/wiki/Norm_(mathematics)
+.. _`Matrix norm`: https://en.wikipedia.org/wiki/Matrix_norm
 .. _`Kronecker Product`: https://en.wikipedia.org/wiki/Kronecker_product
 .. _`Convolution`: https://en.wikipedia.org/wiki/Convolution
 .. _`matrix rank`: https://en.wikipedia.org/wiki/Rank_(linear_algebra)

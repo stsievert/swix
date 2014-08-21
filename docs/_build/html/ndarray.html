@@ -284,7 +284,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.norm">
-<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>type='l2'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.norm" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the norm of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -292,18 +292,22 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-<li><strong>type</strong> (<em>String</em>) &#8211; One of &#8220;l0&#8221;, &#8220;l1&#8221;, &#8220;l0&#8221;</li>
+<li><strong>ord</strong> (Int or <span class="math">\(\pm\)</span> inf) &#8211; Indicates the specific type of norm.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. A specific norm of the array. Either the <span class="math">\(l_0\)</span>, <span class="math">\(l_1\)</span> or <span class="math">\(l_2\)</span> norm.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. A specific norm of the array. Either the <span class="math">\(\ell_0\)</span>, <span class="math">\(\ell_1\)</span>, <span class="math">\(\ell_2\)</span> or <span class="math">\(\ell_\infty\)</span> norm.</p>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a direct copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>. See NumPy&#8217;s documentation for info about appropiate values for ord.</p>
+</div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Norm</a></p>
 </div>
 </dd></dl>
 
@@ -644,7 +648,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <dl class="method">
 <dt id="ndarray.ndarray.reshape">
 <tt class="descname">reshape</tt><big>(</big><em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.reshape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reshapes the matrix to the specified size.</p>
+<dd><p>Reshapes the matrix to the specified size. The number of elements must remain constant, however, if a value of -1 is passed a new size is calculated to keep the number of elements the same.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -655,7 +659,10 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">println</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go"># prints [0 1; 2 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go"># prints [0 1; 2 3]</span>
 </pre></div>
@@ -1626,7 +1633,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt>
-<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>type='l2'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Finds the norm of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1634,18 +1641,22 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-<li><strong>type</strong> (<em>String</em>) &#8211; One of &#8220;l0&#8221;, &#8220;l1&#8221;, &#8220;l0&#8221;</li>
+<li><strong>ord</strong> (Int or <span class="math">\(\pm\)</span> inf) &#8211; Indicates the specific type of norm.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. A specific norm of the array. Either the <span class="math">\(l_0\)</span>, <span class="math">\(l_1\)</span> or <span class="math">\(l_2\)</span> norm.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. A specific norm of the array. Either the <span class="math">\(\ell_0\)</span>, <span class="math">\(\ell_1\)</span>, <span class="math">\(\ell_2\)</span> or <span class="math">\(\ell_\infty\)</span> norm.</p>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a direct copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>. See NumPy&#8217;s documentation for info about appropiate values for ord.</p>
+</div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Norm</a></p>
 </div>
 </dd></dl>
 

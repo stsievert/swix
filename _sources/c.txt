@@ -10,4 +10,5 @@ Docs
 Tips
 -------
 * Use ``.cint``, ``.cfloat``, ``.cdouble`` to pass numeric values to C.
+* Use ``.legnth`` or ``.stride`` to pass vDSP_Length and vDSP_Stride to vDSP functions.
 

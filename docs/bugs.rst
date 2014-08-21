@@ -10,9 +10,13 @@ Bugs
 * The ``~==`` operator only verifies if entire arrays are equal; use
   ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
 
+Compiler bugs
+-----------------
+* If you get bugs like ``ndarray cannot be cast as matrix`` or something that doesn't make much sense, you're probably calling a function with the wrong arguments. Even worse, this may be a confusion between Int/Float/Double/vDSP_Length/etc. Using ``1.int, 1.float, 1.double`` or ``1.stride`` may solve your problem.
+
 Matlab and swix differences
 -----------------------------
-* ``x[array(1, 2, 3)] = 1`` and ``x[array(1, 2), array(1, 2)] = 1`` does not work; use ``ones(3)`` and ``ones((2,2))`` instead.
+* ``x[array(1, 2, 3)] = 1`` and ``x[array(1, 2), array(1, 2)] = 1`` does not work; use ``ones(3)`` and ``ones((2,2))`` instead. If you can, come up with a clever hack like ``x[0..<N] *= 0``.
 * Swix follow's NumPy's footprints, meaning if ``(u, s, v) = svd(x)`` then ``transpose(v_matlab) == v_swix == v_numpy``. Additionally, ``s`` is a one dimensional matrix (again like NumPy), not a 2D matrix with only the diagonal non-zero.
 * When printing, swix does not check bounds (as of 2014-7-17). e.g., ``var x = zeros(2); println(x[0..<4])`` will print ``matrix([0, 0, <junk>, <junk>])``
 * ``argwhere`` is the equivalent of Matlab's ``find``. It finds the locations where the input array is 1 (and Matlab finds locations of the *non-zero* entries).

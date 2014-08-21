@@ -18,9 +18,7 @@ In summary:
 
 .. note:: All tests were run under Xcode beta 6
 
-.. note:: OSX tests were run on my machine, a 2012 macbook air with an SSD and 8GB RAM
-
-.. note:: iOS tests were run on my iPhone 5.
+.. note:: OSX tests were run on my machine, a 2012 macbook air with an SSD and 8GB RAM and iOS tests were run on my iPhone 5.
 
 All functions are `on Github <https://github.com/scottsievert/swix/blob/master/swix/speed/>`_ for your browsing.
 

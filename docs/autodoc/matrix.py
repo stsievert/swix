@@ -418,6 +418,20 @@ class simple_math:
         :type x: matrix
         :rtype: Applies the function to every element.
         """
+    def norm(x, ord=2):
+        """
+        Find the `Matrix norm`_ of a matrix.
+
+        :param x: Finds the norm of this matrix.
+        :type x: matrix
+        :param ord: Assumed to be one of "fro", -2, -1, 1 or 2
+        :type ord: Int or string.
+        :rtype: Double. The specific norm.
+
+        .. note:: Almost an exact copy of `np.linalg.norm`_.
+
+        .. seealso:: `np.linalg.norm`_, `Matrix norm`_
+        """
     def ceil(x):
         """
         :param x:
@@ -446,15 +460,19 @@ class simple_math:
         """
     def sum(x, axis=-1):
         """
+        Perform the sum over a given axis.
+
         :param x:
         :type x: matrix
-        :param dim: Assumed to be either 0 or 1. Takes all the values in dim and sums them. A value is in a certain dimension if changing that indexing argument selects a different value.
-        :type dim: Int
+        :param axis: Assumed to be either 0 or 1. Finds the sum of all values that are not in the axis. 
+        :type axis: Int
         :rtype: ndarray
 
         >>> var x = arange(6).reshape((2,3))
-        >>> assert(sum(x, dim:0) ~== array(3, 12))
-        >>> assert(sum(x, dim:1) ~== array(3, 5, 7))
+        >>> assert(sum(x, dim:0) ~== array(3, 5, 7))
+        >>> assert(sum(x, dim:1) ~== array(3, 12))
+
+        .. seealso:: `np.sum`_
         """
     def mean(x, axis=-1):
         """

@@ -8,13 +8,16 @@ class ndarray:
     grid = "[Double]" #: The Array this ndarray depends on.
     def reshape(shape):
         """
-        Reshapes the matrix to the specified size.
+        Reshapes the matrix to the specified size. The number of elements must remain constant, however, if a value of -1 is passed a new size is calculated to keep the number of elements the same.
 
         :param shape: The size of the new matrix.
         :type shape: (Int, Int)
         :rtype: matrix. The ndarray reshaped as a matrix.
 
-        >>> x = arange(2*2).reshape((2,2))
+        >>> var x = arange(2*2).reshape((2,2))
+        >>> var y = x.reshape((2,-1))
+        >>> println(y)
+        # prints [0 1; 2 3]
         >>> println(x)
         # prints [0 1; 2 3]
 
@@ -161,6 +164,7 @@ class initing():
 
         :param numbers: A list of numbers to make an array.
         :type numbers: Double...
+
         .. note:: Unoptimized. I assume this is only being used in test code.
 
         >>> println(array(0, 1, 2, 3, 4))
@@ -613,17 +617,19 @@ class simple_math:
         :type x: ndarray
         :rtype: ndarray. The absolute value of the array
         """
-    def norm(x, type="l2"):
+    def norm(x, ord=2):
         """
         Finds the norm of an array.
 
         :param x: An array.
         :type x: ndarray
-        :param type: One of "l0", "l1", "l0"
-        :type type: String
-        :rtype: ndarray. A specific norm of the array. Either the :math:`l_0`, :math:`l_1` or :math:`l_2` norm.
+        :param ord: Indicates the specific type of norm.
+        :type ord: Int or :math:`\pm` inf
+        :rtype: Double. A specific norm of the array. Either the :math:`\ell_0`, :math:`\ell_1`, :math:`\ell_2` or :math:`\ell_\infty` norm.
 
-        .. seealso:: `np.linalg.norm`_
+        .. note:: This is a direct copy of `np.linalg.norm`_. See NumPy's documentation for info about appropiate values for ord.
+
+        .. seealso:: `np.linalg.norm`_, `Norm`_
         """
     def pow(x, power):
         """

@@ -55,11 +55,29 @@ def write_list(file, name, list_of_string):
     for f in list_of_string:
         file.write(f+"\n")
 
-intro = "\nThis page only includes functions. All constants are defined in :class:`numbers`.\n\n"
-intro += "\n.. include:: links.rst\n"
+intro = ""
+intro += \
+"""
+Overview
+===============
+This library aims to be an almost exact clone of `Pylab`_ and to integrate the core parts of NumPy/SciPy/some of Matplotlib to provide a Matlab-like interface. The reason this library was developed to provide an easy translatation between complicated signal processing algorithms and mobile apps.
+
+Since this library only aims to provide easy conversion and not easy developement, there are areas that are a bit of a pain. For example, you can't assign ``x[0..<N] = 0``; instead you have to use ``x[0..<N] = zeros(N)`` or think of clever hacks like ``x[0..<N] *= 0``.
+
+This library almost exactly tries to copy the NumPy syntax. While the mathematical functions do this, one notable exception is Python's ``for i in arange(N)``. To get the same result in swix, use ``for i in arange(N).grid``.
+
+If in doubt or getting weird compiler errors, look at the corresponding NumPy docs (I tried to include links) or look at the section on :doc:`bugs` you may find.
+
+Functions
+---------
+
+This page only includes functions. All constants are defined in :class:`numbers`.
+
+.. include:: links.rst
+
+"""
 
 file = open("../overview.rst", "w")
-file.write("Overview\n"+"="*25+"\n")
 file.write(intro)
 write_list(file, "numbers", nu)
 write_list(file, "ndarray", n)

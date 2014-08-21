@@ -55,7 +55,14 @@
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>This library aims to be an almost exact clone of <a class="reference external" href="http://wiki.scipy.org/PyLab">Pylab</a> and to integrate the core parts of NumPy/SciPy/some of Matplotlib to provide a Matlab-like interface. The reason this library was developed to provide an easy translatation between complicated signal processing algorithms and mobile apps.</p>
+<p>Since this library only aims to provide easy conversion and not easy developement, there are areas that are a bit of a pain. For example, you can&#8217;t assign <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">=</span> <span class="pre">0</span></tt>; instead you have to use <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">=</span> <span class="pre">zeros(N)</span></tt> or think of clever hacks like <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">*=</span> <span class="pre">0</span></tt>.</p>
+<p>This library almost exactly tries to copy the NumPy syntax. While the mathematical functions do this, one notable exception is Python&#8217;s <tt class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">arange(N)</span></tt>. To get the same result in swix, use <tt class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">arange(N).grid</span></tt>.</p>
+<p>If in doubt or getting weird compiler errors, look at the corresponding NumPy docs (I tried to include links) or look at the section on <a class="reference internal" href="bugs.html"><em>Bugs</em></a> you may find.</p>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>This page only includes functions. All constants are defined in <a class="reference internal" href="numbers.html#module-numbers" title="numbers"><tt class="xref py py-class docutils literal"><span class="pre">numbers</span></tt></a>.</p>
+</div>
 <div class="section" id="numbers">
 <h2>numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="longtable docutils">
@@ -293,7 +300,7 @@
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.min" title="ndarray.simple_math.min"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.min</span></tt></a>(x[,&nbsp;y])</td>
 <td>Finds the maximum element.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.norm" title="ndarray.simple_math.norm"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.norm</span></tt></a>(x[,&nbsp;type])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.norm" title="ndarray.simple_math.norm"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.norm</span></tt></a>(x[,&nbsp;ord])</td>
 <td>Finds the norm of an array.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.pow" title="ndarray.simple_math.pow"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.pow</span></tt></a>(x,&nbsp;power)</td>
@@ -616,7 +623,10 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.pow" title="matrix.simple_math.pow"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.pow</span></tt></a>(x,&nbsp;power)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.norm" title="matrix.simple_math.norm"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.norm</span></tt></a>(x[,&nbsp;ord])</td>
+<td>Find the <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a> of a matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.pow" title="matrix.simple_math.pow"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.pow</span></tt></a>(x,&nbsp;power)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -627,7 +637,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.round" title="matrix.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.round</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.round" title="matrix.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.round</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -638,7 +648,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sign" title="matrix.simple_math.sign"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sign</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sign" title="matrix.simple_math.sign"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sign</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -649,7 +659,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sin" title="matrix.simple_math.sin"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sin</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sin" title="matrix.simple_math.sin"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sin</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -660,7 +670,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sqrt" title="matrix.simple_math.sqrt"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sqrt</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sqrt" title="matrix.simple_math.sqrt"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sqrt</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -671,18 +681,10 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sum" title="matrix.simple_math.sum"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sum</span></tt></a>(x[,&nbsp;axis])</td>
-<td><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param x:</th><td class="field-body"></td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sum" title="matrix.simple_math.sum"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sum</span></tt></a>(x[,&nbsp;axis])</td>
+<td>Perform the sum over a given axis.</td>
 </tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.tan" title="matrix.simple_math.tan"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.tan</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.tan" title="matrix.simple_math.tan"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.tan</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -854,6 +856,7 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#functions">Functions</a></li>
 <li><a class="reference internal" href="#numbers">numbers</a></li>
 <li><a class="reference internal" href="#ndarray">ndarray</a><ul>
 <li><a class="reference internal" href="#ndarray-initing">ndarray.initing</a></li>

@@ -63,7 +63,7 @@ does use the most memory, it&#8217;s the most precise. If the compiler ever comp
 about conversion or can&#8217;t find a function, try calling it with a double value.</p>
 <p>I&#8217;ve extended the native types to include a dot syntax. That is,
 <tt class="docutils literal"><span class="pre">Int(3).double</span></tt> will return 3.0. These are included for <tt class="docutils literal"><span class="pre">Int</span></tt>, <tt class="docutils literal"><span class="pre">Double</span></tt>,
-<tt class="docutils literal"><span class="pre">CInt</span></tt>, and <tt class="docutils literal"><span class="pre">Float</span></tt>. For integrating with C, use <tt class="docutils literal"><span class="pre">Int(3).cint</span></tt>.</p>
+<tt class="docutils literal"><span class="pre">CInt</span></tt>, and <tt class="docutils literal"><span class="pre">Float</span></tt>. For integrating with C, use <tt class="docutils literal"><span class="pre">Int(3).cint</span></tt>. For integrating with vDSP, use <tt class="docutils literal"><span class="pre">Int(1).stride</span></tt> or <tt class="docutils literal"><span class="pre">Int(N).length</span></tt> to get a vDSP_Stride or vDSP_Length respectively.</p>
 <p>The library includes both <a class="reference external" href="https://github.com/seivan/ScalarArithmetic">ScalarArithmetic</a> and <a class="reference external" href="https://github.com/dankogai/swift-complex">swift-complex</a>. This means
 that numbers have handy conversions and we can access complex numbers through
 <tt class="docutils literal"><span class="pre">1.0+1.0.i</span></tt> respectively.</p>
@@ -95,6 +95,12 @@ detail.</p>
 <dd><p>The path that should point to the swix directory. The file imshow.py, numbers.swix would be found by appending to this path.</p>
 </dd></dl>
 
+<dl class="data">
+<dt id="numbers.S2_TOLEANCE">
+<tt class="descclassname">numbers.</tt><tt class="descname">S2_TOLEANCE</tt><em class="property"> = 1e-09</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.S2_TOLEANCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The determines how close two numbers have to be equal.</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="numbers.close">
 <tt class="descclassname">numbers.</tt><tt class="descname">close</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.close" title="Permalink to this definition">¶</a></dt>
@@ -114,7 +120,7 @@ detail.</p>
 </tr>
 </tbody>
 </table>
-<p>Specifically, true only if <span class="math">\(|x-y|&lt;10^{-9}\)</span>.</p>
+<p>Specifically, true only if <span class="math">\(|x-y|&lt;\textrm{tol}\)</span>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">close</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">)</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -131,10 +137,16 @@ detail.</p>
 <li>String.floatValue, String.doubleValue. Converts the string to a numeric value by interpetting a NSString.</li>
 <li>String.nsstring. For interfacing with C.</li>
 </ul>
-<p>Additionally, Int has an element cint, Double has element cdouble, Float
-has element cfloat.</p>
+<p>Additionally,</p>
+<ul class="simple">
+<li>Int has an element cint, length, stride. Length and stride of for interacting with vDSP.</li>
+<li>Double has element cdouble,</li>
+<li>Float has element cfloat.</li>
+</ul>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="mf">3.14</span><span class="o">.</span><span class="n">int</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="s">&quot;3.14&quot;</span><span class="o">.</span><span class="n">floatValue</span> <span class="o">==</span> <span class="mf">3.14</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">vDSP_Stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.</span><span class="n">stride</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">vDSP_Length</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">==</span> <span class="n">N</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

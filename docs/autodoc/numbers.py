@@ -6,6 +6,9 @@ from math import sqrt
 #: The path that should point to the swix directory. The file imshow.py, numbers.swix would be found by appending to this path.
 S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
 
+#: The determines how close two numbers have to be equal.
+S2_TOLEANCE = 1e-9
+
 #: Where is Python found? Used for imshow and savefig (testing on MacOSX only!). Assumes `pylab <http://wiki.scipy.org/PyLab>`_ is installed.
 PYTHON_PATH = "~/anaconda/bin/ipython"
 
@@ -46,7 +49,7 @@ def close(x, y):
     :param y: Double. Another value.
 
     :rtype: Bool. True only if the two values are close numerically.
-    Specifically, true only if :math:`|x-y|<10^{-9}`.
+    Specifically, true only if :math:`|x-y|<\\textrm{tol}`.
     
     >>> assert(close(0, 1e-10) == true)
     """
@@ -61,11 +64,16 @@ def convience_elements():
     * String.floatValue, String.doubleValue. Converts the string to a numeric value by interpetting a NSString.
     * String.nsstring. For interfacing with C.
 
-    Additionally, Int has an element cint, Double has element cdouble, Float
-    has element cfloat.
+    Additionally, 
+    
+    * Int has an element cint, length, stride. Length and stride of for interacting with vDSP.
+    * Double has element cdouble, 
+    * Float has element cfloat.
 
     >>> assert(3.14.int == 3)
     >>> assert("3.14".floatValue == 3.14)
+    >>> assert(vDSP_Stride(1) == 1.stride)
+    >>> assert(vDSP_Length(N) == N.length)
     """
 
 def deg2rad(x):

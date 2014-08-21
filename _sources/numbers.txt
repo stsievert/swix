@@ -16,7 +16,7 @@ about conversion or can't find a function, try calling it with a double value.
 
 I've extended the native types to include a dot syntax. That is,
 ``Int(3).double`` will return 3.0. These are included for ``Int``, ``Double``,
-``CInt``, and ``Float``. For integrating with C, use ``Int(3).cint``.
+``CInt``, and ``Float``. For integrating with C, use ``Int(3).cint``. For integrating with vDSP, use ``Int(1).stride`` or ``Int(N).length`` to get a vDSP_Stride or vDSP_Length respectively.
 
 The library includes both `ScalarArithmetic`_ and `swift-complex`_. This means
 that numbers have handy conversions and we can access complex numbers through
@@ -27,6 +27,7 @@ Docs
 ++++++++++++++
 .. automodule:: numbers
     :members:
+
 
 
 

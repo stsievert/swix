@@ -71,10 +71,16 @@ this.</p>
 <tt class="docutils literal"><span class="pre">argwhere(abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9)</span></tt> to see where the individual entries are equal.</p>
 </li>
 </ul>
+<div class="section" id="compiler-bugs">
+<h2>Compiler bugs<a class="headerlink" href="#compiler-bugs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If you get bugs like <tt class="docutils literal"><span class="pre">ndarray</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">cast</span> <span class="pre">as</span> <span class="pre">matrix</span></tt> or something that doesn&#8217;t make much sense, you&#8217;re probably calling a function with the wrong arguments. Even worse, this may be a confusion between Int/Float/Double/vDSP_Length/etc. Using <tt class="docutils literal"><span class="pre">1.int,</span> <span class="pre">1.float,</span> <span class="pre">1.double</span></tt> or <tt class="docutils literal"><span class="pre">1.stride</span></tt> may solve your problem.</li>
+</ul>
+</div>
 <div class="section" id="matlab-and-swix-differences">
 <h2>Matlab and swix differences<a class="headerlink" href="#matlab-and-swix-differences" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3)]</span> <span class="pre">=</span> <span class="pre">1</span></tt> and <tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2),</span> <span class="pre">array(1,</span> <span class="pre">2)]</span> <span class="pre">=</span> <span class="pre">1</span></tt> does not work; use <tt class="docutils literal"><span class="pre">ones(3)</span></tt> and <tt class="docutils literal"><span class="pre">ones((2,2))</span></tt> instead.</li>
+<li><tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3)]</span> <span class="pre">=</span> <span class="pre">1</span></tt> and <tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2),</span> <span class="pre">array(1,</span> <span class="pre">2)]</span> <span class="pre">=</span> <span class="pre">1</span></tt> does not work; use <tt class="docutils literal"><span class="pre">ones(3)</span></tt> and <tt class="docutils literal"><span class="pre">ones((2,2))</span></tt> instead. If you can, come up with a clever hack like <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">*=</span> <span class="pre">0</span></tt>.</li>
 <li>Swix follow&#8217;s NumPy&#8217;s footprints, meaning if <tt class="docutils literal"><span class="pre">(u,</span> <span class="pre">s,</span> <span class="pre">v)</span> <span class="pre">=</span> <span class="pre">svd(x)</span></tt> then <tt class="docutils literal"><span class="pre">transpose(v_matlab)</span> <span class="pre">==</span> <span class="pre">v_swix</span> <span class="pre">==</span> <span class="pre">v_numpy</span></tt>. Additionally, <tt class="docutils literal"><span class="pre">s</span></tt> is a one dimensional matrix (again like NumPy), not a 2D matrix with only the diagonal non-zero.</li>
 <li>When printing, swix does not check bounds (as of 2014-7-17). e.g., <tt class="docutils literal"><span class="pre">var</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">zeros(2);</span> <span class="pre">println(x[0..&lt;4])</span></tt> will print <tt class="docutils literal"><span class="pre">matrix([0,</span> <span class="pre">0,</span> <span class="pre">&lt;junk&gt;,</span> <span class="pre">&lt;junk&gt;])</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">argwhere</span></tt> is the equivalent of Matlab&#8217;s <tt class="docutils literal"><span class="pre">find</span></tt>. It finds the locations where the input array is 1 (and Matlab finds locations of the <em>non-zero</em> entries).</li>
@@ -108,6 +114,7 @@ gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Bugs</a><ul>
+<li><a class="reference internal" href="#compiler-bugs">Compiler bugs</a></li>
 <li><a class="reference internal" href="#matlab-and-swix-differences">Matlab and swix differences</a></li>
 <li><a class="reference internal" href="#beta-bugs">Beta bugs</a></li>
 <li><a class="reference internal" href="#installation-bugs">Installation bugs</a></li>

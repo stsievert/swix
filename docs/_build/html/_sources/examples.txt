@@ -76,4 +76,4 @@ and `vDSP_vmulD <apple.com/library/ios/documentation/Accelerate/Reference/vDSPRe
 
 .. code-block:: scala
 
-    vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, vDSP_Length(lhs.grid.count))
+    vDSP_vmulD(!lhs, 1, !rhs, 1, !result, 1, lhs.n.length)
