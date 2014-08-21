@@ -44,7 +44,7 @@ func shuffle(x:ndarray)->ndarray{
 }
 func argwhere(idx: ndarray) -> ndarray{
     // counts non-zero elements, return array of doubles (which can be indexed!).
-    var i = arange(Double(idx.n))
+    var i = arange(idx.n)
     var args = zeros(sum(idx).int)
     vDSP_vcmprsD(!i, 1.stride, !idx, 1.stride, !args, 1.stride, idx.n.length)
     return args
