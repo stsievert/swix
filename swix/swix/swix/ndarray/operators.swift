@@ -37,10 +37,10 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
         result /= 255
     }
     else if operation == "=="{
-        return abs(lhs-rhs) < S2_TOLERANCE
+        return abs(lhs-rhs) < S2_THRESHOLD
     }
     else if operation == "!=="{
-        return abs(lhs-rhs) > S2_TOLERANCE
+        return abs(lhs-rhs) > S2_THRESHOLD
     }
     else {assert(false, "operation not recongized!")}
     return result

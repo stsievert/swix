@@ -9,6 +9,7 @@
 import Foundation
 
 func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
+    // print the matrix
     print(prefix)
     var suffix = seperator
     var printed = false
@@ -28,16 +29,20 @@ func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:St
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }
 func concat(x:ndarray, y:ndarray)->ndarray{
+    // concatenate two matrices
     var z = zeros(x.n + y.n)
     z[0..<x.n] = x
     z[x.n..<y.n+x.n] = y
     return z
 }
 func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
+    // clip the two matrices
+    // TODO: high/low values
     var i = (a >= a_min) && (a <= a_max)
     return a * i
 }
 func shuffle(x:ndarray)->ndarray{
+    // randomly shuffle the array
     var y = x.copy()
     CVWrapper.shuffle(!y, n:y.n.cint)
     return y
@@ -50,21 +55,26 @@ func argwhere(idx: ndarray) -> ndarray{
     return args
 }
 func reverse(x:ndarray) -> ndarray{
+    // reverse the array
     var y = x.copy()
     vDSP_vrvrsD(!y, 1.stride, y.n.length)
     return y
 }
 func sort(x:ndarray)->ndarray{
+    // sort the array and return a new array
     var y = x.copy()
     y.sort()
     return y
 }
 func delete(x:ndarray, idx:ndarray) -> ndarray{
+    // delete select elements
     var i = ones(x.n)
     i[idx] *= 0
-    return x[argwhere(i)]
+    var y = x[argwhere(i)]
+    return y
 }
 func repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
+    // repeat the array element wise or as a whole array
     var y = zeros((N, x.n))
     
     // wrapping using OpenCV
@@ -75,16 +85,20 @@ func repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
     return y.flat
 }
 func argmax(x:ndarray)->Int{
+    // find the location of the max
     var m:CInt = 0
     CVWrapper.argmax(!x, n: x.n.cint, max: &m)
     return Int(m)
 }
 func argmin(x:ndarray)->Int{
+    // find the location of the min
     var m:CInt = 0
     CVWrapper.argmin(!x, n: x.n.cint, min: &m)
     return Int(m)
 }
 func argsort(x:ndarray)->ndarray{
+    // sort the array but use integers
+    
     // the array of integers that OpenCV needs
     var y:[CInt] = Array(count:x.n, repeatedValue:0)
     // calling opencv's sortidx
@@ -95,6 +109,7 @@ func argsort(x:ndarray)->ndarray{
     return z
 }
 func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
+    // write the array to CSV
     var seperator=","
     var str = ""
     for i in 0..<x.n{

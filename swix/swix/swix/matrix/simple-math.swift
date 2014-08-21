@@ -67,10 +67,7 @@ func round(x: matrix) -> matrix{
     return apply_function(round, x)
 }
 func sign(x: matrix) -> matrix{
-    var y = apply_function(sign, x.flat)
-    var z = zeros_like(x)
-    z.flat = y
-    return z
+    return apply_function(sign, x)
 }
 
 func pow(x: matrix, power: Double) -> matrix{
