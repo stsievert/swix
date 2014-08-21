@@ -106,7 +106,7 @@ func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
     return (rand(N, distro:"normal") * sigma) + mean;
 }
 func randperm(N:Int)->ndarray{
-    var x = arange(N.double)
+    var x = arange(N)
     var y = shuffle(x)
     return y
 }

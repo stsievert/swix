@@ -13,6 +13,9 @@ import Accelerate
 let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
 let PYTHON_PATH = "~/anaconda/bin/ipython"
 
+// how close is close?
+let S2_TOLERANCE = 1e-9
+
 // not using let in case someone wants a variable name phi/etc
 
 // various important constants
@@ -33,7 +36,7 @@ var DOUBLE_EPSILON = DBL_EPSILON
 var FLOAT_EPSILON = FLT_EPSILON
 
 func close(x: Double, y: Double)->Bool{
-    return abs(x-y)<1e-9
+    return abs(x-y) < S2_TOLERANCE
 }
 func ~= (x:Double, y:Double)->Bool{
     return close(x, y)

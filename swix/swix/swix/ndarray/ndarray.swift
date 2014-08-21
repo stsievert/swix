@@ -24,8 +24,11 @@ struct ndarray {
         grid = Array(count: n, repeatedValue: 0.0)
     }
     func reshape(shape: (Int,Int)) -> matrix{
-        assert(shape.0 * shape.1 == n, "Number of elements must not change.")
-        var y:matrix = zeros(shape)
+        var (mm, nn) = shape
+        if mm == -1 {mm = n / nn}
+        if nn == -1 {nn = n / mm}
+        assert(mm * nn == n, "Number of elements must not change.")
+        var y:matrix = zeros((mm, nn))
         y.flat = self
         return y
     }

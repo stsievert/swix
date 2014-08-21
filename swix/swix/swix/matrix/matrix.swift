@@ -36,7 +36,7 @@ struct matrix {
         get {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
             var size = rows < columns ? rows : columns
-            var i = arange(Double(size))
+            var i = arange(size)
             return self[i*columns.double + i]
         }
         set {
@@ -44,7 +44,7 @@ struct matrix {
             var m = shape.0
             var n = shape.1
             var min_mn = m < n ? m : n
-            var j = n.double * arange(min_mn.double)
+            var j = n.double * arange(min_mn)
             self[j + j/n.double] = newValue
         }
     }
@@ -143,12 +143,12 @@ struct matrix {
     subscript(i: String, k:Int) -> ndarray {
         // x["all", 0]
         get {
-            var idx = arange(Double(shape.0))
+            var idx = arange(shape.0)
             var x:ndarray = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
-            var idx = arange(shape.0.double)
+            var idx = arange(shape.0)
             self.flat[idx * self.columns.double + k.double] = newValue
         }
     }
@@ -156,13 +156,13 @@ struct matrix {
         // x[0, "all"]
         get {
             assert(k == "all", "Only 'all' supported")
-            var idx = arange(shape.1.double)
+            var idx = arange(shape.1)
             var x:ndarray = self.flat[i.double * self.columns.double + idx]
             return x
         }
         set {
             assert(k == "all", "Only 'all' supported")
-            var idx = arange(shape.1.double)
+            var idx = arange(shape.1)
             self.flat[i.double * self.columns.double + idx] = newValue
         }
     }

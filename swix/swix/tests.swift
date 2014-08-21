@@ -236,9 +236,13 @@ class runTests {
             assert(pow(array(1,2,3,4), 2) ~== array(1,4,9,16))
             assert(pow(ones(4)*2, ones(4)*2) ~== array(4, 4, 4, 4))
             assert(pow(-1, array(1, 2, 3, 4)) ~== array(-1, 1, -1, 1))
-            assert(norm(array(1,1,1), type:"l2") == sqrt(3))
-            assert(norm(array(1,0,1), type:"l1") == 2)
-            assert(norm(array(4,0,0), type:"l0") == 1)
+            assert(norm(array(1,1,1), ord:2) == sqrt(3))
+            assert(norm(array(1,0,1), ord:1) == 2)
+            assert(norm(array(4,0,0), ord:0) == 1)
+            assert(norm(array(4,0,0), ord:-1) == 4)
+            assert(norm(array(4,2,-3), ord:inf) == 4)
+            assert(norm(array(4,2,-3), ord:-inf) == 2)
+            
             assert(sign(array(-3, 4, 5)) ~== array(-1, 1, 1))
         }
     }
@@ -283,16 +287,14 @@ class runTests {
         assert(y ~== array(0, 1, 2, 3, 1, 1, 1, 7, 8).reshape((3,3)))
         
         var z = arange(3*4).reshape((3,4))
-        assert(sum(z, axis:0) ~== array(6, 22, 38))
-        assert(sum(z, axis:1) ~== array(12, 15, 18, 21))
+        assert(sum(z, axis:0) ~== array(12, 15, 18, 21))
+        assert(sum(z, axis:1) ~== array(6, 22, 38))
         
         var d1 = x *! y
         var d2 = x.dot(y)
         var d3 = dot(x, y)
         assert(d1 ~== d2)
         assert(d1 ~== d3)
-        
-        assert(sum(x, axis:1) ~== array(0+3+6, 9+3, 9+6))
     }
     func functionTests(){
         var x = array(-1, 0, 1)
