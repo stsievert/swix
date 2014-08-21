@@ -14,16 +14,6 @@ import Swift
 runTests()
 //SpeedTests()
 
-var x = arange(10)
-var k = ones(1) / 1
-// convolution
-
-
-
-
-
-
-
 
 
 

@@ -78,7 +78,7 @@ func ifft(yr: ndarray, yi: ndarray) -> ndarray{
 func fftconvolve(x:ndarray, kernel:ndarray)->ndarray{
     // zero padding, assuming kernel is smaller than x
     var k_pad = zeros_like(x)
-    k_pad[0..<k.n] = k
+    k_pad[0..<kernel.n] = kernel
     
     // performing the fft
     var (Kr, Ki) = fft(k_pad)
