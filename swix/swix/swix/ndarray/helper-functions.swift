@@ -71,7 +71,13 @@ func unique(x:ndarray)->ndarray{
     var y = sort(x)
     var z = concat(zeros(1), y)
     var diff = z[1..<z.n] - z[0..<z.n-1]
-    return y[argwhere(diff)]
+    var un = y[argwhere(diff)]
+    if min(x) < S2_THRESHOLD{
+        return sort(concat(zeros(1), un))
+    }
+    else{
+        return un
+    }
 }
 func delete(x:ndarray, idx:ndarray) -> ndarray{
     // delete select elements
