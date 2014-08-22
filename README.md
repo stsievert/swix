@@ -108,8 +108,8 @@ readthedocs, but this is harder to maintain and is most likely out of date.
 
 ## Features to be added
 * speeding up `x[0..<2, 0..<2] = ones((2,2))`; I need to work out GCD.
-* `x[0..<4] = 1`. I tried implementing this but had to add some annoying types;
-  `var y:matrix = x[0..<5]`. I'll leave it be for now.
+* `x[0..<4] <- 1` should be `x[0..<4] = 1` but annoying types are needed. Is
+  this a bug? Is this something we live with? 
 * cocoapods. Tried but unsuccessful.
 
 [so]:http://stackoverflow.com/q/24727674/1141256
