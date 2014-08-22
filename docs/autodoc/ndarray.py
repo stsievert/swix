@@ -260,6 +260,30 @@ class initing():
         """
 
 class helper_functions:
+    def prod(x):
+        """
+        Find the product of every element in this array.
+
+        .. warning:: BUG: Only works if ``sum(x) > 0``.
+
+        :param x: Find the product of every element in this array
+        :type x: ndarray
+        :rtype: Double
+
+        >>> assert(prod(arange(4)+1) == 24)
+        """
+    def cumprod(x):
+        """
+        Find the cumulative product of every element in this array.
+
+        .. warning:: BUG: Only works for positive elements.
+
+        :param x: The cumulative product of elements in this array.
+        :type x: ndarray
+        :rtype: ndarray
+
+        >>> assert(cumprod(arange(4)+1) ~== array(1, 2, 6, 24))
+        """
     def unique(x):
         """
         Find the unique elements of an array. Returns the unique elements

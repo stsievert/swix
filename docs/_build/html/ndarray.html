@@ -1208,6 +1208,29 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.helper_functions.cumprod">
+<tt class="descname">cumprod</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.cumprod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the cumulative product of every element in this array.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">BUG: Only works for positive elements.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The cumulative product of elements in this array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">cumprod</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.helper_functions.delete">
 <tt class="descname">delete</tt><big>(</big><em>x</em>, <em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes elements.</p>
@@ -1242,6 +1265,29 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </table>
 <p>Prints the ndarray with the above optional formatters. They are all of type String.</p>
 <p>Also callable: <tt class="docutils literal"><span class="pre">print(x,</span> <span class="pre">...,</span> <span class="pre">newline=&quot;&quot;)</span></tt> with the same options.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.prod">
+<tt class="descname">prod</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.prod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the product of every element in this array.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">BUG: Only works if <tt class="docutils literal"><span class="pre">sum(x)</span> <span class="pre">&gt;</span> <span class="pre">0</span></tt>.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; Find the product of every element in this array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">prod</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">24</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">

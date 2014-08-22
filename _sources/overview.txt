@@ -61,8 +61,10 @@ ndarray.helper_functions
     ndarray.helper_functions.argwhere
     ndarray.helper_functions.clip
     ndarray.helper_functions.concat
+    ndarray.helper_functions.cumprod
     ndarray.helper_functions.delete
     ndarray.helper_functions.println
+    ndarray.helper_functions.prod
     ndarray.helper_functions.repeat
     ndarray.helper_functions.reverse
     ndarray.helper_functions.shuffle
