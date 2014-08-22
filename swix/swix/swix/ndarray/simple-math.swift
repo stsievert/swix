@@ -69,7 +69,8 @@ func apply_function(function: String, x: ndarray)->ndarray{
     else {assert(false, "Function not recongized")}
     return y
 }
-// OPTIMIZED FUNCTIONS
+
+// BASIC STATS
 func min(x: ndarray) -> Double{
     // finds the min
     return x.min()}
@@ -90,6 +91,18 @@ func min(x: ndarray, y:ndarray)->ndarray{
     vDSP_vminD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
+func mean(x: ndarray) -> Double{
+    // finds the mean
+    return x.mean()
+}
+func std(x: ndarray) -> Double{
+    // standard deviation
+    return sqrt(variance(x))}
+func variance(x: ndarray) -> Double{
+    // the varianace
+    return sum(pow(x - mean(x), 2) / x.count.double)}
+
+// BASIC INFO
 func sign(x: ndarray)->ndarray{
     // finds the sign
     return apply_function("sign", x)}
@@ -99,26 +112,18 @@ func sum(x: ndarray) -> Double{
     vDSP_sveD(!x, 1.stride, &ret, x.n.length)
     return Double(ret)
 }
-func mean(x: ndarray) -> Double{
-    // finds the mean
-    return x.mean()
-}
 func remainder(x1:ndarray, x2:ndarray)->ndarray{
     // finds the remainder
     return (x1 - floor(x1 / x2) * x2)
 }
-func std(x: ndarray) -> Double{
-    // standard deviation
-    return sqrt(variance(x))}
-func variance(x: ndarray) -> Double{
-    // the varianace
-    return sum(pow(x - mean(x), 2) / x.count.double)}
 func cumsum(x: ndarray) -> ndarray{
     // the sum of each element before.
     return apply_function("cumsum", x)}
 func abs(x: ndarray) -> ndarray{
     // absolute value
     return apply_function("abs", x)}
+
+// NORM
 func norm(x: ndarray, ord:Double=2) -> Double{
     // takes the norm of an array
     if ord==2      { return sqrt(sum(pow(x, 2)))}
@@ -132,8 +137,7 @@ func norm(x: ndarray, ord:Double=2) -> Double{
     assert(false, "type of norm unrecongnized")
     return -1.0}
 
-
-// optimized for pow(ndarray, double)
+// POWER FUNCTIONS
 func pow(x:ndarray, power:Double)->ndarray{
     // take the power. also callable with ^
     var y = zeros_like(x)
@@ -143,29 +147,33 @@ func pow(x:ndarray, power:Double)->ndarray{
 func pow(x:ndarray, y:ndarray)->ndarray{
     // take the power. also callable with ^
     var z = zeros_like(x)
-    for i in 0..<x.n{
-        z[i] = pow(x[i], y[i])
-    }
+    var num = CInt(x.n)
+    vvpow(!z, !y, !x, &num)
     return z
 }
 func pow(x:Double, y:ndarray)->ndarray{
     // take the power. also callable with ^
     var z = zeros_like(y)
-    for i in 0..<y.n{
-        z[i] = pow(x, y[i])
-    }
-    return z
+    var xx = ones(y.n) * x
+    return pow(xx, y)
 }
 func sqrt(x: ndarray) -> ndarray{
     return x^0.5
 }
-func floor(x: ndarray) -> ndarray{
-    return apply_function("floor", x)
+func exp(x:ndarray)->ndarray{
+    var num = x.n.cint
+    var y = zeros_like(x)
+    vvexp(!y, !x, &num)
+    return y
 }
-func ceil(x: ndarray) -> ndarray{
-    return floor(x)+1
+func exp2(x:ndarray)->ndarray{
+    var y = zeros_like(x)
+    var n = x.n.cint
+    vvexp2(!y, !x, &n)
+    return y
 }
 
+// ROUND
 func round(x:ndarray)->ndarray{
     var xx = x.copy()
     var y = zeros_like(x)
@@ -180,11 +188,18 @@ func round(x:ndarray, #decimals:Double)->ndarray{
     var factor = pow(10, decimals)
     return round(x*factor) / factor
 }
+func floor(x: ndarray) -> ndarray{
+    return apply_function("floor", x)
+}
+func ceil(x: ndarray) -> ndarray{
+    return floor(x)+1
+}
+
+// LOG
 func log10(x:ndarray)->ndarray{
     // log_10
     return apply_function("log10", x)
 }
-
 func log2(x:ndarray)->ndarray{
     // log_2
     return log10(x) / log10(2.0)
@@ -193,6 +208,8 @@ func log(x:ndarray)->ndarray{
     // log_e
     return log10(x) / log10(e)
 }
+
+// TRIG
 func sin(x: ndarray) -> ndarray{
     // trig
     return apply_function("sin", x)

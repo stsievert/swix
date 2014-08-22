@@ -29,7 +29,8 @@ var e = exp(1.double)
 var euler = 0.57721566490153286060651209008240243104215933593992
 
 // largest possible value
-var inf = 1.0 / 0.0
+var inf = Double.infinity
+var nan = Double.NaN
 
 // smallest possible difference
 var DOUBLE_EPSILON = DBL_EPSILON

@@ -36,10 +36,11 @@ func concat(x:ndarray, y:ndarray)->ndarray{
     return z
 }
 func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
-    // clip the two matrices
-    // TODO: high/low values
-    var i = (a >= a_min) && (a <= a_max)
-    return a * i
+    // clip the matrix
+    var y = a.copy()
+    y[argwhere(a < a_min)] <- a_min
+    y[argwhere(a > a_max)] <- a_max
+    return y
 }
 func shuffle(x:ndarray)->ndarray{
     // randomly shuffle the array
@@ -65,6 +66,12 @@ func sort(x:ndarray)->ndarray{
     var y = x.copy()
     y.sort()
     return y
+}
+func unique(x:ndarray)->ndarray{
+    var y = sort(x)
+    var z = concat(zeros(1), y)
+    var diff = z[1..<z.n] - z[0..<z.n-1]
+    return y[argwhere(diff)]
 }
 func delete(x:ndarray, idx:ndarray) -> ndarray{
     // delete select elements
