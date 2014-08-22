@@ -201,7 +201,10 @@
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.sort" title="ndarray.helper_functions.sort"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.sort</span></tt></a>(x)</td>
 <td>Sorts an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.write_csv" title="ndarray.helper_functions.write_csv"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.write_csv</span></tt></a>(x,&nbsp;filename)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.unique" title="ndarray.helper_functions.unique"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.unique</span></tt></a>(x)</td>
+<td>Find the unique elements of an array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.write_csv" title="ndarray.helper_functions.write_csv"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.write_csv</span></tt></a>(x,&nbsp;filename)</td>
 <td>Writes a CSV.</td>
 </tr>
 </tbody>
@@ -285,11 +288,23 @@
 <tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.cumsum" title="ndarray.simple_math.cumsum"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.cumsum</span></tt></a>(x)</td>
 <td>Finds the cumulative sum of an array.</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.exp" title="ndarray.simple_math.exp"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.exp</span></tt></a>(x)</td>
+<td>Finds the exponent of each element; mathematically it finds</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.exp2" title="ndarray.simple_math.exp2"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.exp2</span></tt></a>(x)</td>
+<td>Finds <span class="math">\(2^x\)</span> for some array x.</td>
+</tr>
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.floor" title="ndarray.simple_math.floor"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.floor</span></tt></a>(x)</td>
 <td>Floors each element.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log" title="ndarray.simple_math.log"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log</span></tt></a>(x)</td>
-<td>Finds the log of an array.</td>
+<td>Finds the log base e of an array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log10" title="ndarray.simple_math.log10"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log10</span></tt></a>(x)</td>
+<td>Finds the log base 10 of an array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log2" title="ndarray.simple_math.log2"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log2</span></tt></a>(x)</td>
+<td>Finds the log base 2 of an array.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.max" title="ndarray.simple_math.max"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.max</span></tt></a>(x[,&nbsp;y])</td>
 <td>Finds the maximum element.</td>
@@ -309,7 +324,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.remainer" title="ndarray.simple_math.remainer"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.remainer</span></tt></a>(x1,&nbsp;x2)</td>
 <td>Finds the element wise remainder after dividing the two arrays.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.round" title="ndarray.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.round</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.round" title="ndarray.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.round</span></tt></a>(x[,&nbsp;decimals])</td>
 <td>Rounds each element.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sign" title="ndarray.simple_math.sign"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sign</span></tt></a>(x)</td>
@@ -344,16 +359,19 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.elementwise_operators" title="ndarray.operators.elementwise_operators"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.elementwise_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.assignment_operator" title="ndarray.operators.assignment_operator"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.assignment_operator</span></tt></a>(lhs,&nbsp;rhs)</td>
+<td>Assign select values of an array to a value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.elementwise_operators" title="ndarray.operators.elementwise_operators"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.elementwise_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
 <td>Element-wise operators.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.equality" title="ndarray.operators.equality"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.equality</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.equality" title="ndarray.operators.equality"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.equality</span></tt></a>(lhs,&nbsp;rhs)</td>
 <td>Seeing if two arrays are about equal.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.logical_operators" title="ndarray.operators.logical_operators"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.logical_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.logical_operators" title="ndarray.operators.logical_operators"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.logical_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
 <td>Logical operators.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.pow" title="ndarray.operators.pow"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.pow</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.pow" title="ndarray.operators.pow"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.pow</span></tt></a>(lhs,&nbsp;rhs)</td>
 <td>The power operator.</td>
 </tr>
 </tbody>
@@ -706,16 +724,19 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.dot" title="matrix.operators.dot"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.dot</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.assignment_operator" title="matrix.operators.assignment_operator"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.assignment_operator</span></tt></a>(lhs,&nbsp;rhs)</td>
+<td>Assign select values of a matrix to a constant value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.dot" title="matrix.operators.dot"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.dot</span></tt></a>(x,&nbsp;y)</td>
 <td>The dot product operator.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.element_operators" title="matrix.operators.element_operators"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.element_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.element_operators" title="matrix.operators.element_operators"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.element_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
 <td>Element wise artithmetic operators.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.equality" title="matrix.operators.equality"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.equality</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.equality" title="matrix.operators.equality"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.equality</span></tt></a>(x,&nbsp;y)</td>
 <td>Sees if two matrices are approximately equal.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.solve" title="matrix.operators.solve"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.solve</span></tt></a>(A,&nbsp;b)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.solve" title="matrix.operators.solve"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.solve</span></tt></a>(A,&nbsp;b)</td>
 <td>Solves a system of eqautions similar to Matlab&#8217;s backslash.</td>
 </tr>
 </tbody>

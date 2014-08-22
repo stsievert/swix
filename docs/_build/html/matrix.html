@@ -1115,6 +1115,35 @@ indexing like Python</p>
 <dt id="matrix.operators">
 <em class="property">class </em><tt class="descclassname">matrix.</tt><tt class="descname">operators</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
+<dt id="matrix.operators.assignment_operator">
+<tt class="descname">assignment_operator</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.assignment_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign select values of a matrix to a constant value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lhs</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix to assign to.</li>
+<li><strong>rhs</strong> (<em>Double</em>) &#8211; The value to fill.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># x ~== [5, 5, 1, 1; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#        5, 5, 1, 1; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#        1, 1, 1, 1]</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="ndarray.html#ndarray.operators.assignment_operator" title="ndarray.operators.assignment_operator"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.operators.assignment_operator</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.operators.dot">
 <tt class="descname">dot</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>The dot product operator.</p>

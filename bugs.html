@@ -70,6 +70,10 @@ this.</p>
 <li><p class="first">The <tt class="docutils literal"><span class="pre">~==</span></tt> operator only verifies if entire arrays are equal; use
 <tt class="docutils literal"><span class="pre">argwhere(abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9)</span></tt> to see where the individual entries are equal.</p>
 </li>
+<li><p class="first">Be careful with operators and precedence! Use parens to avoid issues with
+this. I had <tt class="docutils literal"><span class="pre">sin(x)^2</span> <span class="pre">+</span> <span class="pre">cos(x)^2</span></tt> and this did not equal 1 like I expected;
+parens fixed this issue.</p>
+</li>
 </ul>
 <div class="section" id="compiler-bugs">
 <h2>Compiler bugs<a class="headerlink" href="#compiler-bugs" title="Permalink to this headline">¶</a></h2>

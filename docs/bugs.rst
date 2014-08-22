@@ -9,6 +9,9 @@ Bugs
    this.
 * The ``~==`` operator only verifies if entire arrays are equal; use
   ``argwhere(abs(x-y) < 1e-9)`` to see where the individual entries are equal.
+* Be careful with operators and precedence! Use parens to avoid issues with
+  this. I had ``sin(x)^2 + cos(x)^2`` and this did not equal 1 like I expected;
+  parens fixed this issue.
 
 Compiler bugs
 -----------------

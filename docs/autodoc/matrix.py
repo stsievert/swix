@@ -304,6 +304,23 @@ class helper_functions:
         """
 
 class operators:
+    def assignment_operator(lhs, rhs):
+        """
+        Assign select values of a matrix to a constant value.
+
+        :param lhs: The matrix to assign to.
+        :type lhs: matrix
+        :param rhs: The value to fill.
+        :type rhs: Double
+
+        >>> x = ones((4,3))
+        >>> x[0..<2, 0..<2] <- 5
+        >>> # x ~== [5, 5, 1, 1; 
+        >>> #        5, 5, 1, 1; 
+        >>> #        1, 1, 1, 1]
+
+        .. seealso:: :class:`ndarray.operators.assignment_operator`
+        """
     def element_operators(lhs, rhs):
         """
         Element wise artithmetic operators.

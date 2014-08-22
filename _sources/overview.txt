@@ -67,6 +67,7 @@ ndarray.helper_functions
     ndarray.helper_functions.reverse
     ndarray.helper_functions.shuffle
     ndarray.helper_functions.sort
+    ndarray.helper_functions.unique
     ndarray.helper_functions.write_csv
 
 ndarray.ndarray
@@ -99,8 +100,12 @@ ndarray.simple_math
     ndarray.simple_math.ceil
     ndarray.simple_math.cos
     ndarray.simple_math.cumsum
+    ndarray.simple_math.exp
+    ndarray.simple_math.exp2
     ndarray.simple_math.floor
     ndarray.simple_math.log
+    ndarray.simple_math.log10
+    ndarray.simple_math.log2
     ndarray.simple_math.max
     ndarray.simple_math.mean
     ndarray.simple_math.min
@@ -120,6 +125,7 @@ ndarray.operators
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
+    ndarray.operators.assignment_operator
     ndarray.operators.elementwise_operators
     ndarray.operators.equality
     ndarray.operators.logical_operators
@@ -213,6 +219,7 @@ matrix.operators
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
+    matrix.operators.assignment_operator
     matrix.operators.dot
     matrix.operators.element_operators
     matrix.operators.equality

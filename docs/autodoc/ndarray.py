@@ -260,6 +260,18 @@ class initing():
         """
 
 class helper_functions:
+    def unique(x):
+        """
+        Find the unique elements of an array. Returns the unique elements
+        sorted.
+
+        :param x: The input array.
+        :type x: ndarray
+        :rtype: ndarray. The unqiue element.
+
+        >>> x = array(1, 1, 2, 3, 4, 4, 5, 6)
+        >>> assert(unique(x) ~== array(1, 2, 3, 4, 5, 6))
+        """
     def shuffle(x):
         """
         Randomly shuffle an array.
@@ -421,6 +433,24 @@ class helper_functions:
         """
 
 class operators:
+    def assignment_operator(lhs, rhs):
+        """
+        Assign select values of an array to a value.
+
+        :param lhs: The ndarray to assign to.
+        :type lhs: ndarray
+        :param rhs: The value to fill the array with.
+        :type rhs: Double
+
+        .. note:: Callable through ``x[0..<2] <- 4``
+
+        >>> var x = arange(4)
+        >>> # assign select values!
+        >>> x[0..<2] <- 4
+        >>> assert(x ~== array(4, 4, 2, 3)
+
+        .. seealso:: :class:`matrix.operators.assignment_operator`
+        """
     def elementwise_operators(lhs, rhs):
         """
         Element-wise operators.
@@ -671,11 +701,44 @@ class simple_math:
         """
     def log(x):
         """
-        Finds the log of an array.
+        Finds the log base e of an array.
 
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. Performs the function ``log`` on each element.
+        """
+    def log10(x):
+        """
+        Finds the log base 10 of an array.
+
+        :param x: An array.
+        :type x: ndarray
+        :rtype: ndarray. Performs the function ``log`` on each element.
+        """
+    def log2(x):
+        """
+        Finds the log base 2 of an array.
+
+        :param x: An array.
+        :type x: ndarray
+        :rtype: ndarray. Performs the function ``log`` on each element.
+        """
+    def exp2(x):
+        """
+        Finds :math:`2^x` for some array x.
+
+        :param x: 2 to the power of this array.
+        :type x: ndarray
+        :rtype: ndarray. :math:`2^x`
+        """
+    def exp(x):
+        """
+        Finds the exponent of each element; mathematically it finds
+        :math:`\exp(x)`
+
+        :param x: The input array
+        :type x: ndarray
+        :rtype: ndarray.
         """
     def sqrt(x):
         """
@@ -685,15 +748,18 @@ class simple_math:
         :type x: ndarray
         :rtype: ndarray. Performs the function ``sqrt`` on each element.
         """
-    def round(x):
+    def round(x, decimals=0):
         """
         Rounds each element.
 
         :param x: An array.
         :type x: ndarray
+        :param decimals: The number of decimals kept.
+        :type decimals: Int
         :rtype: ndarray. Performs the function ``round`` on each element.
 
         >>> assert(round(array(0.4, 0.6)) ~== array(0, 1))
+        >>> assert(round(array(0.43, 0.418), decimals:2) ~== array(0.43, 0.42))
         """
     def floor(x):
         """
