@@ -97,6 +97,13 @@ func make_operator(lhs:Double, operation:String, rhs:ndarray) -> ndarray{
     return array
 }
 
+// DOUBLE ASSIGNMENT
+infix operator <- {}
+func <- (inout lhs:ndarray, rhs:Double){
+    var assign = ones(lhs.n) * rhs
+    lhs = assign
+}
+
 // EQUALITY
 infix operator ~== {associativity none precedence 140}
 func ~== (lhs: ndarray, rhs: ndarray) -> Bool{

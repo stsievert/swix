@@ -61,6 +61,12 @@ func make_operator(lhs: Double, operation: String, rhs: matrix)->matrix{
     return result
 }
 
+// DOUBLE ASSIGNMENT
+func <- (inout lhs:matrix, rhs:Double){
+    var assign = ones((lhs.shape)) * rhs
+    lhs = assign
+}
+
 // DOT PRODUCT
 infix operator *! {associativity none precedence 140}
 func *! (lhs: matrix, rhs: matrix) -> matrix{
