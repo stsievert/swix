@@ -12,19 +12,23 @@ import Accelerate
 
 // integration
 func cumtrapz(x:ndarray)->ndarray{
+    // integrate and see the steps at each iteration
     var y = zeros_like(x)
     var dx:CDouble = 1.0
     vDSP_vtrapzD(!x, 1.stride, &dx, !y, 1.stride, x.n.length)
     return y
 }
 func trapz(x:ndarray)->Double{
+    // integrate and get the final value
     return cumtrapz(x)[-1]
 }
 // basic definitions
 func inner(x:ndarray, y:ndarray)->Double{
+    // the inner product. aka dot product, but I use dot product as a short for matrix multiplication
     return sum(x * y)
 }
 func outer(x:ndarray, y:ndarray)->matrix{
+    // the outer product.
     var (xm, ym) = meshgrid(x, y)
     return xm * ym
 }
@@ -76,6 +80,7 @@ func ifft(yr: ndarray, yi: ndarray) -> ndarray{
     return x
 }
 func fftconvolve(x:ndarray, kernel:ndarray)->ndarray{
+    // convolve two arrays using the fourier transform.
     // zero padding, assuming kernel is smaller than x
     var k_pad = zeros_like(x)
     k_pad[0..<kernel.n] = kernel

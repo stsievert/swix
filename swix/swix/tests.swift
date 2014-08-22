@@ -187,6 +187,9 @@ class runTests {
         }
         func ndarraySwiftTests(){
             // testing the file ndarray.swift
+            var x_idx = zeros(4)
+            x_idx[0..<2] <- 2
+            assert(x_idx ~== array(2, 2, 0, 0))
             assert(arange(4).reshape((2,2)) ~== array("0 1; 2 3"))
             assert(arange(4).copy() ~== arange(4))
             var x = array(4, 2, 3, 1)
@@ -211,7 +214,7 @@ class runTests {
             assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
             assert(asarray(0..<2) ~== array(0, 1))
             assert(concat(array(1, 2), array(3, 4)) ~== (arange(4)+1))
-            assert(clip(y, 2, 4) ~== array(0, 2, 4, 3, 0))
+            assert(clip(y, 2, 4) ~== array(4, 2, 4, 3, 2))
             assert(delete(y, array(0, 1)) ~== array(4,3,1))
             assert(repeat(array(0,1),2) ~== array(0,1,0,1))
             assert(repeat(array(0,1),2, axis:1) ~== array(0,0,1,1))

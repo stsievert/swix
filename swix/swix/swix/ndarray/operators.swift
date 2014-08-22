@@ -37,10 +37,10 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
         result /= 255
     }
     else if operation == "=="{
-        return abs(lhs-rhs) < S2_TOLERANCE
+        return abs(lhs-rhs) < S2_THRESHOLD
     }
     else if operation == "!=="{
-        return abs(lhs-rhs) > S2_TOLERANCE
+        return abs(lhs-rhs) > S2_THRESHOLD
     }
     else {assert(false, "operation not recongized!")}
     return result
@@ -95,6 +95,13 @@ func make_operator(lhs:Double, operation:String, rhs:ndarray) -> ndarray{
         array = make_operator(rhs, "<=", lhs)}
     else {assert(false, "Operator not reconginzed")}
     return array
+}
+
+// DOUBLE ASSIGNMENT
+infix operator <- {}
+func <- (inout lhs:ndarray, rhs:Double){
+    var assign = ones(lhs.n) * rhs
+    lhs = assign
 }
 
 // EQUALITY
