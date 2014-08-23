@@ -15,6 +15,10 @@ import Swift
 runTests()
 //SpeedTests()
 
+var x = array(1, 2, 3, 4, 3)
+var y = array(3, 6, 3, 7, 8, 9)
+
+
 
 
 

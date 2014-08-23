@@ -8,33 +8,21 @@
 
 import Foundation
 
-func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
-    // print the matrix
-    print(prefix)
-    var suffix = seperator
-    var printed = false
-    for i in 0..<x.n{
-        if i==x.n-1 { suffix = "" }
-        if printWholeMatrix || (x.n)<16 || i<3 || i>(x.n-4){
-            print(NSString(format: format+suffix, x[i]))
-        }else if printed == false{
-            printed = true
-            print("..., ")
-        }
+// NORM
+func norm(x: ndarray, ord:Double=2) -> Double{
+    // takes the norm of an array
+    if ord==2      { return sqrt(sum(pow(x, 2)))}
+    else if ord==1 { return sum(abs(x))}
+    else if ord==0 { return sum(abs(x) > S2_THRESHOLD)}
+    else if ord == -1 || ord == -2{
+        return pow(sum(abs(x)^ord.double), 1/ord.double)
     }
-    print(postfix)
-    print(newline)
-}
-func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
-}
-func concat(x:ndarray, y:ndarray)->ndarray{
-    // concatenate two matrices
-    var z = zeros(x.n + y.n)
-    z[0..<x.n] = x
-    z[x.n..<y.n+x.n] = y
-    return z
-}
+    else if ord.double ==  inf {return max(abs(x))}
+    else if ord.double == -inf {return min(abs(x))}
+    assert(false, "type of norm unrecongnized")
+    return -1.0}
+
+// modifying elements of the array
 func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
     // clip the matrix
     var y = a.copy()
@@ -42,44 +30,12 @@ func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
     y[argwhere(a > a_max)] <- a_max
     return y
 }
-func shuffle(x:ndarray)->ndarray{
-    // randomly shuffle the array
-    var y = x.copy()
-    CVWrapper.shuffle(!y, n:y.n.cint)
-    return y
-}
-func argwhere(idx: ndarray) -> ndarray{
-    // counts non-zero elements, return array of doubles (which can be indexed!).
-    var i = arange(idx.n)
-    var args = zeros(sum(idx).int)
-    vDSP_vcmprsD(!i, 1.stride, !idx, 1.stride, !args, 1.stride, idx.n.length)
-    return args
-}
 func reverse(x:ndarray) -> ndarray{
     // reverse the array
     var y = x.copy()
     vDSP_vrvrsD(!y, 1.stride, y.n.length)
     return y
 }
-func sort(x:ndarray)->ndarray{
-    // sort the array and return a new array
-    var y = x.copy()
-    y.sort()
-    return y
-}
-func unique(x:ndarray)->ndarray{
-    var y = sort(x)
-    var z = concat(zeros(1), y)
-    var diff = z[1..<z.n] - z[0..<z.n-1]
-    var un = y[argwhere(diff)]
-    if min(x) < S2_THRESHOLD{
-        return sort(concat(zeros(1), un))
-    }
-    else{
-        return un
-    }
-}
-
 func delete(x:ndarray, idx:ndarray) -> ndarray{
     // delete select elements
     var i = ones(x.n)
@@ -98,6 +54,55 @@ func repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
     else if axis==1 { y = y.T}
     return y.flat
 }
+
+// SORTING and the like
+func sort(x:ndarray)->ndarray{
+    // sort the array and return a new array
+    var y = x.copy()
+    y.sort()
+    return y
+}
+func unique(x:ndarray)->ndarray{
+    var y = sort(x)
+    var z = concat(zeros(1), y)
+    var diff = abs(z[1..<z.n] - z[0..<z.n-1]) > S2_THRESHOLD
+    var un = y[argwhere(diff)]
+    if abs(min(x)) < S2_THRESHOLD{
+        return sort(concat(zeros(1), un))
+    }
+    else{
+        return un
+    }
+}
+func shuffle(x:ndarray)->ndarray{
+    // randomly shuffle the array
+    var y = x.copy()
+    CVWrapper.shuffle(!y, n:y.n.cint)
+    return y
+}
+
+// SETS
+func intersection(x: ndarray, y:ndarray)->ndarray{
+    return x[argwhere(in1d(x, y))]
+}
+func union(x:ndarray, y:ndarray)->ndarray{
+    return unique(concat(x, y))
+}
+func in1d(x: ndarray, y:ndarray)->ndarray{
+    var (xx, yy) = meshgrid(x, y)
+    var i = abs(xx-yy) < S2_THRESHOLD
+    var j = (sum(i, axis:1)) > 0.5
+    return 1-j
+}
+func concat(x:ndarray, y:ndarray)->ndarray{
+    // concatenate two matrices
+    var z = zeros(x.n + y.n)
+    z[0..<x.n] = x
+    z[x.n..<y.n+x.n] = y
+    return z
+}
+
+// ARG
 func argmax(x:ndarray)->Int{
     // find the location of the max
     var m:CInt = 0
@@ -122,6 +127,15 @@ func argsort(x:ndarray)->ndarray{
     vDSP_vflt32D(&y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
+func argwhere(idx: ndarray) -> ndarray{
+    // counts non-zero elements, return array of doubles (which can be indexed!).
+    var i = arange(idx.n)
+    var args = zeros(sum(idx).int)
+    vDSP_vcmprsD(!i, 1.stride, !idx, 1.stride, !args, 1.stride, idx.n.length)
+    return args
+}
+
+// writing
 func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     // write the array to CSV
     var seperator=","
@@ -138,3 +152,27 @@ func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     }
     
 }
+
+// PRINTING
+func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
+    // print the matrix
+    print(prefix)
+    var suffix = seperator
+    var printed = false
+    for i in 0..<x.n{
+        if i==x.n-1 { suffix = "" }
+        if printWholeMatrix || (x.n)<16 || i<3 || i>(x.n-4){
+            print(NSString(format: format+suffix, x[i]))
+        }else if printed == false{
+            printed = true
+            print("..., ")
+        }
+    }
+    print(postfix)
+    print(newline)
+}
+func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
+    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
+}
+
+

@@ -145,20 +145,6 @@ func cumprod(x:ndarray)->ndarray{
 }
 
 
-// NORM
-func norm(x: ndarray, ord:Double=2) -> Double{
-    // takes the norm of an array
-    if ord==2      { return sqrt(sum(pow(x, 2)))}
-    else if ord==1 { return sum(abs(x))}
-    else if ord==0 { return sum(abs(x) > S2_THRESHOLD)}
-    else if ord == -1 || ord == -2{
-        return pow(sum(abs(x)^ord.double), 1/ord.double)
-    }
-    else if ord.double ==  inf {return max(abs(x))}
-    else if ord.double == -inf {return min(abs(x))}
-    assert(false, "type of norm unrecongnized")
-    return -1.0}
-
 // POWER FUNCTIONS
 func pow(x:ndarray, power:Double)->ndarray{
     // take the power. also callable with ^
