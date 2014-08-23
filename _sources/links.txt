@@ -1,8 +1,14 @@
 
+.. _`np.count_nonzero`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.count_nonzero.html
+.. _`np.logical_and`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_and.html
+.. _`np.logical_or`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_or.html
+.. _`np.logical_xor`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_xor.html
+.. _`np.logical_not`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_not.html
 .. _`np.reshape`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html
 .. _`np.repeat`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.repeat.html
 .. _`np.copy`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html
 .. _`np.fliplr`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fliplr.html
+.. _`np.rot90`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.rot90.html
 .. _`np.flipud`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.flipud.html
 .. _`np.power`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html
 .. _`np.flat`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flat.html
@@ -18,6 +24,7 @@
 .. _`np.arange`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html
 .. _`np.linspace`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html
 .. _`np.zeros_like`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros_like.html
+.. _`np.ones_like`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones_like.html
 .. _`np.linalg.norm`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html
 .. _`np.random.rand`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html
 .. _`np.random.randn`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html
@@ -55,6 +62,9 @@
 .. _`np.in1d`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.in1d.html
 .. _`np.prod`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.prod.html
 .. _`np.cumprod`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.cumprod.html
+.. _`np.expm1`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.expm1.html
+.. _`np.linalg.det`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.det.html
+.. _`cv.determinant`: http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#determinant
 
 .. _`Pylab`: http://wiki.scipy.org/PyLab
 .. _`Norm`: https://en.wikipedia.org/wiki/Norm_(mathematics)
@@ -76,4 +86,4 @@
 .. _`Matrix multiplication`: https://en.wikipedia.org/wiki/Matrix_multiplication
 .. _`Support vector machines`: https://en.wikipedia.org/wiki/Support_vector_machines
 .. _`k-nearest neighbors algorithm`: https://en.wikipedia.org/wiki/K_nearest_neighbors
-
+.. _`binomial coeff`: https://en.wikipedia.org/wiki/Binomial_coefficient

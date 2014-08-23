@@ -23,9 +23,11 @@ numbers
 
 
 .. autosummary::
+    numbers.binom
     numbers.close
     numbers.convience_elements
     numbers.deg2rad
+    numbers.factorial
     numbers.isNumber
     numbers.operator_slash
     numbers.rad2deg
@@ -44,6 +46,7 @@ ndarray.initing
     ndarray.initing.copy
     ndarray.initing.linspace
     ndarray.initing.ones
+    ndarray.initing.ones_like
     ndarray.initing.rand
     ndarray.initing.randn
     ndarray.initing.randperm
@@ -61,10 +64,15 @@ ndarray.helper_functions
     ndarray.helper_functions.argwhere
     ndarray.helper_functions.clip
     ndarray.helper_functions.concat
+    ndarray.helper_functions.count_nonzero
     ndarray.helper_functions.cumprod
     ndarray.helper_functions.delete
     ndarray.helper_functions.in1d
     ndarray.helper_functions.intersection
+    ndarray.helper_functions.logical_and
+    ndarray.helper_functions.logical_not
+    ndarray.helper_functions.logical_or
+    ndarray.helper_functions.logical_xor
     ndarray.helper_functions.norm
     ndarray.helper_functions.println
     ndarray.helper_functions.prod
@@ -108,6 +116,7 @@ ndarray.simple_math
     ndarray.simple_math.cumsum
     ndarray.simple_math.exp
     ndarray.simple_math.exp2
+    ndarray.simple_math.expm1
     ndarray.simple_math.floor
     ndarray.simple_math.log
     ndarray.simple_math.log10
@@ -160,11 +169,15 @@ matrix.helper_functions
 .. autosummary::
 
     matrix.helper_functions.argwhere
+    matrix.helper_functions.det
+    matrix.helper_functions.diag
     matrix.helper_functions.fliplr
     matrix.helper_functions.flipud
     matrix.helper_functions.kron
     matrix.helper_functions.norm
+    matrix.helper_functions.ones_like
     matrix.helper_functions.println
+    matrix.helper_functions.rot90
     matrix.helper_functions.transpose
     matrix.helper_functions.write_csv
 

@@ -215,6 +215,28 @@ class initing:
         """
 
 class helper_functions:
+    def det(x):
+        """
+        Estimate the determinant of a matrix.
+
+        :param x: The matrix to compute the determinant of.
+        :type x: matrix
+        :rtype: Double
+
+        .. seealso:: `cv.determinant`_, `np.linalg.det`_
+        """
+    def rot90(x, k=1):
+        """
+        Rotate the given matrix 90 degrees counter-clockwise. Do it k times.
+
+        .. warning:: k is assumed to be 1, 2 or 3
+
+        :param x: The matrix to rotate.
+        :type x: matrix
+        :rtype: matrix
+
+        .. seealso:: `np.rot90`_
+        """
     def norm(x, ord=2):
         """
         Find the `Matrix norm`_ of a matrix.
@@ -315,6 +337,29 @@ class helper_functions:
         :type x: matrix
         :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
         :param prefix: Defaults to S2_PREFIX.
+        """
+    def ones_like(x):
+        """
+        Makes an matrix like another matrix.
+
+        :param x: The array to imitate.
+        :type x: ndarray
+
+        >>> var x = array(3, 8, 2, 1).reshape((2,2))
+        >>> assert(ones_like(x) ~== array(1, 1, 1, 1).reshape((2,2)))
+
+        .. seealso:: `np.ones_like`_
+        """
+    def diag(x):
+        """
+        Make an array with the specified diagonal.
+
+        :param x: The diagonal of the new array.
+        :type x: ndarray
+        :rtype: matrix
+
+        >>> var x = diag(array(ones(3)))
+        >>> assert(x ~== eye(3))
         """
 
 class operators:

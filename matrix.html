@@ -964,6 +964,46 @@ indexing like Python</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="matrix.helper_functions.det">
+<tt class="descname">det</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.det" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate the determinant of a matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix to compute the determinant of.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#determinant">cv.determinant</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.det.html">np.linalg.det</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.diag">
+<tt class="descname">diag</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make an array with the specified diagonal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The diagonal of the new array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.helper_functions.fliplr">
 <tt class="descname">fliplr</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.fliplr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flips each row.</p>
@@ -1065,6 +1105,28 @@ indexing like Python</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="matrix.helper_functions.ones_like">
+<tt class="descname">ones_like</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.ones_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an matrix like another matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to imitate.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones_like.html">np.ones_like</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.helper_functions.println">
 <tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='matrix(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.println" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the matrix.</p>
@@ -1084,6 +1146,30 @@ indexing like Python</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.helper_functions.rot90">
+<tt class="descname">rot90</tt><big>(</big><em>x</em>, <em>k=1</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.rot90" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the given matrix 90 degrees counter-clockwise. Do it k times.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">k is assumed to be 1, 2 or 3</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix to rotate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.rot90.html">np.rot90</a></p>
+</div>
 </dd></dl>
 
 <dl class="method">

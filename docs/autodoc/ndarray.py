@@ -258,8 +258,30 @@ class initing():
 
         .. seealso:: `np.zeros_like`_
         """
+    def ones_like(x):
+        """
+        Makes an array like another array.
+
+        :param x: The array to imitate.
+        :type x: ndarray
+
+        >>> var x = array(3, 8)
+        >>> assert(ones_like(x) ~== array(1, 1)
+
+        .. seealso:: `np.ones_like`_
+        """
 
 class helper_functions:
+    def count_nonzero(x):
+        """
+        Counts the nonzero elements.
+
+        :param x: The array to be counted.
+        :type x: ndarray
+        :rtype: Double. The number of nonzero elements.
+        
+        .. seealso:: `np.count_nonzero`_
+        """
     def intersection(x, y):
         """
         Find elements that are both arrays.
@@ -496,6 +518,52 @@ class helper_functions:
         :rtype: ndarray. The sorted array.
 
         .. seealso:: :class:`ndarray.sort`, `np.sort`_
+        """
+    def logical_not(x):
+        """
+        Find the logical NOT of x and y.
+
+        :param x: An array of truth values; assumed to take values of 0 and 1.
+        :type x: ndarray
+        :rtype: ndarray
+
+        .. seealso:: `np.logical_not`_
+        """
+    def logical_and(x, y):
+        """
+        Find the logical AND of x and y.
+
+        :param x: An array of truth values; assumed to take values of 0 and 1.
+        :type x: ndarray
+        :param y: An array of truth values; assumed to take values of 0 and 1.
+        :type y: ndarray
+        :rtype: ndarray
+
+        .. seealso:: `np.logical_and`_
+        """
+    def logical_or(x, y):
+        """
+        Find the logical OR of x and y.
+
+        :param x: An array of truth values; assumed to take values of 0 and 1.
+        :type x: ndarray
+        :param y: An array of truth values; assumed to take values of 0 and 1.
+        :type y: ndarray
+        :rtype: ndarray
+
+        .. seealso:: `np.logical_or`_
+        """
+    def logical_xor(x, y):
+        """
+        Find the logical XOR of x and y.
+
+        :param x: An array of truth values; assumed to take values of 0 and 1.
+        :type x: ndarray
+        :param y: An array of truth values; assumed to take values of 0 and 1.
+        :type y: ndarray
+        :rtype: ndarray
+
+        .. seealso:: `np.logical_xor`_
         """
     def write_csv(x, filename, prefix=S2_PREFIX):
         """
@@ -797,6 +865,16 @@ class simple_math:
         :param x: 2 to the power of this array.
         :type x: ndarray
         :rtype: ndarray. :math:`2^x`
+        """
+    def expm1(x):
+        """
+        Estimate :math:`\exp(x)-1`. Useful for when :math:`exp(1) << 1`.
+
+        :param x: The array to calculate the exponent of.
+        :type x: ndarray
+        :rtype: ndarray
+
+        .. seealso:: `np.expm1`_
         """
     def exp(x):
         """

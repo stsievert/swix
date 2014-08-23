@@ -213,6 +213,26 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.simple_math.expm1">
+<tt class="descname">expm1</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.expm1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate <span class="math">\(\exp(x)-1\)</span>. Useful for when <span class="math">\(exp(1) &lt;&lt; 1\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to calculate the exponent of.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.expm1.html">np.expm1</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.simple_math.floor">
 <tt class="descname">floor</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Floors each element.</p>
@@ -884,6 +904,28 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.initing.ones_like">
+<tt class="descname">ones_like</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.ones_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array like another array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to imitate.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones_like.html">np.ones_like</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.initing.rand">
 <tt class="descname">rand</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>distro='uniform'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.rand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of uniform random variables.</p>
@@ -1179,6 +1221,26 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.helper_functions.count_nonzero">
+<tt class="descname">count_nonzero</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.count_nonzero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the nonzero elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to be counted.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The number of nonzero elements.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.count_nonzero.html">np.count_nonzero</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.helper_functions.cumprod">
 <tt class="descname">cumprod</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.cumprod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the cumulative product of every element in this array.</p>
@@ -1276,6 +1338,101 @@ indices.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.intersect1d.html">np.intersect1d</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.logical_and">
+<tt class="descname">logical_and</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_and" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical AND of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_and.html">np.logical_and</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.logical_not">
+<tt class="descname">logical_not</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_not" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical NOT of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_not.html">np.logical_not</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.logical_or">
+<tt class="descname">logical_or</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_or" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical OR of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_or.html">np.logical_or</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.logical_xor">
+<tt class="descname">logical_xor</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_xor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical XOR of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_xor.html">np.logical_xor</a></p>
 </div>
 </dd></dl>
 
@@ -1808,6 +1965,26 @@ functions work like expected:</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descname">expm1</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Estimate <span class="math">\(\exp(x)-1\)</span>. Useful for when <span class="math">\(exp(1) &lt;&lt; 1\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to calculate the exponent of.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.expm1.html">np.expm1</a></p>
+</div>
 </dd></dl>
 
 <dl class="method">

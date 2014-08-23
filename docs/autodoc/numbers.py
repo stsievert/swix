@@ -41,6 +41,24 @@ DOUBLE_EPSILON = "smaller"
 #: detail.
 FLOAT_EPSILON = "small"
 
+def binom(n, k):
+    """
+    Calculate the binomial coeffecint or n choose k.
+
+    :param n: n as in on the wiki page.
+    :param k: k as in on the wiki page.
+    :type n: Double
+    :type k: Double
+    :rtype: The `Binomial coeff`_
+    """
+def factorial(n):
+    """
+    Computes :math:`n \cdot (n-1) \ldots 2 \cdot 1 = n!`
+
+    :param n: The number to compute the factorial of.
+    :type n: Int
+    :rtype: The factorial of n.
+    """
 def close(x, y):
     """
     See if two numbers are approximately equal.
