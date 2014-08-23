@@ -21,6 +21,10 @@ func zeros_like(x: ndarray) -> ndarray{
     // make an array like the other array
     return zeros(x.n)
 }
+func ones_like(x: ndarray) -> ndarray{
+    // make an array like the other array
+    return zeros_like(x) + 1
+}
 func ones(N: Int) -> ndarray{
     // N ones
     return ndarray(n: N)+1

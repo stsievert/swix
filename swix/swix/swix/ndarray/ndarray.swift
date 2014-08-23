@@ -13,7 +13,6 @@ import Accelerate
 
 // SLOW PARTS: x[ndarray, ndarray] set
 
-
 struct ndarray {
     let n: Int // the number of elements
     var count: Int // ditto

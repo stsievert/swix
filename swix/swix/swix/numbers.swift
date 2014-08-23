@@ -54,6 +54,16 @@ func max(x:Double, y:Double)->Double{
 func min(x:Double, y:Double)->Double{
     return x < y ? x : y
 }
+func factorial(n:Double)->Double{
+    var y = arange(n)+1
+    return prod(y)
+}
+func binomial(n:Double, k:Double)->Double{
+    // scipy.special.binom
+    var i = arange(k)+1
+    var result = (n+1-i) / i
+    return prod(result)
+}
 
 // use 3.double or 3.14.int or N.int
 extension Int{

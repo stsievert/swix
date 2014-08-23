@@ -17,13 +17,19 @@ func zeros_like(x: matrix) -> matrix{
     var y:matrix = zeros((x.shape.0, x.shape.1))
     return y
 }
+func ones_like(x: matrix) -> matrix{
+    return zeros_like(x) + 1
+}
 func ones(shape: (Int, Int)) -> matrix{
     return zeros(shape)+1
 }
 func eye(N: Int) -> matrix{
-    var x = zeros((N,N))
-    x["diag"] = ones(N)
-    return x
+    return diag(ones(N))
+}
+func diag(x:ndarray)->matrix{
+    var y = zeros((x.n, x.n))
+    y["diag"] = x
+    return y
 }
 func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
     var x = zeros(N)

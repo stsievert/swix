@@ -66,11 +66,15 @@ func apply_function(function: String, x: ndarray)->ndarray{
         var count:Int32 = Int32(x.n)
         vvtan(!y, !x, &count)
     }
+    else if function=="expm1"{
+        var count:Int32 = Int32(x.n)
+        vvexpm1(!y, !x, &count)
+    }
     else {assert(false, "Function not recongized")}
     return y
 }
 
-// BASIC STATS
+// MIN/MAX
 func min(x: ndarray) -> Double{
     // finds the min
     return x.min()}
@@ -91,6 +95,8 @@ func min(x: ndarray, y:ndarray)->ndarray{
     vDSP_vminD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
+
+// BASIC STATS
 func mean(x: ndarray) -> Double{
     // finds the mean
     return x.mean()
@@ -122,20 +128,28 @@ func cumsum(x: ndarray) -> ndarray{
 func abs(x: ndarray) -> ndarray{
     // absolute value
     return apply_function("abs", x)}
-
-// NORM
-func norm(x: ndarray, ord:Double=2) -> Double{
-    // takes the norm of an array
-    if ord==2      { return sqrt(sum(pow(x, 2)))}
-    else if ord==1 { return sum(abs(x))}
-    else if ord==0 { return sum(abs(x) > S2_THRESHOLD)}
-    else if ord == -1 || ord == -2{
-        return pow(sum(abs(x)^ord.double), 1/ord.double)
+func prod(x:ndarray)->Double{
+    var y = x.copy()
+    var factor = 1.0
+    if min(y) < 0{
+        y[argwhere(y < 0.0)] *= -1.0
+        if sum(x < 0) % 2 == 1 {factor = -1}
     }
-    else if ord.double ==  inf {return max(abs(x))}
-    else if ord.double == -inf {return min(abs(x))}
-    assert(false, "type of norm unrecongnized")
-    return -1.0}
+    return factor * exp(sum(log(y)))
+}
+func cumprod(x:ndarray)->ndarray{
+    var y = x.copy()
+    if min(y) < 0.0{
+        var i = y < 0
+        y[argwhere(i)] *= -1.0
+        var j = 1 - (cumsum(i) % 2.0) < S2_THRESHOLD
+        var z = exp(cumsum(log(y)))
+        z[argwhere(j)] *= -1.0
+        return z
+    }
+    return exp(cumsum(log(y)))
+}
+
 
 // POWER FUNCTIONS
 func pow(x:ndarray, power:Double)->ndarray{
@@ -171,6 +185,9 @@ func exp2(x:ndarray)->ndarray{
     var n = x.n.cint
     vvexp2(!y, !x, &n)
     return y
+}
+func expm1(x:ndarray)->ndarray{
+    return apply_function("expm1", x)
 }
 
 // ROUND
