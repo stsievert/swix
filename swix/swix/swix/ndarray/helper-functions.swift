@@ -79,14 +79,6 @@ func unique(x:ndarray)->ndarray{
         return un
     }
 }
-func prod(x:ndarray)->Double{
-    assert(sum(log(x)) > 0, "BUG: prod only works with positive values")
-    return exp(sum(log(x)))
-}
-func cumprod(x:ndarray)->ndarray{
-    assert(min(x) > 0, "BUG: cumprod only works with positive values")
-    return exp(cumsum(log(x)))
-}
 
 func delete(x:ndarray, idx:ndarray) -> ndarray{
     // delete select elements

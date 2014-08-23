@@ -97,7 +97,7 @@ func max(x:matrix, y:matrix)->matrix{
 //}
 func sum(x: matrix, axis:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
-    assert(axis==0 || axis==1, "If you want to sum over the entire matrix, call `sum(x.flat)`.")
+    assert(axis==0 || axis==1, "if you want to sum over the entire matrix, call `sum(x.flat)`.")
     if axis==1{
         var n = x.shape.1
         var m = ones((n,1))
@@ -113,22 +113,18 @@ func sum(x: matrix, axis:Int = -1) -> ndarray{
     assert(false)
     return zeros(1)
 }
+func prod(x: matrix, axis:Int = -1) -> ndarray{
+    assert(axis==0 || axis==1, "if you want to sum over the entire matrix, call `sum(x.flat)`.")
+    var y = log(x)
+    var z = sum(y, axis:axis)
+    return exp(z)
+}
 func mean(x:matrix, axis:Int = -1) -> ndarray{
     assert(axis==0 || axis==1, "If you want to find the average of the whole matrix call `mean(x.flat)`")
     var div = axis==0 ? x.shape.1 : x.shape.0
     return sum(x, axis:axis) / div.double
 }
 
-//func cumsum(x: matrix) -> matrix{
-//    let N = x.count
-//    var y = zeros(N)
-//    for i in 0..<N{
-//        if i==0      { y[i] = x[0]          }
-//        else if i==1 { y[i] = x[0] + x[1]   }
-//        else         { y[i] = x[i] + y[i-1] }
-//    }
-//    return y
-//}
 
 
 

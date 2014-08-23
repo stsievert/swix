@@ -122,6 +122,28 @@ func cumsum(x: ndarray) -> ndarray{
 func abs(x: ndarray) -> ndarray{
     // absolute value
     return apply_function("abs", x)}
+func prod(x:ndarray)->Double{
+    var y = x.copy()
+    var factor = 1.0
+    if min(y) < 0{
+        y[argwhere(y < 0.0)] *= -1.0
+        if sum(x < 0) % 2 == 1 {factor = -1}
+    }
+    return factor * exp(sum(log(y)))
+}
+func cumprod(x:ndarray)->ndarray{
+    var y = x.copy()
+    if min(y) < 0.0{
+        var i = y < 0
+        y[argwhere(i)] *= -1.0
+        var j = 1 - (cumsum(i) % 2.0) < S2_THRESHOLD
+        var z = exp(cumsum(log(y)))
+        z[argwhere(j)] *= -1.0
+        return z
+    }
+    return exp(cumsum(log(y)))
+}
+
 
 // NORM
 func norm(x: ndarray, ord:Double=2) -> Double{
