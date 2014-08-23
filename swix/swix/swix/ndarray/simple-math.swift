@@ -66,11 +66,15 @@ func apply_function(function: String, x: ndarray)->ndarray{
         var count:Int32 = Int32(x.n)
         vvtan(!y, !x, &count)
     }
+    else if function=="expm1"{
+        var count:Int32 = Int32(x.n)
+        vvexpm1(!y, !x, &count)
+    }
     else {assert(false, "Function not recongized")}
     return y
 }
 
-// BASIC STATS
+// MIN/MAX
 func min(x: ndarray) -> Double{
     // finds the min
     return x.min()}
@@ -91,6 +95,8 @@ func min(x: ndarray, y:ndarray)->ndarray{
     vDSP_vminD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
+
+// BASIC STATS
 func mean(x: ndarray) -> Double{
     // finds the mean
     return x.mean()
@@ -179,6 +185,9 @@ func exp2(x:ndarray)->ndarray{
     var n = x.n.cint
     vvexp2(!y, !x, &n)
     return y
+}
+func expm1(x:ndarray)->ndarray{
+    return apply_function("expm1", x)
 }
 
 // ROUND

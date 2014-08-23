@@ -27,6 +27,7 @@
 + (void) argsort:(double*)x N:(int)N into:(int*)y;
 + (void) pow:(double*)x N:(int)N power:(double)power into:(double*)y;
 + (void) shuffle:(double*)x n:(int)n;
++ (void) det:(double*)x n:(int)N m:(int)M result:(double*)result;
 
 @end
 

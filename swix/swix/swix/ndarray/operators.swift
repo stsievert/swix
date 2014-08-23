@@ -209,13 +209,11 @@ func <= (lhs: Double, rhs: ndarray) -> ndarray{
 // LOGICAL AND
 infix operator && {associativity none precedence 140}
 func && (lhs: ndarray, rhs: ndarray) -> ndarray{
-    return lhs * rhs}
+    return logical_and(lhs, rhs)}
 // LOGICAL OR
 func || (lhs: ndarray, rhs: ndarray) -> ndarray {
-    var i = lhs + rhs
-    var j = argwhere(i>1.double)
-    i[j] = ones(j.n)
-    return i}
+    return logical_or(lhs, rhs)
+}
 
 
 

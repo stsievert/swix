@@ -21,6 +21,9 @@ func norm(x: ndarray, ord:Double=2) -> Double{
     else if ord.double == -inf {return min(abs(x))}
     assert(false, "type of norm unrecongnized")
     return -1.0}
+func count_nonzero(x:ndarray)->Double{
+    return sum(abs(x) > S2_THRESHOLD)
+}
 
 // modifying elements of the array
 func clip(a:ndarray, a_min:Double, a_max:Double)->ndarray{
@@ -151,6 +154,25 @@ func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
         println("File probably wasn't recognized \n\(error)")
     }
     
+}
+
+// LOGICAL
+func logical_and(x:ndarray, y:ndarray)->ndarray{
+    return x * y
+}
+func logical_or(x:ndarray, y:ndarray)->ndarray{
+    var i = x + y
+    var j = argwhere(i > 0.5)
+    i[j] <- 1.0
+    return i
+}
+func logical_not(x:ndarray)->ndarray{
+    return 1-x
+}
+func logical_xor(x:ndarray, y:ndarray)->ndarray{
+    var i = x + y
+    var j = (i < 1.5) && (i > 0.5)
+    return j
 }
 
 // PRINTING

@@ -74,7 +74,6 @@ func max(x:matrix, y:matrix)->matrix{
     return z
 }
 
-
 // AXIS
 func sum(x: matrix, axis:Int = -1) -> ndarray{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
