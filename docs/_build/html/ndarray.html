@@ -348,35 +348,6 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="ndarray.simple_math.norm">
-<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.norm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the norm of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-<li><strong>ord</strong> (Int or <span class="math">\(\pm\)</span> inf) &#8211; Indicates the specific type of norm.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. A specific norm of the array. Either the <span class="math">\(\ell_0\)</span>, <span class="math">\(\ell_1\)</span>, <span class="math">\(\ell_2\)</span> or <span class="math">\(\ell_\infty\)</span> norm.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This is a direct copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>. See NumPy&#8217;s documentation for info about appropiate values for ord.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Norm</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="ndarray.simple_math.pow">
 <tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.pow" title="Permalink to this definition">¶</a></dt>
 <dd><p>The power of a {Double, ndarray} to {Double, ndarray}</p>
@@ -1211,10 +1182,6 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <dt id="ndarray.helper_functions.cumprod">
 <tt class="descname">cumprod</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.cumprod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the cumulative product of every element in this array.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">BUG: Only works for positive elements.</p>
-</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1252,6 +1219,35 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.helper_functions.norm">
+<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the norm of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
+<li><strong>ord</strong> (Int or <span class="math">\(\pm\)</span> inf) &#8211; Indicates the specific type of norm.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. A specific norm of the array. Either the <span class="math">\(\ell_0\)</span>, <span class="math">\(\ell_1\)</span>, <span class="math">\(\ell_2\)</span> or <span class="math">\(\ell_\infty\)</span> norm.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a direct copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>. See NumPy&#8217;s documentation for info about appropiate values for ord.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Norm</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.helper_functions.println">
 <tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.println" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints an array.</p>
@@ -1271,10 +1267,6 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <dt id="ndarray.helper_functions.prod">
 <tt class="descname">prod</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.prod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the product of every element in this array.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">BUG: Only works if <tt class="docutils literal"><span class="pre">sum(x)</span> <span class="pre">&gt;</span> <span class="pre">0</span></tt>.</p>
-</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1864,35 +1856,6 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Finds the norm of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-<li><strong>ord</strong> (Int or <span class="math">\(\pm\)</span> inf) &#8211; Indicates the specific type of norm.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. A specific norm of the array. Either the <span class="math">\(\ell_0\)</span>, <span class="math">\(\ell_1\)</span>, <span class="math">\(\ell_2\)</span> or <span class="math">\(\ell_\infty\)</span> norm.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This is a direct copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>. See NumPy&#8217;s documentation for info about appropiate values for ord.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Norm</a></p>
-</div>
 </dd></dl>
 
 <dl class="method">

@@ -63,6 +63,7 @@ ndarray.helper_functions
     ndarray.helper_functions.concat
     ndarray.helper_functions.cumprod
     ndarray.helper_functions.delete
+    ndarray.helper_functions.norm
     ndarray.helper_functions.println
     ndarray.helper_functions.prod
     ndarray.helper_functions.repeat
@@ -111,7 +112,6 @@ ndarray.simple_math
     ndarray.simple_math.max
     ndarray.simple_math.mean
     ndarray.simple_math.min
-    ndarray.simple_math.norm
     ndarray.simple_math.pow
     ndarray.simple_math.remainer
     ndarray.simple_math.round
@@ -160,6 +160,7 @@ matrix.helper_functions
     matrix.helper_functions.fliplr
     matrix.helper_functions.flipud
     matrix.helper_functions.kron
+    matrix.helper_functions.norm
     matrix.helper_functions.println
     matrix.helper_functions.transpose
     matrix.helper_functions.write_csv
@@ -208,7 +209,6 @@ matrix.simple_math
     matrix.simple_math.floor
     matrix.simple_math.log
     matrix.simple_math.mean
-    matrix.simple_math.norm
     matrix.simple_math.pow
     matrix.simple_math.round
     matrix.simple_math.sign

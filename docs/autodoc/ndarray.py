@@ -260,11 +260,23 @@ class initing():
         """
 
 class helper_functions:
+    def norm(x, ord=2):
+        """
+        Finds the norm of an array.
+
+        :param x: An array.
+        :type x: ndarray
+        :param ord: Indicates the specific type of norm.
+        :type ord: Int or :math:`\pm` inf
+        :rtype: Double. A specific norm of the array. Either the :math:`\ell_0`, :math:`\ell_1`, :math:`\ell_2` or :math:`\ell_\infty` norm.
+
+        .. note:: This is a direct copy of `np.linalg.norm`_. See NumPy's documentation for info about appropiate values for ord.
+
+        .. seealso:: `np.linalg.norm`_, `Norm`_
+        """
     def prod(x):
         """
         Find the product of every element in this array.
-
-        .. warning:: BUG: Only works if ``sum(x) > 0``.
 
         :param x: Find the product of every element in this array
         :type x: ndarray
@@ -275,8 +287,6 @@ class helper_functions:
     def cumprod(x):
         """
         Find the cumulative product of every element in this array.
-
-        .. warning:: BUG: Only works for positive elements.
 
         :param x: The cumulative product of elements in this array.
         :type x: ndarray
@@ -670,20 +680,6 @@ class simple_math:
         :param x: An array.
         :type x: ndarray
         :rtype: ndarray. The absolute value of the array
-        """
-    def norm(x, ord=2):
-        """
-        Finds the norm of an array.
-
-        :param x: An array.
-        :type x: ndarray
-        :param ord: Indicates the specific type of norm.
-        :type ord: Int or :math:`\pm` inf
-        :rtype: Double. A specific norm of the array. Either the :math:`\ell_0`, :math:`\ell_1`, :math:`\ell_2` or :math:`\ell_\infty` norm.
-
-        .. note:: This is a direct copy of `np.linalg.norm`_. See NumPy's documentation for info about appropiate values for ord.
-
-        .. seealso:: `np.linalg.norm`_, `Norm`_
         """
     def pow(x, power):
         """

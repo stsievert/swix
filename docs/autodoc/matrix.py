@@ -215,6 +215,20 @@ class initing:
         """
 
 class helper_functions:
+    def norm(x, ord=2):
+        """
+        Find the `Matrix norm`_ of a matrix.
+
+        :param x: Finds the norm of this matrix.
+        :type x: matrix
+        :param ord: Assumed to be one of "fro", -2, -1, 1 or 2
+        :type ord: Int or string.
+        :rtype: Double. The specific norm.
+
+        .. note:: Almost an exact copy of `np.linalg.norm`_.
+
+        .. seealso:: `np.linalg.norm`_, `Matrix norm`_
+        """
     def kron(a, b):
         """
         Find the `Kronecker product`_ between two matrices. 
@@ -434,20 +448,6 @@ class simple_math:
         :param x:
         :type x: matrix
         :rtype: Applies the function to every element.
-        """
-    def norm(x, ord=2):
-        """
-        Find the `Matrix norm`_ of a matrix.
-
-        :param x: Finds the norm of this matrix.
-        :type x: matrix
-        :param ord: Assumed to be one of "fro", -2, -1, 1 or 2
-        :type ord: Int or string.
-        :rtype: Double. The specific norm.
-
-        .. note:: Almost an exact copy of `np.linalg.norm`_.
-
-        .. seealso:: `np.linalg.norm`_, `Matrix norm`_
         """
     def ceil(x):
         """

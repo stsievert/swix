@@ -362,35 +362,6 @@ indexing like Python</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.simple_math.norm">
-<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.norm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a> of a matrix.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; Finds the norm of this matrix.</li>
-<li><strong>ord</strong> (<em>Int or string.</em>) &#8211; Assumed to be one of &#8220;fro&#8221;, -2, -1, 1 or 2</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. The specific norm.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Almost an exact copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="matrix.simple_math.pow">
 <tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.pow" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -1045,6 +1016,35 @@ indexing like Python</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="matrix.helper_functions.norm">
+<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a> of a matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; Finds the norm of this matrix.</li>
+<li><strong>ord</strong> (<em>Int or string.</em>) &#8211; Assumed to be one of &#8220;fro&#8221;, -2, -1, 1 or 2</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. The specific norm.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Almost an exact copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="matrix.helper_functions.println">
 <tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='matrix(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.println" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the matrix.</p>
@@ -1373,35 +1373,6 @@ indexing like Python</p>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Find the <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a> of a matrix.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; Finds the norm of this matrix.</li>
-<li><strong>ord</strong> (<em>Int or string.</em>) &#8211; Assumed to be one of &#8220;fro&#8221;, -2, -1, 1 or 2</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. The specific norm.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Almost an exact copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a></p>
-</div>
 </dd></dl>
 
 <dl class="method">
