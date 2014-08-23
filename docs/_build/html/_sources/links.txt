@@ -51,6 +51,10 @@
 .. _`np.random.permutation`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.permutation.html
 .. _`np.sum`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
 .. _`scipy.signal.fftconvolve`: http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.fftconvolve.html
+.. _`np.intersect1d`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.intersect1d.html
+.. _`np.in1d`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.in1d.html
+.. _`np.prod`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.prod.html
+.. _`np.cumprod`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.cumprod.html
 
 .. _`Pylab`: http://wiki.scipy.org/PyLab
 .. _`Norm`: https://en.wikipedia.org/wiki/Norm_(mathematics)

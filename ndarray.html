@@ -739,7 +739,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 </div>
 <div class="section" id="initing">
-<h3>initing<a class="headerlink" href="#initing" title="Permalink to this headline">¶</a></h3>
+<h3>Initing<a class="headerlink" href="#initing" title="Permalink to this headline">¶</a></h3>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt id="ndarray.initing">
@@ -1036,7 +1036,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 </div>
 <div class="section" id="helper-functions">
-<h3>helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
+<h3>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="ndarray.helper_functions">
 <em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">helper_functions</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions" title="Permalink to this definition">¶</a></dt>
@@ -1219,6 +1219,67 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.helper_functions.in1d">
+<tt class="descname">in1d</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.in1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sees if elements from the first array are in the second and returns the
+indices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to index from.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to check to see if values of x are in this array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. An array of true/false (well, 1/0).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">in1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.in1d.html">np.in1d</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.helper_functions.intersection">
+<tt class="descname">intersection</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find elements that are both arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The first array.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The second array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">The sorted array of unique elements that are in both arrays.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">intersection</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.intersect1d.html">np.intersect1d</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.helper_functions.norm">
 <tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the norm of an array.</p>
@@ -1371,6 +1432,32 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="ndarray.helper_functions.union">
+<tt class="descname">union</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds unique elements that are in either array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The first array of elements.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The second array of elements.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">The unique list of elements that in either array.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">union</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="ndarray.helper_functions.unique">
 <tt class="descname">unique</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.unique" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the unique elements of an array. Returns the unique elements
@@ -1422,7 +1509,7 @@ sorted.</p>
 
 </div>
 <div class="section" id="operators">
-<h3>operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt id="ndarray.operators">
@@ -1580,7 +1667,7 @@ sorted.</p>
 
 </div>
 <div class="section" id="simple-math">
-<h3>simple math<a class="headerlink" href="#simple-math" title="Permalink to this headline">¶</a></h3>
+<h3>Simple math<a class="headerlink" href="#simple-math" title="Permalink to this headline">¶</a></h3>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt>
@@ -2061,7 +2148,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 </div>
 <div class="section" id="complex-math">
-<h3>complex math<a class="headerlink" href="#complex-math" title="Permalink to this headline">¶</a></h3>
+<h3>Complex math<a class="headerlink" href="#complex-math" title="Permalink to this headline">¶</a></h3>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt id="ndarray.complex_math">
@@ -2176,11 +2263,11 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <li><a class="reference internal" href="#">Array</a><ul>
 <li><a class="reference internal" href="#docs">Docs</a><ul>
 <li><a class="reference internal" href="#ndarray-class">ndarray class</a></li>
-<li><a class="reference internal" href="#initing">initing</a></li>
-<li><a class="reference internal" href="#helper-functions">helper functions</a></li>
-<li><a class="reference internal" href="#operators">operators</a></li>
-<li><a class="reference internal" href="#simple-math">simple math</a></li>
-<li><a class="reference internal" href="#complex-math">complex math</a></li>
+<li><a class="reference internal" href="#initing">Initing</a></li>
+<li><a class="reference internal" href="#helper-functions">Helper functions</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#simple-math">Simple math</a></li>
+<li><a class="reference internal" href="#complex-math">Complex math</a></li>
 </ul>
 </li>
 </ul>

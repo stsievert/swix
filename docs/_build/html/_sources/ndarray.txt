@@ -33,33 +33,33 @@ Yes, an actual class (or struct).
 .. autoclass:: ndarray
    :members:
 
-initing
+Initing
 -----------
 This is a file, not an actual class.
 
 .. autoclass:: initing
    :members:
 
-helper functions
+Helper functions
 -----------------
 .. autoclass:: helper_functions
     :members:
 
-operators
+Operators
 ------------
 This is a file, not an actual class.
 
 .. autoclass:: operators
     :members:
 
-simple math
+Simple math
 ---------------------
 This is a file, not an actual class.
 
 .. autoclass:: simple_math
     :members:
 
-complex math
+Complex math
 ---------------------
 This is a file, not an actual class.
 

@@ -260,6 +260,53 @@ class initing():
         """
 
 class helper_functions:
+    def intersection(x, y):
+        """
+        Find elements that are both arrays.
+
+        :param x: The first array.
+        :type x: ndarray
+        :param y: The second array.
+        :type y: ndarray
+        :rtype: The sorted array of unique elements that are in both arrays.
+
+        >>> var x = array(1, 2, 3, 4)
+        >>> var y = array(5, 3, 1, 0)
+        >>> assert(intersection(x, y) ~== array(1, 3))
+
+        .. seealso:: `np.intersect1d`_
+        """
+    def union(x, y):
+        """
+        Finds unique elements that are in either array.
+
+        :param x: The first array of elements.
+        :type x: ndarray
+        :param y: The second array of elements.
+        :type y: ndarray
+        :rtype: The unique list of elements that in either array.
+
+        >>> var x = array(1, 2, 3, 4)
+        >>> var y = array(2, 3, 4, 5)
+        >>> assert(union(x, y) ~== array(1, 2, 3, 4, 5))
+        """
+    def in1d(x, y):
+        """
+        Sees if elements from the first array are in the second and returns the
+        indices.
+
+        :param x: The array to index from.
+        :type x: ndarray
+        :param y: The array to check to see if values of x are in this array.
+        :type y: ndarray
+        :rtype: ndarray. An array of true/false (well, 1/0).
+
+        >>> var x = array(1, 2, 3, 4, 5)
+        >>> var y = array(4, 5, 6)
+        >>> assert(in1d(x, y) ~== array(0, 0, 0, 1, 1))
+
+        .. seealso:: `np.in1d`_
+        """
     def norm(x, ord=2):
         """
         Finds the norm of an array.

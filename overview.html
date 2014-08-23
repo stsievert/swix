@@ -189,6 +189,12 @@
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.delete" title="ndarray.helper_functions.delete"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.delete</span></tt></a>(x,&nbsp;idx)</td>
 <td>Deletes elements.</td>
 </tr>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.in1d" title="ndarray.helper_functions.in1d"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.in1d</span></tt></a>(x,&nbsp;y)</td>
+<td>Sees if elements from the first array are in the second and returns the indices.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.intersection" title="ndarray.helper_functions.intersection"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.intersection</span></tt></a>(x,&nbsp;y)</td>
+<td>Find elements that are both arrays.</td>
+</tr>
 <tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.norm" title="ndarray.helper_functions.norm"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.norm</span></tt></a>(x[,&nbsp;ord])</td>
 <td>Finds the norm of an array.</td>
 </tr>
@@ -210,10 +216,13 @@
 <tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.sort" title="ndarray.helper_functions.sort"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.sort</span></tt></a>(x)</td>
 <td>Sorts an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.unique" title="ndarray.helper_functions.unique"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.unique</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.union" title="ndarray.helper_functions.union"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.union</span></tt></a>(x,&nbsp;y)</td>
+<td>Finds unique elements that are in either array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.unique" title="ndarray.helper_functions.unique"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.unique</span></tt></a>(x)</td>
 <td>Find the unique elements of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.write_csv" title="ndarray.helper_functions.write_csv"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.write_csv</span></tt></a>(x,&nbsp;filename)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.write_csv" title="ndarray.helper_functions.write_csv"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.write_csv</span></tt></a>(x,&nbsp;filename)</td>
 <td>Writes a CSV.</td>
 </tr>
 </tbody>
@@ -661,7 +670,10 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.round" title="matrix.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.round</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.prod" title="matrix.simple_math.prod"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.prod</span></tt></a>(x[,&nbsp;axis])</td>
+<td>Find the product of each row/column of a matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.round" title="matrix.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.round</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -672,7 +684,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sign" title="matrix.simple_math.sign"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sign</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sign" title="matrix.simple_math.sign"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sign</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -683,7 +695,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sin" title="matrix.simple_math.sin"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sin</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sin" title="matrix.simple_math.sin"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sin</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -694,7 +706,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sqrt" title="matrix.simple_math.sqrt"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sqrt</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sqrt" title="matrix.simple_math.sqrt"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sqrt</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -705,10 +717,10 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sum" title="matrix.simple_math.sum"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sum</span></tt></a>(x[,&nbsp;axis])</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sum" title="matrix.simple_math.sum"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sum</span></tt></a>(x[,&nbsp;axis])</td>
 <td>Perform the sum over a given axis.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.tan" title="matrix.simple_math.tan"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.tan</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.tan" title="matrix.simple_math.tan"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.tan</span></tt></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

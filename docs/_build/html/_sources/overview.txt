@@ -63,6 +63,8 @@ ndarray.helper_functions
     ndarray.helper_functions.concat
     ndarray.helper_functions.cumprod
     ndarray.helper_functions.delete
+    ndarray.helper_functions.in1d
+    ndarray.helper_functions.intersection
     ndarray.helper_functions.norm
     ndarray.helper_functions.println
     ndarray.helper_functions.prod
@@ -70,6 +72,7 @@ ndarray.helper_functions
     ndarray.helper_functions.reverse
     ndarray.helper_functions.shuffle
     ndarray.helper_functions.sort
+    ndarray.helper_functions.union
     ndarray.helper_functions.unique
     ndarray.helper_functions.write_csv
 
@@ -210,6 +213,7 @@ matrix.simple_math
     matrix.simple_math.log
     matrix.simple_math.mean
     matrix.simple_math.pow
+    matrix.simple_math.prod
     matrix.simple_math.round
     matrix.simple_math.sign
     matrix.simple_math.sin

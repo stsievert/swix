@@ -22,7 +22,7 @@ matrix class
 .. autoclass:: matrix
     :members:
 
-initing
+Initing
 ---------
 This is a file, not an actual class.
 
@@ -32,7 +32,7 @@ This is a file, not an actual class.
 
 .. _`dot product`: https://en.wikipedia.org/wiki/Dot_product
 
-helper functions
+Helper functions
 ------------------
 .. autoclass:: helper_functions
     :members:

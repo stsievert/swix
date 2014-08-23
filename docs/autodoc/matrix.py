@@ -499,6 +499,16 @@ class simple_math:
         :param dim: The dimension to which compute the average over.
         :rtype: Returns the mean along each dimension
         """
+    def prod(x, axis=-1):
+        """
+        Find the product of each row/column of a matrix.
+
+        :param x: The matrix.
+        :type x: matrix
+        :rtype: ndarray. The product along the columns or rows.
+
+        .. seealso:: `np.prod`_
+        """
 
 class images:
     def rgb2hsv(r, g, b):
