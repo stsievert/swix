@@ -58,8 +58,8 @@ func factorial(n:Double)->Double{
     var y = arange(n)+1
     return prod(y)
 }
-func binomial(n:Double, k:Double)->Double{
-    // scipy.special.binom
+func binom(n:Double, k:Double)->Double{
+    // similar to scipy.special.binom
     var i = arange(k)+1
     var result = (n+1-i) / i
     return prod(result)
