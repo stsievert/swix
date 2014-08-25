@@ -178,6 +178,15 @@ struct matrix {
             self.flat[idx * self.columns.double + k.double] = newValue
         }
     }
+    subscript(i: matrix) -> ndarray {
+        // x[x < 5]
+        get {
+            return self.flat[i.flat]
+        }
+        set {
+            self.flat[i.flat] = newValue
+        }
+    }
     subscript(i: Int, k: ndarray) -> ndarray {
         // x[0, array(1,2)]
         get {
