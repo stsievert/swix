@@ -190,6 +190,8 @@ matrix.matrix
     matrix.matrix.index
     matrix.matrix.index_diag
     matrix.matrix.index_flat
+    matrix.matrix.tril
+    matrix.matrix.triu
 
 matrix.complex_math
 ^^^^^^^^^^^^^^^^^^^^^^^^^

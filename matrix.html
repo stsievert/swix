@@ -153,6 +153,8 @@ select indices when indexing.</p>
 <dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int. Includes negative
 indexing like Python</p>
 <p>Use <tt class="docutils literal"><span class="pre">x[1,</span> <span class="pre">&quot;all&quot;]</span></tt> to access an entire row or column.</p>
+<p>Also possible to use boolean indexing. <tt class="docutils literal"><span class="pre">x[x</span> <span class="pre">&lt;</span> <span class="pre">0]</span> <span class="pre">&lt;-</span> <span class="pre">0</span></tt> is the primary
+use case for this.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Assumes wholly negative or positive. Indexes like <tt class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></tt> aren&#8217;t supported.</p>
@@ -182,6 +184,8 @@ indexing like Python</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -258,6 +262,50 @@ indexing like Python</p>
 <dt id="matrix.matrix.shape">
 <tt class="descname">shape</tt><em class="property"> = '(rows, columns)'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>The shape of the matrix (in typical mathematical language)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.matrix.tril">
+<tt class="descname">tril</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.tril" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the indices to the lower part of the array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix you wish to get the lower part of.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.tril.html">np.tril</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="matrix.matrix.triu">
+<tt class="descname">triu</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.triu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the indices to the upper part of the array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix you wish to get the lower part of.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.triu.html">np.triu</a></p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -592,6 +640,8 @@ select indices when indexing.</p>
 <dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int. Includes negative
 indexing like Python</p>
 <p>Use <tt class="docutils literal"><span class="pre">x[1,</span> <span class="pre">&quot;all&quot;]</span></tt> to access an entire row or column.</p>
+<p>Also possible to use boolean indexing. <tt class="docutils literal"><span class="pre">x[x</span> <span class="pre">&lt;</span> <span class="pre">0]</span> <span class="pre">&lt;-</span> <span class="pre">0</span></tt> is the primary
+use case for this.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Assumes wholly negative or positive. Indexes like <tt class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></tt> aren&#8217;t supported.</p>
@@ -621,6 +671,8 @@ indexing like Python</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -697,6 +749,50 @@ indexing like Python</p>
 <dt>
 <tt class="descname">shape</tt><em class="property"> = '(rows, columns)'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>The shape of the matrix (in typical mathematical language)</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descname">tril</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Return the indices to the lower part of the array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix you wish to get the lower part of.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.tril.html">np.tril</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<tt class="descname">triu</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Return the indices to the upper part of the array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix you wish to get the lower part of.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.triu.html">np.triu</a></p>
+</div>
 </dd></dl>
 
 </dd></dl>

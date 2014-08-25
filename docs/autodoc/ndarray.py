@@ -85,6 +85,9 @@ class ndarray:
 
         Use ``x["all"]`` to grab all elements from this array.
 
+        It's also possible to use boolean indexing. The boolean indexs are
+        assumed to have a length the same as the array being indexed.
+
         :param idx: The values to get the index from.
         :type idx: Int, Range<Int>, ndarray, String
 
@@ -94,6 +97,7 @@ class ndarray:
         >>> assert(x[array(0, 1)] ~== array(0, 1))
         >>> assert(x[-1] == 9)
         >>> assert(x["all"] ~== arange(10))
+        >>> assert(x[x < 3] ~== array(0, 1, 2))
 
         .. seealso:: `np.indexing`_
         """
@@ -471,7 +475,8 @@ class helper_functions:
 
         .. seealso:: `np.concatenate`_, `np.append`_
         """
-    def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f", seperator=", ", printWholeMatrix=False):
+    def println(x, prefix="array([", postfix="])", newline="\n", format="%.3f",
+            seperator=", ", printAllElements=False):
         """
         Prints an array.
 

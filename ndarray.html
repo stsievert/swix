@@ -616,6 +616,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <p class="last">Assumes an index is either wholly positive or negative; indexes like <tt class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></tt> aren&#8217;t supported.</p>
 </div>
 <p>Use <tt class="docutils literal"><span class="pre">x[&quot;all&quot;]</span></tt> to grab all elements from this array.</p>
+<p>It&#8217;s also possible to use boolean indexing. The boolean indexs are
+assumed to have a length the same as the array being indexed.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -630,6 +632,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -1467,7 +1470,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.println">
-<tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printWholeMatrix=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.println" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printAllElements=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.println" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

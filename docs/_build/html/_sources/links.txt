@@ -1,4 +1,6 @@
 
+.. _`np.triu`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.triu.html
+.. _`np.tril`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.tril.html
 .. _`np.count_nonzero`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.count_nonzero.html
 .. _`np.logical_and`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_and.html
 .. _`np.logical_or`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_or.html

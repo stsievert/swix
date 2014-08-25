@@ -44,6 +44,9 @@ class matrix:
         indexing like Python
 
         Use ``x[1, "all"]`` to access an entire row or column.
+        
+        Also possible to use boolean indexing. ``x[x < 0] <- 0`` is the primary
+        use case for this.
 
         .. warning:: Assumes wholly negative or positive. Indexes like ``array(-1, 0, 1)`` aren't supported.
 
@@ -61,6 +64,8 @@ class matrix:
         >>> assert(x[0..<2, 0..<3] ~== array("0 1 2; 3 4 5")
         >>> assert(x[arange(2), arange(3)] ~== array("0 1 2; 3 4 5")
         >>> assert(x[0, "all"] ~== array(0, 1, 2))
+        >>> x[x < 4] <- 0
+        >>> assert(x[x < 4] ~== zeros(4))
 
         .. seealso:: `np.indexing`_
 
@@ -95,6 +100,30 @@ class matrix:
         >>> assert(x["diag"] = array(-1, -2, -3))
         >>> println(x)
         # prints [-1 1 2; 3 -2 5; 6 7 -3]
+        """
+    def tril(x):
+        """
+        Return the indices to the lower part of the array.
+
+        :param x: The matrix you wish to get the lower part of.
+        :type x: matrix
+
+        >>> x = arange(9).reshape((3,3))
+        >>> assert(x[triu(x)] ~== array(3, 6, 7))
+
+        .. seealso:: `np.tril`_
+        """
+    def triu(x):
+        """
+        Return the indices to the upper part of the array.
+
+        :param x: The matrix you wish to get the lower part of.
+        :type x: matrix
+
+        >>> x = arange(9).reshape((3,3))
+        >>> assert(x[triu(x)] ~== array(1, 2, 5))
+
+        .. seealso:: `np.triu`_
         """
 
 class initing:
