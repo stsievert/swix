@@ -247,6 +247,14 @@ class runTests {
             assert(norm(array(4,2,-3), ord:-inf) == 2)
             
             assert(sign(array(-3, 4, 5)) ~== array(-1, 1, 1))
+            assert(floor(array(1.1, 1.2, 1.6)) ~== array(1, 1, 1))
+            assert(round(array(1.1, 1.2, 1.6)) ~== array(1, 1, 2))
+            assert(ceil(array(1.2, 1.5, 1.8)) ~== ones(3)*2)
+            assert(log10(ones(4) * 10) ~== ones(4))
+            assert(log2(ones(4) * 2) ~== ones(4))
+            assert(log(ones(4) * e) ~== ones(4))
+            assert(exp2(ones(4)*2) ~== ones(4) * 4)
+            assert(exp(ones(4)*2) ~== ones(4)*e*e)
         }
     }
     func matrixTests(){
@@ -401,6 +409,7 @@ class runTests {
         
         // MODULO
         assert(array(1, 3.14, 2.1)%1.0 ~== array(0, 0.14, 0.1))
+        assert(array(1, 2, 6) % 5 ~== array(1, 2, 1))
     }
     func comparisonTests(){
         //     true:  <, >, <=, >=, ==, !==

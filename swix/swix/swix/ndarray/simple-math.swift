@@ -31,6 +31,7 @@ func apply_function(function: String, x: ndarray)->ndarray{
     // apply select optimized functions
     var y = zeros_like(x)
     var n = x.n.length
+    var count = Int32(x.n)
     if function=="abs"{
         vDSP_vabsD(!x, 1, !y, 1, n);}
     else if function=="sign"{
@@ -43,32 +44,43 @@ func apply_function(function: String, x: ndarray)->ndarray{
         vDSP_vrsumD(!x, 1.stride, &scalar, !y, 1.stride, n)
     }
     else if function=="floor"{
-        var z = zeros_like(x)
-        vDSP_vfracD(!x, 1.stride, !z, 1.stride, x.n.length)
-        y = x - z
+        vvfloor(!y, !x, &count)
     }
     else if function=="log10"{
         assert(min(x) > 0, "log must be called with positive values")
-        var value:CDouble = 1 // divide by 1
-        var f = 1 // choose power
-        vDSP_vdbconD(!x, 1.stride, &value, !y, 1.stride, x.n.length, UInt32(f))
-        y /= 20 // since y in power decibels
+        vvlog10(!y, !x, &count)
+    }
+    else if function=="log2"{
+        assert(min(x) > 0, "log must be called with positive values")
+        vvlog2(!y, !x, &count)
+    }
+    else if function=="exp2"{
+        vvexp2(!y, !x, &count)
+    }
+    else if function=="log"{
+        assert(min(x) > 0, "log must be called with positive values")
+        vvlog(!y, !x, &count)
+    }
+    else if function=="exp"{
+        vvexp(!y, !x, &count)
     }
     else if function=="cos"{
-        var count:Int32 = Int32(x.n)
         vvcos(!y, !x, &count)
     }
     else if function=="sin"{
-        var count:Int32 = Int32(x.n)
         vvsin(!y, !x, &count)
     }
     else if function=="tan"{
-        var count:Int32 = Int32(x.n)
         vvtan(!y, !x, &count)
     }
     else if function=="expm1"{
-        var count:Int32 = Int32(x.n)
         vvexpm1(!y, !x, &count)
+    }
+    else if function=="round"{
+        vvnint(!y, !x, &count)
+    }
+    else if function=="ceil"{
+        vvceil(!y, !x, &count)
     }
     else {assert(false, "Function not recongized")}
     return y
@@ -175,16 +187,10 @@ func sqrt(x: ndarray) -> ndarray{
     return x^0.5
 }
 func exp(x:ndarray)->ndarray{
-    var num = x.n.cint
-    var y = zeros_like(x)
-    vvexp(!y, !x, &num)
-    return y
+    return apply_function("exp", x)
 }
 func exp2(x:ndarray)->ndarray{
-    var y = zeros_like(x)
-    var n = x.n.cint
-    vvexp2(!y, !x, &n)
-    return y
+    return apply_function("exp2", x)
 }
 func expm1(x:ndarray)->ndarray{
     return apply_function("expm1", x)
@@ -192,14 +198,7 @@ func expm1(x:ndarray)->ndarray{
 
 // ROUND
 func round(x:ndarray)->ndarray{
-    var xx = x.copy()
-    var y = zeros_like(x)
-    vDSP_vfracD(!xx, 1.stride, !y, 1.stride, x.n.length)
-    var i = 0.5 - y
-    y[argwhere(i > 0)] *= 0
-    var j = argwhere(i <= 0)
-    y[j] = ones(j.n)
-    return floor(x) + y
+    return apply_function("round", x)
 }
 func round(x:ndarray, #decimals:Double)->ndarray{
     var factor = pow(10, decimals)
@@ -209,7 +208,7 @@ func floor(x: ndarray) -> ndarray{
     return apply_function("floor", x)
 }
 func ceil(x: ndarray) -> ndarray{
-    return floor(x)+1
+    return apply_function("ceil", x)
 }
 
 // LOG
@@ -219,24 +218,21 @@ func log10(x:ndarray)->ndarray{
 }
 func log2(x:ndarray)->ndarray{
     // log_2
-    return log10(x) / log10(2.0)
+    return apply_function("log2", x)
 }
 func log(x:ndarray)->ndarray{
     // log_e
-    return log10(x) / log10(e)
+    return apply_function("log", x)
 }
 
 // TRIG
 func sin(x: ndarray) -> ndarray{
-    // trig
     return apply_function("sin", x)
 }
 func cos(x: ndarray) -> ndarray{
-    // trig
     return apply_function("cos", x)
 }
 func tan(x: ndarray) -> ndarray{
-    // trig
     return apply_function("tan", x)
 }
 
