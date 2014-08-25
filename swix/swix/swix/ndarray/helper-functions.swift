@@ -176,14 +176,14 @@ func logical_xor(x:ndarray, y:ndarray)->ndarray{
 }
 
 // PRINTING
-func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printWholeMatrix:Bool=false){
+func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printAllElements:Bool=false){
     // print the matrix
     print(prefix)
     var suffix = seperator
     var printed = false
     for i in 0..<x.n{
         if i==x.n-1 { suffix = "" }
-        if printWholeMatrix || (x.n)<16 || i<3 || i>(x.n-4){
+        if printAllElements || (x.n)<16 || i<3 || i>(x.n-4){
             print(NSString(format: format+suffix, x[i]))
         }else if printed == false{
             printed = true
@@ -194,7 +194,7 @@ func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:S
     print(newline)
 }
 func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
+    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printAllElements:printWholeMatrix)
 }
 
 
