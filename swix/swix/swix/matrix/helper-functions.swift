@@ -112,6 +112,24 @@ func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
         println("File probably wasn't recognized \n\(error)")
     }
 }
+func tril(x: matrix) -> ndarray{
+    var (m, n) = x.shape
+    var (mm, nn) = meshgrid(arange(m), arange(n))
+    var i = mm - nn
+    var j = (i < 0+S2_THRESHOLD)
+    i[argwhere(j)] <- 0
+    i[argwhere(1-j)] <- 1
+    return argwhere(i)
+}
+func triu(x: matrix)->ndarray{
+    var (m, n) = x.shape
+    var (mm, nn) = meshgrid(arange(m), arange(n))
+    var i = mm - nn
+    var j = (i > 0-S2_THRESHOLD)
+    i[argwhere(j)] <- 0
+    i[argwhere(1-j)] <- 1
+    return argwhere(i)
+}
 
 // PRINTING
 func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){

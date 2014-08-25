@@ -102,7 +102,7 @@ func prod(x: matrix, axis:Int = -1) -> ndarray{
 }
 func mean(x:matrix, axis:Int = -1) -> ndarray{
     assert(axis==0 || axis==1, "If you want to find the average of the whole matrix call `mean(x.flat)`")
-    var div = axis==0 ? x.shape.1 : x.shape.0
+    var div = axis==0 ? x.shape.0 : x.shape.1
     return sum(x, axis:axis) / div.double
 }
 

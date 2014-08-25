@@ -101,9 +101,20 @@ struct ndarray {
         // x[arange(2)]. access a range of values; x[0..<2] depends on this.
         get {
             // ndarray has fractional parts, and those parts get truncated
-            var idx = oidx.copy()
-            if idx.n > 0 {
-                if idx.max() < 0 {idx += n.double }
+            var idx:ndarray
+            if oidx.n > 0 {
+                if oidx.n == self.n{
+                    // assumed to be boolean
+                    idx = argwhere(oidx > 0.5)
+                }
+                else {
+                    // it's just indexes
+                    idx = oidx.copy()
+                }
+                if idx.max() < 0 {
+                    // negative indexing
+                    idx += n.double
+                }
                 assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
                 var y = zeros(idx.n)
                 vDSP_vindexD(!self, !idx, 1.stride, !y, 1.stride, idx.n.length)
@@ -112,14 +123,18 @@ struct ndarray {
             return array()
         }
         set {
-            var idx = oidx.copy()
-            if idx.n > 0{
+            var idx:ndarray// = oidx.copy()
+            if oidx.n > 0{
+                if oidx.n == self.n{
+                    // assumed to be boolean
+                    idx = argwhere(oidx > 0.5)
+                }
+                else {
+                    // it's just indexes
+                    idx = oidx.copy()
+                }
                 if idx.max() < 0 {idx += n.double }
                 assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
-                // asked stackoverflow question at [1]
-                // [1]:http://stackoverflow.com/questions/24727674/modify-select-elements-of-an-array
-                // tried basic optimization myself, but the compiler took care of that.
-                // dropped for speed results (depends on for-loop in C)
                 index_xa_b_objc(!self, !idx, !newValue, idx.n.cint)
             }
         }
