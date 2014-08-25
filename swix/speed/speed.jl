@@ -26,7 +26,7 @@ function pe10()
 end
 
 function pe73()
-    N = 12e3
+    N = 1e3
     di = [1:N]
     ni = [1:N]
     (n, d) = ndgrid(ni, di)

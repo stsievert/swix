@@ -37,10 +37,10 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
         result /= 255
     }
     else if operation == "=="{
-        return abs(lhs-rhs) < 1e-9
+        return abs(lhs-rhs) < S2_THRESHOLD
     }
     else if operation == "!=="{
-        return abs(lhs-rhs) > 1e-9
+        return abs(lhs-rhs) > S2_THRESHOLD
     }
     else {assert(false, "operation not recongized!")}
     return result
@@ -95,6 +95,13 @@ func make_operator(lhs:Double, operation:String, rhs:ndarray) -> ndarray{
         array = make_operator(rhs, "<=", lhs)}
     else {assert(false, "Operator not reconginzed")}
     return array
+}
+
+// DOUBLE ASSIGNMENT
+infix operator <- {}
+func <- (inout lhs:ndarray, rhs:Double){
+    var assign = ones(lhs.n) * rhs
+    lhs = assign
 }
 
 // EQUALITY
@@ -202,13 +209,11 @@ func <= (lhs: Double, rhs: ndarray) -> ndarray{
 // LOGICAL AND
 infix operator && {associativity none precedence 140}
 func && (lhs: ndarray, rhs: ndarray) -> ndarray{
-    return lhs * rhs}
+    return logical_and(lhs, rhs)}
 // LOGICAL OR
 func || (lhs: ndarray, rhs: ndarray) -> ndarray {
-    var i = lhs + rhs
-    var j = argwhere(i>1.double)
-    i[j] = ones(j.n)
-    return i}
+    return logical_or(lhs, rhs)
+}
 
 
 

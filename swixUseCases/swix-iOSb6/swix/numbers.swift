@@ -13,6 +13,9 @@ import Accelerate
 let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
 let PYTHON_PATH = "~/anaconda/bin/ipython"
 
+// how close is close?
+let S2_THRESHOLD = 1e-9
+
 // not using let in case someone wants a variable name phi/etc
 
 // various important constants
@@ -26,14 +29,15 @@ var e = exp(1.double)
 var euler = 0.57721566490153286060651209008240243104215933593992
 
 // largest possible value
-var inf = 1.0 / 0.0
+var inf = Double.infinity
+var nan = Double.NaN
 
 // smallest possible difference
 var DOUBLE_EPSILON = DBL_EPSILON
 var FLOAT_EPSILON = FLT_EPSILON
 
 func close(x: Double, y: Double)->Bool{
-    return abs(x-y)<1e-9
+    return abs(x-y) < S2_THRESHOLD
 }
 func ~= (x:Double, y:Double)->Bool{
     return close(x, y)
@@ -49,6 +53,16 @@ func max(x:Double, y:Double)->Double{
 }
 func min(x:Double, y:Double)->Double{
     return x < y ? x : y
+}
+func factorial(n:Double)->Double{
+    var y = arange(n)+1
+    return prod(y)
+}
+func binom(n:Double, k:Double)->Double{
+    // similar to scipy.special.binom
+    var i = arange(k)+1
+    var result = (n+1-i) / i
+    return prod(result)
 }
 
 // use 3.double or 3.14.int or N.int

@@ -118,6 +118,11 @@ void copy(Mat x, double * y, int N);
     Mat xMat(n, 1, CV_64F, x);
     randShuffle(xMat);
 }
++ (void) det:(double*)x n:(int)N m:(int)M result:(double*)result{
+    Mat xMat(N, M, CV_64F, x);
+    double r = determinant(xMat);
+    *result = r;
+}
 
 void matArgWhereConvert(Mat x, double * y, int N){
     if  (!x.isContinuous()){

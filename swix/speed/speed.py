@@ -14,7 +14,7 @@ def pe10():
         j = asarray(j, dtype=int)
         primes[j] *= 0.0
 def pe73():
-    N = 12e3
+    N = 1e3
     d = arange(N)+1
     n = arange(N)+1
     n, d = meshgrid(n, d)

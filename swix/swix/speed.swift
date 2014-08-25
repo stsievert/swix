@@ -44,7 +44,7 @@ func pe10(){
     // sum(primes) is the correct answer
 }
 func pe73(){
-    var N = 12e3
+    var N = 1e3
     var i = arange(N)+1
     var (n, d) = meshgrid(i, i)
     

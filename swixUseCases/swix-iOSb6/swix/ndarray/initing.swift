@@ -14,26 +14,37 @@ import Swift
 
 
 func zeros(N: Int) -> ndarray{
+    // N zeros
     return ndarray(n: N)
 }
 func zeros_like(x: ndarray) -> ndarray{
+    // make an array like the other array
     return zeros(x.n)
 }
+func ones_like(x: ndarray) -> ndarray{
+    // make an array like the other array
+    return zeros_like(x) + 1
+}
 func ones(N: Int) -> ndarray{
+    // N ones
     return ndarray(n: N)+1
 }
 func arange(max: Double, x exclusive:Bool = true) -> ndarray{
+    // 0..<max
     var x = arange(0, max, x:exclusive)
     return x
 }
 func arange(max: Int, x exclusive:Bool = true) -> ndarray{
+    // 0..<max
     var x = arange(0, max.double, x:exclusive)
     return x
 }
 func range(min:Double, max:Double, step:Double) -> ndarray{
+    // min, min+step, min+2*step..., max-step, max
     return linspace(min, max, num:1+((max-min)/step).int)
 }
 func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
+    // min...max
     var pad = 0
     if !exclusive {pad = 1}
     let N = max.int - min.int + pad
@@ -44,6 +55,7 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     return x
 }
 func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
+    // 0...1
     var x = zeros(num+0)
     var min  = CDouble(min)
     var step = CDouble((max-min).double/(num-1).double)
@@ -51,6 +63,7 @@ func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
     return x
 }
 func array(numbers: Double...) -> ndarray{
+    // array(1, 2, 3, 4) -> arange(4)+1
     // okay to leave unoptimized, only used for testing
     var x = zeros(numbers.count)
     var i = 0
@@ -61,11 +74,13 @@ func array(numbers: Double...) -> ndarray{
     return x
 }
 func asarray(x: [Double]) -> ndarray{
+    // convert a grid of double's to an array
     var y = zeros(x.count)
     y.grid = x
     return y
 }
 func asarray(seq: Range<Int>) -> ndarray {
+    // make a range a grid of arrays
     // improve with [1]
     // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
     var start:Double = seq.startIndex.double * 1.0
@@ -75,6 +90,7 @@ func asarray(seq: Range<Int>) -> ndarray {
 }
 
 func copy(x: ndarray) -> ndarray{
+    // copy the value
     return x.copy()
 }
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
@@ -106,7 +122,7 @@ func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
     return (rand(N, distro:"normal") * sigma) + mean;
 }
 func randperm(N:Int)->ndarray{
-    var x = arange(N.double)
+    var x = arange(N)
     var y = shuffle(x)
     return y
 }

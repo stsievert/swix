@@ -19,7 +19,7 @@ tic;
 
 tic;
 % project euler 73
-    N = 12e3;
+    N = 1e3;
     d = 1:N;
     [n, d] = meshgrid(d, d);
     f = n ./ d;

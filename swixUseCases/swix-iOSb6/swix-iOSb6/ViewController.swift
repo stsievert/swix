@@ -30,6 +30,7 @@ class SpeedTests {
     init(){
         time(pe1, name:"Project Euler 1")
         time(pe10, name:"Project Euler 10")
+        time(pe73, name:"Project Euler 73")
         time(pi_approx, name:"Pi approximation")
         time(soft_thresholding, name:"Soft thresholding")
     }
@@ -58,6 +59,16 @@ func pe10(){
         primes[j] *= 0.0
     }
     // sum(primes) is the correct answer
+}
+func pe73(){
+    var N = 1e3
+    var i = arange(N)+1
+    var (n, d) = meshgrid(i, i)
+    
+    var f = (n / d).flat
+    f = unique(f)
+    var j = (f > 1/3) && (f < 1/2)
+    // println(f[argwhere(j)].n)
 }
 func soft_thresholding(){
     let N = 1e2.int

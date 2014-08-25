@@ -13,7 +13,7 @@ import Swift
 
 
 runTests()
-SpeedTests()
+//SpeedTests()
 
 
 
