@@ -97,19 +97,19 @@ struct ndarray {
         set {
             self[asarray(r)].grid = newValue.grid}
     }
-    subscript(oidx: ndarray) -> ndarray {
+    subscript(i: ndarray) -> ndarray {
         // x[arange(2)]. access a range of values; x[0..<2] depends on this.
         get {
             // ndarray has fractional parts, and those parts get truncated
             var idx:ndarray
-            if oidx.n > 0 {
-                if oidx.n == self.n{
+            if i.n > 0 {
+                if i.n == self.n && i.max() < 1.5 {
                     // assumed to be boolean
-                    idx = argwhere(oidx > 0.5)
+                    idx = argwhere(i > 0.5)
                 }
                 else {
                     // it's just indexes
-                    idx = oidx.copy()
+                    idx = i.copy()
                 }
                 if idx.max() < 0 {
                     // negative indexing
@@ -124,14 +124,14 @@ struct ndarray {
         }
         set {
             var idx:ndarray// = oidx.copy()
-            if oidx.n > 0{
-                if oidx.n == self.n{
+            if i.n > 0{
+                if i.n == self.n && i.max() < 1.5{
                     // assumed to be boolean
-                    idx = argwhere(oidx > 0.5)
+                    idx = argwhere(i > 0.5)
                 }
                 else {
                     // it's just indexes
-                    idx = oidx.copy()
+                    idx = i.copy()
                 }
                 if idx.max() < 0 {idx += n.double }
                 assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
