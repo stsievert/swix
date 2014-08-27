@@ -42,17 +42,17 @@ and Matlab differ in their initializer called `ones` by `ones((M,N))` and
 [nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
 
 ## FAQ
->> Why does this library exist?
+>> **Why does this library exist?**
 
 > Not only should you be able to do simple math in arrays like in [Surge], Swift
   makes it possible to call high level mathematical functions just like in
   Python/Matlab.
 
->> How does this library compare to Python/Matlab?
+>> **How does this library compare to Python/Matlab?**
 
 > Complete speed results can be found in *[Speed]*
 
->> Why are you developing this library?
+>> **Why are you developing this library?**
 
 > Since I'm finishing up my EE degree, I have to do a senior project. This
   project will be a machine learning project and I know that a math library
