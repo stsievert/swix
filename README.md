@@ -10,66 +10,21 @@ from Python/MATLAB to C was (and is) a pain in the butt, and this library aims
 to make the conversion between a Python/Matlab algorithm and a mobile app
 *simple.*
 
-As an example, here's some Objective-C sample code that utilizes the
-[Accelerate framework][accel]:
-
-```objc
-void copy(double* x, double* y, int N){
-    cblas_dcopy(N, x, 1, y, 1);
-}
-void add_two_vectors(double * x, double * y, double * result, int N){
-    copy(y, result, N);
-    cblas_daxpy(N, 1.0, x, 1, result, 1);
-}
-void add_scalar(double x, double * y, double * result, int N){
-    vDSP_vsaddD(y, 1, &x, result, 1, N)
-}
-void multiply_two_vectors(double * x, double * y, double * result, int N){
-    vDSP_vmulD(x, 1, y, 1, result, 1, N);
-}
-void set_value(double value, double * x, int N){
-    catlas_dset(N, value, x, 1);
-}
-void main(){
-    int N = 10;
-    double * x = (double *)malloc(sizeof(double) * N);
-    double * y = (double *)malloc(sizeof(double) * N);
-    double * temp = (double *)malloc(sizeof(double) * N);
-    double * result = (double *)malloc(sizeof(double) * N);
-
-    set_value(3.142, x, N);
-    set_value(1.618, y, N);
-    add_two_vectors(x, y, temp, N);
-    add_scalar(4, temp, temp, N);
-    multiply_two_vectors(x, temp, result, N);
-}
-```
-
-The equivalent Swift syntax with this library?
-
-```swift
-let N = 10
-var x = ones(N) * pi
-var y = ones(N) * phi
-var result = (x+y+4)*x
-```
-
-In most cases, this library calls [Accelerate][accel] or [OpenCV][opencv]. I
-optimized what I needed to, meaning all operators and select mathematical
-functions are fast while the functions I didn't need are slow. If you want to
-speed up some function or add add another feature in those libraries, feel free
-to submit a pull request (preferred!) or contact me at [@stsievert][st] or
-[sieve121@umn.edu](mailto:sieve121@umn.edu). Oh, and if you use this project
-I'd love to hear about it.
+In most cases, this library calls [Accelerate][accel] or [OpenCV][opencv]. If
+you want to speed up some function or add add another feature in those
+libraries, feel free to submit a pull request (preferred!) or contact me at
+[@stsievert][st] or [sieve121@umn.edu](mailto:sieve121@umn.edu). Oh, and if you
+use this project I'd love to hear about it.
 
 Currently, this library gives you
 
-* operators (+, etc) and various functions (sin, etc) that operate on entire arrays
+* operators and various functions (sin, etc) that operate on entire arrays
+* helper function (reshape, reverse, delete, repeat, etc)
 * easy initializers for 1D and 2D arrays
-* dot product, matrix inversion, eigenvalues, etc
+* complex math (dot product, matrix inversion, eigenvalues, etc)
 * machine learning algorithms (SVM, kNN, SVD/PCA, more to come)
 * one dimensional Fourier transforms
-* speed optimization for operators/select simple functions/all complex functions
+* speed optimization using Accelerate and OpenCV
 
 When I was crafting this library, I primarily followed the footsteps and
 example set by [NumPy][numpy]. For the more complex mathematical functions
@@ -86,10 +41,37 @@ and Matlab differ in their initializer called `ones` by `ones((M,N))` and
 [nasty bugs]:http://swix.readthedocs.org/en/latest/bugs.html
 [nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
 
+## FAQ
+>> Why does this library exist?
+
+> Not only should you be able to do simple math in arrays like in [Surge], Swift
+  makes it possible to call high level mathematical functions just like in
+  Python/Matlab.
+
+>> How does this library compare to Python/Matlab?
+
+> Complete speed results can be found in *[Speed]*
+
+>> Why are you developing this library?
+
+> Since I'm finishing up my EE degree, I have to do a senior project. This
+  project will be a machine learning project and I know that a math library
+  will be useful.
+
+> Plus, I want to make it easy for mathematicians to port their algorithms to a
+  mobile app. Back in the ObjC days, this meant porting the algorithm to C.
+
+> It's a common mistake for inexperienced engineers to develop something
+  instead of looking elsewhere. I started developing this project because I
+  couldn't find similar projects elsewhere and needed this project quickly. I
+  expect a more complete library will be released *eventually.*
+
+[Speed]:http://scottsievert.github.io/swix/speed.html
+[Surge]:https://github.com/mattt/Surge
+
 ## Documentation 
 Details on how to install and individual functions can be found in [swix's
-documentation][swix-doc]. There is also a [mobile friendly version] on
-readthedocs, but this is harder to maintain and is most likely out of date.
+documentation][swix-doc].
 
 [mobile friendly version]:http://swix.readthedocs.org/
 [swix-doc]:http://scottsievert.github.io/swix/
@@ -100,18 +82,11 @@ readthedocs, but this is harder to maintain and is most likely out of date.
 
 ...and I used some of [SwiftAccelerate][ais] to avoid some BLAS/LAPACK agony.
 
-#### To be integrated
+##### To be integrated
 * [swix-complex][complex]
 * [ScalarArithemetic][scalar]
 
 [ais]:https://github.com/haginile/SwiftAccelerate
-
-## Features to be added
-* speeding up `x[0..<2, 0..<2] = ones((2,2))`; I need to work out GCD.
-* `x[0..<4] <- 1` should be `x[0..<4] = 1` but annoying types are needed. Is
-  this a bug? Is this something we live with? 
-* cocoapods. Tried but unsuccessful.
-
 [so]:http://stackoverflow.com/q/24727674/1141256
 [opencv]:http://opencv.org
 [scalar]:https://github.com/seivan/ScalarArithmetic
