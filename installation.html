@@ -60,7 +60,8 @@
 <li>Include the folder <tt class="docutils literal"><span class="pre">swix/swix/swix/swix</span></tt> in your project.</li>
 <li>Modify your XCode bridging header to include the C functions. This can mean
 either copying swix&#8217;s bridging header to your bridging header or <a class="reference external" href="http://stackoverflow.com/a/24102433/1141256">modify
-your Xcode project</a> to find swix&#8217;s header.</li>
+your Xcode project</a> to find swix&#8217;s header in
+<tt class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></tt>.</li>
 <li>(optional) Change <a class="reference external" href="http://stackoverflow.com/a/24102759/1141256">your compiler optimization flag</a> which can lead to
 <a class="reference external" href="http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test">incredible speed gains</a>. Be careful &#8211; this skips <tt class="docutils literal"><span class="pre">assert</span></tt>. I would
 recommend testing with <tt class="docutils literal"><span class="pre">-Onone</span></tt> before switching.</li>
@@ -70,22 +71,38 @@ folder; something like <tt class="docutils literal"><span class="pre">the/path/t
 </ol>
 <div class="section" id="possible-bugs">
 <h2>Possible bugs<a class="headerlink" href="#possible-bugs" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>If you get errors like <tt class="docutils literal"><span class="pre">&quot;Unresolved</span> <span class="pre">identifier</span> <span class="pre">*_objc&quot;</span></tt> you probably haven&#8217;t added the
-bridging header correctly.</li>
-<li>If error <tt class="docutils literal"><span class="pre">Unresolved</span> <span class="pre">identifier</span> <span class="pre">dgemm_</span></tt> or similar, you need to add the
-Accelerate framework in Build Phases/Link Binary with Libraries.</li>
-<li><tt class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.hpp'</span> <span class="pre">file</span> <span class="pre">not</span> <span class="pre">found&quot;.</span></tt> This bug
-had me for a while since opencv2.framework was clearly in my project.. It
-turns out under Build Phases/Link Binary with Libraries you need to &#8220;add
-other&#8221; and select the opencv2.framework in swix/objc/. Oh, and if you can&#8217;t
-see the &#8220;Link Binary with Libraries&#8221; section hit the little &#8220;+&#8221; in the upper
-left (at least for XCode 6).</li>
-<li>Another bug with <tt class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.pp'</span> <span class="pre">file</span> <span class="pre">not</span>
-<span class="pre">found&quot;</span></tt>. When crafting my simple OSX test app, I found that deleting
-<tt class="docutils literal"><span class="pre">swix-OSXTests</span></tt> from my XCode project allowed me to compile; I would guess
-that adding <tt class="docutils literal"><span class="pre">opencv2.framework</span></tt> in Build Phases/Link Binary with Libraries
-<cite>under swix-OSXTests</cite> would solve this problem.</li>
+<ul>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">&quot;Unresolved</span> <span class="pre">identifier</span> <span class="pre">*_objc&quot;</span></tt></dt>
+<dd><ul class="first last simple">
+<li>The bridging header probably hasn&#8217;t been added correctly. Ensure
+<tt class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></tt> has the correct path.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">Unresolved</span> <span class="pre">identifier</span> <span class="pre">vDSP_*</span></tt> or similar,</dt>
+<dd><ul class="first last simple">
+<li>The Accelerate framework hasn&#8217;t been added to Build Phases/Link Binary with Libraries.</li>
+<li>The Accelerate framework can&#8217;t be found when running an iOS xcodeproj in
+the iOS simulator. For me it works on a physical device.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.hpp'</span> <span class="pre">file</span> <span class="pre">not</span> <span class="pre">found&quot;.</span></tt></dt>
+<dd><ul class="first last simple">
+<li>Under Build Phases/Link Binary with library add
+<tt class="docutils literal"><span class="pre">swix/objc/opencv2.framework</span></tt>. If you don&#8217;t see the &#8220;Link Binary with
+Libraries&#8221; hit the plus button in the upper left (at least for XCode 6).</li>
+<li>When clicking on &#8220;Add files to <a href="#id1"><span class="problematic" id="id2">*</span></a>&#8221; and in the diaglog that came up I
+should have hit the checkbox next to <tt class="docutils literal"><span class="pre">swix-OSXTests</span></tt>.</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div>
 </div>
