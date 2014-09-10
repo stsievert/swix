@@ -2,6 +2,8 @@ from __future__ import division
 from pylab import *
 from timeit import timeit
 
+
+
 def pe1():
     N = 1e6
     x = arange(N)

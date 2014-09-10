@@ -53,6 +53,8 @@ func pe73(){
     var j = (f > 1/3) && (f < 1/2)
     // println(f[argwhere(j)].n)
 }
+
+
 func soft_thresholding(){
     let N = 1e2.int
     var j = linspace(-1, 1, num:N)
@@ -62,6 +64,9 @@ func soft_thresholding(){
     z[argwhere(i)] *= 0
     z[argwhere(1-i)] -= 0.5
 }
+
+
+
 func pi_approx(){
     var N = 1e6
     var k = arange(N)

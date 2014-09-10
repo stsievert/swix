@@ -42,29 +42,29 @@ and Matlab differ in their initializer called `ones` by `ones((M,N))` and
 [nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
 
 ## FAQ
->> **Why does this library exist?**
+> **Why does this library exist?**
 
-> Not only should you be able to do simple math in arrays like in [Surge], Swift
-  makes it possible to call high level mathematical functions just like in
-  Python/Matlab.
+Not only should you be able to do simple math in arrays like in [Surge], Swift
+makes it possible to call high level mathematical functions just like in
+Python/Matlab.
 
->> **How does this library compare to Python/Matlab?**
+> **How does this library compare to Python/Matlab?**
 
-> Complete speed results can be found in *[Speed]*
+Complete speed results can be found in *[Speed]*
 
->> **Why are you developing this library?**
+> **Why are you developing this library?**
 
-> Since I'm finishing up my EE degree, I have to do a senior project. This
-  project will be a machine learning project and I know that a math library
-  will be useful.
+Since I'm finishing up my EE degree, I have to do a senior project. This
+project will be a machine learning project and I know that a math library
+will be useful.
 
-> Plus, I want to make it easy for mathematicians to port their algorithms to a
-  mobile app. Back in the ObjC days, this meant porting the algorithm to C.
+Plus, I want to make it easy for mathematicians to port their algorithms to a
+mobile app. Back in the ObjC days, this meant porting the algorithm to C.
 
-> It's a common mistake for inexperienced engineers to develop something
-  instead of looking elsewhere. I started developing this project because I
-  couldn't find similar projects elsewhere and needed this project quickly. I
-  expect a more complete library will be released *eventually.*
+It's a common mistake for inexperienced engineers to develop something
+instead of looking elsewhere. I started developing this project because I
+couldn't find similar projects elsewhere and needed this project quickly. I
+expect a more complete library will be released *eventually.*
 
 [Speed]:http://scottsievert.github.io/swix/speed.html
 [Surge]:https://github.com/mattt/Surge
