@@ -94,7 +94,7 @@ func copy(x: ndarray) -> ndarray{
     return x.copy()
 }
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
-    var x = String.stringWithContentsOfFile(prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
+    var x = String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
     var array:[Double] = []
     var columns:Int = 0
     var z = x!.componentsSeparatedByString(",")

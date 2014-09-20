@@ -14,7 +14,7 @@
 		<string>https://github.com/scottsievert/swix.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>swix/swix.xcodeproj/project.xcworkspace</string>
+	<string>swix/swix.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F09A4F7C2419C22FA24C2D7BFB469CAE070427A9</key>
