@@ -94,12 +94,9 @@ The equivalent Swift syntax with this library?
 Looking at the speed results in :doc:`speed` we find that Swift is roughly
 equal with Python/Matlab with this library.
 
+.. note:: These docs look like Python functions as they use Python's autodocs. However, these docs describe Swift functions.
 
 .. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``. The only exceptions are the classes ``ndarray`` and ``matrix``.
-
-.. note:: There is a `mobile friendly`_ version of these docs that is out of date.
-
-.. note:: These docs use ``np`` for NumPy, ``mpl`` for ``matplotlib`` and ``cv`` for OpenCV
 
 .. note:: If a variable has the same name as a function included in swix you will get compile errors. I'll wait to resolve this until Swift has good package handling.
 

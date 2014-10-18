@@ -3,17 +3,30 @@
 Installation
 =============
 1. Download `the repo`_ or `this file`_
-2. Include the folder ``swix/swix/swix/swix`` in your project.
+2. Include the folder ``swix-master/swix/swix/swix`` in your project.
 3. Modify your XCode bridging header to include the C functions. This can mean
    either copying swix's bridging header to your bridging header or `modify
    your Xcode project`_ to find swix's header in
    ``swix/objc/swix-Bridging-Header.h``.
-4. (optional) Change `your compiler optimization flag`_ which can lead to
+
+Optional
+-----------
+These steps are optional but can have nice results.
+
+1. Change `your compiler optimization flag`_ which can lead to
    `incredible speed gains`_. Be careful -- this skips ``assert``. I would
    recommend testing with ``-Onone`` before switching.
-5. (optional) If you plan on using ``read_csv, write_csv, savefig, imshow`` you need to
+2. If you plan on using ``read_csv, write_csv, savefig, imshow`` you need to
    change the ``S2_PREFIX`` in ``numbers.swift``. This should point to the swix
    folder; something like ``the/path/to/yourXcodeProjectName/swix/``
+
+Notes
+-------
+* I have not spent time on package management. There should be an ``import
+  swix`` and is not (but I welcome pull requests!)
+* During my testing, swix doesn't work in Playgrounds although `it's possible`_.
+
+.. _`it's possible`: http://stackoverflow.com/questions/24046160/how-to-i-import-3rd-party-frameworks-into-xcode-playground
 
 
 Possible bugs

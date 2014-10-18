@@ -57,18 +57,32 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li>Download <a class="reference external" href="https://github.com/scottsievert/swix">the repo</a> or <a class="reference external" href="https://github.com/scottsievert/swix/archive/master.zip">this file</a></li>
-<li>Include the folder <tt class="docutils literal"><span class="pre">swix/swix/swix/swix</span></tt> in your project.</li>
+<li>Include the folder <tt class="docutils literal"><span class="pre">swix-master/swix/swix/swix</span></tt> in your project.</li>
 <li>Modify your XCode bridging header to include the C functions. This can mean
 either copying swix&#8217;s bridging header to your bridging header or <a class="reference external" href="http://stackoverflow.com/a/24102433/1141256">modify
 your Xcode project</a> to find swix&#8217;s header in
 <tt class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></tt>.</li>
-<li>(optional) Change <a class="reference external" href="http://stackoverflow.com/a/24102759/1141256">your compiler optimization flag</a> which can lead to
+</ol>
+<div class="section" id="optional">
+<h2>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h2>
+<p>These steps are optional but can have nice results.</p>
+<ol class="arabic simple">
+<li>Change <a class="reference external" href="http://stackoverflow.com/a/24102759/1141256">your compiler optimization flag</a> which can lead to
 <a class="reference external" href="http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test">incredible speed gains</a>. Be careful &#8211; this skips <tt class="docutils literal"><span class="pre">assert</span></tt>. I would
 recommend testing with <tt class="docutils literal"><span class="pre">-Onone</span></tt> before switching.</li>
-<li>(optional) If you plan on using <tt class="docutils literal"><span class="pre">read_csv,</span> <span class="pre">write_csv,</span> <span class="pre">savefig,</span> <span class="pre">imshow</span></tt> you need to
+<li>If you plan on using <tt class="docutils literal"><span class="pre">read_csv,</span> <span class="pre">write_csv,</span> <span class="pre">savefig,</span> <span class="pre">imshow</span></tt> you need to
 change the <tt class="docutils literal"><span class="pre">S2_PREFIX</span></tt> in <tt class="docutils literal"><span class="pre">numbers.swift</span></tt>. This should point to the swix
 folder; something like <tt class="docutils literal"><span class="pre">the/path/to/yourXcodeProjectName/swix/</span></tt></li>
 </ol>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>I have not spent time on package management. There should be an <tt class="docutils literal"><span class="pre">import</span>
+<span class="pre">swix</span></tt> and is not (but I welcome pull requests!)</li>
+<li>During my testing, swix doesn&#8217;t work in Playgrounds although <a class="reference external" href="http://stackoverflow.com/questions/24046160/how-to-i-import-3rd-party-frameworks-into-xcode-playground">it&#8217;s possible</a>.</li>
+</ul>
+</div>
 <div class="section" id="possible-bugs">
 <h2>Possible bugs<a class="headerlink" href="#possible-bugs" title="Permalink to this headline">¶</a></h2>
 <ul>
@@ -119,6 +133,8 @@ should have hit the checkbox next to <tt class="docutils literal"><span class="p
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#optional">Optional</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
 <li><a class="reference internal" href="#possible-bugs">Possible bugs</a></li>
 </ul>
 </li>
