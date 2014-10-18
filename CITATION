@@ -1,7 +1,0 @@
-@MISC{swix,
-    author = {Sievert, Scott},
-    title = {{S}wift {M}atrix {L}ibrary},
-    month = aug,
-    year = {2014},
-    howpublished={\url{https://github.com/scottsievert/swix}}
-}

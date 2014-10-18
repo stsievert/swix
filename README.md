@@ -34,12 +34,19 @@ slightly different output.
 Additionally, I followed NumPy's syntax whenever possible. For example, NumPy
 and Matlab differ in their initializer called `ones` by `ones((M,N))` and
 `ones(M, N)` respectively. If in doubt or getting weird compiler bugs, look at
-[NumPy for Matlab users][nfm] or the section on possible swix bugs while
-[installing] or [nasty bugs] that may pop up.
+[NumPy for Matlab users][nfm] or the section on possible swix bugs that may pop
+up during the [*Install*][install] or other [*Bugs*][bugs] you may find.
 
-[installing]:http://swix.readthedocs.org/en/latest/installation.html
-[nasty bugs]:http://swix.readthedocs.org/en/latest/bugs.html
+[bugs]:http://swix.readthedocs.org/en/latest/bugs.html
 [nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
+
+## [Documentation][swix-doc]
+Details on how to install can be found in [*Install*][install]. The 
+[swix documentation][swix-doc] includes details on each individual function and
+possible bugs.
+
+[install]:http://scottsievert.github.io/swix/installation.html
+[swix-doc]:http://scottsievert.github.io/swix/
 
 ## FAQ
 > **Why does this library exist?**
@@ -52,29 +59,9 @@ Python/Matlab.
 
 Complete speed results can be found in *[Speed]*
 
-> **Why are you developing this library?**
-
-Since I'm finishing up my EE degree, I have to do a senior project. This
-project will be a machine learning project and I know that a math library
-will be useful.
-
-Plus, I want to make it easy for mathematicians to port their algorithms to a
-mobile app. Back in the ObjC days, this meant porting the algorithm to C.
-
-It's a common mistake for inexperienced engineers to develop something
-instead of looking elsewhere. I started developing this project because I
-couldn't find similar projects elsewhere and needed this project quickly. I
-expect a more complete library will be released *eventually.*
-
 [Speed]:http://scottsievert.github.io/swix/speed.html
 [Surge]:https://github.com/mattt/Surge
 
-## Documentation 
-Details on how to install and individual functions can be found in [swix's
-documentation][swix-doc].
-
-[mobile friendly version]:http://swix.readthedocs.org/
-[swix-doc]:http://scottsievert.github.io/swix/
 
 ## Third Party Frameworks/Libraries
 * [Accelerate][accel]
