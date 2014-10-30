@@ -99,7 +99,7 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
     var columns:Int = 0
     var z = x!.componentsSeparatedByString(",")
     columns = 0
-    for i in 0..<z.count-1{
+    for i in 0..<z.count{
             var num = z[i]
             array.append(num.doubleValue)
             columns += 1

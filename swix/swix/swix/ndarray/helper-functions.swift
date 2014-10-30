@@ -144,7 +144,7 @@ func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
     var seperator=","
     var str = ""
     for i in 0..<x.n{
-        seperator = i == x.n-1 ? "," : ","
+        seperator = i == x.n-1 ? "" : ","
         str += String(format: "\(x[i])"+seperator)
     }
     str += "\n"
