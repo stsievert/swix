@@ -82,6 +82,9 @@ func apply_function(function: String, x: ndarray)->ndarray{
     else if function=="ceil"{
         vvceil(!y, !x, &count)
     }
+    else if function == "tanh" {
+        vvtanh(!y, !x, &count)
+    }
     else {assert(false, "Function not recongized")}
     return y
 }
@@ -234,6 +237,9 @@ func cos(x: ndarray) -> ndarray{
 }
 func tan(x: ndarray) -> ndarray{
     return apply_function("tan", x)
+}
+func tanh(x: ndarray) -> ndarray {
+    return apply_function("tanh", x)
 }
 
 
