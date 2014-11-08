@@ -32,12 +32,11 @@ class runTests {
     }
     func complexTests(){
         func scalar_test(){
-//            var x:Int = 1
-//            var y:Double = 4
-//            var z = x + y
-//            assert(z == 5)
-//            println("    Int(1)+Double(1)==2 through ScalarArithmetic")
-//            println(" ** BUG: ScAr-2.0 needs to be integrated. Certain aspects don't work.")
+            var x:Int = 1
+            var y:Double = 4
+            var z:Double = x + y
+            assert(z == 5)
+            println("    Int(1)+Double(1)==2 through ScalarArithmetic")
         }
         func swift_complex_test(){
 //            var x = 1.0 + 1.0.i

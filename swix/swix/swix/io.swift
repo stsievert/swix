@@ -28,10 +28,10 @@ func read_binary(filename:String, prefix:String=S2_PREFIX) -> ndarray{
 // matrix binary
 func write_binary(x:matrix, #filename:String, prefix:String=S2_PREFIX){
     var y = concat(array(x.shape.0.double, x.shape.1.double), x.flat)
-    write_binary(y, filename:"matrix.npy")
+    write_binary(y, filename:filename, prefix:prefix)
 }
 func read_binary(filename:String, prefix:String=S2_PREFIX)->matrix{
-    var a:ndarray = read_binary("matrix.npy")
+    var a:ndarray = read_binary(filename, prefix:prefix)
     var (w, h) = (a[0], a[1])
     var b = reshape(a[2..<a.n], (w.int,h.int))
     return b

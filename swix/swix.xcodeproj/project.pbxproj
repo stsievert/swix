@@ -33,6 +33,7 @@
 		D2B6F68D1996F5B200F2466D /* m-helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B6F68C1996F5B200F2466D /* m-helper-functions.swift */; };
 		D2BBBDAD196DD693004707F3 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BBBDAB196DD693004707F3 /* math.m */; };
 		D2CEF76C1996FB1D00AC6D34 /* speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CEF76B1996FB1D00AC6D34 /* speed.swift */; };
+		D2FD05761A0EAD25008BF07D /* ScalarArithmetic-bleed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD05751A0EAD25008BF07D /* ScalarArithmetic-bleed.swift */; };
 		D2FF0F0B197308440036CD3B /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FF0F0A197308440036CD3B /* operations-and-indexing.m */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		D2BBBDAB196DD693004707F3 /* math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = math.m; sourceTree = "<group>"; };
 		D2BBBDAC196DD693004707F3 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2CEF76B1996FB1D00AC6D34 /* speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = speed.swift; sourceTree = "<group>"; };
+		D2FD05751A0EAD25008BF07D /* ScalarArithmetic-bleed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScalarArithmetic-bleed.swift"; sourceTree = "<group>"; };
 		D2FF0F0A197308440036CD3B /* operations-and-indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "operations-and-indexing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A5CAD5196D830000749F52 /* numbers.swift */,
+				D2FD05751A0EAD25008BF07D /* ScalarArithmetic-bleed.swift */,
 				D23648D11976CC720020FB95 /* machine_learning.swift */,
 				D25E64A81A0DC3C70074952D /* io.swift */,
 				D218B21419901FDF00D519E4 /* ndarray */,
@@ -246,6 +249,7 @@
 				D2B6F68B1996F57600F2466D /* helper-functions.swift in Sources */,
 				D218B2321990206800D519E4 /* m-operators.swift in Sources */,
 				D218B2301990206800D519E4 /* m-initing.swift in Sources */,
+				D2FD05761A0EAD25008BF07D /* ScalarArithmetic-bleed.swift in Sources */,
 				D271C9BE1970328C008E577A /* conversion.swift in Sources */,
 				D2A5CAD6196D830000749F52 /* numbers.swift in Sources */,
 				D218B2311990206800D519E4 /* m-matrix.swift in Sources */,
