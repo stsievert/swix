@@ -93,21 +93,6 @@ func copy(x: ndarray) -> ndarray{
     // copy the value
     return x.copy()
 }
-func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
-    var x = String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
-    var array:[Double] = []
-    var columns:Int = 0
-    var z = x!.componentsSeparatedByString(",")
-    columns = 0
-    for i in 0..<z.count{
-            var num = z[i]
-            array.append(num.doubleValue)
-            columns += 1
-    }
-    var done = zeros(1 * columns)
-    done.grid = array
-    return done
-}
 
 func rand(N: Int, seed:Int=42, distro:String="uniform") -> ndarray{
     var x = zeros(N)

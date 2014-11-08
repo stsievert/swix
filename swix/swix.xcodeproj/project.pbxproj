@@ -23,6 +23,7 @@
 		D23648D21976CC720020FB95 /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23648D11976CC720020FB95 /* machine_learning.swift */; };
 		D24A8555196D7D73009C18AC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A8554196D7D73009C18AC /* main.swift */; };
 		D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24D7132199272E600D4B9D8 /* opencv2.framework */; };
+		D25E64A91A0DC3C70074952D /* io.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E64A81A0DC3C70074952D /* io.swift */; };
 		D271C9BE1970328C008E577A /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271C9BD1970328C008E577A /* conversion.swift */; };
 		D273B68A197997DE00750A09 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B689197997DE00750A09 /* tests.swift */; };
 		D2A5CAD6196D830000749F52 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5CAD5196D830000749F52 /* numbers.swift */; };
@@ -66,6 +67,7 @@
 		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24A8554196D7D73009C18AC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D24D7132199272E600D4B9D8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
+		D25E64A81A0DC3C70074952D /* io.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = io.swift; sourceTree = "<group>"; };
 		D271C9BD1970328C008E577A /* conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversion.swift; sourceTree = "<group>"; };
 		D273B689197997DE00750A09 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		D2A5CAD5196D830000749F52 /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				D2A5CAD5196D830000749F52 /* numbers.swift */,
 				D23648D11976CC720020FB95 /* machine_learning.swift */,
+				D25E64A81A0DC3C70074952D /* io.swift */,
 				D218B21419901FDF00D519E4 /* ndarray */,
 				D218B2271990206800D519E4 /* matrix */,
 				D2BBBDAE196DD9EE004707F3 /* objc */,
@@ -251,6 +254,7 @@
 				D218B2241990202800D519E4 /* initing.swift in Sources */,
 				D2BBBDAD196DD693004707F3 /* math.m in Sources */,
 				D2B6F68D1996F5B200F2466D /* m-helper-functions.swift in Sources */,
+				D25E64A91A0DC3C70074952D /* io.swift in Sources */,
 				D206A2A119746886009232B7 /* opencv.mm in Sources */,
 				D218B2231990202800D519E4 /* complex-math.swift in Sources */,
 				D273B68A197997DE00750A09 /* tests.swift in Sources */,

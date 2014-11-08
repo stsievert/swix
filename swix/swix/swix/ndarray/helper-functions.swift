@@ -138,23 +138,7 @@ func argwhere(idx: ndarray) -> ndarray{
     return args
 }
 
-// writing
-func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
-    // write the array to CSV
-    var seperator=","
-    var str = ""
-    for i in 0..<x.n{
-        seperator = i == x.n-1 ? "" : ","
-        str += String(format: "\(x[i])"+seperator)
-    }
-    str += "\n"
-    var error:NSError?
-    str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
-    if let error=error{
-        println("File probably wasn't recognized \n\(error)")
-    }
-    
-}
+
 
 // LOGICAL
 func logical_and(x:ndarray, y:ndarray)->ndarray{

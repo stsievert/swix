@@ -80,24 +80,6 @@ func array(matlab_like_string: String)->matrix{
     }
     return x
 }
-func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
-    var x = String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
-    var y = x!.componentsSeparatedByString("\n")
-    var rows = y.count-1
-    var array:[Double] = []
-    var columns:Int = 0
-    for i in 0..<rows{
-        var z = y[i].componentsSeparatedByString(",")
-        columns = 0
-        for num in z{
-            array.append(num.doubleValue)
-            columns += 1
-        }
-    }
-    var done = zeros((rows, columns))
-    done.flat.grid = array
-    return done
-}
 
 
 
