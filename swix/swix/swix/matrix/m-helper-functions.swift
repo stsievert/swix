@@ -94,24 +94,6 @@ func kron(A:matrix, B:matrix)->matrix{
     return C
 }
 
-
-// WRITING
-func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
-    var seperator=","
-    var str = ""
-    for i in 0..<x.shape.0{
-        for j in 0..<x.shape.1{
-            seperator = j == x.shape.1-1 ? "" : ","
-            str += String(format: "\(x[i, j])"+seperator)
-        }
-        str += "\n"
-    }
-    var error:NSError?
-    str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
-    if let error=error{
-        println("File probably wasn't recognized \n\(error)")
-    }
-}
 func tril(x: matrix) -> ndarray{
     var (m, n) = x.shape
     var (mm, nn) = meshgrid(arange(m), arange(n))

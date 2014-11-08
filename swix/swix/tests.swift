@@ -23,7 +23,7 @@ class runTests {
         twoDTests()
         println("       matrix convience elements work as expected")
         readWriteTests()
-        println("       read_csv, write_csv, savefig work like Python")
+        println("       {read,write}_{binary,csv}, savefig work like Python... at least on OSX")
         complexTests()
         
         numberTests()
@@ -276,6 +276,16 @@ class runTests {
         write_csv(x2, filename:"../../python_testing/csvs/ndarray.csv")
         var y2:ndarray = read_csv("../../python_testing/csvs/ndarray.csv")
         assert(x2 ~== y2)
+        
+        var x3 = array(1, 5, 3, 1, 0, -10) * pi
+        write_binary(x3, filename:"../../python_testing/csvs/x3.npy")
+        var y3:ndarray = read_binary("../../python_testing/csvs/x3.npy")
+        assert(y3 ~== x3)
+        
+        var x4 = arange(9).reshape((3,3))
+        write_binary(x4, filename:"../../python_testing/csvs/x4.npy")
+        var y4:matrix = read_binary("../../python_testing/csvs/x4.npy")
+        assert(y4 ~== x4)
     }
     func twoDTests(){
         var x = arange(9).reshape((3,3))
