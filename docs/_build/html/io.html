@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>I/O &mdash; swix 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.2 documentation" href="index.html" />
+    <link rel="next" title="Machine learning" href="machine_learning.html" />
+    <link rel="prev" title="Matrices" href="matrix.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="machine_learning.html" title="Machine learning"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="i-o">
+<h1>I/O<a class="headerlink" href="#i-o" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">These functions have only been tested on OSX.</p>
+</div>
+<div class="section" id="module-io_swix">
+<span id="functions"></span><h2>Functions<a class="headerlink" href="#module-io_swix" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="io_swix.read_binary">
+<tt class="descclassname">io_swix.</tt><tt class="descname">read_binary</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.read_binary" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>ndarray, matrix</em>) &#8211; What to write to a file.</li>
+<li><strong>filename</strong> (<em>String</em>) &#8211; Where to write the file.</li>
+<li><strong>prefix</strong> (<em>String</em>) &#8211; By default, S2_PREFIX. The file is written to the parent directory.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The contents of the file. Either an ndarray or matrix.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="io_swix.read_csv">
+<tt class="descclassname">io_swix.</tt><tt class="descname">read_csv</tt><big>(</big><em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.read_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a CSV.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>String</em>) &#8211; The file to read from. The file read from the directory containing <tt class="docutils literal"><span class="pre">swix/</span></tt>.</li>
+<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to <tt class="docutils literal"><span class="pre">S2_PREFIX</span></tt></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. The contents of the csv.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#io_swix.read_binary" title="io_swix.read_binary"><tt class="xref py py-func docutils literal"><span class="pre">read_binary()</span></tt></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="io_swix.write_binary">
+<tt class="descclassname">io_swix.</tt><tt class="descname">write_binary</tt><big>(</big><em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_binary" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<em>String</em>) &#8211; Where to write the file.</li>
+<li><strong>prefix</strong> (<em>String</em>) &#8211; By default, S2_PREFIX. The file is written to the parent directory.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="io_swix.write_csv">
+<tt class="descclassname">io_swix.</tt><tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a CSV.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The ndarray to write to a csv</li>
+<li><strong>filename</strong> (<em>String</em>) &#8211; Where to write.</li>
+<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#io_swix.write_binary" title="io_swix.write_binary"><tt class="xref py py-func docutils literal"><span class="pre">write_binary()</span></tt></a></p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="binary-example-optimized">
+<h2>Binary example; optimized<a class="headerlink" href="#binary-example-optimized" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_binary</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;x.npy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># be sure to include what type the variable is!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_binary</span><span class="p">(</span><span class="s">&quot;x.npy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">z</span><span class="p">:</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">read_binary</span><span class="p">(</span><span class="s">&quot;x.npy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="csv-example-unoptimized">
+<h2>CSV example; unoptimized<a class="headerlink" href="#csv-example-unoptimized" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;x.csv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># be sure to include what type the variable is!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;x.csv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">z</span><span class="p">:</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;x.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">I/O</a><ul>
+<li><a class="reference internal" href="#module-io_swix">Functions</a></li>
+<li><a class="reference internal" href="#binary-example-optimized">Binary example; optimized</a></li>
+<li><a class="reference internal" href="#csv-example-unoptimized">CSV example; unoptimized</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="machine_learning.html" title="Machine learning"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             >previous</a> |</li>
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -5,6 +5,7 @@ import machine_learning
 import inspect
 import numbers
 import objc
+import io_swix
 
 def print_functions(root_module, modules):
     strings = []
@@ -45,6 +46,7 @@ n = print_functions(ndarray, ndarray_modules)
 m = print_functions(matrix, matrix_modules)
 ml = print_functions(machine_learning, ml_modules)
 nu = print_root_functions(numbers, "numbers")
+io = print_root_functions(io_swix, "I/O")
 objcs = print_root_functions(objc, "objc")
 
 
@@ -80,6 +82,7 @@ This page only includes functions. All constants are defined in :class:`numbers`
 file = open("../overview.rst", "w")
 file.write(intro)
 write_list(file, "numbers", nu)
+write_list(file, "I/O", io)
 write_list(file, "ndarray", n)
 write_list(file, "matrix", m)
 write_list(file, "machine learning", ml)

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Overview &mdash; swix 0.1 documentation</title>
+    <title>Overview &mdash; swix 0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1',
+        VERSION:     '0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Numbers and constants" href="numbers.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -106,6 +106,37 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="i-o">
+<h2>I/O<a class="headerlink" href="#i-o" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">I/O.read_binary</span></tt></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">I/O.read_csv</span></tt></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">I/O.write_binary</span></tt></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">I/O.write_csv</span></tt></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="ndarray">
 <h2>ndarray<a class="headerlink" href="#ndarray" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="longtable docutils">
@@ -154,13 +185,10 @@
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.randperm" title="ndarray.initing.randperm"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.randperm</span></tt></a>(N)</td>
 <td>Shuffle an array of (typically) indices.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.read_csv" title="ndarray.initing.read_csv"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.read_csv</span></tt></a>(filename[,&nbsp;prefix])</td>
-<td>Reads a CSV.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros" title="ndarray.initing.zeros"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros</span></tt></a>(N)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros" title="ndarray.initing.zeros"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros</span></tt></a>(N)</td>
 <td>Makes an array of 0&#8217;s.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros_like" title="ndarray.initing.zeros_like"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros_like</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros_like" title="ndarray.initing.zeros_like"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros_like</span></tt></a>(x)</td>
 <td>Makes an array like another array.</td>
 </tr>
 </tbody>
@@ -245,9 +273,6 @@
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.unique" title="ndarray.helper_functions.unique"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.unique</span></tt></a>(x)</td>
 <td>Find the unique elements of an array.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.write_csv" title="ndarray.helper_functions.write_csv"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.write_csv</span></tt></a>(x,&nbsp;filename)</td>
-<td>Writes a CSV.</td>
 </tr>
 </tbody>
 </table>
@@ -472,16 +497,13 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.read_csv" title="matrix.initing.read_csv"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.read_csv</span></tt></a>(filename[,&nbsp;prefix])</td>
-<td>Reads a csv.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.reshape" title="matrix.initing.reshape"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.reshape</span></tt></a>(x,&nbsp;shape)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.reshape" title="matrix.initing.reshape"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.reshape</span></tt></a>(x,&nbsp;shape)</td>
 <td>Reshapes to the specified size.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros" title="matrix.initing.zeros"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros</span></tt></a>(shape)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros" title="matrix.initing.zeros"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros</span></tt></a>(shape)</td>
 <td>Makes a matrix full of zeros.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros_like" title="matrix.initing.zeros_like"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros_like</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros_like" title="matrix.initing.zeros_like"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros_like</span></tt></a>(x)</td>
 <td>A matrix like the other matrix.</td>
 </tr>
 </tbody>
@@ -527,9 +549,6 @@
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.transpose" title="matrix.helper_functions.transpose"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.transpose</span></tt></a>(x)</td>
 <td>Finds the transpose.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.write_csv" title="matrix.helper_functions.write_csv"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.write_csv</span></tt></a>(x,&nbsp;filename)</td>
-<td>Writes a CSV.</td>
 </tr>
 </tbody>
 </table>
@@ -942,6 +961,7 @@
 <li><a class="reference internal" href="#">Overview</a><ul>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 <li><a class="reference internal" href="#numbers">numbers</a></li>
+<li><a class="reference internal" href="#i-o">I/O</a></li>
 <li><a class="reference internal" href="#ndarray">ndarray</a><ul>
 <li><a class="reference internal" href="#ndarray-initing">ndarray.initing</a></li>
 <li><a class="reference internal" href="#ndarray-helper-functions">ndarray.helper_functions</a></li>
@@ -978,6 +998,7 @@
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
@@ -1017,7 +1038,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

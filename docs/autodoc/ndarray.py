@@ -1,6 +1,4 @@
 from numbers import S2_PREFIX
-#S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
-
 
 class ndarray:
     n = "Int" #: Number of elements this array contains
@@ -223,20 +221,6 @@ class initing():
         >>> assert(ones(3) ~== array(1, 1, 1))
 
         .. seealso:: `np.ones`_
-        """
-    def read_csv(filename, prefix=S2_PREFIX):
-        """
-        Reads a CSV.
-
-        :param filename: The file to read from. The file read from the directory containing ``swix/``.
-        :param prefix: Defaults to ``S2_PREFIX``
-        :type filename: String
-        :type prefix: String
-        :rtype: ndarray. The contents of the csv.
-
-        .. note:: Assuming that you're only using the on MacOSX to test your app; not optimized.
-        
-        .. seealso:: :class:`helper_functions.write_csv`
         """
     def zeros(N):
         """
@@ -569,21 +553,6 @@ class helper_functions:
         :rtype: ndarray
 
         .. seealso:: `np.logical_xor`_
-        """
-    def write_csv(x, filename, prefix=S2_PREFIX):
-        """
-        Writes a CSV.
-
-        :param x: The ndarray to write to a csv
-        :type x: ndarray
-        :type filename: String
-        :param filename: Where to write.
-        :param prefix: Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.
-        :type prefix: String
-
-        .. note:: Unoptimized. I assume you're only using this on MacOSX to test your app.
-
-        .. seealso:: :class:`initing.read_csv`
         """
 
 class operators:

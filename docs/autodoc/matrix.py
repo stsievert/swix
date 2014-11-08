@@ -197,14 +197,6 @@ class initing:
 
         .. seealso:: :class:`ndarray.initing.ones`
         """
-    def read_csv(filename, prefix=S2_PREFIX):
-        """
-        Reads a csv.
-
-        :param filename: The file to read from. Reads from the same folder as the folder *above* the prefix.
-        :param prefix: Defaults to S2_PREFIX.
-        :rtype: matrix. The contents of the CSV.
-        """
     def reshape(x, shape):
         """
         Reshapes to the specified size.
@@ -357,15 +349,6 @@ class helper_functions:
         :rtype: The transpose of the matrix.
 
         .. seealso:: `np.transpose`_, :class:`matrix.T`, `Transpose`_
-        """
-    def write_csv(x, filename, prefix=S2_PREFIX):
-        """
-        Writes a CSV.
-
-        :param x: A matrix.
-        :type x: matrix
-        :param filename: The file to write to. Writes to a file named filename in the directory *above* the prefix.
-        :param prefix: Defaults to S2_PREFIX.
         """
     def ones_like(x):
         """

@@ -32,6 +32,17 @@ numbers
     numbers.operator_slash
     numbers.rad2deg
 
+I/O
+-------------------------
+.. autosummary::
+
+
+.. autosummary::
+    I/O.read_binary
+    I/O.read_csv
+    I/O.write_binary
+    I/O.write_csv
+
 ndarray
 -------------------------
 .. autosummary::
@@ -50,7 +61,6 @@ ndarray.initing
     ndarray.initing.rand
     ndarray.initing.randn
     ndarray.initing.randperm
-    ndarray.initing.read_csv
     ndarray.initing.zeros
     ndarray.initing.zeros_like
 
@@ -82,7 +92,6 @@ ndarray.helper_functions
     ndarray.helper_functions.sort
     ndarray.helper_functions.union
     ndarray.helper_functions.unique
-    ndarray.helper_functions.write_csv
 
 ndarray.ndarray
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -159,7 +168,6 @@ matrix.initing
     matrix.initing.ones
     matrix.initing.rand
     matrix.initing.randn
-    matrix.initing.read_csv
     matrix.initing.reshape
     matrix.initing.zeros
     matrix.initing.zeros_like
@@ -179,7 +187,6 @@ matrix.helper_functions
     matrix.helper_functions.println
     matrix.helper_functions.rot90
     matrix.helper_functions.transpose
-    matrix.helper_functions.write_csv
 
 matrix.matrix
 ^^^^^^^^^^^^^^^^^^^^^^^^^

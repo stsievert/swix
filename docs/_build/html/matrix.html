@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Matrices &mdash; swix 0.1 documentation</title>
+    <title>Matrices &mdash; swix 0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1',
+        VERSION:     '0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="swix 0.1 documentation" href="index.html" />
-    <link rel="next" title="Machine learning" href="machine_learning.html" />
+    <link rel="top" title="swix 0.2 documentation" href="index.html" />
+    <link rel="next" title="I/O" href="io.html" />
     <link rel="prev" title="Array" href="ndarray.html" /> 
   </head>
   <body>
@@ -39,12 +39,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="machine_learning.html" title="Machine learning"
+          <a href="io.html" title="I/O"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="ndarray.html" title="Array"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -939,27 +939,6 @@ use case for this.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.initing.read_csv">
-<tt class="descname">read_csv</tt><big>(</big><em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.read_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads a csv.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> &#8211; The file to read from. Reads from the same folder as the folder <em>above</em> the prefix.</li>
-<li><strong>prefix</strong> &#8211; Defaults to S2_PREFIX.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matrix. The contents of the CSV.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="matrix.initing.reshape">
 <tt class="descname">reshape</tt><big>(</big><em>x</em>, <em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.reshape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reshapes to the specified size.</p>
@@ -1286,25 +1265,6 @@ use case for this.</p>
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.transpose.html">np.transpose</a>, <a class="reference internal" href="#matrix.matrix.T" title="matrix.matrix.T"><tt class="xref py py-class docutils literal"><span class="pre">matrix.T</span></tt></a>, <a class="reference external" href="org/wiki/Matrix_transpose">Transpose</a></p>
 </div>
-</dd></dl>
-
-<dl class="method">
-<dt id="matrix.helper_functions.write_csv">
-<tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.helper_functions.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes a CSV.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix.</li>
-<li><strong>filename</strong> &#8211; The file to write to. Writes to a file named filename in the directory <em>above</em> the prefix.</li>
-<li><strong>prefix</strong> &#8211; Defaults to S2_PREFIX.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 </dd></dl>
@@ -2131,6 +2091,7 @@ RGBA color planes.</p>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
@@ -2165,12 +2126,12 @@ RGBA color planes.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="machine_learning.html" title="Machine learning"
+          <a href="io.html" title="I/O"
              >next</a> |</li>
         <li class="right" >
           <a href="ndarray.html" title="Array"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

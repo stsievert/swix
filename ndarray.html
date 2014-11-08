@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Array &mdash; swix 0.1 documentation</title>
+    <title>Array &mdash; swix 0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1',
+        VERSION:     '0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="swix 0.1 documentation" href="index.html" />
+    <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Matrices" href="matrix.html" />
     <link rel="prev" title="Numbers and constants" href="numbers.html" /> 
   </head>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="numbers.html" title="Numbers and constants"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -1006,35 +1006,6 @@ assumed to have a length the same as the array being indexed.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="ndarray.initing.read_csv">
-<tt class="descname">read_csv</tt><big>(</big><em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.read_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads a CSV.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>String</em>) &#8211; The file to read from. The file read from the directory containing <tt class="docutils literal"><span class="pre">swix/</span></tt>.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to <tt class="docutils literal"><span class="pre">S2_PREFIX</span></tt></li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. The contents of the csv.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Assuming that you&#8217;re only using the on MacOSX to test your app; not optimized.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.helper_functions.write_csv" title="ndarray.helper_functions.write_csv"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.write_csv</span></tt></a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="ndarray.initing.zeros">
 <tt class="descname">zeros</tt><big>(</big><em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.zeros" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of 0&#8217;s.</p>
@@ -1635,33 +1606,6 @@ sorted.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.helper_functions.write_csv">
-<tt class="descname">write_csv</tt><big>(</big><em>x</em>, <em>filename</em>, <em>prefix='\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes a CSV.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The ndarray to write to a csv</li>
-<li><strong>filename</strong> (<em>String</em>) &#8211; Where to write.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Unoptimized. I assume you&#8217;re only using this on MacOSX to test your app.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.initing.read_csv" title="ndarray.initing.read_csv"><tt class="xref py py-class docutils literal"><span class="pre">initing.read_csv</span></tt></a></p>
 </div>
 </dd></dl>
 
@@ -2461,6 +2405,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
@@ -2500,7 +2445,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
         <li class="right" >
           <a href="numbers.html" title="Numbers and constants"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

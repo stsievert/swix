@@ -111,6 +111,7 @@ Table of Contents
    numbers
    ndarray
    matrix
+   io
    machine_learning
    c
    bugs
