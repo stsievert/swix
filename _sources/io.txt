@@ -7,6 +7,7 @@ I/O
 
 Functions
 ++++++++++++++
+
 .. automodule:: io_swix
     :members:
 

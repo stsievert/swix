@@ -46,7 +46,7 @@ n = print_functions(ndarray, ndarray_modules)
 m = print_functions(matrix, matrix_modules)
 ml = print_functions(machine_learning, ml_modules)
 nu = print_root_functions(numbers, "numbers")
-io = print_root_functions(io_swix, "I/O")
+io = print_root_functions(io_swix, "io_swix")
 objcs = print_root_functions(objc, "objc")
 
 

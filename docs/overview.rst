@@ -38,10 +38,10 @@ I/O
 
 
 .. autosummary::
-    I/O.read_binary
-    I/O.read_csv
-    I/O.write_binary
-    I/O.write_csv
+    io_swix.read_binary
+    io_swix.read_csv
+    io_swix.write_binary
+    io_swix.write_csv
 
 ndarray
 -------------------------

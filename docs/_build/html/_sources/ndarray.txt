@@ -12,6 +12,7 @@ The full docs can be found below but I'll touch on some highlights:
 * simple math. Math that applies to each element.
 * nice indexing, including accessing multiple elements at once (goodbye for loops!).
 
+Found in ``swix/ndarray/*``
 
 .. note:: ``*`` is an element-wise multiplication. ``*!`` is used for a dot product or matrix multiplication. Not like matlab!
 
@@ -20,11 +21,9 @@ The full docs can be found below but I'll touch on some highlights:
 
 Docs
 ++++++++
-Found in ``swix/ndarray/``
 
 
 .. automodule:: ndarray
-   :members:
 
 ndarray class
 ----------------

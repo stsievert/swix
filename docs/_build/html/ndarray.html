@@ -64,510 +64,13 @@ language and math language; in math, this is called an <span class="math">\(N\)<
 <li>simple math. Math that applies to each element.</li>
 <li>nice indexing, including accessing multiple elements at once (goodbye for loops!).</li>
 </ul>
+<p>Found in <tt class="docutils literal"><span class="pre">swix/ndarray/*</span></tt></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><tt class="docutils literal"><span class="pre">*</span></tt> is an element-wise multiplication. <tt class="docutils literal"><span class="pre">*!</span></tt> is used for a dot product or matrix multiplication. Not like matlab!</p>
 </div>
-<div class="section" id="docs">
-<h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
-<p>Found in <tt class="docutils literal"><span class="pre">swix/ndarray/</span></tt></p>
-<span class="target" id="module-ndarray"></span><dl class="class">
-<dt id="ndarray.simple_math">
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">simple_math</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math" title="Permalink to this definition">¶</a></dt>
-<dd><p>The following are detailed docs on various functions, but the following
-functions work like expected:</p>
-<ul class="simple">
-<li>min, max, mean, std, variance</li>
-<li>sign, abs, norm, pow, sqrt</li>
-<li>sum, cumsum,</li>
-<li>rand, randn</li>
-<li>sin, cos, tan</li>
-<li>round, floor, ceil</li>
-</ul>
-<dl class="method">
-<dt id="ndarray.simple_math.abs">
-<tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.abs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the absolute value of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. The absolute value of the array</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.apply_function">
-<tt class="descname">apply_function</tt><big>(</big><em>function</em>, <em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.apply_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply a function to every element of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>function</strong> (<em>String, Double-&gt;Double</em>) &#8211; Assumed to be one of &#8220;abs&#8221;, &#8220;sign&#8221;, &#8220;floor&#8221; or &#8220;cumsum&#8221; or a simple Double-&gt;Double function.</li>
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A new array with the function applied to every element. Optimized for string case.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Unoptimized for function type Double-&gt;Double. I tried to optimize with Grand Central Dispatch&#8217;s <tt class="docutils literal"><span class="pre">dispatch_apply</span></tt>, but no luck.</p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.ceil">
-<tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.ceil" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ceil&#8217;s each element.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">sin</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.cos">
-<tt class="descname">cos</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the cos of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">cos</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.cumsum">
-<tt class="descname">cumsum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cumsum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the cumulative sum of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. The cumulative sum of the array.</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">cumsum</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.exp">
-<tt class="descname">exp</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the exponent of each element; mathematically it finds
-<span class="math">\(\exp(x)\)</span></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The input array</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.exp2">
-<tt class="descname">exp2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds <span class="math">\(2^x\)</span> for some array x.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; 2 to the power of this array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. <span class="math">\(2^x\)</span></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.expm1">
-<tt class="descname">expm1</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.expm1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimate <span class="math">\(\exp(x)-1\)</span>. Useful for when <span class="math">\(exp(1) &lt;&lt; 1\)</span>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to calculate the exponent of.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.expm1.html">np.expm1</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.floor">
-<tt class="descname">floor</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.floor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Floors each element.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">floor</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.log">
-<tt class="descname">log</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the log base e of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">log</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.log10">
-<tt class="descname">log10</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log10" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the log base 10 of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">log</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.log2">
-<tt class="descname">log2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the log base 2 of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">log</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.max">
-<tt class="descname">max</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.max" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the maximum element.</p>
-<p>If only one array specified, it only finds the maximum element of that
-array. If two arrays specficied, it finds the maximum element wise.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; Another array.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double, ndarray. The maximum value of the array or the maximum element from both arrays.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.mean">
-<tt class="descname">mean</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.mean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the mean of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The average of all the components or <span class="math">\(\sum x_i / N\)</span></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.min">
-<tt class="descname">min</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.min" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the maximum element.</p>
-<p>If only one array specified, it only finds the maximum element of that
-array. If two arrays specficied, it finds the maximum element wise.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-</pre></div>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-<li><strong>y</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; Another array.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double, ndarray. The maximum value of the array or the maximum element from both arrays.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.pow">
-<tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.pow" title="Permalink to this definition">¶</a></dt>
-<dd><p>The power of a {Double, ndarray} to {Double, ndarray}</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>ndarray, Double, ndarray</em>) &#8211; An array.</li>
-<li><strong>power</strong> (<em>Double, ndarray, Double</em>) &#8211; The power</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Performs the same action as the operator <tt class="docutils literal"><span class="pre">^</span></tt>. Raises each element to a power.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Also callable through <tt class="docutils literal"><span class="pre">x^y</span></tt></p>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.remainer">
-<tt class="descname">remainer</tt><big>(</big><em>x1</em>, <em>x2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.remainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the element wise remainder after dividing the two arrays.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span> <span class="o">%</span> <span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
-</pre></div>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x1</strong> (<em>ndarray, Double, ndarray</em>) &#8211; The top divisor.</li>
-<li><strong>x2</strong> (<em>Double, ndarray, ndarray</em>) &#8211; The bottom divisor.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.round">
-<tt class="descname">round</tt><big>(</big><em>x</em>, <em>decimals=0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.round" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rounds each element.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</li>
-<li><strong>decimals</strong> (<em>Int</em>) &#8211; The number of decimals kept.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Performs the function <tt class="docutils literal"><span class="pre">round</span></tt> on each element.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.418</span><span class="p">),</span> <span class="n">decimals</span><span class="p">:</span><span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.42</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.sign">
-<tt class="descname">sign</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the sign an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The sign of the array centered at 0.</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">sign</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.sin">
-<tt class="descname">sin</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the sin of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">sin</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.sqrt">
-<tt class="descname">sqrt</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sqrt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes the sqrt of each element.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">sqrt</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.std">
-<tt class="descname">std</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.std" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the standard deviation of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The standard deviation of the array.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.sum">
-<tt class="descname">sum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the sum of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The sum of all the elements in x. Returns the result from the following operation: <span class="math">\(\sum x_i\)</span></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.tan">
-<tt class="descname">tan</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.tan" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the tan of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">tan</span></tt> on each element.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ndarray.simple_math.variance">
-<tt class="descname">variance</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.variance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the variance of an array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The variance of the array.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/Variance">Variance</a></p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="module-ndarray">
+<span id="docs"></span><h2>Docs<a class="headerlink" href="#module-ndarray" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ndarray-class">
 <h3>ndarray class<a class="headerlink" href="#ndarray-class" title="Permalink to this headline">¶</a></h3>
 <p>Yes, an actual class (or struct).</p>
@@ -1774,8 +1277,8 @@ sorted.</p>
 <h3>Simple math<a class="headerlink" href="#simple-math" title="Permalink to this headline">¶</a></h3>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
-<dt>
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">simple_math</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math">
+<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">simple_math</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math" title="Permalink to this definition">¶</a></dt>
 <dd><p>The following are detailed docs on various functions, but the following
 functions work like expected:</p>
 <ul class="simple">
@@ -1787,8 +1290,8 @@ functions work like expected:</p>
 <li>round, floor, ceil</li>
 </ul>
 <dl class="method">
-<dt>
-<tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.abs">
+<tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.abs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the absolute value of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1803,8 +1306,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">apply_function</tt><big>(</big><em>function</em>, <em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.apply_function">
+<tt class="descname">apply_function</tt><big>(</big><em>function</em>, <em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.apply_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a function to every element of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1828,8 +1331,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.ceil">
+<tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.ceil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ceil&#8217;s each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1847,8 +1350,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">cos</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.cos">
+<tt class="descname">cos</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the cos of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1863,8 +1366,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">cumsum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.cumsum">
+<tt class="descname">cumsum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cumsum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the cumulative sum of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1882,8 +1385,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">exp</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.exp">
+<tt class="descname">exp</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the exponent of each element; mathematically it finds
 <span class="math">\(\exp(x)\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1899,8 +1402,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">exp2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.exp2">
+<tt class="descname">exp2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds <span class="math">\(2^x\)</span> for some array x.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1915,8 +1418,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">expm1</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.expm1">
+<tt class="descname">expm1</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.expm1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate <span class="math">\(\exp(x)-1\)</span>. Useful for when <span class="math">\(exp(1) &lt;&lt; 1\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1935,8 +1438,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">floor</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.floor">
+<tt class="descname">floor</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Floors each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1954,8 +1457,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">log</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.log">
+<tt class="descname">log</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the log base e of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1970,8 +1473,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">log10</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.log10">
+<tt class="descname">log10</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log10" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the log base 10 of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1986,8 +1489,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">log2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.log2">
+<tt class="descname">log2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the log base 2 of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2002,8 +1505,8 @@ functions work like expected:</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">max</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.max">
+<tt class="descname">max</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the maximum element.</p>
 <p>If only one array specified, it only finds the maximum element of that
 array. If two arrays specficied, it finds the maximum element wise.</p>
@@ -2028,8 +1531,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">mean</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.mean">
+<tt class="descname">mean</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.mean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the mean of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2044,8 +1547,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">min</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.min">
+<tt class="descname">min</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.min" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the maximum element.</p>
 <p>If only one array specified, it only finds the maximum element of that
 array. If two arrays specficied, it finds the maximum element wise.</p>
@@ -2070,8 +1573,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.pow">
+<tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.pow" title="Permalink to this definition">¶</a></dt>
 <dd><p>The power of a {Double, ndarray} to {Double, ndarray}</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2098,8 +1601,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">remainer</tt><big>(</big><em>x1</em>, <em>x2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.remainer">
+<tt class="descname">remainer</tt><big>(</big><em>x1</em>, <em>x2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.remainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the element wise remainder after dividing the two arrays.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span> <span class="o">%</span> <span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
 </pre></div>
@@ -2122,8 +1625,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">round</tt><big>(</big><em>x</em>, <em>decimals=0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.round">
+<tt class="descname">round</tt><big>(</big><em>x</em>, <em>decimals=0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.round" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rounds each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2147,8 +1650,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">sign</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.sign">
+<tt class="descname">sign</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sign" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the sign an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2166,8 +1669,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">sin</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.sin">
+<tt class="descname">sin</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the sin of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2182,8 +1685,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">sqrt</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.sqrt">
+<tt class="descname">sqrt</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sqrt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes the sqrt of each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2198,8 +1701,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">std</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.std">
+<tt class="descname">std</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.std" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the standard deviation of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2214,8 +1717,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">sum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.sum">
+<tt class="descname">sum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the sum of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2233,8 +1736,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">tan</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.tan">
+<tt class="descname">tan</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.tan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the tan of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2249,8 +1752,8 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<tt class="descname">variance</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="ndarray.simple_math.variance">
+<tt class="descname">variance</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.variance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the variance of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2385,7 +1888,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Array</a><ul>
-<li><a class="reference internal" href="#docs">Docs</a><ul>
+<li><a class="reference internal" href="#module-ndarray">Docs</a><ul>
 <li><a class="reference internal" href="#ndarray-class">ndarray class</a></li>
 <li><a class="reference internal" href="#initing">Initing</a></li>
 <li><a class="reference internal" href="#helper-functions">Helper functions</a></li>
