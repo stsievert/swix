@@ -26,6 +26,9 @@ func cos(x: matrix) -> matrix{
 func tan(x: matrix) -> matrix{
     return apply_function(tan, x)
 }
+func tanh(x: matrix) -> matrix {
+    return apply_function(tanh, x)
+}
 
 // BASIC INFO
 func abs(x: matrix) -> matrix{
