@@ -32,7 +32,7 @@ class SVM {
         // svm_type: C_SVC, ONE_CLASS, NU_SVC, NU_SVR
         
         // careful: NU_SVR and SIGMOID throws an exception error
-        self.cvsvm.setParams(svm_type.nsstring, kernel:kernel_type.nsstring, nu:nu.cfloat)
+        self.cvsvm.setParams(svm_type.nsstring as! String, kernel:kernel_type.nsstring as! String, nu:nu.cfloat)
     }
     func train(responses: matrix, _ targets: ndarray){
         // convert matrix2d to NSArray

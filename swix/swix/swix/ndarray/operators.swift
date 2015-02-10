@@ -32,7 +32,7 @@ func make_operator(lhs:ndarray, operation:String, rhs:ndarray) -> ndarray{
     }
     else if operation=="<" || operation==">" || operation==">=" || operation=="<=" {
         result = zeros(lhs.n)
-        CVWrapper.compare(!lhs, with: !rhs, using: operation.nsstring, into: !result, ofLength: lhs.n.cint)
+        CVWrapper.compare(!lhs, with: !rhs, using: operation.nsstring as! String, into: !result, ofLength: lhs.n.cint)
         // since opencv uses images which use 8-bit values
         result /= 255
     }
@@ -64,7 +64,7 @@ func make_operator(lhs:ndarray, operation:String, rhs:Double) -> ndarray{
     else if operation=="-"
         {array = make_operator(lhs, "-", ones(lhs.n)*rhs)}
     else if operation=="<" || operation==">" || operation=="<=" || operation==">="{
-        CVWrapper.compare(!lhs, withDouble:rhs.cdouble, using:operation.nsstring, into:!array, ofLength:lhs.n.cint)
+        CVWrapper.compare(!lhs, withDouble:rhs.cdouble, using:operation.nsstring as! String, into:!array, ofLength:lhs.n.cint)
         array /= 255
     }
     else {assert(false, "operation not recongnized! Error with the speedup?")}
