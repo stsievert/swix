@@ -52,6 +52,9 @@ func fft(x: ndarray) -> (ndarray, ndarray){
     // perform the actual computation
     vDSP_fft_zropD(setup, &x2, stride, &y, stride, log2n.length, dir)
     
+    // free memory
+    vDSP_destroy_fftsetupD(setup)
+    
     // this divide seems wrong
     yr /= 2.0
     yi /= 2.0
