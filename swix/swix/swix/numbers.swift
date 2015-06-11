@@ -40,7 +40,7 @@ func close(x: Double, y: Double)->Bool{
     return abs(x-y) < S2_THRESHOLD
 }
 func ~= (x:Double, y:Double)->Bool{
-    return close(x, y)
+    return close(x, y: y)
 }
 func rad2deg(x:Double)->Double{
     return x * 180.0 / pi
@@ -55,13 +55,13 @@ func min(x:Double, y:Double)->Double{
     return x < y ? x : y
 }
 func factorial(n:Double)->Double{
-    var y = arange(n)+1
+    let y = arange(n)+1
     return prod(y)
 }
 func binom(n:Double, k:Double)->Double{
     // similar to scipy.special.binom
-    var i = arange(k)+1
-    var result = (n+1-i) / i
+    let i = arange(k)+1
+    let result = (n+1-i) / i
     return prod(result)
 }
 

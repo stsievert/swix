@@ -14,7 +14,7 @@ func zeros(shape: (Int, Int)) -> matrix{
     return matrix(columns: shape.1, rows: shape.0)
 }
 func zeros_like(x: matrix) -> matrix{
-    var y:matrix = zeros((x.shape.0, x.shape.1))
+    let y:matrix = zeros((x.shape.0, x.shape.1))
     return y
 }
 func ones_like(x: matrix) -> matrix{
@@ -33,13 +33,13 @@ func diag(x:ndarray)->matrix{
 }
 func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
     var x = zeros(N)
-    var y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
+    let y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
     x.flat = y
     return x
 }
 func rand(N: (Int, Int)) -> matrix{
     var x = zeros(N)
-    var y = rand(N.0 * N.1)
+    let y = rand(N.0 * N.1)
     x.flat = y
     return x
 }
@@ -48,19 +48,19 @@ func reshape(x: ndarray, shape:(Int, Int))->matrix{
 }
 func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     assert(x.n > 0 && y.n > 0, "If these matrices are empty meshgrid fails")
-    var z1 = reshape(repeat(y, x.n), (x.n, y.n))
-    var z2 = reshape(repeat(x, y.n, axis:1), (x.n, y.n))
+    let z1 = reshape(`repeat`(y, N: x.n), shape: (x.n, y.n))
+    let z2 = reshape(`repeat`(x, N: y.n, axis: 1), shape: (x.n, y.n))
     return (z2, z1)
 }
 
 
 /// array("1 2 3; 4 5 6; 7 8 9") works like matlab. note that string format has to be followed to the dot. String parsing has bugs; I'd use arange(9).reshape((3,3)) or something similar
 func array(matlab_like_string: String)->matrix{
-    var mls = matlab_like_string
+    let mls = matlab_like_string
     var rows = mls.componentsSeparatedByString(";")
-    var r = rows.count
+    let r = rows.count
     var c = 0
-    for char in rows[0]{
+    for char in rows[0].characters{
         if char == " " {}
         else {c += 1}
     }

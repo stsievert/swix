@@ -21,12 +21,12 @@ func norm(x:matrix, ord:Double=2)->Double{
     else if ord == -1   {return min(sum(abs(x), axis:0))}
     else if ord ==  2 {
         // compute only the largest singular value?
-        var (u, s, v) = svd(x, compute_uv:false)
+        let (_, s, _) = svd(x, compute_uv:false)
         return s[0]
     }
     else if ord == -2 {
         // compute only the smallest singular value?
-        var (u, s, v) = svd(x, compute_uv:false)
+        let (_, s, _) = svd(x, compute_uv:false)
         return s[-1]
     }
     
@@ -45,18 +45,18 @@ func argwhere(idx: matrix) -> ndarray{
     return argwhere(idx.flat)
 }
 func flipud(x:matrix)->matrix{
-    var y = x.copy()
+    let y = x.copy()
     CVWrapper.flip(!x, into:!y, how:"ud", m:x.shape.0.cint, n:x.shape.1.cint)
     return y
 }
 func fliplr(x:matrix)->matrix{
-    var y = x.copy()
+    let y = x.copy()
     CVWrapper.flip(!x, into:!y, how:"lr", m:x.shape.0.cint, n:x.shape.1.cint)
     return y
 }
 func rot90(x:matrix, k:Int=1)->matrix{
     // k is assumed to be less than or equal to 3
-    var y = x.copy()
+    let y = x.copy()
     if k == 1 {return fliplr(x).T}
     if k == 2 {return flipud(fliplr(y))}
     if k == 3 {return flipud(x).T}
@@ -66,9 +66,9 @@ func rot90(x:matrix, k:Int=1)->matrix{
 
 // modifying matrices, modifying equations
 func transpose (x: matrix) -> matrix{
-    var m = x.shape.1
-    var n = x.shape.0
-    var y = zeros((m, n))
+    let m = x.shape.1
+    let n = x.shape.0
+    let y = zeros((m, n))
     vDSP_mtransD(!x, 1.stride, !y, 1.stride, m.length, n.length)
     return y
 }
@@ -78,16 +78,16 @@ func kron(A:matrix, B:matrix)->matrix{
         var row = (m+0)*(p+0) + p-0
         row = m_max*m + 1*p
         
-        var i = arange(B.shape.1 * A.shape.1)
-        var n1 = arange(A.shape.1)
-        var q1 = arange(B.shape.1)
-        var (n, q) = meshgrid(n1, q1)
+        let i = arange(B.shape.1 * A.shape.1)
+        let n1 = arange(A.shape.1)
+        let q1 = arange(B.shape.1)
+        let (n, q) = meshgrid(n1, y: q1)
         C[row, i] = A[m, n.flat] * B[p, q.flat]
     }
     var C = zeros((A.shape.0*B.shape.0, A.shape.1*B.shape.1))
     for p in 0..<A.shape.1{
         for m in 0..<B.shape.1{
-            assign_kron_row(A, B, &C, p, m, A.shape.1)
+            assign_kron_row(A, B: B, C: &C, p: p, m: m, m_max: A.shape.1)
         }
     }
     
@@ -95,19 +95,19 @@ func kron(A:matrix, B:matrix)->matrix{
 }
 
 func tril(x: matrix) -> ndarray{
-    var (m, n) = x.shape
-    var (mm, nn) = meshgrid(arange(m), arange(n))
+    let (m, n) = x.shape
+    let (mm, nn) = meshgrid(arange(m), y: arange(n))
     var i = mm - nn
-    var j = (i < 0+S2_THRESHOLD)
+    let j = (i < 0+S2_THRESHOLD)
     i[argwhere(j)] <- 0
     i[argwhere(1-j)] <- 1
     return argwhere(i)
 }
 func triu(x: matrix)->ndarray{
-    var (m, n) = x.shape
-    var (mm, nn) = meshgrid(arange(m), arange(n))
+    let (m, n) = x.shape
+    let (mm, nn) = meshgrid(arange(m), y: arange(n))
     var i = mm - nn
-    var j = (i > 0-S2_THRESHOLD)
+    let j = (i > 0-S2_THRESHOLD)
     i[argwhere(j)] <- 0
     i[argwhere(1-j)] <- 1
     return argwhere(i)
@@ -115,8 +115,7 @@ func triu(x: matrix)->ndarray{
 
 // PRINTING
 func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
-    print(prefix)
-    var suffix = ", "
+    print(prefix, appendNewline: false)
     var pre:String
     var post:String
     var printedSpacer = false
@@ -132,11 +131,11 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
         }
         else if printedSpacer==false{
             printedSpacer=true
-            println("        ...,")
+            Swift.print("        ...,")
         }
     }
-    print(postfix)
-    print(newline)
+    print(postfix, appendNewline: false)
+    print(newline, appendNewline: false)
 }
 func print(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)

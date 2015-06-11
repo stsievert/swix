@@ -29,8 +29,8 @@ func apply_function(function: Double->Double, x: ndarray) -> ndarray{
 }
 func apply_function(function: String, x: ndarray)->ndarray{
     // apply select optimized functions
-    var y = zeros_like(x)
-    var n = x.n.length
+    let y = zeros_like(x)
+    let n = x.n.length
     var count = Int32(x.n)
     if function=="abs"{
         vDSP_vabsD(!x, 1, !y, 1, n);}
@@ -99,14 +99,14 @@ func max(x: ndarray) -> Double{
 func max(x: ndarray, y:ndarray)->ndarray{
     // finds the max of two arrays element wise
     assert(x.n == y.n)
-    var z = zeros_like(x)
+    let z = zeros_like(x)
     vDSP_vmaxD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
 func min(x: ndarray, y:ndarray)->ndarray{
     // finds the min of two arrays element wise
     assert(x.n == y.n)
-    var z = zeros_like(x)
+    let z = zeros_like(x)
     vDSP_vminD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
@@ -121,12 +121,12 @@ func std(x: ndarray) -> Double{
     return sqrt(variance(x))}
 func variance(x: ndarray) -> Double{
     // the varianace
-    return sum(pow(x - mean(x), 2) / x.count.double)}
+    return sum(pow(x - mean(x), power: 2) / x.count.double)}
 
 // BASIC INFO
 func sign(x: ndarray)->ndarray{
     // finds the sign
-    return apply_function("sign", x)}
+    return apply_function("sign", x: x)}
 func sum(x: ndarray) -> Double{
     // finds the sum of an array
     var ret:CDouble = 0
@@ -139,10 +139,10 @@ func remainder(x1:ndarray, x2:ndarray)->ndarray{
 }
 func cumsum(x: ndarray) -> ndarray{
     // the sum of each element before.
-    return apply_function("cumsum", x)}
+    return apply_function("cumsum", x: x)}
 func abs(x: ndarray) -> ndarray{
     // absolute value
-    return apply_function("abs", x)}
+    return apply_function("abs", x: x)}
 func prod(x:ndarray)->Double{
     var y = x.copy()
     var factor = 1.0
@@ -155,9 +155,9 @@ func prod(x:ndarray)->Double{
 func cumprod(x:ndarray)->ndarray{
     var y = x.copy()
     if min(y) < 0.0{
-        var i = y < 0
+        let i = y < 0
         y[argwhere(i)] *= -1.0
-        var j = 1 - (cumsum(i) % 2.0) < S2_THRESHOLD
+        let j = 1 - (cumsum(i) % 2.0) < S2_THRESHOLD
         var z = exp(cumsum(log(y)))
         z[argwhere(j)] *= -1.0
         return z
@@ -169,77 +169,76 @@ func cumprod(x:ndarray)->ndarray{
 // POWER FUNCTIONS
 func pow(x:ndarray, power:Double)->ndarray{
     // take the power. also callable with ^
-    var y = zeros_like(x)
+    let y = zeros_like(x)
     CVWrapper.pow(!x, n:x.n.cint, power:power, into:!y)
     return y
 }
 func pow(x:ndarray, y:ndarray)->ndarray{
     // take the power. also callable with ^
-    var z = zeros_like(x)
+    let z = zeros_like(x)
     var num = CInt(x.n)
     vvpow(!z, !y, !x, &num)
     return z
 }
 func pow(x:Double, y:ndarray)->ndarray{
     // take the power. also callable with ^
-    var z = zeros_like(y)
-    var xx = ones(y.n) * x
-    return pow(xx, y)
+    let xx = ones(y.n) * x
+    return pow(xx, y: y)
 }
 func sqrt(x: ndarray) -> ndarray{
     return x^0.5
 }
 func exp(x:ndarray)->ndarray{
-    return apply_function("exp", x)
+    return apply_function("exp", x: x)
 }
 func exp2(x:ndarray)->ndarray{
-    return apply_function("exp2", x)
+    return apply_function("exp2", x: x)
 }
 func expm1(x:ndarray)->ndarray{
-    return apply_function("expm1", x)
+    return apply_function("expm1", x: x)
 }
 
 // ROUND
 func round(x:ndarray)->ndarray{
-    return apply_function("round", x)
+    return apply_function("round", x: x)
 }
-func round(x:ndarray, #decimals:Double)->ndarray{
-    var factor = pow(10, decimals)
+func round(x:ndarray, decimals:Double)->ndarray{
+    let factor = pow(10, decimals)
     return round(x*factor) / factor
 }
 func floor(x: ndarray) -> ndarray{
-    return apply_function("floor", x)
+    return apply_function("floor", x: x)
 }
 func ceil(x: ndarray) -> ndarray{
-    return apply_function("ceil", x)
+    return apply_function("ceil", x: x)
 }
 
 // LOG
 func log10(x:ndarray)->ndarray{
     // log_10
-    return apply_function("log10", x)
+    return apply_function("log10", x: x)
 }
 func log2(x:ndarray)->ndarray{
     // log_2
-    return apply_function("log2", x)
+    return apply_function("log2", x: x)
 }
 func log(x:ndarray)->ndarray{
     // log_e
-    return apply_function("log", x)
+    return apply_function("log", x: x)
 }
 
 // TRIG
 func sin(x: ndarray) -> ndarray{
-    return apply_function("sin", x)
+    return apply_function("sin", x: x)
 }
 func cos(x: ndarray) -> ndarray{
-    return apply_function("cos", x)
+    return apply_function("cos", x: x)
 }
 func tan(x: ndarray) -> ndarray{
-    return apply_function("tan", x)
+    return apply_function("tan", x: x)
 }
 func tanh(x: ndarray) -> ndarray {
-    return apply_function("tanh", x)
+    return apply_function("tanh", x: x)
 }
 
 

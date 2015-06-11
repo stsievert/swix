@@ -9,37 +9,36 @@
 import Foundation
 
 // ndarray binary
-func write_binary(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
-    var N = x.n
-    var data = NSData(bytes:!x, length:N*sizeof(Double))
+func write_binary(x:ndarray, filename:String, prefix:String=S2_PREFIX){
+    let N = x.n
+    let data = NSData(bytes:!x, length:N*sizeof(Double))
     data.writeToFile(prefix+"../"+filename, atomically: false)
 }
 func read_binary(filename:String, prefix:String=S2_PREFIX) -> ndarray{
-    var read = NSData(contentsOfFile: prefix+"../"+filename)
-    var l:Int! = read?.length
-    var sD:Int = sizeof(Double)
-    var count = (l.double / sD.double)
+    let read = NSData(contentsOfFile: prefix+"../"+filename)
+    let l:Int! = read?.length
+    let sD:Int = sizeof(Double)
+    let count = (l.double / sD.double)
     
-    var y = zeros(count.int)
+    let y = zeros(count.int)
     read?.getBytes(!y, length: count.int*sizeof(Double))
     return y
 }
 
 // matrix binary
-func write_binary(x:matrix, #filename:String, prefix:String=S2_PREFIX){
-    var y = concat(array(x.shape.0.double, x.shape.1.double), x.flat)
+func write_binary(x:matrix, filename:String, prefix:String=S2_PREFIX){
+    let y = concat(array(x.shape.0.double, x.shape.1.double), y: x.flat)
     write_binary(y, filename:filename, prefix:prefix)
 }
 func read_binary(filename:String, prefix:String=S2_PREFIX)->matrix{
     var a:ndarray = read_binary(filename, prefix:prefix)
-    var (w, h) = (a[0], a[1])
-    var b = reshape(a[2..<a.n], (w.int,h.int))
-    return b
+    let (w, h) = (a[0], a[1])
+    return reshape(a[2..<a.n], shape: (w.int,h.int))
 }
 
 
 // ndarray csv
-func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
+func write_csv(x:ndarray, filename:String, prefix:String=S2_PREFIX){
     // write the array to CSV
     var seperator=","
     var str = ""
@@ -48,21 +47,26 @@ func write_csv(x:ndarray, #filename:String, prefix:String=S2_PREFIX){
         str += String(format: "\(x[i])"+seperator)
     }
     str += "\n"
-    var error:NSError?
-    str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
-    if let error=error{
-        println("File probably wasn't recognized \n\(error)")
+    do {
+        try str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding)
+    } catch {
+        Swift.print("File probably wasn't recognized")
     }
     
 }
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
-    var x = String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
+    var x: String?
+    do {
+        x = try String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding)
+    } catch _ {
+        x = nil
+    }
     var array:[Double] = []
     var columns:Int = 0
     var z = x!.componentsSeparatedByString(",")
     columns = 0
     for i in 0..<z.count{
-        var num = z[i]
+        let num = z[i]
         array.append(num.doubleValue)
         columns += 1
     }
@@ -73,13 +77,18 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
 
 // matrix csv
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
-    var x = String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding, error: nil)
+    var x: String?
+    do {
+        x = try String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding)
+    } catch _ {
+        x = nil
+    }
     var y = x!.componentsSeparatedByString("\n")
-    var rows = y.count-1
+    let rows = y.count-1
     var array:[Double] = []
     var columns:Int = 0
     for i in 0..<rows{
-        var z = y[i].componentsSeparatedByString(",")
+        let z = y[i].componentsSeparatedByString(",")
         columns = 0
         for num in z{
             array.append(num.doubleValue)
@@ -90,7 +99,7 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     done.flat.grid = array
     return done
 }
-func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
+func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
     var seperator=","
     var str = ""
     for i in 0..<x.shape.0{
@@ -100,10 +109,10 @@ func write_csv(x:matrix, #filename:String, prefix:String=S2_PREFIX){
         }
         str += "\n"
     }
-    var error:NSError?
-    str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding, error: &error)
-    if let error=error{
-        println("File probably wasn't recognized \n\(error)")
+    do {
+        try str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding)
+    } catch {
+        Swift.print("File probably wasn't recognized")
     }
 }
 
