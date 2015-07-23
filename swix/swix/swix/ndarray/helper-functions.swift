@@ -46,7 +46,7 @@ func delete(x:ndarray, idx:ndarray) -> ndarray{
     let y = x[argwhere(i)]
     return y
 }
-func `repeat`(x: ndarray, N:Int, axis:Int=0) -> ndarray{
+func swix_repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
     // repeat the array element wise or as a whole array
     var y = zeros((N, x.n))
     
