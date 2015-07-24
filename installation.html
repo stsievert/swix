@@ -55,14 +55,41 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Two options:</p>
+<div class="section" id="easy-installation">
+<h2>Easy installation<a class="headerlink" href="#easy-installation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Download <a class="reference external" href="https://github.com/scottsievert/swix">the repo</a> or <a class="reference external" href="https://github.com/scottsievert/swix/archive/master.zip">this file</a></li>
-<li>Include the folder <code class="docutils literal"><span class="pre">swix-master/swix/swix/swix</span></code> in your project.</li>
-<li>Modify your XCode bridging header to include the C functions. This can mean
+<li>Boom! You&#8217;re done. You&#8217;ll have your project structure in <code class="docutils literal"><span class="pre">swix-master/swix/</span></code>,
+complete with a <code class="docutils literal"><span class="pre">.xcodeproj</span></code> and all that. The two files you care about are
+<code class="docutils literal"><span class="pre">swix.xcodeproj</span></code> and <code class="docutils literal"><span class="pre">swix/</span></code> &#8211; don&#8217;t worry about <code class="docutils literal"><span class="pre">speed</span></code>.</li>
+<li>Open up <code class="docutils literal"><span class="pre">swix.xcodeproj</span></code> and run the tests.</li>
+</ol>
+</div>
+<div class="section" id="manual-installation">
+<h2>Manual installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Download <a class="reference external" href="https://github.com/scottsievert/swix">the repo</a> or <a class="reference external" href="https://github.com/scottsievert/swix/archive/master.zip">this file</a></p>
+</li>
+<li><p class="first">Include the folder <code class="docutils literal"><span class="pre">swix-master/swix/swix/swix</span></code> in your project.</p>
+</li>
+<li><p class="first">Modify your XCode bridging header to include the C functions. This can mean
 either copying swix&#8217;s bridging header to your bridging header or <a class="reference external" href="http://stackoverflow.com/a/24102433/1141256">modify
 your Xcode project</a> to find swix&#8217;s header in
-<code class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></code>.</li>
+<code class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></code>.</p>
+</li>
+<li><p class="first">Run the swix tests! Your file structure should look something like:</p>
+<div class="highlight-python"><div class="highlight"><pre>project.xcodeproj
+project/
+    main.swift
+    swix/
+</pre></div>
+</div>
+</li>
 </ol>
+<p>If you&#8217;re planning on doing file IO, change your <code class="docutils literal"><span class="pre">S2_PREFIX</span></code> in
+<code class="docutils literal"><span class="pre">numbers.swift</span></code>. It should point to the main swix folder.</p>
+</div>
 <div class="section" id="optional">
 <h2>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h2>
 <p>These steps are optional but can have nice results.</p>
@@ -133,6 +160,8 @@ should have hit the checkbox next to <code class="docutils literal"><span class=
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#easy-installation">Easy installation</a></li>
+<li><a class="reference internal" href="#manual-installation">Manual installation</a></li>
 <li><a class="reference internal" href="#optional">Optional</a></li>
 <li><a class="reference internal" href="#notes">Notes</a></li>
 <li><a class="reference internal" href="#possible-bugs">Possible bugs</a></li>

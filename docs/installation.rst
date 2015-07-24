@@ -1,13 +1,32 @@
-
-
 Installation
 =============
+Two options:
+
+Easy installation
+-------------------
+1. Download `the repo`_ or `this file`_
+2. Boom! You're done. You'll have your project structure in ``swix-master/swix/``,
+   complete with a ``.xcodeproj`` and all that. The two files you care about are
+   ``swix.xcodeproj`` and ``swix/`` -- don't worry about ``speed``.
+3. Open up ``swix.xcodeproj`` and run the tests.
+
+Manual installation
+----------------------
 1. Download `the repo`_ or `this file`_
 2. Include the folder ``swix-master/swix/swix/swix`` in your project.
 3. Modify your XCode bridging header to include the C functions. This can mean
    either copying swix's bridging header to your bridging header or `modify
    your Xcode project`_ to find swix's header in
    ``swix/objc/swix-Bridging-Header.h``.
+4. Run the swix tests! Your file structure should look something like::
+
+    project.xcodeproj
+    project/
+        main.swift
+        swix/
+
+If you're planning on doing file IO, change your ``S2_PREFIX`` in
+``numbers.swift``. It should point to the main swix folder.
 
 Optional
 -----------
@@ -31,14 +50,14 @@ Notes
 
 Possible bugs
 ---------------
-* ``"Unresolved identifier *_objc"`` 
-    * The bridging header probably hasn't been added correctly. Ensure 
+* ``"Unresolved identifier *_objc"``
+    * The bridging header probably hasn't been added correctly. Ensure
       ``swix/objc/swix-Bridging-Header.h`` has the correct path.
-* ``Unresolved identifier vDSP_*`` or similar, 
+* ``Unresolved identifier vDSP_*`` or similar,
     * The Accelerate framework hasn't been added to Build Phases/Link Binary with Libraries.
     * The Accelerate framework can't be found when running an iOS xcodeproj in
       the iOS simulator. For me it works on a physical device.
-* ``".../swix/objc/OpenCV.h:12: 'opencv2/opencv.hpp' file not found".`` 
+* ``".../swix/objc/OpenCV.h:12: 'opencv2/opencv.hpp' file not found".``
     * Under Build Phases/Link Binary with library add
       ``swix/objc/opencv2.framework``. If you don't see the "Link Binary with
       Libraries" hit the plus button in the upper left (at least for XCode 6).
@@ -48,5 +67,5 @@ Possible bugs
 .. _this file: https://github.com/scottsievert/swix/archive/master.zip
 .. _the repo: https://github.com/scottsievert/swix
 .. _modify your Xcode project: http://stackoverflow.com/a/24102433/1141256
-.. _your compiler optimization flag: http://stackoverflow.com/a/24102759/1141256 
+.. _your compiler optimization flag: http://stackoverflow.com/a/24102759/1141256
 .. _incredible speed gains: http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test
