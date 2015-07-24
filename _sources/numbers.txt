@@ -26,7 +26,7 @@ that numbers have handy conversions and we can access complex numbers through
 
 Docs
 ++++++++++++++
-.. automodule:: numbers
+.. automodule:: numbers_swix
     :members:
 
 

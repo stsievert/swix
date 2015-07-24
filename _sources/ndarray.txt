@@ -1,7 +1,5 @@
-
 Array
 =============
-
 ``ndarray`` stands for ":math:`N` dimensional array". It's a mix of programming
 language and math language; in math, this is called an :math:`N` dimensional vector.
 

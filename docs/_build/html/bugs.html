@@ -8,7 +8,7 @@
     
     <title>Bugs &mdash; swix 0.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Examples" href="examples.html" />
     <link rel="prev" title="Interfacing with C" href="c.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,54 +44,54 @@
         <li class="right" >
           <a href="c.html" title="Interfacing with C"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="bugs">
 <h1>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h1>
 <ul>
 <li><p class="first">operator associativity and precedence doesn&#8217;t always work (for example,
-<tt class="docutils literal"><span class="pre">x</span> <span class="pre">*!</span> <span class="pre">inv(x)</span> <span class="pre">~==</span> <span class="pre">eye(N)</span></tt>); it this issue pops up, fix it with some parens: <tt class="docutils literal"><span class="pre">(x</span> <span class="pre">*!</span> <span class="pre">y)</span> <span class="pre">~==</span> <span class="pre">eye(N)</span></tt>.</p>
+<code class="docutils literal"><span class="pre">x</span> <span class="pre">*!</span> <span class="pre">inv(x)</span> <span class="pre">~==</span> <span class="pre">eye(N)</span></code>); it this issue pops up, fix it with some parens: <code class="docutils literal"><span class="pre">(x</span> <span class="pre">*!</span> <span class="pre">y)</span> <span class="pre">~==</span> <span class="pre">eye(N)</span></code>.</p>
 </li>
 <li><dl class="first docutils">
 <dt>This library depends on OpenCV&#8217;s memory being continuous. It does check</dt>
-<dd><p class="first last">and will give nonsense output. Indexing (<tt class="docutils literal"><span class="pre">x[0..&lt;2,</span> <span class="pre">0..&lt;2]</span></tt>), machine
-learning functions (SVM, kNN), <tt class="docutils literal"><span class="pre">solve</span></tt> and comparison (<tt class="docutils literal"><span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&gt;=</span> <span class="pre">&lt;=</span></tt>) all depend on
+<dd><p class="first last">and will give nonsense output. Indexing (<code class="docutils literal"><span class="pre">x[0..&lt;2,</span> <span class="pre">0..&lt;2]</span></code>), machine
+learning functions (SVM, kNN), <code class="docutils literal"><span class="pre">solve</span></code> and comparison (<code class="docutils literal"><span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&gt;=</span> <span class="pre">&lt;=</span></code>) all depend on
 this.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">The <tt class="docutils literal"><span class="pre">~==</span></tt> operator only verifies if entire arrays are equal; use
-<tt class="docutils literal"><span class="pre">argwhere(abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9)</span></tt> to see where the individual entries are equal.</p>
+<li><p class="first">The <code class="docutils literal"><span class="pre">~==</span></code> operator only verifies if entire arrays are equal; use
+<code class="docutils literal"><span class="pre">argwhere(abs(x-y)</span> <span class="pre">&lt;</span> <span class="pre">1e-9)</span></code> to see where the individual entries are equal.</p>
 </li>
 <li><p class="first">Be careful with operators and precedence! Use parens to avoid issues with
-this. I had <tt class="docutils literal"><span class="pre">sin(x)^2</span> <span class="pre">+</span> <span class="pre">cos(x)^2</span></tt> and this did not equal 1 like I expected;
+this. I had <code class="docutils literal"><span class="pre">sin(x)^2</span> <span class="pre">+</span> <span class="pre">cos(x)^2</span></code> and this did not equal 1 like I expected;
 parens fixed this issue.</p>
 </li>
 </ul>
 <div class="section" id="compiler-bugs">
 <h2>Compiler bugs<a class="headerlink" href="#compiler-bugs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>If you get bugs like <tt class="docutils literal"><span class="pre">ndarray</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">cast</span> <span class="pre">as</span> <span class="pre">matrix</span></tt> or something that doesn&#8217;t make much sense, you&#8217;re probably calling a function with the wrong arguments. Even worse, this may be a confusion between Int/Float/Double/vDSP_Length/etc. Using <tt class="docutils literal"><span class="pre">1.int,</span> <span class="pre">1.float,</span> <span class="pre">1.double</span></tt> or <tt class="docutils literal"><span class="pre">1.stride</span></tt> may solve your problem.</li>
+<li>If you get bugs like <code class="docutils literal"><span class="pre">ndarray</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">cast</span> <span class="pre">as</span> <span class="pre">matrix</span></code> or something that doesn&#8217;t make much sense, you&#8217;re probably calling a function with the wrong arguments. Even worse, this may be a confusion between Int/Float/Double/vDSP_Length/etc. Using <code class="docutils literal"><span class="pre">1.int,</span> <span class="pre">1.float,</span> <span class="pre">1.double</span></code> or <code class="docutils literal"><span class="pre">1.stride</span></code> may solve your problem.</li>
 </ul>
 </div>
 <div class="section" id="matlab-and-swix-differences">
 <h2>Matlab and swix differences<a class="headerlink" href="#matlab-and-swix-differences" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3)]</span> <span class="pre">=</span> <span class="pre">1</span></tt> and <tt class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2),</span> <span class="pre">array(1,</span> <span class="pre">2)]</span> <span class="pre">=</span> <span class="pre">1</span></tt> does not work; use <tt class="docutils literal"><span class="pre">ones(3)</span></tt> and <tt class="docutils literal"><span class="pre">ones((2,2))</span></tt> instead. If you can, come up with a clever hack like <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">*=</span> <span class="pre">0</span></tt>.</li>
-<li>Swix follow&#8217;s NumPy&#8217;s footprints, meaning if <tt class="docutils literal"><span class="pre">(u,</span> <span class="pre">s,</span> <span class="pre">v)</span> <span class="pre">=</span> <span class="pre">svd(x)</span></tt> then <tt class="docutils literal"><span class="pre">transpose(v_matlab)</span> <span class="pre">==</span> <span class="pre">v_swix</span> <span class="pre">==</span> <span class="pre">v_numpy</span></tt>. Additionally, <tt class="docutils literal"><span class="pre">s</span></tt> is a one dimensional matrix (again like NumPy), not a 2D matrix with only the diagonal non-zero.</li>
-<li>When printing, swix does not check bounds (as of 2014-7-17). e.g., <tt class="docutils literal"><span class="pre">var</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">zeros(2);</span> <span class="pre">println(x[0..&lt;4])</span></tt> will print <tt class="docutils literal"><span class="pre">matrix([0,</span> <span class="pre">0,</span> <span class="pre">&lt;junk&gt;,</span> <span class="pre">&lt;junk&gt;])</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">argwhere</span></tt> is the equivalent of Matlab&#8217;s <tt class="docutils literal"><span class="pre">find</span></tt>. It finds the locations where the input array is 1 (and Matlab finds locations of the <em>non-zero</em> entries).</li>
-<li>Element-wise multiplication is <tt class="docutils literal"><span class="pre">*</span></tt> and dot product is <tt class="docutils literal"><span class="pre">*!</span></tt>. Matlab uses <tt class="docutils literal"><span class="pre">.*</span></tt> and <tt class="docutils literal"><span class="pre">*</span></tt> respectively.</li>
+<li><code class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3)]</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2),</span> <span class="pre">array(1,</span> <span class="pre">2)]</span> <span class="pre">=</span> <span class="pre">1</span></code> does not work; use <code class="docutils literal"><span class="pre">ones(3)</span></code> and <code class="docutils literal"><span class="pre">ones((2,2))</span></code> instead. If you can, come up with a clever hack like <code class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">*=</span> <span class="pre">0</span></code>.</li>
+<li>Swix follow&#8217;s NumPy&#8217;s footprints, meaning if <code class="docutils literal"><span class="pre">(u,</span> <span class="pre">s,</span> <span class="pre">v)</span> <span class="pre">=</span> <span class="pre">svd(x)</span></code> then <code class="docutils literal"><span class="pre">transpose(v_matlab)</span> <span class="pre">==</span> <span class="pre">v_swix</span> <span class="pre">==</span> <span class="pre">v_numpy</span></code>. Additionally, <code class="docutils literal"><span class="pre">s</span></code> is a one dimensional matrix (again like NumPy), not a 2D matrix with only the diagonal non-zero.</li>
+<li>When printing, swix does not check bounds (as of 2014-7-17). e.g., <code class="docutils literal"><span class="pre">var</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">zeros(2);</span> <span class="pre">println(x[0..&lt;4])</span></code> will print <code class="docutils literal"><span class="pre">matrix([0,</span> <span class="pre">0,</span> <span class="pre">&lt;junk&gt;,</span> <span class="pre">&lt;junk&gt;])</span></code></li>
+<li><code class="docutils literal"><span class="pre">argwhere</span></code> is the equivalent of Matlab&#8217;s <code class="docutils literal"><span class="pre">find</span></code>. It finds the locations where the input array is 1 (and Matlab finds locations of the <em>non-zero</em> entries).</li>
+<li>Element-wise multiplication is <code class="docutils literal"><span class="pre">*</span></code> and dot product is <code class="docutils literal"><span class="pre">*!</span></code>. Matlab uses <code class="docutils literal"><span class="pre">.*</span></code> and <code class="docutils literal"><span class="pre">*</span></code> respectively.</li>
 <li>The reshape functions works differently in matlab and python. In matlab, it
 reshapes by column order and in python row-order, meaning you have to use
-<tt class="docutils literal"><span class="pre">x.T.reshape((3,3))</span></tt> to get equivalent results.</li>
+<code class="docutils literal"><span class="pre">x.T.reshape((3,3))</span></code> to get equivalent results.</li>
 </ul>
 </div>
 <div class="section" id="beta-bugs">
@@ -110,7 +110,7 @@ gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/icon.png" alt="Logo"/>
@@ -141,7 +141,7 @@ gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -158,7 +158,7 @@ gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -173,12 +173,12 @@ gives errors like &#8220;unresolved identifier vDSP_vmulD not found&#8221;</p>
         <li class="right" >
           <a href="c.html" title="Interfacing with C"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -8,7 +8,7 @@
     
     <title>Installation &mdash; swix 0.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Overview" href="overview.html" />
     <link rel="prev" title="Swift Matrix and Machine Learning Library" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,42 +44,42 @@
         <li class="right" >
           <a href="index.html" title="Swift Matrix and Machine Learning Library"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li>Download <a class="reference external" href="https://github.com/scottsievert/swix">the repo</a> or <a class="reference external" href="https://github.com/scottsievert/swix/archive/master.zip">this file</a></li>
-<li>Include the folder <tt class="docutils literal"><span class="pre">swix-master/swix/swix/swix</span></tt> in your project.</li>
+<li>Include the folder <code class="docutils literal"><span class="pre">swix-master/swix/swix/swix</span></code> in your project.</li>
 <li>Modify your XCode bridging header to include the C functions. This can mean
 either copying swix&#8217;s bridging header to your bridging header or <a class="reference external" href="http://stackoverflow.com/a/24102433/1141256">modify
 your Xcode project</a> to find swix&#8217;s header in
-<tt class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></tt>.</li>
+<code class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></code>.</li>
 </ol>
 <div class="section" id="optional">
 <h2>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h2>
 <p>These steps are optional but can have nice results.</p>
 <ol class="arabic simple">
 <li>Change <a class="reference external" href="http://stackoverflow.com/a/24102759/1141256">your compiler optimization flag</a> which can lead to
-<a class="reference external" href="http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test">incredible speed gains</a>. Be careful &#8211; this skips <tt class="docutils literal"><span class="pre">assert</span></tt>. I would
-recommend testing with <tt class="docutils literal"><span class="pre">-Onone</span></tt> before switching.</li>
-<li>If you plan on using <tt class="docutils literal"><span class="pre">read_csv,</span> <span class="pre">write_csv,</span> <span class="pre">savefig,</span> <span class="pre">imshow</span></tt> you need to
-change the <tt class="docutils literal"><span class="pre">S2_PREFIX</span></tt> in <tt class="docutils literal"><span class="pre">numbers.swift</span></tt>. This should point to the swix
-folder; something like <tt class="docutils literal"><span class="pre">the/path/to/yourXcodeProjectName/swix/</span></tt></li>
+<a class="reference external" href="http://stackoverflow.com/questions/24102609/why-swift-is-100-times-slower-than-c-in-this-image-processing-test">incredible speed gains</a>. Be careful &#8211; this skips <code class="docutils literal"><span class="pre">assert</span></code>. I would
+recommend testing with <code class="docutils literal"><span class="pre">-Onone</span></code> before switching.</li>
+<li>If you plan on using <code class="docutils literal"><span class="pre">read_csv,</span> <span class="pre">write_csv,</span> <span class="pre">savefig,</span> <span class="pre">imshow</span></code> you need to
+change the <code class="docutils literal"><span class="pre">S2_PREFIX</span></code> in <code class="docutils literal"><span class="pre">numbers.swift</span></code>. This should point to the swix
+folder; something like <code class="docutils literal"><span class="pre">the/path/to/yourXcodeProjectName/swix/</span></code></li>
 </ol>
 </div>
 <div class="section" id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>I have not spent time on package management. There should be an <tt class="docutils literal"><span class="pre">import</span>
-<span class="pre">swix</span></tt> and is not (but I welcome pull requests!)</li>
+<li>I have not spent time on package management. There should be an <code class="docutils literal"><span class="pre">import</span>
+<span class="pre">swix</span></code> and is not (but I welcome pull requests!)</li>
 <li>During my testing, swix doesn&#8217;t work in Playgrounds although <a class="reference external" href="http://stackoverflow.com/questions/24046160/how-to-i-import-3rd-party-frameworks-into-xcode-playground">it&#8217;s possible</a>.</li>
 </ul>
 </div>
@@ -87,16 +87,16 @@ folder; something like <tt class="docutils literal"><span class="pre">the/path/t
 <h2>Possible bugs<a class="headerlink" href="#possible-bugs" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><dl class="first docutils">
-<dt><tt class="docutils literal"><span class="pre">&quot;Unresolved</span> <span class="pre">identifier</span> <span class="pre">*_objc&quot;</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">&quot;Unresolved</span> <span class="pre">identifier</span> <span class="pre">*_objc&quot;</span></code></dt>
 <dd><ul class="first last simple">
 <li>The bridging header probably hasn&#8217;t been added correctly. Ensure
-<tt class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></tt> has the correct path.</li>
+<code class="docutils literal"><span class="pre">swix/objc/swix-Bridging-Header.h</span></code> has the correct path.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><tt class="docutils literal"><span class="pre">Unresolved</span> <span class="pre">identifier</span> <span class="pre">vDSP_*</span></tt> or similar,</dt>
+<dt><code class="docutils literal"><span class="pre">Unresolved</span> <span class="pre">identifier</span> <span class="pre">vDSP_*</span></code> or similar,</dt>
 <dd><ul class="first last simple">
 <li>The Accelerate framework hasn&#8217;t been added to Build Phases/Link Binary with Libraries.</li>
 <li>The Accelerate framework can&#8217;t be found when running an iOS xcodeproj in
@@ -106,13 +106,13 @@ the iOS simulator. For me it works on a physical device.</li>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><tt class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.hpp'</span> <span class="pre">file</span> <span class="pre">not</span> <span class="pre">found&quot;.</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">&quot;.../swix/objc/OpenCV.h:12:</span> <span class="pre">'opencv2/opencv.hpp'</span> <span class="pre">file</span> <span class="pre">not</span> <span class="pre">found&quot;.</span></code></dt>
 <dd><ul class="first last simple">
 <li>Under Build Phases/Link Binary with library add
-<tt class="docutils literal"><span class="pre">swix/objc/opencv2.framework</span></tt>. If you don&#8217;t see the &#8220;Link Binary with
+<code class="docutils literal"><span class="pre">swix/objc/opencv2.framework</span></code>. If you don&#8217;t see the &#8220;Link Binary with
 Libraries&#8221; hit the plus button in the upper left (at least for XCode 6).</li>
 <li>When clicking on &#8220;Add files to <a href="#id1"><span class="problematic" id="id2">*</span></a>&#8221; and in the diaglog that came up I
-should have hit the checkbox next to <tt class="docutils literal"><span class="pre">swix-OSXTests</span></tt>.</li>
+should have hit the checkbox next to <code class="docutils literal"><span class="pre">swix-OSXTests</span></code>.</li>
 </ul>
 </dd>
 </dl>
@@ -125,7 +125,7 @@ should have hit the checkbox next to <tt class="docutils literal"><span class="p
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/icon.png" alt="Logo"/>
@@ -155,7 +155,7 @@ should have hit the checkbox next to <tt class="docutils literal"><span class="p
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -172,7 +172,7 @@ should have hit the checkbox next to <tt class="docutils literal"><span class="p
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -187,12 +187,12 @@ should have hit the checkbox next to <tt class="docutils literal"><span class="p
         <li class="right" >
           <a href="index.html" title="Swift Matrix and Machine Learning Library"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
+#import numpy as np
+import math
 from math import sqrt
 
 #: The path that should point to the swix directory. The file imshow.py, numbers.swix would be found by appending to this path.
@@ -17,26 +18,26 @@ PYTHON_PATH = "~/anaconda/bin/ipython"
 phi = (1 + sqrt(5))/2
 
 #: The classic `circle constant <https://en.wikipedia.org/wiki/Pi>`_, pi and :math:`\pi`.
-pi = np.pi
+pi = math.pi
 
 #: The much more `intuitive circle constant <http://www.tauday.com/tau-manifesto>`_, tau and :math:`\tau`.
-tau = 2 * np.pi
+tau = 2 * pi
 
 #: `Euler's number <https://en.wikipedia.org/wiki/E_(mathematical_constant)>`_
-e = np.e
+e = math.e
 
 #: `Euler's constant <https://en.wikipedia.org/wiki/Euler–Mascheroni_constant>`_
 euler = 0.57721566490153286060651209008240243104215933593992
 
 #: Infinity.
-inf = np.inf
+inf = float("inf")
 
 #: The smallest possible difference between two doubles. See `machine epsilon
 #: <http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C>`_ for more
 #: detail.
 DOUBLE_EPSILON = "smaller"
 
-#: The smallest possible difference between two floats. See `machine epsilon 
+#: The smallest possible difference between two floats. See `machine epsilon
 #: <http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C>`_ for more
 #: detail.
 FLOAT_EPSILON = "small"
@@ -68,7 +69,7 @@ def close(x, y):
 
     :rtype: Bool. True only if the two values are close numerically.
     Specifically, true only if :math:`|x-y|<\\textrm{tol}`.
-    
+
     >>> assert(close(0, 1e-10) == true)
     """
 
@@ -82,10 +83,10 @@ def convience_elements():
     * String.floatValue, String.doubleValue. Converts the string to a numeric value by interpetting a NSString.
     * String.nsstring. For interfacing with C.
 
-    Additionally, 
-    
+    Additionally,
+
     * Int has an element cint, length, stride. Length and stride of for interacting with vDSP.
-    * Double has element cdouble, 
+    * Double has element cdouble,
     * Float has element cfloat.
 
     >>> assert(3.14.int == 3)

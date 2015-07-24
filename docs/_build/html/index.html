@@ -8,7 +8,7 @@
     
     <title>Swift Matrix and Machine Learning Library &mdash; swix 0.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.2 documentation" href="#" />
     <link rel="next" title="Installation" href="installation.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,14 +40,14 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="N">next</a> |</li>
-        <li><a href="#">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="swift-matrix-and-machine-learning-library">
 <h1><a class="reference external" href="https://github.com/scottsievert/swix">Swift Matrix and Machine Learning Library</a><a class="headerlink" href="#swift-matrix-and-machine-learning-library" title="Permalink to this headline">¶</a></h1>
@@ -74,8 +74,8 @@ example set by NumPy. For the more complex mathematical functions (e.g., SVD) I
 tested it against NumPy. Matlab, at least for the SVD, returns slightly
 different output.</p>
 <p>Additionally, I followed NumPy&#8217;s syntax whenever possible. For example, NumPy
-and Matlab differ in their initializer called <tt class="docutils literal"><span class="pre">ones</span></tt> by <tt class="docutils literal"><span class="pre">ones((M,N))</span></tt> and
-<tt class="docutils literal"><span class="pre">ones(M,N)</span></tt> respectively. If in doubt or getting weird compiler bugs, look at <a class="reference external" href="http://wiki.scipy.org/NumPy_for_Matlab_Users">NumPy for
+and Matlab differ in their initializer called <code class="docutils literal"><span class="pre">ones</span></code> by <code class="docutils literal"><span class="pre">ones((M,N))</span></code> and
+<code class="docutils literal"><span class="pre">ones(M,N)</span></code> respectively. If in doubt or getting weird compiler bugs, look at <a class="reference external" href="http://wiki.scipy.org/NumPy_for_Matlab_Users">NumPy for
 Matlab users</a> or the section on <a class="reference external" href="http://scottsievert.github.io/swix/bugs.html">possible bugs</a>.</p>
 <p>As an example, here&#8217;s some Objective-C sample code that integrates the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a>:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">){</span>
@@ -124,7 +124,7 @@ equal with Python/Matlab with this library.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">These docs call files classes. ie, when you see <tt class="docutils literal"><span class="pre">matrix.complex_math.&lt;function&gt;</span></tt>, it&#8217;s in the file <tt class="docutils literal"><span class="pre">swix/matrix/complex-math.swift</span></tt>. The only exceptions are the classes <tt class="docutils literal"><span class="pre">ndarray</span></tt> and <tt class="docutils literal"><span class="pre">matrix</span></tt>.</p>
+<p class="last">These docs call files classes. ie, when you see <code class="docutils literal"><span class="pre">matrix.complex_math.&lt;function&gt;</span></code>, it&#8217;s in the file <code class="docutils literal"><span class="pre">swix/matrix/complex-math.swift</span></code>. The only exceptions are the classes <code class="docutils literal"><span class="pre">ndarray</span></code> and <code class="docutils literal"><span class="pre">matrix</span></code>.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -148,9 +148,9 @@ equal with Python/Matlab with this library.</p>
 </ul>
 </div>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
 </ul>
 </div>
 </div>
@@ -159,7 +159,7 @@ equal with Python/Matlab with this library.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="#">
               <img class="logo" src="_static/icon.png" alt="Logo"/>
@@ -187,7 +187,7 @@ equal with Python/Matlab with this library.</p>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -204,7 +204,7 @@ equal with Python/Matlab with this library.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -216,12 +216,12 @@ equal with Python/Matlab with this library.</p>
         <li class="right" >
           <a href="installation.html" title="Installation"
              >next</a> |</li>
-        <li><a href="#">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -8,7 +8,7 @@
     
     <title>Numbers and constants &mdash; swix 0.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Array" href="ndarray.html" />
     <link rel="prev" title="Overview" href="overview.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,66 +44,66 @@
         <li class="right" >
           <a href="overview.html" title="Overview"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="numbers-and-constants">
 <h1>Numbers and constants<a class="headerlink" href="#numbers-and-constants" title="Permalink to this headline">¶</a></h1>
 <p>Swix defines several convince constants including π (or pi), φ (or phi), e, inf, as well as the
-smallest possible difference between a float or double, <tt class="docutils literal"><span class="pre">FLOAT_EPSILON</span></tt> and
-<tt class="docutils literal"><span class="pre">DOUBLE_EPSILON</span></tt></p>
-<p>It should be noted that this library defaults to the type <tt class="docutils literal"><span class="pre">double</span></tt>. While it
+smallest possible difference between a float or double, <code class="docutils literal"><span class="pre">FLOAT_EPSILON</span></code> and
+<code class="docutils literal"><span class="pre">DOUBLE_EPSILON</span></code></p>
+<p>It should be noted that this library defaults to the type <code class="docutils literal"><span class="pre">double</span></code>. While it
 does use the most memory, it&#8217;s the most precise. If the compiler ever complains
 about conversion or can&#8217;t find a function, try calling it with a double value.</p>
 <p>I&#8217;ve extended the native types to include a dot syntax. That is,
-<tt class="docutils literal"><span class="pre">Int(3).double</span></tt> will return 3.0. These are included for <tt class="docutils literal"><span class="pre">Int</span></tt>, <tt class="docutils literal"><span class="pre">Double</span></tt>,
-<tt class="docutils literal"><span class="pre">CInt</span></tt>, and <tt class="docutils literal"><span class="pre">Float</span></tt>. For integrating with C, use <tt class="docutils literal"><span class="pre">Int(3).cint</span></tt>. For integrating with vDSP, use <tt class="docutils literal"><span class="pre">Int(1).stride</span></tt> or <tt class="docutils literal"><span class="pre">Int(N).length</span></tt> to get a vDSP_Stride or vDSP_Length respectively.</p>
+<code class="docutils literal"><span class="pre">Int(3).double</span></code> will return 3.0. These are included for <code class="docutils literal"><span class="pre">Int</span></code>, <code class="docutils literal"><span class="pre">Double</span></code>,
+<code class="docutils literal"><span class="pre">CInt</span></code>, and <code class="docutils literal"><span class="pre">Float</span></code>. For integrating with C, use <code class="docutils literal"><span class="pre">Int(3).cint</span></code>. For integrating with vDSP, use <code class="docutils literal"><span class="pre">Int(1).stride</span></code> or <code class="docutils literal"><span class="pre">Int(N).length</span></code> to get a vDSP_Stride or vDSP_Length respectively.</p>
 <p>The library includes both <a class="reference external" href="https://github.com/seivan/ScalarArithmetic">ScalarArithmetic</a> and <a class="reference external" href="https://github.com/dankogai/swift-complex">swift-complex</a>. This means
 that numbers have handy conversions and we can access complex numbers through
-<tt class="docutils literal"><span class="pre">1.0+1.0.i</span></tt> respectively.</p>
-<div class="section" id="module-numbers">
-<span id="docs"></span><h2>Docs<a class="headerlink" href="#module-numbers" title="Permalink to this headline">¶</a></h2>
+<code class="docutils literal"><span class="pre">1.0+1.0.i</span></code> respectively.</p>
+<div class="section" id="module-numbers_swix">
+<span id="docs"></span><h2>Docs<a class="headerlink" href="#module-numbers_swix" title="Permalink to this headline">¶</a></h2>
 <dl class="data">
-<dt id="numbers.DOUBLE_EPSILON">
-<tt class="descclassname">numbers.</tt><tt class="descname">DOUBLE_EPSILON</tt><em class="property"> = 'smaller'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.DOUBLE_EPSILON" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.DOUBLE_EPSILON">
+<code class="descclassname">numbers_swix.</code><code class="descname">DOUBLE_EPSILON</code><em class="property"> = 'smaller'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.DOUBLE_EPSILON" title="Permalink to this definition">¶</a></dt>
 <dd><p>The smallest possible difference between two doubles. See <a class="reference external" href="http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C">machine epsilon</a> for more
 detail.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.FLOAT_EPSILON">
-<tt class="descclassname">numbers.</tt><tt class="descname">FLOAT_EPSILON</tt><em class="property"> = 'small'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.FLOAT_EPSILON" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.FLOAT_EPSILON">
+<code class="descclassname">numbers_swix.</code><code class="descname">FLOAT_EPSILON</code><em class="property"> = 'small'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.FLOAT_EPSILON" title="Permalink to this definition">¶</a></dt>
 <dd><p>The smallest possible difference between two floats. See <a class="reference external" href="http://en.wikipedia.org/wiki/Machine_epsilon#Approximation_using_C">machine epsilon</a> for more
 detail.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.PYTHON_PATH">
-<tt class="descclassname">numbers.</tt><tt class="descname">PYTHON_PATH</tt><em class="property"> = '~/anaconda/bin/ipython'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.PYTHON_PATH" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.PYTHON_PATH">
+<code class="descclassname">numbers_swix.</code><code class="descname">PYTHON_PATH</code><em class="property"> = '~/anaconda/bin/ipython'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.PYTHON_PATH" title="Permalink to this definition">¶</a></dt>
 <dd><p>Where is Python found? Used for imshow and savefig (testing on MacOSX only!). Assumes <a class="reference external" href="http://wiki.scipy.org/PyLab">pylab</a> is installed.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.S2_PREFIX">
-<tt class="descclassname">numbers.</tt><tt class="descname">S2_PREFIX</tt><em class="property"> = '\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.S2_PREFIX" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.S2_PREFIX">
+<code class="descclassname">numbers_swix.</code><code class="descname">S2_PREFIX</code><em class="property"> = '\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.S2_PREFIX" title="Permalink to this definition">¶</a></dt>
 <dd><p>The path that should point to the swix directory. The file imshow.py, numbers.swix would be found by appending to this path.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.S2_TOLEANCE">
-<tt class="descclassname">numbers.</tt><tt class="descname">S2_TOLEANCE</tt><em class="property"> = 1e-09</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.S2_TOLEANCE" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.S2_TOLEANCE">
+<code class="descclassname">numbers_swix.</code><code class="descname">S2_TOLEANCE</code><em class="property"> = 1e-09</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.S2_TOLEANCE" title="Permalink to this definition">¶</a></dt>
 <dd><p>The determines how close two numbers have to be equal.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.binom">
-<tt class="descclassname">numbers.</tt><tt class="descname">binom</tt><big>(</big><em>n</em>, <em>k</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.binom" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.binom">
+<code class="descclassname">numbers_swix.</code><code class="descname">binom</code><span class="sig-paren">(</span><em>n</em>, <em>k</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.binom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the binomial coeffecint or n choose k.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -123,8 +123,8 @@ detail.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.close">
-<tt class="descclassname">numbers.</tt><tt class="descname">close</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.close" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.close">
+<code class="descclassname">numbers_swix.</code><code class="descname">close</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>See if two numbers are approximately equal.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -148,8 +148,8 @@ detail.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.convience_elements">
-<tt class="descclassname">numbers.</tt><tt class="descname">convience_elements</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.convience_elements" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.convience_elements">
+<code class="descclassname">numbers_swix.</code><code class="descname">convience_elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.convience_elements" title="Permalink to this definition">¶</a></dt>
 <dd><p>The built in numeric classes have convience elements.</p>
 <ul class="simple">
 <li>{Float|Double|Int|CInt}.int. Returns the integer value</li>
@@ -173,8 +173,8 @@ detail.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.deg2rad">
-<tt class="descclassname">numbers.</tt><tt class="descname">deg2rad</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.deg2rad" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.deg2rad">
+<code class="descclassname">numbers_swix.</code><code class="descname">deg2rad</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.deg2rad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert from degrees to radians.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -189,20 +189,20 @@ detail.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.e">
-<tt class="descclassname">numbers.</tt><tt class="descname">e</tt><em class="property"> = 2.718281828459045</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.e" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.e">
+<code class="descclassname">numbers_swix.</code><code class="descname">e</code><em class="property"> = 2.718281828459045</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.e" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler&#8217;s number</a></p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.euler">
-<tt class="descclassname">numbers.</tt><tt class="descname">euler</tt><em class="property"> = 0.5772156649015329</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.euler" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.euler">
+<code class="descclassname">numbers_swix.</code><code class="descname">euler</code><em class="property"> = 0.5772156649015329</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.euler" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Euler–Mascheroni_constant">Euler&#8217;s constant</a></p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.factorial">
-<tt class="descclassname">numbers.</tt><tt class="descname">factorial</tt><big>(</big><em>n</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.factorial" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.factorial">
+<code class="descclassname">numbers_swix.</code><code class="descname">factorial</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.factorial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes <span class="math">\(n \cdot (n-1) \ldots 2 \cdot 1 = n!\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -217,14 +217,14 @@ detail.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.inf">
-<tt class="descclassname">numbers.</tt><tt class="descname">inf</tt><em class="property"> = inf</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.inf" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.inf">
+<code class="descclassname">numbers_swix.</code><code class="descname">inf</code><em class="property"> = inf</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.inf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Infinity.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.isNumber">
-<tt class="descclassname">numbers.</tt><tt class="descname">isNumber</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.isNumber" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.isNumber">
+<code class="descclassname">numbers_swix.</code><code class="descname">isNumber</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.isNumber" title="Permalink to this definition">¶</a></dt>
 <dd><p>See if the input object is a number.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -239,9 +239,9 @@ detail.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.operator_slash">
-<tt class="descclassname">numbers.</tt><tt class="descname">operator_slash</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.operator_slash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Operator <tt class="docutils literal"><span class="pre">/</span></tt> converts integer divison to double division.</p>
+<dt id="numbers_swix.operator_slash">
+<code class="descclassname">numbers_swix.</code><code class="descname">operator_slash</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.operator_slash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operator <code class="docutils literal"><span class="pre">/</span></code> converts integer divison to double division.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -260,21 +260,21 @@ detail.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.phi">
-<tt class="descclassname">numbers.</tt><tt class="descname">phi</tt><em class="property"> = 1.618033988749895</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.phi" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.phi">
+<code class="descclassname">numbers_swix.</code><code class="descname">phi</code><em class="property"> = 1.618033988749895</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.phi" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/The_golden_ratio">golden ratio</a>
 Also callable with φ</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.pi">
-<tt class="descclassname">numbers.</tt><tt class="descname">pi</tt><em class="property"> = 3.141592653589793</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.pi" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.pi">
+<code class="descclassname">numbers_swix.</code><code class="descname">pi</code><em class="property"> = 3.141592653589793</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.pi" title="Permalink to this definition">¶</a></dt>
 <dd><p>The classic <a class="reference external" href="https://en.wikipedia.org/wiki/Pi">circle constant</a>, pi and <span class="math">\(\pi\)</span>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="numbers.rad2deg">
-<tt class="descclassname">numbers.</tt><tt class="descname">rad2deg</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.rad2deg" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.rad2deg">
+<code class="descclassname">numbers_swix.</code><code class="descname">rad2deg</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.rad2deg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert from radians to degrees.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -289,8 +289,8 @@ Also callable with φ</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="numbers.tau">
-<tt class="descclassname">numbers.</tt><tt class="descname">tau</tt><em class="property"> = 6.283185307179586</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers.swift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers.tau" title="Permalink to this definition">¶</a></dt>
+<dt id="numbers_swix.tau">
+<code class="descclassname">numbers_swix.</code><code class="descname">tau</code><em class="property"> = 6.283185307179586</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/numbers_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numbers_swix.tau" title="Permalink to this definition">¶</a></dt>
 <dd><p>The much more <a class="reference external" href="http://www.tauday.com/tau-manifesto">intuitive circle constant</a>, tau and <span class="math">\(\tau\)</span>.</p>
 </dd></dl>
 
@@ -301,7 +301,7 @@ Also callable with φ</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/icon.png" alt="Logo"/>
@@ -309,7 +309,7 @@ Also callable with φ</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Numbers and constants</a><ul>
-<li><a class="reference internal" href="#module-numbers">Docs</a></li>
+<li><a class="reference internal" href="#module-numbers_swix">Docs</a></li>
 </ul>
 </li>
 </ul>
@@ -329,7 +329,7 @@ Also callable with φ</p>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -346,7 +346,7 @@ Also callable with φ</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -361,12 +361,12 @@ Also callable with φ</p>
         <li class="right" >
           <a href="overview.html" title="Overview"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

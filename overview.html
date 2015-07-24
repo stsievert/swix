@@ -8,7 +8,7 @@
     
     <title>Overview &mdash; swix 0.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Numbers and constants" href="numbers.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,24 +44,24 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <p>This library aims to be an almost exact clone of <a class="reference external" href="http://wiki.scipy.org/PyLab">Pylab</a> and to integrate the core parts of NumPy/SciPy/some of Matplotlib to provide a Matlab-like interface. The reason this library was developed to provide an easy translatation between complicated signal processing algorithms and mobile apps.</p>
-<p>Since this library only aims to provide easy conversion and not easy developement, there are areas that are a bit of a pain. For example, you can&#8217;t assign <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">=</span> <span class="pre">0</span></tt>; instead you have to use <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">=</span> <span class="pre">zeros(N)</span></tt> or think of clever hacks like <tt class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">*=</span> <span class="pre">0</span></tt>.</p>
-<p>This library almost exactly tries to copy the NumPy syntax. While the mathematical functions do this, one notable exception is Python&#8217;s <tt class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">arange(N)</span></tt>. To get the same result in swix, use <tt class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">arange(N).grid</span></tt>.</p>
+<p>Since this library only aims to provide easy conversion and not easy developement, there are areas that are a bit of a pain. For example, you can&#8217;t assign <code class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">=</span> <span class="pre">0</span></code>; instead you have to use <code class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">=</span> <span class="pre">zeros(N)</span></code> or think of clever hacks like <code class="docutils literal"><span class="pre">x[0..&lt;N]</span> <span class="pre">*=</span> <span class="pre">0</span></code>.</p>
+<p>This library almost exactly tries to copy the NumPy syntax. While the mathematical functions do this, one notable exception is Python&#8217;s <code class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">arange(N)</span></code>. To get the same result in swix, use <code class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">arange(N).grid</span></code>.</p>
 <p>If in doubt or getting weird compiler errors, look at the corresponding NumPy docs (I tried to include links) or look at the section on <a class="reference internal" href="bugs.html"><em>Bugs</em></a> you may find.</p>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<p>This page only includes functions. All constants are defined in <a class="reference internal" href="numbers.html#module-numbers" title="numbers"><tt class="xref py py-class docutils literal"><span class="pre">numbers</span></tt></a>.</p>
+<p>This page only includes functions. All constants are defined in <code class="xref py py-class docutils literal"><span class="pre">numbers</span></code>.</p>
 </div>
 <div class="section" id="numbers">
 <h2>numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
@@ -79,28 +79,28 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers.binom" title="numbers.binom"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.binom</span></tt></a>(n,&nbsp;k)</td>
+<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers_swix.binom" title="numbers_swix.binom"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.binom</span></code></a>(n,&nbsp;k)</td>
 <td>Calculate the binomial coeffecint or n choose k.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers.close" title="numbers.close"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.close</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers_swix.close" title="numbers_swix.close"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.close</span></code></a>(x,&nbsp;y)</td>
 <td>See if two numbers are approximately equal.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers.convience_elements" title="numbers.convience_elements"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.convience_elements</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers_swix.convience_elements" title="numbers_swix.convience_elements"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.convience_elements</span></code></a>()</td>
 <td>The built in numeric classes have convience elements.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers.deg2rad" title="numbers.deg2rad"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.deg2rad</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers_swix.deg2rad" title="numbers_swix.deg2rad"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.deg2rad</span></code></a>(x)</td>
 <td>Convert from degrees to radians.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers.factorial" title="numbers.factorial"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.factorial</span></tt></a>(n)</td>
+<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers_swix.factorial" title="numbers_swix.factorial"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.factorial</span></code></a>(n)</td>
 <td>Computes <span class="math">\(n \cdot (n-1) \ldots 2 \cdot 1 = n!\)</span></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers.isNumber" title="numbers.isNumber"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.isNumber</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers_swix.isNumber" title="numbers_swix.isNumber"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.isNumber</span></code></a>(x)</td>
 <td>See if the input object is a number.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers.operator_slash" title="numbers.operator_slash"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.operator_slash</span></tt></a>(lhs,&nbsp;rhs)</td>
-<td>Operator <tt class="docutils literal"><span class="pre">/</span></tt> converts integer divison to double division.</td>
+<tr class="row-odd"><td><a class="reference internal" href="numbers.html#numbers_swix.operator_slash" title="numbers_swix.operator_slash"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.operator_slash</span></code></a>(lhs,&nbsp;rhs)</td>
+<td>Operator <code class="docutils literal"><span class="pre">/</span></code> converts integer divison to double division.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers.rad2deg" title="numbers.rad2deg"><tt class="xref py py-obj docutils literal"><span class="pre">numbers.rad2deg</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="numbers.html#numbers_swix.rad2deg" title="numbers_swix.rad2deg"><code class="xref py py-obj docutils literal"><span class="pre">numbers_swix.rad2deg</span></code></a>(x)</td>
 <td>Convert from radians to degrees.</td>
 </tr>
 </tbody>
@@ -122,7 +122,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="io.html#io_swix.read_binary" title="io_swix.read_binary"><tt class="xref py py-obj docutils literal"><span class="pre">io_swix.read_binary</span></tt></a>(x,&nbsp;filename[,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="io.html#io_swix.read_binary" title="io_swix.read_binary"><code class="xref py py-obj docutils literal"><span class="pre">io_swix.read_binary</span></code></a>(x,&nbsp;filename[,&nbsp;prefix])</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -133,10 +133,10 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="io.html#io_swix.read_csv" title="io_swix.read_csv"><tt class="xref py py-obj docutils literal"><span class="pre">io_swix.read_csv</span></tt></a>(filename[,&nbsp;prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="io.html#io_swix.read_csv" title="io_swix.read_csv"><code class="xref py py-obj docutils literal"><span class="pre">io_swix.read_csv</span></code></a>(filename[,&nbsp;prefix])</td>
 <td>Reads a CSV.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="io.html#io_swix.write_binary" title="io_swix.write_binary"><tt class="xref py py-obj docutils literal"><span class="pre">io_swix.write_binary</span></tt></a>(filename[,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="io.html#io_swix.write_binary" title="io_swix.write_binary"><code class="xref py py-obj docutils literal"><span class="pre">io_swix.write_binary</span></code></a>(filename[,&nbsp;prefix])</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -147,7 +147,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="io.html#io_swix.write_csv" title="io_swix.write_csv"><tt class="xref py py-obj docutils literal"><span class="pre">io_swix.write_csv</span></tt></a>(x,&nbsp;filename[,&nbsp;prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="io.html#io_swix.write_csv" title="io_swix.write_csv"><code class="xref py py-obj docutils literal"><span class="pre">io_swix.write_csv</span></code></a>(x,&nbsp;filename[,&nbsp;prefix])</td>
 <td>Writes a CSV.</td>
 </tr>
 </tbody>
@@ -171,40 +171,40 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.arange" title="ndarray.initing.arange"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.arange</span></tt></a>(max[,&nbsp;min,&nbsp;x])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.arange" title="ndarray.initing.arange"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.arange</span></code></a>(max[,&nbsp;min,&nbsp;x])</td>
 <td>Makes an array of integers.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.array" title="ndarray.initing.array"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.array</span></tt></a>(numbers)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.array" title="ndarray.initing.array"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.array</span></code></a>(numbers)</td>
 <td>Makes an array out of a list of numbers.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.asarray" title="ndarray.initing.asarray"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.asarray</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.asarray" title="ndarray.initing.asarray"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.asarray</span></code></a>(x)</td>
 <td>Convert the input to an ndarray.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.copy" title="ndarray.initing.copy"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.copy</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.copy" title="ndarray.initing.copy"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.copy</span></code></a>(x)</td>
 <td>Copies the contents of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.linspace" title="ndarray.initing.linspace"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.linspace</span></tt></a>(min,&nbsp;max[,&nbsp;num])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.linspace" title="ndarray.initing.linspace"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.linspace</span></code></a>(min,&nbsp;max[,&nbsp;num])</td>
 <td>Makes a series of values linearly interpolated between two poitns.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.ones" title="ndarray.initing.ones"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.ones</span></tt></a>(N)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.ones" title="ndarray.initing.ones"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.ones</span></code></a>(N)</td>
 <td>Makes an array of ones.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.ones_like" title="ndarray.initing.ones_like"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.ones_like</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.ones_like" title="ndarray.initing.ones_like"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.ones_like</span></code></a>(x)</td>
 <td>Makes an array like another array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.rand" title="ndarray.initing.rand"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.rand</span></tt></a>(N[,&nbsp;seed,&nbsp;distro])</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.rand" title="ndarray.initing.rand"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.rand</span></code></a>(N[,&nbsp;seed,&nbsp;distro])</td>
 <td>Makes an array of uniform random variables.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.randn" title="ndarray.initing.randn"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.randn</span></tt></a>(N[,&nbsp;seed,&nbsp;mean,&nbsp;sigma])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.randn" title="ndarray.initing.randn"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.randn</span></code></a>(N[,&nbsp;seed,&nbsp;mean,&nbsp;sigma])</td>
 <td>Makes an array of normally distributed random variables.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.randperm" title="ndarray.initing.randperm"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.randperm</span></tt></a>(N)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.randperm" title="ndarray.initing.randperm"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.randperm</span></code></a>(N)</td>
 <td>Shuffle an array of (typically) indices.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros" title="ndarray.initing.zeros"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros</span></tt></a>(N)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros" title="ndarray.initing.zeros"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros</span></code></a>(N)</td>
 <td>Makes an array of 0&#8217;s.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros_like" title="ndarray.initing.zeros_like"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros_like</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.initing.zeros_like" title="ndarray.initing.zeros_like"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.initing.zeros_like</span></code></a>(x)</td>
 <td>Makes an array like another array.</td>
 </tr>
 </tbody>
@@ -218,76 +218,76 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argmax" title="ndarray.helper_functions.argmax"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argmax</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argmax" title="ndarray.helper_functions.argmax"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argmax</span></code></a>(x)</td>
 <td>The location of the maximum.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argmin</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argmin</span></code></a>(x)</td>
 <td>The location of the minimum.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argsort</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argsort</span></code></a>(x)</td>
 <td>Sort the array but using indices.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argwhere</span></tt></a>(idx)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.argwhere</span></code></a>(idx)</td>
 <td>Sees where a condition exists.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.clip" title="ndarray.helper_functions.clip"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.clip</span></tt></a>(a,&nbsp;a_min,&nbsp;a_max)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.clip" title="ndarray.helper_functions.clip"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.clip</span></code></a>(a,&nbsp;a_min,&nbsp;a_max)</td>
 <td>Only keep values between a_min and a_max; set the rest to 0.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.concat" title="ndarray.helper_functions.concat"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.concat</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.concat" title="ndarray.helper_functions.concat"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.concat</span></code></a>(x,&nbsp;y)</td>
 <td>Concatenates two arrays.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.count_nonzero" title="ndarray.helper_functions.count_nonzero"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.count_nonzero</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.count_nonzero" title="ndarray.helper_functions.count_nonzero"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.count_nonzero</span></code></a>(x)</td>
 <td>Counts the nonzero elements.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.cumprod" title="ndarray.helper_functions.cumprod"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.cumprod</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.cumprod" title="ndarray.helper_functions.cumprod"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.cumprod</span></code></a>(x)</td>
 <td>Find the cumulative product of every element in this array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.delete" title="ndarray.helper_functions.delete"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.delete</span></tt></a>(x,&nbsp;idx)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.delete" title="ndarray.helper_functions.delete"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.delete</span></code></a>(x,&nbsp;idx)</td>
 <td>Deletes elements.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.in1d" title="ndarray.helper_functions.in1d"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.in1d</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.in1d" title="ndarray.helper_functions.in1d"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.in1d</span></code></a>(x,&nbsp;y)</td>
 <td>Sees if elements from the first array are in the second and returns the indices.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.intersection" title="ndarray.helper_functions.intersection"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.intersection</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.intersection" title="ndarray.helper_functions.intersection"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.intersection</span></code></a>(x,&nbsp;y)</td>
 <td>Find elements that are both arrays.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_and" title="ndarray.helper_functions.logical_and"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_and</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_and" title="ndarray.helper_functions.logical_and"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_and</span></code></a>(x,&nbsp;y)</td>
 <td>Find the logical AND of x and y.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_not" title="ndarray.helper_functions.logical_not"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_not</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_not" title="ndarray.helper_functions.logical_not"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_not</span></code></a>(x)</td>
 <td>Find the logical NOT of x and y.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_or" title="ndarray.helper_functions.logical_or"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_or</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_or" title="ndarray.helper_functions.logical_or"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_or</span></code></a>(x,&nbsp;y)</td>
 <td>Find the logical OR of x and y.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_xor" title="ndarray.helper_functions.logical_xor"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_xor</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.logical_xor" title="ndarray.helper_functions.logical_xor"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.logical_xor</span></code></a>(x,&nbsp;y)</td>
 <td>Find the logical XOR of x and y.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.norm" title="ndarray.helper_functions.norm"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.norm</span></tt></a>(x[,&nbsp;ord])</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.norm" title="ndarray.helper_functions.norm"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.norm</span></code></a>(x[,&nbsp;ord])</td>
 <td>Finds the norm of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.println" title="ndarray.helper_functions.println"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.println</span></tt></a>(x[,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.println" title="ndarray.helper_functions.println"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.println</span></code></a>(x[,&nbsp;...])</td>
 <td>Prints an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.prod" title="ndarray.helper_functions.prod"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.prod</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.prod" title="ndarray.helper_functions.prod"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.prod</span></code></a>(x)</td>
 <td>Find the product of every element in this array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.repeat" title="ndarray.helper_functions.repeat"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.repeat</span></tt></a>(x,&nbsp;N[,&nbsp;axis])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.repeat" title="ndarray.helper_functions.repeat"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.repeat</span></code></a>(x,&nbsp;N[,&nbsp;axis])</td>
 <td>Repeats an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.reverse" title="ndarray.helper_functions.reverse"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.reverse</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.reverse" title="ndarray.helper_functions.reverse"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.reverse</span></code></a>(x)</td>
 <td>Reverses an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.shuffle" title="ndarray.helper_functions.shuffle"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.shuffle</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.shuffle" title="ndarray.helper_functions.shuffle"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.shuffle</span></code></a>(x)</td>
 <td>Randomly shuffle an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.sort" title="ndarray.helper_functions.sort"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.sort</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.sort" title="ndarray.helper_functions.sort"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.sort</span></code></a>(x)</td>
 <td>Sorts an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.union" title="ndarray.helper_functions.union"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.union</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.union" title="ndarray.helper_functions.union"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.union</span></code></a>(x,&nbsp;y)</td>
 <td>Finds unique elements that are in either array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.unique" title="ndarray.helper_functions.unique"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.unique</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.helper_functions.unique" title="ndarray.helper_functions.unique"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.helper_functions.unique</span></code></a>(x)</td>
 <td>Find the unique elements of an array.</td>
 </tr>
 </tbody>
@@ -301,28 +301,28 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.copy</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.copy</span></code></a>()</td>
 <td>Copies the contents of an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.indexing" title="ndarray.ndarray.indexing"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.indexing</span></tt></a>(idx)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.indexing" title="ndarray.ndarray.indexing"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.indexing</span></code></a>(idx)</td>
 <td>Grabs elements using an ndarray, Range&lt;Int&gt; or integers.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.max" title="ndarray.ndarray.max"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.max</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.max" title="ndarray.ndarray.max"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.max</span></code></a>()</td>
 <td>Finds the maximum value.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.mean" title="ndarray.ndarray.mean"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.mean</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.mean" title="ndarray.ndarray.mean"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.mean</span></code></a>()</td>
 <td>Finds the average value.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.min" title="ndarray.ndarray.min"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.min</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.min" title="ndarray.ndarray.min"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.min</span></code></a>()</td>
 <td>Finds the minimum value.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.reshape" title="ndarray.ndarray.reshape"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.reshape</span></tt></a>(shape)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.reshape" title="ndarray.ndarray.reshape"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.reshape</span></code></a>(shape)</td>
 <td>Reshapes the matrix to the specified size.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.reverse" title="ndarray.ndarray.reverse"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.reverse</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.reverse" title="ndarray.ndarray.reverse"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.reverse</span></code></a>()</td>
 <td>Reverses the array in place.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.sort" title="ndarray.ndarray.sort"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.sort</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.ndarray.sort" title="ndarray.ndarray.sort"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.ndarray.sort</span></code></a>()</td>
 <td>Sorts the array in-place.</td>
 </tr>
 </tbody>
@@ -336,13 +336,13 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.complex_math.fft" title="ndarray.complex_math.fft"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.complex_math.fft</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.complex_math.fft" title="ndarray.complex_math.fft"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.complex_math.fft</span></code></a>(x)</td>
 <td>Takes the discrete Fourier Transform.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.complex_math.fftconvolve" title="ndarray.complex_math.fftconvolve"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.complex_math.fftconvolve</span></tt></a>(x,&nbsp;kernel)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.complex_math.fftconvolve" title="ndarray.complex_math.fftconvolve"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.complex_math.fftconvolve</span></code></a>(x,&nbsp;kernel)</td>
 <td>Convolve x with a kernel.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.complex_math.ifft" title="ndarray.complex_math.ifft"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.complex_math.ifft</span></tt></a>(y_real,&nbsp;y_imag)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.complex_math.ifft" title="ndarray.complex_math.ifft"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.complex_math.ifft</span></code></a>(y_real,&nbsp;y_imag)</td>
 <td>Takes the inverse Foureir Transform.</td>
 </tr>
 </tbody>
@@ -356,79 +356,79 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.abs" title="ndarray.simple_math.abs"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.abs</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.abs" title="ndarray.simple_math.abs"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.abs</span></code></a>(x)</td>
 <td>Finds the absolute value of an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.apply_function" title="ndarray.simple_math.apply_function"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.apply_function</span></tt></a>(function,&nbsp;x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.apply_function" title="ndarray.simple_math.apply_function"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.apply_function</span></code></a>(function,&nbsp;x)</td>
 <td>Apply a function to every element of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.ceil" title="ndarray.simple_math.ceil"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.ceil</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.ceil" title="ndarray.simple_math.ceil"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.ceil</span></code></a>(x)</td>
 <td>Ceil&#8217;s each element.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.cos" title="ndarray.simple_math.cos"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.cos</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.cos" title="ndarray.simple_math.cos"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.cos</span></code></a>(x)</td>
 <td>Finds the cos of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.cumsum" title="ndarray.simple_math.cumsum"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.cumsum</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.cumsum" title="ndarray.simple_math.cumsum"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.cumsum</span></code></a>(x)</td>
 <td>Finds the cumulative sum of an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.exp" title="ndarray.simple_math.exp"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.exp</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.exp" title="ndarray.simple_math.exp"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.exp</span></code></a>(x)</td>
 <td>Finds the exponent of each element; mathematically it finds</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.exp2" title="ndarray.simple_math.exp2"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.exp2</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.exp2" title="ndarray.simple_math.exp2"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.exp2</span></code></a>(x)</td>
 <td>Finds <span class="math">\(2^x\)</span> for some array x.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.expm1" title="ndarray.simple_math.expm1"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.expm1</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.expm1" title="ndarray.simple_math.expm1"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.expm1</span></code></a>(x)</td>
 <td>Estimate <span class="math">\(\exp(x)-1\)</span>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.floor" title="ndarray.simple_math.floor"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.floor</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.floor" title="ndarray.simple_math.floor"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.floor</span></code></a>(x)</td>
 <td>Floors each element.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log" title="ndarray.simple_math.log"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log" title="ndarray.simple_math.log"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log</span></code></a>(x)</td>
 <td>Finds the log base e of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log10" title="ndarray.simple_math.log10"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log10</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log10" title="ndarray.simple_math.log10"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log10</span></code></a>(x)</td>
 <td>Finds the log base 10 of an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log2" title="ndarray.simple_math.log2"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log2</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.log2" title="ndarray.simple_math.log2"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.log2</span></code></a>(x)</td>
 <td>Finds the log base 2 of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.max" title="ndarray.simple_math.max"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.max</span></tt></a>(x[,&nbsp;y])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.max" title="ndarray.simple_math.max"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.max</span></code></a>(x[,&nbsp;y])</td>
 <td>Finds the maximum element.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.mean" title="ndarray.simple_math.mean"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.mean</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.mean" title="ndarray.simple_math.mean"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.mean</span></code></a>(x)</td>
 <td>Finds the mean of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.min" title="ndarray.simple_math.min"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.min</span></tt></a>(x[,&nbsp;y])</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.min" title="ndarray.simple_math.min"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.min</span></code></a>(x[,&nbsp;y])</td>
 <td>Finds the maximum element.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.pow" title="ndarray.simple_math.pow"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.pow</span></tt></a>(x,&nbsp;power)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.pow" title="ndarray.simple_math.pow"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.pow</span></code></a>(x,&nbsp;power)</td>
 <td>The power of a {Double, ndarray} to {Double, ndarray}</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.remainer" title="ndarray.simple_math.remainer"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.remainer</span></tt></a>(x1,&nbsp;x2)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.remainer" title="ndarray.simple_math.remainer"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.remainer</span></code></a>(x1,&nbsp;x2)</td>
 <td>Finds the element wise remainder after dividing the two arrays.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.round" title="ndarray.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.round</span></tt></a>(x[,&nbsp;decimals])</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.round" title="ndarray.simple_math.round"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.round</span></code></a>(x[,&nbsp;decimals])</td>
 <td>Rounds each element.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sign" title="ndarray.simple_math.sign"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sign</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sign" title="ndarray.simple_math.sign"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sign</span></code></a>(x)</td>
 <td>Finds the sign an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sin" title="ndarray.simple_math.sin"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sin</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sin" title="ndarray.simple_math.sin"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sin</span></code></a>(x)</td>
 <td>Finds the sin of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sqrt" title="ndarray.simple_math.sqrt"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sqrt</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sqrt" title="ndarray.simple_math.sqrt"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sqrt</span></code></a>(x)</td>
 <td>Takes the sqrt of each element.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.std" title="ndarray.simple_math.std"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.std</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.std" title="ndarray.simple_math.std"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.std</span></code></a>(x)</td>
 <td>Finds the standard deviation of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sum" title="ndarray.simple_math.sum"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sum</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.sum" title="ndarray.simple_math.sum"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.sum</span></code></a>(x)</td>
 <td>Finds the sum of an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.tan" title="ndarray.simple_math.tan"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.tan</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.tan" title="ndarray.simple_math.tan"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.tan</span></code></a>(x)</td>
 <td>Finds the tan of an array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.variance" title="ndarray.simple_math.variance"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.variance</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.simple_math.variance" title="ndarray.simple_math.variance"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.simple_math.variance</span></code></a>(x)</td>
 <td>Finds the variance of an array.</td>
 </tr>
 </tbody>
@@ -442,19 +442,19 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.assignment_operator" title="ndarray.operators.assignment_operator"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.assignment_operator</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.assignment_operator" title="ndarray.operators.assignment_operator"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.assignment_operator</span></code></a>(lhs,&nbsp;rhs)</td>
 <td>Assign select values of an array to a value.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.elementwise_operators" title="ndarray.operators.elementwise_operators"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.elementwise_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.elementwise_operators" title="ndarray.operators.elementwise_operators"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.elementwise_operators</span></code></a>(lhs,&nbsp;rhs)</td>
 <td>Element-wise operators.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.equality" title="ndarray.operators.equality"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.equality</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.equality" title="ndarray.operators.equality"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.equality</span></code></a>(lhs,&nbsp;rhs)</td>
 <td>Seeing if two arrays are about equal.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.logical_operators" title="ndarray.operators.logical_operators"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.logical_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-even"><td><a class="reference internal" href="ndarray.html#ndarray.operators.logical_operators" title="ndarray.operators.logical_operators"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.logical_operators</span></code></a>(lhs,&nbsp;rhs)</td>
 <td>Logical operators.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.pow" title="ndarray.operators.pow"><tt class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.pow</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="ndarray.html#ndarray.operators.pow" title="ndarray.operators.pow"><code class="xref py py-obj docutils literal"><span class="pre">ndarray.operators.pow</span></code></a>(lhs,&nbsp;rhs)</td>
 <td>The power operator.</td>
 </tr>
 </tbody>
@@ -479,19 +479,19 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.array" title="matrix.initing.array"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.array</span></tt></a>(matlab_like_string)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.array" title="matrix.initing.array"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.array</span></code></a>(matlab_like_string)</td>
 <td>An array from a matlab like string.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.eye" title="matrix.initing.eye"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.eye</span></tt></a>(N)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.eye" title="matrix.initing.eye"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.eye</span></code></a>(N)</td>
 <td>Makes the identity matrix.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.meshgrid" title="matrix.initing.meshgrid"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.meshgrid</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.meshgrid" title="matrix.initing.meshgrid"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.meshgrid</span></code></a>(x,&nbsp;y)</td>
 <td>Makes a mesh out of two ndarrays.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.ones" title="matrix.initing.ones"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.ones</span></tt></a>(shape)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.ones" title="matrix.initing.ones"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.ones</span></code></a>(shape)</td>
 <td>Makes a matrix full of ones.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.rand" title="matrix.initing.rand"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.rand</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.rand" title="matrix.initing.rand"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.rand</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -502,7 +502,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.randn" title="matrix.initing.randn"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.randn</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.randn" title="matrix.initing.randn"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.randn</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -513,13 +513,13 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.reshape" title="matrix.initing.reshape"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.reshape</span></tt></a>(x,&nbsp;shape)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.reshape" title="matrix.initing.reshape"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.reshape</span></code></a>(x,&nbsp;shape)</td>
 <td>Reshapes to the specified size.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros" title="matrix.initing.zeros"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros</span></tt></a>(shape)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros" title="matrix.initing.zeros"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros</span></code></a>(shape)</td>
 <td>Makes a matrix full of zeros.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros_like" title="matrix.initing.zeros_like"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros_like</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.initing.zeros_like" title="matrix.initing.zeros_like"><code class="xref py py-obj docutils literal"><span class="pre">matrix.initing.zeros_like</span></code></a>(x)</td>
 <td>A matrix like the other matrix.</td>
 </tr>
 </tbody>
@@ -533,37 +533,37 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.argwhere" title="matrix.helper_functions.argwhere"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.argwhere</span></tt></a>(idx)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.argwhere" title="matrix.helper_functions.argwhere"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.argwhere</span></code></a>(idx)</td>
 <td>Sees where a condition applies.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.det" title="matrix.helper_functions.det"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.det</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.det" title="matrix.helper_functions.det"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.det</span></code></a>(x)</td>
 <td>Estimate the determinant of a matrix.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.diag" title="matrix.helper_functions.diag"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.diag</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.diag" title="matrix.helper_functions.diag"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.diag</span></code></a>(x)</td>
 <td>Make an array with the specified diagonal.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.fliplr" title="matrix.helper_functions.fliplr"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.fliplr</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.fliplr" title="matrix.helper_functions.fliplr"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.fliplr</span></code></a>(x)</td>
 <td>Flips each row.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.flipud" title="matrix.helper_functions.flipud"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.flipud</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.flipud" title="matrix.helper_functions.flipud"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.flipud</span></code></a>(x)</td>
 <td>Flips each column.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.kron" title="matrix.helper_functions.kron"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.kron</span></tt></a>(a,&nbsp;b)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.kron" title="matrix.helper_functions.kron"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.kron</span></code></a>(a,&nbsp;b)</td>
 <td>Find the <a class="reference external" href="https://en.wikipedia.org/wiki/Kronecker_product">Kronecker product</a> between two matrices.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.norm" title="matrix.helper_functions.norm"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.norm</span></tt></a>(x[,&nbsp;ord])</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.norm" title="matrix.helper_functions.norm"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.norm</span></code></a>(x[,&nbsp;ord])</td>
 <td>Find the <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm">Matrix norm</a> of a matrix.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.ones_like" title="matrix.helper_functions.ones_like"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.ones_like</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.ones_like" title="matrix.helper_functions.ones_like"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.ones_like</span></code></a>(x)</td>
 <td>Makes an matrix like another matrix.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.println" title="matrix.helper_functions.println"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.println</span></tt></a>(x[,&nbsp;prefix,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.println" title="matrix.helper_functions.println"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.println</span></code></a>(x[,&nbsp;prefix,&nbsp;...])</td>
 <td>Prints the matrix.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.rot90" title="matrix.helper_functions.rot90"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.rot90</span></tt></a>(x[,&nbsp;k])</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.rot90" title="matrix.helper_functions.rot90"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.rot90</span></code></a>(x[,&nbsp;k])</td>
 <td>Rotate the given matrix 90 degrees counter-clockwise.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.transpose" title="matrix.helper_functions.transpose"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.transpose</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.helper_functions.transpose" title="matrix.helper_functions.transpose"><code class="xref py py-obj docutils literal"><span class="pre">matrix.helper_functions.transpose</span></code></a>(x)</td>
 <td>Finds the transpose.</td>
 </tr>
 </tbody>
@@ -577,25 +577,25 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.copy" title="matrix.matrix.copy"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.copy</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.copy" title="matrix.matrix.copy"><code class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.copy</span></code></a>()</td>
 <td>Copies the matrix.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.matrix.dot" title="matrix.matrix.dot"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.dot</span></tt></a>(y)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.matrix.dot" title="matrix.matrix.dot"><code class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.dot</span></code></a>(y)</td>
 <td>Matrix multiplication with another matrix.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.index" title="matrix.matrix.index"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.index</span></tt></a>(one,&nbsp;two)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.index" title="matrix.matrix.index"><code class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.index</span></code></a>(one,&nbsp;two)</td>
 <td>Indexes with two numbers; range&lt;int&gt;, ndarray or int.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.matrix.index_diag" title="matrix.matrix.index_diag"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.index_diag</span></tt></a>(string)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.matrix.index_diag" title="matrix.matrix.index_diag"><code class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.index_diag</span></code></a>(string)</td>
 <td>Gets or sets the diagonal.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.index_flat" title="matrix.matrix.index_flat"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.index_flat</span></tt></a>(idx)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.index_flat" title="matrix.matrix.index_flat"><code class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.index_flat</span></code></a>(idx)</td>
 <td>Indexes in the row-major flat array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.matrix.tril" title="matrix.matrix.tril"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.tril</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.matrix.tril" title="matrix.matrix.tril"><code class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.tril</span></code></a>(x)</td>
 <td>Return the indices to the lower part of the array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.triu" title="matrix.matrix.triu"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.triu</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.matrix.triu" title="matrix.matrix.triu"><code class="xref py py-obj docutils literal"><span class="pre">matrix.matrix.triu</span></code></a>(x)</td>
 <td>Return the indices to the upper part of the array.</td>
 </tr>
 </tbody>
@@ -609,25 +609,25 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.dot" title="matrix.complex_math.dot"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.dot</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.dot</span></code></a>(x,&nbsp;y)</td>
 <td>Matrix multiplication between two matrices.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.complex_math.eig" title="matrix.complex_math.eig"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.eig</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.complex_math.eig" title="matrix.complex_math.eig"><code class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.eig</span></code></a>(x)</td>
 <td>Find the eigenvaleus of a matrix.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.inv" title="matrix.complex_math.inv"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.inv</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.inv" title="matrix.complex_math.inv"><code class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.inv</span></code></a>(x)</td>
 <td>Find the inverse of a matrix.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.complex_math.pinv" title="matrix.complex_math.pinv"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.pinv</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.complex_math.pinv" title="matrix.complex_math.pinv"><code class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.pinv</span></code></a>(x)</td>
 <td>Finds the <a class="reference external" href="https://en.wikipedia.org/wiki/Moore–Penrose_pseudoinverse">Moore-Penrose pseudoinverse</a>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.rank" title="matrix.complex_math.rank"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.rank</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.rank" title="matrix.complex_math.rank"><code class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.rank</span></code></a>(x)</td>
 <td>Compute the <a class="reference external" href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">matrix rank</a> of a matrix.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.complex_math.solve" title="matrix.complex_math.solve"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.solve</span></tt></a>(A,&nbsp;b)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.complex_math.solve" title="matrix.complex_math.solve"><code class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.solve</span></code></a>(A,&nbsp;b)</td>
 <td>Solve a system of linear equations.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.svd" title="matrix.complex_math.svd"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.svd</span></tt></a>(x[,&nbsp;compute_uv])</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.complex_math.svd" title="matrix.complex_math.svd"><code class="xref py py-obj docutils literal"><span class="pre">matrix.complex_math.svd</span></code></a>(x[,&nbsp;compute_uv])</td>
 <td>Compute the singular value decomposition.</td>
 </tr>
 </tbody>
@@ -641,25 +641,25 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.RGBAToUIImage" title="matrix.images.RGBAToUIImage"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.images.RGBAToUIImage</span></tt></a>(r,&nbsp;g,&nbsp;b,&nbsp;a)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.RGBAToUIImage" title="matrix.images.RGBAToUIImage"><code class="xref py py-obj docutils literal"><span class="pre">matrix.images.RGBAToUIImage</span></code></a>(r,&nbsp;g,&nbsp;b,&nbsp;a)</td>
 <td>Convert the RGBA color planes into a UIImage</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.images.UIImageToRGBAImage" title="matrix.images.UIImageToRGBAImage"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.images.UIImageToRGBAImage</span></tt></a>(image)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.images.UIImageToRGBAImage" title="matrix.images.UIImageToRGBAImage"><code class="xref py py-obj docutils literal"><span class="pre">matrix.images.UIImageToRGBAImage</span></code></a>(image)</td>
 <td>Convert an RGBA UIImage into 4 different arrays corresponding to the RGBA color planes.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.imshow" title="matrix.images.imshow"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.images.imshow</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.imshow" title="matrix.images.imshow"><code class="xref py py-obj docutils literal"><span class="pre">matrix.images.imshow</span></code></a>(x)</td>
 <td>Shows a matrix using Python.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.images.resizeImage" title="matrix.images.resizeImage"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.images.resizeImage</span></tt></a>(image,&nbsp;shape)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.images.resizeImage" title="matrix.images.resizeImage"><code class="xref py py-obj docutils literal"><span class="pre">matrix.images.resizeImage</span></code></a>(image,&nbsp;shape)</td>
 <td>Resize an image to the given shape.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.rgb2hsv" title="matrix.images.rgb2hsv"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.images.rgb2hsv</span></tt></a>(r,&nbsp;g,&nbsp;b)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.rgb2hsv" title="matrix.images.rgb2hsv"><code class="xref py py-obj docutils literal"><span class="pre">matrix.images.rgb2hsv</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
 <td>Converts RGB values to HSV values.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.images.rgb2hsv_vplane" title="matrix.images.rgb2hsv_vplane"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.images.rgb2hsv_vplane</span></tt></a>(r,&nbsp;g,&nbsp;b)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.images.rgb2hsv_vplane" title="matrix.images.rgb2hsv_vplane"><code class="xref py py-obj docutils literal"><span class="pre">matrix.images.rgb2hsv_vplane</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
 <td>Converts a set of RGB color values to the HSV v plane only.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.savefig" title="matrix.images.savefig"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.images.savefig</span></tt></a>(x,&nbsp;filename[,&nbsp;save,&nbsp;show])</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.images.savefig" title="matrix.images.savefig"><code class="xref py py-obj docutils literal"><span class="pre">matrix.images.savefig</span></code></a>(x,&nbsp;filename[,&nbsp;save,&nbsp;show])</td>
 <td>Saves a figure using Python.</td>
 </tr>
 </tbody>
@@ -673,7 +673,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.abs" title="matrix.simple_math.abs"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.abs</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.abs" title="matrix.simple_math.abs"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.abs</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -684,7 +684,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.ceil" title="matrix.simple_math.ceil"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.ceil</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.ceil" title="matrix.simple_math.ceil"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.ceil</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -695,7 +695,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.cos" title="matrix.simple_math.cos"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.cos</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.cos" title="matrix.simple_math.cos"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.cos</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -706,7 +706,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.floor" title="matrix.simple_math.floor"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.floor</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.floor" title="matrix.simple_math.floor"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.floor</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -717,7 +717,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.log" title="matrix.simple_math.log"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.log</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.log" title="matrix.simple_math.log"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.log</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -728,7 +728,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.mean" title="matrix.simple_math.mean"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.mean</span></tt></a>(x[,&nbsp;axis])</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.mean" title="matrix.simple_math.mean"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.mean</span></code></a>(x[,&nbsp;axis])</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -739,7 +739,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.pow" title="matrix.simple_math.pow"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.pow</span></tt></a>(x,&nbsp;power)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.pow" title="matrix.simple_math.pow"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.pow</span></code></a>(x,&nbsp;power)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -750,10 +750,10 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.prod" title="matrix.simple_math.prod"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.prod</span></tt></a>(x[,&nbsp;axis])</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.prod" title="matrix.simple_math.prod"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.prod</span></code></a>(x[,&nbsp;axis])</td>
 <td>Find the product of each row/column of a matrix.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.round" title="matrix.simple_math.round"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.round</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.round" title="matrix.simple_math.round"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.round</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -764,7 +764,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sign" title="matrix.simple_math.sign"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sign</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sign" title="matrix.simple_math.sign"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sign</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -775,7 +775,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sin" title="matrix.simple_math.sin"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sin</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sin" title="matrix.simple_math.sin"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sin</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -786,7 +786,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sqrt" title="matrix.simple_math.sqrt"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sqrt</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sqrt" title="matrix.simple_math.sqrt"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sqrt</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -797,10 +797,10 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sum" title="matrix.simple_math.sum"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sum</span></tt></a>(x[,&nbsp;axis])</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.simple_math.sum" title="matrix.simple_math.sum"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.sum</span></code></a>(x[,&nbsp;axis])</td>
 <td>Perform the sum over a given axis.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.tan" title="matrix.simple_math.tan"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.tan</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.simple_math.tan" title="matrix.simple_math.tan"><code class="xref py py-obj docutils literal"><span class="pre">matrix.simple_math.tan</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -822,19 +822,19 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.assignment_operator" title="matrix.operators.assignment_operator"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.assignment_operator</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.assignment_operator" title="matrix.operators.assignment_operator"><code class="xref py py-obj docutils literal"><span class="pre">matrix.operators.assignment_operator</span></code></a>(lhs,&nbsp;rhs)</td>
 <td>Assign select values of a matrix to a constant value.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.dot" title="matrix.operators.dot"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.dot</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.dot" title="matrix.operators.dot"><code class="xref py py-obj docutils literal"><span class="pre">matrix.operators.dot</span></code></a>(x,&nbsp;y)</td>
 <td>The dot product operator.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.element_operators" title="matrix.operators.element_operators"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.element_operators</span></tt></a>(lhs,&nbsp;rhs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.element_operators" title="matrix.operators.element_operators"><code class="xref py py-obj docutils literal"><span class="pre">matrix.operators.element_operators</span></code></a>(lhs,&nbsp;rhs)</td>
 <td>Element wise artithmetic operators.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.equality" title="matrix.operators.equality"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.equality</span></tt></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="matrix.html#matrix.operators.equality" title="matrix.operators.equality"><code class="xref py py-obj docutils literal"><span class="pre">matrix.operators.equality</span></code></a>(x,&nbsp;y)</td>
 <td>Sees if two matrices are approximately equal.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.solve" title="matrix.operators.solve"><tt class="xref py py-obj docutils literal"><span class="pre">matrix.operators.solve</span></tt></a>(A,&nbsp;b)</td>
+<tr class="row-odd"><td><a class="reference internal" href="matrix.html#matrix.operators.solve" title="matrix.operators.solve"><code class="xref py py-obj docutils literal"><span class="pre">matrix.operators.solve</span></code></a>(A,&nbsp;b)</td>
 <td>Solves a system of eqautions similar to Matlab&#8217;s backslash.</td>
 </tr>
 </tbody>
@@ -859,7 +859,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="machine_learning.html#machine_learning.SVM.predict" title="machine_learning.SVM.predict"><tt class="xref py py-obj docutils literal"><span class="pre">machine_learning.SVM.predict</span></tt></a>(responses)</td>
+<tr class="row-odd"><td><a class="reference internal" href="machine_learning.html#machine_learning.SVM.predict" title="machine_learning.SVM.predict"><code class="xref py py-obj docutils literal"><span class="pre">machine_learning.SVM.predict</span></code></a>(responses)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -871,7 +871,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="machine_learning.html#machine_learning.SVM.setParams" title="machine_learning.SVM.setParams"><tt class="xref py py-obj docutils literal"><span class="pre">machine_learning.SVM.setParams</span></tt></a>(svm_type,&nbsp;kernel)</td>
+<tr class="row-even"><td><a class="reference internal" href="machine_learning.html#machine_learning.SVM.setParams" title="machine_learning.SVM.setParams"><code class="xref py py-obj docutils literal"><span class="pre">machine_learning.SVM.setParams</span></code></a>(svm_type,&nbsp;kernel)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -882,7 +882,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="machine_learning.html#machine_learning.SVM.train" title="machine_learning.SVM.train"><tt class="xref py py-obj docutils literal"><span class="pre">machine_learning.SVM.train</span></tt></a>(responses,&nbsp;targets)</td>
+<tr class="row-odd"><td><a class="reference internal" href="machine_learning.html#machine_learning.SVM.train" title="machine_learning.SVM.train"><code class="xref py py-obj docutils literal"><span class="pre">machine_learning.SVM.train</span></code></a>(responses,&nbsp;targets)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -904,7 +904,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="machine_learning.html#machine_learning.kNN.predict" title="machine_learning.kNN.predict"><tt class="xref py py-obj docutils literal"><span class="pre">machine_learning.kNN.predict</span></tt></a>(x,&nbsp;k)</td>
+<tr class="row-odd"><td><a class="reference internal" href="machine_learning.html#machine_learning.kNN.predict" title="machine_learning.kNN.predict"><code class="xref py py-obj docutils literal"><span class="pre">machine_learning.kNN.predict</span></code></a>(x,&nbsp;k)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -915,7 +915,7 @@
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="machine_learning.html#machine_learning.kNN.train" title="machine_learning.kNN.train"><tt class="xref py py-obj docutils literal"><span class="pre">machine_learning.kNN.train</span></tt></a>(responses,&nbsp;targets)</td>
+<tr class="row-even"><td><a class="reference internal" href="machine_learning.html#machine_learning.kNN.train" title="machine_learning.kNN.train"><code class="xref py py-obj docutils literal"><span class="pre">machine_learning.kNN.train</span></code></a>(responses,&nbsp;targets)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -947,7 +947,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="c.html#objc.matrixToPointer" title="objc.matrixToPointer"><tt class="xref py py-obj docutils literal"><span class="pre">objc.matrixToPointer</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="c.html#objc.matrixToPointer" title="objc.matrixToPointer"><code class="xref py py-obj docutils literal"><span class="pre">objc.matrixToPointer</span></code></a>(x)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -967,7 +967,7 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/icon.png" alt="Logo"/>
@@ -1022,7 +1022,7 @@
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1039,7 +1039,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1054,12 +1054,12 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

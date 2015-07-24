@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from numbers import S2_PREFIX
+from numbers_swix import S2_PREFIX
 
 def read_binary(x, filename, prefix=S2_PREFIX):
     """

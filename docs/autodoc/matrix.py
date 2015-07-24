@@ -1,6 +1,7 @@
-from numbers import S2_PREFIX
-import ndarray 
+import ndarray
 # unused but in docs
+
+from numbers_swix import S2_PREFIX
 
 class matrix:
     """
@@ -44,7 +45,7 @@ class matrix:
         indexing like Python
 
         Use ``x[1, "all"]`` to access an entire row or column.
-        
+
         Also possible to use boolean indexing. ``x[x < 0] <- 0`` is the primary
         use case for this.
 
@@ -79,7 +80,7 @@ class matrix:
         :rtype: ndarray. Indexes ``matrix.flat`` in row-major order.
 
         .. note:: Use ``x[array(1, 2, 3, x.shape.0+1)]`` to index, not the function name.
-        
+
         >>> x = arange(9).rehshape((3,3))
         >>> assert(x[array(0, 3, 6)] ~== array(0, 3, 6))
 
@@ -98,7 +99,7 @@ class matrix:
         >>> x = arange(9).reshape((3,3))
         >>> x["diag"] = array(-1, -2, -3)
         >>> assert(x["diag"] = array(-1, -2, -3))
-        >>> println(x)
+        >>> print(x)
         # prints [-1 1 2; 3 -2 5; 6 7 -3]
         """
     def tril(x):
@@ -178,9 +179,9 @@ class initing:
         This function evaulates every possible combination of x and y. Very similar to NumPy's meshgrid.
 
         >>> x, y = meshgrid(array(1, 2), array(3, 4))
-        >>> println(x)
+        >>> print(x)
         # prints [1 2; 1 2]
-        >>> println(y)
+        >>> print(y)
         # prints [3 3; 4 4]
 
         .. seealso:: `np.meshgrid`_
@@ -274,7 +275,7 @@ class helper_functions:
         """
     def kron(a, b):
         """
-        Find the `Kronecker product`_ between two matrices. 
+        Find the `Kronecker product`_ between two matrices.
 
         :param a: The first term for kron.
         :type a: matrix
@@ -326,6 +327,8 @@ class helper_functions:
     def println(x, prefix="matrix([", postfix="])", newline="\n", format="%.3f", printWholeMatrix=False):
         """
         Prints the matrix.
+
+        .. note:: Can be called with either ``print(x)`` or ``println(x)``
 
         :param x: The matrix to print.
         :type x: matrix
@@ -386,8 +389,8 @@ class operators:
 
         >>> x = ones((4,3))
         >>> x[0..<2, 0..<2] <- 5
-        >>> # x ~== [5, 5, 1, 1; 
-        >>> #        5, 5, 1, 1; 
+        >>> # x ~== [5, 5, 1, 1;
+        >>> #        5, 5, 1, 1;
         >>> #        1, 1, 1, 1]
 
         .. seealso:: :class:`ndarray.operators.assignment_operator`
@@ -538,7 +541,7 @@ class simple_math:
 
         :param x:
         :type x: matrix
-        :param axis: Assumed to be either 0 or 1. Finds the sum of all values that are not in the axis. 
+        :param axis: Assumed to be either 0 or 1. Finds the sum of all values that are not in the axis.
         :type axis: Int
         :rtype: ndarray
 
@@ -603,9 +606,9 @@ class images:
         """
         Saves a figure using Python.
 
-        :param x: The matrix you want to see. 
+        :param x: The matrix you want to see.
         :type x: matrix
-        :param filename: The filename you want to save at. 
+        :param filename: The filename you want to save at.
         :type filename: String
 
         Saves the matrix. Relies on Python being found at PYTHON_PATH and pylab stack being installed
@@ -616,7 +619,7 @@ class images:
         """
         Shows a matrix using Python.
 
-        :param x: The matrix you want to see. 
+        :param x: The matrix you want to see.
         :type x: matrix
 
         Shows the matrix. Relies on Python being found at PYTHON_PATH and pylab stack being installed
@@ -712,7 +715,7 @@ class complex_math:
         :param x: Finds the inverse of this matrix.
         :type x: matrix
         :rtype: :math:`x^{-1}`
-        
+
         Finds the inverse of the matrix; can be expensive time-wise!
 
         .. seealso::

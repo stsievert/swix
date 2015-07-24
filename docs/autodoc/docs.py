@@ -3,7 +3,7 @@ import ndarray
 import matrix
 import machine_learning
 import inspect
-import numbers
+import numbers_swix
 import objc
 import io_swix
 
@@ -45,7 +45,7 @@ ml_modules = [machine_learning.SVM, machine_learning.kNN]
 n = print_functions(ndarray, ndarray_modules)
 m = print_functions(matrix, matrix_modules)
 ml = print_functions(machine_learning, ml_modules)
-nu = print_root_functions(numbers, "numbers")
+nu = print_root_functions(numbers_swix, "numbers_swix")
 io = print_root_functions(io_swix, "io_swix")
 objcs = print_root_functions(objc, "objc")
 

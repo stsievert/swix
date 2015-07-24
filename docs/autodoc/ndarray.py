@@ -1,4 +1,4 @@
-from numbers import S2_PREFIX
+from numbers_swix import S2_PREFIX
 
 class ndarray:
     n = "Int" #: Number of elements this array contains
@@ -14,12 +14,12 @@ class ndarray:
 
         >>> var x = arange(2*2).reshape((2,2))
         >>> var y = x.reshape((2,-1))
-        >>> println(y)
+        >>> print(y)
         # prints [0 1; 2 3]
-        >>> println(x)
+        >>> print(x)
         # prints [0 1; 2 3]
 
-        .. seealso:: 
+        .. seealso::
             `np.reshape`_, :class:`matrix.initing.reshape`
         """
     def copy():
@@ -169,7 +169,7 @@ class initing():
 
         .. note:: Unoptimized. I assume this is only being used in test code.
 
-        >>> println(array(0, 1, 2, 3, 4))
+        >>> print(array(0, 1, 2, 3, 4))
         # prints array([0.000, 1.000, 2.000, 3.000, 4.000])
         """
     def asarray(x):
@@ -267,7 +267,7 @@ class helper_functions:
         :param x: The array to be counted.
         :type x: ndarray
         :rtype: Double. The number of nonzero elements.
-        
+
         .. seealso:: `np.count_nonzero`_
         """
     def intersection(x, y):
@@ -464,16 +464,18 @@ class helper_functions:
         """
         Prints an array.
 
+        .. note:: Can be called with either ``print(x)`` or ``println(x)``
+
         :param x: Prints that matrix.
         :type x: ndarray
 
         Prints the ndarray with the above optional formatters. They are all of type String.
-
-        Also callable: ``print(x, ..., newline="")`` with the same options.
         """
     def repeat(x, N, axis=0):
         """
         Repeats an array.
+
+        .. warning:: Must be called with ```repeat`(x, N:3)``. ``repeat`` is a keyword in Swift and those backticks must be used.
 
         :param x: The array to repeat.
         :param N: How many times to repeat the array.
@@ -593,7 +595,7 @@ class operators:
         """
     def logical_operators(lhs, rhs):
         """
-        Logical operators. 
+        Logical operators.
 
         :param lhs: An array of true/false (meaning 0 or 1)
         :type lhs: ndarray
@@ -617,7 +619,7 @@ class operators:
 
         The comparison operators are all implemented through OpenCV and rely on the array being continuous in memory, which relies on having small input arrays. It will print (but not assert) if this is not the case.
 
-        .. note:: Callable through the ``~==`` operator. 
+        .. note:: Callable through the ``~==`` operator.
 
         >>> assert(array(0, 1) ~== array(0, 1+1e-10))
         """
@@ -630,7 +632,7 @@ class operators:
         :type lhs: ndarray, Double, ndarray
         :type rhs: Double, ndarray, ndarray.
         :rtype: ndarray, ``pow(lhs, rhs)``.
-        
+
         .. note:: callable with ``x^y``.
 
         .. note:: Optimized for lhs:ndarray, rhs=2. If ``close(2, rhs) == True``, prints message but no assert.
@@ -647,7 +649,7 @@ class simple_math:
 
     * min, max, mean, std, variance
     * sign, abs, norm, pow, sqrt
-    * sum, cumsum, 
+    * sum, cumsum,
     * rand, randn
     * sin, cos, tan
     * round, floor, ceil

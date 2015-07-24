@@ -8,7 +8,7 @@
     
     <title>Interfacing with C &mdash; swix 0.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Bugs" href="bugs.html" />
     <link rel="prev" title="Machine learning" href="machine_learning.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,14 +44,14 @@
         <li class="right" >
           <a href="machine_learning.html" title="Machine learning"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="interfacing-with-c">
 <h1>Interfacing with C<a class="headerlink" href="#interfacing-with-c" title="Permalink to this headline">¶</a></h1>
@@ -60,28 +60,28 @@
 <span id="docs"></span><h2>Docs<a class="headerlink" href="#module-objc" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="objc.matrixToPointer">
-<tt class="descclassname">objc.</tt><tt class="descname">matrixToPointer</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/objc/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#objc.matrixToPointer" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">objc.</code><code class="descname">matrixToPointer</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/objc/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#objc.matrixToPointer" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>ndarray, [Int]</em>) &#8211; The ndarray you want to take the address of.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">UnsafeMutablePointer&lt;Double&gt;. Equivalent to <tt class="docutils literal"><span class="pre">double</span> <span class="pre">*</span></tt></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">UnsafeMutablePointer&lt;Double&gt;. Equivalent to <code class="docutils literal"><span class="pre">double</span> <span class="pre">*</span></code></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Callable through operator <tt class="docutils literal"><span class="pre">!x</span></tt> for both ndarray and matrix.</p>
+<p class="last">Callable through operator <code class="docutils literal"><span class="pre">!x</span></code> for both ndarray and matrix.</p>
 </div>
 </dd></dl>
 
 <div class="section" id="tips">
 <h3>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Use <tt class="docutils literal"><span class="pre">.cint</span></tt>, <tt class="docutils literal"><span class="pre">.cfloat</span></tt>, <tt class="docutils literal"><span class="pre">.cdouble</span></tt> to pass numeric values to C.</li>
-<li>Use <tt class="docutils literal"><span class="pre">.legnth</span></tt> or <tt class="docutils literal"><span class="pre">.stride</span></tt> to pass vDSP_Length and vDSP_Stride to vDSP functions.</li>
+<li>Use <code class="docutils literal"><span class="pre">.cint</span></code>, <code class="docutils literal"><span class="pre">.cfloat</span></code>, <code class="docutils literal"><span class="pre">.cdouble</span></code> to pass numeric values to C.</li>
+<li>Use <code class="docutils literal"><span class="pre">.legnth</span></code> or <code class="docutils literal"><span class="pre">.stride</span></code> to pass vDSP_Length and vDSP_Stride to vDSP functions.</li>
 </ul>
 </div>
 </div>
@@ -91,7 +91,7 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/icon.png" alt="Logo"/>
@@ -122,7 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -139,7 +139,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -154,12 +154,12 @@
         <li class="right" >
           <a href="machine_learning.html" title="Machine learning"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

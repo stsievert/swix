@@ -23,14 +23,14 @@ numbers
 
 
 .. autosummary::
-    numbers.binom
-    numbers.close
-    numbers.convience_elements
-    numbers.deg2rad
-    numbers.factorial
-    numbers.isNumber
-    numbers.operator_slash
-    numbers.rad2deg
+    numbers_swix.binom
+    numbers_swix.close
+    numbers_swix.convience_elements
+    numbers_swix.deg2rad
+    numbers_swix.factorial
+    numbers_swix.isNumber
+    numbers_swix.operator_slash
+    numbers_swix.rad2deg
 
 I/O
 -------------------------

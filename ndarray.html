@@ -8,7 +8,7 @@
     
     <title>Array &mdash; swix 0.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.2 documentation" href="index.html" />
     <link rel="next" title="Matrices" href="matrix.html" />
     <link rel="prev" title="Numbers and constants" href="numbers.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,18 +44,18 @@
         <li class="right" >
           <a href="numbers.html" title="Numbers and constants"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="array">
 <h1>Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h1>
-<p><tt class="docutils literal"><span class="pre">ndarray</span></tt> stands for &#8220;<span class="math">\(N\)</span> dimensional array&#8221;. It&#8217;s a mix of programming
+<p><code class="docutils literal"><span class="pre">ndarray</span></code> stands for &#8220;<span class="math">\(N\)</span> dimensional array&#8221;. It&#8217;s a mix of programming
 language and math language; in math, this is called an <span class="math">\(N\)</span> dimensional vector.</p>
 <p>The full docs can be found below but I&#8217;ll touch on some highlights:</p>
 <ul class="simple">
@@ -64,10 +64,10 @@ language and math language; in math, this is called an <span class="math">\(N\)<
 <li>simple math. Math that applies to each element.</li>
 <li>nice indexing, including accessing multiple elements at once (goodbye for loops!).</li>
 </ul>
-<p>Found in <tt class="docutils literal"><span class="pre">swix/ndarray/*</span></tt></p>
+<p>Found in <code class="docutils literal"><span class="pre">swix/ndarray/*</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><tt class="docutils literal"><span class="pre">*</span></tt> is an element-wise multiplication. <tt class="docutils literal"><span class="pre">*!</span></tt> is used for a dot product or matrix multiplication. Not like matlab!</p>
+<p class="last"><code class="docutils literal"><span class="pre">*</span></code> is an element-wise multiplication. <code class="docutils literal"><span class="pre">*!</span></code> is used for a dot product or matrix multiplication. Not like matlab!</p>
 </div>
 <div class="section" id="module-ndarray">
 <span id="docs"></span><h2>Docs<a class="headerlink" href="#module-ndarray" title="Permalink to this headline">¶</a></h2>
@@ -76,10 +76,10 @@ language and math language; in math, this is called an <span class="math">\(N\)<
 <p>Yes, an actual class (or struct).</p>
 <dl class="class">
 <dt id="ndarray.ndarray">
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">ndarray</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ndarray.</code><code class="descname">ndarray</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="ndarray.ndarray.copy">
-<tt class="descname">copy</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copies the contents of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -100,25 +100,25 @@ language and math language; in math, this is called an <span class="math">\(N\)<
 
 <dl class="attribute">
 <dt id="ndarray.ndarray.count">
-<tt class="descname">count</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">count</code><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of elements.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ndarray.ndarray.grid">
-<tt class="descname">grid</tt><em class="property"> = '[Double]'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.grid" title="Permalink to this definition">¶</a></dt>
+<code class="descname">grid</code><em class="property"> = '[Double]'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Array this ndarray depends on.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.ndarray.indexing">
-<tt class="descname">indexing</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.indexing" title="Permalink to this definition">¶</a></dt>
+<code class="descname">indexing</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.indexing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Grabs elements using an ndarray, Range&lt;Int&gt; or integers. Includes negative indexing like Python.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Assumes an index is either wholly positive or negative; indexes like <tt class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></tt> aren&#8217;t supported.</p>
+<p class="last">Assumes an index is either wholly positive or negative; indexes like <code class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></code> aren&#8217;t supported.</p>
 </div>
-<p>Use <tt class="docutils literal"><span class="pre">x[&quot;all&quot;]</span></tt> to grab all elements from this array.</p>
+<p>Use <code class="docutils literal"><span class="pre">x[&quot;all&quot;]</span></code> to grab all elements from this array.</p>
 <p>It&#8217;s also possible to use boolean indexing. The boolean indexs are
 assumed to have a length the same as the array being indexed.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -146,7 +146,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.ndarray.max">
-<tt class="descname">max</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.max" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the maximum value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -167,7 +167,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.ndarray.mean">
-<tt class="descname">mean</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.mean" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.mean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the average value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -188,7 +188,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.ndarray.min">
-<tt class="descname">min</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.min" title="Permalink to this definition">¶</a></dt>
+<code class="descname">min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.min" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the minimum value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -209,13 +209,13 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="attribute">
 <dt id="ndarray.ndarray.n">
-<tt class="descname">n</tt><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.n" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n</code><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.n" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of elements this array contains</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.ndarray.reshape">
-<tt class="descname">reshape</tt><big>(</big><em>shape</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.reshape" title="Permalink to this definition">¶</a></dt>
+<code class="descname">reshape</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.reshape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reshapes the matrix to the specified size. The number of elements must remain constant, however, if a value of -1 is passed a new size is calculated to keep the number of elements the same.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -229,35 +229,35 @@ assumed to have a length the same as the array being indexed.</p>
 </table>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">println</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="go"># prints [0 1; 2 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go"># prints [0 1; 2 3]</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html">np.reshape</a>, <a class="reference internal" href="matrix.html#matrix.initing.reshape" title="matrix.initing.reshape"><tt class="xref py py-class docutils literal"><span class="pre">matrix.initing.reshape</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html">np.reshape</a>, <a class="reference internal" href="matrix.html#matrix.initing.reshape" title="matrix.initing.reshape"><code class="xref py py-class docutils literal"><span class="pre">matrix.initing.reshape</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.ndarray.reverse">
-<tt class="descname">reverse</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.reverse" title="Permalink to this definition">¶</a></dt>
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.reverse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reverses the array in place.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.helper_functions.reverse" title="ndarray.helper_functions.reverse"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.reverse</span></tt></a></p>
+<p class="last"><a class="reference internal" href="#ndarray.helper_functions.reverse" title="ndarray.helper_functions.reverse"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.reverse</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.ndarray.sort">
-<tt class="descname">sort</tt><big>(</big><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.ndarray.sort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sorts the array in-place.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.helper_functions.sort" title="ndarray.helper_functions.sort"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.sort</span></tt></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html">np.sort</a></p>
+<p class="last"><a class="reference internal" href="#ndarray.helper_functions.sort" title="ndarray.helper_functions.sort"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.sort</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html">np.sort</a></p>
 </div>
 </dd></dl>
 
@@ -269,10 +269,10 @@ assumed to have a length the same as the array being indexed.</p>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt id="ndarray.initing">
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">initing</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ndarray.</code><code class="descname">initing</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="ndarray.initing.arange">
-<tt class="descname">arange</tt><big>(</big><em>max</em>, <em>min=0</em>, <em>x=True</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.arange" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arange</code><span class="sig-paren">(</span><em>max</em>, <em>min=0</em>, <em>x=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.arange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of integers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -300,7 +300,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.array">
-<tt class="descname">array</tt><big>(</big><em>numbers</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.array" title="Permalink to this definition">¶</a></dt>
+<code class="descname">array</code><span class="sig-paren">(</span><em>numbers</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array out of a list of numbers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -314,7 +314,7 @@ assumed to have a length the same as the array being indexed.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Unoptimized. I assume this is only being used in test code.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">println</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="go"># prints array([0.000, 1.000, 2.000, 3.000, 4.000])</span>
 </pre></div>
 </div>
@@ -322,7 +322,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.asarray">
-<tt class="descname">asarray</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.asarray" title="Permalink to this definition">¶</a></dt>
+<code class="descname">asarray</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.asarray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the input to an ndarray.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -342,7 +342,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.copy">
-<tt class="descname">copy</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copies the contents of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -352,19 +352,19 @@ assumed to have a length the same as the array being indexed.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns <a class="reference internal" href="#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><tt class="xref py py-func docutils literal"><span class="pre">ndarray.copy()</span></tt></a></p>
+<p>Returns <a class="reference internal" href="#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><code class="xref py py-func docutils literal"><span class="pre">ndarray.copy()</span></code></a></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.copy</span></tt></a> <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html">np.copy</a></p>
+<p class="last"><a class="reference internal" href="#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><code class="xref py py-class docutils literal"><span class="pre">ndarray.copy</span></code></a> <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html">np.copy</a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.initing.linspace">
-<tt class="descname">linspace</tt><big>(</big><em>min</em>, <em>max</em>, <em>num=50</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.linspace" title="Permalink to this definition">¶</a></dt>
+<code class="descname">linspace</code><span class="sig-paren">(</span><em>min</em>, <em>max</em>, <em>num=50</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.linspace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes a series of values linearly interpolated between two poitns.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -390,7 +390,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.ones">
-<tt class="descname">ones</tt><big>(</big><em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.ones" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ones</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.ones" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of ones.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -411,7 +411,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.ones_like">
-<tt class="descname">ones_like</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.ones_like" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ones_like</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.ones_like" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array like another array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -433,7 +433,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.rand">
-<tt class="descname">rand</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>distro='uniform'</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.rand" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rand</code><span class="sig-paren">(</span><em>N</em>, <em>seed=42</em>, <em>distro='uniform'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.rand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of uniform random variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -442,7 +442,7 @@ assumed to have a length the same as the array being indexed.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
 <li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
-<li><strong>distro</strong> (<em>String</em>) &#8211; The type of distribution. Assumed to be either <tt class="docutils literal"><span class="pre">&quot;uniform&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;normal&quot;</span></tt></li>
+<li><strong>distro</strong> (<em>String</em>) &#8211; The type of distribution. Assumed to be either <code class="docutils literal"><span class="pre">&quot;uniform&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code></li>
 </ul>
 </td>
 </tr>
@@ -463,7 +463,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.randn">
-<tt class="descname">randn</tt><big>(</big><em>N</em>, <em>seed=42</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randn" title="Permalink to this definition">¶</a></dt>
+<code class="descname">randn</code><span class="sig-paren">(</span><em>N</em>, <em>seed=42</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of normally distributed random variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -490,7 +490,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.randperm">
-<tt class="descname">randperm</tt><big>(</big><em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randperm" title="Permalink to this definition">¶</a></dt>
+<code class="descname">randperm</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randperm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shuffle an array of (typically) indices.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -498,19 +498,19 @@ assumed to have a length the same as the array being indexed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> (<em>Int</em>) &#8211; The size of the array. Values included are between 0 and N-1.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.helper_functions.shuffle" title="ndarray.helper_functions.shuffle"><tt class="xref py py-class docutils literal"><span class="pre">helper_functions.shuffle</span></tt></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.permutation.html">np.random.permutation</a></p>
+<p class="last"><a class="reference internal" href="#ndarray.helper_functions.shuffle" title="ndarray.helper_functions.shuffle"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.shuffle</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.permutation.html">np.random.permutation</a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.initing.zeros">
-<tt class="descname">zeros</tt><big>(</big><em>N</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.zeros" title="Permalink to this definition">¶</a></dt>
+<code class="descname">zeros</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.zeros" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of 0&#8217;s.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -531,7 +531,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.zeros_like">
-<tt class="descname">zeros_like</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.zeros_like" title="Permalink to this definition">¶</a></dt>
+<code class="descname">zeros_like</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.zeros_like" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array like another array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -558,10 +558,10 @@ assumed to have a length the same as the array being indexed.</p>
 <h3>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="ndarray.helper_functions">
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">helper_functions</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ndarray.</code><code class="descname">helper_functions</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="ndarray.helper_functions.argmax">
-<tt class="descname">argmax</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argmax" title="Permalink to this definition">¶</a></dt>
+<code class="descname">argmax</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argmax" title="Permalink to this definition">¶</a></dt>
 <dd><p>The location of the maximum.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -575,13 +575,13 @@ assumed to have a length the same as the array being indexed.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html">np.argmax</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#minmaxloc">cv.minMaxLoc</a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><tt class="xref py py-class docutils literal"><span class="pre">argmin</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><tt class="xref py py-class docutils literal"><span class="pre">argsort</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><tt class="xref py py-class docutils literal"><span class="pre">argwhere</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html">np.argmax</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#minmaxloc">cv.minMaxLoc</a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.argmin">
-<tt class="descname">argmin</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argmin" title="Permalink to this definition">¶</a></dt>
+<code class="descname">argmin</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argmin" title="Permalink to this definition">¶</a></dt>
 <dd><p>The location of the minimum.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -595,13 +595,13 @@ assumed to have a length the same as the array being indexed.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html">np.argmin</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#minmaxloc">cv.minMaxLoc</a>, <a class="reference internal" href="#ndarray.helper_functions.argmax" title="ndarray.helper_functions.argmax"><tt class="xref py py-class docutils literal"><span class="pre">argmax</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><tt class="xref py py-class docutils literal"><span class="pre">argmin</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><tt class="xref py py-class docutils literal"><span class="pre">argsort</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><tt class="xref py py-class docutils literal"><span class="pre">argwhere</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html">np.argmin</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#minmaxloc">cv.minMaxLoc</a>, <a class="reference internal" href="#ndarray.helper_functions.argmax" title="ndarray.helper_functions.argmax"><code class="xref py py-class docutils literal"><span class="pre">argmax</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.argsort">
-<tt class="descname">argsort</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argsort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">argsort</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argsort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sort the array but using indices.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -609,7 +609,7 @@ assumed to have a length the same as the array being indexed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></td>
 </tr>
 </tbody>
 </table>
@@ -619,13 +619,13 @@ assumed to have a length the same as the array being indexed.</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argsort.html">np.argsort</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#sortidx">cv.sortIdx</a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><tt class="xref py py-class docutils literal"><span class="pre">argmin</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><tt class="xref py py-class docutils literal"><span class="pre">argsort</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><tt class="xref py py-class docutils literal"><span class="pre">argwhere</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argsort.html">np.argsort</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#sortidx">cv.sortIdx</a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.argwhere">
-<tt class="descname">argwhere</tt><big>(</big><em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argwhere" title="Permalink to this definition">¶</a></dt>
+<code class="descname">argwhere</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.argwhere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sees where a condition exists.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -639,13 +639,13 @@ assumed to have a length the same as the array being indexed.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argwhere.html">np.argwhere</a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><tt class="xref py py-class docutils literal"><span class="pre">argmin</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><tt class="xref py py-class docutils literal"><span class="pre">argsort</span></tt></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><tt class="xref py py-class docutils literal"><span class="pre">argwhere</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argwhere.html">np.argwhere</a>, <a class="reference internal" href="#ndarray.helper_functions.argmin" title="ndarray.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argsort" title="ndarray.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#ndarray.helper_functions.argwhere" title="ndarray.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.clip">
-<tt class="descname">clip</tt><big>(</big><em>a</em>, <em>a_min</em>, <em>a_max</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.clip" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clip</code><span class="sig-paren">(</span><em>a</em>, <em>a_min</em>, <em>a_max</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.clip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Only keep values between a_min and a_max; set the rest to 0. Performs the following operation:</p>
 <p><span class="math">\((x_i &lt; a_{min}) \lor (x_i &gt; a_{max}) \implies x_i = 0\)</span></p>
 <p>Similar to Numeric&#8217;s clip.</p>
@@ -660,7 +660,7 @@ assumed to have a length the same as the array being indexed.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></p>
 </td>
 </tr>
 </tbody>
@@ -669,7 +669,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.concat">
-<tt class="descname">concat</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.concat" title="Permalink to this definition">¶</a></dt>
+<code class="descname">concat</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.concat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Concatenates two arrays.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -681,7 +681,7 @@ assumed to have a length the same as the array being indexed.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Equivalent to <tt class="docutils literal"><span class="pre">concatenate((x,</span> <span class="pre">y))</span></tt> in NumPy or <tt class="docutils literal"><span class="pre">[x</span> <span class="pre">y]</span></tt> in Matlab.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Equivalent to <code class="docutils literal"><span class="pre">concatenate((x,</span> <span class="pre">y))</span></code> in NumPy or <code class="docutils literal"><span class="pre">[x</span> <span class="pre">y]</span></code> in Matlab.</p>
 </td>
 </tr>
 </tbody>
@@ -699,7 +699,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.count_nonzero">
-<tt class="descname">count_nonzero</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.count_nonzero" title="Permalink to this definition">¶</a></dt>
+<code class="descname">count_nonzero</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.count_nonzero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Counts the nonzero elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -719,7 +719,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.cumprod">
-<tt class="descname">cumprod</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.cumprod" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cumprod</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.cumprod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the cumulative product of every element in this array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -727,7 +727,7 @@ assumed to have a length the same as the array being indexed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The cumulative product of elements in this array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></td>
 </tr>
 </tbody>
 </table>
@@ -738,7 +738,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.delete">
-<tt class="descname">delete</tt><big>(</big><em>x</em>, <em>idx</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.delete" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete</code><span class="sig-paren">(</span><em>x</em>, <em>idx</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -759,7 +759,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.in1d">
-<tt class="descname">in1d</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.in1d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">in1d</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.in1d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sees if elements from the first array are in the second and returns the
 indices.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -790,7 +790,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.intersection">
-<tt class="descname">intersection</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.intersection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">intersection</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find elements that are both arrays.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -820,7 +820,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.logical_and">
-<tt class="descname">logical_and</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_and" title="Permalink to this definition">¶</a></dt>
+<code class="descname">logical_and</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_and" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the logical AND of x and y.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -832,7 +832,7 @@ indices.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></p>
 </td>
 </tr>
 </tbody>
@@ -845,7 +845,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.logical_not">
-<tt class="descname">logical_not</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_not" title="Permalink to this definition">¶</a></dt>
+<code class="descname">logical_not</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_not" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the logical NOT of x and y.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -853,7 +853,7 @@ indices.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></td>
 </tr>
 </tbody>
 </table>
@@ -865,7 +865,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.logical_or">
-<tt class="descname">logical_or</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_or" title="Permalink to this definition">¶</a></dt>
+<code class="descname">logical_or</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_or" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the logical OR of x and y.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -877,7 +877,7 @@ indices.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></p>
 </td>
 </tr>
 </tbody>
@@ -890,7 +890,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.logical_xor">
-<tt class="descname">logical_xor</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_xor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">logical_xor</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.logical_xor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the logical XOR of x and y.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -902,7 +902,7 @@ indices.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></p>
 </td>
 </tr>
 </tbody>
@@ -915,7 +915,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.norm">
-<tt class="descname">norm</tt><big>(</big><em>x</em>, <em>ord=2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.norm" title="Permalink to this definition">¶</a></dt>
+<code class="descname">norm</code><span class="sig-paren">(</span><em>x</em>, <em>ord=2</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the norm of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -944,8 +944,12 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.println">
-<tt class="descname">println</tt><big>(</big><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printAllElements=False</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.println" title="Permalink to this definition">¶</a></dt>
+<code class="descname">println</code><span class="sig-paren">(</span><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='\n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printAllElements=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.println" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints an array.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Can be called with either <code class="docutils literal"><span class="pre">print(x)</span></code> or <code class="docutils literal"><span class="pre">println(x)</span></code></p>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -955,12 +959,11 @@ indices.</p>
 </tbody>
 </table>
 <p>Prints the ndarray with the above optional formatters. They are all of type String.</p>
-<p>Also callable: <tt class="docutils literal"><span class="pre">print(x,</span> <span class="pre">...,</span> <span class="pre">newline=&quot;&quot;)</span></tt> with the same options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.prod">
-<tt class="descname">prod</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.prod" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prod</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.prod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the product of every element in this array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -979,8 +982,12 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.repeat">
-<tt class="descname">repeat</tt><big>(</big><em>x</em>, <em>N</em>, <em>axis=0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.repeat" title="Permalink to this definition">¶</a></dt>
+<code class="descname">repeat</code><span class="sig-paren">(</span><em>x</em>, <em>N</em>, <em>axis=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.repeat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Repeats an array.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Must be called with <code class="docutils literal"><span class="pre">`repeat`(x,</span> <span class="pre">N:3)</span></code>. <code class="docutils literal"><span class="pre">repeat</span></code> is a keyword in Swift and those backticks must be used.</p>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1007,7 +1014,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.reverse">
-<tt class="descname">reverse</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.reverse" title="Permalink to this definition">¶</a></dt>
+<code class="descname">reverse</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.reverse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reverses an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1021,13 +1028,13 @@ indices.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.ndarray.reverse" title="ndarray.ndarray.reverse"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.reverse</span></tt></a></p>
+<p class="last"><a class="reference internal" href="#ndarray.ndarray.reverse" title="ndarray.ndarray.reverse"><code class="xref py py-class docutils literal"><span class="pre">ndarray.reverse</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.shuffle">
-<tt class="descname">shuffle</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.shuffle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shuffle</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.shuffle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Randomly shuffle an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1047,7 +1054,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.sort">
-<tt class="descname">sort</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.sort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sorts an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1061,13 +1068,13 @@ indices.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#ndarray.ndarray.sort" title="ndarray.ndarray.sort"><tt class="xref py py-class docutils literal"><span class="pre">ndarray.sort</span></tt></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html">np.sort</a></p>
+<p class="last"><a class="reference internal" href="#ndarray.ndarray.sort" title="ndarray.ndarray.sort"><code class="xref py py-class docutils literal"><span class="pre">ndarray.sort</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html">np.sort</a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.union">
-<tt class="descname">union</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.union" title="Permalink to this definition">¶</a></dt>
+<code class="descname">union</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.union" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds unique elements that are in either array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1093,7 +1100,7 @@ indices.</p>
 
 <dl class="method">
 <dt id="ndarray.helper_functions.unique">
-<tt class="descname">unique</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.unique" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unique</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.helper_functions.unique" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the unique elements of an array. Returns the unique elements
 sorted.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1120,10 +1127,10 @@ sorted.</p>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt id="ndarray.operators">
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">operators</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ndarray.</code><code class="descname">operators</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="ndarray.operators.assignment_operator">
-<tt class="descname">assignment_operator</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.assignment_operator" title="Permalink to this definition">¶</a></dt>
+<code class="descname">assignment_operator</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.assignment_operator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assign select values of an array to a value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1139,7 +1146,7 @@ sorted.</p>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Callable through <tt class="docutils literal"><span class="pre">x[0..&lt;2]</span> <span class="pre">&lt;-</span> <span class="pre">4</span></tt></p>
+<p class="last">Callable through <code class="docutils literal"><span class="pre">x[0..&lt;2]</span> <span class="pre">&lt;-</span> <span class="pre">4</span></code></p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c"># assign select values!</span>
@@ -1149,13 +1156,13 @@ sorted.</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="matrix.html#matrix.operators.assignment_operator" title="matrix.operators.assignment_operator"><tt class="xref py py-class docutils literal"><span class="pre">matrix.operators.assignment_operator</span></tt></a></p>
+<p class="last"><a class="reference internal" href="matrix.html#matrix.operators.assignment_operator" title="matrix.operators.assignment_operator"><code class="xref py py-class docutils literal"><span class="pre">matrix.operators.assignment_operator</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.operators.elementwise_operators">
-<tt class="descname">elementwise_operators</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.elementwise_operators" title="Permalink to this definition">¶</a></dt>
+<code class="descname">elementwise_operators</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.elementwise_operators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Element-wise operators.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1169,14 +1176,14 @@ sorted.</p>
 </tr>
 </tbody>
 </table>
-<p>The operators <tt class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></tt> all work element wise and act similar to scalars.</p>
+<p>The operators <code class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></code> all work element wise and act similar to scalars.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Callable through the natural operators (+, -, etc).</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!==</span></tt> see when two arrays are <em>exactly</em> equal for the incredibly percise doubles. I recommend using <tt class="docutils literal"><span class="pre">abs(x-y)&lt;1e-9</span></tt>.</p>
+<p class="last"><code class="docutils literal"><span class="pre">==</span></code> and <code class="docutils literal"><span class="pre">!==</span></code> see when two arrays are <em>exactly</em> equal for the incredibly percise doubles. I recommend using <code class="docutils literal"><span class="pre">abs(x-y)&lt;1e-9</span></code>.</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
@@ -1186,7 +1193,7 @@ sorted.</p>
 
 <dl class="method">
 <dt id="ndarray.operators.equality">
-<tt class="descname">equality</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.equality" title="Permalink to this definition">¶</a></dt>
+<code class="descname">equality</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.equality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seeing if two arrays are about equal.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1204,7 +1211,7 @@ sorted.</p>
 <p>The comparison operators are all implemented through OpenCV and rely on the array being continuous in memory, which relies on having small input arrays. It will print (but not assert) if this is not the case.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Callable through the <tt class="docutils literal"><span class="pre">~==</span></tt> operator.</p>
+<p class="last">Callable through the <code class="docutils literal"><span class="pre">~==</span></code> operator.</p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mf">1e-10</span><span class="p">))</span>
 </pre></div>
@@ -1213,7 +1220,7 @@ sorted.</p>
 
 <dl class="method">
 <dt id="ndarray.operators.logical_operators">
-<tt class="descname">logical_operators</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.logical_operators" title="Permalink to this definition">¶</a></dt>
+<code class="descname">logical_operators</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.logical_operators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logical operators.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1231,12 +1238,12 @@ sorted.</p>
 </tbody>
 </table>
 <p>Currently only logical AND and logical OR are implemented through
-<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt> and <tt class="docutils literal"><span class="pre">||</span></tt> respectively.</p>
+<code class="docutils literal"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal"><span class="pre">||</span></code> respectively.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.operators.pow">
-<tt class="descname">pow</tt><big>(</big><em>lhs</em>, <em>rhs</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.pow" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pow</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.operators.pow" title="Permalink to this definition">¶</a></dt>
 <dd><p>The power operator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1248,25 +1255,25 @@ sorted.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray, <tt class="docutils literal"><span class="pre">pow(lhs,</span> <span class="pre">rhs)</span></tt>.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray, <code class="docutils literal"><span class="pre">pow(lhs,</span> <span class="pre">rhs)</span></code>.</p>
 </td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">callable with <tt class="docutils literal"><span class="pre">x^y</span></tt>.</p>
+<p class="last">callable with <code class="docutils literal"><span class="pre">x^y</span></code>.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Optimized for lhs:ndarray, rhs=2. If <tt class="docutils literal"><span class="pre">close(2,</span> <span class="pre">rhs)</span> <span class="pre">==</span> <span class="pre">True</span></tt>, prints message but no assert.</p>
+<p class="last">Optimized for lhs:ndarray, rhs=2. If <code class="docutils literal"><span class="pre">close(2,</span> <span class="pre">rhs)</span> <span class="pre">==</span> <span class="pre">True</span></code>, prints message but no assert.</p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html">np.power</a>, <a class="reference internal" href="#ndarray.simple_math.pow" title="ndarray.simple_math.pow"><tt class="xref py py-class docutils literal"><span class="pre">simple_math.pow</span></tt></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html">np.power</a>, <a class="reference internal" href="#ndarray.simple_math.pow" title="ndarray.simple_math.pow"><code class="xref py py-class docutils literal"><span class="pre">simple_math.pow</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -1278,7 +1285,7 @@ sorted.</p>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt id="ndarray.simple_math">
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">simple_math</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ndarray.</code><code class="descname">simple_math</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math" title="Permalink to this definition">¶</a></dt>
 <dd><p>The following are detailed docs on various functions, but the following
 functions work like expected:</p>
 <ul class="simple">
@@ -1291,7 +1298,7 @@ functions work like expected:</p>
 </ul>
 <dl class="method">
 <dt id="ndarray.simple_math.abs">
-<tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.abs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">abs</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.abs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the absolute value of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1307,7 +1314,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.apply_function">
-<tt class="descname">apply_function</tt><big>(</big><em>function</em>, <em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.apply_function" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_function</code><span class="sig-paren">(</span><em>function</em>, <em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.apply_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a function to every element of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1326,13 +1333,13 @@ functions work like expected:</p>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Unoptimized for function type Double-&gt;Double. I tried to optimize with Grand Central Dispatch&#8217;s <tt class="docutils literal"><span class="pre">dispatch_apply</span></tt>, but no luck.</p>
+<p class="last">Unoptimized for function type Double-&gt;Double. I tried to optimize with Grand Central Dispatch&#8217;s <code class="docutils literal"><span class="pre">dispatch_apply</span></code>, but no luck.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.simple_math.ceil">
-<tt class="descname">ceil</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.ceil" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ceil</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.ceil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ceil&#8217;s each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1340,7 +1347,7 @@ functions work like expected:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">sin</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">sin</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1351,7 +1358,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.cos">
-<tt class="descname">cos</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cos" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cos</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the cos of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1359,7 +1366,7 @@ functions work like expected:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">cos</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">cos</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1367,7 +1374,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.cumsum">
-<tt class="descname">cumsum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cumsum" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cumsum</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.cumsum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the cumulative sum of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1386,7 +1393,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.exp">
-<tt class="descname">exp</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exp</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the exponent of each element; mathematically it finds
 <span class="math">\(\exp(x)\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1403,7 +1410,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.exp2">
-<tt class="descname">exp2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp2" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exp2</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.exp2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds <span class="math">\(2^x\)</span> for some array x.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1419,7 +1426,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.expm1">
-<tt class="descname">expm1</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.expm1" title="Permalink to this definition">¶</a></dt>
+<code class="descname">expm1</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.expm1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate <span class="math">\(\exp(x)-1\)</span>. Useful for when <span class="math">\(exp(1) &lt;&lt; 1\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1427,7 +1434,7 @@ functions work like expected:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to calculate the exponent of.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></td>
 </tr>
 </tbody>
 </table>
@@ -1439,7 +1446,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.floor">
-<tt class="descname">floor</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.floor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">floor</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Floors each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1447,7 +1454,7 @@ functions work like expected:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">floor</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">floor</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1458,7 +1465,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.log">
-<tt class="descname">log</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log" title="Permalink to this definition">¶</a></dt>
+<code class="descname">log</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the log base e of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1466,7 +1473,7 @@ functions work like expected:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">log</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">log</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1474,7 +1481,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.log10">
-<tt class="descname">log10</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log10" title="Permalink to this definition">¶</a></dt>
+<code class="descname">log10</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log10" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the log base 10 of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1482,7 +1489,7 @@ functions work like expected:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">log</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">log</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1490,7 +1497,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.log2">
-<tt class="descname">log2</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log2" title="Permalink to this definition">¶</a></dt>
+<code class="descname">log2</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.log2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the log base 2 of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1498,7 +1505,7 @@ functions work like expected:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">log</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">log</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1506,7 +1513,7 @@ functions work like expected:</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.max">
-<tt class="descname">max</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.max" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max</code><span class="sig-paren">(</span><em>x</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the maximum element.</p>
 <p>If only one array specified, it only finds the maximum element of that
 array. If two arrays specficied, it finds the maximum element wise.</p>
@@ -1532,7 +1539,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.mean">
-<tt class="descname">mean</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.mean" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mean</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.mean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the mean of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1548,7 +1555,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.min">
-<tt class="descname">min</tt><big>(</big><em>x</em>, <em>y=None</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.min" title="Permalink to this definition">¶</a></dt>
+<code class="descname">min</code><span class="sig-paren">(</span><em>x</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.min" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the maximum element.</p>
 <p>If only one array specified, it only finds the maximum element of that
 array. If two arrays specficied, it finds the maximum element wise.</p>
@@ -1574,7 +1581,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.pow">
-<tt class="descname">pow</tt><big>(</big><em>x</em>, <em>power</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.pow" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pow</code><span class="sig-paren">(</span><em>x</em>, <em>power</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.pow" title="Permalink to this definition">¶</a></dt>
 <dd><p>The power of a {Double, ndarray} to {Double, ndarray}</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1586,14 +1593,14 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Performs the same action as the operator <tt class="docutils literal"><span class="pre">^</span></tt>. Raises each element to a power.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Performs the same action as the operator <code class="docutils literal"><span class="pre">^</span></code>. Raises each element to a power.</p>
 </td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Also callable through <tt class="docutils literal"><span class="pre">x^y</span></tt></p>
+<p class="last">Also callable through <code class="docutils literal"><span class="pre">x^y</span></code></p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 </pre></div>
@@ -1602,7 +1609,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.remainer">
-<tt class="descname">remainer</tt><big>(</big><em>x1</em>, <em>x2</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.remainer" title="Permalink to this definition">¶</a></dt>
+<code class="descname">remainer</code><span class="sig-paren">(</span><em>x1</em>, <em>x2</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.remainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the element wise remainder after dividing the two arrays.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span> <span class="o">%</span> <span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
 </pre></div>
@@ -1617,7 +1624,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-ndarray" title="ndarray">ndarray</a></p>
 </td>
 </tr>
 </tbody>
@@ -1626,7 +1633,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.round">
-<tt class="descname">round</tt><big>(</big><em>x</em>, <em>decimals=0</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.round" title="Permalink to this definition">¶</a></dt>
+<code class="descname">round</code><span class="sig-paren">(</span><em>x</em>, <em>decimals=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.round" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rounds each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1638,7 +1645,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Performs the function <tt class="docutils literal"><span class="pre">round</span></tt> on each element.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. Performs the function <code class="docutils literal"><span class="pre">round</span></code> on each element.</p>
 </td>
 </tr>
 </tbody>
@@ -1651,7 +1658,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.sign">
-<tt class="descname">sign</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sign" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sign</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sign" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the sign an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1670,7 +1677,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.sin">
-<tt class="descname">sin</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sin" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sin</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the sin of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1678,7 +1685,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">sin</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">sin</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1686,7 +1693,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.sqrt">
-<tt class="descname">sqrt</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sqrt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sqrt</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sqrt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes the sqrt of each element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1694,7 +1701,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">sqrt</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">sqrt</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1702,7 +1709,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.std">
-<tt class="descname">std</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.std" title="Permalink to this definition">¶</a></dt>
+<code class="descname">std</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.std" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the standard deviation of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1718,7 +1725,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.sum">
-<tt class="descname">sum</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sum" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sum</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.sum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the sum of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1737,7 +1744,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.tan">
-<tt class="descname">tan</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.tan" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tan</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.tan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the tan of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1745,7 +1752,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An array.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <tt class="docutils literal"><span class="pre">tan</span></tt> on each element.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Performs the function <code class="docutils literal"><span class="pre">tan</span></code> on each element.</td>
 </tr>
 </tbody>
 </table>
@@ -1753,7 +1760,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.simple_math.variance">
-<tt class="descname">variance</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.variance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">variance</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.simple_math.variance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the variance of an array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1779,10 +1786,10 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <p>This is a file, not an actual class.</p>
 <dl class="class">
 <dt id="ndarray.complex_math">
-<em class="property">class </em><tt class="descclassname">ndarray.</tt><tt class="descname">complex_math</tt><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ndarray.</code><code class="descname">complex_math</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="ndarray.complex_math.fft">
-<tt class="descname">fft</tt><big>(</big><em>x</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.fft" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fft</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.fft" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes the discrete Fourier Transform.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1810,7 +1817,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.complex_math.fftconvolve">
-<tt class="descname">fftconvolve</tt><big>(</big><em>x</em>, <em>kernel</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.fftconvolve" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fftconvolve</code><span class="sig-paren">(</span><em>x</em>, <em>kernel</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.fftconvolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convolve x with a kernel.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1829,7 +1836,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 </table>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">There are bugs in this function. My simple tests with a delta function failed, possibly do to the funky divide in <a class="reference internal" href="#ndarray.complex_math.fft" title="ndarray.complex_math.fft"><tt class="xref py py-class docutils literal"><span class="pre">fft</span></tt></a>/<a class="reference internal" href="#ndarray.complex_math.ifft" title="ndarray.complex_math.ifft"><tt class="xref py py-class docutils literal"><span class="pre">ifft</span></tt></a>.</p>
+<p class="last">There are bugs in this function. My simple tests with a delta function failed, possibly do to the funky divide in <a class="reference internal" href="#ndarray.complex_math.fft" title="ndarray.complex_math.fft"><code class="xref py py-class docutils literal"><span class="pre">fft</span></code></a>/<a class="reference internal" href="#ndarray.complex_math.ifft" title="ndarray.complex_math.ifft"><code class="xref py py-class docutils literal"><span class="pre">ifft</span></code></a>.</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -1843,7 +1850,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 
 <dl class="method">
 <dt id="ndarray.complex_math.ifft">
-<tt class="descname">ifft</tt><big>(</big><em>y_real</em>, <em>y_imag</em><big>)</big><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.ifft" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ifft</code><span class="sig-paren">(</span><em>y_real</em>, <em>y_imag</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.complex_math.ifft" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes the inverse Foureir Transform.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1880,7 +1887,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/icon.png" alt="Logo"/>
@@ -1916,7 +1923,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
 <li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1933,7 +1940,7 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1948,12 +1955,12 @@ array. If two arrays specficied, it finds the maximum element wise.</p>
         <li class="right" >
           <a href="numbers.html" title="Numbers and constants"
              >previous</a> |</li>
-        <li><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>
