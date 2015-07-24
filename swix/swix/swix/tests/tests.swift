@@ -10,7 +10,7 @@ import Foundation
 
 class swixTests {
     var N:Int
-    init(){
+    init(run_io_tests:Bool=true){
         print("running many simple tests")
         self.N = 10
         operatorTests()
@@ -21,8 +21,10 @@ class swixTests {
         print("   simple functions work as expected")
         twoDTests()
         print("   matrix convience elements work as expected")
-        readWriteTests()
-        print("   {read,write}_{binary,csv}, savefig work like Python... at least on OSX")
+        if run_io_tests {
+            readWriteTests()
+            print("   {read,write}_{binary,csv}, savefig work like Python... at least on OSX")
+        }
         complexTests()
         
         numberTests()
