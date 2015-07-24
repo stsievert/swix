@@ -9,7 +9,7 @@
 import Foundation
 
 // should be run while optimized!
-class SpeedTests {
+class swixSpeedTests {
     init(){
         time(pe1, name:"Project Euler 1")
         time(pe10, name:"Project Euler 10")

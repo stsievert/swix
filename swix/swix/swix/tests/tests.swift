@@ -8,7 +8,7 @@
 
 import Foundation
 
-class runTests {
+class swixTests {
     var N:Int
     init(){
         print("running many simple tests")

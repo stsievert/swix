@@ -10,5 +10,5 @@
 import Foundation
 import Swift
 
-runTests()
-//SpeedTests()
+swixTests()
+//swixSpeedTests()
