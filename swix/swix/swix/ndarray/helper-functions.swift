@@ -46,7 +46,7 @@ func delete(x:ndarray, idx:ndarray) -> ndarray{
     let y = x[argwhere(i)]
     return y
 }
-func swix_repeat(x: ndarray, N:Int, axis:Int=0) -> ndarray{
+func `repeat`(x: ndarray, N:Int, axis:Int=0) -> ndarray{
     // repeat the array element wise or as a whole array
     var y = zeros((N, x.n))
     
@@ -178,7 +178,7 @@ func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:S
     print(newline, appendNewline: false)
 }
 func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printAllElements:printWholeMatrix)
+    println(x, prefix:prefix, postfix:postfix, newline:"\n", format:format, printAllElements:printWholeMatrix)
 }
 
 

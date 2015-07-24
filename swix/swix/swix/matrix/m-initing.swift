@@ -48,8 +48,8 @@ func reshape(x: ndarray, shape:(Int, Int))->matrix{
 }
 func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
     assert(x.n > 0 && y.n > 0, "If these matrices are empty meshgrid fails")
-    let z1 = reshape(swix_repeat(y, N: x.n), shape: (x.n, y.n))
-    let z2 = reshape(swix_repeat(x, N: y.n, axis: 1), shape: (x.n, y.n))
+    let z1 = reshape(`repeat`(y, N: x.n), shape: (x.n, y.n))
+    let z2 = reshape(`repeat`(x, N: y.n, axis: 1), shape: (x.n, y.n))
     return (z2, z1)
 }
 

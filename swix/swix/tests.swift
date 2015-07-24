@@ -11,19 +11,18 @@ import Foundation
 class runTests {
     var N:Int
     init(){
-        print("running ~150 tests")
-        print("    running many simple tests")
+        print("running many simple tests")
         self.N = 10
         operatorTests()
-        print("       operators work as expected")
+        print("   operators work as expected")
         comparisonTests()
-        print("       comparisons work as expected")
+        print("   comparisons work as expected")
         functionTests()
-        print("       simple functions work as expected")
+        print("   simple functions work as expected")
         twoDTests()
-        print("       matrix convience elements work as expected")
+        print("   matrix convience elements work as expected")
         readWriteTests()
-        print("       {read,write}_{binary,csv}, savefig work like Python... at least on OSX")
+        print("   {read,write}_{binary,csv}, savefig work like Python... at least on OSX")
         complexTests()
         
         numberTests()
@@ -36,12 +35,12 @@ class runTests {
             let y:Double = 4
             let z:Double = x + y
             assert(z == 5)
-            print("    Int(1)+Double(1)==2 through ScalarArithmetic")
+            print("Int(1)+Double(1)==2 through ScalarArithmetic")
         }
         func swift_complex_test(){
 //            var x = 1.0 + 1.0.i
 //            assert(abs(x) == sqrt(2))
-//            println("    scalar (not vector) complex number usage works using swift-complex.")
+//            print("scalar (not vector) complex number usage works using swift-complex.")
         }
         func range_test(){
             var x = arange(4)
@@ -51,7 +50,7 @@ class runTests {
             var z = zeros(4)
             z[0..<2] = ones(2)
             assert(z ~== array(1, 1, 0, 0))
-            print("    x[0..<2] = ones(2) and y = z[3..<8] works in the 1d case!")
+            print("x[0..<2] = ones(2) and y = z[3..<8] works in the 1d case!")
         }
         func argwhere_test(){
             var x = zeros(N)
@@ -60,31 +59,31 @@ class runTests {
             let i = argwhere(abs(x-y) < 1e-9)
             assert(i ~== array(5, 6, 7, 8, 9))
             x[argwhere(x<2)] = ones(argwhere(x<2).n)
-            print("    can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works for both 1d and 2d.")
+            print("can use argwhere. x[argwhere(x<2)]=zeros(argwhere(x<2).n)  works for both 1d and 2d.")
         }
         func matrix2d_indexing_test(){
             var x = array("1 2 3; 4 5 6; 7 8 9")
             x[0..<2, 0..<2] = array("4 3; 2 6")
             assert(x ~== array("4 3 3; 2 6 6; 7 8 9"))
-            print("    can use x[1, 0..<2] or x[0..<2, 0..<2] to also index")
+            print("can use x[1, 0..<2] or x[0..<2, 0..<2] to also index")
         }
         func matrix2d_indexing_matrix_test(){
             var x = array("1 2 3; 4 5 6; 7 8 9")
             assert(x[array(0, 1, 2, 3, 4, 5)] ~== array(1, 2, 3, 4, 5, 6))
-            print("    x[ndarray] works and indexes the ndarray row first")
+            print("x[ndarray] works and indexes the ndarray row first")
         }
         func fft_test(){
             var x = arange(8)
             var (yr, yi) = fft(x)
             var x2 = ifft(yr, yi: yi)
             assert(x2 ~== x)
-            print("    fft/ifft works. fft(x) -> (yreal, yimag)")
+            print("fft/ifft works. fft(x) -> (yreal, yimag)")
         }
         func dot_test(){
             let x = eye(3) * 2
             let y = array("1 2 3 1; 4 5 6 1; 7 8 9 1")
             assert((x *! y) ~== 2*y)
-            print("    dot product works with dot(x, y) or x *! y")
+            print("dot product works with dot(x, y) or x *! y")
         }
         func svd_test(){
             let x = array("1 2; 4 8; 3 5")
@@ -96,7 +95,7 @@ class runTests {
             let z = array("1 2 3; 4 5 6; 7 8 9")
             (u, s, v) = svd(z)
             
-            print("    svd works and tested by hand for square, fat and skinny matrices against Python")
+            print("svd works and tested by hand for square, fat and skinny matrices against Python")
         }
         func svm_test(){
             var svm = SVM()
@@ -106,13 +105,13 @@ class runTests {
             svm.train(x, y)
             var z = svm.predict(array(2, 3))
             assert(z == y[1])
-            print("    svm works via simple test")
+            print("svm works via simple test")
         }
         func inv_test(){
             let x = randn((4,4))
             let y = inv(x)
             assert((x *! y) ~== eye(4))
-            print("    matrix inversion works")
+            print("matrix inversion works")
         }
         func solve_test(){
             var A0 = array(1, 2, 3, 4, 2, 1, 4, 6, 7)
@@ -120,21 +119,21 @@ class runTests {
             var b = array(1, 2, 5)
             var x = solve(A, b: b)
             assert((A !/ b) ~== solve(A, b: b))
-            print("    solve works, similar to Matlab's \\ operator (and checked by hand). Be careful -- this only works for nxn matrices")
+            print("solve works, similar to Matlab's \\ operator (and checked by hand). Be careful -- this only works for nxn matrices")
         }
         func eig_test(){
             var x = zeros((3,3))
             x["diag"] = array(1, 2, 3)
             let r = eig(x)
             assert(r ~== array(1, 2, 3))
-            print("    `eig` returns the correct eigenvalues and no eigenvectors.")
+            print("`eig` returns the correct eigenvalues and no eigenvectors.")
         }
         func pinv_test(){
             var x = arange(3*4).reshape((3,4))
             let y = pinv(x)
             assert(x.dot(y).dot(x) ~== x)
             assert(x.pI ~== pinv(x))
-            print("    pseudo-inverse works")
+            print("pseudo-inverse works")
         }
         swift_complex_test()
         scalar_test()
@@ -178,7 +177,7 @@ class runTests {
             assert(arange(4) ~== array(0, 1, 2, 3))
             assert(arange(2, max: 4) ~== array(2, 3))
             assert(linspace(0,max: 1,num:3) ~== array(0, 0.5, 1))
-            assert(swix_repeat(arange(2), N: 2) ~== array(0,1,0,1))
+            assert(`repeat`(arange(2), N: 2) ~== array(0,1,0,1))
             assert(copy(arange(4)) ~== arange(4))
             assert(asarray(0..<2) ~== array(0, 1))
             assert(copy(arange(3)) ~== array(0, 1, 2))
@@ -215,8 +214,8 @@ class runTests {
             assert(concat(array(1, 2), y: array(3, 4)) ~== (arange(4)+1))
             assert(clip(y, a_min: 2, a_max: 4) ~== array(4, 2, 4, 3, 2))
             assert(delete(y, idx: array(0, 1)) ~== array(4,3,1))
-            assert(swix_repeat(array(0,1),N: 2) ~== array(0,1,0,1))
-            assert(swix_repeat(array(0, 1),N:2, axis:1) ~== array(0,0,1,1))
+            assert(`repeat`(array(0,1),N: 2) ~== array(0,1,0,1))
+            assert(`repeat`(array(0, 1),N:2, axis:1) ~== array(0,0,1,1))
             assert(argmax(array(1,4,2,5)) == 3)
             assert(argmin(array(1,4,2,5)) == 0)
             assert(argsort(array(1,4,2,5)) ~== array(0, 2, 1, 3))
@@ -261,8 +260,8 @@ class runTests {
         assert(eye(4).dot(eye(4)) ~== eye(4))
         assert(x.dot(x.I) ~== eye(4))
         var (u,v) = meshgrid(array(0,1), y: array(2,3))
-        assert(u ~== swix_repeat(array(0,1), N: 2).reshape((2,2)).T)
-        assert(v ~== swix_repeat(array(2,3), N: 2).reshape((2,2)))
+        assert(u ~== `repeat`(array(0,1), N: 2).reshape((2,2)).T)
+        assert(v ~== `repeat`(array(2,3), N: 2).reshape((2,2)))
     }
     
     func readWriteTests(){
@@ -336,8 +335,8 @@ class runTests {
         y = rand((100, 100))
         assert(abs(mean(y.flat) - 0.5) < 0.1)
         
-        assert(swix_repeat(array(0, 1), N: 2) ~== array(0, 1, 0, 1))
-        assert(swix_repeat(array(0, 1), N: 2, axis:1) ~== array(0, 0, 1, 1))
+        assert(`repeat`(array(0, 1), N: 2) ~== array(0, 1, 0, 1))
+        assert(`repeat`(array(0, 1), N: 2, axis:1) ~== array(0, 0, 1, 1))
         
 //        var xC = zeros_like(x)
         var xC = copy(x)
