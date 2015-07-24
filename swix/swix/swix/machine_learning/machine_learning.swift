@@ -32,7 +32,7 @@ class SVM {
         // svm_type: C_SVC, ONE_CLASS, NU_SVC, NU_SVR
         
         // careful: NU_SVR and SIGMOID throws an exception error
-        self.cvsvm.setParams(svm_type.nsstring, kernel:kernel_type.nsstring, nu:nu.cfloat)
+        self.cvsvm.setParams(svm_type.nsstring as String, kernel:kernel_type.nsstring as String, nu:nu.cfloat)
     }
     func train(responses: matrix, _ targets: ndarray){
         // convert matrix2d to NSArray
@@ -42,11 +42,11 @@ class SVM {
     }
     func predict(response: ndarray) -> Double{
         assert(self.N == response.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
-        var tp = self.cvsvm.predict(!response, n:self.N.cint)
+        let tp = self.cvsvm.predict(!response, n:self.N.cint)
         return tp.double
     }
     func predict(responses: matrix) -> ndarray{
-        var y = zeros(responses.shape.0)
+        let y = zeros(responses.shape.0)
         assert(self.N == responses.shape.1, "Sizes must match")
         self.cvsvm.predict(!responses, into:!y, m:responses.shape.0.cint, n:responses.shape.1.cint);
         return y
@@ -75,7 +75,7 @@ class kNearestNeighbors{
     func predict(x: ndarray, k: Int) -> Double{
         assert(self.N == x.count, "Sizes of input arguments do not match: predict.count != trained.count. The varianbles you're trying to predict a result from must match variables you trained off of.")
         assert(k <= 32, "k <= 32 for performance reasons enforced by OpenCV.")
-        var result = self.knn.predict(!x, n:x.n.cint, k:k.cint)
+        let result = self.knn.predict(!x, n:x.n.cint, k:k.cint)
         return result.double;
     }
 }

@@ -13,7 +13,7 @@ import Accelerate
 // integration
 func cumtrapz(x:ndarray)->ndarray{
     // integrate and see the steps at each iteration
-    var y = zeros_like(x)
+    let y = zeros_like(x)
     var dx:CDouble = 1.0
     vDSP_vtrapzD(!x, 1.stride, &dx, !y, 1.stride, x.n.length)
     return y
@@ -29,28 +29,31 @@ func inner(x:ndarray, y:ndarray)->Double{
 }
 func outer(x:ndarray, y:ndarray)->matrix{
     // the outer product.
-    var (xm, ym) = meshgrid(x, y)
+    let (xm, ym) = meshgrid(x, y: y)
     return xm * ym
 }
 // fourier transforms
 func fft(x: ndarray) -> (ndarray, ndarray){
-    var N:CInt = x.n.cint
+    let N:CInt = x.n.cint
     var yr = zeros(N.int)
     var yi = zeros(N.int)
     
     // setup for the accelerate calling
-    var radix:FFTRadix = FFTRadix(FFT_RADIX2)
-    var pass:vDSP_Length = vDSP_Length((log2(N.double)+1.0).int)
-    var setup:FFTSetupD = vDSP_create_fftsetupD(pass, radix)
-    var log2n:Int = (log2(N.double)+1.0).int
-    var z = zeros(N.int)
+    let radix:FFTRadix = FFTRadix(FFT_RADIX2)
+    let pass:vDSP_Length = vDSP_Length((log2(N.double)+1.0).int)
+    let setup:FFTSetupD = vDSP_create_fftsetupD(pass, radix)
+    let log2n:Int = (log2(N.double)+1.0).int
+    let z = zeros(N.int)
     var x2:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !x, imagp:!z)
     var y = DSPDoubleSplitComplex(realp:!yr, imagp:!yi)
-    var dir = FFTDirection(FFT_FORWARD)
-    var stride = 1.stride
+    let dir = FFTDirection(FFT_FORWARD)
+    let stride = 1.stride
     
     // perform the actual computation
     vDSP_fft_zropD(setup, &x2, stride, &y, stride, log2n.length, dir)
+    
+    // free memory
+    vDSP_destroy_fftsetupD(setup)
     
     // this divide seems wrong
     yr /= 2.0
@@ -58,19 +61,19 @@ func fft(x: ndarray) -> (ndarray, ndarray){
     return (yr, yi)
 }
 func ifft(yr: ndarray, yi: ndarray) -> ndarray{
-    var N = yr.n
+    let N = yr.n
     var x = zeros(N)
     
     // setup for the accelerate calling
-    var radix:FFTRadix = FFTRadix(FFT_RADIX2)
-    var pass:vDSP_Length = vDSP_Length((log2(N.double)+1.0).int)
-    var setup:FFTSetupD = vDSP_create_fftsetupD(pass, radix)
-    var log2n:Int = (log2(N.double)+1.0).int
-    var z = zeros(N)
+    let radix:FFTRadix = FFTRadix(FFT_RADIX2)
+    let pass:vDSP_Length = vDSP_Length((log2(N.double)+1.0).int)
+    let setup:FFTSetupD = vDSP_create_fftsetupD(pass, radix)
+    let log2n:Int = (log2(N.double)+1.0).int
+    let z = zeros(N)
     var x2:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !yr, imagp:!yi)
     var result:DSPDoubleSplitComplex = DSPDoubleSplitComplex(realp: !x, imagp:!z)
-    var dir = FFTDirection(FFT_INVERSE)
-    var stride = 1.stride
+    let dir = FFTDirection(FFT_INVERSE)
+    let stride = 1.stride
     
     // doing the actual computation
     vDSP_fft_zropD(setup, &x2, stride, &result, stride, log2n.length, dir)
@@ -86,13 +89,13 @@ func fftconvolve(x:ndarray, kernel:ndarray)->ndarray{
     k_pad[0..<kernel.n] = kernel
     
     // performing the fft
-    var (Kr, Ki) = fft(k_pad)
-    var (Xr, Xi) = fft(x)
+    let (Kr, Ki) = fft(k_pad)
+    let (Xr, Xi) = fft(x)
     
     // computing the multiplication (yes, a hack)
     // (xr+xi*j) * (yr+yi*j) = xr*xi - xi*yi + j*(xi*yr) + j*(yr*xi)
-    var Yr = Xr*Kr - Xi*Ki
-    var Yi = Xr*Ki + Xi*Kr
-    var y = ifft(Yr, Yi)
+    let Yr = Xr*Kr - Xi*Ki
+    let Yi = Xr*Ki + Xi*Kr
+    let y = ifft(Yr, yi: Yi)
     return y
 }

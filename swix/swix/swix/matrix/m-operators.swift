@@ -14,8 +14,8 @@ func make_operator(lhs: matrix, operation: String, rhs: matrix)->matrix{
     assert(lhs.shape.1 == rhs.shape.1, "Sizes must match!")
     
     var result = zeros_like(lhs) // real result
-    var lhsM = lhs.flat
-    var rhsM = rhs.flat
+    let lhsM = lhs.flat
+    let rhsM = rhs.flat
     var resM:ndarray = zeros_like(lhsM) // flat ndarray
     if operation=="+" {resM = lhsM + rhsM}
     else if operation=="-" {resM = lhsM - rhsM}
@@ -31,7 +31,7 @@ func make_operator(lhs: matrix, operation: String, rhs: matrix)->matrix{
 func make_operator(lhs: matrix, operation: String, rhs: Double)->matrix{
     var result = zeros_like(lhs) // real result
 //    var lhsM = asmatrix(lhs.grid) // flat
-    var lhsM = lhs.flat
+    let lhsM = lhs.flat
     var resM:ndarray = zeros_like(lhsM) // flat matrix
     if operation=="+" {resM = lhsM + rhs}
     else if operation=="-" {resM = lhsM - rhs}
@@ -47,7 +47,7 @@ func make_operator(lhs: matrix, operation: String, rhs: Double)->matrix{
 func make_operator(lhs: Double, operation: String, rhs: matrix)->matrix{
     var result = zeros_like(rhs) // real result
 //    var rhsM = asmatrix(rhs.grid) // flat
-    var rhsM = rhs.flat
+    let rhsM = rhs.flat
     var resM:ndarray = zeros_like(rhsM) // flat matrix
     if operation=="+" {resM = lhs + rhsM}
     else if operation=="-" {resM = lhs - rhsM}
@@ -63,18 +63,18 @@ func make_operator(lhs: Double, operation: String, rhs: matrix)->matrix{
 
 // DOUBLE ASSIGNMENT
 func <- (inout lhs:matrix, rhs:Double){
-    var assign = ones((lhs.shape)) * rhs
+    let assign = ones((lhs.shape)) * rhs
     lhs = assign
 }
 
 // DOT PRODUCT
 infix operator *! {associativity none precedence 140}
 func *! (lhs: matrix, rhs: matrix) -> matrix{
-    return dot(lhs, rhs)}
+    return dot(lhs, y: rhs)}
 // SOLVE
 infix operator !/ {associativity none precedence 140}
 func !/ (lhs: matrix, rhs: ndarray) -> ndarray{
-    return solve(lhs, rhs)}
+    return solve(lhs, b: rhs)}
 // EQUALITY
 func ~== (lhs: matrix, rhs: matrix) -> Bool{
     return (rhs.flat ~== lhs.flat)}
@@ -92,65 +92,65 @@ func !== (lhs: matrix, rhs: matrix)->matrix{
 // PLUS
 infix operator + {associativity none precedence 140}
 func + (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, "+", rhs)}
+    return make_operator(lhs, operation: "+", rhs: rhs)}
 func + (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, "+", rhs)}
+    return make_operator(lhs, operation: "+", rhs: rhs)}
 func + (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, "+", rhs)}
+    return make_operator(lhs, operation: "+", rhs: rhs)}
 // MINUS
 infix operator - {associativity none precedence 140}
 func - (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, "-", rhs)}
+    return make_operator(lhs, operation: "-", rhs: rhs)}
 func - (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, "-", rhs)}
+    return make_operator(lhs, operation: "-", rhs: rhs)}
 func - (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, "-", rhs)}
+    return make_operator(lhs, operation: "-", rhs: rhs)}
 // TIMES
 infix operator * {associativity none precedence 140}
 func * (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, "*", rhs)}
+    return make_operator(lhs, operation: "*", rhs: rhs)}
 func * (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, "*", rhs)}
+    return make_operator(lhs, operation: "*", rhs: rhs)}
 func * (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, "*", rhs)}
+    return make_operator(lhs, operation: "*", rhs: rhs)}
 // DIVIDE
 infix operator / {associativity none precedence 140}
 func / (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, "/", rhs)
+    return make_operator(lhs, operation: "/", rhs: rhs)
 }
 func / (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, "/", rhs)}
+    return make_operator(lhs, operation: "/", rhs: rhs)}
 func / (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, "/", rhs)}
+    return make_operator(lhs, operation: "/", rhs: rhs)}
 // LESS THAN
 infix operator < {associativity none precedence 140}
 func < (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, "<", rhs)}
+    return make_operator(lhs, operation: "<", rhs: rhs)}
 func < (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, "<", rhs)}
+    return make_operator(lhs, operation: "<", rhs: rhs)}
 func < (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, "<", rhs)}
+    return make_operator(lhs, operation: "<", rhs: rhs)}
 // GREATER THAN
 infix operator > {associativity none precedence 140}
 func > (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, ">", rhs)}
+    return make_operator(lhs, operation: ">", rhs: rhs)}
 func > (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, ">", rhs)}
+    return make_operator(lhs, operation: ">", rhs: rhs)}
 func > (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, ">", rhs)}
+    return make_operator(lhs, operation: ">", rhs: rhs)}
 // GREATER THAN OR EQUAL
 infix operator >= {associativity none precedence 140}
 func >= (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, operation: "=>", rhs: rhs)}
 func >= (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, operation: "=>", rhs: rhs)}
 func >= (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, operation: "=>", rhs: rhs)}
 // LESS THAN OR EQUAL
 infix operator <= {associativity none precedence 140}
 func <= (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, operation: "=>", rhs: rhs)}
 func <= (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, operation: "=>", rhs: rhs)}
 func <= (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, "=>", rhs)}
+    return make_operator(lhs, operation: "=>", rhs: rhs)}

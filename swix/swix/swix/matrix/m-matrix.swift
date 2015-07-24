@@ -35,16 +35,16 @@ struct matrix {
     subscript(i: String) -> ndarray {
         get {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
-            var size = rows < columns ? rows : columns
-            var i = arange(size)
+            let size = rows < columns ? rows : columns
+            let i = arange(size)
             return self[i*columns.double + i]
         }
         set {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
-            var m = shape.0
-            var n = shape.1
-            var min_mn = m < n ? m : n
-            var j = n.double * arange(min_mn)
+            let m = shape.0
+            let n = shape.1
+            let min_mn = m < n ? m : n
+            let j = n.double * arange(min_mn)
             self[j + j/n.double] = newValue
         }
     }
@@ -76,35 +76,35 @@ struct matrix {
     subscript(i: Range<Int>, k: Int) -> ndarray {
         // x[0..<2, 0]
         get {
-            var idx = asarray(i)
+            let idx = asarray(i)
             return self[idx, k]
         }
         set {
-            var idx = asarray(i)
+            let idx = asarray(i)
             self[idx, k] = newValue
         }
     }
     subscript(r: Range<Int>, c: Range<Int>) -> matrix {
         // x[0..<2, 0..<2]
         get {
-            var rr = asarray(r)
-            var cc = asarray(c)
+            let rr = asarray(r)
+            let cc = asarray(c)
             return self[rr, cc]
         }
         set {
-            var rr = asarray(r)
-            var cc = asarray(c)
+            let rr = asarray(r)
+            let cc = asarray(c)
             self[rr, cc] = newValue
         }
     }
     subscript(i: Int, k: Range<Int>) -> ndarray {
         // x[0, 0..<2]
         get {
-            var idx = asarray(k)
+            let idx = asarray(k)
             return self[i, idx]
         }
         set {
-            var idx = asarray(k)
+            let idx = asarray(k)
             self[i, idx] = newValue
         }
     }
@@ -117,10 +117,10 @@ struct matrix {
             if r.max() < 0.0 {r += 1.0 * rows.double}
             if c.max() < 0.0 {c += 1.0 * columns.double}
             
-            var (j, i) = meshgrid(r, c)
-            var idx = (j.flat*columns.double + i.flat)
-            var z = flat[idx]
-            var zz = reshape(z, (r.n, c.n))
+            let (j, i) = meshgrid(r, y: c)
+            let idx = (j.flat*columns.double + i.flat)
+            let z = flat[idx]
+            let zz = reshape(z, shape: (r.n, c.n))
             return zz
         }
         set {
@@ -129,8 +129,8 @@ struct matrix {
             if r.max() < 0.0 {r += 1.0 * rows.double}
             if c.max() < 0.0 {c += 1.0 * columns.double}
             if r.n > 0 && c.n > 0{
-                var (j, i) = meshgrid(r, c)
-                var idx = j.flat*columns.double + i.flat
+                let (j, i) = meshgrid(r, y: c)
+                let idx = j.flat*columns.double + i.flat
                 flat[idx] = newValue.flat
             }
         }
@@ -143,12 +143,12 @@ struct matrix {
     subscript(i: String, k:Int) -> ndarray {
         // x["all", 0]
         get {
-            var idx = arange(shape.0)
-            var x:ndarray = self.flat[idx * self.columns.double + k.double]
+            let idx = arange(shape.0)
+            let x:ndarray = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
-            var idx = arange(shape.0)
+            let idx = arange(shape.0)
             self.flat[idx * self.columns.double + k.double] = newValue
         }
     }
@@ -156,25 +156,25 @@ struct matrix {
         // x[0, "all"]
         get {
             assert(k == "all", "Only 'all' supported")
-            var idx = arange(shape.1)
-            var x:ndarray = self.flat[i.double * self.columns.double + idx]
+            let idx = arange(shape.1)
+            let x:ndarray = self.flat[i.double * self.columns.double + idx]
             return x
         }
         set {
             assert(k == "all", "Only 'all' supported")
-            var idx = arange(shape.1)
+            let idx = arange(shape.1)
             self.flat[i.double * self.columns.double + idx] = newValue
         }
     }
     subscript(i: ndarray, k: Int) -> ndarray {
         // x[array(1,2), 0]
         get {
-            var idx = i.copy()
-            var x:ndarray = self.flat[idx * self.columns.double + k.double]
+            let idx = i.copy()
+            let x:ndarray = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
-            var idx = i.copy()
+            let idx = i.copy()
             self.flat[idx * self.columns.double + k.double] = newValue
         }
     }
@@ -190,7 +190,7 @@ struct matrix {
     subscript(i: Int, k: ndarray) -> ndarray {
         // x[0, array(1,2)]
         get {
-            var x:ndarray = self.flat[i.double * self.columns.double + k]
+            let x:ndarray = self.flat[i.double * self.columns.double + k]
             return x
         }
         set {

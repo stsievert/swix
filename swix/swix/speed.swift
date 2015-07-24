@@ -19,13 +19,13 @@ class SpeedTests {
     }
 }
 func time(f:()->(), name:String="function"){
-    var start = NSDate()
+    let start = NSDate()
     f()
-    println(NSString(format:"\(name) time (s): %.4f", -1 * start.timeIntervalSinceNow))
+    print(NSString(format:"\(name) time (s): %.4f", -1 * start.timeIntervalSinceNow))
 }
 func pe1(){
-    var N = 1e6
-    var x = arange(N)
+    let N = 1e6
+    let x = arange(N)
     // seeing where that modulo is 0
     var i = argwhere((abs(x%3) < 1e-9) || (abs(x%5) < 1e-9))
     // println(sum(x[i]))
@@ -38,7 +38,7 @@ func pe10(){
     var top = (sqrt(N.double)).int
     for i in 2 ..< top{
         var max:Int = (N/i)
-        var j = arange(2, max.double) * i.double
+        var j = arange(2, max: max.double) * i.double
         primes[j] *= 0.0
     }
     // sum(primes) is the correct answer
@@ -46,7 +46,7 @@ func pe10(){
 func pe73(){
     var N = 1e3
     var i = arange(N)+1
-    var (n, d) = meshgrid(i, i)
+    var (n, d) = meshgrid(i, y: i)
     
     var f = (n / d).flat
     f = unique(f)
@@ -57,9 +57,9 @@ func pe73(){
 
 func soft_thresholding(){
     let N = 1e2.int
-    var j = linspace(-1, 1, num:N)
-    var (x, y) = meshgrid(j, j)
-    var z = pow(x, 2) + pow(y, 2)
+    var j = linspace(-1, max: 1, num:N)
+    var (x, y) = meshgrid(j, y: j)
+    var z = pow(x, power: 2) + pow(y, power: 2)
     var i = abs(z) < 0.5
     z[argwhere(i)] *= 0
     z[argwhere(1-i)] -= 0.5
@@ -68,7 +68,7 @@ func soft_thresholding(){
 
 
 func pi_approx(){
-    var N = 1e6
+    let N = 1e6
     var k = arange(N)
     var pi_approx = 1 / (2*k + 1)
     pi_approx[2*k[0..<(N/2).int]+1] *= -1

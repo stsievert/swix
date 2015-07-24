@@ -34,7 +34,7 @@ struct ndarray {
     }
     func copy() -> ndarray{
         // return a new array just like this one
-        var y = zeros(n)
+        let y = zeros(n)
         cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
         return y
     }
@@ -116,7 +116,7 @@ struct ndarray {
                     idx += n.double
                 }
                 assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
-                var y = zeros(idx.n)
+                let y = zeros(idx.n)
                 vDSP_vindexD(!self, !idx, 1.stride, !y, 1.stride, idx.n.length)
                 return y
             }
