@@ -123,8 +123,8 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
         // pre and post nice -- internal variables
         if i==0 {pre = ""}
         else {pre = "        "}
-        if i==x.shape.0-1{post=""}
-        else {post = "],\n"}
+        if i==x.shape.0-1 {post=postfix}
+        else {post = "],"}
         
         if printWholeMatrix || x.shape.0 < 16 || i<4-1 || i>x.shape.0-4{
             print(x[i, 0..<x.shape.1], prefix:pre, postfix:post, format: format, printWholeMatrix:printWholeMatrix)
@@ -134,7 +134,6 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
             Swift.print("        ...,")
         }
     }
-    print(postfix, appendNewline: false)
     print(newline, appendNewline: false)
 }
 func print(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){

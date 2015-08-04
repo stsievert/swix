@@ -107,7 +107,6 @@
 				D24D7132199272E600D4B9D8 /* opencv2.framework */,
 				D2B481B1196F20EB00DAEDFF /* Accelerate.framework */,
 				D2B481AF196F20E400DAEDFF /* Foundation.framework */,
-				D24A8553196D7D73009C18AC /* swix */,
 				D24A8552196D7D73009C18AC /* Products */,
 				D2D216371B629E8E00489EB9 /* swix */,
 			);
@@ -119,13 +118,6 @@
 				D24A8551196D7D73009C18AC /* swix */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		D24A8553196D7D73009C18AC /* swix */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = swix;
 			sourceTree = "<group>";
 		};
 		D2D216371B629E8E00489EB9 /* swix */ = {
