@@ -109,12 +109,13 @@
 
 <dl class="function">
 <dt id="io_swix.write_binary">
-<code class="descclassname">io_swix.</code><code class="descname">write_binary</code><span class="sig-paren">(</span><em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_binary" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">io_swix.</code><code class="descname">write_binary</code><span class="sig-paren">(</span><em>x</em>, <em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_binary" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>ndarray, matrix</em>) &#8211; The content to write to a file.</li>
 <li><strong>filename</strong> (<em>String</em>) &#8211; Where to write the file.</li>
 <li><strong>prefix</strong> (<em>String</em>) &#8211; By default, S2_PREFIX. The file is written to the parent directory.</li>
 </ul>
@@ -122,6 +123,21 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.fromfile.html">np.fromfile</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile">ndarray.tofile</a></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># SWIFT</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span> <span class="o">*</span> <span class="n">phi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_binary</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;x.bin&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># PYTHON:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="s">&quot;x.bin&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">

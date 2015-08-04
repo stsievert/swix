@@ -10,12 +10,14 @@ import io_swix
 def print_functions(root_module, modules):
     strings = []
     for module in modules:
-        f = inspect.ismethod
-        methods = inspect.getmembers(module, predicate=f)
-        strings += ["\n"+str(module)+"\n"+"^"*25]
+        strings += ["\n"+str(module.__module__)+"."+str(module.__name__)+"\n"+"^"*25]
         strings += [".. autosummary::\n"]
+
+        f = inspect.isfunction
+        methods = inspect.getmembers(module, predicate=f)
+        print("Methods ", methods, " of ", module)
         for method in methods:
-            strings += ["    "+str(module)+"."+method[0]]
+            strings += ["    "+str(module.__module__)+"."+str(module.__name__)+"."+method[0]]
     return strings
 
 def print_root_functions(root_module, module_name):

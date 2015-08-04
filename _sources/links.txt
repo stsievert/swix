@@ -89,3 +89,5 @@
 .. _`Support vector machines`: https://en.wikipedia.org/wiki/Support_vector_machines
 .. _`k-nearest neighbors algorithm`: https://en.wikipedia.org/wiki/K_nearest_neighbors
 .. _`binomial coeff`: https://en.wikipedia.org/wiki/Binomial_coefficient
+.. _`np.fromfile`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fromfile.html
+.. _`ndarray.tofile`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile
