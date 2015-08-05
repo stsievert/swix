@@ -133,9 +133,11 @@ struct ndarray {
                     // it's just indexes
                     idx = i.copy()
                 }
-                if idx.max() < 0 {idx += n.double }
-                assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
-                index_xa_b_objc(!self, !idx, !newValue, idx.n.cint)
+                if idx.n > 0{
+                    if idx.max() < 0 {idx += n.double }
+                    assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
+                    index_xa_b_objc(!self, !idx, !newValue, idx.n.cint)
+                }
             }
         }
     }
