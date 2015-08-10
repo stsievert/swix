@@ -141,16 +141,16 @@ func > (lhs: Double, rhs: matrix) -> matrix{
 // GREATER THAN OR EQUAL
 infix operator >= {associativity none precedence 140}
 func >= (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, operation: "=>", rhs: rhs)}
+    return make_operator(lhs, operation: ">=", rhs: rhs)}
 func >= (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, operation: "=>", rhs: rhs)}
+    return make_operator(lhs, operation: ">=", rhs: rhs)}
 func >= (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, operation: "=>", rhs: rhs)}
+    return make_operator(lhs, operation: ">=", rhs: rhs)}
 // LESS THAN OR EQUAL
 infix operator <= {associativity none precedence 140}
 func <= (lhs: matrix, rhs: Double) -> matrix{
-    return make_operator(lhs, operation: "=>", rhs: rhs)}
+    return make_operator(lhs, operation: "<=", rhs: rhs)}
 func <= (lhs: matrix, rhs: matrix) -> matrix{
-    return make_operator(lhs, operation: "=>", rhs: rhs)}
+    return make_operator(lhs, operation: "<=", rhs: rhs)}
 func <= (lhs: Double, rhs: matrix) -> matrix{
-    return make_operator(lhs, operation: "=>", rhs: rhs)}
+    return make_operator(lhs, operation: "<=", rhs: rhs)}
