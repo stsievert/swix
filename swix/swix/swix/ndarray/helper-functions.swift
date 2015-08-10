@@ -92,10 +92,13 @@ func union(x:ndarray, y:ndarray)->ndarray{
     return unique(concat(x, y: y))
 }
 func in1d(x: ndarray, y:ndarray)->ndarray{
-    let (xx, yy) = meshgrid(x, y: y)
-    let i = abs(xx-yy) < S2_THRESHOLD
-    let j = (sum(i, axis:1)) > 0.5
-    return 1-j
+    if (x.n > 0 && y.n > 0){
+        let (xx, yy) = meshgrid(x, y: y)
+        let i = abs(xx-yy) < S2_THRESHOLD
+        let j = (sum(i, axis:1)) > 0.5
+        return 1-j
+    }
+    return array()
 }
 func concat(x:ndarray, y:ndarray)->ndarray{
     // concatenate two matrices

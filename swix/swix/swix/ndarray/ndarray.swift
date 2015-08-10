@@ -115,10 +115,12 @@ struct ndarray {
                     // negative indexing
                     idx += n.double
                 }
-                assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
-                let y = zeros(idx.n)
-                vDSP_vindexD(!self, !idx, 1.stride, !y, 1.stride, idx.n.length)
-                return y
+                if (idx.n > 0){
+                    assert((idx.max().int < self.n) && (idx.min() >= 0), "An index is out of bounds")
+                    let y = zeros(idx.n)
+                    vDSP_vindexD(!self, !idx, 1.stride, !y, 1.stride, idx.n.length)
+                    return y
+                }
             }
             return array()
         }
