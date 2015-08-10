@@ -255,6 +255,9 @@ class swixTests {
             assert(log(ones(4) * e) ~== ones(4))
             assert(exp2(ones(4)*2) ~== ones(4) * 4)
             assert(exp(ones(4)*2) ~== ones(4)*e*e)
+            
+            var xF = array(1, 2, 3, 4)
+            assert(find(xF > 2, x:xF) ~== array(3, 4))
         }
     }
     func matrixTests(){
