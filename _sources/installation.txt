@@ -1,6 +1,5 @@
 Installation
 =============
-Two options:
 
 Easy installation
 -------------------
@@ -13,20 +12,47 @@ Easy installation
 Manual installation
 ----------------------
 1. Download `the repo`_ or `this file`_
-2. Include the folder ``swix-master/swix/swix/swix`` in your project.
-3. Modify your XCode bridging header to include the C functions. This can mean
-   either copying swix's bridging header to your bridging header or `modify
-   your Xcode project`_ to find swix's header in
-   ``swix/objc/swix-Bridging-Header.h``.
-4. Run the swix tests! Your file structure should look something like::
+2. Include the folder ``swix-master/swix/swix/swix`` in your project. The folder
+   you want is right next to a ``main.swift``
+3. Add (or modify) your Swift bridging header to include some Objective-C/C
+   functions. Essentially, this means copying the image below to include
+   ``swix/objc/swix-Bridging-Header.h`` in "Swift Compiler -- Code Generation"
+   under "Project".
 
-    project.xcodeproj
-    project/
-        main.swift
-        swix/
+.. image:: imgs/header.png
+
+4. Done! To test, try inserting in ``main.swift`` or in ``viewDidLoad`` ::
+
+    var x = arange(10)
+    var y = sqrt(x)
+    print(x)
+    print(y)
 
 If you're planning on doing file IO, change your ``S2_PREFIX`` in
 ``numbers.swift``. It should point to the main swix folder.
+
+How to creat a new iOS app that includes swix
+------------------------------------------------
+This is a more detailed version of the section on manual installation.
+
+1. Open Xcode and select to make a new iOS project.
+2. Be sure to select the source language as Swift
+
+.. image:: imgs/swift.png
+
+3. Add the swix folder to your iOS app and copy the files. The swix folder is
+   in the same folder and right next to a ``main.swift``. The path should be
+   ``swix-master/swix/swix/swix/``
+
+.. image:: imgs/add.png
+
+4. Go to your main project settings (the blue thing file at the very top of the
+   left sidebar) and change the Swift bridging header in "Swift Compiler -- Code
+   Generation"
+
+.. image:: imgs/header.png
+
+5. Build your project with ⌘R!
 
 Optional
 -----------
