@@ -294,6 +294,10 @@ class swixTests {
         var (u,v) = meshgrid(array(0,1), y: array(2,3))
         assert(u ~== `repeat`(array(0,1), N: 2).reshape((2,2)).T)
         assert(v ~== `repeat`(array(2,3), N: 2).reshape((2,2)))
+        
+        let A = arange(3*3).reshape((3, 3))
+        assert(abs(A.max() - 8) < 1e-3)
+        assert(abs(A.min() - 0) < 1e-3)
     }
     
     func readWriteTests(){

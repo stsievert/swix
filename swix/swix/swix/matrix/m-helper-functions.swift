@@ -136,6 +136,12 @@ func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:S
     }
     print(newline, appendNewline: false)
 }
+func max(x: matrix, axis:Int = -1)->Double{
+    return x.max()
+}
+func min(x: matrix, axis:Int = -1)->Double{
+    return x.min()
+}
 func print(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
 }

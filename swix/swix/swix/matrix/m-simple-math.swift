@@ -108,18 +108,3 @@ func mean(x:matrix, axis:Int = -1) -> ndarray{
     let div = axis==0 ? x.shape.0 : x.shape.1
     return sum(x, axis:axis) / div.double
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
