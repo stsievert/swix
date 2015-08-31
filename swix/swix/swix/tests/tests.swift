@@ -86,6 +86,13 @@ class swixTests {
             let y = array("1 2 3 1; 4 5 6 1; 7 8 9 1")
             assert((x.dot(y)) ~== 2*y)
             print("dot product works with dot(x, y) or x *! y")
+            
+            let xA = ones(3)
+            let A = arange(3*3).reshape((3, 3))
+            let yA1 = A.dot(xA)
+            let yA2 = dot(A, x: xA)
+            assert(yA1 ~== array(3, 12, 21))
+            assert(yA1 ~== yA2)
         }
         func svd_test(){
             let x = array("1 2; 4 8; 3 5")

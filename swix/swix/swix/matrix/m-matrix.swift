@@ -63,6 +63,12 @@ struct matrix {
             !z, Ny.cint)
         return z
     }
+    func dot(x: ndarray) -> ndarray{
+        var y = zeros((x.n, 1))
+        y.flat = x
+        var z = self.dot(y)
+        return z.flat
+    }
     subscript(i: Int, j: Int) -> Double {
         // x[0,0]
         get {

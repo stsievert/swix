@@ -19,6 +19,9 @@ func rank(x:matrix)->Double{
 func dot(x: matrix, y: matrix) -> matrix{
     return x.dot(y)
 }
+func dot(A: matrix, x: ndarray) -> ndarray{
+    return A.dot(x)
+}
 func svd(x: matrix, compute_uv:Bool=true) -> (matrix, ndarray, matrix){
     let (m, n) = x.shape
     let nS = m < n ? m : n // number singular values
