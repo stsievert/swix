@@ -52,7 +52,16 @@ struct matrix {
         return r >= 0 && r < rows && c>=0 && c < columns
     }
     func dot(y: matrix) -> matrix{
-        return self *! y
+        let (Mx, Nx) = self.shape
+        let (My, Ny) = y.shape
+        assert(Nx == My, "Matrix sizes not compatible for dot product")
+        let z = zeros((Mx, Ny))
+        cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+            Mx.cint, Ny.cint, Nx.cint, 1.0,
+            !self, Nx.cint,
+            !y, Ny.cint, 1.0,
+            !z, Ny.cint)
+        return z
     }
     subscript(i: Int, j: Int) -> Double {
         // x[0,0]

@@ -67,10 +67,6 @@ func <- (inout lhs:matrix, rhs:Double){
     lhs = assign
 }
 
-// DOT PRODUCT
-infix operator *! {associativity none precedence 140}
-func *! (lhs: matrix, rhs: matrix) -> matrix{
-    return dot(lhs, y: rhs)}
 // SOLVE
 infix operator !/ {associativity none precedence 140}
 func !/ (lhs: matrix, rhs: ndarray) -> ndarray{

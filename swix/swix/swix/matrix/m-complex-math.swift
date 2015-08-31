@@ -17,16 +17,7 @@ func rank(x:matrix)->Double{
     return sum(S > tol)
 }
 func dot(x: matrix, y: matrix) -> matrix{
-    let (Mx, Nx) = x.shape
-    let (My, Ny) = y.shape
-    assert(Nx == My, "Matrix sizes not compatible for dot product")
-    let z = zeros((Mx, Ny))
-    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
-        Mx.cint, Ny.cint, Nx.cint, 1.0,
-        !x, Nx.cint,
-        !y, Ny.cint, 1.0,
-        !z, Ny.cint)
-    return z
+    return x.dot(y)
 }
 func svd(x: matrix, compute_uv:Bool=true) -> (matrix, ndarray, matrix){
     let (m, n) = x.shape

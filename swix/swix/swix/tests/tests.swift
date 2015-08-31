@@ -84,7 +84,7 @@ class swixTests {
         func dot_test(){
             let x = eye(3) * 2
             let y = array("1 2 3 1; 4 5 6 1; 7 8 9 1")
-            assert((x *! y) ~== 2*y)
+            assert((x.dot(y)) ~== 2*y)
             print("dot product works with dot(x, y) or x *! y")
         }
         func svd_test(){
@@ -112,7 +112,7 @@ class swixTests {
         func inv_test(){
             let x = randn((4,4))
             let y = inv(x)
-            assert((x *! y) ~== eye(4))
+            assert((x.dot(y)) ~== eye(4))
             print("matrix inversion works")
         }
         func solve_test(){
@@ -314,7 +314,7 @@ class swixTests {
         assert(sum(z, axis:0) ~== array(12, 15, 18, 21))
         assert(sum(z, axis:1) ~== array(6, 22, 38))
         
-        var d1 = x *! y
+        var d1 = x.dot(y)
         var d2 = x.dot(y)
         var d3 = dot(x, y: y)
         assert(d1 ~== d2)

@@ -85,12 +85,12 @@ func sum(x: matrix, axis:Int = -1) -> ndarray{
     if axis==1{
         let n = x.shape.1
         let m = ones((n,1))
-        return (x *! m).flat
+        return (x.dot(m)).flat
     }
     else if axis==0 {
         let n = x.shape.0
         let m = ones((1,n))
-        return (m *! x).flat
+        return (m.dot(x)).flat
     }
     
     // the program will never get below this line
