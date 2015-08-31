@@ -21,6 +21,8 @@
  */
 
 import Foundation
+//import UIKit // for iOS use
+//import CoreGraphics // possibly needed for iOS use
 
 func rgb2hsv_pixel(R:Double, G:Double, B:Double)->(Double, Double, Double){
     // tested against wikipedia/HSL_and_HSV. returns (H, S_hsv, V)
@@ -91,15 +93,16 @@ func imshow(x: matrix){
 //    var count:Int = 4*Int(pix)
 //    
 //    // pulling the color out of the image
-//    var rawData:[CUnsignedChar] = Array(count:count, repeatedValue:0)
-//    var bitmapInfo = CGBitmapInfo.fromRaw(CGImageAlphaInfo.PremultipliedLast.toRaw())!
-//    var context = CGBitmapContextCreate(&rawData, UInt(width), UInt(height), bitsPerComponent, bytesPerRow, colorSpace, bitmapInfo)
+//    var rawData = UnsafeMutablePointer<UInt8>.alloc(4 * width * height)
+//    var temp = CGImageAlphaInfo.PremultipliedLast.rawValue
+//    var bitmapInfo = CGBitmapInfo(rawValue:temp)
+//    var context = CGBitmapContextCreate(rawData, Int(width), Int(height), Int(bitsPerComponent), Int(bytesPerRow), colorSpace, temp)
 //    CGContextDrawImage(context, CGRectMake(0,0,CGFloat(width), CGFloat(height)), imageRef)
 //    
 //    
 //    // unsigned char to double conversion
 //    var rawDataArray = zeros(count)-1
-//    vDSP_vfltu8D(&rawData, 1, &rawDataArray.grid, 1, count.length)
+//    vDSP_vfltu8D(rawData, 1.stride, !(rawDataArray), 1, count.length)
 //    
 //    // pulling the RGBA channels out of the color
 //    var i = arange(pix)
@@ -117,6 +120,8 @@ func imshow(x: matrix){
 //    return (r, g, b, a)
 //}
 //func RGBAToUIImage(r:matrix, g:matrix, b:matrix, a:matrix)->UIImage{
+//    // might be useful! [1]
+//    // [1]:http://stackoverflow.com/questions/30958427/pixel-array-to-uiimage-in-swift
 //    // setup
 //    var height = r.shape.0
 //    var width = r.shape.1
@@ -138,22 +143,23 @@ func imshow(x: matrix){
 //    var colorSpace = CGColorSpaceCreateDeviceRGB()
 //    var bitsPerComponent = 8
 //    var bytesPerRow = ((bitsPerComponent * width) / 8) * componentsPerPixel
-//    var bitmapInfo = CGBitmapInfo.fromRaw(CGImageAlphaInfo.PremultipliedLast.toRaw())!
-//    var context = CGBitmapContextCreate(&pixelData, UInt(width), UInt(height), UInt(bitsPerComponent), UInt(bytesPerRow), colorSpace, bitmapInfo)
+//    var temp = CGImageAlphaInfo.PremultipliedLast.rawValue
+//    var bitmapInfo = CGBitmapInfo(rawValue:temp)
+//    var context = CGBitmapContextCreate(&pixelData, Int(width), Int(height), Int(bitsPerComponent), Int(bytesPerRow), colorSpace, temp)
 //    
 //    // creating the image
-//    var toCGImage = CGBitmapContextCreateImage(context)
+//    var toCGImage = CGBitmapContextCreateImage(context)!
 //    var image:UIImage = UIImage.init(CGImage:toCGImage)
 //    return image
 //}
 //func resizeImage(image:UIImage, shape:(Int, Int)) -> UIImage{
 //    // nice variables
 //    var (height, width) = shape
-//    var cgSize = CGSizeMake(width, height)
+//    var cgSize = CGSizeMake(CGFloat(width), CGFloat(height))
 //    
 //    // draw on new CGSize
 //    UIGraphicsBeginImageContextWithOptions(cgSize, false, 0.0)
-//    image.drawInRect(CGRectMake(0, 0, width, height))
+//    image.drawInRect(CGRectMake(CGFloat(0), CGFloat(0), CGFloat(width), CGFloat(height)))
 //    var newImage = UIGraphicsGetImageFromCurrentImageContext()
 //    UIGraphicsEndImageContext()
 //    return newImage
