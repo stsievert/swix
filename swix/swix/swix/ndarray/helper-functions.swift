@@ -140,9 +140,6 @@ func argwhere(idx: ndarray) -> ndarray{
     vDSP_vcmprsD(!i, 1.stride, !idx, 1.stride, !args, 1.stride, idx.n.length)
     return args
 }
-func find(idx:ndarray, x:ndarray)->ndarray{
-    return x[idx]
-}
 
 
 // LOGICAL

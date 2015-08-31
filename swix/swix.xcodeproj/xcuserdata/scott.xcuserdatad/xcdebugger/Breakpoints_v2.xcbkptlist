@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "swix/swix/tests/tests.swift"
-            timestampString = "462751529.730679"
+            timestampString = "462756782.87901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "readWriteTests()"
             landmarkType = "5">
          </BreakpointContent>
