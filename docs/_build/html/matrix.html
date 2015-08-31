@@ -63,7 +63,7 @@
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><code class="docutils literal"><span class="pre">*</span></code> is an element-wise multiplication. <code class="docutils literal"><span class="pre">*!</span></code> is used for a dot product or matrix multiplication. Not like matlab!</p>
+<p class="last"><code class="docutils literal"><span class="pre">*</span></code> is an element-wise multiplication. There is no matrix multiplication operator because we ran into scope issues. Instead, use <code class="docutils literal"><span class="pre">A.dot(x)</span></code></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -123,21 +123,22 @@ select indices when indexing.</p>
 
 <dl class="method">
 <dt id="matrix.matrix.dot">
-<code class="descname">dot</code><span class="sig-paren">(</span><em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.dot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dot</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matrix multiplication with another matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The lhs of the matrix.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>matrix, ndarray</em>) &#8211; The lhs of the matrix.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix. The dot product <code class="docutils literal"><span class="pre">dot(self,</span> <span class="pre">y)</span></code></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix, ndarray. The matrix multiplication of the two input arguments. The return type mirrors the type of the input <code class="docutils literal"><span class="pre">x</span></code></td>
 </tr>
 </tbody>
 </table>
+<p>Callable with <code class="docutils literal"><span class="pre">A.dot(x)</span></code> and <code class="docutils literal"><span class="pre">dot(A,</span> <span class="pre">x)</span></code> where <code class="docutils literal"><span class="pre">A</span></code> is a matrix and <code class="docutils literal"><span class="pre">x</span></code> an ndarray <cite>or</cite> matrix.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></code></a>, <a class="reference internal" href="#matrix.operators.dot" title="matrix.operators.dot"><code class="xref py py-class docutils literal"><span class="pre">operators.dot</span></code></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -610,21 +611,22 @@ select indices when indexing.</p>
 
 <dl class="method">
 <dt>
-<code class="descname">dot</code><span class="sig-paren">(</span><em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">dot</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Matrix multiplication with another matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The lhs of the matrix.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>matrix, ndarray</em>) &#8211; The lhs of the matrix.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix. The dot product <code class="docutils literal"><span class="pre">dot(self,</span> <span class="pre">y)</span></code></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix, ndarray. The matrix multiplication of the two input arguments. The return type mirrors the type of the input <code class="docutils literal"><span class="pre">x</span></code></td>
 </tr>
 </tbody>
 </table>
+<p>Callable with <code class="docutils literal"><span class="pre">A.dot(x)</span></code> and <code class="docutils literal"><span class="pre">dot(A,</span> <span class="pre">x)</span></code> where <code class="docutils literal"><span class="pre">A</span></code> is a matrix and <code class="docutils literal"><span class="pre">x</span></code> an ndarray <cite>or</cite> matrix.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></code></a>, <a class="reference internal" href="#matrix.operators.dot" title="matrix.operators.dot"><code class="xref py py-class docutils literal"><span class="pre">operators.dot</span></code></a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -1310,36 +1312,6 @@ use case for this.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="matrix.operators.dot">
-<code class="descname">dot</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.dot" title="Permalink to this definition">¶</a></dt>
-<dd><p>The dot product operator.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The lhs.</li>
-<li><strong>y</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The rhs</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matrix.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Performs a matrix multiplication between two matrices.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Also callable through <code class="docutils literal"><span class="pre">*!</span></code> and <code class="docutils literal"><span class="pre">x.dot(y)</span></code></p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.matrix.dot" title="matrix.matrix.dot"><code class="xref py py-class docutils literal"><span class="pre">matrix.dot</span></code></a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></code></a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">Matrix multiplication</a></p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="matrix.operators.element_operators">
 <code class="descname">element_operators</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.operators.element_operators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Element wise artithmetic operators.</p>
@@ -1697,15 +1669,15 @@ use case for this.</p>
 <em class="property">class </em><code class="descclassname">matrix.</code><code class="descname">complex_math</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="matrix.complex_math.dot">
-<code class="descname">dot</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.dot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dot</code><span class="sig-paren">(</span><em>A</em>, <em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.complex_math.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matrix multiplication between two matrices.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The lhs.</li>
-<li><strong>y</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The rhs</li>
+<li><strong>A</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The lhs.</li>
+<li><strong>x</strong> (<em>matrix, ndarray</em>) &#8211; The rhs</li>
 </ul>
 </td>
 </tr>
@@ -1717,11 +1689,11 @@ use case for this.</p>
 <p>Performs a matrix multiplication between two matrices.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Also callable through <code class="docutils literal"><span class="pre">*!</span></code>, <code class="docutils literal"><span class="pre">dot(x,</span> <span class="pre">y)</span></code> and <code class="docutils literal"><span class="pre">x.dot(y)</span></code></p>
+<p class="last">Also callable through <code class="docutils literal"><span class="pre">dot(A,</span> <span class="pre">x)</span></code> and <code class="docutils literal"><span class="pre">A.dot(x)</span></code></p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.matrix.dot" title="matrix.matrix.dot"><code class="xref py py-class docutils literal"><span class="pre">matrix.dot</span></code></a>, <a class="reference internal" href="#matrix.operators.dot" title="matrix.operators.dot"><code class="xref py py-class docutils literal"><span class="pre">operators.dot</span></code></a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">Matrix multiplication</a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.matrix.dot" title="matrix.matrix.dot"><code class="xref py py-class docutils literal"><span class="pre">matrix.dot</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">operators.dot</span></code>, <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">Matrix multiplication</a></p>
 </div>
 </dd></dl>
 

@@ -29,15 +29,17 @@ class matrix:
 
         .. seealso:: :class:`ndarray.ndarray.copy`
         """
-    def dot(y):
+    def dot(x):
         """
         Matrix multiplication with another matrix.
 
-        :param y: The lhs of the matrix.
-        :type y: matrix
-        :rtype: matrix. The dot product ``dot(self, y)``
+        :param x: The lhs of the matrix.
+        :type x: matrix, ndarray
+        :rtype: matrix, ndarray. The matrix multiplication of the two input arguments. The return type mirrors the type of the input ``x``
 
-        .. seealso:: `np.dot`_, :class:`complex_math.dot`, :class:`operators.dot`
+        Callable with ``A.dot(x)`` and ``dot(A, x)`` where ``A`` is a matrix and ``x`` an ndarray `or` matrix.
+
+        .. seealso:: `np.dot`_, :class:`complex_math.dot`
         """
     def index(one, two):
         """
@@ -412,22 +414,6 @@ class operators:
 
         .. seealso:: `np.operators`_
         """
-    def dot(x, y):
-        """
-        The dot product operator.
-
-        :param x: The lhs.
-        :type x: matrix
-        :param y: The rhs
-        :type y: matrix
-        :rtype: matrix.
-
-        Performs a matrix multiplication between two matrices.
-
-        .. note:: Also callable through ``*!`` and ``x.dot(y)``
-
-        .. seealso:: `np.dot`_, :class:`matrix.dot`, :class:`complex_math.dot`, `Matrix multiplication`_
-        """
     def solve(A, b):
         """
         Solves a system of eqautions similar to Matlab's backslash.
@@ -680,19 +666,19 @@ class complex_math:
 
         .. seealso:: `matrix rank`_, `np.linalg.matrix_rank`_
         """
-    def dot(x, y):
+    def dot(A, x):
         """
         Matrix multiplication between two matrices.
 
-        :param x: The lhs.
-        :type x: matrix
-        :param y: The rhs
-        :type y: matrix
+        :param A: The lhs.
+        :type A: matrix
+        :param x: The rhs
+        :type x: matrix, ndarray
         :rtype: matrix.
 
         Performs a matrix multiplication between two matrices.
 
-        .. note:: Also callable through ``*!``, ``dot(x, y)`` and ``x.dot(y)``
+        .. note:: Also callable through ``dot(A, x)`` and ``A.dot(x)``
 
         .. seealso:: `np.dot`_, :class:`matrix.dot`, :class:`operators.dot`, `Matrix multiplication`_
         """

@@ -248,7 +248,6 @@ matrix.operators
 .. autosummary::
 
     matrix.operators.assignment_operator
-    matrix.operators.dot
     matrix.operators.element_operators
     matrix.operators.equality
     matrix.operators.solve

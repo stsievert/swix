@@ -8,7 +8,7 @@ The full docs are below but I'll touch on some highlights:
 * Implements some complex math: solve, dot, svd, and inv
 * has some nice functions for image, including functions to show and save images.
 
-.. note:: ``*`` is an element-wise multiplication. ``*!`` is used for a dot product or matrix multiplication. Not like matlab!
+.. note:: ``*`` is an element-wise multiplication. There is no matrix multiplication operator because we ran into scope issues. Instead, use ``A.dot(x)``
 .. note:: The function to show/save images rely on Python, PYTHON_PATH and the pylab stack.
 
 Docs
