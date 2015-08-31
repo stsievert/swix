@@ -30,6 +30,26 @@ class swixTests {
         numberTests()
         ndarrayTests()
         matrixTests()
+        set_theory_tests()
+    }
+    func set_theory_tests(){
+        func in1d_test(){
+            var test = array(0, 1, 2, 5, 0)
+            var states = array(0, 2)
+            var mask = in1d(test, y:states)
+            assert(mask ~== array(1, 0, 1, 0, 1))
+        }
+        func intersection_test(){
+            var x = array(1, 2, 3, 4, -1, -1)
+            var y = array(1, 2, 3, 5, -1, -1)
+            var a = intersection(x, y:y)
+            var b = union(x, y:y)
+            assert(a ~== array(-1, 1, 2, 3))
+            assert(b ~== array(-1, 1, 2, 3, 4, 5))
+        }
+        in1d_test()
+        intersection_test()
+        print("set function works like set theory ")
     }
     func complexTests(){
         func scalar_test(){

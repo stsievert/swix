@@ -86,7 +86,7 @@ func shuffle(x:ndarray)->ndarray{
 
 // SETS
 func intersection(x: ndarray, y:ndarray)->ndarray{
-    return x[argwhere(in1d(x, y: y))]
+    return unique(x[argwhere(in1d(x, y: y))])
 }
 func union(x:ndarray, y:ndarray)->ndarray{
     return unique(concat(x, y: y))
@@ -96,7 +96,7 @@ func in1d(x: ndarray, y:ndarray)->ndarray{
         let (xx, yy) = meshgrid(x, y: y)
         let i = abs(xx-yy) < S2_THRESHOLD
         let j = (sum(i, axis:1)) > 0.5
-        return 1-j
+        return 0+j
     }
     return array()
 }
