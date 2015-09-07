@@ -172,7 +172,7 @@ func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:S
         if i==x.n-1 { suffix = "" }
         if printAllElements || (x.n)<16 || i<3 || i>(x.n-4){
             string = NSString(format: format+suffix, x[i])
-            print(string)
+            print(String(string), terminator:"")
         }
         else if printed == false{
             printed = true

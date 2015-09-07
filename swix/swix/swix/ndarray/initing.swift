@@ -105,7 +105,7 @@ func rand(N: Int, distro:String="uniform") -> ndarray{
     SWIX_SEED = seed[0]
     return x
 }
-func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
+func randn(N: Int, mean: Double=0, sigma: Double=1) -> ndarray{
     return (rand(N, distro:"normal") * sigma) + mean;
 }
 func randperm(N:Int)->ndarray{

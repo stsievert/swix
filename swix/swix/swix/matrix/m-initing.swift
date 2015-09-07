@@ -31,9 +31,9 @@ func diag(x:ndarray)->matrix{
     y["diag"] = x
     return y
 }
-func randn(N: (Int, Int), mean: Double=0, sigma: Double=1, seed:Int=42) -> matrix{
+func randn(N: (Int, Int), mean: Double=0, sigma: Double=1) -> matrix{
     var x = zeros(N)
-    let y = randn(N.0 * N.1, mean:mean, sigma:sigma, seed:seed)
+    let y = randn(N.0 * N.1, mean:mean, sigma:sigma)
     x.flat = y
     return x
 }
