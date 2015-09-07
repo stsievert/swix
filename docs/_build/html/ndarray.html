@@ -433,7 +433,7 @@ assumed to have a length the same as the array being indexed.</p>
 
 <dl class="method">
 <dt id="ndarray.initing.rand">
-<code class="descname">rand</code><span class="sig-paren">(</span><em>N</em>, <em>seed=42</em>, <em>distro='uniform'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.rand" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rand</code><span class="sig-paren">(</span><em>N</em>, <em>distro='uniform'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.rand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of uniform random variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -441,7 +441,6 @@ assumed to have a length the same as the array being indexed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
-<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
 <li><strong>distro</strong> (<em>String</em>) &#8211; The type of distribution. Assumed to be either <code class="docutils literal"><span class="pre">&quot;uniform&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code></li>
 </ul>
 </td>
@@ -451,19 +450,15 @@ assumed to have a length the same as the array being indexed.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The seed stays constant for each call.</p>
-</div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html">np.random.rand</a></p>
+<p class="last"><a class="reference internal" href="#ndarray.initing.seed" title="ndarray.initing.seed"><code class="xref py py-class docutils literal"><span class="pre">initing.seed</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html">np.random.rand</a></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ndarray.initing.randn">
-<code class="descname">randn</code><span class="sig-paren">(</span><em>N</em>, <em>seed=42</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randn" title="Permalink to this definition">¶</a></dt>
+<code class="descname">randn</code><span class="sig-paren">(</span><em>N</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.randn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes an array of normally distributed random variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -471,7 +466,6 @@ assumed to have a length the same as the array being indexed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
-<li><strong>seed</strong> (<em>Int</em>) &#8211; The random number generator seed.</li>
 <li><strong>mean</strong> (<em>Double</em>) &#8211; The mean of this distribution.</li>
 <li><strong>sigma</strong> (<em>Double</em>) &#8211; The standard deviation of this distribution.</li>
 </ul>
@@ -505,6 +499,24 @@ assumed to have a length the same as the array being indexed.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="#ndarray.helper_functions.shuffle" title="ndarray.helper_functions.shuffle"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.shuffle</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.permutation.html">np.random.permutation</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ndarray.initing.seed">
+<code class="descname">seed</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/ndarray/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ndarray.initing.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the seed for a psuedo-random number generation. This uses the global variable <code class="docutils literal"><span class="pre">SWIX_SEED</span></code> defined in <code class="docutils literal"><span class="pre">numbers.swift</span></code>. This global variable <code class="docutils literal"><span class="pre">SWIX_SEED</span></code> updates every time a call to rand is called (which happens through randn, etc).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> (<em>Int</em>) &#8211; The seed. If <code class="docutils literal"><span class="pre">seed</span></code> is not called, this defaults to 42.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#ndarray.initing.rand" title="ndarray.initing.rand"><code class="xref py py-class docutils literal"><span class="pre">initing.rand</span></code></a>, <a class="reference internal" href="#ndarray.initing.randn" title="ndarray.initing.randn"><code class="xref py py-class docutils literal"><span class="pre">initing.randn</span></code></a>, <a class="reference internal" href="#ndarray.initing.randperm" title="ndarray.initing.randperm"><code class="xref py py-class docutils literal"><span class="pre">initing.randperm</span></code></a></p>
 </div>
 </dd></dl>
 

@@ -61,6 +61,7 @@ ndarray.initing
     ndarray.initing.rand
     ndarray.initing.randn
     ndarray.initing.randperm
+    ndarray.initing.seed
     ndarray.initing.zeros
     ndarray.initing.zeros_like
 

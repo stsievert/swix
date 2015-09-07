@@ -10,6 +10,7 @@ The full docs are below but I'll touch on some highlights:
 
 .. note:: ``*`` is an element-wise multiplication. There is no matrix multiplication operator because we ran into scope issues. Instead, use ``A.dot(x)``
 .. note:: The function to show/save images rely on Python, PYTHON_PATH and the pylab stack.
+.. warning:: ``A.flat`` gives access to the entire array which swix depends uses to get around typing annoyances. Call ``max(A.flat)`` to find the maximum element in the entire array.
 
 Docs
 ++++++++++

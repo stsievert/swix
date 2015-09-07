@@ -101,30 +101,33 @@ class ndarray:
         """
 
 class initing():
-    def rand(N, seed=42, distro="uniform"):
+    def rand(N, distro="uniform"):
         """
         Makes an array of uniform random variables.
 
         :param N: The size of the array.
         :type N: Int
-        :param seed: The random number generator seed.
-        :type seed: Int
         :param distro: The type of distribution. Assumed to be either ``"uniform"`` or ``"normal"``
         :type distro: String
         :rtype: ndarray. Random integers normally distributed.
 
-        .. warning:: The seed stays constant for each call.
-
-        .. seealso:: `np.random.rand`_
+        .. seealso:: :class:`initing.seed`, `np.random.rand`_
         """
-    def randn(N, seed=42, mean=0.0, sigma=1.0):
+    def seed(N):
+        """
+        Sets the seed for a psuedo-random number generation. This uses the global variable ``SWIX_SEED`` defined in ``numbers.swift``. This global variable ``SWIX_SEED`` updates every time a call to rand is called (which happens through randn, etc).
+
+        :param N: The seed. If ``seed`` is not called, this defaults to 42.
+        :type N: Int
+
+        .. seealso:: :class:`initing.rand`, :class:`initing.randn`, :class:`initing.randperm`
+        """
+    def randn(N, mean=0.0, sigma=1.0):
         """
         Makes an array of normally distributed random variables.
 
         :param N: The size of the array.
         :type N: Int
-        :param seed: The random number generator seed.
-        :type seed: Int
         :param mean: The mean of this distribution.
         :type mean: Double
         :param sigma: The standard deviation of this distribution.
