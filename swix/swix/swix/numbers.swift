@@ -16,7 +16,8 @@ let PYTHON_PATH = "~/anaconda/bin/ipython"
 // how close is close?
 let S2_THRESHOLD = 1e-9
 
-// not using let in case someone wants a variable name phi/etc
+// The random seed
+var SWIX_SEED:__CLPK_integer = 42
 
 // various important constants
 var pi = 3.1415926535897932384626433832795028841971693993751058

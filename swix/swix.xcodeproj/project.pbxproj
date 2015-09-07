@@ -134,10 +134,10 @@
 			children = (
 				D2D2163A1B629E8E00489EB9 /* imshow.py */,
 				D2D2163B1B629E8E00489EB9 /* io.swift */,
+				D2D2164D1B629E8E00489EB9 /* numbers.swift */,
 				D2D2163C1B629E8E00489EB9 /* machine_learning */,
 				D2D2163E1B629E8E00489EB9 /* matrix */,
 				D2D216461B629E8E00489EB9 /* ndarray */,
-				D2D2164D1B629E8E00489EB9 /* numbers.swift */,
 				D2D2164E1B629E8E00489EB9 /* objc */,
 				D2D216571B629E8E00489EB9 /* ScalarArithmetic-bleed.swift */,
 				D2D216581B629E8E00489EB9 /* swift-complex */,

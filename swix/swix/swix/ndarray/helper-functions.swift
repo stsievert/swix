@@ -167,10 +167,14 @@ func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:S
     print(prefix, terminator: "")
     var suffix = seperator
     var printed = false
+    var string:NSString
     for i in 0..<x.n{
         if i==x.n-1 { suffix = "" }
         if printAllElements || (x.n)<16 || i<3 || i>(x.n-4){
-            print(NSString(format: format+suffix, x[i]), separator: "")}else if printed == false{
+            string = NSString(format: format+suffix, x[i])
+            print(string)
+        }
+        else if printed == false{
             printed = true
             print("..., ", terminator: "")
         }
@@ -181,5 +185,6 @@ func println(x: ndarray, prefix:String="array([", postfix:String="])", newline:S
 func print(x: ndarray, prefix:String="ndarray([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
     println(x, prefix:prefix, postfix:postfix, newline:"\n", format:format, printAllElements:printWholeMatrix)
 }
+
 
 

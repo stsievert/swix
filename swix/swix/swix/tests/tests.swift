@@ -413,6 +413,12 @@ class swixTests {
         
         assert(sort(y5) ~== array(1, 2, 3, 5, 6))
         
+        seed(2)
+        var xR = rand(100)
+        seed(2)
+        var yR = rand(100)
+        assert(max(abs(xR - yR)) < 1e-6)
+        
         func helper_test(){
             let x = arange(2*3).reshape((2,3))
             assert(fliplr(x) ~== array(2, 1, 0, 5, 4, 3).reshape((2,3)))

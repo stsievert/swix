@@ -19,7 +19,7 @@ func zeros(N: Int) -> ndarray{
 }
 func zeros_like(x: ndarray) -> ndarray{
     // make an array like the other array
-    return zeros(x.n)
+   return zeros(x.n)
 }
 func ones_like(x: ndarray) -> ndarray{
     // make an array like the other array
@@ -91,13 +91,18 @@ func copy(x: ndarray) -> ndarray{
     return x.copy()
 }
 
-func rand(N: Int, seed:Int=42, distro:String="uniform") -> ndarray{
+func seed(n:Int){
+    SWIX_SEED = __CLPK_integer(n)
+}
+
+func rand(N: Int, distro:String="uniform") -> ndarray{
     let x = zeros(N)
     var i:__CLPK_integer = 1
     if distro=="normal" {i = __CLPK_integer(3)}
-    var seed:Array<__CLPK_integer> = [__CLPK_integer(seed), 42, 2, 29]
+    var seed:Array<__CLPK_integer> = [SWIX_SEED, 0, 0, 0]
     var nn:__CLPK_integer  = __CLPK_integer(N)
     dlarnv_(&i, &seed, &nn, !x)
+    SWIX_SEED = seed[0]
     return x
 }
 func randn(N: Int, mean: Double=0, sigma: Double=1, seed:Int=42) -> ndarray{
