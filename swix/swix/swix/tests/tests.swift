@@ -10,7 +10,7 @@ import Foundation
 
 class swixTests {
     var N:Int
-    init(run_io_tests:Bool=true){
+    init(run_io_tests:Bool=false){
         print("running many simple tests")
         self.N = 10
         operatorTests()
