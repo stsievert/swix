@@ -3,6 +3,8 @@ Installation
 
 Easy installation
 -------------------
+This method gives a command-line tool that can be run on OSX.
+
 1. Download `the repo`_ or `this file`_
 2. Boom! You're done. You'll have your project structure in ``swix-master/swix/``,
    complete with a ``.xcodeproj`` and all that. The two files you care about are
@@ -11,6 +13,8 @@ Easy installation
 
 Manual installation
 ----------------------
+This method can be generalized to any Swift project, whether it be iOS or OSX.
+
 1. Download `the repo`_ or `this file`_
 2. Include the folder ``swix-master/swix/swix/swix`` in your project. The folder
    you want is right next to a ``main.swift``
