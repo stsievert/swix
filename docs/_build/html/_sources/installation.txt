@@ -3,12 +3,18 @@ Installation
 
 Easy installation
 -------------------
+
+This option gives a simple iOS app that integrates swix:
+
+1. Dowload `the repo`_ or `this file`_
+2. The iOS app is ``swix_ios_app/``. Open it up and play with it!
+
 This method gives a command-line tool that can be run on OSX.
 
 1. Download `the repo`_ or `this file`_
-2. Boom! You're done. You'll have your project structure in ``swix-master/swix/``,
+2. You're done! You'll have your project structure in ``swix-master/swix/``,
    complete with a ``.xcodeproj`` and all that. The two files you care about are
-   ``swix.xcodeproj`` and ``swix/`` -- don't worry about ``speed``.
+   ``swix.xcodeproj`` and ``swix/``.
 3. Open up ``swix.xcodeproj`` and run the tests.
 
 Manual installation
