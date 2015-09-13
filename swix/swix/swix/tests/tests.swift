@@ -210,7 +210,26 @@ class swixTests {
             assert(copy(arange(4)) ~== arange(4))
             assert(asarray(0..<2) ~== array(0, 1))
             assert(copy(arange(3)) ~== array(0, 1, 2))
-            assert(sum((rand(3) - array(0.516, 0.294, 0.727)) < 1e-2) == 3)
+            //assert(sum((rand(3) - array(0.516, 0.294, 0.727)) < 1e-2) == 3)
+            
+            var N = 1e4.int
+            seed(42)
+            var x = rand(N)
+            
+            seed(42)
+            var y = rand(N)
+            assert(x ~== y)
+            
+            seed(29)
+            y = rand(N)
+            assert(!(x ~== y))
+            
+            seed(42)
+            y = rand(N)
+            assert(x ~== y)
+            
+            assert(abs(x.mean() - 0.5) < 1e-1)
+            assert(abs(variance(x) - 1/12) < 1e-1)
         }
         func ndarraySwiftTests(){
             // testing the file ndarray.swift

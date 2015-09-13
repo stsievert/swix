@@ -99,7 +99,7 @@ func rand(N: Int, distro:String="uniform") -> ndarray{
     let x = zeros(N)
     var i:__CLPK_integer = 1
     if distro=="normal" {i = __CLPK_integer(3)}
-    var seed:Array<__CLPK_integer> = [SWIX_SEED, 0, 0, 0]
+    var seed:Array<__CLPK_integer> = [SWIX_SEED, 2, 3, 5]
     var nn:__CLPK_integer  = __CLPK_integer(N)
     dlarnv_(&i, &seed, &nn, !x)
     SWIX_SEED = seed[0]
