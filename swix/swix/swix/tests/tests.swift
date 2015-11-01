@@ -34,16 +34,16 @@ class swixTests {
     }
     func set_theory_tests(){
         func in1d_test(){
-            var test = array(0, 1, 2, 5, 0)
-            var states = array(0, 2)
-            var mask = in1d(test, y:states)
+            let test = array(0, 1, 2, 5, 0)
+            let states = array(0, 2)
+            let mask = in1d(test, y:states)
             assert(mask ~== array(1, 0, 1, 0, 1))
         }
         func intersection_test(){
-            var x = array(1, 2, 3, 4, -1, -1)
-            var y = array(1, 2, 3, 5, -1, -1)
-            var a = intersection(x, y:y)
-            var b = union(x, y:y)
+            let x = array(1, 2, 3, 4, -1, -1)
+            let y = array(1, 2, 3, 5, -1, -1)
+            let a = intersection(x, y:y)
+            let b = union(x, y:y)
             assert(a ~== array(-1, 1, 2, 3))
             assert(b ~== array(-1, 1, 2, 3, 4, 5))
         }
@@ -95,9 +95,9 @@ class swixTests {
             print("x[ndarray] works and indexes the ndarray row first")
         }
         func fft_test(){
-            var x = arange(8)
-            var (yr, yi) = fft(x)
-            var x2 = ifft(yr, yi: yi)
+            let x = arange(8)
+            let (yr, yi) = fft(x)
+            let x2 = ifft(yr, yi: yi)
             assert(x2 ~== x)
             print("fft/ifft works. fft(x) -> (yreal, yimag)")
         }
@@ -127,12 +127,12 @@ class swixTests {
             print("svd works and tested by hand for square, fat and skinny matrices against Python")
         }
         func svm_test(){
-            var svm = SVM()
-            var x = reshape(arange(4*2) , shape: (4, 2))
-            var y = array(0, 1, 2, 3)
+            let svm = SVM()
+            let x = reshape(arange(4*2) , shape: (4, 2))
+            let y = array(0, 1, 2, 3)
             
             svm.train(x, y)
-            var z = svm.predict(array(2, 3))
+            let z = svm.predict(array(2, 3))
             assert(z == y[1])
             print("svm works via simple test")
         }
@@ -143,8 +143,8 @@ class swixTests {
             print("matrix inversion works")
         }
         func solve_test(){
-            var A0 = array(1, 2, 3, 4, 2, 1, 4, 6, 7)
-            var A = reshape(A0, shape: (3, 3))
+            let A0 = array(1, 2, 3, 4, 2, 1, 4, 6, 7)
+            let A = reshape(A0, shape: (3, 3))
             var b = array(1, 2, 5)
             var x = solve(A, b: b)
             assert((A !/ b) ~== solve(A, b: b))
@@ -158,7 +158,7 @@ class swixTests {
             print("`eig` returns the correct eigenvalues and no eigenvectors.")
         }
         func pinv_test(){
-            var x = arange(3*4).reshape((3,4))
+            let x = arange(3*4).reshape((3,4))
             let y = pinv(x)
             assert(x.dot(y).dot(x) ~== x)
             assert(x.pI ~== pinv(x))
@@ -212,9 +212,9 @@ class swixTests {
             assert(copy(arange(3)) ~== array(0, 1, 2))
             //assert(sum((rand(3) - array(0.516, 0.294, 0.727)) < 1e-2) == 3)
             
-            var N = 1e4.int
+            let N = 1e4.int
             seed(42)
-            var x = rand(N)
+            let x = rand(N)
             
             seed(42)
             var y = rand(N)
@@ -252,7 +252,7 @@ class swixTests {
             x[arange(2)] = array(4, 1)
             assert(x[arange(2)] ~== array(4, 1))
             
-            var y = array(5, 2, 4, 3, 1)
+            let y = array(5, 2, 4, 3, 1)
             assert((y < 2) ~== array(0, 0, 0, 0, 1))
             assert(reverse(y) ~== array(1, 3, 4, 2, 5))
             assert(sort(y) ~== array(1, 2, 3, 4, 5))
@@ -269,17 +269,17 @@ class swixTests {
             assert(argsort(array(1,4,2,5)) ~== array(0, 2, 1, 3))
 
             assert(arange(4) ~== array(0, 1, 2, 3))
-            var xO = array(1, 2, 3)
-            var yO = array(1, 2, 3) + 3
+            let xO = array(1, 2, 3)
+            let yO = array(1, 2, 3) + 3
             assert(outer(xO, y: yO) ~== array(4, 5, 6, 8, 10, 12, 12, 15, 18).reshape((3,3)))
-            var xR1 = array(1.1, 1.2, 1.3)
-            var xR2 = array(1, 1, 1)
+            let xR1 = array(1.1, 1.2, 1.3)
+            let xR2 = array(1, 1, 1)
             assert(remainder(xR1, x2: xR2) ~== array(0.1, 0.2, 0.3))
             assert(xR1 % 1.0 ~== array(0.1, 0.2, 0.3))
             assert(1.0 % xR1 ~== ones(3))
             assert(arange(4)[-1] == 3.0)
             
-            var xR = arange(4*4).reshape((4,4))
+            let xR = arange(4*4).reshape((4,4))
             assert(rank(xR) == 2.0)
             
             assert(pow(array(1,2,3,4), power: 2) ~== array(1,4,9,16))
@@ -304,10 +304,10 @@ class swixTests {
         }
     }
     func matrixTests(){
-        var x = randn((4,4))
+        let x = randn((4,4))
         assert(eye(4).dot(eye(4)) ~== eye(4))
         assert(x.dot(x.I) ~== eye(4))
-        var (u,v) = meshgrid(array(0,1), y: array(2,3))
+        let (u,v) = meshgrid(array(0,1), y: array(2,3))
         assert(u ~== `repeat`(array(0,1), N: 2).reshape((2,2)).T)
         assert(v ~== `repeat`(array(2,3), N: 2).reshape((2,2)))
         
@@ -357,13 +357,13 @@ class swixTests {
         y[array(1, 4, 5, 6)] = ones(4)
         assert(y ~== array(0, 1, 2, 3, 1, 1, 1, 7, 8).reshape((3,3)))
         
-        var z = arange(3*4).reshape((3,4))
+        let z = arange(3*4).reshape((3,4))
         assert(sum(z, axis:0) ~== array(12, 15, 18, 21))
         assert(sum(z, axis:1) ~== array(6, 22, 38))
         
-        var d1 = x.dot(y)
-        var d2 = x.dot(y)
-        var d3 = dot(x, y: y)
+        let d1 = x.dot(y)
+        let d2 = x.dot(y)
+        let d3 = dot(x, y: y)
         assert(d1 ~== d2)
         assert(d1 ~== d3)
     }

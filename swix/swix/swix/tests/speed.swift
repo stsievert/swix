@@ -27,40 +27,40 @@ func pe1(){
     let N = 1e6
     let x = arange(N)
     // seeing where that modulo is 0
-    var i = argwhere((abs(x%3) < 1e-9) || (abs(x%5) < 1e-9))
+    _ = argwhere((abs(x%3) < 1e-9) || (abs(x%5) < 1e-9))
     // println(sum(x[i]))
     // prints 233168.0, the correct answer
 }
 func pe10(){
     // find all primes
-    var N = 2e6.int
+    let N = 2e6.int
     var primes = arange(Double(N))
-    var top = (sqrt(N.double)).int
+    let top = (sqrt(N.double)).int
     for i in 2 ..< top{
-        var max:Int = (N/i)
-        var j = arange(2, max: max.double) * i.double
+        let max:Int = (N/i)
+        let j = arange(2, max: max.double) * i.double
         primes[j] *= 0.0
     }
     // sum(primes) is the correct answer
 }
 func pe73(){
-    var N = 1e3
-    var i = arange(N)+1
-    var (n, d) = meshgrid(i, y: i)
+    let N = 1e3
+    let i = arange(N)+1
+    let (n, d) = meshgrid(i, y: i)
     
     var f = (n / d).flat
     f = unique(f)
-    var j = (f > 1/3) && (f < 1/2)
+    _ = (f > 1/3) && (f < 1/2)
     // println(f[argwhere(j)].n)
 }
 
 
 func soft_thresholding(){
     let N = 1e2.int
-    var j = linspace(-1, max: 1, num:N)
-    var (x, y) = meshgrid(j, y: j)
+    let j = linspace(-1, max: 1, num:N)
+    let (x, y) = meshgrid(j, y: j)
     var z = pow(x, power: 2) + pow(y, power: 2)
-    var i = abs(z) < 0.5
+    let i = abs(z) < 0.5
     z[argwhere(i)] *= 0
     z[argwhere(1-i)] -= 0.5
 }
