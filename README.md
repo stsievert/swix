@@ -41,7 +41,7 @@ up during the [*Install*][install] or other [*Bugs*][bugs] you may find.
 [nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
 
 ## [Documentation][swix-doc]
-Details on how to install can be found in [*Install*][install]. The 
+Details on how to install can be found in [*Install*][install]. The
 [swix documentation][swix-doc] includes details on each individual function and
 possible bugs.
 
