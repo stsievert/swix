@@ -31,7 +31,6 @@
 		D2D2166E1B629E8E00489EB9 /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2D216501B629E8E00489EB9 /* machine_learning.mm */; };
 		D2D2166F1B629E8E00489EB9 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D216511B629E8E00489EB9 /* math.m */; };
 		D2D216701B629E8E00489EB9 /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2D216531B629E8E00489EB9 /* opencv.mm */; };
-		D2D216711B629E8E00489EB9 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D216541B629E8E00489EB9 /* opencv2.framework */; };
 		D2D216721B629E8E00489EB9 /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D216551B629E8E00489EB9 /* operations-and-indexing.m */; };
 		D2D216731B629E8E00489EB9 /* ScalarArithmetic-bleed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216571B629E8E00489EB9 /* ScalarArithmetic-bleed.swift */; };
 		D2D216741B629E8E00489EB9 /* speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2165A1B629E8E00489EB9 /* speed.swift */; };
@@ -93,7 +92,6 @@
 			files = (
 				D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */,
 				D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */,
-				D2D216711B629E8E00489EB9 /* opencv2.framework in Frameworks */,
 				D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +238,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = com.scott;
 				TargetAttributes = {
 					D24A8550196D7D73009C18AC = {
@@ -320,6 +318,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
