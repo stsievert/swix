@@ -48,6 +48,23 @@ possible bugs.
 [install]:http://scottsievert.github.io/swix/installation.html
 [swix-doc]:http://scottsievert.github.io/swix/
 
+## Third Party Frameworks/Libraries
+* [Accelerate][accel]
+* [OpenCV][opencv]
+* ...and I used some of [SwiftAccelerate][ais] to avoid some BLAS/LAPACK agony.
+
+### To be integrated
+* [swix-complex][complex]
+* [ScalarArithemetic][scalar]
+
+## Uses
+* [EERegression](https://github.com/erkekin/EERegression/) -- General purpose
+  multivaritate and quadratic Regression library for Swift 2.1. This can be
+  used to fit a polynomial of different degrees to points you draw with your
+  finger! (and slick gif on readme!)
+* [Click - The Artificial Intelligence
+  Game](https://itunes.apple.com/ai/app/click-artificial-intelligence/id1032660757?mt=8)
+
 ## FAQ
 > **Why does this library exist?**
 
@@ -62,16 +79,6 @@ Complete speed results can be found in *[Speed]*
 [Speed]:http://scottsievert.github.io/swix/speed.html
 [Surge]:https://github.com/mattt/Surge
 
-
-## Third Party Frameworks/Libraries
-* [Accelerate][accel]
-* [OpenCV][opencv]
-
-...and I used some of [SwiftAccelerate][ais] to avoid some BLAS/LAPACK agony.
-
-##### To be integrated
-* [swix-complex][complex]
-* [ScalarArithemetic][scalar]
 
 [ais]:https://github.com/haginile/SwiftAccelerate
 [so]:http://stackoverflow.com/q/24727674/1141256
