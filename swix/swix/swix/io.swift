@@ -117,3 +117,51 @@ func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
 }
 
 
+func read_csv2(filename:String,_ header:Bool=true) -> matrix{
+    var x: String?
+    do {
+        x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
+    } catch _ {
+        x = nil
+    }
+    var y = x!.componentsSeparatedByString("\n")
+    let rows = y.count-1
+    var array:[Double] = []
+    var columns:Int = 0
+    var startrow:Int = 0
+    if(header==true)
+    {
+        startrow = 1
+    }
+    var factor = [String:Int]()
+    var levels = Set<String>()
+    var levelnum:Int = 0
+    for i in startrow..<rows{
+        let z = y[i].componentsSeparatedByString(",")
+        columns = 0
+        for num in z{
+            let text=num.stringByReplacingOccurrencesOfString("\r",withString: "")
+            if(Double(text) != nil)
+            {
+                array.append(Double(text)!)
+            }
+            else
+            {
+                if(levels.contains(text))
+                {
+                    array.append(Double(factor[text]!))
+                }
+                else{
+                    factor[text]=levelnum
+                    levels.insert(text)
+                    levelnum=levelnum+1
+                    array.append(Double(factor[text]!))
+                }
+            }
+            columns += 1
+        }
+    }
+    var done = zeros((rows-startrow, columns))
+    done.flat.grid = array
+    return done
+}
