@@ -162,6 +162,21 @@ func read_csv(filename:String, _ header:Bool=true, _ detectRow: Int=1) -> matrix
     return done
 }
 
+func read_csv_header(filename:String) -> [String]{
+    var x: String?
+    do {
+        x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
+    } catch _ {
+        x = nil
+    }
+    x=x!.stringByReplacingOccurrencesOfString("\r\n",withString: "\n")  //Remove \r if \r\n
+    x=x!.stringByReplacingOccurrencesOfString("\r",withString: "\n")  //Change \r if there is any
+    var y = x!.componentsSeparatedByString("\n")
+    var header:[String] = []
+    header=y[0].componentsSeparatedByString(",")
+    return header
+}
+
 func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
     var seperator=","
     var str = ""
