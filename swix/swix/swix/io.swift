@@ -76,7 +76,6 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
 }
 
 // matrix csv
-// matrix csv
 /* Old Version
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     var x: String?
