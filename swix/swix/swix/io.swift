@@ -76,6 +76,8 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
 }
 
 // matrix csv
+// matrix csv
+/* Old Version
 func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     var x: String?
     do {
@@ -98,7 +100,69 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     var done = zeros((rows, columns))
     done.flat.grid = array
     return done
+}*/
+
+func read_csv(filename:String, _ header:Bool=true, _ detectRow: Int=1) -> matrix{
+    var x: String?
+    do {
+        x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
+    } catch _ {
+        x = nil
+    }
+    //Three are three types of line breaks: \r, \n and \r\n. All change to \n.
+    x=x!.stringByReplacingOccurrencesOfString("\r\n",withString: "\n")  //Remove \r if \r\n
+    x=x!.stringByReplacingOccurrencesOfString("\r",withString: "\n")  //Change \r if there is any
+    var y = x!.componentsSeparatedByString("\n")
+    let rows = y.count-1
+    var array:[Double] = []
+    var columns:Int = 0
+    var startrow:Int = 0    //The first row of the data
+    var categorical_col:[Int]=[]    //Record the columns which are categorical variables
+    if(header==true)
+    {
+        startrow = 1
+    }
+    let test = y[detectRow + startrow - 1].componentsSeparatedByString(",") //Use first row to detect which columns are categorical
+    categorical_col = Array(count:test.count, repeatedValue:-1)
+    columns=0
+    for testtext in test{
+        if(Double(testtext) == nil){
+        categorical_col[columns]=0    //If column j is categorical, then categorical_col[j] = 0; otherwise -1.
+        }
+        columns=columns+1
+    }
+    var factor = [String:Int]() //Dictionary to map categorical levels -> integer
+    var levels = Set<String>()  //Set to store all categorical levels
+    for i in startrow..<rows{
+        let z = y[i].componentsSeparatedByString(",")
+        columns = 0
+        for text in z{
+            if(Double(text) != nil)
+            {
+                array.append(Double(text)!)
+            }
+            else
+            {
+                let name=String(columns)+text   //In case two columns have same categorical levels, we add prefix
+                if(levels.contains(name))
+                {
+                    array.append(Double(factor[name]!)) //If in this column we have already seen this level, then use it
+                }
+                else{   //Otherwise, we add a level to this column
+                    factor[name]=categorical_col[columns]
+                    levels.insert(name)
+                    categorical_col[columns]=categorical_col[columns]+1 //Each column will record how many levels it has already encountered.
+                    array.append(Double(factor[name]!))
+                }
+            }
+            columns += 1
+        }
+    }
+    var done = zeros((rows-startrow, columns))
+    done.flat.grid = array
+    return done
 }
+
 func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
     var seperator=","
     var str = ""
@@ -114,54 +178,4 @@ func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
     } catch {
         Swift.print("File probably wasn't recognized")
     }
-}
-
-
-func read_csv2(filename:String,_ header:Bool=true) -> matrix{
-    var x: String?
-    do {
-        x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
-    } catch _ {
-        x = nil
-    }
-    var y = x!.componentsSeparatedByString("\n")
-    let rows = y.count-1
-    var array:[Double] = []
-    var columns:Int = 0
-    var startrow:Int = 0
-    if(header==true)
-    {
-        startrow = 1
-    }
-    var factor = [String:Int]()
-    var levels = Set<String>()
-    var levelnum:Int = 0
-    for i in startrow..<rows{
-        let z = y[i].componentsSeparatedByString(",")
-        columns = 0
-        for num in z{
-            let text=num.stringByReplacingOccurrencesOfString("\r",withString: "")
-            if(Double(text) != nil)
-            {
-                array.append(Double(text)!)
-            }
-            else
-            {
-                if(levels.contains(text))
-                {
-                    array.append(Double(factor[text]!))
-                }
-                else{
-                    factor[text]=levelnum
-                    levels.insert(text)
-                    levelnum=levelnum+1
-                    array.append(Double(factor[text]!))
-                }
-            }
-            columns += 1
-        }
-    }
-    var done = zeros((rows-startrow, columns))
-    done.flat.grid = array
-    return done
 }
