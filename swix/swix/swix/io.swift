@@ -168,8 +168,12 @@ func read_csv(filename:String, _ skip_header:Bool=true, _ completeDataRow: Int=1
     }
     var done = zeros((rows-startrow, columns))
     done.flat.grid = array
-    let result=csvFile(data: done, header: y[0].componentsSeparatedByString(","))
-    return result
+    if (skip_header==true){
+    return csvFile(data: done, header: y[0].componentsSeparatedByString(","))
+    }
+    else{
+         return csvFile(data: done, header: [""])
+    }
 }
 
 
