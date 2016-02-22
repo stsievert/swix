@@ -198,13 +198,15 @@ func write_csv(x:matrix, _ header:[String], _ filename:String){
     var seperator=","
     var str = ""
     var i:Int=1
-    for vname in header{
-        if(i<header.count){
-            str=str+vname+","
-            i=i+1
-        }
-        else{
-            str=str+vname+"\n"
+    if (header != [""]){
+        for vname in header{
+            if(i<header.count){
+                str=str+vname+","
+                i=i+1
+            }
+            else{
+                str=str+vname+"\n"
+            }
         }
     }
     for i in 0..<x.shape.0{
