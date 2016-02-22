@@ -101,14 +101,23 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
     return done
 }*/
 
-func read_csv(filename:String, _ header:Bool=true, _ detectRow: Int=1) -> matrix{
+class csvFile{
+    var data: matrix
+    var header: [String]
+    init(data: matrix, header: [String]){
+        self.data = data
+        self.header = header
+    }
+}
+
+func read_csv(filename:String, _ skip_header:Bool=true, _ completeDataRow: Int=1) -> csvFile{
     var x: String?
     do {
         x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
     } catch _ {
         x = nil
     }
-    //Three are three types of line breaks: \r, \n and \r\n. All change to \n.
+    //There are three types of line breaks: \r, \n and \r\n. All change to \n.
     x=x!.stringByReplacingOccurrencesOfString("\r\n",withString: "\n")  //Remove \r if \r\n
     x=x!.stringByReplacingOccurrencesOfString("\r",withString: "\n")  //Change \r if there is any
     var y = x!.componentsSeparatedByString("\n")
@@ -117,11 +126,11 @@ func read_csv(filename:String, _ header:Bool=true, _ detectRow: Int=1) -> matrix
     var columns:Int = 0
     var startrow:Int = 0    //The first row of the data
     var categorical_col:[Int]=[]    //Record the columns which are categorical variables
-    if(header==true)
+    if(skip_header==true)
     {
         startrow = 1
     }
-    let test = y[detectRow + startrow - 1].componentsSeparatedByString(",") //Use first row to detect which columns are categorical
+    let test = y[completeDataRow + startrow - 1].componentsSeparatedByString(",") //Use first row to detect which columns are categorical
     categorical_col = Array(count:test.count, repeatedValue:-1)
     columns=0
     for testtext in test{
@@ -159,23 +168,10 @@ func read_csv(filename:String, _ header:Bool=true, _ detectRow: Int=1) -> matrix
     }
     var done = zeros((rows-startrow, columns))
     done.flat.grid = array
-    return done
+    let result=csvFile(data: done, header: y[0].componentsSeparatedByString(","))
+    return result
 }
 
-func read_csv_header(filename:String) -> [String]{
-    var x: String?
-    do {
-        x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
-    } catch _ {
-        x = nil
-    }
-    x=x!.stringByReplacingOccurrencesOfString("\r\n",withString: "\n")  //Remove \r if \r\n
-    x=x!.stringByReplacingOccurrencesOfString("\r",withString: "\n")  //Change \r if there is any
-    var y = x!.componentsSeparatedByString("\n")
-    var header:[String] = []
-    header=y[0].componentsSeparatedByString(",")
-    return header
-}
 
 func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
     var seperator=","
@@ -192,4 +188,35 @@ func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
     } catch {
         Swift.print("File probably wasn't recognized")
     }
+}
+
+func write_csv(x:matrix, _ header:[String], _ filename:String){
+    var seperator=","
+    var str = ""
+    var i:Int=1
+    for vname in header{
+        if(i<header.count){
+            str=str+vname+","
+            i=i+1
+        }
+        else{
+            str=str+vname+"\n"
+        }
+    }
+    for i in 0..<x.shape.0{
+        for j in 0..<x.shape.1{
+            seperator = j == x.shape.1-1 ? "" : ","
+            str += String(format: "\(x[i, j])"+seperator)
+        }
+        str += "\n"
+    }
+    do {
+        try str.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding)
+    } catch {
+        Swift.print("File probably wasn't recognized.")
+    }
+}
+
+func write_csv(csv:csvFile, _ filename:String){
+    write_csv(csv.data, csv.header, filename)
 }
