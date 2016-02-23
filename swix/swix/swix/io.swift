@@ -36,7 +36,6 @@ func read_binary(filename:String, prefix:String=S2_PREFIX)->matrix{
     return reshape(a[2..<a.n], shape: (w.int,h.int))
 }
 
-
 // ndarray csv
 func write_csv(x:ndarray, filename:String, prefix:String=S2_PREFIX){
     // write the array to CSV
@@ -75,33 +74,7 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
     return done
 }
 
-// matrix csv
-/* Old Version
-func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
-    var x: String?
-    do {
-        x = try String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding)
-    } catch _ {
-        x = nil
-    }
-    var y = x!.componentsSeparatedByString("\n")
-    let rows = y.count-1
-    var array:[Double] = []
-    var columns:Int = 0
-    for i in 0..<rows{
-        let z = y[i].componentsSeparatedByString(",")
-        columns = 0
-        for num in z{
-            array.append(num.doubleValue)
-            columns += 1
-        }
-    }
-    var done = zeros((rows, columns))
-    done.flat.grid = array
-    return done
-}*/
-
-class csvFile{
+class CSVFile{
     var data: matrix
     var header: [String]
     init(data: matrix, header: [String]){
@@ -176,22 +149,8 @@ func read_csv(filename:String, _ skip_header:Bool=true, _ completeDataRow: Int=1
     }
 }
 
-
-func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
-    var seperator=","
-    var str = ""
-    for i in 0..<x.shape.0{
-        for j in 0..<x.shape.1{
-            seperator = j == x.shape.1-1 ? "" : ","
-            str += String(format: "\(x[i, j])"+seperator)
-        }
-        str += "\n"
-    }
-    do {
-        try str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding)
-    } catch {
-        Swift.print("File probably wasn't recognized")
-    }
+func write_csv(csv:CSVFile, _ filename:String){
+    write_csv(csv.data, filename:filename, header:csv.header)
 }
 
 func write_csv(x:matrix, _ header:[String], _ filename:String){
@@ -223,6 +182,3 @@ func write_csv(x:matrix, _ header:[String], _ filename:String){
     }
 }
 
-func write_csv(csv:csvFile, _ filename:String){
-    write_csv(csv.data, csv.header, filename)
-}
