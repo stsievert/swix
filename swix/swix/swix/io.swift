@@ -83,7 +83,8 @@ class CSVFile{
     }
 }
 
-func read_csv(filename:String, _ skip_header:Bool=true, _ completeDataRow: Int=1) -> csvFile{
+// for matrix csv
+func read_csv(filename:String, _ skip_header:Bool=true, _ rowWithoutMissingValues: Int=1) -> CSVFile{
     var x: String?
     do {
         x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
@@ -103,7 +104,7 @@ func read_csv(filename:String, _ skip_header:Bool=true, _ completeDataRow: Int=1
     {
         startrow = 1
     }
-    let test = y[completeDataRow + startrow - 1].componentsSeparatedByString(",") //Use first row to detect which columns are categorical
+    let test = y[rowWithoutMissingValues + startrow - 1].componentsSeparatedByString(",") //Use first row to detect which columns are categorical
     categorical_col = Array(count:test.count, repeatedValue:-1)
     columns=0
     for testtext in test{
@@ -142,10 +143,10 @@ func read_csv(filename:String, _ skip_header:Bool=true, _ completeDataRow: Int=1
     var done = zeros((rows-startrow, columns))
     done.flat.grid = array
     if (skip_header==true){
-    return csvFile(data: done, header: y[0].componentsSeparatedByString(","))
+    return CSVFile(data: done, header: y[0].componentsSeparatedByString(","))
     }
     else{
-         return csvFile(data: done, header: [""])
+         return CSVFile(data: done, header: [""])
     }
 }
 
@@ -153,7 +154,7 @@ func write_csv(csv:CSVFile, _ filename:String){
     write_csv(csv.data, filename:filename, header:csv.header)
 }
 
-func write_csv(x:matrix, _ header:[String], _ filename:String){
+func write_csv(x:matrix, filename:String, header:[String] = [""]){
     var seperator=","
     var str = ""
     var i:Int=1
