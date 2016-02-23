@@ -84,7 +84,7 @@ class CSVFile{
 }
 
 // for matrix csv
-func read_csv(filename:String, _ skip_header:Bool=true, _ rowWithoutMissingValues: Int=1) -> CSVFile{
+func read_csv(filename:String, header_present:Bool=true, _ rowWithoutMissingValues: Int=1) -> CSVFile{
     var x: String?
     do {
         x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
@@ -99,11 +99,10 @@ func read_csv(filename:String, _ skip_header:Bool=true, _ rowWithoutMissingValue
     var array:[Double] = []
     var columns:Int = 0
     var startrow:Int = 0    //The first row of the data
+    if (header_present) { startrow = 1 }
+    
     var categorical_col:[Int]=[]    //Record the columns which are categorical variables
-    if(skip_header==true)
-    {
-        startrow = 1
-    }
+
     let test = y[rowWithoutMissingValues + startrow - 1].componentsSeparatedByString(",") //Use first row to detect which columns are categorical
     categorical_col = Array(count:test.count, repeatedValue:-1)
     columns=0
@@ -140,17 +139,20 @@ func read_csv(filename:String, _ skip_header:Bool=true, _ rowWithoutMissingValue
             columns += 1
         }
     }
-    var done = zeros((rows-startrow, columns))
+    
+    var done = zeros((rows - startrow, columns))
+    
     done.flat.grid = array
-    if (skip_header==true){
-    return CSVFile(data: done, header: y[0].componentsSeparatedByString(","))
+    
+    if (header_present==true){
+        return CSVFile(data: done, header: y[0].componentsSeparatedByString(","))
     }
     else{
          return CSVFile(data: done, header: [""])
     }
 }
 
-func write_csv(csv:CSVFile, _ filename:String){
+func write_csv(csv:CSVFile, filename:String){
     write_csv(csv.data, filename:filename, header:csv.header)
 }
 
