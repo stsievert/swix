@@ -10,8 +10,11 @@ import Foundation
 import Accelerate
 
 // should point to the swift folder
-let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
 let PYTHON_PATH = "~/anaconda/bin/ipython"
+
+// only used in `imshow` and `savefig`
+let S2_PREFIX = "\(NSHomeDirectory())/Developer/swix/swix/swix/swix/"
+
 
 // how close is close?
 let S2_THRESHOLD = 1e-9

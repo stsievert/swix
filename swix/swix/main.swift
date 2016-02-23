@@ -25,3 +25,5 @@ var y:CSVFile = read_csv("/Users/scott/Desktop/test_2016.csv", header_present:tr
 print("\n")
 print(y.data)
 print(y.header)
+
+imshow(x)

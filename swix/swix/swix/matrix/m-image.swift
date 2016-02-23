@@ -70,8 +70,10 @@ func savefig(x:matrix, filename:String, save:Bool=true, show:Bool=false){
     // prefix should point to the swix folder!
     // prefix is defined in numbers.swift
     // assumes python is on your path
-    write_csv(x, filename:"swix/temp.csv")
+    print("savefig: Saving CSV file to " + S2_PREFIX + "temp.csv")
+    write_csv(x, filename:S2_PREFIX + "temp.csv")
     system("cd "+S2_PREFIX+"; "+PYTHON_PATH + " imshow.py \(filename) \(save) \(show)")
+    print("savefig: Removing CSV FILE " + S2_PREFIX + "temp.csv")
     system("rm "+S2_PREFIX+"temp.csv")
 }
 func imshow(x: matrix){

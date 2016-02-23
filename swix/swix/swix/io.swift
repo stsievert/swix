@@ -9,13 +9,13 @@
 import Foundation
 
 // ndarray binary
-func write_binary(x:ndarray, filename:String, prefix:String=S2_PREFIX){
+func write_binary(x:ndarray, filename:String){
     let N = x.n
     let data = NSData(bytes:!x, length:N*sizeof(Double))
-    data.writeToFile(prefix+"../"+filename, atomically: false)
+    data.writeToFile(filename, atomically: false)
 }
-func read_binary(filename:String, prefix:String=S2_PREFIX) -> ndarray{
-    let read = NSData(contentsOfFile: prefix+"../"+filename)
+func read_binary(filename:String) -> ndarray{
+    let read = NSData(contentsOfFile: filename)
     let l:Int! = read?.length
     let sD:Int = sizeof(Double)
     let count = (l.double / sD.double)
@@ -26,18 +26,18 @@ func read_binary(filename:String, prefix:String=S2_PREFIX) -> ndarray{
 }
 
 // matrix binary
-func write_binary(x:matrix, filename:String, prefix:String=S2_PREFIX){
+func write_binary(x:matrix, filename:String){
     let y = concat(array(x.shape.0.double, x.shape.1.double), y: x.flat)
-    write_binary(y, filename:filename, prefix:prefix)
+    write_binary(y, filename:filename)
 }
-func read_binary(filename:String, prefix:String=S2_PREFIX)->matrix{
-    var a:ndarray = read_binary(filename, prefix:prefix)
+func read_binary(filename:String)->matrix{
+    var a:ndarray = read_binary(filename)
     let (w, h) = (a[0], a[1])
     return reshape(a[2..<a.n], shape: (w.int,h.int))
 }
 
 // ndarray csv
-func write_csv(x:ndarray, filename:String, prefix:String=S2_PREFIX){
+func write_csv(x:ndarray, filename:String){
     // write the array to CSV
     var seperator=","
     var str = ""
@@ -47,16 +47,16 @@ func write_csv(x:ndarray, filename:String, prefix:String=S2_PREFIX){
     }
     str += "\n"
     do {
-        try str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding)
+        try str.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding)
     } catch {
         Swift.print("File probably wasn't recognized")
     }
     
 }
-func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
+func read_csv(filename:String) -> ndarray{
     var x: String?
     do {
-        x = try String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding)
+        x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
     } catch _ {
         x = nil
     }
@@ -181,7 +181,7 @@ func write_csv(x:matrix, filename:String, header:[String] = [""]){
     do {
         try str.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding)
     } catch {
-        Swift.print("File probably wasn't recognized.")
+        Swift.print("Error writing to CSV: filename probably wasn't recognized.")
     }
 }
 
