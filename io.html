@@ -61,9 +61,25 @@
 </div>
 <div class="section" id="module-io_swix">
 <span id="functions"></span><h2>Functions<a class="headerlink" href="#module-io_swix" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="io_swix.CSVFile">
+<em class="property">class </em><code class="descclassname">io_swix.</code><code class="descname">CSVFile</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.CSVFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple class to represent a CSV file. It has two members, &#8220;header&#8221; and
+&#8220;data&#8221;. &#8220;header&#8221; is a list of string and &#8220;data&#8221; is a matrix.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">:(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">csv</span> <span class="o">=</span> <span class="n">CSVFile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;/path/to/file&quot;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># one of the following options</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">csv</span><span class="p">:</span><span class="n">CSVFile</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;/path/to/file&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;/path/to/file&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="function">
 <dt id="io_swix.read_binary">
-<code class="descclassname">io_swix.</code><code class="descname">read_binary</code><span class="sig-paren">(</span><em>x</em>, <em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.read_binary" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">io_swix.</code><code class="descname">read_binary</code><span class="sig-paren">(</span><em>x</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.read_binary" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -71,7 +87,6 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>x</strong> (<em>ndarray, matrix</em>) &#8211; What to write to a file.</li>
 <li><strong>filename</strong> (<em>String</em>) &#8211; Where to write the file.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; By default, S2_PREFIX. The file is written to the parent directory.</li>
 </ul>
 </td>
 </tr>
@@ -84,7 +99,7 @@
 
 <dl class="function">
 <dt id="io_swix.read_csv">
-<code class="descclassname">io_swix.</code><code class="descname">read_csv</code><span class="sig-paren">(</span><em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.read_csv" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">io_swix.</code><code class="descname">read_csv</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.read_csv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads a CSV.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -92,7 +107,12 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>filename</strong> (<em>String</em>) &#8211; The file to read from. The file read from the directory containing <code class="docutils literal"><span class="pre">swix/</span></code>.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to <code class="docutils literal"><span class="pre">S2_PREFIX</span></code></li>
+<li><strong>rowWithoutMissingData</strong> (<em>Int</em>) &#8211; A row that has complete data. From this row,
+we infer if that particular row is categorical or numerical for the entire
+CSV. If there are N categories, we assign indicies 0 through N-1.</li>
+<li><strong>header_present</strong> &#8211; If false, the first row will be included as part of
+the dataset. It default to true in which case the header will also be
+returned.</li>
 </ul>
 </td>
 </tr>
@@ -109,7 +129,7 @@
 
 <dl class="function">
 <dt id="io_swix.write_binary">
-<code class="descclassname">io_swix.</code><code class="descname">write_binary</code><span class="sig-paren">(</span><em>x</em>, <em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_binary" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">io_swix.</code><code class="descname">write_binary</code><span class="sig-paren">(</span><em>x</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_binary" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -117,7 +137,6 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>x</strong> (<em>ndarray, matrix</em>) &#8211; The content to write to a file.</li>
 <li><strong>filename</strong> (<em>String</em>) &#8211; Where to write the file.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; By default, S2_PREFIX. The file is written to the parent directory.</li>
 </ul>
 </td>
 </tr>
@@ -142,16 +161,16 @@
 
 <dl class="function">
 <dt id="io_swix.write_csv">
-<code class="descclassname">io_swix.</code><code class="descname">write_csv</code><span class="sig-paren">(</span><em>x</em>, <em>filename</em>, <em>prefix='\\(NSHomeDirectory())/Developer/swix/swix/swix/swix/'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_csv" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">io_swix.</code><code class="descname">write_csv</code><span class="sig-paren">(</span><em>x</em>, <em>filename</em>, <em>header</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.write_csv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a CSV.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The ndarray to write to a csv</li>
+<li><strong>x</strong> (<em>ndarray, matrix, CSVFile</em>) &#8211; The ndarray to write to a csv</li>
+<li><strong>header</strong> (<em>List of strings.</em>) &#8211; The header to write at the top of the CSV file</li>
 <li><strong>filename</strong> (<em>String</em>) &#8211; Where to write.</li>
-<li><strong>prefix</strong> (<em>String</em>) &#8211; Defaults to S2_PREFIX. Writes to the folder above S2_PREFIX.</li>
 </ul>
 </td>
 </tr>
