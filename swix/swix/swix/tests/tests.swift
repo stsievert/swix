@@ -318,8 +318,8 @@ class swixTests {
     
     func readWriteTests(){
         let x1 = arange(9).reshape((3,3)) * 2
-        write_csv(x1, filename:"../../python_testing/csvs/image.csv")
-        let y1:matrix = read_csv("../../python_testing/csvs/image.csv")
+        write_csv(x1, filename: "../../python_testing/csvs/image.csv")
+        let y1:matrix = read_csv("../../python_testing/csvs/image.csv").data
         assert(x1 ~== y1)
         
         let x2 = array(1, 2, 3, 4, 5, 2, 1)
