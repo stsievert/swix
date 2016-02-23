@@ -36,7 +36,6 @@ func read_binary(filename:String, prefix:String=S2_PREFIX)->matrix{
     return reshape(a[2..<a.n], shape: (w.int,h.int))
 }
 
-
 // ndarray csv
 func write_csv(x:ndarray, filename:String, prefix:String=S2_PREFIX){
     // write the array to CSV
@@ -75,33 +74,101 @@ func read_csv(filename:String, prefix:String=S2_PREFIX) -> ndarray{
     return done
 }
 
-// matrix csv
-func read_csv(filename:String, prefix:String=S2_PREFIX) -> matrix{
+class CSVFile{
+    var data: matrix
+    var header: [String]
+    init(data: matrix, header: [String]){
+        self.data = data
+        self.header = header
+    }
+}
+
+// for matrix csv
+func read_csv(filename:String, _ skip_header:Bool=true, _ rowWithoutMissingValues: Int=1) -> CSVFile{
     var x: String?
     do {
-        x = try String(contentsOfFile: prefix+"../"+filename, encoding: NSUTF8StringEncoding)
+        x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)
     } catch _ {
         x = nil
     }
+    //There are three types of line breaks: \r, \n and \r\n. All change to \n.
+    x=x!.stringByReplacingOccurrencesOfString("\r\n",withString: "\n")  //Remove \r if \r\n
+    x=x!.stringByReplacingOccurrencesOfString("\r",withString: "\n")  //Change \r if there is any
     var y = x!.componentsSeparatedByString("\n")
     let rows = y.count-1
     var array:[Double] = []
     var columns:Int = 0
-    for i in 0..<rows{
+    var startrow:Int = 0    //The first row of the data
+    var categorical_col:[Int]=[]    //Record the columns which are categorical variables
+    if(skip_header==true)
+    {
+        startrow = 1
+    }
+    let test = y[rowWithoutMissingValues + startrow - 1].componentsSeparatedByString(",") //Use first row to detect which columns are categorical
+    categorical_col = Array(count:test.count, repeatedValue:-1)
+    columns=0
+    for testtext in test{
+        if(Double(testtext) == nil){
+        categorical_col[columns]=0    //If column j is categorical, then categorical_col[j] = 0; otherwise -1.
+        }
+        columns=columns+1
+    }
+    var factor = [String:Int]() //Dictionary to map categorical levels -> integer
+    var levels = Set<String>()  //Set to store all categorical levels
+    for i in startrow..<rows{
         let z = y[i].componentsSeparatedByString(",")
         columns = 0
-        for num in z{
-            array.append(num.doubleValue)
+        for text in z{
+            if(Double(text) != nil)
+            {
+                array.append(Double(text)!)
+            }
+            else
+            {
+                let name=String(columns)+text   //In case two columns have same categorical levels, we add prefix
+                if(levels.contains(name))
+                {
+                    array.append(Double(factor[name]!)) //If in this column we have already seen this level, then use it
+                }
+                else{   //Otherwise, we add a level to this column
+                    factor[name]=categorical_col[columns]
+                    levels.insert(name)
+                    categorical_col[columns]=categorical_col[columns]+1 //Each column will record how many levels it has already encountered.
+                    array.append(Double(factor[name]!))
+                }
+            }
             columns += 1
         }
     }
-    var done = zeros((rows, columns))
+    var done = zeros((rows-startrow, columns))
     done.flat.grid = array
-    return done
+    if (skip_header==true){
+    return CSVFile(data: done, header: y[0].componentsSeparatedByString(","))
+    }
+    else{
+         return CSVFile(data: done, header: [""])
+    }
 }
-func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
+
+func write_csv(csv:CSVFile, _ filename:String){
+    write_csv(csv.data, filename:filename, header:csv.header)
+}
+
+func write_csv(x:matrix, filename:String, header:[String] = [""]){
     var seperator=","
     var str = ""
+    var i:Int=1
+    if (header != [""]){
+        for vname in header{
+            if(i<header.count){
+                str=str+vname+","
+                i=i+1
+            }
+            else{
+                str=str+vname+"\n"
+            }
+        }
+    }
     for i in 0..<x.shape.0{
         for j in 0..<x.shape.1{
             seperator = j == x.shape.1-1 ? "" : ","
@@ -110,10 +177,9 @@ func write_csv(x:matrix, filename:String, prefix:String=S2_PREFIX){
         str += "\n"
     }
     do {
-        try str.writeToFile(prefix+"../"+filename, atomically: false, encoding: NSUTF8StringEncoding)
+        try str.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding)
     } catch {
-        Swift.print("File probably wasn't recognized")
+        Swift.print("File probably wasn't recognized.")
     }
 }
-
 
