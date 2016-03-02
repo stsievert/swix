@@ -37,7 +37,7 @@ and Matlab differ in their initializer called `ones` by `ones((M,N))` and
 [NumPy for Matlab users][nfm] or the section on possible swix bugs that may pop
 up during the [*Install*][install] or other [*Bugs*][bugs] you may find.
 
-[bugs]:http://swix.readthedocs.org/en/latest/bugs.html
+[bugs]:http://scottsievert.com/swix/bugs.html
 [nfm]:http://wiki.scipy.org/NumPy_for_Matlab_Users
 
 ## [Documentation][swix-doc]
@@ -45,8 +45,8 @@ Details on how to install can be found in [*Install*][install]. The
 [swix documentation][swix-doc] includes details on each individual function and
 possible bugs.
 
-[install]:http://scottsievert.github.io/swix/installation.html
-[swix-doc]:http://scottsievert.github.io/swix/
+[install]:http://scottsievert.com/swix/installation.html
+[swix-doc]:http://scottsievert.com/swix/
 
 ## Third Party Frameworks/Libraries
 * [Accelerate][accel]
@@ -76,7 +76,7 @@ Python/Matlab.
 
 Complete speed results can be found in *[Speed]*
 
-[Speed]:http://scottsievert.github.io/swix/speed.html
+[Speed]:http://scottsievert.com/swix/speed.html
 [Surge]:https://github.com/mattt/Surge
 
 
