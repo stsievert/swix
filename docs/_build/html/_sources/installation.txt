@@ -18,7 +18,8 @@ This method gives a command-line tool that can be run on OSX.
 3. Open up ``swix.xcodeproj`` and run the tests.
 
 Manual installation
-----------------------
+---------------------
+
 This method can be generalized to any Swift project, whether it be iOS or OSX.
 
 1. Download `the repo`_ or `this file`_
@@ -38,8 +39,12 @@ This method can be generalized to any Swift project, whether it be iOS or OSX.
     print(x)
     print(y)
 
-If you're planning on doing file IO, change your ``S2_PREFIX`` in
-``numbers.swift``. It should point to the main swix folder.
+.. warning:: There can be cases when the above example doesn't work because
+             Xcode can't find the functions. Cleaning before building can help
+             with this (cleaning available in Product > Clean). More details
+             are described in `issue #24`_
+
+.. _`issue #24`: https://github.com/stsievert/swix/issues/24
 
 How to creat a new iOS app that includes swix
 ------------------------------------------------

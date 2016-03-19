@@ -94,8 +94,13 @@ print(y)
 </div>
 </li>
 </ol>
-<p>If you&#8217;re planning on doing file IO, change your <code class="docutils literal"><span class="pre">S2_PREFIX</span></code> in
-<code class="docutils literal"><span class="pre">numbers.swift</span></code>. It should point to the main swix folder.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">There can be cases when the above example doesn&#8217;t work because
+Xcode can&#8217;t find the functions. Cleaning before building can help
+with this (cleaning available in Product &gt; Clean). More details
+are described in <a class="reference external" href="https://github.com/stsievert/swix/issues/24">issue #24</a></p>
+</div>
 </div>
 <div class="section" id="how-to-creat-a-new-ios-app-that-includes-swix">
 <h2>How to creat a new iOS app that includes swix<a class="headerlink" href="#how-to-creat-a-new-ios-app-that-includes-swix" title="Permalink to this headline">¶</a></h2>
