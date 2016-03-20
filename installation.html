@@ -94,13 +94,6 @@ print(y)
 </div>
 </li>
 </ol>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">There can be cases when the above example doesn&#8217;t work because
-Xcode can&#8217;t find the functions. Cleaning before building can help
-with this (cleaning available in Product &gt; Clean). More details
-are described in <a class="reference external" href="https://github.com/stsievert/swix/issues/24">issue #24</a></p>
-</div>
 </div>
 <div class="section" id="how-to-creat-a-new-ios-app-that-includes-swix">
 <h2>How to creat a new iOS app that includes swix<a class="headerlink" href="#how-to-creat-a-new-ios-app-that-includes-swix" title="Permalink to this headline">¶</a></h2>
@@ -116,6 +109,8 @@ in the same folder and right next to a <code class="docutils literal"><span clas
 <code class="docutils literal"><span class="pre">swix-master/swix/swix/swix/</span></code></li>
 </ol>
 <img alt="_images/add.png" src="_images/add.png" />
+<p>3a. Make sure to check the box &#8220;Copy files if needed&#8221;!</p>
+<img alt="_images/copy.png" src="_images/copy.png" />
 <ol class="arabic simple" start="4">
 <li>Go to your main project settings (the blue thing file at the very top of the
 left sidebar) and change the Swift bridging header in &#8220;Swift Compiler &#8211; Code
@@ -149,6 +144,16 @@ folder; something like <code class="docutils literal"><span class="pre">the/path
 <div class="section" id="possible-bugs">
 <h2>Possible bugs<a class="headerlink" href="#possible-bugs" title="Permalink to this headline">¶</a></h2>
 <ul>
+<li><dl class="first docutils">
+<dt>Xcode can&#8217;t find the functions but seems to compile/etc correctly.</dt>
+<dd><ul class="first last simple">
+<li>Cleaning before building can help with this . More details are described
+in <a class="reference external" href="https://github.com/stsievert/swix/issues/24">issue #24</a>. Part of this is making sure &#8220;Copy if needed&#8221; is selected
+copying swix into an Xcode project.</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><dl class="first docutils">
 <dt><code class="docutils literal"><span class="pre">&quot;Unresolved</span> <span class="pre">identifier</span> <span class="pre">*_objc&quot;</span></code></dt>
 <dd><ul class="first last simple">

@@ -39,11 +39,6 @@ This method can be generalized to any Swift project, whether it be iOS or OSX.
     print(x)
     print(y)
 
-.. warning:: There can be cases when the above example doesn't work because
-             Xcode can't find the functions. Cleaning before building can help
-             with this (cleaning available in Product > Clean). More details
-             are described in `issue #24`_
-
 .. _`issue #24`: https://github.com/stsievert/swix/issues/24
 
 How to creat a new iOS app that includes swix
@@ -60,6 +55,10 @@ This is a more detailed version of the section on manual installation.
    ``swix-master/swix/swix/swix/``
 
 .. image:: imgs/add.png
+
+3a. Make sure to check the box "Copy files if needed"!
+
+.. image:: imgs/copy.png
 
 4. Go to your main project settings (the blue thing file at the very top of the
    left sidebar) and change the Swift bridging header in "Swift Compiler -- Code
@@ -91,6 +90,11 @@ Notes
 
 Possible bugs
 ---------------
+
+* Xcode can't find the functions but seems to compile/etc correctly. 
+    * Cleaning before building can help with this . More details are described
+      in `issue #24`_. Part of this is making sure "Copy if needed" is selected
+      copying swix into an Xcode project.
 * ``"Unresolved identifier *_objc"``
     * The bridging header probably hasn't been added correctly. Ensure
       ``swix/objc/swix-Bridging-Header.h`` has the correct path.
