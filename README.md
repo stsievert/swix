@@ -55,7 +55,7 @@ possible bugs.
 
 ### To be integrated
 * [swix-complex][complex]
-* [ScalarArithemetic][scalar]
+* [ScalarArithmetic][scalar]
 
 ## Uses
 * [EERegression](https://github.com/erkekin/EERegression/) -- General purpose
