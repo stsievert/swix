@@ -91,6 +91,11 @@ Notes
 Possible bugs
 ---------------
 
+I have marked other installation issues on GitHub with the "question" tag,
+viewable with the search `is:issue label:question`__
+
+__ https://github.com/stsievert/swix/issues?utf8=✓&q=is%3Aissue+label%3Aquestion
+
 * Xcode can't find the functions but seems to compile/etc correctly. 
     * Cleaning before building can help with this . More details are described
       in `issue #24`_. Part of this is making sure "Copy if needed" is selected
