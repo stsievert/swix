@@ -23,7 +23,8 @@ Two projects exist that allow Python to run on iOS, `kivy-ios`_ and `beeware`_.
 
 **kivy-ios**:As of 2016-05-02, a new xcodeproj can be created by
 exactly following the instructions in the readme. Importantly, don't forget to
-run ``./toolchain.py build numpy`` then updating the xcodeproj.
+run ``./toolchain.py build numpy`` then updating the xcodeproj. On GitHub, they
+have `instructions to get kivy-ios running`_.
 
 This tool can run NumPy. 
 
@@ -39,6 +40,7 @@ The BeeWare framework can not run NumPy as of 2016-05-02, but it's on the
 roadmap. This depends on `Python-iOS-support`_ and there's `issue #23`_ tracks
 it.
 
+.. _`instructions to get kivy-ios running`: https://kivy.org/docs/guide/packaging-ios.html
 .. _`issue #23`: https://github.com/pybee/Python-iOS-support/issues/23
 .. _`Python-iOS-support`: https://github.com/pybee/Python-iOS-support
 .. _`beeware-ios-template`: http://github.com/pybee/Python-iOS-template
