@@ -1,16 +1,16 @@
 from numbers_swix import S2_PREFIX
 
-class ndarray:
+class vector:
     n = "Int" #: Number of elements this array contains
     count = n #: Number of elements.
-    grid = "[Double]" #: The Array this ndarray depends on.
+    grid = "[Double]" #: The Array this vector depends on.
     def reshape(shape):
         """
         Reshapes the matrix to the specified size. The number of elements must remain constant, however, if a value of -1 is passed a new size is calculated to keep the number of elements the same.
 
         :param shape: The size of the new matrix.
         :type shape: (Int, Int)
-        :rtype: matrix. The ndarray reshaped as a matrix.
+        :rtype: matrix. The vector reshaped as a matrix.
 
         >>> var x = arange(2*2).reshape((2,2))
         >>> var y = x.reshape((2,-1))
@@ -26,7 +26,7 @@ class ndarray:
         """
         Copies the contents of an array.
 
-        :rtype: ndarray. An exact copy of the array.
+        :rtype: vector. An exact copy of the array.
 
         >>> assert(x.copy() ~== x)
 
@@ -77,7 +77,7 @@ class ndarray:
         """
     def indexing(idx):
         """
-        Grabs elements using an ndarray, Range<Int> or integers. Includes negative indexing like Python.
+        Grabs elements using an vector, Range<Int> or integers. Includes negative indexing like Python.
 
         .. warning:: Assumes an index is either wholly positive or negative; indexes like ``array(-1, 0, 1)`` aren't supported.
 
@@ -87,7 +87,7 @@ class ndarray:
         assumed to have a length the same as the array being indexed.
 
         :param idx: The values to get the index from.
-        :type idx: Int, Range<Int>, ndarray, String
+        :type idx: Int, Range<Int>, vector, String
 
         >>> var x = arange(10)
         >>> assert(x[1] == 1)
@@ -109,7 +109,7 @@ class initing():
         :type N: Int
         :param distro: The type of distribution. Assumed to be either ``"uniform"`` or ``"normal"``
         :type distro: String
-        :rtype: ndarray. Random integers normally distributed.
+        :rtype: vector. Random integers normally distributed.
 
         .. seealso:: :class:`initing.seed`, `np.random.rand`_
         """
@@ -132,7 +132,7 @@ class initing():
         :type mean: Double
         :param sigma: The standard deviation of this distribution.
         :type sigma: Double
-        :rtype: ndarray. Random integers that are normally distributed.
+        :rtype: vector. Random integers that are normally distributed.
 
         .. seealso:: `np.random.randn`_
         """
@@ -142,7 +142,7 @@ class initing():
 
         :param N: The size of the array. Values included are between 0 and N-1.
         :type N: Int
-        :rtype: ndarray
+        :rtype: vector
 
         .. seealso:: :class:`helper_functions.shuffle`, `np.random.permutation`_
         """
@@ -177,11 +177,11 @@ class initing():
         """
     def asarray(x):
         """
-        Convert the input to an ndarray.
+        Convert the input to an vector.
 
         :param x: A native Swift array.
         :type x: [Double], Range<Int>
-        :rtype: ndarray. The native Swift array converted to an ndarray.
+        :rtype: vector. The native Swift array converted to an vector.
 
         >>> assert(asarray(0..<2) ~== array(0, 1))
         >>> assert(asarray([0, 1, 2]) ~== array(0, 1, 2))
@@ -191,13 +191,13 @@ class initing():
         Copies the contents of an array.
 
         :param x: The array to copy.
-        :type x: ndarray
+        :type x: vector
 
-        Returns :func:`ndarray.copy`
+        Returns :func:`vector.copy`
 
         >>> assert(copy(x) ~== x.copy())
 
-        .. seealso:: :class:`ndarray.copy` `np.copy`_
+        .. seealso:: :class:`vector.copy` `np.copy`_
         """
     def linspace(min, max, num=50):
         """
@@ -242,7 +242,7 @@ class initing():
         Makes an array like another array.
 
         :param x: The array to imitate.
-        :type x: ndarray
+        :type x: vector
 
         >>> var x = array(3, 8)
         >>> assert(zeros_like(x) ~== array(0, 0)
@@ -254,7 +254,7 @@ class initing():
         Makes an array like another array.
 
         :param x: The array to imitate.
-        :type x: ndarray
+        :type x: vector
 
         >>> var x = array(3, 8)
         >>> assert(ones_like(x) ~== array(1, 1)
@@ -268,7 +268,7 @@ class helper_functions:
         Counts the nonzero elements.
 
         :param x: The array to be counted.
-        :type x: ndarray
+        :type x: vector
         :rtype: Double. The number of nonzero elements.
 
         .. seealso:: `np.count_nonzero`_
@@ -278,9 +278,9 @@ class helper_functions:
         Find elements that are both arrays.
 
         :param x: The first array.
-        :type x: ndarray
+        :type x: vector
         :param y: The second array.
-        :type y: ndarray
+        :type y: vector
         :rtype: The sorted array of unique elements that are in both arrays.
 
         >>> var x = array(1, 2, 3, 4)
@@ -294,9 +294,9 @@ class helper_functions:
         Finds unique elements that are in either array.
 
         :param x: The first array of elements.
-        :type x: ndarray
+        :type x: vector
         :param y: The second array of elements.
-        :type y: ndarray
+        :type y: vector
         :rtype: The unique list of elements that in either array.
 
         >>> var x = array(1, 2, 3, 4)
@@ -309,10 +309,10 @@ class helper_functions:
         indices.
 
         :param x: The array to index from.
-        :type x: ndarray
+        :type x: vector
         :param y: The array to check to see if values of x are in this array.
-        :type y: ndarray
-        :rtype: ndarray. An array of true/false (well, 1/0).
+        :type y: vector
+        :rtype: vector. An array of true/false (well, 1/0).
 
         >>> var x = array(1, 2, 3, 4, 5)
         >>> var y = array(4, 5, 6)
@@ -325,7 +325,7 @@ class helper_functions:
         Finds the norm of an array.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :param ord: Indicates the specific type of norm.
         :type ord: Int or :math:`\pm` inf
         :rtype: Double. A specific norm of the array. Either the :math:`\ell_0`, :math:`\ell_1`, :math:`\ell_2` or :math:`\ell_\infty` norm.
@@ -339,7 +339,7 @@ class helper_functions:
         Find the product of every element in this array.
 
         :param x: Find the product of every element in this array
-        :type x: ndarray
+        :type x: vector
         :rtype: Double
 
         >>> assert(prod(arange(4)+1) == 24)
@@ -349,8 +349,8 @@ class helper_functions:
         Find the cumulative product of every element in this array.
 
         :param x: The cumulative product of elements in this array.
-        :type x: ndarray
-        :rtype: ndarray
+        :type x: vector
+        :rtype: vector
 
         >>> assert(cumprod(arange(4)+1) ~== array(1, 2, 6, 24))
         """
@@ -360,8 +360,8 @@ class helper_functions:
         sorted.
 
         :param x: The input array.
-        :type x: ndarray
-        :rtype: ndarray. The unqiue element.
+        :type x: vector
+        :rtype: vector. The unqiue element.
 
         >>> x = array(1, 1, 2, 3, 4, 4, 5, 6)
         >>> assert(unique(x) ~== array(1, 2, 3, 4, 5, 6))
@@ -371,7 +371,7 @@ class helper_functions:
         Randomly shuffle an array.
 
         :param x: The array to shuffle.
-        :type x: ndarray
+        :type x: vector
         :rtype: The array shuffled. Not in place!
 
         .. seealso:: `cv.randShuffle`_, `np.random.shuffle`_
@@ -385,20 +385,20 @@ class helper_functions:
         Similar to Numeric's clip.
 
         :param a: The array to clip.
-        :type a: ndarray
+        :type a: vector
         :param a_min: The minimum value.
         :type a_min: Double
         :param a_max: The maximum value.
         :type a_max: Double
-        :rtype: ndarray
+        :rtype: vector
         """
     def argwhere(idx):
         """
         Sees where a condition exists.
 
         :param idx: An array of 0's and 1's (analagous to true and false).
-        :type idx: ndarray
-        :rtype: ndarray. Returns the indices where idx has *non-zero* elements.
+        :type idx: vector
+        :rtype: vector. Returns the indices where idx has *non-zero* elements.
 
         .. seealso::
             `np.argwhere`_, :class:`argmin`, :class:`argsort`, :class:`argwhere`
@@ -408,8 +408,8 @@ class helper_functions:
         Sort the array but using indices.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray
+        :type x: vector
+        :rtype: vector
 
         >>> var x = array(1, 4, 2, 6, 7)
         >>> assert(argsort(x) ~== array(0, 2, 1, 3, 4))
@@ -421,7 +421,7 @@ class helper_functions:
         The location of the minimum.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :rtype: Double. The location of the maximum value.
 
         .. seealso:: `np.argmin`_, `cv.minMaxLoc`_, :class:`argmax`, :class:`argmin`, :class:`argsort`, :class:`argwhere`
@@ -431,7 +431,7 @@ class helper_functions:
         The location of the maximum.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :rtype: Double. The location of the maximum value.
 
         .. seealso:: `np.argmax`_, `cv.minMaxLoc`_, :class:`argmin`, :class:`argsort`, :class:`argwhere`
@@ -442,19 +442,19 @@ class helper_functions:
 
         :param x: The original array.
         :param idx: The indices to remove.
-        :type x: ndarray
-        :type idx: ndarray
-        :rtype: ndarray. The array with the specified indices deleted.
+        :type x: vector
+        :type idx: vector
+        :rtype: vector. The array with the specified indices deleted.
         """
     def concat(x, y):
         """
         Concatenates two arrays.
 
         :param x: The first array to stack.
-        :type x: ndarray
+        :type x: vector
         :param y: The second array to stack.
-        :type y: ndarray
-        :rtype: ndarray. Equivalent to ``concatenate((x, y))`` in NumPy or ``[x y]`` in Matlab.
+        :type y: vector
+        :rtype: vector. Equivalent to ``concatenate((x, y))`` in NumPy or ``[x y]`` in Matlab.
 
         >>> var x = array(0, 1)
         >>> var y = array(2, 3)
@@ -470,9 +470,9 @@ class helper_functions:
         .. note:: Can be called with either ``print(x)`` or ``println(x)``
 
         :param x: Prints that matrix.
-        :type x: ndarray
+        :type x: vector
 
-        Prints the ndarray with the above optional formatters. They are all of type String.
+        Prints the vector with the above optional formatters. They are all of type String.
         """
     def repeat(x, N, axis=0):
         """
@@ -482,8 +482,8 @@ class helper_functions:
 
         :param x: The array to repeat.
         :param N: How many times to repeat the array.
-        :param axis: Assumed to be "ndarray" or "elements".
-        :type x: ndarray
+        :param axis: Assumed to be "vector" or "elements".
+        :type x: vector
         :type N: Int
         :type axis: Int
 
@@ -498,28 +498,28 @@ class helper_functions:
         Reverses an array.
 
         :param x: The array to be reversed.
-        :type x: ndarray
-        :rtype: The reveresed ndarray.
+        :type x: vector
+        :rtype: The reveresed vector.
 
-        .. seealso:: :class:`ndarray.reverse`
+        .. seealso:: :class:`vector.reverse`
         """
     def sort(x):
         """
         Sorts an array.
 
         :param x: Array to be sorted.
-        :type x: ndarray
-        :rtype: ndarray. The sorted array.
+        :type x: vector
+        :rtype: vector. The sorted array.
 
-        .. seealso:: :class:`ndarray.sort`, `np.sort`_
+        .. seealso:: :class:`vector.sort`, `np.sort`_
         """
     def logical_not(x):
         """
         Find the logical NOT of x and y.
 
         :param x: An array of truth values; assumed to take values of 0 and 1.
-        :type x: ndarray
-        :rtype: ndarray
+        :type x: vector
+        :rtype: vector
 
         .. seealso:: `np.logical_not`_
         """
@@ -528,10 +528,10 @@ class helper_functions:
         Find the logical AND of x and y.
 
         :param x: An array of truth values; assumed to take values of 0 and 1.
-        :type x: ndarray
+        :type x: vector
         :param y: An array of truth values; assumed to take values of 0 and 1.
-        :type y: ndarray
-        :rtype: ndarray
+        :type y: vector
+        :rtype: vector
 
         .. seealso:: `np.logical_and`_
         """
@@ -540,10 +540,10 @@ class helper_functions:
         Find the logical OR of x and y.
 
         :param x: An array of truth values; assumed to take values of 0 and 1.
-        :type x: ndarray
+        :type x: vector
         :param y: An array of truth values; assumed to take values of 0 and 1.
-        :type y: ndarray
-        :rtype: ndarray
+        :type y: vector
+        :rtype: vector
 
         .. seealso:: `np.logical_or`_
         """
@@ -552,10 +552,10 @@ class helper_functions:
         Find the logical XOR of x and y.
 
         :param x: An array of truth values; assumed to take values of 0 and 1.
-        :type x: ndarray
+        :type x: vector
         :param y: An array of truth values; assumed to take values of 0 and 1.
-        :type y: ndarray
-        :rtype: ndarray
+        :type y: vector
+        :rtype: vector
 
         .. seealso:: `np.logical_xor`_
         """
@@ -565,8 +565,8 @@ class operators:
         """
         Assign select values of an array to a value.
 
-        :param lhs: The ndarray to assign to.
-        :type lhs: ndarray
+        :param lhs: The vector to assign to.
+        :type lhs: vector
         :param rhs: The value to fill the array with.
         :type rhs: Double
 
@@ -585,8 +585,8 @@ class operators:
 
         :param lhs: Left hand side.
         :param rhs: Right hand side.
-        :type lhs: ndarray, Double
-        :type rhs: ndarray, Double
+        :type lhs: vector, Double
+        :type rhs: vector, Double
 
         The operators ``+ - * / % += -= *= /= < > <= >= == !==`` all work element wise and act similar to scalars.
 
@@ -601,10 +601,10 @@ class operators:
         Logical operators.
 
         :param lhs: An array of true/false (meaning 0 or 1)
-        :type lhs: ndarray
+        :type lhs: vector
         :param rhs: An array of true/false (meaning 0 or 1)
-        :type rhs: ndarray
-        :rtype: ndarray. The logical operator between the two elements.
+        :type rhs: vector
+        :rtype: vector. The logical operator between the two elements.
 
         Currently only logical AND and logical OR are implemented through
         ``&&`` and ``||`` respectively.
@@ -615,8 +615,8 @@ class operators:
 
         :param lhs: Left hand side.
         :param rhs: Right hand side.
-        :type lhs: ndarray, Double
-        :type rhs: ndarray, Double
+        :type lhs: vector, Double
+        :type rhs: vector, Double
 
         Sees if two arrays are approximately equal.
 
@@ -630,15 +630,15 @@ class operators:
         """
         The power operator.
 
-        :param lhs: The ndarray
+        :param lhs: The vector
         :param rhs: The power.
-        :type lhs: ndarray, Double, ndarray
-        :type rhs: Double, ndarray, ndarray.
-        :rtype: ndarray, ``pow(lhs, rhs)``.
+        :type lhs: vector, Double, vector
+        :type rhs: Double, vector, vector.
+        :rtype: vector, ``pow(lhs, rhs)``.
 
         .. note:: callable with ``x^y``.
 
-        .. note:: Optimized for lhs:ndarray, rhs=2. If ``close(2, rhs) == True``, prints message but no assert.
+        .. note:: Optimized for lhs:vector, rhs=2. If ``close(2, rhs) == True``, prints message but no assert.
 
         >>> assert(array(1, 4) ~== array(1, 2)^2)
 
@@ -664,7 +664,7 @@ class simple_math:
         :param function: Assumed to be one of "abs", "sign", "floor" or "cumsum" or a simple Double->Double function.
         :param x: An array.
         :type function: String, Double->Double
-        :type x: ndarray
+        :type x: vector
         :rtype: A new array with the function applied to every element. Optimized for string case.
 
         .. note:: Unoptimized for function type Double->Double. I tried to optimize with Grand Central Dispatch's ``dispatch_apply``, but no luck.
@@ -676,10 +676,10 @@ class simple_math:
         >>> assert(array(1.1, 1.2, 1.3) % ones(3) ~== array(0.1, 0.2, 0.3))
 
         :param x1: The top divisor.
-        :type x1: ndarray, Double, ndarray
+        :type x1: vector, Double, vector
         :param x2: The bottom divisor.
-        :type x2: Double, ndarray, ndarray
-        :rtype: ndarray
+        :type x2: Double, vector, vector
+        :rtype: vector
         """
     def min(x, y=None):
         """
@@ -691,10 +691,10 @@ class simple_math:
         >>> assert(max(array(0, 1), array(1, 0)) ~== array(0, 0))
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :param y: Another array.
-        :type y: ndarray
-        :rtype: Double, ndarray. The maximum value of the array or the maximum element from both arrays.
+        :type y: vector
+        :rtype: Double, vector. The maximum value of the array or the maximum element from both arrays.
         """
     def max(x, y=None):
         """
@@ -706,17 +706,17 @@ class simple_math:
         >>> assert(max(array(0, 1), array(1, 0)) ~== array(1, 1))
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :param y: Another array.
-        :type y: ndarray
-        :rtype: Double, ndarray. The maximum value of the array or the maximum element from both arrays.
+        :type y: vector
+        :rtype: Double, vector. The maximum value of the array or the maximum element from both arrays.
         """
     def sign(x):
         """
         Finds the sign an array.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :rtype: The sign of the array centered at 0.
 
         >>> assert(sign(array(-1, 0.1, 1)) ~== array(-1, 1, 1))
@@ -726,7 +726,7 @@ class simple_math:
         Finds the sum of an array.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :rtype: Double. The sum of all the elements in x. Returns the result from the following operation: :math:`\sum x_i`
 
         >>> assert(sum(array(1, 2, 3)) == 6)
@@ -736,7 +736,7 @@ class simple_math:
         Finds the mean of an array.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :rtype: Double. The average of all the components or :math:`\sum x_i / N`
         """
     def std(x):
@@ -744,7 +744,7 @@ class simple_math:
         Finds the standard deviation of an array.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :rtype: Double. The standard deviation of the array.
         """
     def variance(x):
@@ -752,7 +752,7 @@ class simple_math:
         Finds the variance of an array.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :rtype: Double. The variance of the array.
 
         .. seealso:: `Variance`_
@@ -762,8 +762,8 @@ class simple_math:
         Finds the cumulative sum of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. The cumulative sum of the array.
+        :type x: vector
+        :rtype: vector. The cumulative sum of the array.
 
         >>> assert(cumsum(arange(5)) ~== array(0, 1, 3, 6))
         """
@@ -772,18 +772,18 @@ class simple_math:
         Finds the absolute value of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. The absolute value of the array
+        :type x: vector
+        :rtype: vector. The absolute value of the array
         """
     def pow(x, power):
         """
-        The power of a {Double, ndarray} to {Double, ndarray}
+        The power of a {Double, vector} to {Double, vector}
 
         :param x: An array.
-        :type x: ndarray, Double, ndarray
+        :type x: vector, Double, vector
         :param power: The power
-        :type power: Double, ndarray, Double
-        :rtype: ndarray. Performs the same action as the operator ``^``. Raises each element to a power.
+        :type power: Double, vector, Double
+        :rtype: vector. Performs the same action as the operator ``^``. Raises each element to a power.
 
         .. note:: Also callable through ``x^y``
 
@@ -794,64 +794,64 @@ class simple_math:
         Finds the sin of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``sin`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``sin`` on each element.
         """
     def cos(x):
         """
         Finds the cos of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``cos`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``cos`` on each element.
         """
     def tan(x):
         """
         Finds the tan of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``tan`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``tan`` on each element.
         """
     def log(x):
         """
         Finds the log base e of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``log`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``log`` on each element.
         """
     def log10(x):
         """
         Finds the log base 10 of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``log`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``log`` on each element.
         """
     def log2(x):
         """
         Finds the log base 2 of an array.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``log`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``log`` on each element.
         """
     def exp2(x):
         """
         Finds :math:`2^x` for some array x.
 
         :param x: 2 to the power of this array.
-        :type x: ndarray
-        :rtype: ndarray. :math:`2^x`
+        :type x: vector
+        :rtype: vector. :math:`2^x`
         """
     def expm1(x):
         """
         Estimate :math:`\exp(x)-1`. Useful for when :math:`exp(1) << 1`.
 
         :param x: The array to calculate the exponent of.
-        :type x: ndarray
-        :rtype: ndarray
+        :type x: vector
+        :rtype: vector
 
         .. seealso:: `np.expm1`_
         """
@@ -861,26 +861,26 @@ class simple_math:
         :math:`\exp(x)`
 
         :param x: The input array
-        :type x: ndarray
-        :rtype: ndarray.
+        :type x: vector
+        :rtype: vector.
         """
     def sqrt(x):
         """
         Takes the sqrt of each element.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``sqrt`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``sqrt`` on each element.
         """
     def round(x, decimals=0):
         """
         Rounds each element.
 
         :param x: An array.
-        :type x: ndarray
+        :type x: vector
         :param decimals: The number of decimals kept.
         :type decimals: Int
-        :rtype: ndarray. Performs the function ``round`` on each element.
+        :rtype: vector. Performs the function ``round`` on each element.
 
         >>> assert(round(array(0.4, 0.6)) ~== array(0, 1))
         >>> assert(round(array(0.43, 0.418), decimals:2) ~== array(0.43, 0.42))
@@ -890,8 +890,8 @@ class simple_math:
         Floors each element.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``floor`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``floor`` on each element.
 
         >>> assert(floor(array(0.4, 0.6)) ~== array(0, 0))
         """
@@ -900,8 +900,8 @@ class simple_math:
         Ceil's each element.
 
         :param x: An array.
-        :type x: ndarray
-        :rtype: ndarray. Performs the function ``sin`` on each element.
+        :type x: vector
+        :rtype: vector. Performs the function ``sin`` on each element.
 
         >>> assert(ceil(array(0.4, 0.6)) ~== array(1, 1))
         """
@@ -912,9 +912,9 @@ class complex_math:
         Convolve x with a kernel.
 
         :param x: The base signal.
-        :type x: ndarray
+        :type x: vector
         :param kernel: The convolution kernel.
-        :type kernel: ndarray
+        :type kernel: vector
         :rtype: x convolved with kernel through the Fourier transform. That is, if :math:`y = x \\otimes k` then :math:`F(y) = F(x) \\cdot F(k)`
 
         .. warning:: There are bugs in this function. My simple tests with a delta function failed, possibly do to the funky divide in :class:`fft`/:class:`ifft`.
@@ -928,8 +928,8 @@ class complex_math:
         Takes the discrete Fourier Transform.
 
         :param x: An array to perform the fft on.
-        :type x: ndarray
-        :rtype: ndarray, ndarray. The real and imaginary components of the Fourier transform.
+        :type x: vector
+        :rtype: vector, vector. The real and imaginary components of the Fourier transform.
 
         >>> x = arange(10)
         >>> assert(x ~== ifft(fft(x)))
@@ -943,10 +943,10 @@ class complex_math:
         Takes the inverse Foureir Transform.
 
         :param y_real: The real part of fft(x).
-        :type y_real: ndarray
+        :type y_real: vector
         :param y_imag: The imaginary part of fft(x)
-        :type y_imag: ndarray
-        :rtype: ndarray. The inverse Fourier transform of :math:`y_{real} + j \\cdot y_{imag}`
+        :type y_imag: vector
+        :rtype: vector. The inverse Fourier transform of :math:`y_{real} + j \\cdot y_{imag}`
 
         .. seealso:: `np.fft.ifft`_, `Fourier Transform`_
 

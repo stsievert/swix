@@ -68,7 +68,7 @@
 <p class="last"><a class="reference external" href="http://docs.opencv.org/modules/ml/doc/support_vector_machines.html">OpenCV&#8217;s SVM</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machines">Support vector machines</a></p>
 </div>
 <p>example:</p>
-<div class="highlight-scala"><div class="highlight"><pre>var svm = SVM()
+<div class="highlight-scala"><div class="highlight"><pre><span></span>var svm = SVM()
 
 # our responses. 
 var responses = reshape(ones(2*3), (2, 3))
@@ -114,9 +114,9 @@ var result = svm.predict(y)
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>responses</strong> (<em>matrix, ndarray</em>) &#8211; The response to some unknown variable.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>responses</strong> (<em>matrix, vector</em>) &#8211; The response to some unknown variable.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray, Double</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector, Double</td>
 </tr>
 </tbody>
 </table>
@@ -155,7 +155,7 @@ var result = svm.predict(y)
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>resonses</strong> &#8211; The matrix of responses to some (known!) variable.</li>
-<li><strong>targets</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The known variables a response is associated with.</li>
+<li><strong>targets</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; The known variables a response is associated with.</li>
 </ul>
 </td>
 </tr>
@@ -200,7 +200,7 @@ var result = svm.predict(y)
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The reponse you want to train for.</li>
+<li><strong>x</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; The reponse you want to train for.</li>
 <li><strong>k</strong> (<em>Int</em>) &#8211; The number of neighest neighbors you want to train against.</li>
 </ul>
 </td>
@@ -221,7 +221,7 @@ var result = svm.predict(y)
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>responses</strong> (<a class="reference internal" href="matrix.html#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The responses.</li>
-<li><strong>targets</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The targets you <em>know</em> exist.</li>
+<li><strong>targets</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; The targets you <em>know</em> exist.</li>
 </ul>
 </td>
 </tr>
@@ -236,7 +236,7 @@ var result = svm.predict(y)
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="svm">
 <h3><a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machine">SVM</a><a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-scala"><div class="highlight"><pre>var svm = SVM()
+<div class="highlight-scala"><div class="highlight"><pre><span></span>var svm = SVM()
 
 // our responses.
 var responses = reshape(ones(2*3), (2, 3))
@@ -262,7 +262,7 @@ var result = svm.predict(y)
 <h3><a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbor_algorithm">kNN</a><a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h3>
 <p>I haven&#8217;t and don&#8217;t have a use case for this; my simple test failed although I
 believe it&#8217;s correct.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">var</span> <span class="n">knn</span> <span class="o">=</span> <span class="n">kNearestNeighbors</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">knn</span> <span class="o">=</span> <span class="n">kNearestNeighbors</span><span class="p">()</span>
 <span class="n">var</span> <span class="n">responses</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">var</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
@@ -273,15 +273,15 @@ believe it&#8217;s correct.</p>
 </div>
 <div class="section" id="svd-or-pca">
 <h3><a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a><a class="headerlink" href="#svd-or-pca" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">var</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s2">&quot;    var (u, s, v) = svd(x) works. matches python exactly (checked by hand)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>var x_train:matrix = read_csv(&quot;python_testing/csvs/x_train.csv&quot;)
-var y_train:ndarray = read_csv(&quot;python_testing/csvs/y_train.csv&quot;)
+<div class="highlight-python"><div class="highlight"><pre><span></span>var x_train:matrix = read_csv(&quot;python_testing/csvs/x_train.csv&quot;)
+var y_train:vector = read_csv(&quot;python_testing/csvs/y_train.csv&quot;)
 
 var x_test:matrix = read_csv(&quot;python_testing/csvs/x_test.csv&quot;)
 
@@ -290,7 +290,7 @@ svm.train(x_train, y_train)
 var yhat = svm.predict(x_test)
 
 // how accurate are we?
-var y_test:ndarray = read_csv(&quot;python_testing/csvs/y_test.csv&quot;)
+var y_test:vector = read_csv(&quot;python_testing/csvs/y_test.csv&quot;)
 var percent_correct:Double = argwhere(abs(y_test - yhat) &lt; 0.5).n / yhat.n
 println(percent_correct) // about 94% accurate
 </pre></div>
@@ -327,7 +327,7 @@ println(percent_correct) // about 94% accurate
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector.html">Array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Machine learning</a></li>
@@ -374,7 +374,7 @@ println(percent_correct) // about 94% accurate
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

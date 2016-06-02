@@ -13,7 +13,7 @@
 .. _`np.rot90`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.rot90.html
 .. _`np.flipud`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.flipud.html
 .. _`np.power`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html
-.. _`np.flat`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flat.html
+.. _`np.flat`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.vector.flat.html
 .. _`np.operators`: http://wiki.scipy.org/Tentative_NumPy_Tutorial#head-4c1d53fe504adc97baf27b65513b4b97586a4fc5
 .. _`np.sort`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html
 .. _`np.max`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.maximum.html
@@ -90,4 +90,4 @@
 .. _`k-nearest neighbors algorithm`: https://en.wikipedia.org/wiki/K_nearest_neighbors
 .. _`binomial coeff`: https://en.wikipedia.org/wiki/Binomial_coefficient
 .. _`np.fromfile`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fromfile.html
-.. _`ndarray.tofile`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile
+.. _`vector.tofile`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.vector.tofile.html#numpy.vector.tofile

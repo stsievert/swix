@@ -43,117 +43,117 @@ I/O
     io_swix.write_binary
     io_swix.write_csv
 
-ndarray
+vector
 -------------------------
 .. autosummary::
 
-ndarray.initing
+vector.initing
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
-    ndarray.initing.arange
-    ndarray.initing.array
-    ndarray.initing.asarray
-    ndarray.initing.copy
-    ndarray.initing.linspace
-    ndarray.initing.ones
-    ndarray.initing.ones_like
-    ndarray.initing.rand
-    ndarray.initing.randn
-    ndarray.initing.randperm
-    ndarray.initing.seed
-    ndarray.initing.zeros
-    ndarray.initing.zeros_like
+    vector.initing.arange
+    vector.initing.array
+    vector.initing.asarray
+    vector.initing.copy
+    vector.initing.linspace
+    vector.initing.ones
+    vector.initing.ones_like
+    vector.initing.rand
+    vector.initing.randn
+    vector.initing.randperm
+    vector.initing.seed
+    vector.initing.zeros
+    vector.initing.zeros_like
 
-ndarray.helper_functions
+vector.helper_functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
-    ndarray.helper_functions.argmax
-    ndarray.helper_functions.argmin
-    ndarray.helper_functions.argsort
-    ndarray.helper_functions.argwhere
-    ndarray.helper_functions.clip
-    ndarray.helper_functions.concat
-    ndarray.helper_functions.count_nonzero
-    ndarray.helper_functions.cumprod
-    ndarray.helper_functions.delete
-    ndarray.helper_functions.in1d
-    ndarray.helper_functions.intersection
-    ndarray.helper_functions.logical_and
-    ndarray.helper_functions.logical_not
-    ndarray.helper_functions.logical_or
-    ndarray.helper_functions.logical_xor
-    ndarray.helper_functions.norm
-    ndarray.helper_functions.println
-    ndarray.helper_functions.prod
-    ndarray.helper_functions.repeat
-    ndarray.helper_functions.reverse
-    ndarray.helper_functions.shuffle
-    ndarray.helper_functions.sort
-    ndarray.helper_functions.union
-    ndarray.helper_functions.unique
+    vector.helper_functions.argmax
+    vector.helper_functions.argmin
+    vector.helper_functions.argsort
+    vector.helper_functions.argwhere
+    vector.helper_functions.clip
+    vector.helper_functions.concat
+    vector.helper_functions.count_nonzero
+    vector.helper_functions.cumprod
+    vector.helper_functions.delete
+    vector.helper_functions.in1d
+    vector.helper_functions.intersection
+    vector.helper_functions.logical_and
+    vector.helper_functions.logical_not
+    vector.helper_functions.logical_or
+    vector.helper_functions.logical_xor
+    vector.helper_functions.norm
+    vector.helper_functions.println
+    vector.helper_functions.prod
+    vector.helper_functions.repeat
+    vector.helper_functions.reverse
+    vector.helper_functions.shuffle
+    vector.helper_functions.sort
+    vector.helper_functions.union
+    vector.helper_functions.unique
 
-ndarray.ndarray
+vector.vector
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
-    ndarray.ndarray.copy
-    ndarray.ndarray.indexing
-    ndarray.ndarray.max
-    ndarray.ndarray.mean
-    ndarray.ndarray.min
-    ndarray.ndarray.reshape
-    ndarray.ndarray.reverse
-    ndarray.ndarray.sort
+    vector.vector.copy
+    vector.vector.indexing
+    vector.vector.max
+    vector.vector.mean
+    vector.vector.min
+    vector.vector.reshape
+    vector.vector.reverse
+    vector.vector.sort
 
-ndarray.complex_math
+vector.complex_math
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
-    ndarray.complex_math.fft
-    ndarray.complex_math.fftconvolve
-    ndarray.complex_math.ifft
+    vector.complex_math.fft
+    vector.complex_math.fftconvolve
+    vector.complex_math.ifft
 
-ndarray.simple_math
+vector.simple_math
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
-    ndarray.simple_math.abs
-    ndarray.simple_math.apply_function
-    ndarray.simple_math.ceil
-    ndarray.simple_math.cos
-    ndarray.simple_math.cumsum
-    ndarray.simple_math.exp
-    ndarray.simple_math.exp2
-    ndarray.simple_math.expm1
-    ndarray.simple_math.floor
-    ndarray.simple_math.log
-    ndarray.simple_math.log10
-    ndarray.simple_math.log2
-    ndarray.simple_math.max
-    ndarray.simple_math.mean
-    ndarray.simple_math.min
-    ndarray.simple_math.pow
-    ndarray.simple_math.remainer
-    ndarray.simple_math.round
-    ndarray.simple_math.sign
-    ndarray.simple_math.sin
-    ndarray.simple_math.sqrt
-    ndarray.simple_math.std
-    ndarray.simple_math.sum
-    ndarray.simple_math.tan
-    ndarray.simple_math.variance
+    vector.simple_math.abs
+    vector.simple_math.apply_function
+    vector.simple_math.ceil
+    vector.simple_math.cos
+    vector.simple_math.cumsum
+    vector.simple_math.exp
+    vector.simple_math.exp2
+    vector.simple_math.expm1
+    vector.simple_math.floor
+    vector.simple_math.log
+    vector.simple_math.log10
+    vector.simple_math.log2
+    vector.simple_math.max
+    vector.simple_math.mean
+    vector.simple_math.min
+    vector.simple_math.pow
+    vector.simple_math.remainer
+    vector.simple_math.round
+    vector.simple_math.sign
+    vector.simple_math.sin
+    vector.simple_math.sqrt
+    vector.simple_math.std
+    vector.simple_math.sum
+    vector.simple_math.tan
+    vector.simple_math.variance
 
-ndarray.operators
+vector.operators
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
 
-    ndarray.operators.assignment_operator
-    ndarray.operators.elementwise_operators
-    ndarray.operators.equality
-    ndarray.operators.logical_operators
-    ndarray.operators.pow
+    vector.operators.assignment_operator
+    vector.operators.elementwise_operators
+    vector.operators.equality
+    vector.operators.logical_operators
+    vector.operators.pow
 
 matrix
 -------------------------

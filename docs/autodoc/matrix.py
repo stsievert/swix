@@ -1,11 +1,11 @@
-import ndarray
+import vector
 # unused but in docs
 
 from numbers_swix import S2_PREFIX
 
 class matrix:
     """
-    This class depends on ``ndarray`` where possible since ``matrix`` is really
+    This class depends on ``vector`` where possible since ``matrix`` is really
     a flat and `row-major`_ array. To implement a 2D matrix, I just return
     select indices when indexing.
 
@@ -15,7 +15,7 @@ class matrix:
     rows = "Int" #: Number of rows
     columns = "Int" #: Number of columns
     shape = "(rows, columns)" #: The shape of the matrix (in typical mathematical language)
-    flat = "ndarray" #: The base ndarray stored in row-major order. Is of type :class:`ndarray.ndarray`; any function that takes an ndarray can take this element.
+    flat = "vector" #: The base vector stored in row-major order. Is of type :class:`vector.vector`; any function that takes an vector can take this element.
     T = "transpose" #: Returns the transpose of the matrix. Call :class:`helper_functions.transpose`
     I = "inverse" #: Returns the inverse of the matrix. Calls :class:`complex_math.inv`
     def copy():
@@ -27,23 +27,23 @@ class matrix:
         >>> x = arange(4).reshape((2,2))
         >>> assert(x ~== x.copy())
 
-        .. seealso:: :class:`ndarray.ndarray.copy`
+        .. seealso:: :class:`vector.vector.copy`
         """
     def dot(x):
         """
         Matrix multiplication with another matrix.
 
         :param x: The lhs of the matrix.
-        :type x: matrix, ndarray
-        :rtype: matrix, ndarray. The matrix multiplication of the two input arguments. The return type mirrors the type of the input ``x``
+        :type x: matrix, vector
+        :rtype: matrix, vector. The matrix multiplication of the two input arguments. The return type mirrors the type of the input ``x``
 
-        Callable with ``A.dot(x)`` and ``dot(A, x)`` where ``A`` is a matrix and ``x`` an ndarray `or` matrix.
+        Callable with ``A.dot(x)`` and ``dot(A, x)`` where ``A`` is a matrix and ``x`` an vector `or` matrix.
 
         .. seealso:: `np.dot`_, :class:`complex_math.dot`
         """
     def index(one, two):
         """
-        Indexes with two numbers; range<int>, ndarray or int. Includes negative
+        Indexes with two numbers; range<int>, vector or int. Includes negative
         indexing like Python
 
         Use ``x[1, "all"]`` to access an entire row or column.
@@ -55,8 +55,8 @@ class matrix:
 
         :param one: The row selector.
         :param two: The column selector.
-        :type one: Int, Range<Int>, ndarray, String
-        :type two: Int, Range<Int>, ndarray, String
+        :type one: Int, Range<Int>, vector, String
+        :type two: Int, Range<Int>, vector, String
         :rtype: matrix
 
         .. note:: Use ``x[3, 4]`` to index, not the function name.
@@ -78,8 +78,8 @@ class matrix:
         Indexes in the row-major flat array.
 
         :param idx: In row major order, the elements to take.
-        :type idx: ndarray
-        :rtype: ndarray. Indexes ``matrix.flat`` in row-major order.
+        :type idx: vector
+        :rtype: vector. Indexes ``matrix.flat`` in row-major order.
 
         .. note:: Use ``x[array(1, 2, 3, x.shape.0+1)]`` to index, not the function name.
 
@@ -94,7 +94,7 @@ class matrix:
 
         :param string: This asserts that this input string must be "diag".
         :type string: String
-        :rtype: ndarray
+        :rtype: vector
 
         Gets or sets the diagonal of a matrix.
 
@@ -170,12 +170,12 @@ class initing:
         """
     def meshgrid(x, y):
         """
-        Makes a mesh out of two ndarrays.
+        Makes a mesh out of two vectors.
 
         :param x: One set of elements.
-        :type x: ndarray
+        :type x: vector
         :param y: Another set of elements.
-        :type y: ndarray
+        :type y: vector
         :rtype: (matrix, matrix).
 
         This function evaulates every possible combination of x and y. Very similar to NumPy's meshgrid.
@@ -198,19 +198,19 @@ class initing:
 
         >>> assert(ones((2,2)) ~== ones(4).reshape((2,2)))
 
-        .. seealso:: :class:`ndarray.initing.ones`
+        .. seealso:: :class:`vector.initing.ones`
         """
     def reshape(x, shape):
         """
         Reshapes to the specified size.
 
-        :param x: An ndarray
-        :type x: ndarray
+        :param x: An vector
+        :type x: vector
         :param shape: The size of the new matrix
         :type shape: (Int, Int)
         :rtype: A resized matrix.
 
-        .. seealso:: :class:`ndarray.ndarray.reshape`, `np.reshape`_
+        .. seealso:: :class:`vector.vector.reshape`, `np.reshape`_
         """
     def zeros(shape):
         """
@@ -222,7 +222,7 @@ class initing:
 
         >>> assert(zeros((2,2)) ~== zeros(4).reshape((2,2)))
 
-        .. seealso:: :class:`ndarray.initing.zeros`
+        .. seealso:: :class:`vector.initing.zeros`
         """
     def zeros_like(x):
         """
@@ -292,7 +292,7 @@ class helper_functions:
 
         :param idx: A matrix of zeros and ones. Normally indicates where some condition is true.
         :type idx: matrix
-        :rtype: ndarray. Returns the indicies where ``idx`` is not zero. Useful with comparison operators which return an array of 0's and 1's.
+        :rtype: vector. Returns the indicies where ``idx`` is not zero. Useful with comparison operators which return an array of 0's and 1's.
 
         .. seealso:: `np.argwhere`_, :class:`operators.element_operators`
         """
@@ -360,7 +360,7 @@ class helper_functions:
         Makes an matrix like another matrix.
 
         :param x: The array to imitate.
-        :type x: ndarray
+        :type x: vector
 
         >>> var x = array(3, 8, 2, 1).reshape((2,2))
         >>> assert(ones_like(x) ~== array(1, 1, 1, 1).reshape((2,2)))
@@ -372,7 +372,7 @@ class helper_functions:
         Make an array with the specified diagonal.
 
         :param x: The diagonal of the new array.
-        :type x: ndarray
+        :type x: vector
         :rtype: matrix
 
         >>> var x = diag(array(ones(3)))
@@ -395,7 +395,7 @@ class operators:
         >>> #        5, 5, 1, 1;
         >>> #        1, 1, 1, 1]
 
-        .. seealso:: :class:`ndarray.operators.assignment_operator`
+        .. seealso:: :class:`vector.operators.assignment_operator`
         """
     def element_operators(lhs, rhs):
         """
@@ -421,8 +421,8 @@ class operators:
         :param A: When multplied with x, this is what the equation equals.
         :param b: What the equation equals.
         :type A: matrix
-        :type b: ndarray
-        :rtype: ndarray
+        :type b: vector
+        :rtype: vector
 
         Solves for x in :math:`Ax=b`. The same as right-multiplying by the inverse but much faster.
 
@@ -451,7 +451,7 @@ class operators:
 
 class simple_math:
     """
-    Often, a function is applied to every element. Uses :class:`ndarray.simple_math`. This applies a function to every element and simply calls ``function(x.flat)``.
+    Often, a function is applied to every element. Uses :class:`vector.simple_math`. This applies a function to every element and simply calls ``function(x.flat)``.
     """
     def sin(x):
         """
@@ -529,7 +529,7 @@ class simple_math:
         :type x: matrix
         :param axis: Assumed to be either 0 or 1. Finds the sum of all values that are not in the axis.
         :type axis: Int
-        :rtype: ndarray
+        :rtype: vector
 
         >>> var x = arange(6).reshape((2,3))
         >>> assert(sum(x, dim:0) ~== array(3, 5, 7))
@@ -551,7 +551,7 @@ class simple_math:
 
         :param x: The matrix.
         :type x: matrix
-        :rtype: ndarray. The product along the columns or rows.
+        :rtype: vector. The product along the columns or rows.
 
         .. seealso:: `np.prod`_
         """
@@ -673,7 +673,7 @@ class complex_math:
         :param A: The lhs.
         :type A: matrix
         :param x: The rhs
-        :type x: matrix, ndarray
+        :type x: matrix, vector
         :rtype: matrix.
 
         Performs a matrix multiplication between two matrices.
@@ -714,8 +714,8 @@ class complex_math:
         :param A: When multplied with x, this is what the equation equals.
         :param b: What the equation equals.
         :type A: matrix
-        :type b: ndarray
-        :rtype: ndarray
+        :type b: vector
+        :rtype: vector
 
         Solves for x in :math:`Ax=b`. The same as right-multiplying by the inverse but much faster.
 
@@ -733,7 +733,7 @@ class complex_math:
         :type x: matrix
         :param compute_uv: Compute U and V.
         :type compute_uv: Bool
-        :rtype: (matrix, ndarray, matrix)
+        :rtype: (matrix, vector, matrix)
 
         Finds a factorization such that :math:`x = U S V`.
 

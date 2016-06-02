@@ -19,7 +19,7 @@ Binary example; optimized
 >>> # 
 >>> # be sure to include what type the variable is!
 >>> var y:matrix = read_binary("x.npy")
->>> var z:ndarray = read_binary("x.npy")
+>>> var z:vector = read_binary("x.npy")
 
 CSV example; unoptimized
 ++++++++++++++++++++++++++
@@ -29,4 +29,4 @@ CSV example; unoptimized
 >>> #
 >>> # be sure to include what type the variable is!
 >>> var y:matrix = read_csv("x.csv")
->>> var z:ndarray = read_csv("x.csv")
+>>> var z:vector = read_csv("x.csv")

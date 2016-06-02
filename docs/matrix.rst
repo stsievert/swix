@@ -4,7 +4,7 @@ Matrices
 ==========
 The full docs are below but I'll touch on some highlights:
 
-* depends on ndarray. Access the `row-major`_ indexed flat array via ``matrix.flat``. This means that any function that takes a flat array can be applied to a matrix.
+* depends on vector. Access the `row-major`_ indexed flat array via ``matrix.flat``. This means that any function that takes a flat array can be applied to a matrix.
 * Implements some complex math: solve, dot, svd, and inv
 * has some nice functions for image, including functions to show and save images.
 

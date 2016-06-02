@@ -26,7 +26,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="swix 0.30 documentation" href="index.html" />
     <link rel="next" title="I/O" href="io.html" />
-    <link rel="prev" title="Array" href="ndarray.html" /> 
+    <link rel="prev" title="Array" href="vector.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -42,7 +42,7 @@
           <a href="io.html" title="I/O"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="ndarray.html" title="Array"
+          <a href="vector.html" title="Array"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">swix 0.30 documentation</a> &raquo;</li> 
       </ul>
@@ -57,7 +57,7 @@
 <h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h1>
 <p>The full docs are below but I&#8217;ll touch on some highlights:</p>
 <ul class="simple">
-<li>depends on ndarray. Access the <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row-major</a> indexed flat array via <code class="docutils literal"><span class="pre">matrix.flat</span></code>. This means that any function that takes a flat array can be applied to a matrix.</li>
+<li>depends on vector. Access the <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row-major</a> indexed flat array via <code class="docutils literal"><span class="pre">matrix.flat</span></code>. This means that any function that takes a flat array can be applied to a matrix.</li>
 <li>Implements some complex math: solve, dot, svd, and inv</li>
 <li>has some nice functions for image, including functions to show and save images.</li>
 </ul>
@@ -78,7 +78,7 @@
 <dl class="class">
 <dt id="matrix.matrix">
 <em class="property">class </em><code class="descclassname">matrix.</code><code class="descname">matrix</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>This class depends on <code class="docutils literal"><span class="pre">ndarray</span></code> where possible since <code class="docutils literal"><span class="pre">matrix</span></code> is really
+<dd><p>This class depends on <code class="docutils literal"><span class="pre">vector</span></code> where possible since <code class="docutils literal"><span class="pre">matrix</span></code> is really
 a flat and <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row-major</a> array. To implement a 2D matrix, I just return
 select indices when indexing.</p>
 <div class="admonition note">
@@ -115,13 +115,13 @@ select indices when indexing.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="ndarray.html#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><code class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray.copy</span></code></a></p>
+<p class="last"><a class="reference internal" href="vector.html#vector.vector.copy" title="vector.vector.copy"><code class="xref py py-class docutils literal"><span class="pre">vector.vector.copy</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -133,13 +133,13 @@ select indices when indexing.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>matrix, ndarray</em>) &#8211; The lhs of the matrix.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>matrix, vector</em>) &#8211; The lhs of the matrix.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix, ndarray. The matrix multiplication of the two input arguments. The return type mirrors the type of the input <code class="docutils literal"><span class="pre">x</span></code></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix, vector. The matrix multiplication of the two input arguments. The return type mirrors the type of the input <code class="docutils literal"><span class="pre">x</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Callable with <code class="docutils literal"><span class="pre">A.dot(x)</span></code> and <code class="docutils literal"><span class="pre">dot(A,</span> <span class="pre">x)</span></code> where <code class="docutils literal"><span class="pre">A</span></code> is a matrix and <code class="docutils literal"><span class="pre">x</span></code> an ndarray <cite>or</cite> matrix.</p>
+<p>Callable with <code class="docutils literal"><span class="pre">A.dot(x)</span></code> and <code class="docutils literal"><span class="pre">dot(A,</span> <span class="pre">x)</span></code> where <code class="docutils literal"><span class="pre">A</span></code> is a matrix and <code class="docutils literal"><span class="pre">x</span></code> an vector <cite>or</cite> matrix.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></code></a></p>
@@ -148,14 +148,14 @@ select indices when indexing.</p>
 
 <dl class="attribute">
 <dt id="matrix.matrix.flat">
-<code class="descname">flat</code><em class="property"> = 'ndarray'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.flat" title="Permalink to this definition">¶</a></dt>
-<dd><p>The base ndarray stored in row-major order. Is of type <a class="reference internal" href="ndarray.html#ndarray.ndarray" title="ndarray.ndarray"><code class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray</span></code></a>; any function that takes an ndarray can take this element.</p>
+<code class="descname">flat</code><em class="property"> = 'vector'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base vector stored in row-major order. Is of type <a class="reference internal" href="vector.html#vector.vector" title="vector.vector"><code class="xref py py-class docutils literal"><span class="pre">vector.vector</span></code></a>; any function that takes an vector can take this element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="matrix.matrix.index">
 <code class="descname">index</code><span class="sig-paren">(</span><em>one</em>, <em>two</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.matrix.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int. Includes negative
+<dd><p>Indexes with two numbers; range&lt;int&gt;, vector or int. Includes negative
 indexing like Python</p>
 <p>Use <code class="docutils literal"><span class="pre">x[1,</span> <span class="pre">&quot;all&quot;]</span></code> to access an entire row or column.</p>
 <p>Also possible to use boolean indexing. <code class="docutils literal"><span class="pre">x[x</span> <span class="pre">&lt;</span> <span class="pre">0]</span> <span class="pre">&lt;-</span> <span class="pre">0</span></code> is the primary
@@ -169,8 +169,8 @@ use case for this.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The row selector.</li>
-<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The column selector.</li>
+<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, vector, String</em>) &#8211; The row selector.</li>
+<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, vector, String</em>) &#8211; The column selector.</li>
 </ul>
 </td>
 </tr>
@@ -183,12 +183,12 @@ use case for this.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Use <code class="docutils literal"><span class="pre">x[3,</span> <span class="pre">4]</span></code> to index, not the function name.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="go"># x = [0 1 2; 3 4 5; 6 7 8]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
@@ -209,14 +209,14 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> (<em>String</em>) &#8211; This asserts that this input string must be &#8220;diag&#8221;.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray">ndarray</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="vector.html#module-vector" title="vector">vector</a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets or sets the diagonal of a matrix.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go"># prints [-1 1 2; 3 -2 5; 6 7 -3]</span>
 </pre></div>
@@ -231,9 +231,9 @@ use case for this.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; In row major order, the elements to take.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; In row major order, the elements to take.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Indexes <code class="docutils literal"><span class="pre">matrix.flat</span></code> in row-major order.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Indexes <code class="docutils literal"><span class="pre">matrix.flat</span></code> in row-major order.</td>
 </tr>
 </tbody>
 </table>
@@ -241,13 +241,13 @@ use case for this.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Use <code class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">x.shape.0+1)]</span></code> to index, not the function name.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">rehshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">rehshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flat.html">np.flat</a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.vector.flat.html">np.flat</a></p>
 </div>
 </dd></dl>
 
@@ -281,7 +281,7 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -303,7 +303,7 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -318,7 +318,7 @@ use case for this.</p>
 <dl class="class">
 <dt id="matrix.simple_math">
 <em class="property">class </em><code class="descclassname">matrix.</code><code class="descname">simple_math</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math" title="Permalink to this definition">¶</a></dt>
-<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="ndarray.html#ndarray.simple_math" title="ndarray.simple_math"><code class="xref py py-class docutils literal"><span class="pre">ndarray.simple_math</span></code></a>. This applies a function to every element and simply calls <code class="docutils literal"><span class="pre">function(x.flat)</span></code>.</p>
+<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="vector.html#vector.simple_math" title="vector.simple_math"><code class="xref py py-class docutils literal"><span class="pre">vector.simple_math</span></code></a>. This applies a function to every element and simply calls <code class="docutils literal"><span class="pre">function(x.flat)</span></code>.</p>
 <dl class="method">
 <dt id="matrix.simple_math.abs">
 <code class="descname">abs</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.simple_math.abs" title="Permalink to this definition">¶</a></dt>
@@ -444,7 +444,7 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. The product along the columns or rows.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. The product along the columns or rows.</td>
 </tr>
 </tbody>
 </table>
@@ -528,12 +528,12 @@ use case for this.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray">ndarray</a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="vector.html#module-vector" title="vector">vector</a></p>
 </td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span><span class="mi">0</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 </pre></div>
@@ -566,7 +566,7 @@ use case for this.</p>
 <dl class="class">
 <dt>
 <em class="property">class </em><code class="descclassname">matrix.</code><code class="descname">matrix</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>This class depends on <code class="docutils literal"><span class="pre">ndarray</span></code> where possible since <code class="docutils literal"><span class="pre">matrix</span></code> is really
+<dd><p>This class depends on <code class="docutils literal"><span class="pre">vector</span></code> where possible since <code class="docutils literal"><span class="pre">matrix</span></code> is really
 a flat and <a class="reference external" href="https://en.wikipedia.org/wiki/Row-major_order">row-major</a> array. To implement a 2D matrix, I just return
 select indices when indexing.</p>
 <div class="admonition note">
@@ -603,13 +603,13 @@ select indices when indexing.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="ndarray.html#ndarray.ndarray.copy" title="ndarray.ndarray.copy"><code class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray.copy</span></code></a></p>
+<p class="last"><a class="reference internal" href="vector.html#vector.vector.copy" title="vector.vector.copy"><code class="xref py py-class docutils literal"><span class="pre">vector.vector.copy</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -621,13 +621,13 @@ select indices when indexing.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>matrix, ndarray</em>) &#8211; The lhs of the matrix.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>matrix, vector</em>) &#8211; The lhs of the matrix.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix, ndarray. The matrix multiplication of the two input arguments. The return type mirrors the type of the input <code class="docutils literal"><span class="pre">x</span></code></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix, vector. The matrix multiplication of the two input arguments. The return type mirrors the type of the input <code class="docutils literal"><span class="pre">x</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Callable with <code class="docutils literal"><span class="pre">A.dot(x)</span></code> and <code class="docutils literal"><span class="pre">dot(A,</span> <span class="pre">x)</span></code> where <code class="docutils literal"><span class="pre">A</span></code> is a matrix and <code class="docutils literal"><span class="pre">x</span></code> an ndarray <cite>or</cite> matrix.</p>
+<p>Callable with <code class="docutils literal"><span class="pre">A.dot(x)</span></code> and <code class="docutils literal"><span class="pre">dot(A,</span> <span class="pre">x)</span></code> where <code class="docutils literal"><span class="pre">A</span></code> is a matrix and <code class="docutils literal"><span class="pre">x</span></code> an vector <cite>or</cite> matrix.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a>, <a class="reference internal" href="#matrix.complex_math.dot" title="matrix.complex_math.dot"><code class="xref py py-class docutils literal"><span class="pre">complex_math.dot</span></code></a></p>
@@ -636,14 +636,14 @@ select indices when indexing.</p>
 
 <dl class="attribute">
 <dt>
-<code class="descname">flat</code><em class="property"> = 'ndarray'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>The base ndarray stored in row-major order. Is of type <a class="reference internal" href="ndarray.html#ndarray.ndarray" title="ndarray.ndarray"><code class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray</span></code></a>; any function that takes an ndarray can take this element.</p>
+<code class="descname">flat</code><em class="property"> = 'vector'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>The base vector stored in row-major order. Is of type <a class="reference internal" href="vector.html#vector.vector" title="vector.vector"><code class="xref py py-class docutils literal"><span class="pre">vector.vector</span></code></a>; any function that takes an vector can take this element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt>
 <code class="descname">index</code><span class="sig-paren">(</span><em>one</em>, <em>two</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Indexes with two numbers; range&lt;int&gt;, ndarray or int. Includes negative
+<dd><p>Indexes with two numbers; range&lt;int&gt;, vector or int. Includes negative
 indexing like Python</p>
 <p>Use <code class="docutils literal"><span class="pre">x[1,</span> <span class="pre">&quot;all&quot;]</span></code> to access an entire row or column.</p>
 <p>Also possible to use boolean indexing. <code class="docutils literal"><span class="pre">x[x</span> <span class="pre">&lt;</span> <span class="pre">0]</span> <span class="pre">&lt;-</span> <span class="pre">0</span></code> is the primary
@@ -657,8 +657,8 @@ use case for this.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The row selector.</li>
-<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, ndarray, String</em>) &#8211; The column selector.</li>
+<li><strong>one</strong> (<em>Int, Range&lt;Int&gt;, vector, String</em>) &#8211; The row selector.</li>
+<li><strong>two</strong> (<em>Int, Range&lt;Int&gt;, vector, String</em>) &#8211; The column selector.</li>
 </ul>
 </td>
 </tr>
@@ -671,12 +671,12 @@ use case for this.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Use <code class="docutils literal"><span class="pre">x[3,</span> <span class="pre">4]</span></code> to index, not the function name.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="go"># x = [0 1 2; 3 4 5; 6 7 8]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;0 1 2; 3 4 5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">]</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
@@ -697,14 +697,14 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> (<em>String</em>) &#8211; This asserts that this input string must be &#8220;diag&#8221;.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray">ndarray</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="vector.html#module-vector" title="vector">vector</a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets or sets the diagonal of a matrix.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;diag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go"># prints [-1 1 2; 3 -2 5; 6 7 -3]</span>
 </pre></div>
@@ -719,9 +719,9 @@ use case for this.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; In row major order, the elements to take.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; In row major order, the elements to take.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Indexes <code class="docutils literal"><span class="pre">matrix.flat</span></code> in row-major order.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Indexes <code class="docutils literal"><span class="pre">matrix.flat</span></code> in row-major order.</td>
 </tr>
 </tbody>
 </table>
@@ -729,13 +729,13 @@ use case for this.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Use <code class="docutils literal"><span class="pre">x[array(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">x.shape.0+1)]</span></code> to index, not the function name.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">rehshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">rehshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flat.html">np.flat</a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.vector.flat.html">np.flat</a></p>
 </div>
 </dd></dl>
 
@@ -769,7 +769,7 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -791,7 +791,7 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -829,7 +829,7 @@ use case for this.</p>
 <p class="first admonition-title">Warning</p>
 <p class="last">This currently only works with one digit positive numbers. Negative numbers and multiple digit numbers throw it for a loop. I would recommend using <code class="docutils literal"><span class="pre">array(Double...).reshape((M,N))</span></code> instead.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="s2">&quot;1 2; 3 4&quot;</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -861,14 +861,14 @@ use case for this.</p>
 <dl class="method">
 <dt id="matrix.initing.meshgrid">
 <code class="descname">meshgrid</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#matrix.initing.meshgrid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Makes a mesh out of two ndarrays.</p>
+<dd><p>Makes a mesh out of two vectors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; One set of elements.</li>
-<li><strong>y</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; Another set of elements.</li>
+<li><strong>x</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; One set of elements.</li>
+<li><strong>y</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; Another set of elements.</li>
 </ul>
 </td>
 </tr>
@@ -878,7 +878,7 @@ use case for this.</p>
 </tbody>
 </table>
 <p>This function evaulates every possible combination of x and y. Very similar to NumPy&#8217;s meshgrid.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go"># prints [1 2; 1 2]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -905,12 +905,12 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">~==</span> <span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">~==</span> <span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="ndarray.html#ndarray.initing.ones" title="ndarray.initing.ones"><code class="xref py py-class docutils literal"><span class="pre">ndarray.initing.ones</span></code></a></p>
+<p class="last"><a class="reference internal" href="vector.html#vector.initing.ones" title="vector.initing.ones"><code class="xref py py-class docutils literal"><span class="pre">vector.initing.ones</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -953,7 +953,7 @@ use case for this.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; An ndarray</li>
+<li><strong>x</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; An vector</li>
 <li><strong>shape</strong> (<em>(Int, Int)</em>) &#8211; The size of the new matrix</li>
 </ul>
 </td>
@@ -965,7 +965,7 @@ use case for this.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="ndarray.html#ndarray.ndarray.reshape" title="ndarray.ndarray.reshape"><code class="xref py py-class docutils literal"><span class="pre">ndarray.ndarray.reshape</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html">np.reshape</a></p>
+<p class="last"><a class="reference internal" href="vector.html#vector.vector.reshape" title="vector.vector.reshape"><code class="xref py py-class docutils literal"><span class="pre">vector.vector.reshape</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html">np.reshape</a></p>
 </div>
 </dd></dl>
 
@@ -983,12 +983,12 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="ndarray.html#ndarray.initing.zeros" title="ndarray.initing.zeros"><code class="xref py py-class docutils literal"><span class="pre">ndarray.initing.zeros</span></code></a></p>
+<p class="last"><a class="reference internal" href="vector.html#vector.initing.zeros" title="vector.initing.zeros"><code class="xref py py-class docutils literal"><span class="pre">vector.initing.zeros</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -1006,7 +1006,7 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1034,7 +1034,7 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; A matrix of zeros and ones. Normally indicates where some condition is true.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. Returns the indicies where <code class="docutils literal"><span class="pre">idx</span></code> is not zero. Useful with comparison operators which return an array of 0&#8217;s and 1&#8217;s.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Returns the indicies where <code class="docutils literal"><span class="pre">idx</span></code> is not zero. Useful with comparison operators which return an array of 0&#8217;s and 1&#8217;s.</td>
 </tr>
 </tbody>
 </table>
@@ -1072,13 +1072,13 @@ use case for this.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The diagonal of the new array.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; The diagonal of the new array.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-matrix" title="matrix">matrix</a></td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1103,8 +1103,8 @@ use case for this.</p>
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="#matrix.helper_functions.flipud" title="matrix.helper_functions.flipud"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.flipud</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.fliplr.html">np.fliplr</a></p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;2 1; 4 3&quot;</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;2 1; 4 3&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1128,8 +1128,8 @@ use case for this.</p>
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="#matrix.helper_functions.fliplr" title="matrix.helper_functions.fliplr"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.fliplr</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.flipud.html">np.flipud</a></p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s">&quot;3 4; 1 2&quot;</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;1 2; 3 4&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">fliplr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;3 4; 1 2&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1193,11 +1193,11 @@ use case for this.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; The array to imitate.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to imitate.</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1302,16 +1302,16 @@ use case for this.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c"># x ~== [5, 5, 1, 1;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c">#        5, 5, 1, 1;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c">#        1, 1, 1, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># x ~== [5, 5, 1, 1;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#        5, 5, 1, 1;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#        1, 1, 1, 1]</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="ndarray.html#ndarray.operators.assignment_operator" title="ndarray.operators.assignment_operator"><code class="xref py py-class docutils literal"><span class="pre">ndarray.operators.assignment_operator</span></code></a></p>
+<p class="last"><a class="reference internal" href="vector.html#vector.operators.assignment_operator" title="vector.operators.assignment_operator"><code class="xref py py-class docutils literal"><span class="pre">vector.operators.assignment_operator</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -1369,7 +1369,7 @@ use case for this.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Callable through <code class="docutils literal"><span class="pre">~==</span></code></p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -1388,11 +1388,11 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>A</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; When multplied with x, this is what the equation equals.</li>
-<li><strong>b</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; What the equation equals.</li>
+<li><strong>b</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; What the equation equals.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray">ndarray</a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="vector.html#module-vector" title="vector">vector</a></p>
 </td>
 </tr>
 </tbody>
@@ -1421,7 +1421,7 @@ use case for this.</p>
 <dl class="class">
 <dt>
 <em class="property">class </em><code class="descclassname">matrix.</code><code class="descname">simple_math</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="ndarray.html#ndarray.simple_math" title="ndarray.simple_math"><code class="xref py py-class docutils literal"><span class="pre">ndarray.simple_math</span></code></a>. This applies a function to every element and simply calls <code class="docutils literal"><span class="pre">function(x.flat)</span></code>.</p>
+<dd><p>Often, a function is applied to every element. Uses <a class="reference internal" href="vector.html#vector.simple_math" title="vector.simple_math"><code class="xref py py-class docutils literal"><span class="pre">vector.simple_math</span></code></a>. This applies a function to every element and simply calls <code class="docutils literal"><span class="pre">function(x.flat)</span></code>.</p>
 <dl class="method">
 <dt>
 <code class="descname">abs</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/matrix/"><span class="viewcode-link">[source]</span></a></dt>
@@ -1547,7 +1547,7 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The matrix.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ndarray. The product along the columns or rows.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. The product along the columns or rows.</td>
 </tr>
 </tbody>
 </table>
@@ -1631,12 +1631,12 @@ use case for this.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray">ndarray</a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="vector.html#module-vector" title="vector">vector</a></p>
 </td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span><span class="mi">0</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 </pre></div>
@@ -1681,7 +1681,7 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>A</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; The lhs.</li>
-<li><strong>x</strong> (<em>matrix, ndarray</em>) &#8211; The rhs</li>
+<li><strong>x</strong> (<em>matrix, vector</em>) &#8211; The rhs</li>
 </ul>
 </td>
 </tr>
@@ -1796,11 +1796,11 @@ use case for this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>A</strong> (<a class="reference internal" href="#module-matrix" title="matrix"><em>matrix</em></a>) &#8211; When multplied with x, this is what the equation equals.</li>
-<li><strong>b</strong> (<a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray"><em>ndarray</em></a>) &#8211; What the equation equals.</li>
+<li><strong>b</strong> (<a class="reference internal" href="vector.html#module-vector" title="vector"><em>vector</em></a>) &#8211; What the equation equals.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="ndarray.html#module-ndarray" title="ndarray">ndarray</a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="vector.html#module-vector" title="vector">vector</a></p>
 </td>
 </tr>
 </tbody>
@@ -1834,7 +1834,7 @@ use case for this.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(matrix, ndarray, matrix)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(matrix, vector, matrix)</p>
 </td>
 </tr>
 </tbody>
@@ -2069,7 +2069,7 @@ RGBA color planes.</p>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector.html">Array</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
@@ -2109,14 +2109,14 @@ RGBA color planes.</p>
           <a href="io.html" title="I/O"
              >next</a> |</li>
         <li class="right" >
-          <a href="ndarray.html" title="Array"
+          <a href="vector.html" title="Array"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">swix 0.30 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

@@ -46,14 +46,14 @@ class SVM:
         """
         :param resonses: The matrix of responses to some (known!) variable.
         :param targets: The known variables a response is associated with.
-        :type targets: ndarray
+        :type targets: vector
         :type responses: matrix
         """
     def predict(responses):
         """
         :param responses: The response to some unknown variable.
-        :type responses: matrix, ndarray
-        :rtype: ndarray, Double
+        :type responses: matrix, vector
+        :rtype: vector, Double
         """
 class kNN:
     """
@@ -69,12 +69,12 @@ class kNN:
         :param responses: The responses.
         :type responses: matrix
         :param targets: The targets you *know* exist.
-        :type targets: ndarray
+        :type targets: vector
         """
     def predict(x, k):
         """
         :param x: The reponse you want to train for.
-        :type x: ndarray
+        :type x: vector
         :param k: The number of neighest neighbors you want to train against.
         :type k: Int
         :rtype: Double. The predicted response.

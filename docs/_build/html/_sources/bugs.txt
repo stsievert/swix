@@ -15,7 +15,7 @@ Bugs
 
 Compiler bugs
 -----------------
-* If you get bugs like ``ndarray cannot be cast as matrix`` or something that doesn't make much sense, you're probably calling a function with the wrong arguments. Even worse, this may be a confusion between Int/Float/Double/vDSP_Length/etc. Using ``1.int, 1.float, 1.double`` or ``1.stride`` may solve your problem.
+* If you get bugs like ``vector cannot be cast as matrix`` or something that doesn't make much sense, you're probably calling a function with the wrong arguments. Even worse, this may be a confusion between Int/Float/Double/vDSP_Length/etc. Using ``1.int, 1.float, 1.double`` or ``1.stride`` may solve your problem.
 
 Matlab and swix differences
 -----------------------------

@@ -78,7 +78,7 @@ and Matlab differ in their initializer called <code class="docutils literal"><sp
 <code class="docutils literal"><span class="pre">ones(M,N)</span></code> respectively. If in doubt or getting weird compiler bugs, look at <a class="reference external" href="http://wiki.scipy.org/NumPy_for_Matlab_Users">NumPy for
 Matlab users</a> or the section on <a class="reference external" href="http://scottsievert.github.io/swix/bugs.html">possible bugs</a>.</p>
 <p>As an example, here&#8217;s some Objective-C sample code that integrates the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a>:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">){</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">copy</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">){</span>
     <span class="n">cblas_dcopy</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="kt">void</span> <span class="nf">add_two_vectors</span><span class="p">(</span><span class="kt">double</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span> <span class="n">result</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">){</span>
@@ -110,7 +110,7 @@ Matlab users</a> or the section on <a class="reference external" href="http://sc
 </pre></div>
 </div>
 <p>The equivalent Swift syntax with this library?</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">var</span> <span class="n">N</span> <span class="k">=</span> <span class="mi">10</span>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="n">N</span> <span class="k">=</span> <span class="mi">10</span>
 <span class="k">var</span> <span class="n">x</span> <span class="k">=</span> <span class="n">ones</span><span class="o">(</span><span class="n">N</span><span class="o">)</span> <span class="o">*</span> <span class="n">pi</span>
 <span class="k">var</span> <span class="n">y</span> <span class="k">=</span> <span class="n">ones</span><span class="o">(</span><span class="n">N</span><span class="o">)</span> <span class="o">*</span> <span class="n">phi</span>
 <span class="k">var</span> <span class="n">result</span> <span class="k">=</span> <span class="o">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="mi">4</span><span class="o">)*</span><span class="n">x</span>
@@ -124,7 +124,7 @@ equal with Python/Matlab with this library.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">These docs call files classes. ie, when you see <code class="docutils literal"><span class="pre">matrix.complex_math.&lt;function&gt;</span></code>, it&#8217;s in the file <code class="docutils literal"><span class="pre">swix/matrix/complex-math.swift</span></code>. The only exceptions are the classes <code class="docutils literal"><span class="pre">ndarray</span></code> and <code class="docutils literal"><span class="pre">matrix</span></code>.</p>
+<p class="last">These docs call files classes. ie, when you see <code class="docutils literal"><span class="pre">matrix.complex_math.&lt;function&gt;</span></code>, it&#8217;s in the file <code class="docutils literal"><span class="pre">swix/matrix/complex-math.swift</span></code>. The only exceptions are the classes <code class="docutils literal"><span class="pre">vector</span></code> and <code class="docutils literal"><span class="pre">matrix</span></code>.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -137,7 +137,7 @@ equal with Python/Matlab with this library.</p>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector.html">Array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
@@ -177,7 +177,7 @@ equal with Python/Matlab with this library.</p>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector.html">Array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>

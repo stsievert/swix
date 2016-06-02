@@ -1,6 +1,6 @@
 Array
 =============
-``ndarray`` stands for ":math:`N` dimensional array". It's a mix of programming
+``vector`` stands for ":math:`N` dimensional array". It's a mix of programming
 language and math language; in math, this is called an :math:`N` dimensional vector.
 
 The full docs can be found below but I'll touch on some highlights:
@@ -10,7 +10,7 @@ The full docs can be found below but I'll touch on some highlights:
 * simple math. Math that applies to each element.
 * nice indexing, including accessing multiple elements at once (goodbye for loops!).
 
-Found in ``swix/ndarray/*``
+Found in ``swix/vector/*``
 
 .. note:: ``*`` is an element-wise multiplication. ``*!`` is used for a dot product or matrix multiplication. Not like matlab!
 
@@ -21,13 +21,13 @@ Docs
 ++++++++
 
 
-.. automodule:: ndarray
+.. automodule:: vector
 
-ndarray class
+vector class
 ----------------
 Yes, an actual class (or struct).
 
-.. autoclass:: ndarray
+.. autoclass:: vector
    :members:
 
 Initing

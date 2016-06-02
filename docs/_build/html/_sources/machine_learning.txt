@@ -72,7 +72,7 @@ believe it's correct.
 .. code-block:: python
 
     var x_train:matrix = read_csv("python_testing/csvs/x_train.csv")
-    var y_train:ndarray = read_csv("python_testing/csvs/y_train.csv")
+    var y_train:vector = read_csv("python_testing/csvs/y_train.csv")
 
     var x_test:matrix = read_csv("python_testing/csvs/x_test.csv")
 
@@ -81,7 +81,7 @@ believe it's correct.
     var yhat = svm.predict(x_test)
 
     // how accurate are we?
-    var y_test:ndarray = read_csv("python_testing/csvs/y_test.csv")
+    var y_test:vector = read_csv("python_testing/csvs/y_test.csv")
     var percent_correct:Double = argwhere(abs(y_test - yhat) < 0.5).n / yhat.n
     println(percent_correct) // about 94% accurate
 

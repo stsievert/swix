@@ -1,5 +1,5 @@
 
-import ndarray
+import vector
 import matrix
 import machine_learning
 import inspect
@@ -29,12 +29,12 @@ def print_root_functions(root_module, module_name):
         strings += ["    "+module_name+"."+f[0]]
     return strings
 
-ndarray_modules = [ndarray.initing,          \
-                   ndarray.helper_functions, \
-                   ndarray.ndarray,          \
-                   ndarray.complex_math,     \
-                   ndarray.simple_math, \
-                   ndarray.operators]
+vector_modules = [vector.initing,          \
+                   vector.helper_functions, \
+                   vector.vector,          \
+                   vector.complex_math,     \
+                   vector.simple_math, \
+                   vector.operators]
 matrix_modules = [matrix.initing,          \
                   matrix.helper_functions, \
                   matrix.matrix,          \
@@ -44,7 +44,7 @@ matrix_modules = [matrix.initing,          \
                   matrix.operators]
 ml_modules = [machine_learning.SVM, machine_learning.kNN]
 
-n = print_functions(ndarray, ndarray_modules)
+n = print_functions(vector, vector_modules)
 m = print_functions(matrix, matrix_modules)
 ml = print_functions(machine_learning, ml_modules)
 nu = print_root_functions(numbers_swix, "numbers_swix")
@@ -85,7 +85,7 @@ file = open("../overview.rst", "w")
 file.write(intro)
 write_list(file, "numbers", nu)
 write_list(file, "I/O", io)
-write_list(file, "ndarray", n)
+write_list(file, "vector", n)
 write_list(file, "matrix", m)
 write_list(file, "machine learning", ml)
 write_list(file, "objc", objcs)

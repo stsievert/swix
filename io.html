@@ -66,13 +66,13 @@
 <em class="property">class </em><code class="descclassname">io_swix.</code><code class="descname">CSVFile</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/io_swix/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#io_swix.CSVFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>A simple class to represent a CSV file. It has two members, &#8220;header&#8221; and
 &#8220;data&#8221;. &#8220;header&#8221; is a list of string and &#8220;data&#8221; is a matrix.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">:(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">csv</span> <span class="o">=</span> <span class="n">CSVFile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;/path/to/file&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">:(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">csv</span> <span class="o">=</span> <span class="n">CSVFile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s2">&quot;/path/to/file&quot;</span><span class="p">)</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c"># one of the following options</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">csv</span><span class="p">:</span><span class="n">CSVFile</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;/path/to/file&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;/path/to/file&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># one of the following options</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">csv</span><span class="p">:</span><span class="n">CSVFile</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/path/to/file&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/path/to/file&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -85,12 +85,12 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>ndarray, matrix</em>) &#8211; What to write to a file.</li>
+<li><strong>x</strong> (<em>vector, matrix</em>) &#8211; What to write to a file.</li>
 <li><strong>filename</strong> (<em>String</em>) &#8211; Where to write the file.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The contents of the file. Either an ndarray or matrix.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The contents of the file. Either an vector or matrix.</p>
 </td>
 </tr>
 </tbody>
@@ -116,7 +116,7 @@ returned.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray. The contents of the csv.</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. The contents of the csv.</p>
 </td>
 </tr>
 </tbody>
@@ -135,7 +135,7 @@ returned.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>ndarray, matrix</em>) &#8211; The content to write to a file.</li>
+<li><strong>x</strong> (<em>vector, matrix</em>) &#8211; The content to write to a file.</li>
 <li><strong>filename</strong> (<em>String</em>) &#8211; Where to write the file.</li>
 </ul>
 </td>
@@ -144,15 +144,15 @@ returned.</li>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.fromfile.html">np.fromfile</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile">ndarray.tofile</a></p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.fromfile.html">np.fromfile</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.vector.tofile.html#numpy.vector.tofile">vector.tofile</a></p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># SWIFT</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># SWIFT</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span> <span class="o">*</span> <span class="n">phi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">write_binary</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;x.bin&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c">#</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c"># PYTHON:</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="s">&quot;x.bin&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_binary</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s2">&quot;x.bin&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># PYTHON:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="s2">&quot;x.bin&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
 </pre></div>
@@ -168,7 +168,7 @@ returned.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>ndarray, matrix, CSVFile</em>) &#8211; The ndarray to write to a csv</li>
+<li><strong>x</strong> (<em>vector, matrix, CSVFile</em>) &#8211; The vector to write to a csv</li>
 <li><strong>header</strong> (<em>List of strings.</em>) &#8211; The header to write at the top of the CSV file</li>
 <li><strong>filename</strong> (<em>String</em>) &#8211; Where to write.</li>
 </ul>
@@ -185,23 +185,23 @@ returned.</li>
 </div>
 <div class="section" id="binary-example-optimized">
 <h2>Binary example; optimized<a class="headerlink" href="#binary-example-optimized" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">write_binary</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;x.npy&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c">#</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c"># be sure to include what type the variable is!</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_binary</span><span class="p">(</span><span class="s">&quot;x.npy&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">z</span><span class="p">:</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">read_binary</span><span class="p">(</span><span class="s">&quot;x.npy&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_binary</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s2">&quot;x.npy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># be sure to include what type the variable is!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_binary</span><span class="p">(</span><span class="s2">&quot;x.npy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">z</span><span class="p">:</span><span class="n">vector</span> <span class="o">=</span> <span class="n">read_binary</span><span class="p">(</span><span class="s2">&quot;x.npy&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="csv-example-unoptimized">
 <h2>CSV example; unoptimized<a class="headerlink" href="#csv-example-unoptimized" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s">&quot;x.csv&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c">#</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c"># be sure to include what type the variable is!</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;x.csv&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">z</span><span class="p">:</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;x.csv&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span><span class="s2">&quot;x.csv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># be sure to include what type the variable is!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span><span class="p">:</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;x.csv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">z</span><span class="p">:</span><span class="n">vector</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;x.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -231,7 +231,7 @@ returned.</li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ndarray.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector.html">Array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
@@ -278,7 +278,7 @@ returned.</li>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Scott Sievert.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

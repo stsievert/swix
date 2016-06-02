@@ -1,0 +1,1978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Array &mdash; swix 0.30 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.30',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="swix 0.30 documentation" href="index.html" />
+    <link rel="next" title="Matrices" href="matrix.html" />
+    <link rel="prev" title="Numbers and constants" href="numbers.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="numbers.html" title="Numbers and constants"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.30 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="array">
+<h1>Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">vector</span></code> stands for &#8220;<span class="math">\(N\)</span> dimensional array&#8221;. It&#8217;s a mix of programming
+language and math language; in math, this is called an <span class="math">\(N\)</span> dimensional vector.</p>
+<p>The full docs can be found below but I&#8217;ll touch on some highlights:</p>
+<ul class="simple">
+<li>operators. All arithmetic operators and a host of comparison operators work element-wise</li>
+<li>easy initializers (ones, zeros, zeros_like, linspace, etc)</li>
+<li>simple math. Math that applies to each element.</li>
+<li>nice indexing, including accessing multiple elements at once (goodbye for loops!).</li>
+</ul>
+<p>Found in <code class="docutils literal"><span class="pre">swix/vector/*</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">*</span></code> is an element-wise multiplication. <code class="docutils literal"><span class="pre">*!</span></code> is used for a dot product or matrix multiplication. Not like matlab!</p>
+</div>
+<div class="section" id="module-vector">
+<span id="docs"></span><h2>Docs<a class="headerlink" href="#module-vector" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vector-class">
+<h3>vector class<a class="headerlink" href="#vector-class" title="Permalink to this headline">¶</a></h3>
+<p>Yes, an actual class (or struct).</p>
+<dl class="class">
+<dt id="vector.vector">
+<em class="property">class </em><code class="descclassname">vector.</code><code class="descname">vector</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vector.vector.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies the contents of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">vector. An exact copy of the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">~==</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html">np.copy</a></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vector.vector.count">
+<code class="descname">count</code><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of elements.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vector.vector.grid">
+<code class="descname">grid</code><em class="property"> = '[Double]'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Array this vector depends on.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.vector.indexing">
+<code class="descname">indexing</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.indexing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grabs elements using an vector, Range&lt;Int&gt; or integers. Includes negative indexing like Python.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Assumes an index is either wholly positive or negative; indexes like <code class="docutils literal"><span class="pre">array(-1,</span> <span class="pre">0,</span> <span class="pre">1)</span></code> aren&#8217;t supported.</p>
+</div>
+<p>Use <code class="docutils literal"><span class="pre">x[&quot;all&quot;]</span></code> to grab all elements from this array.</p>
+<p>It&#8217;s also possible to use boolean indexing. The boolean indexs are
+assumed to have a length the same as the array being indexed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<em>Int, Range&lt;Int&gt;, vector, String</em>) &#8211; The values to get the index from.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">]</span> <span class="o">~==</span> <span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/user/basics.indexing.html">np.indexing</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.vector.max">
+<code class="descname">max</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the maximum value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Double. The maximum value in the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.maximum.html">np.max</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.vector.mean">
+<code class="descname">mean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the average value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Double. The mean value in the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">==</span> <span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html">np.mean</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.vector.min">
+<code class="descname">min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the minimum value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Double. The minimum value in the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.minimum.html">np.min</a></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vector.vector.n">
+<code class="descname">n</code><em class="property"> = 'Int'</em><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of elements this array contains</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.vector.reshape">
+<code class="descname">reshape</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reshapes the matrix to the specified size. The number of elements must remain constant, however, if a value of -1 is passed a new size is calculated to keep the number of elements the same.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shape</strong> (<em>(Int, Int)</em>) &#8211; The size of the new matrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">matrix. The vector reshaped as a matrix.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go"># prints [0 1; 2 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go"># prints [0 1; 2 3]</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html">np.reshape</a>, <a class="reference internal" href="matrix.html#matrix.initing.reshape" title="matrix.initing.reshape"><code class="xref py py-class docutils literal"><span class="pre">matrix.initing.reshape</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.vector.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverses the array in place.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.helper_functions.reverse" title="vector.helper_functions.reverse"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.reverse</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.vector.sort">
+<code class="descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.vector.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts the array in-place.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.helper_functions.sort" title="vector.helper_functions.sort"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.sort</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html">np.sort</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="initing">
+<h3>Initing<a class="headerlink" href="#initing" title="Permalink to this headline">¶</a></h3>
+<p>This is a file, not an actual class.</p>
+<dl class="class">
+<dt id="vector.initing">
+<em class="property">class </em><code class="descclassname">vector.</code><code class="descname">initing</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vector.initing.arange">
+<code class="descname">arange</code><span class="sig-paren">(</span><em>max</em>, <em>min=0</em>, <em>x=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.arange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array of integers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>max</strong> (<em>Int</em>) &#8211; How high should the array index up to?</li>
+<li><strong>min</strong> (<em>Int</em>) &#8211; Where should the indexing start?</li>
+<li><strong>x</strong> (<em>Bool</em>) &#8211; Should the array be exclusive?</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">true</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html">np.arange</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.array">
+<code class="descname">array</code><span class="sig-paren">(</span><em>numbers</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array out of a list of numbers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>numbers</strong> (<em>Double...</em>) &#8211; A list of numbers to make an array.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unoptimized. I assume this is only being used in test code.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="go"># prints array([0.000, 1.000, 2.000, 3.000, 4.000])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.asarray">
+<code class="descname">asarray</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.asarray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the input to an vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>[Double], Range&lt;Int&gt;</em>) &#8211; A native Swift array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. The native Swift array converted to an vector.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">asarray</span><span class="p">(</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">asarray</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies the contents of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to copy.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns <a class="reference internal" href="#vector.vector.copy" title="vector.vector.copy"><code class="xref py py-func docutils literal"><span class="pre">vector.copy()</span></code></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.vector.copy" title="vector.vector.copy"><code class="xref py py-class docutils literal"><span class="pre">vector.copy</span></code></a> <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html">np.copy</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.linspace">
+<code class="descname">linspace</code><span class="sig-paren">(</span><em>min</em>, <em>max</em>, <em>num=50</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.linspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a series of values linearly interpolated between two poitns.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>min</strong> (<em>Double.</em>) &#8211; The minimum value.</li>
+<li><strong>max</strong> (<em>Double.</em>) &#8211; The maximum value.</li>
+<li><strong>num</strong> (<em>Int</em>) &#8211; How many elements?</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html">np.linspace</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.ones">
+<code class="descname">ones</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.ones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array of ones.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> (<em>Int</em>) &#8211; The length of the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html">np.ones</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.ones_like">
+<code class="descname">ones_like</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.ones_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array like another array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to imitate.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ones_like.html">np.ones_like</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.rand">
+<code class="descname">rand</code><span class="sig-paren">(</span><em>N</em>, <em>distro='uniform'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.rand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array of uniform random variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
+<li><strong>distro</strong> (<em>String</em>) &#8211; The type of distribution. Assumed to be either <code class="docutils literal"><span class="pre">&quot;uniform&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;normal&quot;</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. Random integers normally distributed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.initing.seed" title="vector.initing.seed"><code class="xref py py-class docutils literal"><span class="pre">initing.seed</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html">np.random.rand</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.randn">
+<code class="descname">randn</code><span class="sig-paren">(</span><em>N</em>, <em>mean=0.0</em>, <em>sigma=1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.randn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array of normally distributed random variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>N</strong> (<em>Int</em>) &#8211; The size of the array.</li>
+<li><strong>mean</strong> (<em>Double</em>) &#8211; The mean of this distribution.</li>
+<li><strong>sigma</strong> (<em>Double</em>) &#8211; The standard deviation of this distribution.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. Random integers that are normally distributed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html">np.random.randn</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.randperm">
+<code class="descname">randperm</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.randperm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffle an array of (typically) indices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> (<em>Int</em>) &#8211; The size of the array. Values included are between 0 and N-1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-vector" title="vector">vector</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.helper_functions.shuffle" title="vector.helper_functions.shuffle"><code class="xref py py-class docutils literal"><span class="pre">helper_functions.shuffle</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.permutation.html">np.random.permutation</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.seed">
+<code class="descname">seed</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the seed for a psuedo-random number generation. This uses the global variable <code class="docutils literal"><span class="pre">SWIX_SEED</span></code> defined in <code class="docutils literal"><span class="pre">numbers.swift</span></code>. This global variable <code class="docutils literal"><span class="pre">SWIX_SEED</span></code> updates every time a call to rand is called (which happens through randn, etc).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> (<em>Int</em>) &#8211; The seed. If <code class="docutils literal"><span class="pre">seed</span></code> is not called, this defaults to 42.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.initing.rand" title="vector.initing.rand"><code class="xref py py-class docutils literal"><span class="pre">initing.rand</span></code></a>, <a class="reference internal" href="#vector.initing.randn" title="vector.initing.randn"><code class="xref py py-class docutils literal"><span class="pre">initing.randn</span></code></a>, <a class="reference internal" href="#vector.initing.randperm" title="vector.initing.randperm"><code class="xref py py-class docutils literal"><span class="pre">initing.randperm</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.zeros">
+<code class="descname">zeros</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.zeros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array of 0&#8217;s.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> (<em>Int</em>) &#8211; The length of the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html">np.zeros</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.initing.zeros_like">
+<code class="descname">zeros_like</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.initing.zeros_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an array like another array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to imitate.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros_like.html">np.zeros_like</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="helper-functions">
+<h3>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="vector.helper_functions">
+<em class="property">class </em><code class="descclassname">vector.</code><code class="descname">helper_functions</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vector.helper_functions.argmax">
+<code class="descname">argmax</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.argmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>The location of the maximum.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The location of the maximum value.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html">np.argmax</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#minmaxloc">cv.minMaxLoc</a>, <a class="reference internal" href="#vector.helper_functions.argmin" title="vector.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argsort" title="vector.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argwhere" title="vector.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.argmin">
+<code class="descname">argmin</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.argmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>The location of the minimum.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The location of the maximum value.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html">np.argmin</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#minmaxloc">cv.minMaxLoc</a>, <a class="reference internal" href="#vector.helper_functions.argmax" title="vector.helper_functions.argmax"><code class="xref py py-class docutils literal"><span class="pre">argmax</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argmin" title="vector.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argsort" title="vector.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argwhere" title="vector.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.argsort">
+<code class="descname">argsort</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.argsort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort the array but using indices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-vector" title="vector">vector</a></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argsort.html">np.argsort</a>, <a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#sortidx">cv.sortIdx</a>, <a class="reference internal" href="#vector.helper_functions.argmin" title="vector.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argsort" title="vector.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argwhere" title="vector.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.argwhere">
+<code class="descname">argwhere</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.argwhere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sees where a condition exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of 0&#8217;s and 1&#8217;s (analagous to true and false).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Returns the indices where idx has <em>non-zero</em> elements.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.argwhere.html">np.argwhere</a>, <a class="reference internal" href="#vector.helper_functions.argmin" title="vector.helper_functions.argmin"><code class="xref py py-class docutils literal"><span class="pre">argmin</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argsort" title="vector.helper_functions.argsort"><code class="xref py py-class docutils literal"><span class="pre">argsort</span></code></a>, <a class="reference internal" href="#vector.helper_functions.argwhere" title="vector.helper_functions.argwhere"><code class="xref py py-class docutils literal"><span class="pre">argwhere</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.clip">
+<code class="descname">clip</code><span class="sig-paren">(</span><em>a</em>, <em>a_min</em>, <em>a_max</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.clip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only keep values between a_min and a_max; set the rest to 0. Performs the following operation:</p>
+<p><span class="math">\((x_i &lt; a_{min}) \lor (x_i &gt; a_{max}) \implies x_i = 0\)</span></p>
+<p>Similar to Numeric&#8217;s clip.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to clip.</li>
+<li><strong>a_min</strong> (<em>Double</em>) &#8211; The minimum value.</li>
+<li><strong>a_max</strong> (<em>Double</em>) &#8211; The maximum value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-vector" title="vector">vector</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.concat">
+<code class="descname">concat</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenates two arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The first array to stack.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The second array to stack.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. Equivalent to <code class="docutils literal"><span class="pre">concatenate((x,</span> <span class="pre">y))</span></code> in NumPy or <code class="docutils literal"><span class="pre">[x</span> <span class="pre">y]</span></code> in Matlab.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">concat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">~==</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html#numpy.concatenate">np.concatenate</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.append.html">np.append</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.count_nonzero">
+<code class="descname">count_nonzero</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.count_nonzero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the nonzero elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to be counted.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The number of nonzero elements.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.count_nonzero.html">np.count_nonzero</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.cumprod">
+<code class="descname">cumprod</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.cumprod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the cumulative product of every element in this array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The cumulative product of elements in this array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-vector" title="vector">vector</a></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">cumprod</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>x</em>, <em>idx</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The original array.</li>
+<li><strong>idx</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The indices to remove.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. The array with the specified indices deleted.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.in1d">
+<code class="descname">in1d</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.in1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sees if elements from the first array are in the second and returns the
+indices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to index from.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to check to see if values of x are in this array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. An array of true/false (well, 1/0).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">in1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.in1d.html">np.in1d</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.intersection">
+<code class="descname">intersection</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find elements that are both arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The first array.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The second array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">The sorted array of unique elements that are in both arrays.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">intersection</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.intersect1d.html">np.intersect1d</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.logical_and">
+<code class="descname">logical_and</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.logical_and" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical AND of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-vector" title="vector">vector</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_and.html">np.logical_and</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.logical_not">
+<code class="descname">logical_not</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.logical_not" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical NOT of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-vector" title="vector">vector</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_not.html">np.logical_not</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.logical_or">
+<code class="descname">logical_or</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.logical_or" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical OR of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-vector" title="vector">vector</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_or.html">np.logical_or</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.logical_xor">
+<code class="descname">logical_xor</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.logical_xor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the logical XOR of x and y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of truth values; assumed to take values of 0 and 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-vector" title="vector">vector</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_xor.html">np.logical_xor</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.norm">
+<code class="descname">norm</code><span class="sig-paren">(</span><em>x</em>, <em>ord=2</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the norm of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</li>
+<li><strong>ord</strong> (Int or <span class="math">\(\pm\)</span> inf) &#8211; Indicates the specific type of norm.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double. A specific norm of the array. Either the <span class="math">\(\ell_0\)</span>, <span class="math">\(\ell_1\)</span>, <span class="math">\(\ell_2\)</span> or <span class="math">\(\ell_\infty\)</span> norm.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a direct copy of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>. See NumPy&#8217;s documentation for info about appropiate values for ord.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Norm</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.println">
+<code class="descname">println</code><span class="sig-paren">(</span><em>x</em>, <em>prefix='array(['</em>, <em>postfix='])'</em>, <em>newline='\n'</em>, <em>format='%.3f'</em>, <em>seperator='</em>, <em>'</em>, <em>printAllElements=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.println" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints an array.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Can be called with either <code class="docutils literal"><span class="pre">print(x)</span></code> or <code class="docutils literal"><span class="pre">println(x)</span></code></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; Prints that matrix.</td>
+</tr>
+</tbody>
+</table>
+<p>Prints the vector with the above optional formatters. They are all of type String.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.prod">
+<code class="descname">prod</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.prod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the product of every element in this array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; Find the product of every element in this array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">prod</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">24</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.repeat">
+<code class="descname">repeat</code><span class="sig-paren">(</span><em>x</em>, <em>N</em>, <em>axis=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repeats an array.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Must be called with <code class="docutils literal"><span class="pre">`repeat`(x,</span> <span class="pre">N:3)</span></code>. <code class="docutils literal"><span class="pre">repeat</span></code> is a keyword in Swift and those backticks must be used.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to repeat.</li>
+<li><strong>N</strong> (<em>Int</em>) &#8211; How many times to repeat the array.</li>
+<li><strong>axis</strong> (<em>Int</em>) &#8211; Assumed to be &#8220;vector&#8221; or &#8220;elements&#8221;.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span><span class="mi">0</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.repeat.html">np.repeat</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverses an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to be reversed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The reveresed vector.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.vector.reverse" title="vector.vector.reverse"><code class="xref py py-class docutils literal"><span class="pre">vector.reverse</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.shuffle">
+<code class="descname">shuffle</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly shuffle an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to shuffle.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The array shuffled. Not in place!</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html#randshuffle">cv.randShuffle</a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.random.shuffle.html">np.random.shuffle</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.sort">
+<code class="descname">sort</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; Array to be sorted.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. The sorted array.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#vector.vector.sort" title="vector.vector.sort"><code class="xref py py-class docutils literal"><span class="pre">vector.sort</span></code></a>, <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html">np.sort</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.union">
+<code class="descname">union</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds unique elements that are in either array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The first array of elements.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The second array of elements.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">The unique list of elements that in either array.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">union</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.helper_functions.unique">
+<code class="descname">unique</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.helper_functions.unique" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the unique elements of an array. Returns the unique elements
+sorted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The input array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. The unqiue element.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<p>This is a file, not an actual class.</p>
+<dl class="class">
+<dt id="vector.operators">
+<em class="property">class </em><code class="descclassname">vector.</code><code class="descname">operators</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.operators" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vector.operators.assignment_operator">
+<code class="descname">assignment_operator</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.operators.assignment_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign select values of an array to a value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lhs</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The vector to assign to.</li>
+<li><strong>rhs</strong> (<em>Double</em>) &#8211; The value to fill the array with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Callable through <code class="docutils literal"><span class="pre">x[0..&lt;2]</span> <span class="pre">&lt;-</span> <span class="pre">4</span></code></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># assign select values!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mf">0.</span><span class="o">.&lt;</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="matrix.html#matrix.operators.assignment_operator" title="matrix.operators.assignment_operator"><code class="xref py py-class docutils literal"><span class="pre">matrix.operators.assignment_operator</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.operators.elementwise_operators">
+<code class="descname">elementwise_operators</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.operators.elementwise_operators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element-wise operators.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lhs</strong> (<em>vector, Double</em>) &#8211; Left hand side.</li>
+<li><strong>rhs</strong> (<em>vector, Double</em>) &#8211; Right hand side.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The operators <code class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span> <span class="pre">+=</span> <span class="pre">-=</span> <span class="pre">*=</span> <span class="pre">/=</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span> <span class="pre">==</span> <span class="pre">!==</span></code> all work element wise and act similar to scalars.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Callable through the natural operators (+, -, etc).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">==</span></code> and <code class="docutils literal"><span class="pre">!==</span></code> see when two arrays are <em>exactly</em> equal for the incredibly percise doubles. I recommend using <code class="docutils literal"><span class="pre">abs(x-y)&lt;1e-9</span></code>.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://wiki.scipy.org/Tentative_NumPy_Tutorial#head-4c1d53fe504adc97baf27b65513b4b97586a4fc5">np.operators</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.operators.equality">
+<code class="descname">equality</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.operators.equality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seeing if two arrays are about equal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lhs</strong> (<em>vector, Double</em>) &#8211; Left hand side.</li>
+<li><strong>rhs</strong> (<em>vector, Double</em>) &#8211; Right hand side.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sees if two arrays are approximately equal.</p>
+<p>The comparison operators are all implemented through OpenCV and rely on the array being continuous in memory, which relies on having small input arrays. It will print (but not assert) if this is not the case.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Callable through the <code class="docutils literal"><span class="pre">~==</span></code> operator.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mf">1e-10</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.operators.logical_operators">
+<code class="descname">logical_operators</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.operators.logical_operators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logical operators.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lhs</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of true/false (meaning 0 or 1)</li>
+<li><strong>rhs</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array of true/false (meaning 0 or 1)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. The logical operator between the two elements.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Currently only logical AND and logical OR are implemented through
+<code class="docutils literal"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal"><span class="pre">||</span></code> respectively.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.operators.pow">
+<code class="descname">pow</code><span class="sig-paren">(</span><em>lhs</em>, <em>rhs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.operators.pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>The power operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lhs</strong> (<em>vector, Double, vector</em>) &#8211; The vector</li>
+<li><strong>rhs</strong> (<em>Double, vector, vector.</em>) &#8211; The power.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector, <code class="docutils literal"><span class="pre">pow(lhs,</span> <span class="pre">rhs)</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">callable with <code class="docutils literal"><span class="pre">x^y</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Optimized for lhs:vector, rhs=2. If <code class="docutils literal"><span class="pre">close(2,</span> <span class="pre">rhs)</span> <span class="pre">==</span> <span class="pre">True</span></code>, prints message but no assert.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html">np.power</a>, <a class="reference internal" href="#vector.simple_math.pow" title="vector.simple_math.pow"><code class="xref py py-class docutils literal"><span class="pre">simple_math.pow</span></code></a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="simple-math">
+<h3>Simple math<a class="headerlink" href="#simple-math" title="Permalink to this headline">¶</a></h3>
+<p>This is a file, not an actual class.</p>
+<dl class="class">
+<dt id="vector.simple_math">
+<em class="property">class </em><code class="descclassname">vector.</code><code class="descname">simple_math</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math" title="Permalink to this definition">¶</a></dt>
+<dd><p>The following are detailed docs on various functions, but the following
+functions work like expected:</p>
+<ul class="simple">
+<li>min, max, mean, std, variance</li>
+<li>sign, abs, norm, pow, sqrt</li>
+<li>sum, cumsum,</li>
+<li>rand, randn</li>
+<li>sin, cos, tan</li>
+<li>round, floor, ceil</li>
+</ul>
+<dl class="method">
+<dt id="vector.simple_math.abs">
+<code class="descname">abs</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the absolute value of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. The absolute value of the array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.apply_function">
+<code class="descname">apply_function</code><span class="sig-paren">(</span><em>function</em>, <em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.apply_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a function to every element of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>function</strong> (<em>String, Double-&gt;Double</em>) &#8211; Assumed to be one of &#8220;abs&#8221;, &#8220;sign&#8221;, &#8220;floor&#8221; or &#8220;cumsum&#8221; or a simple Double-&gt;Double function.</li>
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A new array with the function applied to every element. Optimized for string case.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unoptimized for function type Double-&gt;Double. I tried to optimize with Grand Central Dispatch&#8217;s <code class="docutils literal"><span class="pre">dispatch_apply</span></code>, but no luck.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.ceil">
+<code class="descname">ceil</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.ceil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ceil&#8217;s each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">sin</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.cos">
+<code class="descname">cos</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.cos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the cos of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">cos</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.cumsum">
+<code class="descname">cumsum</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.cumsum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the cumulative sum of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. The cumulative sum of the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">cumsum</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.exp">
+<code class="descname">exp</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the exponent of each element; mathematically it finds
+<span class="math">\(\exp(x)\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The input array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.exp2">
+<code class="descname">exp2</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.exp2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds <span class="math">\(2^x\)</span> for some array x.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; 2 to the power of this array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. <span class="math">\(2^x\)</span></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.expm1">
+<code class="descname">expm1</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.expm1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate <span class="math">\(\exp(x)-1\)</span>. Useful for when <span class="math">\(exp(1) &lt;&lt; 1\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The array to calculate the exponent of.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#module-vector" title="vector">vector</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.expm1.html">np.expm1</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.floor">
+<code class="descname">floor</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Floors each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">floor</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.log">
+<code class="descname">log</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the log base e of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">log</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.log10">
+<code class="descname">log10</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.log10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the log base 10 of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">log</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.log2">
+<code class="descname">log2</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.log2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the log base 2 of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">log</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.max">
+<code class="descname">max</code><span class="sig-paren">(</span><em>x</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the maximum element.</p>
+<p>If only one array specified, it only finds the maximum element of that
+array. If two arrays specficied, it finds the maximum element wise.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; Another array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double, vector. The maximum value of the array or the maximum element from both arrays.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.mean">
+<code class="descname">mean</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the mean of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The average of all the components or <span class="math">\(\sum x_i / N\)</span></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.min">
+<code class="descname">min</code><span class="sig-paren">(</span><em>x</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the maximum element.</p>
+<p>If only one array specified, it only finds the maximum element of that
+array. If two arrays specficied, it finds the maximum element wise.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</li>
+<li><strong>y</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; Another array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Double, vector. The maximum value of the array or the maximum element from both arrays.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.pow">
+<code class="descname">pow</code><span class="sig-paren">(</span><em>x</em>, <em>power</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>The power of a {Double, vector} to {Double, vector}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>vector, Double, vector</em>) &#8211; An array.</li>
+<li><strong>power</strong> (<em>Double, vector, Double</em>) &#8211; The power</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. Performs the same action as the operator <code class="docutils literal"><span class="pre">^</span></code>. Raises each element to a power.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Also callable through <code class="docutils literal"><span class="pre">x^y</span></code></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.remainer">
+<code class="descname">remainer</code><span class="sig-paren">(</span><em>x1</em>, <em>x2</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.remainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the element wise remainder after dividing the two arrays.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span> <span class="o">%</span> <span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x1</strong> (<em>vector, Double, vector</em>) &#8211; The top divisor.</li>
+<li><strong>x2</strong> (<em>Double, vector, vector</em>) &#8211; The bottom divisor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#module-vector" title="vector">vector</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.round">
+<code class="descname">round</code><span class="sig-paren">(</span><em>x</em>, <em>decimals=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.round" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounds each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</li>
+<li><strong>decimals</strong> (<em>Int</em>) &#8211; The number of decimals kept.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. Performs the function <code class="docutils literal"><span class="pre">round</span></code> on each element.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.418</span><span class="p">),</span> <span class="n">decimals</span><span class="p">:</span><span class="mi">2</span><span class="p">)</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.42</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.sign">
+<code class="descname">sign</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the sign an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The sign of the array centered at 0.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">sign</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">~==</span> <span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.sin">
+<code class="descname">sin</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.sin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the sin of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">sin</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.sqrt">
+<code class="descname">sqrt</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.sqrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the sqrt of each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">sqrt</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.std">
+<code class="descname">std</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the standard deviation of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The standard deviation of the array.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.sum">
+<code class="descname">sum</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the sum of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The sum of all the elements in x. Returns the result from the following operation: <span class="math">\(\sum x_i\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.tan">
+<code class="descname">tan</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.tan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the tan of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector. Performs the function <code class="docutils literal"><span class="pre">tan</span></code> on each element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.simple_math.variance">
+<code class="descname">variance</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.simple_math.variance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the variance of an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Double. The variance of the array.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/Variance">Variance</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="complex-math">
+<h3>Complex math<a class="headerlink" href="#complex-math" title="Permalink to this headline">¶</a></h3>
+<p>This is a file, not an actual class.</p>
+<dl class="class">
+<dt id="vector.complex_math">
+<em class="property">class </em><code class="descclassname">vector.</code><code class="descname">complex_math</code><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.complex_math" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="vector.complex_math.fft">
+<code class="descname">fft</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.complex_math.fft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the discrete Fourier Transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; An array to perform the fft on.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">vector, vector. The real and imaginary components of the Fourier transform.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">~==</span> <span class="n">ifft</span><span class="p">(</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html">np.fft.fft</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_transform">Fourier Transform</a></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">I had to do some weird dividing; possibly related to dimension?</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.complex_math.fftconvolve">
+<code class="descname">fftconvolve</code><span class="sig-paren">(</span><em>x</em>, <em>kernel</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.complex_math.fftconvolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convolve x with a kernel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The base signal.</li>
+<li><strong>kernel</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The convolution kernel.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">x convolved with kernel through the Fourier transform. That is, if <span class="math">\(y = x \otimes k\)</span> then <span class="math">\(F(y) = F(x) \cdot F(k)\)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">There are bugs in this function. My simple tests with a delta function failed, possibly do to the funky divide in <a class="reference internal" href="#vector.complex_math.fft" title="vector.complex_math.fft"><code class="xref py py-class docutils literal"><span class="pre">fft</span></code></a>/<a class="reference internal" href="#vector.complex_math.ifft" title="vector.complex_math.ifft"><code class="xref py py-class docutils literal"><span class="pre">ifft</span></code></a>.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The number of elements in kernel is assumed to be less than the number of elements in x.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.fftconvolve.html">scipy.signal.fftconvolve</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">Convolution</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="vector.complex_math.ifft">
+<code class="descname">ifft</code><span class="sig-paren">(</span><em>y_real</em>, <em>y_imag</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/scottsievert/swix/tree/master/swix/swix/swix/vector/"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vector.complex_math.ifft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the inverse Foureir Transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y_real</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The real part of fft(x).</li>
+<li><strong>y_imag</strong> (<a class="reference internal" href="#module-vector" title="vector"><em>vector</em></a>) &#8211; The imaginary part of fft(x)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">vector. The inverse Fourier transform of <span class="math">\(y_{real} + j \cdot y_{imag}\)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.ifft.html">np.fft.ifft</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_transform">Fourier Transform</a></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">I had to do some weird dividing; possibly related to dimension?</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Array</a><ul>
+<li><a class="reference internal" href="#module-vector">Docs</a><ul>
+<li><a class="reference internal" href="#vector-class">vector class</a></li>
+<li><a class="reference internal" href="#initing">Initing</a></li>
+<li><a class="reference internal" href="#helper-functions">Helper functions</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#simple-math">Simple math</a></li>
+<li><a class="reference internal" href="#complex-math">Complex math</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbers.html">Numbers and constants</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">Interfacing with C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speed.html">Speed</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="matrix.html" title="Matrices"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="numbers.html" title="Numbers and constants"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swix 0.30 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Scott Sievert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

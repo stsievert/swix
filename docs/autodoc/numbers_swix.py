@@ -126,7 +126,7 @@ def isNumber(x):
     See if the input object is a number.
 
     :param x: AnyObject.
-    :rtype: Bool. True only if x is a number (a float, double, cint, int). Returns false for ndarray and matrix.
+    :rtype: Bool. True only if x is a number (a float, double, cint, int). Returns false for vector and matrix.
     """
 
 
