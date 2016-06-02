@@ -41,7 +41,7 @@ func det(x:matrix)->Double{
 }
 
 // basics
-func argwhere(idx: matrix) -> ndarray{
+func argwhere(idx: matrix) -> vector{
     return argwhere(idx.flat)
 }
 func flipud(x:matrix)->matrix{
@@ -94,7 +94,7 @@ func kron(A:matrix, B:matrix)->matrix{
     return C
 }
 
-func tril(x: matrix) -> ndarray{
+func tril(x: matrix) -> vector{
     let (m, n) = x.shape
     let (mm, nn) = meshgrid(arange(m), y: arange(n))
     var i = mm - nn
@@ -103,7 +103,7 @@ func tril(x: matrix) -> ndarray{
     i[argwhere(1-j)] <- 1
     return argwhere(i)
 }
-func triu(x: matrix)->ndarray{
+func triu(x: matrix)->vector{
     let (m, n) = x.shape
     let (mm, nn) = meshgrid(arange(m), y: arange(n))
     var i = mm - nn

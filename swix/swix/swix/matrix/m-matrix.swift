@@ -14,7 +14,7 @@ struct matrix {
     var columns: Int
     var count: Int
     var shape: (Int, Int)
-    var flat:ndarray
+    var flat:vector
     var T:matrix {return transpose(self)}
     var I:matrix {return inv(self)}
     var pI:matrix {return pinv(self)}
@@ -32,7 +32,7 @@ struct matrix {
         y.flat = self.flat.copy()
         return y
     }
-    subscript(i: String) -> ndarray {
+    subscript(i: String) -> vector {
         get {
             assert(i == "diag", "Currently the only support x[string] is x[\"diag\"]")
             let size = rows < columns ? rows : columns
@@ -63,7 +63,7 @@ struct matrix {
             !z, Ny.cint)
         return z
     }
-    func dot(x: ndarray) -> ndarray{
+    func dot(x: vector) -> vector{
         var y = zeros((x.n, 1))
         y.flat = x
         let z = self.dot(y)
@@ -103,7 +103,7 @@ struct matrix {
             flat[nI * columns + nJ] = newValue
         }
     }
-    subscript(i: Range<Int>, k: Int) -> ndarray {
+    subscript(i: Range<Int>, k: Int) -> vector {
         // x[0..<2, 0]
         get {
             let idx = asarray(i)
@@ -127,7 +127,7 @@ struct matrix {
             self[rr, cc] = newValue
         }
     }
-    subscript(i: Int, k: Range<Int>) -> ndarray {
+    subscript(i: Int, k: Range<Int>) -> vector {
         // x[0, 0..<2]
         get {
             let idx = asarray(k)
@@ -138,7 +138,7 @@ struct matrix {
             self[i, idx] = newValue
         }
     }
-    subscript(or: ndarray, oc: ndarray) -> matrix {
+    subscript(or: vector, oc: vector) -> matrix {
         // the main method.
         // x[array(1,2), array(3,4)]
         get {
@@ -165,16 +165,16 @@ struct matrix {
             }
         }
     }
-    subscript(r: ndarray) -> ndarray {
+    subscript(r: vector) -> vector {
         // flat indexing
         get {return self.flat[r]}
         set {self.flat[r] = newValue }
     }
-    subscript(i: String, k:Int) -> ndarray {
+    subscript(i: String, k:Int) -> vector {
         // x["all", 0]
         get {
             let idx = arange(shape.0)
-            let x:ndarray = self.flat[idx * self.columns.double + k.double]
+            let x:vector = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
@@ -182,12 +182,12 @@ struct matrix {
             self.flat[idx * self.columns.double + k.double] = newValue
         }
     }
-    subscript(i: Int, k: String) -> ndarray {
+    subscript(i: Int, k: String) -> vector {
         // x[0, "all"]
         get {
             assert(k == "all", "Only 'all' supported")
             let idx = arange(shape.1)
-            let x:ndarray = self.flat[i.double * self.columns.double + idx]
+            let x:vector = self.flat[i.double * self.columns.double + idx]
             return x
         }
         set {
@@ -196,11 +196,11 @@ struct matrix {
             self.flat[i.double * self.columns.double + idx] = newValue
         }
     }
-    subscript(i: ndarray, k: Int) -> ndarray {
+    subscript(i: vector, k: Int) -> vector {
         // x[array(1,2), 0]
         get {
             let idx = i.copy()
-            let x:ndarray = self.flat[idx * self.columns.double + k.double]
+            let x:vector = self.flat[idx * self.columns.double + k.double]
             return x
         }
         set {
@@ -208,7 +208,7 @@ struct matrix {
             self.flat[idx * self.columns.double + k.double] = newValue
         }
     }
-    subscript(i: matrix) -> ndarray {
+    subscript(i: matrix) -> vector {
         // x[x < 5]
         get {
             return self.flat[i.flat]
@@ -217,10 +217,10 @@ struct matrix {
             self.flat[i.flat] = newValue
         }
     }
-    subscript(i: Int, k: ndarray) -> ndarray {
+    subscript(i: Int, k: vector) -> vector {
         // x[0, array(1,2)]
         get {
-            let x:ndarray = self.flat[i.double * self.columns.double + k]
+            let x:vector = self.flat[i.double * self.columns.double + k]
             return x
         }
         set {

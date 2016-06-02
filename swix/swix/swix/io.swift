@@ -8,13 +8,13 @@
 
 import Foundation
 
-// ndarray binary
-func write_binary(x:ndarray, filename:String){
+// vector binary
+func write_binary(x:vector, filename:String){
     let N = x.n
     let data = NSData(bytes:!x, length:N*sizeof(Double))
     data.writeToFile(filename, atomically: false)
 }
-func read_binary(filename:String) -> ndarray{
+func read_binary(filename:String) -> vector{
     let read = NSData(contentsOfFile: filename)
     let l:Int! = read?.length
     let sD:Int = sizeof(Double)
@@ -31,13 +31,13 @@ func write_binary(x:matrix, filename:String){
     write_binary(y, filename:filename)
 }
 func read_binary(filename:String)->matrix{
-    var a:ndarray = read_binary(filename)
+    var a:vector = read_binary(filename)
     let (w, h) = (a[0], a[1])
     return reshape(a[2..<a.n], shape: (w.int,h.int))
 }
 
-// ndarray csv
-func write_csv(x:ndarray, filename:String){
+// vector csv
+func write_csv(x:vector, filename:String){
     // write the array to CSV
     var seperator=","
     var str = ""
@@ -53,7 +53,7 @@ func write_csv(x:ndarray, filename:String){
     }
     
 }
-func read_csv(filename:String) -> ndarray{
+func read_csv(filename:String) -> vector{
     var x: String?
     do {
         x = try String(contentsOfFile: filename, encoding: NSUTF8StringEncoding)

@@ -11,9 +11,9 @@ import Accelerate
 
 // the matrix definition and related functions go here
 
-// SLOW PARTS: x[ndarray, ndarray] set
+// SLOW PARTS: x[vector, vector] set
 
-struct ndarray {
+struct vector {
     let n: Int // the number of elements
     var count: Int // ditto
     var grid: [Double] // the raw values
@@ -32,7 +32,7 @@ struct ndarray {
         y.flat = self
         return y
     }
-    func copy() -> ndarray{
+    func copy() -> vector{
         // return a new array just like this one
         let y = zeros(n)
         cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
@@ -62,7 +62,7 @@ struct ndarray {
         // return the mean
         return sum(self) / n
     }
-    subscript(index:String)->ndarray{
+    subscript(index:String)->vector{
         // assumed to be x["all"]. returns every element
         get {
             assert(index == "all", "Currently only \"all\" is supported")
@@ -88,7 +88,7 @@ struct ndarray {
             grid[newIndex] = newValue
         }
     }
-    subscript(r: Range<Int>) -> ndarray {
+    subscript(r: Range<Int>) -> vector {
         // x[0..<N]. Access a range of values.
         get {
             // assumes that r is not [0, 1, 2, 3...] not [0, 2, 4...]
@@ -97,11 +97,11 @@ struct ndarray {
         set {
             self[asarray(r)].grid = newValue.grid}
     }
-    subscript(i: ndarray) -> ndarray {
+    subscript(i: vector) -> vector {
         // x[arange(2)]. access a range of values; x[0..<2] depends on this.
         get {
-            // ndarray has fractional parts, and those parts get truncated
-            var idx:ndarray
+            // vector has fractional parts, and those parts get truncated
+            var idx:vector
             if i.n > 0 {
                 if i.n == self.n && i.max() < 1.5 {
                     // assumed to be boolean
@@ -125,7 +125,7 @@ struct ndarray {
             return array()
         }
         set {
-            var idx:ndarray// = oidx.copy()
+            var idx:vector// = oidx.copy()
             if i.n > 0{
                 if i.n == self.n && i.max() < 1.5{
                     // assumed to be boolean

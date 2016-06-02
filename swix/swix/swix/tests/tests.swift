@@ -28,7 +28,7 @@ class swixTests {
         complexTests()
         
         numberTests()
-        ndarrayTests()
+        vectorTests()
         matrixTests()
         set_theory_tests()
     }
@@ -92,7 +92,7 @@ class swixTests {
         func matrix2d_indexing_matrix_test(){
             var x = array("1 2 3; 4 5 6; 7 8 9")
             assert(x[array(0, 1, 2, 3, 4, 5)] ~== array(1, 2, 3, 4, 5, 6))
-            print("x[ndarray] works and indexes the ndarray row first")
+            print("x[vector] works and indexes the vector row first")
         }
         func fft_test(){
             let x = arange(8)
@@ -193,10 +193,10 @@ class swixTests {
         assert(!isNumber(zeros(2)))
         assert(!isNumber("3.14"))
     }
-    class ndarrayTests{
+    class vectorTests{
         init(){
             initingTests()
-            ndarraySwiftTests()
+            vectorSwiftTests()
         }
         func initingTests(){
             // testing zeros and array
@@ -231,8 +231,8 @@ class swixTests {
             assert(abs(x.mean() - 0.5) < 1e-1)
             assert(abs(variance(x) - 1/12) < 1e-1)
         }
-        func ndarraySwiftTests(){
-            // testing the file ndarray.swift
+        func vectorSwiftTests(){
+            // testing the file vector.swift
             var x_idx = zeros(4)
             x_idx[0..<2] <- 2
             assert(x_idx ~== array(2, 2, 0, 0))
@@ -323,13 +323,13 @@ class swixTests {
         assert(x1 ~== y1)
         
         let x2 = array(1, 2, 3, 4, 5, 2, 1)
-        write_csv(x2, filename:"../../python_testing/csvs/ndarray.csv")
-        let y2:ndarray = read_csv("../../python_testing/csvs/ndarray.csv")
+        write_csv(x2, filename:"../../python_testing/csvs/vector.csv")
+        let y2:vector = read_csv("../../python_testing/csvs/vector.csv")
         assert(x2 ~== y2)
         
         let x3 = array(1, 5, 3, 1, 0, -10) * pi
         write_binary(x3, filename:"../../python_testing/csvs/x3.npy")
-        let y3:ndarray = read_binary("../../python_testing/csvs/x3.npy")
+        let y3:vector = read_binary("../../python_testing/csvs/x3.npy")
         assert(y3 ~== x3)
         
         let x4 = arange(9).reshape((3,3))

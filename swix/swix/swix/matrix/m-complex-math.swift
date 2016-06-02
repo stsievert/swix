@@ -19,10 +19,10 @@ func rank(x:matrix)->Double{
 func dot(x: matrix, y: matrix) -> matrix{
     return x.dot(y)
 }
-func dot(A: matrix, x: ndarray) -> ndarray{
+func dot(A: matrix, x: vector) -> vector{
     return A.dot(x)
 }
-func svd(x: matrix, compute_uv:Bool=true) -> (matrix, ndarray, matrix){
+func svd(x: matrix, compute_uv:Bool=true) -> (matrix, vector, matrix){
     let (m, n) = x.shape
     let nS = m < n ? m : n // number singular values
     let sigma = zeros(nS)
@@ -72,7 +72,7 @@ func inv(x: matrix) -> matrix{
     dgetri_(&nc, !y, &nc, &ipiv, &work, &lwork, &info)
     return y
 }
-func solve(A: matrix, b: ndarray) -> ndarray{
+func solve(A: matrix, b: vector) -> vector{
     let (m, n) = A.shape
     assert(b.n == m, "Ax = b, A.rows == b.n. Sizes must match which makes sense mathematically")
     assert(n == m, "Matrix must be square -- dictated by OpenCV")
@@ -80,7 +80,7 @@ func solve(A: matrix, b: ndarray) -> ndarray{
     CVWrapper.solve(!A, b:!b, x:!x, m:m.cint, n:n.cint)
     return x
 }
-func eig(x: matrix)->ndarray{
+func eig(x: matrix)->vector{
     // matrix, value, vectors
     let (m, n) = x.shape
     assert(m == n, "Input must be square")

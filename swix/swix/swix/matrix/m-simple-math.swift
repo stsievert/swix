@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-func apply_function(function: ndarray->ndarray, x: matrix)->matrix{
+func apply_function(function: vector->vector, x: matrix)->matrix{
     let y = function(x.flat)
     var z = zeros_like(x)
     z.flat = y
@@ -79,7 +79,7 @@ func max(x:matrix, y:matrix)->matrix{
 
 
 // AXIS
-func sum(x: matrix, axis:Int = -1) -> ndarray{
+func sum(x: matrix, axis:Int = -1) -> vector{
     // arg dim: indicating what dimension you want to sum over. For example, if dim==0, then it'll sum over dimension 0 -- it will add all the numbers in the 0th dimension, x[0..<x.shape.0, i]
     assert(axis==0 || axis==1, "if you want to sum over the entire matrix, call `sum(x.flat)`.")
     if axis==1{
@@ -97,13 +97,13 @@ func sum(x: matrix, axis:Int = -1) -> ndarray{
     assert(false)
     return zeros(1)
 }
-func prod(x: matrix, axis:Int = -1) -> ndarray{
+func prod(x: matrix, axis:Int = -1) -> vector{
     assert(axis==0 || axis==1, "if you want to sum over the entire matrix, call `sum(x.flat)`.")
     let y = log(x)
     let z = sum(y, axis:axis)
     return exp(z)
 }
-func mean(x:matrix, axis:Int = -1) -> ndarray{
+func mean(x:matrix, axis:Int = -1) -> vector{
     assert(axis==0 || axis==1, "If you want to find the average of the whole matrix call `mean(x.flat)`")
     let div = axis==0 ? x.shape.0 : x.shape.1
     return sum(x, axis:axis) / div.double

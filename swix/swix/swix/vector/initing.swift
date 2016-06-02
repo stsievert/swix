@@ -13,35 +13,35 @@ import Swift
 // SLOW PARTS: array(doubles), read_csv, write_csv. not a huge deal -- hopefully not used in final code
 
 
-func zeros(N: Int) -> ndarray{
+func zeros(N: Int) -> vector{
     // N zeros
-    return ndarray(n: N)
+    return vector(n: N)
 }
-func zeros_like(x: ndarray) -> ndarray{
+func zeros_like(x: vector) -> vector{
     // make an array like the other array
    return zeros(x.n)
 }
-func ones_like(x: ndarray) -> ndarray{
+func ones_like(x: vector) -> vector{
     // make an array like the other array
     return zeros_like(x) + 1
 }
-func ones(N: Int) -> ndarray{
+func ones(N: Int) -> vector{
     // N ones
-    return ndarray(n: N)+1
+    return vector(n: N)+1
 }
-func arange(max: Double, x exclusive:Bool = true) -> ndarray{
+func arange(max: Double, x exclusive:Bool = true) -> vector{
     // 0..<max
     return arange(0, max: max, x:exclusive)
 }
-func arange(max: Int, x exclusive:Bool = true) -> ndarray{
+func arange(max: Int, x exclusive:Bool = true) -> vector{
     // 0..<max
     return arange(0, max: max.double, x:exclusive)
 }
-func range(min:Double, max:Double, step:Double) -> ndarray{
+func range(min:Double, max:Double, step:Double) -> vector{
     // min, min+step, min+2*step..., max-step, max
     return linspace(min, max: max, num:1+((max-min)/step).int)
 }
-func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
+func arange(min: Double, max: Double, x exclusive: Bool = true) -> vector{
     // min...max
     var pad = 0
     if !exclusive {pad = 1}
@@ -52,7 +52,7 @@ func arange(min: Double, max: Double, x exclusive: Bool = true) -> ndarray{
     vDSP_vrampD(&o, &l, !x, 1.stride, N.length)
     return x
 }
-func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
+func linspace(min: Double, max: Double, num: Int=50) -> vector{
     // 0...1
     let x = zeros(num+0)
     var min  = CDouble(min)
@@ -60,7 +60,7 @@ func linspace(min: Double, max: Double, num: Int=50) -> ndarray{
     vDSP_vrampD(&min, &step, !x, 1.stride, x.n.length)
     return x
 }
-func array(numbers: Double...) -> ndarray{
+func array(numbers: Double...) -> vector{
     // array(1, 2, 3, 4) -> arange(4)+1
     // okay to leave unoptimized, only used for testing
     var x = zeros(numbers.count)
@@ -71,13 +71,13 @@ func array(numbers: Double...) -> ndarray{
     }
     return x
 }
-func asarray(x: [Double]) -> ndarray{
+func asarray(x: [Double]) -> vector{
     // convert a grid of double's to an array
     var y = zeros(x.count)
     y.grid = x
     return y
 }
-func asarray(seq: Range<Int>) -> ndarray {
+func asarray(seq: Range<Int>) -> vector {
     // make a range a grid of arrays
     // improve with [1]
     // [1]:https://gist.github.com/nubbel/d5a3639bea96ad568cf2
@@ -86,7 +86,7 @@ func asarray(seq: Range<Int>) -> ndarray {
     return arange(start, max: end, x:true)
 }
 
-func copy(x: ndarray) -> ndarray{
+func copy(x: vector) -> vector{
     // copy the value
     return x.copy()
 }
@@ -95,7 +95,7 @@ func seed(n:Int){
     SWIX_SEED = __CLPK_integer(n)
 }
 
-func rand(N: Int, distro:String="uniform") -> ndarray{
+func rand(N: Int, distro:String="uniform") -> vector{
     let x = zeros(N)
     var i:__CLPK_integer = 1
     if distro=="normal" {i = __CLPK_integer(3)}
@@ -105,10 +105,10 @@ func rand(N: Int, distro:String="uniform") -> ndarray{
     SWIX_SEED = seed[0]
     return x
 }
-func randn(N: Int, mean: Double=0, sigma: Double=1) -> ndarray{
+func randn(N: Int, mean: Double=0, sigma: Double=1) -> vector{
     return (rand(N, distro:"normal") * sigma) + mean;
 }
-func randperm(N:Int)->ndarray{
+func randperm(N:Int)->vector{
     let x = arange(N)
     let y = shuffle(x)
     return y

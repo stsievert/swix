@@ -26,7 +26,7 @@ func ones(shape: (Int, Int)) -> matrix{
 func eye(N: Int) -> matrix{
     return diag(ones(N))
 }
-func diag(x:ndarray)->matrix{
+func diag(x:vector)->matrix{
     var y = zeros((x.n, x.n))
     y["diag"] = x
     return y
@@ -43,10 +43,10 @@ func rand(N: (Int, Int)) -> matrix{
     x.flat = y
     return x
 }
-func reshape(x: ndarray, shape:(Int, Int))->matrix{
+func reshape(x: vector, shape:(Int, Int))->matrix{
     return x.reshape(shape)
 }
-func meshgrid(x: ndarray, y:ndarray) -> (matrix, matrix){
+func meshgrid(x: vector, y:vector) -> (matrix, matrix){
     assert(x.n > 0 && y.n > 0, "If these matrices are empty meshgrid fails")
     let z1 = reshape(`repeat`(y, N: x.n), shape: (x.n, y.n))
     let z2 = reshape(`repeat`(x, N: y.n, axis: 1), shape: (x.n, y.n))

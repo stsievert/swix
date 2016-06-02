@@ -12,7 +12,7 @@ import Swift
 
 swixTests(run_io_tests: false)
 
-//swixSpeedTests()
+swixSpeedTests()
 
 var x = eye(3);
 var header = ["1", "2", "3"]
@@ -26,4 +26,4 @@ print("\n")
 print(y.data)
 print(y.header)
 
-imshow(x)
+//imshow(x)

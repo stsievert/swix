@@ -10,7 +10,7 @@
 import Foundation
 import Accelerate
 
-func apply_function(function: Double->Double, x: ndarray) -> ndarray{
+func apply_function(function: Double->Double, x: vector) -> vector{
     // apply a function to every element.
     
     // I've tried the below, but it doesn't apply the function to every element (at least in Xcode6b4)
@@ -27,7 +27,7 @@ func apply_function(function: Double->Double, x: ndarray) -> ndarray{
     }
     return y
 }
-func apply_function(function: String, x: ndarray)->ndarray{
+func apply_function(function: String, x: vector)->vector{
     // apply select optimized functions
     let y = zeros_like(x)
     let n = x.n.length
@@ -90,20 +90,20 @@ func apply_function(function: String, x: ndarray)->ndarray{
 }
 
 // MIN/MAX
-func min(x: ndarray) -> Double{
+func min(x: vector) -> Double{
     // finds the min
     return x.min()}
-func max(x: ndarray) -> Double{
+func max(x: vector) -> Double{
     // finds the max
     return x.max()}
-func max(x: ndarray, y:ndarray)->ndarray{
+func max(x: vector, y:vector)->vector{
     // finds the max of two arrays element wise
     assert(x.n == y.n)
     let z = zeros_like(x)
     vDSP_vmaxD(!x, 1.stride, !y, 1.stride, !z, 1.stride, x.n.length)
     return z
 }
-func min(x: ndarray, y:ndarray)->ndarray{
+func min(x: vector, y:vector)->vector{
     // finds the min of two arrays element wise
     assert(x.n == y.n)
     let z = zeros_like(x)
@@ -112,38 +112,38 @@ func min(x: ndarray, y:ndarray)->ndarray{
 }
 
 // BASIC STATS
-func mean(x: ndarray) -> Double{
+func mean(x: vector) -> Double{
     // finds the mean
     return x.mean()
 }
-func std(x: ndarray) -> Double{
+func std(x: vector) -> Double{
     // standard deviation
     return sqrt(variance(x))}
-func variance(x: ndarray) -> Double{
+func variance(x: vector) -> Double{
     // the varianace
     return sum(pow(x - mean(x), power: 2) / x.count.double)}
 
 // BASIC INFO
-func sign(x: ndarray)->ndarray{
+func sign(x: vector)->vector{
     // finds the sign
     return apply_function("sign", x: x)}
-func sum(x: ndarray) -> Double{
+func sum(x: vector) -> Double{
     // finds the sum of an array
     var ret:CDouble = 0
     vDSP_sveD(!x, 1.stride, &ret, x.n.length)
     return Double(ret)
 }
-func remainder(x1:ndarray, x2:ndarray)->ndarray{
+func remainder(x1:vector, x2:vector)->vector{
     // finds the remainder
     return (x1 - floor(x1 / x2) * x2)
 }
-func cumsum(x: ndarray) -> ndarray{
+func cumsum(x: vector) -> vector{
     // the sum of each element before.
     return apply_function("cumsum", x: x)}
-func abs(x: ndarray) -> ndarray{
+func abs(x: vector) -> vector{
     // absolute value
     return apply_function("abs", x: x)}
-func prod(x:ndarray)->Double{
+func prod(x:vector)->Double{
     var y = x.copy()
     var factor = 1.0
     if min(y) < 0{
@@ -152,7 +152,7 @@ func prod(x:ndarray)->Double{
     }
     return factor * exp(sum(log(y)))
 }
-func cumprod(x:ndarray)->ndarray{
+func cumprod(x:vector)->vector{
     var y = x.copy()
     if min(y) < 0.0{
         let i = y < 0
@@ -167,77 +167,77 @@ func cumprod(x:ndarray)->ndarray{
 
 
 // POWER FUNCTIONS
-func pow(x:ndarray, power:Double)->ndarray{
+func pow(x:vector, power:Double)->vector{
     // take the power. also callable with ^
     let y = zeros_like(x)
     CVWrapper.pow(!x, n:x.n.cint, power:power, into:!y)
     return y
 }
-func pow(x:ndarray, y:ndarray)->ndarray{
+func pow(x:vector, y:vector)->vector{
     // take the power. also callable with ^
     let z = zeros_like(x)
     var num = CInt(x.n)
     vvpow(!z, !y, !x, &num)
     return z
 }
-func pow(x:Double, y:ndarray)->ndarray{
+func pow(x:Double, y:vector)->vector{
     // take the power. also callable with ^
     let xx = ones(y.n) * x
     return pow(xx, y: y)
 }
-func sqrt(x: ndarray) -> ndarray{
+func sqrt(x: vector) -> vector{
     return x^0.5
 }
-func exp(x:ndarray)->ndarray{
+func exp(x:vector)->vector{
     return apply_function("exp", x: x)
 }
-func exp2(x:ndarray)->ndarray{
+func exp2(x:vector)->vector{
     return apply_function("exp2", x: x)
 }
-func expm1(x:ndarray)->ndarray{
+func expm1(x:vector)->vector{
     return apply_function("expm1", x: x)
 }
 
 // ROUND
-func round(x:ndarray)->ndarray{
+func round(x:vector)->vector{
     return apply_function("round", x: x)
 }
-func round(x:ndarray, decimals:Double)->ndarray{
+func round(x:vector, decimals:Double)->vector{
     let factor = pow(10, decimals)
     return round(x*factor) / factor
 }
-func floor(x: ndarray) -> ndarray{
+func floor(x: vector) -> vector{
     return apply_function("floor", x: x)
 }
-func ceil(x: ndarray) -> ndarray{
+func ceil(x: vector) -> vector{
     return apply_function("ceil", x: x)
 }
 
 // LOG
-func log10(x:ndarray)->ndarray{
+func log10(x:vector)->vector{
     // log_10
     return apply_function("log10", x: x)
 }
-func log2(x:ndarray)->ndarray{
+func log2(x:vector)->vector{
     // log_2
     return apply_function("log2", x: x)
 }
-func log(x:ndarray)->ndarray{
+func log(x:vector)->vector{
     // log_e
     return apply_function("log", x: x)
 }
 
 // TRIG
-func sin(x: ndarray) -> ndarray{
+func sin(x: vector) -> vector{
     return apply_function("sin", x: x)
 }
-func cos(x: ndarray) -> ndarray{
+func cos(x: vector) -> vector{
     return apply_function("cos", x: x)
 }
-func tan(x: ndarray) -> ndarray{
+func tan(x: vector) -> vector{
     return apply_function("tan", x: x)
 }
-func tanh(x: ndarray) -> ndarray {
+func tanh(x: vector) -> vector {
     return apply_function("tanh", x: x)
 }
 
