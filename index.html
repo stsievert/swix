@@ -68,7 +68,13 @@ make the conversion between a Python/Matlab algorithm and a mobile app
 <li>speed optimizations</li>
 <li>one dimensional Fourier transforms</li>
 </ul>
-<p>In most cases, this library calls the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> or <a class="reference external" href="http://opencv.org">OpenCV</a>. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn&#8217;t need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request <a class="reference external" href="https://github.com/scottsievert/swix">on Github</a> (preferred!) or contact me at <a class="reference external" href="https://twitter.com/stsievert">&#64;stsievert</a> or <a class="reference external" href="mailto:sieve121&#37;&#52;&#48;umn&#46;edu">sieve121<span>&#64;</span>umn<span>&#46;</span>edu</a>. Oh, and if you use this project I&#8217;d love to hear about it!</p>
+<p>In most cases, this library calls the <a class="reference external" href="https://developer.apple.com/library/prerelease/mac/documentation/Accelerate/Reference/AccelerateFWRef/_index.html#//apple_ref/doc/uid/TP40009465">Accelerate framework</a> or <a class="reference external" href="http://opencv.org">OpenCV</a>. I
+optimized what I needed to, meaning all operators and select mathematical
+functions are fast while the functions I didn&#8217;t need are slow. If you want to
+speed up some function or add add another feature in those libraries, feel free
+to submit a pull request <a class="reference external" href="https://github.com/scottsievert/swix">on Github</a> (preferred!) or contact me at
+<a class="reference external" href="https://twitter.com/stsievert">&#64;stsievert</a> or <a class="reference external" href="mailto:sieve121&#37;&#52;&#48;umn&#46;edu">sieve121<span>&#64;</span>umn<span>&#46;</span>edu</a>. Oh, and if you use this project I&#8217;d love
+to hear about it!</p>
 <p>When I was crafting this library, I primarily followed the footsteps and
 example set by NumPy. For the more complex mathematical functions (e.g., SVD) I
 tested it against NumPy. Matlab, at least for the SVD, returns slightly
@@ -118,6 +124,10 @@ Matlab users</a> or the section on <a class="reference external" href="http://sc
 </div>
 <p>Looking at the speed results in <a class="reference internal" href="speed.html"><em>Speed</em></a> we find that Swift is roughly
 equal with Python/Matlab with this library.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you would like to run all of Python&#8217;s NumPy on iOS, look at <a class="reference external" href="https://github.com/kivy/kivy-ios">kivy-ios</a> or the <a class="reference external" href="http://pybee.org">beeware</a> tools. More details can be found on the Installation page.</p>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">These docs look like Python functions as they use Python&#8217;s autodocs. However, these docs describe Swift functions.</p>

@@ -26,7 +26,13 @@ Currently, the **Sw**\ ift Matr\ **ix** Library or **swix** gives you
 * speed optimizations
 * one dimensional Fourier transforms
 
-In most cases, this library calls the `Accelerate framework`_ or `OpenCV`_. I optimized what I needed to, meaning all operators and select mathematical functions are fast while the functions I didn't need are slow. If you want to speed up some function or add add another feature in those libraries, feel free to submit a pull request `on Github`_ (preferred!) or contact me at `@stsievert`_ or `sieve121@umn.edu`_. Oh, and if you use this project I'd love to hear about it!
+In most cases, this library calls the `Accelerate framework`_ or `OpenCV`_. I
+optimized what I needed to, meaning all operators and select mathematical
+functions are fast while the functions I didn't need are slow. If you want to
+speed up some function or add add another feature in those libraries, feel free
+to submit a pull request `on Github`_ (preferred!) or contact me at
+`@stsievert`_ or `sieve121@umn.edu`_. Oh, and if you use this project I'd love
+to hear about it!
 
 .. _`on Github`: https://github.com/scottsievert/swix
 
@@ -94,11 +100,16 @@ The equivalent Swift syntax with this library?
 Looking at the speed results in :doc:`speed` we find that Swift is roughly
 equal with Python/Matlab with this library.
 
+.. note:: If you would like to run all of Python's NumPy on iOS, look at `kivy-ios`_ or the `beeware`_ tools. More details can be found on the Installation page.
+
 .. note:: These docs look like Python functions as they use Python's autodocs. However, these docs describe Swift functions.
 
 .. note:: These docs call files classes. ie, when you see ``matrix.complex_math.<function>``, it's in the file ``swix/matrix/complex-math.swift``. The only exceptions are the classes ``vector`` and ``matrix``.
 
 .. note:: If a variable has the same name as a function included in swix you will get compile errors. I'll wait to resolve this until Swift has good package handling.
+
+.. _`kivy-ios`: https://github.com/kivy/kivy-ios
+.. _`beeware`: http://pybee.org
 
 
 Table of Contents

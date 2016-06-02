@@ -71,6 +71,23 @@ complete with a <code class="docutils literal"><span class="pre">.xcodeproj</spa
 <li>Open up <code class="docutils literal"><span class="pre">swix.xcodeproj</span></code> and run the tests.</li>
 </ol>
 </div>
+<div class="section" id="running-python-numpy-on-ios">
+<h2>Running Python/NumPy on iOS<a class="headerlink" href="#running-python-numpy-on-ios" title="Permalink to this headline">¶</a></h2>
+<p>Two projects exist that allow Python to run on iOS, <a class="reference external" href="https://github.com/kivy/kivy-ios">kivy-ios</a> and <a class="reference external" href="http://pybee.org">beeware</a>.</p>
+<p><strong>kivy-ios</strong>:As of 2016-05-02, a new xcodeproj can be created by
+exactly following the instructions in the readme. Importantly, don&#8217;t forget to
+run <code class="docutils literal"><span class="pre">./toolchain.py</span> <span class="pre">build</span> <span class="pre">numpy</span></code> then updating the xcodeproj.</p>
+<p>This tool can run NumPy.</p>
+<p>When creating a GUI with the Kivy framework in your app &#8220;main.py&#8221;, the GUI
+looks like Kivy, not native. This is suitable if you&#8217;re trying to create the
+same application across many devices, which the Kivy framework allows.</p>
+<p><strong>beeware</strong>: An example iOS project can be found at <a class="reference external" href="http://github.com/pybee/Python-iOS-template">beeware-ios-template</a>. In
+this, the app is written completely in Python and can call native APIs
+naturally (i.e., you have access to all possible iOS APIs).</p>
+<p>The BeeWare framework can not run NumPy as of 2016-05-02, but it&#8217;s on the
+roadmap. This depends on <a class="reference external" href="https://github.com/pybee/Python-iOS-support">Python-iOS-support</a> and there&#8217;s <a class="reference external" href="https://github.com/pybee/Python-iOS-support/issues/23">issue #23</a> tracks
+it.</p>
+</div>
 <div class="section" id="manual-installation">
 <h2>Manual installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h2>
 <p>This method can be generalized to any Swift project, whether it be iOS or OSX.</p>
@@ -204,6 +221,7 @@ should have hit the checkbox next to <code class="docutils literal"><span class=
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
 <li><a class="reference internal" href="#easy-installation">Easy installation</a></li>
+<li><a class="reference internal" href="#running-python-numpy-on-ios">Running Python/NumPy on iOS</a></li>
 <li><a class="reference internal" href="#manual-installation">Manual installation</a></li>
 <li><a class="reference internal" href="#how-to-creat-a-new-ios-app-that-includes-swix">How to creat a new iOS app that includes swix</a></li>
 <li><a class="reference internal" href="#optional">Optional</a></li>

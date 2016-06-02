@@ -17,6 +17,34 @@ This method gives a command-line tool that can be run on OSX.
    ``swix.xcodeproj`` and ``swix/``.
 3. Open up ``swix.xcodeproj`` and run the tests.
 
+Running Python/NumPy on iOS
+---------------------------
+Two projects exist that allow Python to run on iOS, `kivy-ios`_ and `beeware`_.
+
+**kivy-ios**:As of 2016-05-02, a new xcodeproj can be created by
+exactly following the instructions in the readme. Importantly, don't forget to
+run ``./toolchain.py build numpy`` then updating the xcodeproj.
+
+This tool can run NumPy. 
+
+When creating a GUI with the Kivy framework in your app "main.py", the GUI
+looks like Kivy, not native. This is suitable if you're trying to create the
+same application across many devices, which the Kivy framework allows.
+
+**beeware**: An example iOS project can be found at `beeware-ios-template`_. In
+this, the app is written completely in Python and can call native APIs
+naturally (i.e., you have access to all possible iOS APIs).
+
+The BeeWare framework can not run NumPy as of 2016-05-02, but it's on the
+roadmap. This depends on `Python-iOS-support`_ and there's `issue #23`_ tracks
+it.
+
+.. _`issue #23`: https://github.com/pybee/Python-iOS-support/issues/23
+.. _`Python-iOS-support`: https://github.com/pybee/Python-iOS-support
+.. _`beeware-ios-template`: http://github.com/pybee/Python-iOS-template
+.. _`kivy-ios`: https://github.com/kivy/kivy-ios
+.. _`beeware`: http://pybee.org
+
 Manual installation
 ---------------------
 
