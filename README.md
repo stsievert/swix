@@ -1,11 +1,11 @@
 ## Swift Matrix and Machine Learning Library
 
 *Note: [tensorflow/swift][t4sw] and [apple/swift-numerics/issues/6][asn6] have
-or will have more complete support for NumPy-like ndarrays and autodiff*
+or will have more complete support for NumPy-like ndarrays and autodiff. Fast AI
+has a good overview: https://www.fast.ai/2019/01/10/swift-numerics/*
 
 [t4sw]:https://github.com/tensorflow/swift
 [asn6]:https://github.com/apple/swift-numerics/issues/6
-
 
 Apple's Swift is a high level language that's *asking* for some numerical
 library to perform computation *fast* or at the very least *easily*. This is a
