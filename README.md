@@ -22,9 +22,7 @@ to make the conversion between a Python/Matlab algorithm and a mobile app
 
 In most cases, this library calls [Accelerate][accel] or [OpenCV][opencv]. If
 you want to speed up some function or add add another feature in those
-libraries, feel free to submit a pull request (preferred!) or contact me at
-[@stsievert][st] or [sieve121@umn.edu](mailto:sieve121@umn.edu). Oh, and if you
-use this project I'd love to hear about it.
+libraries, feel free to file an issue or submit a pull request (preferred!).
 
 Currently, this library gives you
 
