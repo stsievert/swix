@@ -4,6 +4,8 @@
 or will have more complete support for NumPy-like ndarrays and autodiff. Fast AI
 has a good overview: https://www.fast.ai/2019/01/10/swift-numerics/*
 
+*An alternate and much mature library is https://github.com/AlexanderTar/LASwift*
+
 [t4sw]:https://github.com/tensorflow/swift
 [asn6]:https://github.com/apple/swift-numerics/issues/6
 
